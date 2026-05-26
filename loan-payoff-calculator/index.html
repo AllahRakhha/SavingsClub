@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loan Payoff Calculator — Pay Off Any Loan Faster | SavingsClub</title>
+<meta name="description" content="Free loan payoff calculator. See how extra payments reduce your loan term and save thousands in interest. Works for any loan type.">
+<link rel="canonical" href="https://savingsclub.com/loan-payoff-calculator/">
+<meta property="og:title" content="Loan Payoff Calculator — Pay Off Any Loan Faster | SavingsClub">
+<meta property="og:description" content="Free loan payoff calculator. See how extra payments reduce your loan term and save thousands in interest. Works for any loan type.">
+<meta property="og:url" content="https://savingsclub.com/loan-payoff-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SavingsClub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Should I pay off my loan early?","acceptedAnswer":{"@type":"Answer","text":"Usually yes, especially for high-interest debt. The exception: if your loan rate is very low (under 4%) and you could earn more investing the extra money instead. Always maintain an emergency fund before accelerating debt payoff."}},{"@type":"Question","name":"Does paying extra go to principal?","acceptedAnswer":{"@type":"Answer","text":"With most loans, extra payments reduce your principal balance directly. Contact your lender to confirm — some require you to specify that extra payments go to principal rather than future payments."}}]}</script>
+<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
+</head><body><nav id="mainNav">
+<div class="nav-inner">
+<div class="logo" onclick="location.href='../'">
+<div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+SavingsClub
+</div>
+<div class="nav-links" id="navLinks">
+<a href="../">Home</a>
+<a href="../savings-calculator/" class="active">Calculators</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+<a href="../">Home</a>
+<a href="../savings-calculator/">Savings</a>
+<a href="../budget-planner/">Budget</a>
+<a href="../mortgage-calculator/">Mortgage</a>
+<a href="../401k-calculator/">401(k)</a>
+<a href="../paycheck-calculator/">Paycheck</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+<section class="calc-page">
+<div class="container">
+<div style="margin-bottom:24px"><a href="../" style="color:var(--text-light);font-weight:500">← Home</a></div>
+<div class="calc-section reveal" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
+<h2><div class="calc-icon" style="background:linear-gradient(135deg,#7C2D12,#EA580C)">🎯</div> Loan Payoff Calculator</h2>
+<p class="calc-desc">See how extra payments can eliminate your loan faster and save you money.</p>
+<div class="calc-grid">
+<div><label>Loan Balance ($)</label><input type="number" id="c1" value="25000" oninput="calc()"></div>
+<div><label>Interest Rate (%)</label><input type="number" id="c2" value="6.5" step="0.1" oninput="calc()"></div>
+<div><label>Monthly Payment ($)</label><input type="number" id="c3" value="500" oninput="calc()"></div>
+<div><label>Extra Monthly Payment ($)</label><input type="number" id="c4" value="100" oninput="calc()"></div>
+</div>
+<div class="accent-line" style="width:100%;margin:0 0 20px;height:2px"></div>
+<button class="btn btn-primary" onclick="calc()">Calculate</button>
+<div id="calcResult" class="calc-result"></div>
+</div>
+<div class="blog-recs reveal" style="margin-top:24px">
+<h3 style="margin-bottom:12px;font-size:1.1rem">📚 Related Guides</h3>
+<a href="../blog/debt-snowball-vs-debt-avalanche-which-strategy-wins/" class="related-blog-card">Debt Snowball vs Avalanche →</a>
+</div>
+<div style="margin:32px 0"><img src="../img/debt-stress.jpg" alt="Take control of your debt" class="premium-img" style="width:100%;height:240px;object-fit:cover;object-position:center top" loading="lazy"></div>
+<div class="seo-content reveal"><h2>How Does a Loan Payoff Calculator Work?</h2>
+<p>A loan payoff calculator shows you how long it will take to pay off a loan and how much interest you'll pay. More importantly, it shows how extra payments can dramatically shorten your loan term and save thousands in interest. This works for any type of loan — personal loans, student loans, car loans, or mortgages.</p>
+<h3>The Power of Extra Payments</h3>
+<p>On a $25,000 loan at 6.5% interest with $500 monthly payments, adding just $100/month saves over $1,800 in interest and pays off the loan 11 months faster. The extra payment goes entirely toward principal, which reduces the amount that accrues interest each month — creating a snowball effect.</p>
+<h3>Which Loans to Pay Off First</h3>
+<p>The mathematically optimal strategy is to pay extra on your highest-interest debt first (avalanche method). For most Americans, that's credit cards (18-28% APR), then personal loans, then student loans, then mortgages. Use our <a href="../debt-payoff-calculator/">Debt Payoff Calculator</a> to compare the snowball and avalanche methods.</p></div><div class="seo-content reveal" style="margin-top:24px"><h2>Frequently Asked Questions</h2><h3>Should I pay off my loan early?</h3><p>Usually yes, especially for high-interest debt. The exception: if your loan rate is very low (under 4%) and you could earn more investing the extra money instead. Always maintain an emergency fund before accelerating debt payoff.</p><h3>Does paying extra go to principal?</h3><p>With most loans, extra payments reduce your principal balance directly. Contact your lender to confirm — some require you to specify that extra payments go to principal rather than future payments.</p></div><div class="related-tools reveal">
+<h3>All Calculators</h3>
+<a href="../savings-calculator/" class="related-tool-link">💰 Savings</a><a href="../budget-planner/" class="related-tool-link">📊 Budget</a><a href="../debt-payoff-calculator/" class="related-tool-link">🔥 Debt Payoff</a><a href="../compound-interest-calculator/" class="related-tool-link">📈 Compound Interest</a><a href="../retirement-calculator/" class="related-tool-link">🏠 Retirement</a><a href="../investment-calculator/" class="related-tool-link">💎 Investment</a><a href="../mortgage-calculator/" class="related-tool-link">🏡 Mortgage</a><a href="../auto-loan-calculator/" class="related-tool-link">🚗 Auto Loan</a><a href="../net-worth-calculator/" class="related-tool-link">💳 Net Worth</a><a href="../emergency-fund-calculator/" class="related-tool-link">🛡️ Emergency Fund</a><a href="../credit-card-payoff-calculator/" class="related-tool-link">💳 CC Payoff</a><a href="../401k-calculator/" class="related-tool-link">🏦 401(k)</a><a href="../roth-ira-calculator/" class="related-tool-link">📋 Roth IRA</a><a href="../inflation-calculator/" class="related-tool-link">📉 Inflation</a><a href="../paycheck-calculator/" class="related-tool-link">💵 Take-Home Pay</a><a href="../cd-calculator/" class="related-tool-link">🔐 CD Calculator</a>
+</div></div></section><script src="../js/charts.js"></script>
+<script>
+function fmt(n){if(n===undefined||isNaN(n))return'$0';return n<0?'-$'+Math.abs(n).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,','):'$'+n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function calc(){
+var bal=+(document.getElementById('c1').value||0),rate=+(document.getElementById('c2').value||0)/100/12;
+var pmt=+(document.getElementById('c3').value||0),extra=+(document.getElementById('c4').value||0);
+if(pmt<=bal*rate){document.getElementById('calcResult').innerHTML='<p style="color:#DC2626">Payment too low to cover interest. Increase your monthly payment.</p>';return;}
+var b1=bal,m1=0,int1=0;while(b1>0&&m1<600){var i1=b1*rate;int1+=i1;b1=Math.max(0,b1-pmt+i1);m1++;}
+var b2=bal,m2=0,int2=0;while(b2>0&&m2<600){var i2=b2*rate;int2+=i2;b2=Math.max(0,b2-(pmt+extra)+i2);m2++;}
+var saved=int1-int2,mosSaved=m1-m2;
+var el=document.getElementById('calcResult');
+el.innerHTML='<div class="result-grid"><div class="result-item"><span class="result-label">Without Extra Payments</span><span class="result-value">'+m1+' months</span><span style="font-size:.82rem;color:var(--text-lighter)">'+fmt(int1)+' total interest</span></div><div class="result-item"><span class="result-label">With Extra '+fmt(extra)+'/mo</span><span class="result-value" style="color:var(--green)">'+m2+' months</span><span style="font-size:.82rem;color:var(--text-lighter)">'+fmt(int2)+' total interest</span></div><div class="result-item"><span class="result-label">You Save</span><span class="result-value" style="color:var(--blue)">'+fmt(saved)+'</span><span style="font-size:.82rem;color:var(--text-lighter)">'+mosSaved+' months faster</span></div></div>';
+}
+document.addEventListener("DOMContentLoaded",function(){calc();});
+</script><footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial calculators and expert money guides for Americans in every state. Making personal finance simpler since 2026.</p>
+</div>
+<div>
+<h4>Calculators</h4>
+<a href="../savings-calculator/">Savings</a>
+<a href="../budget-planner/">Budget Planner</a>
+<a href="../mortgage-calculator/">Mortgage</a>
+<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../retirement-calculator/">Retirement</a>
+<a href="../401k-calculator/">401(k)</a>
+<a href="../paycheck-calculator/">Take-Home Pay</a>
+<a href="../cd-calculator/">CD Calculator</a>
+</div>
+<div>
+<h4>Resources</h4>
+<a href="../blog/">Blog</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../banking/">Banking</a>
+<a href="../contact/">Contact Us</a>
+<a href="../about/">About Us</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div>
+<h4>Legal</h4>
+<a href="../privacy-policy/">Privacy Policy</a>
+<a href="../terms-of-service/">Terms of Service</a>
+<a href="../cookie-policy/">Cookie Policy</a>
+<a href="../disclaimer/">Disclaimer</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
+<p>Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+</div>
+</div>
+</footer><script>
+window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
+function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
+function fmt(n){return n<0?'-$'+Math.abs(n).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,','):'$'+n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
+</script><script>
+(function(){
+if(localStorage.getItem('sc_cookies'))return;
+var b=document.createElement('div');
+b.id='cookieBanner';
+b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
+var acceptBtn=document.createElement('button');
+acceptBtn.textContent='Accept';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
+var declineBtn=document.createElement('button');
+declineBtn.textContent='Decline';
+declineBtn.style.cssText='background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:8px;cursor:pointer';
+declineBtn.onclick=function(){
+localStorage.setItem('sc_cookies','decline');
+b.innerHTML='';
+var msg=document.createElement('span');
+msg.style.cssText='padding:12px 0;color:#10B981';
+msg.textContent='\u2713 No cookies stored. You can browse freely.';
+b.appendChild(msg);
+setTimeout(function(){b.remove();},2500);
+};
+var txt=document.createElement('span');
+txt.innerHTML='We use cookies to improve your experience. <a href="/cookie-policy/" style="color:#3B82F6">Cookie Policy</a>';
+var btnWrap=document.createElement('div');
+btnWrap.style.cssText='display:flex;gap:8px';
+btnWrap.appendChild(acceptBtn);
+btnWrap.appendChild(declineBtn);
+b.appendChild(txt);
+b.appendChild(btnWrap);
+document.body.appendChild(b);
+})();
+</script>
+</body></html>

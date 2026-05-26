@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mortgage Calculator — Estimate Monthly Payments with PMI | SavingsClub</title>
+<meta name="description" content="Free mortgage calculator with taxes, insurance, and PMI. See your monthly payment breakdown with interactive donut charts.">
+<link rel="canonical" href="https://savingsclub.com/mortgage-calculator/">
+<meta property="og:title" content="Mortgage Calculator — Estimate Monthly Payments with PMI | SavingsClub">
+<meta property="og:description" content="Free mortgage calculator with taxes, insurance, and PMI. See your monthly payment breakdown with interactive donut charts.">
+<meta property="og:url" content="https://savingsclub.com/mortgage-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SavingsClub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much house can I afford?","acceptedAnswer":{"@type":"Answer","text":"A common guideline is that your total housing payment (including taxes and insurance) should be no more than 28% of your gross monthly income. On a $6,000/month income, that's $1,680 for housing."}}]}</script>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
+</head>
+<body><nav id="mainNav">
+<div class="nav-inner">
+<div class="logo" onclick="location.href='../'">
+<div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+SavingsClub
+</div>
+<div class="nav-links" id="navLinks">
+<a href="../">Home</a>
+<a href="../savings-calculator/" class="active">Calculators</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+<a href="../">Home</a>
+<a href="../savings-calculator/">Savings</a>
+<a href="../budget-planner/">Budget</a>
+<a href="../mortgage-calculator/">Mortgage</a>
+<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../contact/">Contact</a>
+</div>
+<section class="calc-page">
+<div class="container">
+<div style="margin-bottom:24px"><a href="../" style="color:var(--text-light);font-weight:500">← Home</a></div>
+<div class="calc-section reveal" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
+<h2><div class="calc-icon" style="background:linear-gradient(135deg,#15803D,#22C55E)">💲</div> Mortgage Calculator</h2>
+<p class="calc-desc">Estimate monthly payments including taxes, insurance, and PMI.</p>
+<div class="calc-grid">
+<div><label>Home Price ($)</label><input type="number" id="mortPrice" value="350000" oninput="calc()"></div>
+<div><label>Down Payment ($)</label><input type="number" id="mortDown" value="70000" oninput="calc()"></div>
+<div><label>Loan Term</label><select id="mortTerm" onchange="calc()"><option value="30">30 years</option><option value="20">20 years</option><option value="15">15 years</option></select></div>
+<div><label>Interest Rate (%)</label><input type="number" id="mortRate" value="6.5" step="0.1" oninput="calc()"></div>
+<div><label>Property Tax / Year ($)</label><input type="number" id="mortTax" value="4200" oninput="calc()"></div>
+<div><label>Home Insurance / Year ($)</label><input type="number" id="mortInsure" value="1500" oninput="calc()"></div>
+</div>
+<div class="accent-line" style="width:100%;margin:0 0 20px;height:2px"></div>
+<button class="btn btn-primary" onclick="calc()">Calculate</button>
+<div id="calcResult" class="calc-result"></div>
+</div>
+
+<div class="seo-content reveal">
+<h2>Understanding Mortgage Payments</h2><p>Your monthly mortgage payment includes more than just principal and interest. Property taxes, homeowners insurance, and PMI (if your down payment is less than 20%) all add to the total. This calculator gives you the complete picture so there are no surprises.</p><h3>PMI Explained</h3><p>Private Mortgage Insurance is required when your down payment is less than 20% of the home price. It typically costs 0.5-1% of the loan amount annually. On a $280,000 loan, that's $1,400-$2,800 per year added to your payment. PMI is removed once you reach 20% equity.</p>
+</div>
+<div class="seo-content reveal" style="margin-top:24px"><h2>Frequently Asked Questions</h2><h3>How much house can I afford?</h3><p>A common guideline is that your total housing payment (including taxes and insurance) should be no more than 28% of your gross monthly income. On a $6,000/month income, that's $1,680 for housing.</p></div><div class="blog-recs reveal" style="margin-top:24px">
+<h3 style="margin-bottom:12px;font-size:1.1rem">📚 Related Guides</h3>
+<a href="../blog/understanding-mortgage-options-fixed-vs-adjustable-rate/" class="related-blog-card">Fixed vs Adjustable Mortgages →</a><a href="../blog/how-to-save-for-a-house-down-payment-a-practical-timeline/" class="related-blog-card">Down Payment Timeline →</a>
+</div>
+<div class="related-tools reveal">
+<h3>More Free Tools</h3>
+<a href="../savings-calculator/" class="related-tool-link">💰 Savings Calculator</a>
+<a href="../budget-planner/" class="related-tool-link">📊 Budget Planner</a>
+<a href="../debt-payoff-calculator/" class="related-tool-link">🔥 Debt Payoff</a>
+<a href="../compound-interest-calculator/" class="related-tool-link">📈 Compound Interest</a>
+<a href="../retirement-calculator/" class="related-tool-link">🏠 Retirement Planner</a>
+<a href="../investment-calculator/" class="related-tool-link">💎 Investment Growth</a>
+<a href="../auto-loan-calculator/" class="related-tool-link">🚗 Auto Loan</a>
+<a href="../net-worth-calculator/" class="related-tool-link">💳 Net Worth</a>
+<a href="../emergency-fund-calculator/" class="related-tool-link">🛡️ Emergency Fund</a>
+<a href="../credit-card-payoff-calculator/" class="related-tool-link">💳 CC Payoff</a>
+<a href="../financial-health-score/" class="related-tool-link">❤️ Financial Health Score</a>
+<a href="../credit-card-quiz/" class="related-tool-link">🃏 Credit Card Quiz</a>
+
+<a href="../401k-calculator/" class="related-tool-link">🏦 401(k)</a>
+<a href="../roth-ira-calculator/" class="related-tool-link">📋 Roth IRA</a>
+<a href="../inflation-calculator/" class="related-tool-link">📉 Inflation</a>
+<a href="../loan-payoff-calculator/" class="related-tool-link">🎯 Loan Payoff</a>
+<a href="../paycheck-calculator/" class="related-tool-link">💵 Take-Home Pay</a>
+<a href="../cd-calculator/" class="related-tool-link">🔐 CD Calculator</a>
+</div>
+</div>
+</section>
+<script src="../js/charts.js"></script>
+<script>
+function fmt(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function calc(){
+var price=+(document.getElementById('mortPrice').value||0),down=+(document.getElementById('mortDown').value||0),term=+(document.getElementById('mortTerm').value||30),rate=+(document.getElementById('mortRate').value||0)/100/12,tax=+(document.getElementById('mortTax').value||0),ins=+(document.getElementById('mortInsure').value||0);
+var loan=price-down,n=term*12;
+var mp=rate>0?loan*(rate*Math.pow(1+rate,n))/(Math.pow(1+rate,n)-1):loan/n;
+var mt=tax/12,mi=ins/12;var dp=price>0?(down/price*100):0;
+var pmi=dp<20?(loan*0.005)/12:0;var total=mp+mt+mi+pmi;var ti=mp*n-loan;
+var el=document.getElementById('calcResult');
+el.innerHTML='<div class="result-grid"><div class="result-item"><span class="result-label">Monthly Payment</span><span class="result-value" style="color:var(--green)">$'+fmt(total)+'</span></div><div class="result-item"><span class="result-label">P&I</span><span class="result-value">$'+fmt(mp)+'</span></div><div class="result-item"><span class="result-label">Tax</span><span class="result-value">$'+fmt(mt)+'</span></div><div class="result-item"><span class="result-label">Insurance</span><span class="result-value">$'+fmt(mi)+'</span></div>'+(pmi>0?'<div class="result-item"><span class="result-label">PMI</span><span class="result-value" style="color:#DC2626">$'+fmt(pmi)+'</span></div>':'')+'<div class="result-item"><span class="result-label">Total Interest</span><span class="result-value" style="color:var(--gold)">$'+fmtI(ti)+'</span></div></div><div id="chart"></div>';
+var segs=[{value:mp,color:'#3B82F6',label:'Principal & Interest'},{value:mt,color:'#10B981',label:'Property Tax'},{value:mi,color:'#F59E0B',label:'Insurance'}];
+if(pmi>0)segs.push({value:pmi,color:'#EF4444',label:'PMI'});
+drawDonutChart('#chart',segs,{title:'Monthly Payment Breakdown',centerTop:'$'+fmtI(total),centerBot:'/month'});
+}
+document.addEventListener('DOMContentLoaded',function(){calc();});
+</script>
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and expert guides for Americans in every state. Making money decisions simpler since 2026.</p>
+</div>
+<div>
+<h4>Calculators</h4>
+<a href="../savings-calculator/">Savings Calculator</a>
+<a href="../budget-planner/">Budget Planner</a>
+<a href="../mortgage-calculator/">Mortgage Calculator</a>
+<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../auto-loan-calculator/">Auto Loan</a>
+<a href="../net-worth-calculator/">Net Worth</a>
+</div>
+<div>
+<h4>Resources</h4>
+<a href="../blog/">Blog</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../banking/">Banking</a>
+<a href="../contact/">Contact Us</a>
+</div>
+<div>
+<h4>Legal</h4>
+<a href="../privacy-policy/">Privacy Policy</a>
+<a href="../terms-of-service/">Terms of Service</a>
+<a href="../cookie-policy/">Cookie Policy</a>
+<a href="../disclaimer/">Disclaimer</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
+<p>Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+</div>
+</div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
+function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
+var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
+</script>
+<script>
+(function(){
+if(localStorage.getItem('sc_cookies'))return;
+var b=document.createElement('div');
+b.id='cookieBanner';
+b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
+var acceptBtn=document.createElement('button');
+acceptBtn.textContent='Accept';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
+var declineBtn=document.createElement('button');
+declineBtn.textContent='Decline';
+declineBtn.style.cssText='background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:8px;cursor:pointer';
+declineBtn.onclick=function(){
+localStorage.setItem('sc_cookies','decline');
+b.innerHTML='';
+var msg=document.createElement('span');
+msg.style.cssText='padding:12px 0;color:#10B981';
+msg.textContent='\u2713 No cookies stored. You can browse freely.';
+b.appendChild(msg);
+setTimeout(function(){b.remove();},2500);
+};
+var txt=document.createElement('span');
+txt.innerHTML='We use cookies to improve your experience. <a href="/cookie-policy/" style="color:#3B82F6">Cookie Policy</a>';
+var btnWrap=document.createElement('div');
+btnWrap.style.cssText='display:flex;gap:8px';
+btnWrap.appendChild(acceptBtn);
+btnWrap.appendChild(declineBtn);
+b.appendChild(txt);
+b.appendChild(btnWrap);
+document.body.appendChild(b);
+})();
+</script>
+</body>
+</html>

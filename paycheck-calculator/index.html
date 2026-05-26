@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paycheck Calculator — What Is My Take-Home Pay? | SavingsClub</title>
+<meta name="description" content="Free paycheck calculator. See your take-home pay after federal and state taxes, Social Security, and Medicare. Updated for 2026.">
+<link rel="canonical" href="https://savingsclub.com/paycheck-calculator/">
+<meta property="og:title" content="Paycheck Calculator — What Is My Take-Home Pay? | SavingsClub">
+<meta property="og:description" content="Free paycheck calculator. See your take-home pay after federal and state taxes, Social Security, and Medicare. Updated for 2026.">
+<meta property="og:url" content="https://savingsclub.com/paycheck-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SavingsClub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much of my paycheck goes to taxes?","acceptedAnswer":{"@type":"Answer","text":"For a $65,000 salary, approximately 22-28% goes to combined federal income tax, Social Security, and Medicare. The exact amount depends on your filing status, deductions, and state taxes."}},{"@type":"Question","name":"Why is my paycheck less than expected?","acceptedAnswer":{"@type":"Answer","text":"Common reasons: federal and state income taxes, Social Security (6.2%), Medicare (1.45%), health insurance premiums, 401(k) contributions, and other voluntary deductions. Review your pay stub for a detailed breakdown."}}]}</script>
+<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
+</head><body><nav id="mainNav">
+<div class="nav-inner">
+<div class="logo" onclick="location.href='../'">
+<div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+SavingsClub
+</div>
+<div class="nav-links" id="navLinks">
+<a href="../">Home</a>
+<a href="../savings-calculator/" class="active">Calculators</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+<a href="../">Home</a>
+<a href="../savings-calculator/">Savings</a>
+<a href="../budget-planner/">Budget</a>
+<a href="../mortgage-calculator/">Mortgage</a>
+<a href="../401k-calculator/">401(k)</a>
+<a href="../paycheck-calculator/">Paycheck</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+<section class="calc-page">
+<div class="container">
+<div style="margin-bottom:24px"><a href="../" style="color:var(--text-light);font-weight:500">← Home</a></div>
+<div class="calc-section reveal" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
+<h2><div class="calc-icon" style="background:linear-gradient(135deg,#166534,#16A34A)">💵</div> Paycheck Calculator</h2>
+<p class="calc-desc">Calculate your take-home pay after taxes and deductions.</p>
+<div class="calc-grid">
+<div><label>Annual Gross Salary ($)</label><input type="number" id="c1" value="65000" oninput="calc()"></div>
+<div><label>Pay Frequency</label><select id="c2" oninput="calc()"><option value="26">Bi-weekly</option><option value="24">Semi-monthly</option><option value="12">Monthly</option><option value="52">Weekly</option></select></div>
+<div><label>Filing Status</label><select id="c3" oninput="calc()"><option value="single">Single</option><option value="married">Married Filing Jointly</option></select></div>
+<div><label>401(k) Contribution (%)</label><input type="number" id="c4" value="6" step="0.5" oninput="calc()"></div>
+</div>
+<div class="accent-line" style="width:100%;margin:0 0 20px;height:2px"></div>
+<button class="btn btn-primary" onclick="calc()">Calculate</button>
+<div id="calcResult" class="calc-result"></div>
+</div>
+<div class="blog-recs reveal" style="margin-top:24px">
+<h3 style="margin-bottom:12px;font-size:1.1rem">📚 Related Guides</h3>
+<a href="../blog/the-50-30-20-budget-rule-simplest-way-to-manage-your-money/" class="related-blog-card">The 50/30/20 Budget Rule →</a>
+</div>
+<div class="seo-content reveal"><h2>How Does a Paycheck Calculator Work?</h2>
+<p>A paycheck calculator estimates your take-home pay by subtracting federal income tax, Social Security tax (6.2%), Medicare tax (1.45%), and pre-tax deductions like 401(k) contributions from your gross salary. This calculator uses the 2026 federal tax brackets and standard deduction amounts.</p>
+<h3>Understanding Your Paycheck Deductions</h3>
+<p>Your gross salary is not what you take home. Federal income tax is calculated on your adjusted gross income (after standard deduction and pre-tax contributions). Social Security tax applies to the first $168,600 of earnings. Medicare tax applies to all earnings at 1.45%, with an additional 0.9% surcharge above $200,000 for single filers.</p>
+<h3>How 401(k) Contributions Reduce Your Tax Bill</h3>
+<p>Pre-tax 401(k) contributions lower your taxable income. If you earn $65,000 and contribute 6% ($3,900), your taxable income drops to $61,100. At the 22% federal bracket, that saves approximately $858 in federal taxes per year. Use our <a href="../401k-calculator/">401(k) Calculator</a> to see how these contributions grow over time.</p>
+<h3>State Taxes Not Included</h3>
+<p>This calculator shows federal taxes only. Seven states have no income tax (Alaska, Florida, Nevada, South Dakota, Texas, Washington, Wyoming), while states like California and New York have significant additional state income taxes. Your actual take-home pay will vary by state. Use our <a href="../budget-planner/">Budget Planner</a> to allocate your actual take-home pay effectively.</p></div><div class="seo-content reveal" style="margin-top:24px"><h2>Frequently Asked Questions</h2><h3>How much of my paycheck goes to taxes?</h3><p>For a $65,000 salary, approximately 22-28% goes to combined federal income tax, Social Security, and Medicare. The exact amount depends on your filing status, deductions, and state taxes.</p><h3>Why is my paycheck less than expected?</h3><p>Common reasons: federal and state income taxes, Social Security (6.2%), Medicare (1.45%), health insurance premiums, 401(k) contributions, and other voluntary deductions. Review your pay stub for a detailed breakdown.</p></div><div class="related-tools reveal">
+<h3>All Calculators</h3>
+<a href="../savings-calculator/" class="related-tool-link">💰 Savings</a><a href="../budget-planner/" class="related-tool-link">📊 Budget</a><a href="../debt-payoff-calculator/" class="related-tool-link">🔥 Debt Payoff</a><a href="../compound-interest-calculator/" class="related-tool-link">📈 Compound Interest</a><a href="../retirement-calculator/" class="related-tool-link">🏠 Retirement</a><a href="../investment-calculator/" class="related-tool-link">💎 Investment</a><a href="../mortgage-calculator/" class="related-tool-link">🏡 Mortgage</a><a href="../auto-loan-calculator/" class="related-tool-link">🚗 Auto Loan</a><a href="../net-worth-calculator/" class="related-tool-link">💳 Net Worth</a><a href="../emergency-fund-calculator/" class="related-tool-link">🛡️ Emergency Fund</a><a href="../credit-card-payoff-calculator/" class="related-tool-link">💳 CC Payoff</a><a href="../401k-calculator/" class="related-tool-link">🏦 401(k)</a><a href="../roth-ira-calculator/" class="related-tool-link">📋 Roth IRA</a><a href="../inflation-calculator/" class="related-tool-link">📉 Inflation</a><a href="../loan-payoff-calculator/" class="related-tool-link">🎯 Loan Payoff</a><a href="../cd-calculator/" class="related-tool-link">🔐 CD Calculator</a>
+</div></div></section><script src="../js/charts.js"></script>
+<script>
+function fmt(n){if(n===undefined||isNaN(n))return'$0';return n<0?'-$'+Math.abs(n).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,','):'$'+n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function calc(){
+var gross=+(document.getElementById('c1').value||0),freq=+(document.getElementById('c2').value),filing=document.getElementById('c3').value;
+var k401pct=+(document.getElementById('c4').value||0)/100;
+var k401=gross*k401pct;
+var taxable=gross-k401;
+var stdDed=filing==='married'?29200:14600;
+var agi=Math.max(0,taxable-stdDed);
+var fedTax=0;
+if(filing==='single'){
+var brackets=[[11600,.10],[47150,.12],[100525,.22],[191950,.24],[243725,.32],[609350,.35],[Infinity,.37]];
+}else{
+var brackets=[[23200,.10],[94300,.12],[201050,.22],[383900,.24],[487450,.32],[731200,.35],[Infinity,.37]];
+}
+var prev=0;for(var i=0;i<brackets.length;i++){var b=brackets[i];var chunk=Math.min(agi,b[0])-prev;if(chunk>0)fedTax+=chunk*b[1];prev=b[0];if(agi<=b[0])break;}
+var ss=Math.min(gross,168600)*.062;
+var med=gross*.0145;
+var totalTax=fedTax+ss+med;
+var net=gross-totalTax-k401;
+var perCheck=net/freq;
+var el=document.getElementById('calcResult');
+el.innerHTML='<div class="result-grid"><div class="result-item"><span class="result-label">Take-Home Per Paycheck</span><span class="result-value" style="color:var(--green)">'+fmt(perCheck)+'</span></div><div class="result-item"><span class="result-label">Annual Take-Home</span><span class="result-value">'+fmt(net)+'</span></div><div class="result-item"><span class="result-label">Federal Tax</span><span class="result-value" style="color:#DC2626">'+fmt(fedTax)+'</span></div><div class="result-item"><span class="result-label">FICA (SS + Medicare)</span><span class="result-value" style="color:var(--gold)">'+fmt(ss+med)+'</span></div><div class="result-item"><span class="result-label">401(k) Pre-Tax</span><span class="result-value" style="color:var(--blue)">'+fmt(k401)+'</span></div><div class="result-item"><span class="result-label">Effective Tax Rate</span><span class="result-value">'+(totalTax/gross*100).toFixed(1)+'%</span></div></div><p style="margin-top:12px;font-size:.85rem;color:var(--text-lighter)">Note: This estimate uses 2026 federal brackets and standard deduction. State taxes, local taxes, and other deductions are not included. Consult a tax professional for precise withholding.</p>';
+}
+document.addEventListener("DOMContentLoaded",function(){calc();});
+</script><footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial calculators and expert money guides for Americans in every state. Making personal finance simpler since 2026.</p>
+</div>
+<div>
+<h4>Calculators</h4>
+<a href="../savings-calculator/">Savings</a>
+<a href="../budget-planner/">Budget Planner</a>
+<a href="../mortgage-calculator/">Mortgage</a>
+<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../retirement-calculator/">Retirement</a>
+<a href="../401k-calculator/">401(k)</a>
+<a href="../paycheck-calculator/">Take-Home Pay</a>
+<a href="../cd-calculator/">CD Calculator</a>
+</div>
+<div>
+<h4>Resources</h4>
+<a href="../blog/">Blog</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../banking/">Banking</a>
+<a href="../contact/">Contact Us</a>
+<a href="../about/">About Us</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div>
+<h4>Legal</h4>
+<a href="../privacy-policy/">Privacy Policy</a>
+<a href="../terms-of-service/">Terms of Service</a>
+<a href="../cookie-policy/">Cookie Policy</a>
+<a href="../disclaimer/">Disclaimer</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
+<p>Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+</div>
+</div>
+</footer><script>
+window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
+function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
+function fmt(n){return n<0?'-$'+Math.abs(n).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,','):'$'+n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
+</script><script>
+(function(){
+if(localStorage.getItem('sc_cookies'))return;
+var b=document.createElement('div');
+b.id='cookieBanner';
+b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
+var acceptBtn=document.createElement('button');
+acceptBtn.textContent='Accept';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
+var declineBtn=document.createElement('button');
+declineBtn.textContent='Decline';
+declineBtn.style.cssText='background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:8px;cursor:pointer';
+declineBtn.onclick=function(){
+localStorage.setItem('sc_cookies','decline');
+b.innerHTML='';
+var msg=document.createElement('span');
+msg.style.cssText='padding:12px 0;color:#10B981';
+msg.textContent='\u2713 No cookies stored. You can browse freely.';
+b.appendChild(msg);
+setTimeout(function(){b.remove();},2500);
+};
+var txt=document.createElement('span');
+txt.innerHTML='We use cookies to improve your experience. <a href="/cookie-policy/" style="color:#3B82F6">Cookie Policy</a>';
+var btnWrap=document.createElement('div');
+btnWrap.style.cssText='display:flex;gap:8px';
+btnWrap.appendChild(acceptBtn);
+btnWrap.appendChild(declineBtn);
+b.appendChild(txt);
+b.appendChild(btnWrap);
+document.body.appendChild(b);
+})();
+</script>
+</body></html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savings Calculator — How Much Will My Savings Grow? | SavingsClub</title>
+<meta name="description" content="Free savings calculator with compound interest charts. See how your savings grow over time with monthly contributions. Works for all 50 states.">
+<link rel="canonical" href="https://savingsclub.com/savings-calculator/">
+<meta property="og:title" content="Savings Calculator — How Much Will My Savings Grow? | SavingsClub">
+<meta property="og:description" content="Free savings calculator with compound interest charts. See how your savings grow over time with monthly contributions. Works for all 50 states.">
+<meta property="og:url" content="https://savingsclub.com/savings-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SavingsClub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much interest will I earn on $10,000?","acceptedAnswer":{"@type":"Answer","text":"At 4.5% APY, $10,000 earns approximately $450 in the first year. With compound interest over 10 years and no additional contributions, it grows to about $15,530."}},{"@type":"Question","name":"Is a savings calculator accurate?","acceptedAnswer":{"@type":"Answer","text":"Savings calculators provide reliable estimates based on the compound interest formula. Actual results may vary slightly due to how your bank compounds interest (daily vs monthly) and rate changes over time."}},{"@type":"Question","name":"What is a good savings rate?","acceptedAnswer":{"@type":"Answer","text":"Financial experts recommend saving at least 20% of after-tax income. If that feels unreachable, start with whatever you can and increase by 1% each month."}}]}</script>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
+</head>
+<body><nav id="mainNav">
+<div class="nav-inner">
+<div class="logo" onclick="location.href='../'">
+<div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+SavingsClub
+</div>
+<div class="nav-links" id="navLinks">
+<a href="../">Home</a>
+<a href="../savings-calculator/" class="active">Calculators</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+<a href="../">Home</a>
+<a href="../savings-calculator/">Savings</a>
+<a href="../budget-planner/">Budget</a>
+<a href="../mortgage-calculator/">Mortgage</a>
+<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../contact/">Contact</a>
+</div>
+<section class="calc-page">
+<div class="container">
+<div style="margin-bottom:24px"><a href="../" style="color:var(--text-light);font-weight:500">← Home</a></div>
+<div class="calc-section reveal" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
+<h2><div class="calc-icon" style="background:linear-gradient(135deg,#2563EB,#3B82F6)">💲</div> Savings Calculator</h2>
+<p class="calc-desc">Calculate how your savings will grow over time with compound interest.</p>
+<div class="calc-grid">
+<div><label>Initial Deposit ($)</label><input type="number" id="savInit" value="1000" oninput="calc()"></div>
+<div><label>Monthly Contribution ($)</label><input type="number" id="savMonthly" value="200" oninput="calc()"></div>
+<div><label>Annual Interest Rate (%)</label><input type="number" id="savRate" value="4.5" step="0.1" oninput="calc()"></div>
+<div><label>Time Period (Years)</label><input type="number" id="savYears" value="10" oninput="calc()"></div>
+</div>
+<div class="accent-line" style="width:100%;margin:0 0 20px;height:2px"></div>
+<button class="btn btn-primary" onclick="calc()">Calculate</button>
+<div id="calcResult" class="calc-result"></div>
+</div>
+
+<div style="margin:32px 0"><img src="../img/savings-jar.jpg" alt="Smart savings strategies" class="premium-img" style="width:100%;height:240px;object-fit:cover" loading="lazy"></div>
+<div class="seo-content reveal">
+<h2>How Does a Savings Calculator Work?</h2>
+<p>A savings calculator uses the compound interest formula to project how your money grows over time. You enter your initial deposit, monthly contribution, expected interest rate, and time horizon. The calculator then shows your total future value, broken down into contributions and earned interest.</p>
+<p>Compound interest is the key force at work here. Unlike simple interest, which only earns returns on your original deposit, compound interest earns returns on your returns. This creates an exponential growth curve that accelerates the longer you save.</p>
+<h3>Understanding Compound Interest</h3>
+<p>The formula behind compound interest with regular contributions is: FV = P(1+r)^n + PMT × [((1+r)^n - 1) / r], where P is your principal, r is the periodic rate, n is the number of periods, and PMT is your regular contribution. This savings calculator handles all the math for you.</p>
+<h3>How Much Should I Save Each Month?</h3>
+<p>Financial experts generally recommend saving at least 20% of your after-tax income, following the 50/30/20 budget rule. If you earn $5,000 per month after taxes, that means $1,000 toward savings and debt repayment. Use our <a href="../budget-planner/">Budget Planner</a> to break down your income allocation.</p>
+<h3>Best Savings Rates in 2026</h3>
+<p>High-yield savings accounts from online banks currently offer 4.00-4.50% APY, compared to the national average of under 0.50% APY at traditional banks. On $10,000, that difference is over $400 per year. Every American, regardless of which state you live in, has access to these competitive online rates.</p>
+<h3>Savings Goals by Age</h3>
+<p>While everyone's situation is different, common benchmarks include having one month of expenses saved by 25, three months by 30, and six months by 35. Your emergency fund should cover 3-6 months of essential expenses. Beyond that, long-term savings go into retirement accounts and investment portfolios.</p>
+<h3>Tips to Boost Your Savings</h3>
+<p>Automate transfers to your savings account right after payday. Even small amounts — $25 or $50 per week — compound significantly over years. Redirect windfalls like tax refunds and bonuses directly to savings. Cut one subscription you rarely use and put that money to work instead.</p>
+</div>
+<div class="seo-content reveal" style="margin-top:24px"><h2>Frequently Asked Questions</h2><h3>How much interest will I earn on $10,000?</h3><p>At 4.5% APY, $10,000 earns approximately $450 in the first year. With compound interest over 10 years and no additional contributions, it grows to about $15,530.</p><h3>Is a savings calculator accurate?</h3><p>Savings calculators provide reliable estimates based on the compound interest formula. Actual results may vary slightly due to how your bank compounds interest (daily vs monthly) and rate changes over time.</p><h3>What is a good savings rate?</h3><p>Financial experts recommend saving at least 20% of after-tax income. If that feels unreachable, start with whatever you can and increase by 1% each month.</p></div><div class="blog-recs reveal" style="margin-top:24px">
+<h3 style="margin-bottom:12px;font-size:1.1rem">📚 Related Guides</h3>
+<a href="../blog/how-to-build-an-emergency-fund-a-step-by-step-guide-for-every-american/" class="related-blog-card">How to Build an Emergency Fund →</a><a href="../blog/best-high-yield-savings-accounts-where-to-earn-4-apy-in-2026/" class="related-blog-card">Best High-Yield Savings Accounts 2026 →</a>
+</div>
+<div class="related-tools reveal">
+<h3>More Free Tools</h3>
+<a href="../budget-planner/" class="related-tool-link">📊 Budget Planner</a>
+<a href="../debt-payoff-calculator/" class="related-tool-link">🔥 Debt Payoff</a>
+<a href="../compound-interest-calculator/" class="related-tool-link">📈 Compound Interest</a>
+<a href="../retirement-calculator/" class="related-tool-link">🏠 Retirement Planner</a>
+<a href="../investment-calculator/" class="related-tool-link">💎 Investment Growth</a>
+<a href="../mortgage-calculator/" class="related-tool-link">🏡 Mortgage Calculator</a>
+<a href="../auto-loan-calculator/" class="related-tool-link">🚗 Auto Loan</a>
+<a href="../net-worth-calculator/" class="related-tool-link">💳 Net Worth</a>
+<a href="../emergency-fund-calculator/" class="related-tool-link">🛡️ Emergency Fund</a>
+<a href="../credit-card-payoff-calculator/" class="related-tool-link">💳 CC Payoff</a>
+<a href="../financial-health-score/" class="related-tool-link">❤️ Financial Health Score</a>
+<a href="../credit-card-quiz/" class="related-tool-link">🃏 Credit Card Quiz</a>
+
+<a href="../401k-calculator/" class="related-tool-link">🏦 401(k)</a>
+<a href="../roth-ira-calculator/" class="related-tool-link">📋 Roth IRA</a>
+<a href="../inflation-calculator/" class="related-tool-link">📉 Inflation</a>
+<a href="../loan-payoff-calculator/" class="related-tool-link">🎯 Loan Payoff</a>
+<a href="../paycheck-calculator/" class="related-tool-link">💵 Take-Home Pay</a>
+<a href="../cd-calculator/" class="related-tool-link">🔐 CD Calculator</a>
+</div>
+</div>
+</section>
+<script src="../js/charts.js"></script>
+<script>
+function fmt(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function calc(){
+var i=+(document.getElementById('savInit').value||0),m=+(document.getElementById('savMonthly').value||0),r=+(document.getElementById('savRate').value||0)/100/12,y=+(document.getElementById('savYears').value||0);
+var n=y*12;var b=i;var pts=[{x:'Now',y:i}];var cPts=[{x:'Now',y:i}];
+for(var x=0;x<n;x++){b=b*(1+r)+m;if((x+1)%(Math.max(1,Math.floor(n/10)))===0||x===n-1){var yr=((x+1)/12).toFixed(0);pts.push({x:'Y'+yr,y:b});cPts.push({x:'Y'+yr,y:i+m*(x+1)});}}
+var tc=i+m*n,int=b-tc;
+var el=document.getElementById('calcResult');
+el.innerHTML='<div class="result-grid"><div class="result-item"><span class="result-label">Future Value</span><span class="result-value" style="color:var(--green)">$'+fmt(b)+'</span></div><div class="result-item"><span class="result-label">Total Contributions</span><span class="result-value">$'+fmt(tc)+'</span></div><div class="result-item"><span class="result-label">Interest Earned</span><span class="result-value" style="color:var(--blue)">$'+fmt(int)+'</span></div></div><div id="chart"></div>';
+if(y>0)drawLineChart('#chart',pts,{title:'Balance Growth Over '+y+' Years',colors:['#10B981','#3B82F6'],labels:['Total Balance','Contributions'],datasets:[pts,cPts]});
+}
+document.addEventListener('DOMContentLoaded',function(){calc();});
+</script>
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and expert guides for Americans in every state. Making money decisions simpler since 2026.</p>
+</div>
+<div>
+<h4>Calculators</h4>
+<a href="../savings-calculator/">Savings Calculator</a>
+<a href="../budget-planner/">Budget Planner</a>
+<a href="../mortgage-calculator/">Mortgage Calculator</a>
+<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../auto-loan-calculator/">Auto Loan</a>
+<a href="../net-worth-calculator/">Net Worth</a>
+</div>
+<div>
+<h4>Resources</h4>
+<a href="../blog/">Blog</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../banking/">Banking</a>
+<a href="../contact/">Contact Us</a>
+</div>
+<div>
+<h4>Legal</h4>
+<a href="../privacy-policy/">Privacy Policy</a>
+<a href="../terms-of-service/">Terms of Service</a>
+<a href="../cookie-policy/">Cookie Policy</a>
+<a href="../disclaimer/">Disclaimer</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
+<p>Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+</div>
+</div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
+function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
+var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
+</script>
+<script>
+(function(){
+if(localStorage.getItem('sc_cookies'))return;
+var b=document.createElement('div');
+b.id='cookieBanner';
+b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
+var acceptBtn=document.createElement('button');
+acceptBtn.textContent='Accept';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
+var declineBtn=document.createElement('button');
+declineBtn.textContent='Decline';
+declineBtn.style.cssText='background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:8px;cursor:pointer';
+declineBtn.onclick=function(){
+localStorage.setItem('sc_cookies','decline');
+b.innerHTML='';
+var msg=document.createElement('span');
+msg.style.cssText='padding:12px 0;color:#10B981';
+msg.textContent='\u2713 No cookies stored. You can browse freely.';
+b.appendChild(msg);
+setTimeout(function(){b.remove();},2500);
+};
+var txt=document.createElement('span');
+txt.innerHTML='We use cookies to improve your experience. <a href="/cookie-policy/" style="color:#3B82F6">Cookie Policy</a>';
+var btnWrap=document.createElement('div');
+btnWrap.style.cssText='display:flex;gap:8px';
+btnWrap.appendChild(acceptBtn);
+btnWrap.appendChild(declineBtn);
+b.appendChild(txt);
+b.appendChild(btnWrap);
+document.body.appendChild(b);
+})();
+</script>
+</body>
+</html>

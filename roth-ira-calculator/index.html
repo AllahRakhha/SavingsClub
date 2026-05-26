@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roth IRA Calculator — Tax-Free Retirement Growth | SavingsClub</title>
+<meta name="description" content="Free Roth IRA calculator. See how tax-free growth builds your retirement fund. Compare Roth vs Traditional IRA.">
+<link rel="canonical" href="https://savingsclub.com/roth-ira-calculator/">
+<meta property="og:title" content="Roth IRA Calculator — Tax-Free Retirement Growth | SavingsClub">
+<meta property="og:description" content="Free Roth IRA calculator. See how tax-free growth builds your retirement fund. Compare Roth vs Traditional IRA.">
+<meta property="og:url" content="https://savingsclub.com/roth-ira-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SavingsClub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much can I put in a Roth IRA in 2026?","acceptedAnswer":{"@type":"Answer","text":"The 2026 limit is $7,000 if under 50, or $8,000 if 50 or older. Income limits apply: single filers above $161,000 MAGI face phaseouts."}},{"@type":"Question","name":"Is a Roth IRA worth it?","acceptedAnswer":{"@type":"Answer","text":"For most Americans under 50, yes. Tax-free growth over decades is extremely powerful. Even if you can only contribute $100/month, the long-term tax savings are significant."}}]}</script>
+<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
+</head><body><nav id="mainNav">
+<div class="nav-inner">
+<div class="logo" onclick="location.href='../'">
+<div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+SavingsClub
+</div>
+<div class="nav-links" id="navLinks">
+<a href="../">Home</a>
+<a href="../savings-calculator/" class="active">Calculators</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+<a href="../">Home</a>
+<a href="../savings-calculator/">Savings</a>
+<a href="../budget-planner/">Budget</a>
+<a href="../mortgage-calculator/">Mortgage</a>
+<a href="../401k-calculator/">401(k)</a>
+<a href="../paycheck-calculator/">Paycheck</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+<section class="calc-page">
+<div class="container">
+<div style="margin-bottom:24px"><a href="../" style="color:var(--text-light);font-weight:500">← Home</a></div>
+<div class="calc-section reveal" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
+<h2><div class="calc-icon" style="background:linear-gradient(135deg,#4338CA,#6366F1)">📋</div> Roth IRA Calculator</h2>
+<p class="calc-desc">Project your Roth IRA growth with tax-free compounding.</p>
+<div class="calc-grid">
+<div><label>Annual Contribution ($)</label><input type="number" id="c1" value="7000" oninput="calc()"></div>
+<div><label>Current Roth IRA Balance ($)</label><input type="number" id="c2" value="10000" oninput="calc()"></div>
+<div><label>Expected Annual Return (%)</label><input type="number" id="c3" value="7" step="0.5" oninput="calc()"></div>
+<div><label>Years Until Retirement</label><input type="number" id="c4" value="30" oninput="calc()"></div>
+</div>
+<div class="accent-line" style="width:100%;margin:0 0 20px;height:2px"></div>
+<button class="btn btn-primary" onclick="calc()">Calculate</button>
+<div id="calcResult" class="calc-result"></div>
+</div>
+<div class="blog-recs reveal" style="margin-top:24px">
+<h3 style="margin-bottom:12px;font-size:1.1rem">📚 Related Guides</h3>
+<a href="../blog/retirement-planning-in-your-30s-the-decade-that-matters-most/" class="related-blog-card">Retirement Planning in Your 30s →</a>
+</div>
+<div class="seo-content reveal"><h2>How Does a Roth IRA Calculator Work?</h2>
+<p>A Roth IRA calculator projects the future value of your Roth IRA based on annual contributions, expected investment returns, and time. The key advantage: all growth is tax-free if you follow the rules. The 2026 contribution limit is $7,000 ($8,000 if over 50).</p>
+<h3>Roth IRA vs. Traditional IRA</h3>
+<p>With a Traditional IRA, you contribute pre-tax dollars (reducing this year's taxes) but pay income tax on withdrawals in retirement. With a Roth IRA, you contribute after-tax dollars but withdrawals in retirement are completely tax-free. If you expect to be in a higher tax bracket in retirement, the Roth is usually better. If you expect lower taxes later, Traditional may win. Use our <a href="../401k-calculator/">401(k) Calculator</a> to plan your overall retirement strategy.</p>
+<h3>Income Limits</h3>
+<p>For 2026, single filers with MAGI above $161,000 and married filing jointly above $240,000 face reduced or eliminated Roth IRA contribution eligibility. If you exceed these limits, consider a "backdoor Roth" — contribute to a Traditional IRA, then convert. Consult a tax professional for your specific situation.</p>
+<h3>The Power of Starting Early</h3>
+<p>Contributing $7,000 per year for 30 years at 7% average returns produces approximately $661,000 — but only $210,000 of that is your contributions. The remaining $451,000 is pure investment growth, all withdrawn tax-free. Starting just 5 years earlier could add over $200,000 to your final balance.</p></div><div class="seo-content reveal" style="margin-top:24px"><h2>Frequently Asked Questions</h2><h3>How much can I put in a Roth IRA in 2026?</h3><p>The 2026 limit is $7,000 if under 50, or $8,000 if 50 or older. Income limits apply: single filers above $161,000 MAGI face phaseouts.</p><h3>Is a Roth IRA worth it?</h3><p>For most Americans under 50, yes. Tax-free growth over decades is extremely powerful. Even if you can only contribute $100/month, the long-term tax savings are significant.</p></div><div class="related-tools reveal">
+<h3>All Calculators</h3>
+<a href="../savings-calculator/" class="related-tool-link">💰 Savings</a><a href="../budget-planner/" class="related-tool-link">📊 Budget</a><a href="../debt-payoff-calculator/" class="related-tool-link">🔥 Debt Payoff</a><a href="../compound-interest-calculator/" class="related-tool-link">📈 Compound Interest</a><a href="../retirement-calculator/" class="related-tool-link">🏠 Retirement</a><a href="../investment-calculator/" class="related-tool-link">💎 Investment</a><a href="../mortgage-calculator/" class="related-tool-link">🏡 Mortgage</a><a href="../auto-loan-calculator/" class="related-tool-link">🚗 Auto Loan</a><a href="../net-worth-calculator/" class="related-tool-link">💳 Net Worth</a><a href="../emergency-fund-calculator/" class="related-tool-link">🛡️ Emergency Fund</a><a href="../credit-card-payoff-calculator/" class="related-tool-link">💳 CC Payoff</a><a href="../401k-calculator/" class="related-tool-link">🏦 401(k)</a><a href="../inflation-calculator/" class="related-tool-link">📉 Inflation</a><a href="../loan-payoff-calculator/" class="related-tool-link">🎯 Loan Payoff</a><a href="../paycheck-calculator/" class="related-tool-link">💵 Take-Home Pay</a><a href="../cd-calculator/" class="related-tool-link">🔐 CD Calculator</a>
+</div></div></section><script src="../js/charts.js"></script>
+<script>
+function fmt(n){if(n===undefined||isNaN(n))return'$0';return n<0?'-$'+Math.abs(n).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,','):'$'+n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function calc(){
+var annual=+(document.getElementById('c1').value||0),bal=+(document.getElementById('c2').value||0);
+var ret=+(document.getElementById('c3').value||0)/100,yrs=+(document.getElementById('c4').value||0);
+var monthly=annual/12,r=ret/12,n=yrs*12,b=bal,pts=[{x:'Now',y:bal}];
+for(var i=0;i<n;i++){b=b*(1+r)+monthly;if((i+1)%(Math.max(1,Math.floor(n/10)))===0||i===n-1){pts.push({x:'Y'+Math.round((i+1)/12),y:b});}}
+var tc=bal+annual*yrs,growth=b-tc;
+var el=document.getElementById('calcResult');
+el.innerHTML='<div class="result-grid"><div class="result-item"><span class="result-label">Projected Roth IRA Value</span><span class="result-value" style="color:var(--green)">'+fmt(b)+'</span></div><div class="result-item"><span class="result-label">Total Contributions</span><span class="result-value">'+fmt(annual*yrs)+'</span></div><div class="result-item"><span class="result-label">Tax-Free Growth</span><span class="result-value" style="color:var(--blue)">'+fmt(growth)+'</span></div></div><p style="margin-top:16px;padding:12px;background:var(--green-pale);border-radius:8px;font-size:.9rem;color:var(--green)">✅ All '+fmt(b)+' is withdrawn tax-free in retirement (qualified distributions after age 59½).</p><div id="chart"></div>';
+if(yrs>0)drawLineChart('#chart',pts,{title:'Roth IRA Tax-Free Growth',colors:['#6366F1']});
+}
+document.addEventListener("DOMContentLoaded",function(){calc();});
+</script><footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial calculators and expert money guides for Americans in every state. Making personal finance simpler since 2026.</p>
+</div>
+<div>
+<h4>Calculators</h4>
+<a href="../savings-calculator/">Savings</a>
+<a href="../budget-planner/">Budget Planner</a>
+<a href="../mortgage-calculator/">Mortgage</a>
+<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../retirement-calculator/">Retirement</a>
+<a href="../401k-calculator/">401(k)</a>
+<a href="../paycheck-calculator/">Take-Home Pay</a>
+<a href="../cd-calculator/">CD Calculator</a>
+</div>
+<div>
+<h4>Resources</h4>
+<a href="../blog/">Blog</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../banking/">Banking</a>
+<a href="../contact/">Contact Us</a>
+<a href="../about/">About Us</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div>
+<h4>Legal</h4>
+<a href="../privacy-policy/">Privacy Policy</a>
+<a href="../terms-of-service/">Terms of Service</a>
+<a href="../cookie-policy/">Cookie Policy</a>
+<a href="../disclaimer/">Disclaimer</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
+<p>Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+</div>
+</div>
+</footer><script>
+window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
+function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
+function fmt(n){return n<0?'-$'+Math.abs(n).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,','):'$'+n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
+</script><script>
+(function(){
+if(localStorage.getItem('sc_cookies'))return;
+var b=document.createElement('div');
+b.id='cookieBanner';
+b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
+var acceptBtn=document.createElement('button');
+acceptBtn.textContent='Accept';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
+var declineBtn=document.createElement('button');
+declineBtn.textContent='Decline';
+declineBtn.style.cssText='background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:8px;cursor:pointer';
+declineBtn.onclick=function(){
+localStorage.setItem('sc_cookies','decline');
+b.innerHTML='';
+var msg=document.createElement('span');
+msg.style.cssText='padding:12px 0;color:#10B981';
+msg.textContent='\u2713 No cookies stored. You can browse freely.';
+b.appendChild(msg);
+setTimeout(function(){b.remove();},2500);
+};
+var txt=document.createElement('span');
+txt.innerHTML='We use cookies to improve your experience. <a href="/cookie-policy/" style="color:#3B82F6">Cookie Policy</a>';
+var btnWrap=document.createElement('div');
+btnWrap.style.cssText='display:flex;gap:8px';
+btnWrap.appendChild(acceptBtn);
+btnWrap.appendChild(declineBtn);
+b.appendChild(txt);
+b.appendChild(btnWrap);
+document.body.appendChild(b);
+})();
+</script>
+</body></html>

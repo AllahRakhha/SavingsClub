@@ -1,0 +1,12 @@
+{
+  "name": "savingsclub",
+  "version": "3.0.0",
+  "description": "SavingsClub \u2014 Smart Money Tools for Every American",
+  "main": "generate-post.js",
+  "scripts": {
+    "generate": "node generate-post.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "latest"
+  }
+}

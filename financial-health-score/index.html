@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Health Score — Rate Your Finances | SavingsClub</title>
+<meta name="description" content="Take the free Financial Health Score quiz. Answer 10 questions and get your personalized financial health rating out of 100.">
+<link rel="canonical" href="https://savingsclub.com/financial-health-score/">
+<meta property="og:title" content="Financial Health Score — Rate Your Finances | SavingsClub">
+<meta property="og:description" content="Take the free Financial Health Score quiz. Answer 10 questions and get your personalized financial health rating out of 100.">
+<meta property="og:url" content="https://savingsclub.com/financial-health-score/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SavingsClub">
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
+</head>
+<body><nav id="mainNav">
+<div class="nav-inner">
+<div class="logo" onclick="location.href='../'">
+<div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+SavingsClub
+</div>
+<div class="nav-links" id="navLinks">
+<a href="../">Home</a>
+<a href="../savings-calculator/" class="active">Calculators</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+<a href="../">Home</a>
+<a href="../savings-calculator/">Savings</a>
+<a href="../budget-planner/">Budget</a>
+<a href="../mortgage-calculator/">Mortgage</a>
+<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../contact/">Contact</a>
+</div>
+<section class="calc-page">
+<div class="container">
+<div style="margin-bottom:24px"><a href="../" style="color:var(--text-light);font-weight:500">← Home</a></div>
+<div class="calc-section reveal" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
+<h2><div class="calc-icon" style="background:linear-gradient(135deg,#2563EB,#3B82F6)">❤️</div> Financial Health Score</h2>
+<p class="calc-desc">Answer 10 questions to get your personalized financial health score.</p>
+<div id="fhsQuiz"></div>
+<div class="accent-line" style="width:100%;margin:0 0 20px;height:2px"></div>
+<button class="btn btn-primary" id="fhsBtn" onclick="scoreFHS()" style="display:none;margin-top:16px">Get My Score</button>
+<div id="calcResult" class="calc-result"></div>
+</div>
+<div class="related-tools reveal">
+<h3>More Free Tools</h3>
+<a href="../savings-calculator/" class="related-tool-link">💰 Savings Calculator</a>
+<a href="../budget-planner/" class="related-tool-link">📊 Budget Planner</a>
+<a href="../debt-payoff-calculator/" class="related-tool-link">🔥 Debt Payoff</a>
+<a href="../compound-interest-calculator/" class="related-tool-link">📈 Compound Interest</a>
+<a href="../retirement-calculator/" class="related-tool-link">🏠 Retirement Planner</a>
+<a href="../investment-calculator/" class="related-tool-link">💎 Investment Growth</a>
+<a href="../mortgage-calculator/" class="related-tool-link">🏡 Mortgage Calculator</a>
+<a href="../auto-loan-calculator/" class="related-tool-link">🚗 Auto Loan</a>
+<a href="../net-worth-calculator/" class="related-tool-link">💳 Net Worth</a>
+<a href="../emergency-fund-calculator/" class="related-tool-link">🛡️ Emergency Fund</a>
+<a href="../credit-card-payoff-calculator/" class="related-tool-link">💳 CC Payoff</a>
+<a href="../credit-card-quiz/" class="related-tool-link">🃏 Credit Card Quiz</a>
+
+</div>
+</div>
+</section>
+
+<script src="../js/charts.js"></script>
+<script>
+var FHS_QUESTIONS=[
+{q:'Do you have an emergency fund?',opts:['6+ months of expenses','3-6 months','1-3 months','Less than 1 month','No emergency fund'],scores:[10,8,5,2,0]},
+{q:'How do you handle credit card balances?',opts:['Pay in full every month','Pay more than minimum','Pay the minimum','Sometimes miss payments','Frequently miss payments'],scores:[10,8,5,2,0]},
+{q:'What percentage of income goes to housing?',opts:['Under 25%','25-30%','30-35%','35-50%','Over 50%'],scores:[10,8,6,3,0]},
+{q:'Do you follow a monthly budget?',opts:['Detailed budget every month','Rough budget I mostly follow','I track some expenses','I budget occasionally','No budget at all'],scores:[10,8,5,2,0]},
+{q:'Are you saving for retirement?',opts:['Contributing to 401k + IRA','Contributing to employer plan','Some retirement savings','Planning to start','Not saving for retirement'],scores:[10,8,5,2,0]},
+{q:'What is your credit score range?',opts:['Excellent (750+)','Good (700-749)','Fair (650-699)','Poor (550-649)','Very poor or unknown'],scores:[10,8,6,3,0]},
+{q:'How would you describe your debt level?',opts:['Debt-free (except mortgage)','Low manageable debt','Moderate debt, making payments','High debt, struggling','Overwhelming debt'],scores:[10,8,5,2,0]},
+{q:'What percentage of income do you save/invest?',opts:['20% or more','15-20%','10-15%','5-10%','Less than 5%'],scores:[10,8,6,3,0]},
+{q:'Do you have adequate insurance?',opts:['Full coverage (health, auto, life, disability)','Most essential coverage','Basic health insurance only','Minimal coverage','No insurance'],scores:[10,8,5,2,0]},
+{q:'Could you handle a $1,000 emergency today?',opts:['Easily, without stress','Yes, but it would be tight','I\'d need to use credit','I\'d need to borrow from someone','No, I couldn\'t cover it'],scores:[10,8,5,2,0]}
+];
+
+function initFHS(){
+var c=document.getElementById('fhsQuiz');if(!c)return;
+var html='';
+FHS_QUESTIONS.forEach(function(q,i){
+html+='<div class="quiz-q"><p style="font-weight:600;margin-bottom:8px">'+(i+1)+'. '+q.q+'</p>';
+q.opts.forEach(function(o,j){
+html+='<label class="quiz-opt"><input type="radio" name="fhs'+i+'" value="'+q.scores[j]+'"> '+o+'</label>';
+});
+html+='</div>';
+});
+c.innerHTML=html;
+document.getElementById('fhsBtn').style.display='block';
+}
+
+function scoreFHS(){
+var t=0,a=0;
+FHS_QUESTIONS.forEach(function(_,i){
+var c=document.querySelector('input[name="fhs'+i+'"]:checked');
+if(c){t+=+c.value;a++;}
+});
+if(a<10){document.getElementById('calcResult').innerHTML='<p style="color:#DC2626;padding:12px">Please answer all 10 questions.</p>';return;}
+var g,c2,m;
+if(t>=80){g='Excellent';c2='var(--green)';m='Outstanding financial health. Keep optimizing!';}
+else if(t>=60){g='Good';c2='var(--blue)';m='Solid foundation. Focus on weaker areas.';}
+else if(t>=40){g='Fair';c2='var(--gold)';m='Room for improvement. Start with emergency fund and debt.';}
+else{g='Needs Work';c2='#DC2626';m='Everyone starts somewhere. Focus on budgeting first.';}
+document.getElementById('calcResult').innerHTML='<div style="text-align:center;padding:24px"><div style="font-size:3.5rem;font-weight:800;color:'+c2+'">'+t+'/100</div><div style="font-size:1.3rem;font-weight:700;color:'+c2+';margin:8px 0">'+g+'</div><p style="color:var(--text-light);max-width:400px;margin:12px auto">'+m+'</p></div>';
+}
+
+document.addEventListener('DOMContentLoaded',initFHS);
+</script>
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and expert guides for Americans in every state. Making money decisions simpler since 2026.</p>
+</div>
+<div>
+<h4>Calculators</h4>
+<a href="../savings-calculator/">Savings Calculator</a>
+<a href="../budget-planner/">Budget Planner</a>
+<a href="../mortgage-calculator/">Mortgage Calculator</a>
+<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../auto-loan-calculator/">Auto Loan</a>
+<a href="../net-worth-calculator/">Net Worth</a>
+</div>
+<div>
+<h4>Resources</h4>
+<a href="../blog/">Blog</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../banking/">Banking</a>
+<a href="../contact/">Contact Us</a>
+</div>
+<div>
+<h4>Legal</h4>
+<a href="../privacy-policy/">Privacy Policy</a>
+<a href="../terms-of-service/">Terms of Service</a>
+<a href="../cookie-policy/">Cookie Policy</a>
+<a href="../disclaimer/">Disclaimer</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
+<p>Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+</div>
+</div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
+function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
+var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
+</script>
+<script>
+(function(){
+if(localStorage.getItem('sc_cookies'))return;
+var b=document.createElement('div');
+b.id='cookieBanner';
+b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
+var acceptBtn=document.createElement('button');
+acceptBtn.textContent='Accept';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
+var declineBtn=document.createElement('button');
+declineBtn.textContent='Decline';
+declineBtn.style.cssText='background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:8px;cursor:pointer';
+declineBtn.onclick=function(){
+localStorage.setItem('sc_cookies','decline');
+b.innerHTML='';
+var msg=document.createElement('span');
+msg.style.cssText='padding:12px 0;color:#10B981';
+msg.textContent='\u2713 No cookies stored. You can browse freely.';
+b.appendChild(msg);
+setTimeout(function(){b.remove();},2500);
+};
+var txt=document.createElement('span');
+txt.innerHTML='We use cookies to improve your experience. <a href="/cookie-policy/" style="color:#3B82F6">Cookie Policy</a>';
+var btnWrap=document.createElement('div');
+btnWrap.style.cssText='display:flex;gap:8px';
+btnWrap.appendChild(acceptBtn);
+btnWrap.appendChild(declineBtn);
+b.appendChild(txt);
+b.appendChild(btnWrap);
+document.body.appendChild(b);
+})();
+</script>
+</body>
+</html>

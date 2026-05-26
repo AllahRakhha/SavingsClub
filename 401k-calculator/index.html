@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>401(k) Calculator — How Much Will My 401k Be Worth? | SavingsClub</title>
+<meta name="description" content="Free 401(k) retirement calculator. See how employer matching and contributions grow your 401k over time. Updated for 2026 limits.">
+<link rel="canonical" href="https://savingsclub.com/401k-calculator/">
+<meta property="og:title" content="401(k) Calculator — How Much Will My 401k Be Worth? | SavingsClub">
+<meta property="og:description" content="Free 401(k) retirement calculator. See how employer matching and contributions grow your 401k over time. Updated for 2026 limits.">
+<meta property="og:url" content="https://savingsclub.com/401k-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SavingsClub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much should I put in my 401k?","acceptedAnswer":{"@type":"Answer","text":"Contribute at least enough to get your full employer match. Beyond that, aim for 15% of gross income including employer contributions. The 2026 limit is $23,500 ($31,000 if over 50)."}},{"@type":"Question","name":"Is a 401k better than a savings account?","acceptedAnswer":{"@type":"Answer","text":"For retirement savings, yes. A 401(k) offers tax advantages and employer matching that savings accounts cannot. However, you should still maintain a separate emergency fund in a savings account for short-term needs."}},{"@type":"Question","name":"What is a good 401k balance by age?","acceptedAnswer":{"@type":"Answer","text":"Common benchmarks: 1x salary by 30, 3x by 40, 6x by 50, 8x by 60. These are rough guidelines — use our calculator with your actual numbers for a personalized projection."}}]}</script>
+<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
+</head><body><nav id="mainNav">
+<div class="nav-inner">
+<div class="logo" onclick="location.href='../'">
+<div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+SavingsClub
+</div>
+<div class="nav-links" id="navLinks">
+<a href="../">Home</a>
+<a href="../savings-calculator/" class="active">Calculators</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+<a href="../">Home</a>
+<a href="../savings-calculator/">Savings</a>
+<a href="../budget-planner/">Budget</a>
+<a href="../mortgage-calculator/">Mortgage</a>
+<a href="../401k-calculator/">401(k)</a>
+<a href="../paycheck-calculator/">Paycheck</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+<section class="calc-page">
+<div class="container">
+<div style="margin-bottom:24px"><a href="../" style="color:var(--text-light);font-weight:500">← Home</a></div>
+<div class="calc-section reveal" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
+<h2><div class="calc-icon" style="background:linear-gradient(135deg,#0369A1,#0EA5E9)">🏦</div> 401(k) Calculator</h2>
+<p class="calc-desc">See how your 401(k) contributions and employer match grow over time.</p>
+<div class="calc-grid">
+<div><label>Annual Salary ($)</label><input type="number" id="c1" value="65000" oninput="calc()"></div>
+<div><label>Your Contribution (%)</label><input type="number" id="c2" value="6" step="0.5" oninput="calc()"></div>
+<div><label>Employer Match (%)</label><input type="number" id="c3" value="4" step="0.5" oninput="calc()"></div>
+<div><label>Current 401k Balance ($)</label><input type="number" id="c4" value="25000" oninput="calc()"></div>
+<div><label>Expected Return (%)</label><input type="number" id="c5" value="7" step="0.5" oninput="calc()"></div>
+<div><label>Years Until Retirement</label><input type="number" id="c6" value="30" oninput="calc()"></div>
+</div>
+<div class="accent-line" style="width:100%;margin:0 0 20px;height:2px"></div>
+<button class="btn btn-primary" onclick="calc()">Calculate</button>
+<div id="calcResult" class="calc-result"></div>
+</div>
+<div class="blog-recs reveal" style="margin-top:24px">
+<h3 style="margin-bottom:12px;font-size:1.1rem">📚 Related Guides</h3>
+<a href="../blog/retirement-planning-in-your-30s-the-decade-that-matters-most/" class="related-blog-card">Retirement Planning in Your 30s →</a>
+</div>
+<div class="seo-content reveal"><h2>How Does a 401(k) Calculator Work?</h2>
+<p>A 401(k) calculator projects the future value of your employer-sponsored retirement account based on your salary, contribution percentage, employer match, expected investment returns, and time until retirement. The 2026 annual contribution limit is $23,500 for those under 50, with an additional $7,500 catch-up contribution for workers 50 and older.</p>
+<h3>Understanding Employer Matching</h3>
+<p>Employer matching is free money. If your employer matches 100% of contributions up to 4% of salary, and you earn $65,000, that's $2,600 per year your employer adds to your account at no cost to you. Not contributing enough to get the full match is leaving money on the table — it's an immediate 100% return on your investment.</p>
+<h3>How Much Should I Contribute to My 401(k)?</h3>
+<p>At minimum, contribute enough to capture your full employer match. Beyond that, financial experts recommend saving 15% of gross income for retirement (including employer contributions). If you started late, you may need 20% or more. Use the <a href="../retirement-calculator/">Retirement Calculator</a> to see if you're on track for your target retirement age.</p>
+<h3>401(k) vs. Roth IRA</h3>
+<p>A traditional 401(k) reduces your taxable income now but you pay taxes on withdrawals in retirement. A <a href="../roth-ira-calculator/">Roth IRA</a> is funded with after-tax dollars but grows and is withdrawn tax-free. Many financial planners recommend contributing to both — 401(k) up to the employer match, then max out a Roth IRA, then contribute more to the 401(k). Workers in states without income tax (Texas, Florida, Nevada, Washington) may find the traditional 401(k) slightly more advantageous for reducing federal taxes now.</p>
+<h3>What Happens When I Change Jobs?</h3>
+<p>When you leave an employer, you have several options: leave the 401(k) with the old employer, roll it into your new employer's plan, roll it into an IRA, or cash it out (which triggers taxes and a 10% early withdrawal penalty if you're under 59½). Rolling into an IRA typically provides the most investment choices and flexibility.</p></div><div class="seo-content reveal" style="margin-top:24px"><h2>Frequently Asked Questions</h2><h3>How much should I put in my 401k?</h3><p>Contribute at least enough to get your full employer match. Beyond that, aim for 15% of gross income including employer contributions. The 2026 limit is $23,500 ($31,000 if over 50).</p><h3>Is a 401k better than a savings account?</h3><p>For retirement savings, yes. A 401(k) offers tax advantages and employer matching that savings accounts cannot. However, you should still maintain a separate emergency fund in a savings account for short-term needs.</p><h3>What is a good 401k balance by age?</h3><p>Common benchmarks: 1x salary by 30, 3x by 40, 6x by 50, 8x by 60. These are rough guidelines — use our calculator with your actual numbers for a personalized projection.</p></div><div class="related-tools reveal">
+<h3>All Calculators</h3>
+<a href="../savings-calculator/" class="related-tool-link">💰 Savings</a><a href="../budget-planner/" class="related-tool-link">📊 Budget</a><a href="../debt-payoff-calculator/" class="related-tool-link">🔥 Debt Payoff</a><a href="../compound-interest-calculator/" class="related-tool-link">📈 Compound Interest</a><a href="../retirement-calculator/" class="related-tool-link">🏠 Retirement</a><a href="../investment-calculator/" class="related-tool-link">💎 Investment</a><a href="../mortgage-calculator/" class="related-tool-link">🏡 Mortgage</a><a href="../auto-loan-calculator/" class="related-tool-link">🚗 Auto Loan</a><a href="../net-worth-calculator/" class="related-tool-link">💳 Net Worth</a><a href="../emergency-fund-calculator/" class="related-tool-link">🛡️ Emergency Fund</a><a href="../credit-card-payoff-calculator/" class="related-tool-link">💳 CC Payoff</a><a href="../roth-ira-calculator/" class="related-tool-link">📋 Roth IRA</a><a href="../inflation-calculator/" class="related-tool-link">📉 Inflation</a><a href="../loan-payoff-calculator/" class="related-tool-link">🎯 Loan Payoff</a><a href="../paycheck-calculator/" class="related-tool-link">💵 Take-Home Pay</a><a href="../cd-calculator/" class="related-tool-link">🔐 CD Calculator</a>
+</div></div></section><script src="../js/charts.js"></script>
+<script>
+function fmt(n){if(n===undefined||isNaN(n))return'$0';return n<0?'-$'+Math.abs(n).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,','):'$'+n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function calc(){
+var sal=+(document.getElementById('c1').value||0),cp=+(document.getElementById('c2').value||0)/100,mp=+(document.getElementById('c3').value||0)/100;
+var bal=+(document.getElementById('c4').value||0),ret=+(document.getElementById('c5').value||0)/100/12,yrs=+(document.getElementById('c6').value||0);
+var monthly=(sal*cp)/12,ematch=(sal*Math.min(mp,cp))/12,total_monthly=monthly+ematch;
+var n=yrs*12,b=bal,pts=[{x:'Now',y:bal}];
+for(var i=0;i<n;i++){b=b*(1+ret)+total_monthly;if((i+1)%(Math.max(1,Math.floor(n/10)))===0||i===n-1){pts.push({x:'Y'+Math.round((i+1)/12),y:b});}}
+var tc=bal+total_monthly*n,interest=b-tc;
+var el=document.getElementById('calcResult');
+el.innerHTML='<div class="result-grid"><div class="result-item"><span class="result-label">Projected 401(k) Value</span><span class="result-value" style="color:var(--green)">'+fmt(b)+'</span></div><div class="result-item"><span class="result-label">Your Contributions</span><span class="result-value">'+fmt(monthly*n)+'</span></div><div class="result-item"><span class="result-label">Employer Match Total</span><span class="result-value" style="color:var(--gold)">'+fmt(ematch*n)+'</span></div><div class="result-item"><span class="result-label">Investment Growth</span><span class="result-value" style="color:var(--blue)">'+fmt(interest)+'</span></div></div><div id="chart"></div>';
+if(yrs>0)drawLineChart('#chart',pts,{title:'401(k) Growth Over '+yrs+' Years',colors:['#10B981']});
+}
+document.addEventListener("DOMContentLoaded",function(){calc();});
+</script><footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial calculators and expert money guides for Americans in every state. Making personal finance simpler since 2026.</p>
+</div>
+<div>
+<h4>Calculators</h4>
+<a href="../savings-calculator/">Savings</a>
+<a href="../budget-planner/">Budget Planner</a>
+<a href="../mortgage-calculator/">Mortgage</a>
+<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../retirement-calculator/">Retirement</a>
+<a href="../401k-calculator/">401(k)</a>
+<a href="../paycheck-calculator/">Take-Home Pay</a>
+<a href="../cd-calculator/">CD Calculator</a>
+</div>
+<div>
+<h4>Resources</h4>
+<a href="../blog/">Blog</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../banking/">Banking</a>
+<a href="../contact/">Contact Us</a>
+<a href="../about/">About Us</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div>
+<h4>Legal</h4>
+<a href="../privacy-policy/">Privacy Policy</a>
+<a href="../terms-of-service/">Terms of Service</a>
+<a href="../cookie-policy/">Cookie Policy</a>
+<a href="../disclaimer/">Disclaimer</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
+<p>Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+</div>
+</div>
+</footer><script>
+window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
+function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
+function fmt(n){return n<0?'-$'+Math.abs(n).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,','):'$'+n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
+</script><script>
+(function(){
+if(localStorage.getItem('sc_cookies'))return;
+var b=document.createElement('div');
+b.id='cookieBanner';
+b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
+var acceptBtn=document.createElement('button');
+acceptBtn.textContent='Accept';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
+var declineBtn=document.createElement('button');
+declineBtn.textContent='Decline';
+declineBtn.style.cssText='background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:8px;cursor:pointer';
+declineBtn.onclick=function(){
+localStorage.setItem('sc_cookies','decline');
+b.innerHTML='';
+var msg=document.createElement('span');
+msg.style.cssText='padding:12px 0;color:#10B981';
+msg.textContent='\u2713 No cookies stored. You can browse freely.';
+b.appendChild(msg);
+setTimeout(function(){b.remove();},2500);
+};
+var txt=document.createElement('span');
+txt.innerHTML='We use cookies to improve your experience. <a href="/cookie-policy/" style="color:#3B82F6">Cookie Policy</a>';
+var btnWrap=document.createElement('div');
+btnWrap.style.cssText='display:flex;gap:8px';
+btnWrap.appendChild(acceptBtn);
+btnWrap.appendChild(declineBtn);
+b.appendChild(txt);
+b.appendChild(btnWrap);
+document.body.appendChild(b);
+})();
+</script>
+</body></html>

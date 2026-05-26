@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credit Card Quiz — Find Your Best Card | SavingsClub</title>
+<meta name="description" content="Answer 4 questions and get a personalized credit card recommendation based on your spending habits and credit profile.">
+<link rel="canonical" href="https://savingsclub.com/credit-card-quiz/">
+<meta property="og:title" content="Credit Card Quiz — Find Your Best Card | SavingsClub">
+<meta property="og:description" content="Answer 4 questions and get a personalized credit card recommendation based on your spending habits and credit profile.">
+<meta property="og:url" content="https://savingsclub.com/credit-card-quiz/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SavingsClub">
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
+</head>
+<body><nav id="mainNav">
+<div class="nav-inner">
+<div class="logo" onclick="location.href='../'">
+<div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+SavingsClub
+</div>
+<div class="nav-links" id="navLinks">
+<a href="../">Home</a>
+<a href="../savings-calculator/" class="active">Calculators</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+<a href="../">Home</a>
+<a href="../savings-calculator/">Savings</a>
+<a href="../budget-planner/">Budget</a>
+<a href="../mortgage-calculator/">Mortgage</a>
+<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../contact/">Contact</a>
+</div>
+<section class="calc-page">
+<div class="container">
+<div style="margin-bottom:24px"><a href="../" style="color:var(--text-light);font-weight:500">← Home</a></div>
+<div class="calc-section reveal" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
+<h2><div class="calc-icon" style="background:linear-gradient(135deg,#7C3AED,#8B5CF6)">🃏</div> Credit Card Quiz</h2>
+<p class="calc-desc">Answer 4 questions and we'll recommend the best card for you.</p>
+<div id="ccQuiz"></div>
+<div class="accent-line" style="width:100%;margin:0 0 20px;height:2px"></div>
+<button class="btn btn-primary" id="ccBtn" onclick="scoreCCQuiz()" style="display:none;margin-top:16px">Find My Card</button>
+<div id="calcResult" class="calc-result"></div>
+</div>
+<div class="related-tools reveal">
+<h3>More Free Tools</h3>
+<a href="../savings-calculator/" class="related-tool-link">💰 Savings Calculator</a>
+<a href="../budget-planner/" class="related-tool-link">📊 Budget Planner</a>
+<a href="../debt-payoff-calculator/" class="related-tool-link">🔥 Debt Payoff</a>
+<a href="../compound-interest-calculator/" class="related-tool-link">📈 Compound Interest</a>
+<a href="../retirement-calculator/" class="related-tool-link">🏠 Retirement Planner</a>
+<a href="../investment-calculator/" class="related-tool-link">💎 Investment Growth</a>
+<a href="../mortgage-calculator/" class="related-tool-link">🏡 Mortgage Calculator</a>
+<a href="../auto-loan-calculator/" class="related-tool-link">🚗 Auto Loan</a>
+<a href="../net-worth-calculator/" class="related-tool-link">💳 Net Worth</a>
+<a href="../emergency-fund-calculator/" class="related-tool-link">🛡️ Emergency Fund</a>
+<a href="../credit-card-payoff-calculator/" class="related-tool-link">💳 CC Payoff</a>
+<a href="../financial-health-score/" class="related-tool-link">❤️ Financial Health Score</a>
+
+</div>
+</div>
+</section>
+
+<script>
+var CC_QUIZ=[
+{q:'What matters most to you?',opts:['Cash back on everything','Travel rewards & perks','Building credit history','Low interest rate']},
+{q:'What\'s your credit score?',opts:['Excellent (750+)','Good (670-749)','Fair (580-669)','Limited/No history']},
+{q:'How much do you spend monthly?',opts:['Over $3,000','$1,500-3,000','$500-1,500','Under $500']},
+{q:'How do you feel about annual fees?',opts:['Worth it for premium perks','Small fee is OK ($50-100)','No annual fee only','Whatever has the best value']}
+];
+
+var CARDS={
+dc:{name:'Citi Double Cash',rewards:'2% on everything',fee:'$0',apr:'18.49-28.49%',benefits:['Industry-leading 2% flat rate','No categories to track','No annual fee']},
+bc:{name:'Blue Cash Preferred',rewards:'6% groceries, 6% streaming, 3% transit',fee:'$95',apr:'19.24-29.99%',benefits:['6% back at US supermarkets','6% on select streaming','$250 statement credit offer']},
+sp:{name:'Chase Sapphire Preferred',rewards:'3x dining, 2x travel, 1x everything',fee:'$95',apr:'21.49-28.49%',benefits:['60,000 point sign-up bonus','Transfer to 14+ airline partners','$50 hotel credit']},
+vx:{name:'Capital One Venture X',rewards:'2x miles on everything, 10x hotels',fee:'$395',apr:'19.99-29.99%',benefits:['75,000 mile welcome bonus','$300 travel credit annually','Airport lounge access']},
+se:{name:'Discover it Secured',rewards:'2% gas & restaurants, 1% everything',fee:'$0',apr:'28.24%',benefits:['No credit history required','Cashback match first year','Graduates to unsecured']},
+qs:{name:'Capital One QuicksilverOne',rewards:'1.5% cash back on all purchases',fee:'$39',apr:'30.49%',benefits:['Accessible approval','Reports to all 3 bureaus','Automatic credit line reviews']},
+fu:{name:'Chase Freedom Unlimited',rewards:'1.5% everything, 3% dining & drugstores',fee:'$0',apr:'20.49-29.24%',benefits:['No annual fee','$200 intro bonus','0% intro APR 15 months']}
+};
+
+function initCCQuiz(){
+var c=document.getElementById('ccQuiz');if(!c)return;
+var html='';
+CC_QUIZ.forEach(function(q,i){
+html+='<div class="quiz-q"><p style="font-weight:600;margin-bottom:8px">'+(i+1)+'. '+q.q+'</p>';
+q.opts.forEach(function(o,j){
+html+='<label class="quiz-opt"><input type="radio" name="cc'+i+'" value="'+j+'"> '+o+'</label>';
+});
+html+='</div>';
+});
+c.innerHTML=html;
+document.getElementById('ccBtn').style.display='block';
+}
+
+function scoreCCQuiz(){
+var a=[];
+CC_QUIZ.forEach(function(_,i){
+var c=document.querySelector('input[name="cc'+i+'"]:checked');
+a.push(c?+c.value:-1);
+});
+if(a.indexOf(-1)!==-1){document.getElementById('calcResult').innerHTML='<p style="color:#DC2626;padding:12px">Please answer all questions.</p>';return;}
+var r;
+if(a[0]===0)r=a[3]===2?CARDS.dc:CARDS.bc;
+else if(a[0]===1)r=a[3]===2?CARDS.sp:CARDS.vx;
+else if(a[0]===2)r=a[1]===3?CARDS.se:CARDS.qs;
+else r=CARDS.fu;
+var bens=r.benefits.map(function(b){return'<li style="margin:4px 0">'+b+'</li>'}).join('');
+document.getElementById('calcResult').innerHTML='<div class="card" style="border:2px solid var(--blue);margin-top:16px;padding:28px"><h3 style="color:var(--blue);margin-bottom:12px">🏆 Our Pick: '+r.name+'</h3><p><strong>Rewards:</strong> '+r.rewards+'</p><p style="margin:8px 0"><strong>Fee:</strong> '+r.fee+' | <strong>APR:</strong> '+r.apr+'</p><ul style="margin:12px 0;padding-left:20px">'+bens+'</ul><a href="[AFFILIATE LINK PLACEHOLDER]" target="_blank" class="btn btn-primary">Apply Now →</a></div>';
+}
+
+document.addEventListener('DOMContentLoaded',initCCQuiz);
+</script>
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and expert guides for Americans in every state. Making money decisions simpler since 2026.</p>
+</div>
+<div>
+<h4>Calculators</h4>
+<a href="../savings-calculator/">Savings Calculator</a>
+<a href="../budget-planner/">Budget Planner</a>
+<a href="../mortgage-calculator/">Mortgage Calculator</a>
+<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../auto-loan-calculator/">Auto Loan</a>
+<a href="../net-worth-calculator/">Net Worth</a>
+</div>
+<div>
+<h4>Resources</h4>
+<a href="../blog/">Blog</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../banking/">Banking</a>
+<a href="../contact/">Contact Us</a>
+</div>
+<div>
+<h4>Legal</h4>
+<a href="../privacy-policy/">Privacy Policy</a>
+<a href="../terms-of-service/">Terms of Service</a>
+<a href="../cookie-policy/">Cookie Policy</a>
+<a href="../disclaimer/">Disclaimer</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
+<p>Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+</div>
+</div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
+function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
+var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
+</script>
+<script>
+(function(){
+if(localStorage.getItem('sc_cookies'))return;
+var b=document.createElement('div');
+b.id='cookieBanner';
+b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
+var acceptBtn=document.createElement('button');
+acceptBtn.textContent='Accept';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
+var declineBtn=document.createElement('button');
+declineBtn.textContent='Decline';
+declineBtn.style.cssText='background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:8px;cursor:pointer';
+declineBtn.onclick=function(){
+localStorage.setItem('sc_cookies','decline');
+b.innerHTML='';
+var msg=document.createElement('span');
+msg.style.cssText='padding:12px 0;color:#10B981';
+msg.textContent='\u2713 No cookies stored. You can browse freely.';
+b.appendChild(msg);
+setTimeout(function(){b.remove();},2500);
+};
+var txt=document.createElement('span');
+txt.innerHTML='We use cookies to improve your experience. <a href="/cookie-policy/" style="color:#3B82F6">Cookie Policy</a>';
+var btnWrap=document.createElement('div');
+btnWrap.style.cssText='display:flex;gap:8px';
+btnWrap.appendChild(acceptBtn);
+btnWrap.appendChild(declineBtn);
+b.appendChild(txt);
+b.appendChild(btnWrap);
+document.body.appendChild(b);
+})();
+</script>
+</body>
+</html>
