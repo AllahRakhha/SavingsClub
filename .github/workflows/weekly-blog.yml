@@ -38,7 +38,7 @@ jobs:
 
           git pull origin main --rebase
 
-          git add -A
+          - name: Commit and push new post
 
           git diff --staged --quiet || git commit -m "New blog post [automated]"
 
