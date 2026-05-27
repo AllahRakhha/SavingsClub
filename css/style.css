@@ -788,3 +788,37 @@ select{
 .btn-primary::before,.btn-hero::before{
   pointer-events:none!important;
 }
+
+
+/* ===== ANIMATED NAV BRAND TEXT ===== */
+.logo{
+  background:linear-gradient(135deg,#059669,#2563EB,#06B6D4,#059669)!important;
+  background-size:300% 300%!important;
+  -webkit-background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;
+  background-clip:text!important;
+  animation:brandShift 5s ease infinite!important;
+}
+.logo .logo-mark,.logo .logo-mark *{
+  -webkit-text-fill-color:initial!important;
+  background:none!important;
+  -webkit-background-clip:initial!important;
+  background-clip:initial!important;
+}
+.logo .logo-mark{
+  background:linear-gradient(135deg,#059669,#10B981)!important;
+}
+@keyframes brandShift{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+/* Scrolled nav — keep animation */
+nav.scrolled .logo{
+  -webkit-text-fill-color:transparent!important;
+}
+
+/* ===== FIX BLUE BAND — make it subtle ===== */
+.section-blue{
+  background:linear-gradient(180deg,#F8FAFB 0%,#F1F5F9 100%)!important;
+}
