@@ -228,6 +228,51 @@ Write unique, original content. Do not repeat advice generically — be specific
   const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   const isoDate = new Date().toISOString().split('T')[0];
   const slug = makeSlug(title);
+  const wordCount = cleanContent.replace(/<[^>]*>/g, '').split(/\s+/).length;
+  const readTime = Math.max(1, Math.round(wordCount / 200));
+
+  // Fetch unique image from Unsplash
+  let blogImage = '../../img/savings-jar.jpg';
+  let photoCredit = '';
+  try {
+    const searchTerms = {
+      'Savings': 'saving money piggy bank',
+      'Budgeting': 'budget planning notebook',
+      'Credit Cards': 'credit card payment',
+      'Debt': 'financial stress bills',
+      'Investing': 'stock market investing growth',
+      'Banking': 'bank building finance',
+      'Credit': 'credit score report',
+      'Insurance': 'insurance protection family',
+      'Retirement': 'retirement planning senior',
+      'Housing': 'house keys mortgage',
+      'Taxes': 'tax documents filing',
+      'Income': 'money income salary',
+      'Money Tips': 'personal finance money'
+    };
+    const searchQuery = searchTerms[category] || 'personal finance money';
+    const unsplashKey = process.env.UNSPLASH_ACCESS_KEY;
+    if (unsplashKey) {
+      const https = require('https');
+      const unsplashData = await new Promise((resolve, reject) => {
+        const url = 'https://api.unsplash.com/photos/random?query=' + encodeURIComponent(searchQuery) + '&orientation=landscape&client_id=' + unsplashKey;
+        https.get(url, (res) => {
+          let data = '';
+          res.on('data', (chunk) => data += chunk);
+          res.on('end', () => resolve(JSON.parse(data)));
+        }).on('error', reject);
+      });
+      if (unsplashData && unsplashData.urls) {
+        blogImage = unsplashData.urls.regular;
+        const photographer = unsplashData.user ? unsplashData.user.name : 'Unsplash';
+        const profileUrl = unsplashData.user ? unsplashData.user.links.html : 'https://unsplash.com';
+        photoCredit = '<p style="font-size:.75rem;color:var(--text-lighter);margin-top:8px;text-align:center">Photo by <a href="' + profileUrl + '?utm_source=savingsclub&utm_medium=referral" style="color:var(--text-lighter)">' + photographer + '</a> on <a href="https://unsplash.com?utm_source=savingsclub&utm_medium=referral" style="color:var(--text-lighter)">Unsplash</a></p>';
+        console.log('Unsplash image: ' + unsplashData.urls.regular);
+      }
+    }
+  } catch (e) {
+    console.log('Unsplash failed, using default image: ' + e.message);
+  }
 
   const post = {
     id: 'gen_' + Date.now(),
@@ -298,8 +343,11 @@ SavingsClub
 <section style="padding:100px 0 60px"><div class="container" style="max-width:800px">
 <a href="../" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:24px;color:var(--text-light);font-weight:500">← Back to Blog</a>
 <h1 style="font-size:2rem;margin-bottom:16px;line-height:1.3">${title}</h1>
-<div style="color:var(--text-light);margin-bottom:32px;font-size:.95rem">By Editorial Team · ${date}</div>
+<div style="color:var(--text-light);margin-bottom:32px;font-size:.95rem">By Editorial Team · ${date} · ${readTime} min read</div>
+<img src="${blogImage}" alt="${title}" style="width:100%;height:300px;object-fit:cover;border-radius:16px;margin:0 0 32px;box-shadow:0 8px 30px rgba(10,22,40,.12)" loading="lazy">
+${photoCredit}
 <div class="blog-content">${cleanContent}</div>
+<div style="margin-top:40px;padding:32px;background:linear-gradient(135deg,#F0FDF4,#F8FAFC);border-radius:16px;border:1px solid rgba(5,150,105,.1);text-align:center"><p style="font-size:1.1rem;font-weight:600;color:#059669;margin-bottom:8px">Thank you for reading!</p><p style="color:var(--text-light);font-size:.95rem;margin-bottom:16px">If this guide helped you, explore our free calculators to put these ideas into action.</p><a href="../../savings-calculator/" style="background:linear-gradient(135deg,#059669,#10B981);color:#fff;padding:12px 24px;border-radius:50px;text-decoration:none;font-weight:600;font-size:.95rem;box-shadow:0 4px 15px rgba(5,150,105,.3)">Try Our Free Calculators →</a></div>
 </div></section>
 
 <footer>
