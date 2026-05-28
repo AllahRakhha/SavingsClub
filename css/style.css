@@ -495,7 +495,7 @@ footer{border-top:3px solid transparent;border-image:linear-gradient(90deg,#2563
 .hero::after{background:radial-gradient(ellipse at 20% 80%,rgba(16,185,129,.1) 0%,transparent 60%)}
 
 /* Animated gradient on hero heading */
-.gradient-text{background:linear-gradient(135deg,#60A5FA,#34D399,#FBBF24,#60A5FA);background-size:300% 300%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradientShift 6s ease infinite}
+.gradient-text{color:#34D399;-webkit-text-fill-color:#34D399;background:none;animation:none}
 @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 
 /* Stats bar glow */
@@ -727,7 +727,7 @@ footer::before{background:linear-gradient(90deg,#059669,#10B981,#34D399,#10B981,
 .trust-dark .ti-icon{background:rgba(255,255,255,.06)!important;border:1px solid rgba(255,255,255,.08)}
 
 /* GRADIENT TEXT — emerald shift */
-.gradient-text{background:linear-gradient(135deg,#34D399,#60A5FA,#34D399,#F59E0B)!important;background-size:300% 300%!important}
+.gradient-text{color:#34D399!important;-webkit-text-fill-color:#34D399!important;background:none!important;animation:none!important}
 
 /* TOOL CARD hover — emerald */
 .tool-card:hover h3{color:#059669!important}
