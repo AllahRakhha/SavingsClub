@@ -344,7 +344,7 @@ SavingsClub
 <a href="../" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:24px;color:var(--text-light);font-weight:500">← Back to Blog</a>
 <h1 style="font-size:2rem;margin-bottom:16px;line-height:1.3">${title}</h1>
 <div style="color:var(--text-light);margin-bottom:32px;font-size:.95rem">By Editorial Team · ${date} · ${readTime} min read</div>
-<img src="${blogImage}" alt="${title}" style="width:100%;height:300px;object-fit:cover;border-radius:16px;margin:0 0 32px;box-shadow:0 8px 30px rgba(10,22,40,.12)" loading="lazy">
+<img src="${blogImage}" alt="${title}" style="width:100%;height:300px;object-fit:cover;border-radius:0;margin:0 -24px 32px;width:calc(100% + 48px);max-width:none;box-shadow:none" loading="lazy">
 ${photoCredit}
 <div class="blog-content">${cleanContent}</div>
 <div style="margin-top:40px;padding:32px;background:linear-gradient(135deg,#F0FDF4,#F8FAFC);border-radius:16px;border:1px solid rgba(5,150,105,.1);text-align:center"><p style="font-size:1.1rem;font-weight:600;color:#059669;margin-bottom:8px">Thank you for reading!</p><p style="color:var(--text-light);font-size:.95rem;margin-bottom:16px">If this guide helped you, explore our free calculators to put these ideas into action.</p><a href="../../savings-calculator/" style="background:linear-gradient(135deg,#059669,#10B981);color:#fff;padding:12px 24px;border-radius:50px;text-decoration:none;font-weight:600;font-size:.95rem;box-shadow:0 4px 15px rgba(5,150,105,.3)">Try Our Free Calculators →</a></div>
