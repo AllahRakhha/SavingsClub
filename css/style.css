@@ -822,3 +822,11 @@ nav.scrolled .logo{
 .section-blue{
   background:linear-gradient(180deg,#F8FAFB 0%,#F1F5F9 100%)!important;
 }
+/* TIP OF THE DAY */
+.tip-bar{background:linear-gradient(135deg,#0A1628,#132D52);padding:14px 24px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:.92rem;color:rgba(255,255,255,.85);animation:tipSlide .8s ease-out}
+.tip-bar a{color:#34D399;font-weight:600;text-decoration:none;margin-left:4px}
+.tip-bar a:hover{text-decoration:underline}
+.tip-icon{animation:tipPulse 3s ease-in-out infinite}
+@keyframes tipSlide{from{opacity:0;transform:translateY(-100%)}to{opacity:1;transform:translateY(0)}}
+@keyframes tipPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+@media(max-width:768px){.tip-bar{font-size:.82rem;padding:12px 16px;text-align:center;flex-wrap:wrap}}
