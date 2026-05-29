@@ -365,7 +365,7 @@ ${photoCredit}
 window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
 function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
 </script>
-</body>
+<script src="../../js/logo-fix.js"></script></body>
 </html>`;
 
   fs.writeFileSync(path.join(postDir, 'index.html'), postHtml);
