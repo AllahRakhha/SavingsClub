@@ -830,3 +830,16 @@ nav.scrolled .logo{
 @keyframes tipSlide{from{opacity:0;transform:translateY(-100%)}to{opacity:1;transform:translateY(0)}}
 @keyframes tipPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
 @media(max-width:768px){.tip-bar{font-size:.82rem;padding:12px 16px;text-align:center;flex-wrap:wrap}}
+/* NUCLEAR SCROLL FIX */
+html{overflow-x:hidden!important;overflow-y:scroll!important;height:auto!important}
+body{overflow-x:hidden!important;overflow-y:visible!important;height:auto!important;position:relative!important}
+.hero-shapes{pointer-events:none!important;z-index:0!important}
+.hero-shapes *{pointer-events:none!important}
+.hero{overflow:visible!important;position:relative!important}
+.hero-grid{pointer-events:none!important}
+.shape{pointer-events:none!important}
+.mobile-menu{pointer-events:none}
+.mobile-menu.open{pointer-events:auto}
+nav{position:fixed!important;z-index:9999!important}
+*::before,*::after{pointer-events:none!important}
+input,select,button,textarea,a,.btn,.hamburger,.nav-links a,.mobile-menu a,.logo{pointer-events:auto!important}
