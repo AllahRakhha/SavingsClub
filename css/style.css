@@ -47,7 +47,7 @@ nav.scrolled{background:rgba(255,255,255,.95);box-shadow:0 1px 12px rgba(10,22,4
 .hero-content{position:relative;z-index:2;max-width:720px}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.9);padding:8px 18px;border-radius:40px;font-size:.85rem;font-weight:500;margin-bottom:28px;backdrop-filter:blur(8px)}
 .hero h1{font-size:3.6rem;font-weight:800;color:#fff;margin-bottom:20px;letter-spacing:-.03em;line-height:1.1}
-.hero h1 .gradient-text{color:#34D399;-webkit-text-fill-color:#34D399;background:none;animation:none}-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero h1 .gradient-text{color:#34D399;-webkit-text-fill-color:#34D399;background:none;animation:none}
 .hero-sub{font-size:1.2rem;color:rgba(255,255,255,.65);max-width:560px;line-height:1.75;margin-bottom:40px}
 .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
 .hero-shapes{position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;pointer-events:none;z-index:1}
@@ -790,33 +790,10 @@ select{
 }
 
 
-/* ===== ANIMATED NAV BRAND TEXT ===== */
-.logo{
-  background:linear-gradient(135deg,#059669,#2563EB,#06B6D4,#059669)!important;
-  background-size:300% 300%!important;
-  -webkit-background-clip:text!important;
-  -webkit-text-fill-color:transparent!important;
-  background-clip:text!important;
-  animation:brandShift 5s ease infinite!important;
-}
-.logo .logo-mark,.logo .logo-mark *{
-  -webkit-text-fill-color:initial!important;
-  background:none!important;
-  -webkit-background-clip:initial!important;
-  background-clip:initial!important;
-}
-.logo .logo-mark{
-  background:linear-gradient(135deg,#059669,#10B981)!important;
-}
-@keyframes brandShift{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-/* Scrolled nav — keep animation */
-nav.scrolled .logo{
-  -webkit-text-fill-color:transparent!important;
-}
+/* LOGO — clean emerald */
+.logo{color:#059669!important;-webkit-text-fill-color:#059669!important}
+ 
+
 
 /* ===== FIX BLUE BAND — make it subtle ===== */
 .section-blue{
