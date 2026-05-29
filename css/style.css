@@ -820,3 +820,5 @@ body{overflow-x:hidden!important;overflow-y:visible!important;height:auto!import
 nav{position:fixed!important;z-index:9999!important}
 *::before,*::after{pointer-events:none!important}
 input,select,button,textarea,a,.btn,.hamburger,.nav-links a,.mobile-menu a,.logo{pointer-events:auto!important}
+body{animation:none!important;transform:none!important;overflow:auto!important}
+html,body{position:static!important;height:auto!important;overflow-y:auto!important}
