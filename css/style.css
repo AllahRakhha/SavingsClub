@@ -495,8 +495,8 @@ footer{border-top:3px solid transparent;border-image:linear-gradient(90deg,#2563
 .hero::after{background:radial-gradient(ellipse at 20% 80%,rgba(16,185,129,.1) 0%,transparent 60%)}
 
 /* Animated gradient on hero heading */
-.gradient-text{color:#34D399;-webkit-text-fill-color:#34D399;background:none;animation:none}
-@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+
 
 /* Stats bar glow */
 .stats-bar{border:1px solid rgba(37,99,235,.15);box-shadow:0 4px 24px rgba(37,99,235,.08)}
@@ -571,8 +571,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
 ::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#047857,#059669)}
 
 /* Page transition feel */
-body{animation:pageIn .4s ease-out}
-@keyframes pageIn{from{opacity:.9;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+body{animation:none}
 
 
 /* ===== SAVINGSCLUB PREMIUM DESIGN v4.2 ===== */
@@ -727,7 +726,7 @@ footer::before{background:linear-gradient(90deg,#059669,#10B981,#34D399,#10B981,
 .trust-dark .ti-icon{background:rgba(255,255,255,.06)!important;border:1px solid rgba(255,255,255,.08)}
 
 /* GRADIENT TEXT — emerald shift */
-.gradient-text{color:#34D399!important;-webkit-text-fill-color:#34D399!important;background:none!important;animation:none!important}
+
 
 /* TOOL CARD hover — emerald */
 .tool-card:hover h3{color:#059669!important}
@@ -790,35 +789,22 @@ select{
 }
 
 
-/* LOGO — clean emerald */
-.logo{color:#059669!important;-webkit-text-fill-color:#059669!important}
- 
-
-
 /* ===== FIX BLUE BAND — make it subtle ===== */
 .section-blue{
   background:linear-gradient(180deg,#F8FAFB 0%,#F1F5F9 100%)!important;
 }
-/* TIP OF THE DAY */
-.tip-bar{background:linear-gradient(135deg,#0A1628,#132D52);padding:14px 24px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:.92rem;color:rgba(255,255,255,.85);animation:tipSlide .8s ease-out}
-.tip-bar a{color:#34D399;font-weight:600;text-decoration:none;margin-left:4px}
-.tip-bar a:hover{text-decoration:underline}
-.tip-icon{animation:tipPulse 3s ease-in-out infinite}
-@keyframes tipSlide{from{opacity:0;transform:translateY(-100%)}to{opacity:1;transform:translateY(0)}}
-@keyframes tipPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
-@media(max-width:768px){.tip-bar{font-size:.82rem;padding:12px 16px;text-align:center;flex-wrap:wrap}}
-/* NUCLEAR SCROLL FIX */
-html{overflow-x:hidden!important;overflow-y:scroll!important;height:auto!important}
-body{overflow-x:hidden!important;overflow-y:visible!important;height:auto!important;position:relative!important}
-.hero-shapes{pointer-events:none!important;z-index:0!important}
-.hero-shapes *{pointer-events:none!important}
+
+/* SCROLL FIX */
+html{overflow-x:hidden!important;overflow-y:auto!important;height:auto!important;scroll-behavior:smooth}
+body{overflow-x:hidden!important;overflow-y:auto!important;height:auto!important;position:static!important;animation:none!important;transform:none!important}
+.hero-shapes,.hero-shapes *,.hero-grid,.shape{pointer-events:none!important}
 .hero{overflow:visible!important;position:relative!important}
-.hero-grid{pointer-events:none!important}
-.shape{pointer-events:none!important}
 .mobile-menu{pointer-events:none}
 .mobile-menu.open{pointer-events:auto}
 nav{position:fixed!important;z-index:9999!important}
 *::before,*::after{pointer-events:none!important}
-input,select,button,textarea,a,.btn,.hamburger,.nav-links a,.mobile-menu a,.logo{pointer-events:auto!important}
-body{animation:none!important;transform:none!important;overflow:auto!important}
-html,body{position:static!important;height:auto!important;overflow-y:auto!important}
+input,select,button,textarea,a,.btn,.hamburger,.nav-links a,.mobile-menu a,.logo,.quick-link,.tool-card,.blog-preview,.related-tool-link,.related-blog-card{pointer-events:auto!important}
+.tip-bar{display:none!important}
+/* LOGO */
+.logo{color:#059669!important;-webkit-text-fill-color:#059669!important;background:none!important;animation:none!important;-webkit-background-clip:initial!important}
+.gradient-text{color:#34D399!important;-webkit-text-fill-color:#34D399!important;background:none!important;animation:none!important}
