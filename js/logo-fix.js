@@ -1,4 +1,4 @@
-/* SavingsClub - Global Site Enhancements v4 (wordmark-only nav) */
+/* SavingsClub - Global Site Enhancements v5 (wordmark-only + flush-left brand) */
 (function(){
 
   /* 1. REMOVE OLD LOGO ICON — wordmark-only branding */
@@ -6,7 +6,6 @@
   for(var i=0;i<marks.length;i++){
     var parent=marks[i].parentNode;
     marks[i].remove();
-    /* Safety fallback: if parent has no text after removal, inject wordmark */
     if(parent && parent.textContent.trim()===''){
       var span=document.createElement('span');
       span.textContent='SavingsClub';
@@ -104,7 +103,7 @@
     }
   };
 
-  /* 5. REBUILD MOBILE MENU — NerdWallet style, wordmark only */
+  /* 5. REBUILD MOBILE MENU — wordmark only */
   var oldMenu=document.getElementById('mobileMenu');
   if(oldMenu){
     var menuItems=[
@@ -125,19 +124,16 @@
     oldMenu.innerHTML='';
     oldMenu.style.cssText='display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;z-index:9998;overflow-y:auto;-webkit-overflow-scrolling:touch';
 
-    /* Header — wordmark only, no icon */
     var header=document.createElement('div');
     header.style.cssText='display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid #E2E8F0';
     header.innerHTML='<span style="font-family:var(--font-head,\'Plus Jakarta Sans\',sans-serif);font-weight:800;font-size:1.3rem;color:#10B981;letter-spacing:-.01em">SavingsClub</span><button onclick="closeMobileMenu()" style="background:none;border:none;font-size:24px;color:#475569;cursor:pointer;padding:8px;line-height:1">&times;</button>';
     oldMenu.appendChild(header);
 
-    /* Search */
     var searchDiv=document.createElement('div');
     searchDiv.style.cssText='padding:16px 24px';
     searchDiv.innerHTML='<input type="text" placeholder="Search calculators, guides..." style="width:100%;padding:12px 16px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:.95rem;font-family:inherit;outline:none;background:#F8FAFC;transition:border-color .3s" onfocus="this.style.borderColor=\'#059669\'" onblur="this.style.borderColor=\'#E2E8F0\'">';
     oldMenu.appendChild(searchDiv);
 
-    /* Menu items */
     for(var i=0;i<menuItems.length;i++){
       var item=document.createElement('a');
       item.href=menuItems[i].link;
@@ -149,14 +145,12 @@
       oldMenu.appendChild(item);
     }
 
-    /* Disclaimer at bottom */
     var discDiv=document.createElement('div');
     discDiv.style.cssText='padding:20px 24px;background:#F8FAFC;margin-top:8px';
     discDiv.innerHTML='<p style="font-size:.72rem;color:#94A3B8;line-height:1.6">SavingsClub provides educational content only. We are not licensed financial advisors, tax professionals, or legal professionals. <a href="/disclaimer/" style="color:#059669;font-weight:600">Read disclaimer</a></p>';
     oldMenu.appendChild(discDiv);
   }
 
-  /* Override toggle functions */
   window.toggleMobile=function(){
     var m=document.getElementById('mobileMenu');
     if(!m)return;
@@ -184,9 +178,22 @@
   var topDisc=document.getElementById('scDisclaimer');
   if(topDisc)topDisc.remove();
 
-  /* 8. GLOBAL STYLES */
+  /* 8. GLOBAL STYLES + FORCED NAV LAYOUT (flush-left brand, flush-right controls) */
   var style=document.createElement('style');
-  style.textContent='.goog-te-banner-frame{display:none!important}.skiptranslate{display:none!important}body{top:0!important}#scSearch:focus{width:200px!important;border-color:#059669!important}.scLO{display:block;padding:10px 16px;color:#0F172A;text-decoration:none;font-size:.85rem;font-weight:500;border-bottom:1px solid #F1F5F9;transition:background .15s}.scLO:hover{background:#F0FDF4!important}.scLO:last-child{border-bottom:none}@media(max-width:768px){#scSearch{display:none!important}#scLangBtn{padding:5px 10px!important;font-size:.75rem!important}}';
+  style.textContent=
+    '.goog-te-banner-frame{display:none!important}'+
+    '.skiptranslate{display:none!important}'+
+    'body{top:0!important}'+
+    '#scSearch:focus{width:200px!important;border-color:#059669!important}'+
+    '.scLO{display:block;padding:10px 16px;color:#0F172A;text-decoration:none;font-size:.85rem;font-weight:500;border-bottom:1px solid #F1F5F9;transition:background .15s}'+
+    '.scLO:hover{background:#F0FDF4!important}'+
+    '.scLO:last-child{border-bottom:none}'+
+    'nav,header nav,.nav,.navbar{padding-left:0!important;padding-right:0!important}'+
+    'nav .nav-inner,.nav-inner,.nav-container,.navbar-inner{max-width:100%!important;width:100%!important;padding-left:14px!important;padding-right:14px!important;margin:0!important;display:flex!important;align-items:center!important;justify-content:space-between!important;box-sizing:border-box!important;gap:8px!important}'+
+    'nav .logo,.nav-logo,.navbar-brand{margin-left:0!important;padding-left:0!important;display:flex!important;align-items:center!important}'+
+    'nav .nav-links,.nav-menu,#navLinks{margin-left:auto!important;margin-right:0!important;display:flex!important;align-items:center!important;gap:8px!important}'+
+    '@media(min-width:769px){nav .nav-inner,.nav-inner,.nav-container,.navbar-inner{padding-left:24px!important;padding-right:24px!important}}'+
+    '@media(max-width:768px){#scSearch{display:none!important}#scLangBtn{padding:5px 10px!important;font-size:.75rem!important}nav .nav-inner,.nav-inner{padding-left:12px!important;padding-right:12px!important}}';
   document.head.appendChild(style);
 
 })();
