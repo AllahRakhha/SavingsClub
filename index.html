@@ -26,7 +26,7 @@
 <nav id="mainNav">
 <div class="nav-inner">
 <div class="logo" onclick="window.location='/';">
-<img src="img/sc-icon.png" alt="SavingsClub" style="height:34px;width:34px;vertical-align:middle;background:none;border:none">
+<img src="img/sc-icon.png" alt="SavingsClub" style="height:34px;width:34px;vertical-align:middle;background:transparent;border:none;mix-blend-mode:multiply">
 SavingsClub
 </div>
 <div class="nav-links" id="navLinks">
@@ -41,7 +41,6 @@ SavingsClub
 <div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
 </div>
 </nav>
-<div style="background:#F0FDF4;border-bottom:1px solid rgba(5,150,105,.1);padding:8px 24px;text-align:center;font-size:.75rem;color:#475569;line-height:1.5">SavingsClub provides educational content only. We are not licensed financial advisors, tax professionals, or legal professionals. <a href="disclaimer/" style="color:#059669;font-weight:600">Read full disclaimer</a></div>
 <div class="mobile-menu" id="mobileMenu">
 <a href="/">Home</a>
 <a href="savings-calculator/">Savings</a>
@@ -73,8 +72,8 @@ SavingsClub
 <div class="stats-bar">
 <div class="stat"><div class="stat-num" style="font-size:2rem">17</div><div class="stat-label">Free Calculators</div></div>
 <div class="stat"><div class="stat-num" style="font-size:2rem">50</div><div class="stat-label">States Covered</div></div>
-<div class="stat"><div class="stat-num" style="font-size:2rem">20+</div><div class="stat-label">Expert Guides</div></div>
-<div class="stat"><div class="stat-num" style="font-size:2rem">100%</div><div class="stat-label">Free Forever</div></div>
+<div class="stat"><div class="stat-num" style="font-size:2rem">20+</div><div class="stat-label">Personal Finance Guides</div></div>
+<div class="stat"><div class="stat-num" style="font-size:2rem">100%</div><div class="stat-label">Free</div></div>
 </div>
 </div>
 </section>
@@ -166,12 +165,12 @@ SavingsClub
 </div>
 <!-- WHY SAVINGSCLUB -->
 <section class="section section-dark"><div class="container">
-<div class="section-header reveal"><h2>Why Americans Trust SavingsClub</h2><p>Built different from day one.</p></div>
+<div class="section-header reveal"><h2>Why Choose SavingsClub</h2><p>Built different from day one.</p></div>
 <div class="grid-3">
 <div class="feature-card card reveal stagger-1">
 <div class="feature-icon" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">🔓</div>
 <h3>100% Free, No Signup</h3>
-<p>Every calculator and guide is completely free. No account needed, no email required, no paywalls. Your data stays in your browser — we never see it.</p>
+<p>Every calculator and guide is completely free. No account needed, no email required, no paywalls. Your data stays in your browser we never see it.</p>
 </div>
 <div class="feature-card card reveal stagger-2">
 <div class="feature-icon" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5)">📝</div>
@@ -255,7 +254,7 @@ SavingsClub
 <div class="container">
 <div class="footer-grid">
 <div>
-<div class="footer-brand"><img src="img/sc-icon.png" alt="SavingsClub" style="height:26px;width:26px;vertical-align:middle;background:none;border:none">SavingsClub</div>
+<div class="footer-brand"><img src="img/sc-icon.png" alt="SavingsClub" style="height:26px;width:26px;vertical-align:middle;background:transparent;border:none">SavingsClub</div>
 <p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial calculators and expert money guides for Americans in every state. Making personal finance simpler since 2026.</p>
 </div>
 <div>
@@ -332,6 +331,6 @@ b.appendChild(btnWrap);
 document.body.appendChild(b);
 })();
 </script>
-<script src="js/logo-fix.js"></script>
-<script src="js/tips.js"></script>
+<script src="js/logo-fix.js" defer></script>
+<script src="js/tips.js" defer></script>
 </body></html>
