@@ -1,21 +1,18 @@
-/* SavingsClub - Global Site Enhancements v3 */
+/* SavingsClub - Global Site Enhancements v4 (wordmark-only nav) */
 (function(){
 
-  /* 1. REPLACE OLD SVG LOGO */
+  /* 1. REMOVE OLD LOGO ICON — wordmark-only branding */
   var marks=document.querySelectorAll('.logo-mark');
   for(var i=0;i<marks.length;i++){
-    var img=document.createElement('img');
-    var path=window.location.pathname;
-    var depth=path.split('/').filter(function(x){return x.length>0}).length;
-    var prefix='';
-    if(depth===1)prefix='../';
-    if(depth===2)prefix='../../';
-    if(depth>=3)prefix='../../../';
-    if(path==='/'||path==='/index.html')prefix='';
-    img.src=prefix+'img/sc-icon.png';
-    img.alt='SavingsClub';
-    img.style.cssText='height:34px;width:34px;vertical-align:middle;background:transparent;border:none;mix-blend-mode:multiply';
-    marks[i].parentNode.replaceChild(img,marks[i]);
+    var parent=marks[i].parentNode;
+    marks[i].remove();
+    /* Safety fallback: if parent has no text after removal, inject wordmark */
+    if(parent && parent.textContent.trim()===''){
+      var span=document.createElement('span');
+      span.textContent='SavingsClub';
+      span.style.cssText='font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-weight:800;font-size:1.4rem;color:#10B981;letter-spacing:-.01em;line-height:1';
+      parent.appendChild(span);
+    }
   }
 
   /* 2. REMOVE ABOUT & FAQ FROM TOP NAV */
@@ -107,7 +104,7 @@
     }
   };
 
-  /* 5. REBUILD MOBILE MENU — NerdWallet style */
+  /* 5. REBUILD MOBILE MENU — NerdWallet style, wordmark only */
   var oldMenu=document.getElementById('mobileMenu');
   if(oldMenu){
     var menuItems=[
@@ -128,10 +125,10 @@
     oldMenu.innerHTML='';
     oldMenu.style.cssText='display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;z-index:9998;overflow-y:auto;-webkit-overflow-scrolling:touch';
 
-    /* Header */
+    /* Header — wordmark only, no icon */
     var header=document.createElement('div');
     header.style.cssText='display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid #E2E8F0';
-    header.innerHTML='<div style="display:flex;align-items:center;gap:10px"><img src="/img/sc-icon.png" alt="SC" style="height:32px;width:32px;mix-blend-mode:multiply"><span style="font-family:var(--font-head);font-weight:800;font-size:1.2rem;color:#0A1628">SavingsClub</span></div><button onclick="closeMobileMenu()" style="background:none;border:none;font-size:24px;color:#475569;cursor:pointer;padding:8px;line-height:1">&times;</button>';
+    header.innerHTML='<span style="font-family:var(--font-head,\'Plus Jakarta Sans\',sans-serif);font-weight:800;font-size:1.3rem;color:#10B981;letter-spacing:-.01em">SavingsClub</span><button onclick="closeMobileMenu()" style="background:none;border:none;font-size:24px;color:#475569;cursor:pointer;padding:8px;line-height:1">&times;</button>';
     oldMenu.appendChild(header);
 
     /* Search */
