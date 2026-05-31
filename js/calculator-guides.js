@@ -1,11 +1,8 @@
-/* SavingsClub - Calculator Guides v2 (safer: hides old content, forces visibility) */
+/* SavingsClub - Calculator Guides v3 (hides empty containers, adds CTA box, full 401k guide) */
 (function(){
 
   var path=window.location.pathname.toLowerCase();
 
-  /* ============================================================
-     CALCULATOR DATA
-     ============================================================ */
   var GUIDES={
 
     '401k-calculator':{
@@ -73,62 +70,44 @@
         {title:'Paycheck Calculator',desc:'See how 401(k) contributions affect your take-home pay each pay period.',url:'/paycheck-calculator/',icon:'💵'}
       ]
     }
+
   };
 
   /* ============================================================
-     FIX 1: REMOVE DUPLICATE DISCLAIMER IN FOOTER (runs on every page)
-     logo-fix.js adds one; HTML may already have one. Remove dupes.
+     RUNS ON EVERY PAGE: HIDE EMPTY LEFTOVER CONTAINERS
      ============================================================ */
-  setTimeout(function(){
-    var allDiscs=document.querySelectorAll('footer p, footer div');
-    var found=0;
-    for(var i=0;i<allDiscs.length;i++){
-      var txt=allDiscs[i].textContent||'';
-      if(txt.indexOf('Important Disclaimer')>-1 && txt.indexOf('not licensed financial advisors')>-1){
-        found++;
-        if(found>1){
-          /* keep the first, remove subsequent ones — find the right container to remove */
-          var n=allDiscs[i];
-          /* climb up to a likely "section" wrapper (max 3 levels) */
-          var target=n;
-          for(var c=0;c<3;c++){
-            if(target.parentNode && target.parentNode.tagName!=='FOOTER' && target.parentNode.children.length===1){target=target.parentNode;}
-          }
-          if(target.parentNode)target.parentNode.removeChild(target);
+  function hideEmptyContainers(){
+    /* Look for elements that are visible but have no text content (empty leftover boxes) */
+    var candidates=document.querySelectorAll('main div, main section, main article, .container > div, .container > section');
+    for(var i=0;i<candidates.length;i++){
+      var el=candidates[i];
+      /* Skip our own injected content */
+      if(el.classList && (el.classList.contains('sc-guide') || el.classList.contains('sc-cta-box') || el.closest('.sc-guide')))continue;
+      /* Skip if it has meaningful children (forms, canvas, svg, img with src, buttons) */
+      if(el.querySelector('input,canvas,svg,img[src],button,form,h1,h2,h3,h4,p,a,ul,ol,table'))continue;
+      /* Check if visually styled like a card but empty */
+      var txt=(el.textContent||'').trim();
+      var hasBackground=false;
+      try{
+        var cs=getComputedStyle(el);
+        var bg=cs.backgroundColor||'';
+        var border=cs.border||cs.borderTop||'';
+        var hasBorder=border && border.indexOf('0px')===-1 && border!=='none';
+        var rect=el.getBoundingClientRect();
+        if(txt.length<5 && rect.height>10 && rect.height<200 && rect.width>200 && (hasBorder||(bg && bg.indexOf('rgba(0, 0, 0, 0)')===-1 && bg!=='transparent'))){
+          el.style.display='none';
         }
-      }
+      }catch(e){}
     }
-  },100);
+  }
+
+  /* Run twice to catch late-rendered content */
+  if(document.readyState==='complete'){hideEmptyContainers();}
+  else{window.addEventListener('load',function(){setTimeout(hideEmptyContainers,300);});}
+  setTimeout(hideEmptyContainers,1500);
 
   /* ============================================================
-     FIX 2: ENSURE FAQ LINK IS IN FOOTER RESOURCES (runs on every page)
-     ============================================================ */
-  setTimeout(function(){
-    var footerLinks=document.querySelectorAll('footer a');
-    var hasFAQ=false;
-    var resourcesCol=null;
-    for(var i=0;i<footerLinks.length;i++){
-      var href=footerLinks[i].getAttribute('href')||'';
-      var txt=footerLinks[i].textContent.trim();
-      if(href.indexOf('/faq')>-1 || txt==='FAQ'){hasFAQ=true;break;}
-      if(href.indexOf('/about')>-1 || href.indexOf('/contact')>-1){resourcesCol=footerLinks[i].parentNode;}
-    }
-    if(!hasFAQ && resourcesCol){
-      var faqLink=document.createElement('a');
-      faqLink.href='/faq/';
-      faqLink.textContent='FAQ';
-      /* Match style of nearby links */
-      var sample=resourcesCol.querySelector('a');
-      if(sample){faqLink.className=sample.className;faqLink.style.cssText=sample.getAttribute('style')||'';}
-      /* Wrap in same container type as siblings */
-      var wrapper=document.createElement(resourcesCol.tagName==='UL'?'li':'div');
-      wrapper.appendChild(faqLink);
-      resourcesCol.appendChild(wrapper);
-    }
-  },150);
-
-  /* ============================================================
-     FIX 3: GUIDE INJECTION (only on calculator pages with data)
+     ONLY ON CALCULATOR PAGES WITH GUIDES — RUN FULL GUIDE LOGIC
      ============================================================ */
   var currentCalc=null;
   for(var key in GUIDES){
@@ -136,18 +115,12 @@
       currentCalc=key;break;
     }
   }
-  if(!currentCalc){console.log('[SC Guides] Not a guided calculator page');return;}
+  if(!currentCalc){return;}
 
   var data=GUIDES[currentCalc];
   if(!data)return;
 
-  /* HIDE old content with CSS instead of removing it — safer */
-  var hideStyle=document.createElement('style');
-  hideStyle.id='sc-hide-old';
-  hideStyle.textContent='';  /* will be filled below */
-  document.head.appendChild(hideStyle);
-
-  /* Wait for DOM to be settled, then hide old sections by matching their headings */
+  /* Hide old hardcoded calculator-specific content sections */
   function hideOldContent(){
     var oldHeadings=[
       'how does a 401',
@@ -158,17 +131,14 @@
       'frequently asked questions',
       'related guides'
     ];
-    var allHeads=document.querySelectorAll('main h2, main h3, article h2, article h3, .container h2, .container h3, section h2, section h3');
-    /* If main/article not present, fall back to all h2/h3 except inside our guide */
-    if(allHeads.length===0){allHeads=document.querySelectorAll('body > * h2, body > * h3');}
+    var allHeads=document.querySelectorAll('h2, h3');
     for(var i=0;i<allHeads.length;i++){
       var h=allHeads[i];
-      /* Skip our own guide headings */
       if(h.closest && h.closest('.sc-guide'))continue;
+      if(h.closest && h.closest('footer'))continue;
       var t=h.textContent.trim().toLowerCase();
       for(var j=0;j<oldHeadings.length;j++){
         if(t.indexOf(oldHeadings[j])>-1){
-          /* Hide this heading AND the following siblings until next h2 */
           h.style.display='none';
           var sib=h.nextElementSibling;
           while(sib){
@@ -182,12 +152,15 @@
     }
   }
 
-  /* ============================================================
-     INJECT GUIDE STYLES
-     ============================================================ */
+  /* GUIDE STYLES */
   var s=document.createElement('style');
   s.textContent=
-    '.sc-guide{display:block!important;visibility:visible!important;opacity:1!important;position:relative;z-index:5;max-width:1100px;margin:60px auto 40px;padding:40px 20px;font-family:var(--font-body,"DM Sans",sans-serif);color:#0F172A;background:#fff;border-radius:24px;box-shadow:0 4px 20px rgba(10,22,40,.06)}'+
+    '.sc-cta-box{display:block;max-width:1100px;margin:30px auto;padding:32px 24px;background:linear-gradient(135deg,#059669 0%,#10B981 100%);border-radius:20px;color:#fff;text-align:center;box-shadow:0 8px 24px rgba(16,185,129,.25)}'+
+    '.sc-cta-box h3{font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-size:1.5rem;font-weight:800;margin:0 0 8px;color:#fff}'+
+    '.sc-cta-box p{font-size:1rem;color:rgba(255,255,255,.92);margin:0 0 20px;line-height:1.6}'+
+    '.sc-cta-btn{display:inline-block;background:#fff;color:#059669;padding:12px 28px;border-radius:50px;font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-weight:700;text-decoration:none;font-size:.95rem;transition:transform .2s,box-shadow .2s}'+
+    '.sc-cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.15)}'+
+    '.sc-guide{display:block!important;visibility:visible!important;opacity:1!important;position:relative;z-index:5;max-width:1100px;margin:40px auto;padding:40px 24px;font-family:var(--font-body,"DM Sans",sans-serif);color:#0F172A;background:#fff;border-radius:24px;box-shadow:0 4px 20px rgba(10,22,40,.06)}'+
     '.sc-guide h2{font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-size:1.85rem;font-weight:800;color:#0A1628;margin:50px 0 16px;letter-spacing:-.02em;line-height:1.2}'+
     '.sc-guide h2:first-child{margin-top:0}'+
     '.sc-guide h3{font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-size:1.15rem;font-weight:700;color:#0A1628;margin:24px 0 8px}'+
@@ -203,7 +176,7 @@
     '.sc-procons-col{background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:24px;box-shadow:0 1px 3px rgba(10,22,40,.04)}'+
     '.sc-procons-col.pros{border-top:4px solid #10B981}'+
     '.sc-procons-col.cons{border-top:4px solid #EF4444}'+
-    '.sc-procons-heading{font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-size:1.25rem;font-weight:800;margin:0 0 4px;display:flex;align-items:center;gap:8px}'+
+    '.sc-procons-heading{font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-size:1.25rem;font-weight:800;margin:0 0 4px}'+
     '.sc-procons-heading.pros{color:#059669}'+
     '.sc-procons-heading.cons{color:#DC2626}'+
     '.sc-procons-sub{font-size:.85rem;color:#94A3B8;margin:0 0 18px}'+
@@ -227,8 +200,10 @@
     '.sc-rc-title{font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-weight:800;color:#0A1628;font-size:1.05rem;margin:0 0 6px}'+
     '.sc-rc-desc{font-size:.86rem;color:#64748B;line-height:1.6;margin:0}'+
     '@media(max-width:768px){'+
-      '.sc-guide{margin:30px 14px;padding:24px 18px;border-radius:18px}'+
-      '.sc-guide h2{font-size:1.45rem;margin:36px 0 12px}'+
+      '.sc-guide{margin:24px 12px;padding:24px 16px;border-radius:18px}'+
+      '.sc-guide h2{font-size:1.4rem;margin:32px 0 12px}'+
+      '.sc-cta-box{margin:24px 12px;padding:24px 18px}'+
+      '.sc-cta-box h3{font-size:1.2rem}'+
       '.sc-howto{padding:20px}'+
       '.sc-procons{grid-template-columns:1fr;gap:16px}'+
       '.sc-procons-col{padding:20px}'+
@@ -238,6 +213,14 @@
   document.head.appendChild(s);
 
   function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+  function buildCTABox(){
+    return '<div class="sc-cta-box" id="sc-cta-box">'+
+      '<h3>Explore More Free Financial Calculators</h3>'+
+      '<p>Make smarter decisions about retirement, debt, savings, and more — all 17 calculators free, no signup required.</p>'+
+      '<a href="#all-calculators" class="sc-cta-btn" onclick="document.querySelector(\'.calculator-grid,.all-calculators,h2\')&&document.querySelector(\'.calculator-grid,.all-calculators,h2\').scrollIntoView({behavior:\'smooth\'});return false;">See All Calculators →</a>'+
+      '</div>';
+  }
 
   function buildGuide(){
     var html='<section class="sc-guide" id="sc-guide-block">';
@@ -289,15 +272,9 @@
   }
 
   function injectGuide(){
-    /* Don't double-inject */
     if(document.getElementById('sc-guide-block'))return;
 
-    var wrapper=document.createElement('div');
-    wrapper.innerHTML=buildGuide();
-    var guideEl=wrapper.firstChild;
-
-    /* PREFERRED placement: directly after the calculator container.
-       Look for known calculator wrappers. */
+    /* Anchor: after the main calculator area */
     var anchor=document.querySelector('.calculator-section')
             ||document.querySelector('.calculator-card')
             ||document.querySelector('.calc-wrapper')
@@ -305,20 +282,32 @@
             ||document.querySelector('main')
             ||document.querySelector('.container');
 
-    if(anchor && anchor.parentNode){
-      /* Insert AFTER the calculator/main content */
-      if(anchor.nextSibling){anchor.parentNode.insertBefore(guideEl,anchor.nextSibling);}
-      else{anchor.parentNode.appendChild(guideEl);}
+    /* First insert CTA box */
+    if(!document.getElementById('sc-cta-box')){
+      var ctaWrap=document.createElement('div');
+      ctaWrap.innerHTML=buildCTABox();
+      var ctaEl=ctaWrap.firstChild;
+      if(anchor && anchor.parentNode){
+        if(anchor.nextSibling){anchor.parentNode.insertBefore(ctaEl,anchor.nextSibling);}
+        else{anchor.parentNode.appendChild(ctaEl);}
+      }
+    }
+
+    /* Then insert main guide after CTA */
+    var guideWrap=document.createElement('div');
+    guideWrap.innerHTML=buildGuide();
+    var guideEl=guideWrap.firstChild;
+    var insertAfter=document.getElementById('sc-cta-box')||anchor;
+    if(insertAfter && insertAfter.parentNode){
+      if(insertAfter.nextSibling){insertAfter.parentNode.insertBefore(guideEl,insertAfter.nextSibling);}
+      else{insertAfter.parentNode.appendChild(guideEl);}
     }else{
-      /* Last resort: before footer */
       var footer=document.querySelector('footer');
       if(footer && footer.parentNode){footer.parentNode.insertBefore(guideEl,footer);}
       else{document.body.appendChild(guideEl);}
     }
 
-    console.log('[SC Guides] Injected at:',guideEl.parentNode?guideEl.parentNode.tagName+'.'+(guideEl.parentNode.className||''):'body');
-
-    /* Add FAQ schema for SEO */
+    /* FAQ schema for SEO */
     var faqSchema={
       "@context":"https://schema.org",
       "@type":"FAQPage",
@@ -332,7 +321,6 @@
     document.head.appendChild(schemaScript);
   }
 
-  /* Run hide + inject after page is fully loaded so we don't interfere with calculator JS */
   if(document.readyState==='complete'){
     hideOldContent();injectGuide();
   }else{
