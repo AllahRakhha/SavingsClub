@@ -1,7 +1,39 @@
-/* SavingsClub - Global Site Enhancements v7 (mobile hamburger pushed right) */
+/* SavingsClub - Global Site Enhancements v9
+   - Mobile nav order: [SavingsClub] [search icon] [EN] [hamburger]
+   - Full-screen mobile search overlay with popular calculators
+   - Smart disclaimer (exactly ONE per page) */
 (function(){
 
-  /* 1. REMOVE SC LOGO ICON — target both old .logo-mark SVG AND new <img> tags */
+  /* Shared pages list (used by both desktop search and mobile search overlay) */
+  var pages=[
+    {t:"Savings Calculator",u:"/savings-calculator/",k:"savings interest apy",i:"\uD83D\uDCB0"},
+    {t:"Budget Planner",u:"/budget-planner/",k:"budget 50 30 20 spending",i:"\uD83D\uDCCA"},
+    {t:"Debt Payoff Calculator",u:"/debt-payoff-calculator/",k:"debt payoff snowball",i:"\uD83D\uDD25"},
+    {t:"Mortgage Calculator",u:"/mortgage-calculator/",k:"mortgage home loan",i:"\uD83C\uDFE0"},
+    {t:"Compound Interest",u:"/compound-interest-calculator/",k:"compound interest",i:"\uD83D\uDCC8"},
+    {t:"Retirement Calculator",u:"/retirement-calculator/",k:"retirement pension",i:"\uD83C\uDF34"},
+    {t:"Investment Calculator",u:"/investment-calculator/",k:"investment stocks",i:"\uD83D\uDCB9"},
+    {t:"Credit Card Payoff",u:"/credit-card-payoff-calculator/",k:"credit card payoff",i:"\uD83D\uDCB3"},
+    {t:"401(k) Calculator",u:"/401k-calculator/",k:"401k employer match",i:"\uD83C\uDFE6"},
+    {t:"Roth IRA Calculator",u:"/roth-ira-calculator/",k:"roth ira tax free",i:"\uD83D\uDCCB"},
+    {t:"Inflation Calculator",u:"/inflation-calculator/",k:"inflation purchasing",i:"\uD83D\uDCC9"},
+    {t:"Loan Payoff",u:"/loan-payoff-calculator/",k:"loan payoff personal",i:"\uD83D\uDCB5"},
+    {t:"Paycheck Calculator",u:"/paycheck-calculator/",k:"paycheck take home",i:"\uD83D\uDCB5"},
+    {t:"CD Calculator",u:"/cd-calculator/",k:"cd certificate deposit",i:"\uD83D\uDD12"},
+    {t:"Auto Loan Calculator",u:"/auto-loan-calculator/",k:"auto car loan",i:"\uD83D\uDE97"},
+    {t:"Emergency Fund",u:"/emergency-fund-calculator/",k:"emergency fund",i:"\uD83D\uDEE1\uFE0F"},
+    {t:"Net Worth Calculator",u:"/net-worth-calculator/",k:"net worth assets",i:"\uD83D\uDCB0"},
+    {t:"Credit Card Quiz",u:"/credit-card-quiz/",k:"credit card best",i:"\u2753"},
+    {t:"Financial Health",u:"/financial-health-score/",k:"financial health",i:"\u2764\uFE0F"},
+    {t:"Banking",u:"/banking/",k:"bank checking savings",i:"\uD83C\uDFE6"},
+    {t:"Credit Cards",u:"/credit-cards/",k:"credit card compare",i:"\uD83D\uDCB3"},
+    {t:"Blog",u:"/blog/",k:"blog articles guides",i:"\uD83D\uDCD6"},
+    {t:"About",u:"/about/",k:"about mission",i:"\u2139\uFE0F"},
+    {t:"Contact",u:"/contact/",k:"contact email",i:"\u2709\uFE0F"},
+    {t:"FAQ",u:"/faq/",k:"faq questions",i:"\u2753"}
+  ];
+
+  /* 1. REMOVE SC LOGO ICON */
   var marks=document.querySelectorAll('.logo-mark');
   for(var i=0;i<marks.length;i++){marks[i].remove();}
   var navImgs=document.querySelectorAll('nav img, header img');
@@ -28,41 +60,15 @@
     }
   }
 
-  /* 3. ADD SEARCH — desktop only, skip if exists */
+  /* 3. DESKTOP SEARCH BAR */
   if(!document.getElementById('scSearch')){
     var navInner=document.querySelector('.nav-links');
     if(navInner){
       var searchWrap=document.createElement('div');
+      searchWrap.id='scSearchWrap';
       searchWrap.style.cssText='position:relative;margin-left:8px';
       searchWrap.innerHTML='<input type="text" id="scSearch" placeholder="Search..." style="width:140px;padding:7px 12px 7px 32px;border:1.5px solid #E2E8F0;border-radius:50px;font-size:.82rem;font-family:inherit;outline:none;transition:all .3s;background:#F8FAFC url(\'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2214%22 height=%2214%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2394A3B8%22 stroke-width=%222.5%22 stroke-linecap=%22round%22><circle cx=%2211%22 cy=%2211%22 r=%228%22/><line x1=%2221%22 y1=%2221%22 x2=%2216.65%22 y2=%2216.65%22/></svg>\') no-repeat 10px center"><div id="scResults" style="display:none;position:absolute;top:42px;right:0;width:320px;max-height:400px;overflow-y:auto;background:#fff;border:1px solid #E2E8F0;border-radius:12px;box-shadow:0 8px 30px rgba(10,22,40,.12);z-index:99999;padding:8px"></div>';
       navInner.appendChild(searchWrap);
-      var pages=[
-        {t:"Savings Calculator",u:"/savings-calculator/",k:"savings interest apy"},
-        {t:"Budget Planner",u:"/budget-planner/",k:"budget 50 30 20 spending"},
-        {t:"Debt Payoff Calculator",u:"/debt-payoff-calculator/",k:"debt payoff snowball"},
-        {t:"Mortgage Calculator",u:"/mortgage-calculator/",k:"mortgage home loan"},
-        {t:"Compound Interest",u:"/compound-interest-calculator/",k:"compound interest"},
-        {t:"Retirement Calculator",u:"/retirement-calculator/",k:"retirement pension"},
-        {t:"Investment Calculator",u:"/investment-calculator/",k:"investment stocks"},
-        {t:"Credit Card Payoff",u:"/credit-card-payoff-calculator/",k:"credit card payoff"},
-        {t:"401(k) Calculator",u:"/401k-calculator/",k:"401k employer match"},
-        {t:"Roth IRA Calculator",u:"/roth-ira-calculator/",k:"roth ira tax free"},
-        {t:"Inflation Calculator",u:"/inflation-calculator/",k:"inflation purchasing"},
-        {t:"Loan Payoff",u:"/loan-payoff-calculator/",k:"loan payoff personal"},
-        {t:"Paycheck Calculator",u:"/paycheck-calculator/",k:"paycheck take home"},
-        {t:"CD Calculator",u:"/cd-calculator/",k:"cd certificate deposit"},
-        {t:"Auto Loan Calculator",u:"/auto-loan-calculator/",k:"auto car loan"},
-        {t:"Emergency Fund",u:"/emergency-fund-calculator/",k:"emergency fund"},
-        {t:"Net Worth Calculator",u:"/net-worth-calculator/",k:"net worth assets"},
-        {t:"Credit Card Quiz",u:"/credit-card-quiz/",k:"credit card best"},
-        {t:"Financial Health",u:"/financial-health-score/",k:"financial health"},
-        {t:"Banking",u:"/banking/",k:"bank checking savings"},
-        {t:"Credit Cards",u:"/credit-cards/",k:"credit card compare"},
-        {t:"Blog",u:"/blog/",k:"blog articles guides"},
-        {t:"About",u:"/about/",k:"about mission"},
-        {t:"Contact",u:"/contact/",k:"contact email"},
-        {t:"FAQ",u:"/faq/",k:"faq questions"}
-      ];
       var input=document.getElementById('scSearch');
       var results=document.getElementById('scResults');
       input.addEventListener('focus',function(){this.style.width='200px';this.style.borderColor='#059669';this.style.boxShadow='0 0 0 3px rgba(5,150,105,.1)';});
@@ -78,11 +84,12 @@
     }
   }
 
-  /* 4. LANGUAGE TOGGLE — skip if exists */
+  /* 4. LANGUAGE TOGGLE */
   if(!document.getElementById('scLangBtn')){
     var nav=document.querySelector('nav .nav-inner');
     if(nav){
       var langBtn=document.createElement('div');
+      langBtn.id='scLangWrap';
       langBtn.style.cssText='margin-left:8px;position:relative';
       langBtn.innerHTML='<button id="scLangBtn" style="background:transparent;border:1.5px solid #E2E8F0;border-radius:50px;padding:6px 14px;font-size:.8rem;font-weight:600;color:#475569;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:4px;transition:all .3s" onclick="var m=document.getElementById(\'scLangMenu\');m.style.display=m.style.display===\'block\'?\'none\':\'block\';">\uD83C\uDF10 EN</button><div id="scLangMenu" style="display:none;position:absolute;top:40px;right:0;background:#fff;border:1px solid #E2E8F0;border-radius:12px;box-shadow:0 8px 24px rgba(10,22,40,.1);z-index:99999;overflow:hidden;min-width:160px"><a href="#" onclick="doTranslate(\'en\');return false;" class="scLO">\uD83C\uDDFA\uD83C\uDDF8 English</a><a href="#" onclick="doTranslate(\'es\');return false;" class="scLO">\uD83C\uDDEA\uD83C\uDDF8 Espa\u00F1ol</a><a href="#" onclick="doTranslate(\'fr\');return false;" class="scLO">\uD83C\uDDEB\uD83C\uDDF7 Fran\u00E7ais</a><a href="#" onclick="doTranslate(\'ar\');return false;" class="scLO">\uD83C\uDDF8\uD83C\uDDE6 \u0627\u0644\u0639\u0631\u0628\u064A\u0629</a><a href="#" onclick="doTranslate(\'zh-CN\');return false;" class="scLO">\uD83C\uDDE8\uD83C\uDDF3 \u4E2D\u6587</a><a href="#" onclick="doTranslate(\'hi\');return false;" class="scLO">\uD83C\uDDEE\uD83C\uDDF3 \u0939\u093F\u0928\u094D\u0926\u0940</a><a href="#" onclick="doTranslate(\'pt\');return false;" class="scLO">\uD83C\uDDE7\uD83C\uDDF7 Portugu\u00EAs</a><a href="#" onclick="doTranslate(\'ko\');return false;" class="scLO">\uD83C\uDDF0\uD83C\uDDF7 \uD55C\uAD6D\uC5B4</a><a href="#" onclick="doTranslate(\'ur\');return false;" class="scLO">\uD83C\uDDF5\uD83C\uDDF0 \u0627\u0631\u062F\u0648</a></div>';
       nav.appendChild(langBtn);
@@ -110,7 +117,108 @@
     }
   };
 
-  /* 5. REBUILD MOBILE MENU — wordmark only */
+  /* 5. ADD MOBILE SEARCH ICON BUTTON (visible on mobile only) */
+  if(!document.getElementById('scMobileSearchBtn')){
+    var navForBtn=document.querySelector('nav .nav-inner');
+    if(navForBtn){
+      var msBtn=document.createElement('button');
+      msBtn.id='scMobileSearchBtn';
+      msBtn.setAttribute('aria-label','Search');
+      msBtn.onclick=function(){openSearchOverlay();};
+      msBtn.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>';
+      msBtn.style.cssText='display:none;background:transparent;border:1.5px solid #E2E8F0;border-radius:50%;width:36px;height:36px;cursor:pointer;color:#475569;align-items:center;justify-content:center;padding:0;margin:0 4px';
+      navForBtn.appendChild(msBtn);
+    }
+  }
+
+  /* 6. BUILD FULL-SCREEN SEARCH OVERLAY (hidden by default) */
+  if(!document.getElementById('scSearchOverlay')){
+    var ov=document.createElement('div');
+    ov.id='scSearchOverlay';
+    ov.style.cssText='display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;z-index:9999;overflow-y:auto;-webkit-overflow-scrolling:touch';
+
+    var ovHeader=document.createElement('div');
+    ovHeader.style.cssText='display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid #E2E8F0;position:sticky;top:0;background:#fff;z-index:2';
+    ovHeader.innerHTML=
+      '<div style="position:relative;flex:1">'+
+        '<input type="text" id="scOvSearch" placeholder="Search calculators, guides..." style="width:100%;padding:12px 16px 12px 42px;border:1.5px solid #10B981;border-radius:50px;font-size:1rem;font-family:inherit;outline:none;background:#F8FAFC;box-sizing:border-box">'+
+        '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);pointer-events:none"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>'+
+      '</div>'+
+      '<button onclick="closeSearchOverlay()" aria-label="Close search" style="background:#F1F5F9;border:none;width:38px;height:38px;border-radius:50%;font-size:20px;color:#475569;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0">&times;</button>';
+    ov.appendChild(ovHeader);
+
+    var ovBody=document.createElement('div');
+    ovBody.style.cssText='padding:20px 18px 40px';
+
+    var hLabel=document.createElement('div');
+    hLabel.id='scOvLabel';
+    hLabel.style.cssText='font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-size:.78rem;font-weight:700;color:#94A3B8;letter-spacing:.08em;text-transform:uppercase;margin:6px 0 14px';
+    hLabel.textContent='Popular Calculators';
+    ovBody.appendChild(hLabel);
+
+    var grid=document.createElement('div');
+    grid.id='scOvGrid';
+    grid.style.cssText='display:grid;grid-template-columns:1fr 1fr;gap:12px';
+    /* Show popular calculators by default */
+    var popular=['savings-calculator','mortgage-calculator','401k-calculator','retirement-calculator','debt-payoff-calculator','compound-interest-calculator','budget-planner','investment-calculator'];
+    function renderGrid(matches){
+      grid.innerHTML='';
+      for(var i=0;i<matches.length;i++){
+        var p=matches[i];
+        var card=document.createElement('a');
+        card.href=p.u;
+        card.style.cssText='display:flex;align-items:center;gap:10px;padding:14px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:14px;text-decoration:none;color:#0F172A;font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-weight:600;font-size:.9rem;transition:all .2s';
+        card.innerHTML='<span style="font-size:1.4rem;flex-shrink:0">'+p.i+'</span><span style="line-height:1.3">'+p.t+'</span>';
+        grid.appendChild(card);
+      }
+      if(matches.length===0){
+        grid.innerHTML='<div style="grid-column:1/-1;padding:32px 16px;text-align:center;color:#94A3B8;font-size:.95rem">No results found. Try a different search term.</div>';
+      }
+    }
+    /* Initial: popular */
+    var initial=[];
+    for(var i=0;i<popular.length;i++){
+      for(var j=0;j<pages.length;j++){if(pages[j].u.indexOf(popular[i])>-1){initial.push(pages[j]);break;}}
+    }
+    renderGrid(initial);
+    ovBody.appendChild(grid);
+    ov.appendChild(ovBody);
+    document.body.appendChild(ov);
+
+    /* Live filter */
+    setTimeout(function(){
+      var ovInput=document.getElementById('scOvSearch');
+      if(!ovInput)return;
+      ovInput.addEventListener('input',function(){
+        var q=this.value.toLowerCase().trim();
+        var label=document.getElementById('scOvLabel');
+        if(q.length<1){
+          label.textContent='Popular Calculators';
+          renderGrid(initial);
+          return;
+        }
+        label.textContent='Search Results';
+        var matches=pages.filter(function(p){return p.t.toLowerCase().indexOf(q)>-1||p.k.indexOf(q)>-1;});
+        renderGrid(matches);
+      });
+    },50);
+  }
+
+  window.openSearchOverlay=function(){
+    var ov=document.getElementById('scSearchOverlay');
+    if(!ov)return;
+    ov.style.display='block';
+    document.body.style.overflow='hidden';
+    setTimeout(function(){var i=document.getElementById('scOvSearch');if(i)i.focus();},80);
+  };
+  window.closeSearchOverlay=function(){
+    var ov=document.getElementById('scSearchOverlay');
+    if(!ov)return;
+    ov.style.display='none';
+    document.body.style.overflow='';
+  };
+
+  /* 7. REBUILD MOBILE MENU (drawer) */
   var oldMenu=document.getElementById('mobileMenu');
   if(oldMenu){
     var menuItems=[
@@ -138,7 +246,7 @@
 
     var searchDiv=document.createElement('div');
     searchDiv.style.cssText='padding:16px 24px';
-    searchDiv.innerHTML='<input type="text" placeholder="Search calculators, guides..." style="width:100%;padding:12px 16px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:.95rem;font-family:inherit;outline:none;background:#F8FAFC;transition:border-color .3s" onfocus="this.style.borderColor=\'#059669\'" onblur="this.style.borderColor=\'#E2E8F0\'">';
+    searchDiv.innerHTML='<button onclick="closeMobileMenu();openSearchOverlay()" style="width:100%;padding:12px 16px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:.95rem;font-family:inherit;background:#F8FAFC;color:#94A3B8;text-align:left;cursor:pointer;display:flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search calculators, guides...</button>';
     oldMenu.appendChild(searchDiv);
 
     for(var i=0;i<menuItems.length;i++){
@@ -147,8 +255,6 @@
       item.style.cssText='display:flex;align-items:center;gap:16px;padding:18px 24px;color:#0F172A;text-decoration:none;font-family:var(--font-head);font-weight:600;font-size:1.05rem;border-bottom:1px solid #F1F5F9;transition:background .15s';
       item.innerHTML='<span style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:#F0FDF4;border-radius:10px;flex-shrink:0">'+menuItems[i].icon+'</span>'+menuItems[i].text+'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#CBD5E1" stroke-width="2" style="margin-left:auto"><polyline points="9 18 15 12 9 6"/></svg>';
       item.addEventListener('click',function(){closeMobileMenu();});
-      item.onmouseover=function(){this.style.background='#F8FAFC';};
-      item.onmouseout=function(){this.style.background='transparent';};
       oldMenu.appendChild(item);
     }
 
@@ -171,21 +277,50 @@
     document.body.style.overflow='';
   };
 
-  /* 6. DISCLAIMER IN FOOTER */
-  var footerBottom=document.querySelector('.footer-bottom');
-  if(footerBottom&&!document.getElementById('scFooterDisclaimer')){
-    var disc=document.createElement('div');
-    disc.id='scFooterDisclaimer';
-    disc.style.cssText='border-top:1px solid rgba(255,255,255,.08);padding-top:20px;margin-bottom:20px';
-    disc.innerHTML='<p style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.7;max-width:900px"><strong style="color:rgba(255,255,255,.5)">Important Disclaimer:</strong> SavingsClub provides free financial calculators and educational content for informational purposes only. We are not licensed financial advisors, tax professionals, investment advisors, or legal professionals. The information on this website should not be considered as professional financial advice. All financial decisions should be made after consulting with qualified licensed professionals. Calculator results are estimates. Past performance does not guarantee future results. <a href="/disclaimer/" style="color:rgba(255,255,255,.45)">Read full disclaimer</a></p>';
-    footerBottom.parentNode.insertBefore(disc,footerBottom);
+  /* 8. SMART FOOTER DISCLAIMER (exactly ONE per page) */
+  function manageDisclaimer(){
+    var footer=document.querySelector('footer');
+    if(!footer)return;
+    var allDescendants=footer.querySelectorAll('p, div');
+    var disclaimerNodes=[];
+    for(var i=0;i<allDescendants.length;i++){
+      var txt=allDescendants[i].textContent||'';
+      if(txt.indexOf('Important Disclaimer')>-1 && txt.indexOf('not licensed')>-1){
+        var alreadyCounted=false;
+        for(var k=0;k<disclaimerNodes.length;k++){
+          if(disclaimerNodes[k].contains && disclaimerNodes[k].contains(allDescendants[i])){alreadyCounted=true;break;}
+        }
+        if(!alreadyCounted){disclaimerNodes.push(allDescendants[i]);}
+      }
+    }
+    if(disclaimerNodes.length===0){
+      var footerBottom=document.querySelector('.footer-bottom');
+      var disc=document.createElement('div');
+      disc.id='scFooterDisclaimer';
+      disc.style.cssText='border-top:1px solid rgba(255,255,255,.08);padding-top:20px;margin:20px 0;max-width:1200px;margin-left:auto;margin-right:auto;padding-left:20px;padding-right:20px;box-sizing:border-box';
+      disc.innerHTML='<p style="font-size:.78rem;color:rgba(255,255,255,.45);line-height:1.7;max-width:900px;margin:0"><strong style="color:rgba(255,255,255,.65)">Important Disclaimer:</strong> SavingsClub provides free financial calculators and educational content for informational purposes only. We are not licensed financial advisors, tax professionals, investment advisors, or legal professionals. The information on this website should not be considered as professional financial advice. All financial decisions should be made after consulting with qualified licensed professionals. Calculator results are estimates. Past performance does not guarantee future results. <a href="/disclaimer/" style="color:rgba(255,255,255,.55);text-decoration:underline">Read full disclaimer</a></p>';
+      if(footerBottom){footerBottom.parentNode.insertBefore(disc,footerBottom);}
+      else{footer.appendChild(disc);}
+    }else if(disclaimerNodes.length>1){
+      for(var i=1;i<disclaimerNodes.length;i++){
+        var node=disclaimerNodes[i];
+        var target=node;
+        for(var c=0;c<3;c++){
+          if(target.parentNode && target.parentNode.tagName!=='FOOTER' && target.parentNode.children.length===1){target=target.parentNode;}
+        }
+        if(target.parentNode)target.parentNode.removeChild(target);
+      }
+    }
   }
+  manageDisclaimer();
+  setTimeout(manageDisclaimer,500);
+  setTimeout(manageDisclaimer,1500);
 
-  /* 7. REMOVE TOP DISCLAIMER */
+  /* 9. REMOVE TOP DISCLAIMER */
   var topDisc=document.getElementById('scDisclaimer');
   if(topDisc)topDisc.remove();
 
-  /* 8. GLOBAL STYLES + MOBILE HAMBURGER FIX (push to right side, next to EN button) */
+  /* 10. GLOBAL STYLES + MOBILE NAV ORDER [SavingsClub, search-icon, EN, hamburger] */
   var style=document.createElement('style');
   style.textContent=
     '.goog-te-banner-frame{display:none!important}'+
@@ -195,15 +330,22 @@
     '.scLO{display:block;padding:10px 16px;color:#0F172A;text-decoration:none;font-size:.85rem;font-weight:500;border-bottom:1px solid #F1F5F9;transition:background .15s}'+
     '.scLO:hover{background:#F0FDF4!important}'+
     '.scLO:last-child{border-bottom:none}'+
-    /* MOBILE-ONLY: push hamburger button to right, sitting next to EN button */
+    /* MOBILE LAYOUT */
     '@media(max-width:768px){'+
-      '#scSearch{display:none!important}'+
+      /* hide desktop search bar on mobile */
+      '#scSearchWrap{display:none!important}'+
+      /* show mobile search icon button */
+      '#scMobileSearchBtn{display:inline-flex!important}'+
+      '#scMobileSearchBtn:active{background:#F0FDF4!important;border-color:#10B981!important;color:#059669!important}'+
+      /* shrink EN button on mobile */
       '#scLangBtn{padding:5px 10px!important;font-size:.75rem!important}'+
-      'nav .nav-inner,.nav-inner{padding-left:12px!important;padding-right:12px!important}'+
-      /* Force hamburger toggle button to flex-end (right side) */
-      'nav .mobile-toggle,nav .hamburger,nav .menu-toggle,nav button[onclick*="toggleMobile"],nav button[aria-label*="menu" i],nav button[aria-label*="Menu"]{order:98!important;margin-left:auto!important}'+
-      /* Language button sits last on the right */
-      'nav .nav-inner>div:has(#scLangBtn),#scLangBtn{order:99!important}'+
+      /* tighten nav padding */
+      'nav .nav-inner,.nav-inner{padding-left:12px!important;padding-right:12px!important;gap:6px!important}'+
+      /* ORDER: SavingsClub(1) → search-icon(2) → EN(3) → hamburger(4) */
+      'nav .logo,nav .navbar-brand,nav a[href="/"]:first-child{order:1!important;margin-right:auto!important}'+
+      '#scMobileSearchBtn{order:2!important;margin-left:0!important}'+
+      '#scLangWrap,#scLangBtn{order:3!important;margin-left:4px!important}'+
+      'nav .mobile-toggle,nav .hamburger,nav .menu-toggle,nav button[onclick*="toggleMobile"],nav button[aria-label*="menu" i],nav button[aria-label*="Menu"]{order:4!important;margin-left:4px!important}'+
     '}';
   document.head.appendChild(style);
 
