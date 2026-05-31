@@ -1,12 +1,10 @@
-/* SavingsClub - Calculator Guides v1 (401k only - first batch for review) */
+/* SavingsClub - Calculator Guides v2 (safer: hides old content, forces visibility) */
 (function(){
 
-  /* Only run on calculator pages */
   var path=window.location.pathname.toLowerCase();
 
   /* ============================================================
-     CALCULATOR DATA - one entry per calculator
-     Add more calculators by adding entries to this object
+     CALCULATOR DATA
      ============================================================ */
   var GUIDES={
 
@@ -50,9 +48,9 @@
         {title:'No Tax Benefit on Capital Gains',desc:'Withdrawals are taxed as ordinary income, not at the lower long-term capital gains rate. A taxable brokerage account holding the same investments would receive better tax treatment on growth.'},
         {title:'Plan Loan Risks',desc:'If you borrow from your 401(k) and leave your job, the loan typically must be repaid within 60 to 90 days or it becomes a taxable distribution plus the 10% penalty. Job loss timing can be financially devastating.'},
         {title:'No Help With Pre-Retirement Goals',desc:'401(k) money is locked away — it cannot help you buy a home, fund a child education, or weather a job loss. You still need separate emergency savings and taxable investments for shorter-term goals.'},
-        {title:'Concentration Risk if Employer Stock Heavy',desc:'Some plans default new contributions into employer stock. If your job AND your retirement savings depend on the same company, a single business failure can destroy both your income and your retirement at once (Enron is the textbook example).'},
+        {title:'Concentration Risk if Employer Stock Heavy',desc:'Some plans default new contributions into employer stock. If your job AND your retirement savings depend on the same company, a single business failure can destroy both your income and your retirement at once.'},
         {title:'Required Employer Sponsorship',desc:'You can only contribute to a 401(k) if your employer offers one. Self-employed workers, contractors, and employees of small businesses without 401(k) plans must use alternatives like SEP-IRAs or Solo 401(k)s.'},
-        {title:'Limited Roth Income Tax Planning Flexibility',desc:'Unlike a Roth IRA, the Roth 401(k) still has Required Minimum Distributions (until 2024 rule changes — verify with your plan). This reduces some of the tax-planning advantages compared to a Roth IRA.'}
+        {title:'Limited Tax Planning Flexibility',desc:'Once money goes into a traditional 401(k), you cannot easily convert it to Roth without triggering taxes. Compared to taxable accounts, your flexibility for tax-loss harvesting and estate planning strategies is reduced.'}
       ],
 
       faq:[
@@ -75,12 +73,62 @@
         {title:'Paycheck Calculator',desc:'See how 401(k) contributions affect your take-home pay each pay period.',url:'/paycheck-calculator/',icon:'💵'}
       ]
     }
-
-    /* Future calculators added here: 'mortgage-calculator':{...}, 'retirement-calculator':{...}, etc. */
   };
 
   /* ============================================================
-     DETECT WHICH CALCULATOR PAGE WE ARE ON
+     FIX 1: REMOVE DUPLICATE DISCLAIMER IN FOOTER (runs on every page)
+     logo-fix.js adds one; HTML may already have one. Remove dupes.
+     ============================================================ */
+  setTimeout(function(){
+    var allDiscs=document.querySelectorAll('footer p, footer div');
+    var found=0;
+    for(var i=0;i<allDiscs.length;i++){
+      var txt=allDiscs[i].textContent||'';
+      if(txt.indexOf('Important Disclaimer')>-1 && txt.indexOf('not licensed financial advisors')>-1){
+        found++;
+        if(found>1){
+          /* keep the first, remove subsequent ones — find the right container to remove */
+          var n=allDiscs[i];
+          /* climb up to a likely "section" wrapper (max 3 levels) */
+          var target=n;
+          for(var c=0;c<3;c++){
+            if(target.parentNode && target.parentNode.tagName!=='FOOTER' && target.parentNode.children.length===1){target=target.parentNode;}
+          }
+          if(target.parentNode)target.parentNode.removeChild(target);
+        }
+      }
+    }
+  },100);
+
+  /* ============================================================
+     FIX 2: ENSURE FAQ LINK IS IN FOOTER RESOURCES (runs on every page)
+     ============================================================ */
+  setTimeout(function(){
+    var footerLinks=document.querySelectorAll('footer a');
+    var hasFAQ=false;
+    var resourcesCol=null;
+    for(var i=0;i<footerLinks.length;i++){
+      var href=footerLinks[i].getAttribute('href')||'';
+      var txt=footerLinks[i].textContent.trim();
+      if(href.indexOf('/faq')>-1 || txt==='FAQ'){hasFAQ=true;break;}
+      if(href.indexOf('/about')>-1 || href.indexOf('/contact')>-1){resourcesCol=footerLinks[i].parentNode;}
+    }
+    if(!hasFAQ && resourcesCol){
+      var faqLink=document.createElement('a');
+      faqLink.href='/faq/';
+      faqLink.textContent='FAQ';
+      /* Match style of nearby links */
+      var sample=resourcesCol.querySelector('a');
+      if(sample){faqLink.className=sample.className;faqLink.style.cssText=sample.getAttribute('style')||'';}
+      /* Wrap in same container type as siblings */
+      var wrapper=document.createElement(resourcesCol.tagName==='UL'?'li':'div');
+      wrapper.appendChild(faqLink);
+      resourcesCol.appendChild(wrapper);
+    }
+  },150);
+
+  /* ============================================================
+     FIX 3: GUIDE INJECTION (only on calculator pages with data)
      ============================================================ */
   var currentCalc=null;
   for(var key in GUIDES){
@@ -88,55 +136,49 @@
       currentCalc=key;break;
     }
   }
-  if(!currentCalc)return;  /* Not on a guided calculator page, exit silently */
+  if(!currentCalc){console.log('[SC Guides] Not a guided calculator page');return;}
 
   var data=GUIDES[currentCalc];
   if(!data)return;
 
-  /* ============================================================
-     REMOVE EXISTING HARDCODED CONTENT (replace mode)
-     Targets H2/H3 headings by text content, removes them + siblings until next H2
-     ============================================================ */
-  function removeSection(headingText){
-    var headings=document.querySelectorAll('h2, h3');
-    for(var i=0;i<headings.length;i++){
-      var h=headings[i];
-      var txt=h.textContent.trim().toLowerCase();
-      if(txt.indexOf(headingText.toLowerCase())>-1){
-        /* Remove this heading and all following siblings until next h2 (or end) */
-        var node=h;
-        var toRemove=[node];
-        var next=node.nextElementSibling;
-        while(next){
-          if(next.tagName==='H2')break;  /* Stop at next H2 - that's a different section */
-          toRemove.push(next);
-          next=next.nextElementSibling;
-        }
-        for(var j=0;j<toRemove.length;j++){
-          if(toRemove[j].parentNode)toRemove[j].parentNode.removeChild(toRemove[j]);
-        }
-        return true;
-      }
-    }
-    return false;
-  }
+  /* HIDE old content with CSS instead of removing it — safer */
+  var hideStyle=document.createElement('style');
+  hideStyle.id='sc-hide-old';
+  hideStyle.textContent='';  /* will be filled below */
+  document.head.appendChild(hideStyle);
 
-  /* Remove old hardcoded sections */
-  removeSection('how does a 401');
-  removeSection('frequently asked questions');
-  removeSection('related guides');
-  /* Also remove standalone H3s left behind */
-  var h3s=document.querySelectorAll('h3');
-  for(var i=h3s.length-1;i>=0;i--){
-    var t=h3s[i].textContent.trim().toLowerCase();
-    if(t.indexOf('understanding employer')>-1 || t.indexOf('how much should')>-1 || t.indexOf('401(k) vs')>-1 || t.indexOf('what happens when')>-1){
-      var node=h3s[i];
-      var next=node.nextElementSibling;
-      var toRm=[node];
-      while(next && next.tagName!=='H2' && next.tagName!=='H3'){
-        toRm.push(next);next=next.nextElementSibling;
+  /* Wait for DOM to be settled, then hide old sections by matching their headings */
+  function hideOldContent(){
+    var oldHeadings=[
+      'how does a 401',
+      'understanding employer match',
+      'how much should i contribute',
+      '401(k) vs',
+      'what happens when i change',
+      'frequently asked questions',
+      'related guides'
+    ];
+    var allHeads=document.querySelectorAll('main h2, main h3, article h2, article h3, .container h2, .container h3, section h2, section h3');
+    /* If main/article not present, fall back to all h2/h3 except inside our guide */
+    if(allHeads.length===0){allHeads=document.querySelectorAll('body > * h2, body > * h3');}
+    for(var i=0;i<allHeads.length;i++){
+      var h=allHeads[i];
+      /* Skip our own guide headings */
+      if(h.closest && h.closest('.sc-guide'))continue;
+      var t=h.textContent.trim().toLowerCase();
+      for(var j=0;j<oldHeadings.length;j++){
+        if(t.indexOf(oldHeadings[j])>-1){
+          /* Hide this heading AND the following siblings until next h2 */
+          h.style.display='none';
+          var sib=h.nextElementSibling;
+          while(sib){
+            if(sib.tagName==='H2')break;
+            sib.style.display='none';
+            sib=sib.nextElementSibling;
+          }
+          break;
+        }
       }
-      for(var j=0;j<toRm.length;j++){if(toRm[j].parentNode)toRm[j].parentNode.removeChild(toRm[j]);}
     }
   }
 
@@ -145,8 +187,8 @@
      ============================================================ */
   var s=document.createElement('style');
   s.textContent=
-    '.sc-guide{max-width:1100px;margin:60px auto 40px;padding:0 20px;font-family:var(--font-body,"DM Sans",sans-serif);color:#0F172A}'+
-    '.sc-guide h2{font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-size:1.85rem;font-weight:800;color:#0A1628;margin:50px 0 16px;letter-spacing:-.02em}'+
+    '.sc-guide{display:block!important;visibility:visible!important;opacity:1!important;position:relative;z-index:5;max-width:1100px;margin:60px auto 40px;padding:40px 20px;font-family:var(--font-body,"DM Sans",sans-serif);color:#0F172A;background:#fff;border-radius:24px;box-shadow:0 4px 20px rgba(10,22,40,.06)}'+
+    '.sc-guide h2{font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-size:1.85rem;font-weight:800;color:#0A1628;margin:50px 0 16px;letter-spacing:-.02em;line-height:1.2}'+
     '.sc-guide h2:first-child{margin-top:0}'+
     '.sc-guide h3{font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-size:1.15rem;font-weight:700;color:#0A1628;margin:24px 0 8px}'+
     '.sc-guide p,.sc-guide li{font-size:1rem;line-height:1.75;color:#334155}'+
@@ -168,9 +210,8 @@
     '.sc-pc-item{padding:14px 0;border-bottom:1px solid #F1F5F9}'+
     '.sc-pc-item:last-child{border-bottom:none}'+
     '.sc-pc-title{font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-weight:700;color:#0F172A;font-size:.98rem;margin:0 0 4px;display:flex;align-items:flex-start;gap:8px}'+
-    '.sc-pc-title::before{flex-shrink:0;margin-top:2px}'+
-    '.sc-procons-col.pros .sc-pc-title::before{content:"✓";color:#10B981;font-weight:900;font-size:1.1rem;line-height:1}'+
-    '.sc-procons-col.cons .sc-pc-title::before{content:"✕";color:#EF4444;font-weight:900;font-size:1.05rem;line-height:1}'+
+    '.sc-procons-col.pros .sc-pc-title::before{content:"\u2713";color:#10B981;font-weight:900;font-size:1.1rem;line-height:1;flex-shrink:0;margin-top:2px}'+
+    '.sc-procons-col.cons .sc-pc-title::before{content:"\u2715";color:#EF4444;font-weight:900;font-size:1.05rem;line-height:1;flex-shrink:0;margin-top:2px}'+
     '.sc-pc-desc{font-size:.9rem;color:#64748B;line-height:1.65;margin:0;padding-left:20px}'+
     '.sc-faq-item{background:#fff;border:1px solid #E2E8F0;border-radius:14px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}'+
     '.sc-faq-item:hover{border-color:#10B981}'+
@@ -186,8 +227,8 @@
     '.sc-rc-title{font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-weight:800;color:#0A1628;font-size:1.05rem;margin:0 0 6px}'+
     '.sc-rc-desc{font-size:.86rem;color:#64748B;line-height:1.6;margin:0}'+
     '@media(max-width:768px){'+
-      '.sc-guide{margin:40px auto 30px;padding:0 14px}'+
-      '.sc-guide h2{font-size:1.5rem;margin:36px 0 12px}'+
+      '.sc-guide{margin:30px 14px;padding:24px 18px;border-radius:18px}'+
+      '.sc-guide h2{font-size:1.45rem;margin:36px 0 12px}'+
       '.sc-howto{padding:20px}'+
       '.sc-procons{grid-template-columns:1fr;gap:16px}'+
       '.sc-procons-col{padding:20px}'+
@@ -196,95 +237,108 @@
     '}';
   document.head.appendChild(s);
 
-  /* ============================================================
-     BUILD GUIDE HTML
-     ============================================================ */
   function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
-  var html='<section class="sc-guide">';
-  html+='<h2>'+esc(data.title)+'</h2>';
-  html+='<p class="sc-intro">'+esc(data.intro)+'</p>';
+  function buildGuide(){
+    var html='<section class="sc-guide" id="sc-guide-block">';
+    html+='<h2>'+esc(data.title)+'</h2>';
+    html+='<p class="sc-intro">'+esc(data.intro)+'</p>';
 
-  /* How to Use */
-  html+='<h2>'+esc(data.howToUse.heading)+'</h2>';
-  html+='<div class="sc-howto">';
-  html+='<p class="sc-howto-intro">'+esc(data.howToUse.intro)+'</p>';
-  for(var i=0;i<data.howToUse.fields.length;i++){
-    var f=data.howToUse.fields[i];
-    html+='<div class="sc-field"><span class="sc-field-label">'+esc(f.label)+'</span><p class="sc-field-desc">'+esc(f.desc)+'</p></div>';
+    html+='<h2>'+esc(data.howToUse.heading)+'</h2>';
+    html+='<div class="sc-howto">';
+    html+='<p class="sc-howto-intro">'+esc(data.howToUse.intro)+'</p>';
+    for(var i=0;i<data.howToUse.fields.length;i++){
+      var f=data.howToUse.fields[i];
+      html+='<div class="sc-field"><span class="sc-field-label">'+esc(f.label)+'</span><p class="sc-field-desc">'+esc(f.desc)+'</p></div>';
+    }
+    html+='</div>';
+
+    html+='<h2>Pros and Cons of a 401(k) Plan</h2>';
+    html+='<div class="sc-procons">';
+    html+='<div class="sc-procons-col pros"><h3 class="sc-procons-heading pros">Pros</h3><p class="sc-procons-sub">Why a 401(k) is the foundation of most retirement plans</p>';
+    for(var i=0;i<data.pros.length;i++){
+      html+='<div class="sc-pc-item"><div class="sc-pc-title">'+esc(data.pros[i].title)+'</div><p class="sc-pc-desc">'+esc(data.pros[i].desc)+'</p></div>';
+    }
+    html+='</div>';
+    html+='<div class="sc-procons-col cons"><h3 class="sc-procons-heading cons">Cons</h3><p class="sc-procons-sub">Trade-offs and limitations to understand before contributing</p>';
+    for(var i=0;i<data.cons.length;i++){
+      html+='<div class="sc-pc-item"><div class="sc-pc-title">'+esc(data.cons[i].title)+'</div><p class="sc-pc-desc">'+esc(data.cons[i].desc)+'</p></div>';
+    }
+    html+='</div></div>';
+
+    html+='<h2>Frequently Asked Questions</h2>';
+    for(var i=0;i<data.faq.length;i++){
+      html+='<div class="sc-faq-item" data-idx="'+i+'">'+
+        '<div class="sc-faq-q" onclick="this.parentNode.classList.toggle(\'open\')">'+esc(data.faq[i].q)+'<span class="sc-faq-icon">+</span></div>'+
+        '<div class="sc-faq-a">'+esc(data.faq[i].a)+'</div>'+
+      '</div>';
+    }
+
+    html+='<h2>Related Calculators</h2>';
+    html+='<div class="sc-related">';
+    for(var i=0;i<data.related.length;i++){
+      var r=data.related[i];
+      html+='<a href="'+esc(r.url)+'" class="sc-related-card">'+
+        '<span class="sc-rc-icon">'+esc(r.icon)+'</span>'+
+        '<div class="sc-rc-title">'+esc(r.title)+'</div>'+
+        '<p class="sc-rc-desc">'+esc(r.desc)+'</p>'+
+      '</a>';
+    }
+    html+='</div></section>';
+    return html;
   }
-  html+='</div>';
 
-  /* Pros and Cons */
-  html+='<h2>Pros and Cons of a 401(k) Plan</h2>';
-  html+='<div class="sc-procons">';
-  html+='<div class="sc-procons-col pros"><h3 class="sc-procons-heading pros">Pros</h3><p class="sc-procons-sub">Why a 401(k) is the foundation of most retirement plans</p>';
-  for(var i=0;i<data.pros.length;i++){
-    html+='<div class="sc-pc-item"><div class="sc-pc-title">'+esc(data.pros[i].title)+'</div><p class="sc-pc-desc">'+esc(data.pros[i].desc)+'</p></div>';
+  function injectGuide(){
+    /* Don't double-inject */
+    if(document.getElementById('sc-guide-block'))return;
+
+    var wrapper=document.createElement('div');
+    wrapper.innerHTML=buildGuide();
+    var guideEl=wrapper.firstChild;
+
+    /* PREFERRED placement: directly after the calculator container.
+       Look for known calculator wrappers. */
+    var anchor=document.querySelector('.calculator-section')
+            ||document.querySelector('.calculator-card')
+            ||document.querySelector('.calc-wrapper')
+            ||document.querySelector('main .container:first-of-type')
+            ||document.querySelector('main')
+            ||document.querySelector('.container');
+
+    if(anchor && anchor.parentNode){
+      /* Insert AFTER the calculator/main content */
+      if(anchor.nextSibling){anchor.parentNode.insertBefore(guideEl,anchor.nextSibling);}
+      else{anchor.parentNode.appendChild(guideEl);}
+    }else{
+      /* Last resort: before footer */
+      var footer=document.querySelector('footer');
+      if(footer && footer.parentNode){footer.parentNode.insertBefore(guideEl,footer);}
+      else{document.body.appendChild(guideEl);}
+    }
+
+    console.log('[SC Guides] Injected at:',guideEl.parentNode?guideEl.parentNode.tagName+'.'+(guideEl.parentNode.className||''):'body');
+
+    /* Add FAQ schema for SEO */
+    var faqSchema={
+      "@context":"https://schema.org",
+      "@type":"FAQPage",
+      "mainEntity":data.faq.map(function(item){
+        return {"@type":"Question","name":item.q,"acceptedAnswer":{"@type":"Answer","text":item.a}};
+      })
+    };
+    var schemaScript=document.createElement('script');
+    schemaScript.type='application/ld+json';
+    schemaScript.textContent=JSON.stringify(faqSchema);
+    document.head.appendChild(schemaScript);
   }
-  html+='</div>';
-  html+='<div class="sc-procons-col cons"><h3 class="sc-procons-heading cons">Cons</h3><p class="sc-procons-sub">Trade-offs and limitations to understand before contributing</p>';
-  for(var i=0;i<data.cons.length;i++){
-    html+='<div class="sc-pc-item"><div class="sc-pc-title">'+esc(data.cons[i].title)+'</div><p class="sc-pc-desc">'+esc(data.cons[i].desc)+'</p></div>';
-  }
-  html+='</div>';
-  html+='</div>';
 
-  /* FAQ */
-  html+='<h2>Frequently Asked Questions</h2>';
-  for(var i=0;i<data.faq.length;i++){
-    html+='<div class="sc-faq-item" data-idx="'+i+'">'+
-      '<div class="sc-faq-q" onclick="this.parentNode.classList.toggle(\'open\')">'+esc(data.faq[i].q)+'<span class="sc-faq-icon">+</span></div>'+
-      '<div class="sc-faq-a">'+esc(data.faq[i].a)+'</div>'+
-    '</div>';
-  }
-
-  /* Related Calculators */
-  html+='<h2>Related Calculators</h2>';
-  html+='<div class="sc-related">';
-  for(var i=0;i<data.related.length;i++){
-    var r=data.related[i];
-    html+='<a href="'+esc(r.url)+'" class="sc-related-card">'+
-      '<span class="sc-rc-icon">'+esc(r.icon)+'</span>'+
-      '<div class="sc-rc-title">'+esc(r.title)+'</div>'+
-      '<p class="sc-rc-desc">'+esc(r.desc)+'</p>'+
-    '</a>';
-  }
-  html+='</div>';
-
-  html+='</section>';
-
-  /* ============================================================
-     INSERT GUIDE INTO PAGE
-     Place it after the main calculator area, before footer
-     ============================================================ */
-  var wrapper=document.createElement('div');
-  wrapper.innerHTML=html;
-  var guideEl=wrapper.firstChild;
-
-  /* Try to insert before footer, fall back to body append */
-  var footer=document.querySelector('footer');
-  if(footer && footer.parentNode){
-    footer.parentNode.insertBefore(guideEl,footer);
+  /* Run hide + inject after page is fully loaded so we don't interfere with calculator JS */
+  if(document.readyState==='complete'){
+    hideOldContent();injectGuide();
   }else{
-    document.body.appendChild(guideEl);
+    window.addEventListener('load',function(){
+      setTimeout(function(){hideOldContent();injectGuide();},200);
+    });
   }
-
-  /* Add FAQ schema for SEO */
-  var faqSchema={
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":data.faq.map(function(item){
-      return {
-        "@type":"Question",
-        "name":item.q,
-        "acceptedAnswer":{"@type":"Answer","text":item.a}
-      };
-    })
-  };
-  var schemaScript=document.createElement('script');
-  schemaScript.type='application/ld+json';
-  schemaScript.textContent=JSON.stringify(faqSchema);
-  document.head.appendChild(schemaScript);
 
 })();
