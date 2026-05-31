@@ -1,10 +1,9 @@
-/* SavingsClub - Global Site Enhancements v6 (surgical fix - no responsive override) */
+/* SavingsClub - Global Site Enhancements v7 (mobile hamburger pushed right) */
 (function(){
 
   /* 1. REMOVE SC LOGO ICON — target both old .logo-mark SVG AND new <img> tags */
   var marks=document.querySelectorAll('.logo-mark');
   for(var i=0;i<marks.length;i++){marks[i].remove();}
-  /* Also remove any <img> in the nav whose src contains "sc-icon" */
   var navImgs=document.querySelectorAll('nav img, header img');
   for(var i=0;i<navImgs.length;i++){
     var src=navImgs[i].getAttribute('src')||'';
@@ -14,12 +13,11 @@
     }
   }
 
-  /* 2. REMOVE ABOUT & FAQ FROM TOP NAV */
+  /* 2. REMOVE ABOUT & FAQ FROM TOP NAV (preserve in footer) */
   var navLinks=document.querySelectorAll('.nav-links a, #navLinks a, nav a');
   for(var i=navLinks.length-1;i>=0;i--){
     var txt=navLinks[i].textContent.trim();
     if(txt==='About'||txt==='FAQ'){
-      /* Only remove if it's in the top nav, not the footer */
       var inFooter=false;
       var p=navLinks[i].parentNode;
       while(p && p!==document.body){
@@ -187,7 +185,7 @@
   var topDisc=document.getElementById('scDisclaimer');
   if(topDisc)topDisc.remove();
 
-  /* 8. MINIMAL GLOBAL STYLES (no responsive overrides this time) */
+  /* 8. GLOBAL STYLES + MOBILE HAMBURGER FIX (push to right side, next to EN button) */
   var style=document.createElement('style');
   style.textContent=
     '.goog-te-banner-frame{display:none!important}'+
@@ -197,11 +195,15 @@
     '.scLO{display:block;padding:10px 16px;color:#0F172A;text-decoration:none;font-size:.85rem;font-weight:500;border-bottom:1px solid #F1F5F9;transition:background .15s}'+
     '.scLO:hover{background:#F0FDF4!important}'+
     '.scLO:last-child{border-bottom:none}'+
-    /* Mobile-only: reduce nav padding so brand sits closer to left edge. NO display overrides. */
+    /* MOBILE-ONLY: push hamburger button to right, sitting next to EN button */
     '@media(max-width:768px){'+
       '#scSearch{display:none!important}'+
       '#scLangBtn{padding:5px 10px!important;font-size:.75rem!important}'+
       'nav .nav-inner,.nav-inner{padding-left:12px!important;padding-right:12px!important}'+
+      /* Force hamburger toggle button to flex-end (right side) */
+      'nav .mobile-toggle,nav .hamburger,nav .menu-toggle,nav button[onclick*="toggleMobile"],nav button[aria-label*="menu" i],nav button[aria-label*="Menu"]{order:98!important;margin-left:auto!important}'+
+      /* Language button sits last on the right */
+      'nav .nav-inner>div:has(#scLangBtn),#scLangBtn{order:99!important}'+
     '}';
   document.head.appendChild(style);
 
