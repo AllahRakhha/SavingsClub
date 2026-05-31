@@ -1,24 +1,33 @@
-/* SavingsClub - Global Site Enhancements v5 (wordmark-only + flush-left brand) */
+/* SavingsClub - Global Site Enhancements v6 (surgical fix - no responsive override) */
 (function(){
 
-  /* 1. REMOVE OLD LOGO ICON — wordmark-only branding */
+  /* 1. REMOVE SC LOGO ICON — target both old .logo-mark SVG AND new <img> tags */
   var marks=document.querySelectorAll('.logo-mark');
-  for(var i=0;i<marks.length;i++){
-    var parent=marks[i].parentNode;
-    marks[i].remove();
-    if(parent && parent.textContent.trim()===''){
-      var span=document.createElement('span');
-      span.textContent='SavingsClub';
-      span.style.cssText='font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-weight:800;font-size:1.4rem;color:#10B981;letter-spacing:-.01em;line-height:1';
-      parent.appendChild(span);
+  for(var i=0;i<marks.length;i++){marks[i].remove();}
+  /* Also remove any <img> in the nav whose src contains "sc-icon" */
+  var navImgs=document.querySelectorAll('nav img, header img');
+  for(var i=0;i<navImgs.length;i++){
+    var src=navImgs[i].getAttribute('src')||'';
+    var alt=navImgs[i].getAttribute('alt')||'';
+    if(src.indexOf('sc-icon')>-1 || src.indexOf('sc-logo')>-1 || (alt==='SavingsClub' && src.indexOf('.png')>-1)){
+      navImgs[i].remove();
     }
   }
 
   /* 2. REMOVE ABOUT & FAQ FROM TOP NAV */
-  var navLinks=document.querySelectorAll('.nav-links a, #navLinks a');
+  var navLinks=document.querySelectorAll('.nav-links a, #navLinks a, nav a');
   for(var i=navLinks.length-1;i>=0;i--){
     var txt=navLinks[i].textContent.trim();
-    if(txt==='About'||txt==='FAQ'){navLinks[i].remove();}
+    if(txt==='About'||txt==='FAQ'){
+      /* Only remove if it's in the top nav, not the footer */
+      var inFooter=false;
+      var p=navLinks[i].parentNode;
+      while(p && p!==document.body){
+        if(p.tagName==='FOOTER' || (p.className && typeof p.className==='string' && p.className.indexOf('footer')>-1)){inFooter=true;break;}
+        p=p.parentNode;
+      }
+      if(!inFooter){navLinks[i].remove();}
+    }
   }
 
   /* 3. ADD SEARCH — desktop only, skip if exists */
@@ -178,7 +187,7 @@
   var topDisc=document.getElementById('scDisclaimer');
   if(topDisc)topDisc.remove();
 
-  /* 8. GLOBAL STYLES + FORCED NAV LAYOUT (flush-left brand, flush-right controls) */
+  /* 8. MINIMAL GLOBAL STYLES (no responsive overrides this time) */
   var style=document.createElement('style');
   style.textContent=
     '.goog-te-banner-frame{display:none!important}'+
@@ -188,12 +197,12 @@
     '.scLO{display:block;padding:10px 16px;color:#0F172A;text-decoration:none;font-size:.85rem;font-weight:500;border-bottom:1px solid #F1F5F9;transition:background .15s}'+
     '.scLO:hover{background:#F0FDF4!important}'+
     '.scLO:last-child{border-bottom:none}'+
-    'nav,header nav,.nav,.navbar{padding-left:0!important;padding-right:0!important}'+
-    'nav .nav-inner,.nav-inner,.nav-container,.navbar-inner{max-width:100%!important;width:100%!important;padding-left:14px!important;padding-right:14px!important;margin:0!important;display:flex!important;align-items:center!important;justify-content:space-between!important;box-sizing:border-box!important;gap:8px!important}'+
-    'nav .logo,.nav-logo,.navbar-brand{margin-left:0!important;padding-left:0!important;display:flex!important;align-items:center!important}'+
-    'nav .nav-links,.nav-menu,#navLinks{margin-left:auto!important;margin-right:0!important;display:flex!important;align-items:center!important;gap:8px!important}'+
-    '@media(min-width:769px){nav .nav-inner,.nav-inner,.nav-container,.navbar-inner{padding-left:24px!important;padding-right:24px!important}}'+
-    '@media(max-width:768px){#scSearch{display:none!important}#scLangBtn{padding:5px 10px!important;font-size:.75rem!important}nav .nav-inner,.nav-inner{padding-left:12px!important;padding-right:12px!important}}';
+    /* Mobile-only: reduce nav padding so brand sits closer to left edge. NO display overrides. */
+    '@media(max-width:768px){'+
+      '#scSearch{display:none!important}'+
+      '#scLangBtn{padding:5px 10px!important;font-size:.75rem!important}'+
+      'nav .nav-inner,.nav-inner{padding-left:12px!important;padding-right:12px!important}'+
+    '}';
   document.head.appendChild(style);
 
 })();
