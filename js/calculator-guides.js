@@ -1,8 +1,150 @@
-/* SavingsClub - Calculator Guides v3 (hides empty containers, adds CTA box, full 401k guide) */
+/* SavingsClub - Calculator Guides v4
+   v3 features + state grids on mortgage and 401k pages */
 (function(){
 
   var path=window.location.pathname.toLowerCase();
 
+  /* ============================================================
+     STATE GRID CONFIG — which calculators get state pages
+     ============================================================ */
+  var STATE_GRIDS={
+    'mortgage-calculator':{
+      heading:'Mortgage Calculator by State',
+      sub:'See state-specific mortgage rates, property tax, and median home prices.',
+      basePath:'/mortgage-calculator/',
+      activeStates:['texas'],  /* Only Texas is live for now */
+      comingSoonMsg:'More states coming soon — we are launching all 50 state-specific mortgage calculators in 2026.'
+    },
+    '401k-calculator':{
+      heading:'401(k) Calculator by State',
+      sub:'See state income tax impact on your 401(k) take-home (state tax-free states save thousands).',
+      basePath:'/401k-calculator/',
+      activeStates:[],  /* None live yet */
+      comingSoonMsg:'State-specific 401(k) calculators coming soon — including tax-free states like Texas, Florida, Nevada, and Washington.'
+    }
+  };
+
+  /* All 50 US states for future grid expansion */
+  var ALL_STATES=[
+    {name:'Alabama',slug:'alabama'},{name:'Alaska',slug:'alaska'},
+    {name:'Arizona',slug:'arizona'},{name:'Arkansas',slug:'arkansas'},
+    {name:'California',slug:'california'},{name:'Colorado',slug:'colorado'},
+    {name:'Connecticut',slug:'connecticut'},{name:'Delaware',slug:'delaware'},
+    {name:'Florida',slug:'florida'},{name:'Georgia',slug:'georgia'},
+    {name:'Hawaii',slug:'hawaii'},{name:'Idaho',slug:'idaho'},
+    {name:'Illinois',slug:'illinois'},{name:'Indiana',slug:'indiana'},
+    {name:'Iowa',slug:'iowa'},{name:'Kansas',slug:'kansas'},
+    {name:'Kentucky',slug:'kentucky'},{name:'Louisiana',slug:'louisiana'},
+    {name:'Maine',slug:'maine'},{name:'Maryland',slug:'maryland'},
+    {name:'Massachusetts',slug:'massachusetts'},{name:'Michigan',slug:'michigan'},
+    {name:'Minnesota',slug:'minnesota'},{name:'Mississippi',slug:'mississippi'},
+    {name:'Missouri',slug:'missouri'},{name:'Montana',slug:'montana'},
+    {name:'Nebraska',slug:'nebraska'},{name:'Nevada',slug:'nevada'},
+    {name:'New Hampshire',slug:'new-hampshire'},{name:'New Jersey',slug:'new-jersey'},
+    {name:'New Mexico',slug:'new-mexico'},{name:'New York',slug:'new-york'},
+    {name:'North Carolina',slug:'north-carolina'},{name:'North Dakota',slug:'north-dakota'},
+    {name:'Ohio',slug:'ohio'},{name:'Oklahoma',slug:'oklahoma'},
+    {name:'Oregon',slug:'oregon'},{name:'Pennsylvania',slug:'pennsylvania'},
+    {name:'Rhode Island',slug:'rhode-island'},{name:'South Carolina',slug:'south-carolina'},
+    {name:'South Dakota',slug:'south-dakota'},{name:'Tennessee',slug:'tennessee'},
+    {name:'Texas',slug:'texas'},{name:'Utah',slug:'utah'},
+    {name:'Vermont',slug:'vermont'},{name:'Virginia',slug:'virginia'},
+    {name:'Washington',slug:'washington'},{name:'West Virginia',slug:'west-virginia'},
+    {name:'Wisconsin',slug:'wisconsin'},{name:'Wyoming',slug:'wyoming'}
+  ];
+
+  /* ============================================================
+     STATE GRID STYLES (added once)
+     ============================================================ */
+  var stateGridStyles=document.createElement('style');
+  stateGridStyles.textContent=
+    '.sc-state-section{max-width:1100px;margin:40px auto;padding:36px 28px;background:linear-gradient(135deg,#fff 0%,#F8FAFC 100%);border-radius:24px;border:1px solid #E2E8F0;box-shadow:0 4px 20px rgba(10,22,40,.04)}'+
+    '.sc-state-heading{font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-size:1.6rem;font-weight:800;color:#0A1628;margin:0 0 8px;letter-spacing:-.02em}'+
+    '.sc-state-sub{font-size:1rem;color:#64748B;line-height:1.6;margin:0 0 24px}'+
+    '.sc-state-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin:24px 0}'+
+    '.sc-state-card{background:#fff;border:1.5px solid #E2E8F0;border-radius:14px;padding:14px 18px;text-decoration:none;display:flex;align-items:center;justify-content:space-between;gap:8px;transition:all .25s;font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-weight:600;color:#0F172A;font-size:.95rem}'+
+    '.sc-state-card.active:hover{border-color:#10B981;background:linear-gradient(135deg,#F0FDF4,#fff);transform:translateY(-2px);box-shadow:0 6px 16px rgba(16,185,129,.15);color:#059669}'+
+    '.sc-state-card.active .sc-state-arrow{color:#10B981}'+
+    '.sc-state-card.disabled{background:#F8FAFC;color:#94A3B8;cursor:not-allowed;border-style:dashed}'+
+    '.sc-state-card.disabled .sc-state-arrow{display:none}'+
+    '.sc-state-card.disabled .sc-state-soon{font-size:.65rem;color:#94A3B8;font-weight:600;text-transform:uppercase;letter-spacing:.05em;background:#E2E8F0;padding:2px 8px;border-radius:50px;font-family:var(--font-body,"DM Sans",sans-serif)}'+
+    '.sc-state-arrow{color:#CBD5E1;font-size:1.1rem;font-weight:bold;transition:color .2s}'+
+    '.sc-state-soon-banner{background:linear-gradient(135deg,rgba(16,185,129,.08),rgba(16,185,129,.02));border:1px dashed rgba(16,185,129,.3);border-radius:14px;padding:18px 22px;margin-top:20px;display:flex;align-items:flex-start;gap:14px;font-family:var(--font-body,"DM Sans",sans-serif)}'+
+    '.sc-state-soon-banner-icon{font-size:1.6rem;flex-shrink:0;line-height:1}'+
+    '.sc-state-soon-banner-text{font-size:.92rem;color:#475569;line-height:1.6;margin:0}'+
+    '@media(max-width:768px){'+
+      '.sc-state-section{margin:24px 12px;padding:24px 18px;border-radius:18px}'+
+      '.sc-state-heading{font-size:1.3rem}'+
+      '.sc-state-grid{grid-template-columns:repeat(2,1fr);gap:10px}'+
+      '.sc-state-card{padding:12px 14px;font-size:.88rem}'+
+    '}';
+  document.head.appendChild(stateGridStyles);
+
+  /* ============================================================
+     RENDER STATE GRID
+     ============================================================ */
+  function renderStateGrid(config){
+    var html='<section class="sc-state-section" id="sc-state-section">';
+    html+='<h2 class="sc-state-heading">'+config.heading+'</h2>';
+    html+='<p class="sc-state-sub">'+config.sub+'</p>';
+
+    /* If we have at least one active state, show the grid */
+    if(config.activeStates && config.activeStates.length>0){
+      html+='<div class="sc-state-grid">';
+      /* Show only active states first */
+      for(var i=0;i<ALL_STATES.length;i++){
+        var st=ALL_STATES[i];
+        var isActive=config.activeStates.indexOf(st.slug)>-1;
+        if(isActive){
+          html+='<a href="'+config.basePath+st.slug+'/" class="sc-state-card active">'+
+            '<span>'+st.name+'</span>'+
+            '<span class="sc-state-arrow">→</span>'+
+          '</a>';
+        }
+      }
+      html+='</div>';
+      html+='<div class="sc-state-soon-banner">'+
+        '<span class="sc-state-soon-banner-icon">🇺🇸</span>'+
+        '<p class="sc-state-soon-banner-text">'+config.comingSoonMsg+'</p>'+
+      '</div>';
+    }else{
+      /* No active states yet — just show the coming-soon banner */
+      html+='<div class="sc-state-soon-banner" style="margin-top:0">'+
+        '<span class="sc-state-soon-banner-icon">🇺🇸</span>'+
+        '<p class="sc-state-soon-banner-text">'+config.comingSoonMsg+'</p>'+
+      '</div>';
+    }
+
+    html+='</section>';
+    return html;
+  }
+
+  function injectStateGrid(){
+    /* Determine which page we're on */
+    var configKey=null;
+    for(var key in STATE_GRIDS){
+      /* Match exactly /key/ to avoid matching /mortgage-calculator/texas/ as mortgage main page */
+      if(path==='/'+key+'/' || path==='/'+key){
+        configKey=key;break;
+      }
+    }
+    if(!configKey)return;
+    if(document.getElementById('sc-state-section'))return;  /* already injected */
+
+    var config=STATE_GRIDS[configKey];
+    var wrapper=document.createElement('div');
+    wrapper.innerHTML=renderStateGrid(config);
+    var gridEl=wrapper.firstChild;
+
+    /* Insert before footer */
+    var footer=document.querySelector('footer');
+    if(footer && footer.parentNode){footer.parentNode.insertBefore(gridEl,footer);}
+    else{document.body.appendChild(gridEl);}
+  }
+
+  /* ============================================================
+     ORIGINAL v3 CALCULATOR GUIDES DATA (401k only for now)
+     ============================================================ */
   var GUIDES={
 
     '401k-calculator':{
@@ -74,20 +216,15 @@
   };
 
   /* ============================================================
-     RUNS ON EVERY PAGE: HIDE EMPTY LEFTOVER CONTAINERS
+     EVERY PAGE: HIDE EMPTY LEFTOVER CONTAINERS
      ============================================================ */
   function hideEmptyContainers(){
-    /* Look for elements that are visible but have no text content (empty leftover boxes) */
     var candidates=document.querySelectorAll('main div, main section, main article, .container > div, .container > section');
     for(var i=0;i<candidates.length;i++){
       var el=candidates[i];
-      /* Skip our own injected content */
-      if(el.classList && (el.classList.contains('sc-guide') || el.classList.contains('sc-cta-box') || el.closest('.sc-guide')))continue;
-      /* Skip if it has meaningful children (forms, canvas, svg, img with src, buttons) */
+      if(el.classList && (el.classList.contains('sc-guide') || el.classList.contains('sc-cta-box') || el.classList.contains('sc-state-section') || el.closest('.sc-guide') || el.closest('.sc-state-section')))continue;
       if(el.querySelector('input,canvas,svg,img[src],button,form,h1,h2,h3,h4,p,a,ul,ol,table'))continue;
-      /* Check if visually styled like a card but empty */
       var txt=(el.textContent||'').trim();
-      var hasBackground=false;
       try{
         var cs=getComputedStyle(el);
         var bg=cs.backgroundColor||'';
@@ -101,13 +238,21 @@
     }
   }
 
-  /* Run twice to catch late-rendered content */
   if(document.readyState==='complete'){hideEmptyContainers();}
   else{window.addEventListener('load',function(){setTimeout(hideEmptyContainers,300);});}
   setTimeout(hideEmptyContainers,1500);
 
   /* ============================================================
-     ONLY ON CALCULATOR PAGES WITH GUIDES — RUN FULL GUIDE LOGIC
+     RUN STATE GRID ON ELIGIBLE PAGES
+     ============================================================ */
+  if(document.readyState==='complete'){
+    setTimeout(injectStateGrid,100);
+  }else{
+    window.addEventListener('load',function(){setTimeout(injectStateGrid,100);});
+  }
+
+  /* ============================================================
+     CALCULATOR-SPECIFIC GUIDES (401k only for now)
      ============================================================ */
   var currentCalc=null;
   for(var key in GUIDES){
@@ -120,7 +265,6 @@
   var data=GUIDES[currentCalc];
   if(!data)return;
 
-  /* Hide old hardcoded calculator-specific content sections */
   function hideOldContent(){
     var oldHeadings=[
       'how does a 401',
@@ -152,7 +296,6 @@
     }
   }
 
-  /* GUIDE STYLES */
   var s=document.createElement('style');
   s.textContent=
     '.sc-cta-box{display:block;max-width:1100px;margin:30px auto;padding:32px 24px;background:linear-gradient(135deg,#059669 0%,#10B981 100%);border-radius:20px;color:#fff;text-align:center;box-shadow:0 8px 24px rgba(16,185,129,.25)}'+
@@ -274,7 +417,6 @@
   function injectGuide(){
     if(document.getElementById('sc-guide-block'))return;
 
-    /* Anchor: after the main calculator area */
     var anchor=document.querySelector('.calculator-section')
             ||document.querySelector('.calculator-card')
             ||document.querySelector('.calc-wrapper')
@@ -282,7 +424,6 @@
             ||document.querySelector('main')
             ||document.querySelector('.container');
 
-    /* First insert CTA box */
     if(!document.getElementById('sc-cta-box')){
       var ctaWrap=document.createElement('div');
       ctaWrap.innerHTML=buildCTABox();
@@ -293,7 +434,6 @@
       }
     }
 
-    /* Then insert main guide after CTA */
     var guideWrap=document.createElement('div');
     guideWrap.innerHTML=buildGuide();
     var guideEl=guideWrap.firstChild;
@@ -307,7 +447,6 @@
       else{document.body.appendChild(guideEl);}
     }
 
-    /* FAQ schema for SEO */
     var faqSchema={
       "@context":"https://schema.org",
       "@type":"FAQPage",
