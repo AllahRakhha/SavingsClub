@@ -1,30 +1,29 @@
-/* SavingsClub - Calculator Guides v4
-   v3 features + state grids on mortgage and 401k pages */
+/* SavingsClub - Calculator Guides v5
+   v4 features + California, Florida, New York added to active states */
 (function(){
 
   var path=window.location.pathname.toLowerCase();
 
   /* ============================================================
-     STATE GRID CONFIG — which calculators get state pages
+     STATE GRID CONFIG
      ============================================================ */
   var STATE_GRIDS={
     'mortgage-calculator':{
       heading:'Mortgage Calculator by State',
       sub:'See state-specific mortgage rates, property tax, and median home prices.',
       basePath:'/mortgage-calculator/',
-      activeStates:['texas'],  /* Only Texas is live for now */
+      activeStates:['texas','california','florida','new-york'],
       comingSoonMsg:'More states coming soon — we are launching all 50 state-specific mortgage calculators in 2026.'
     },
     '401k-calculator':{
       heading:'401(k) Calculator by State',
       sub:'See state income tax impact on your 401(k) take-home (state tax-free states save thousands).',
       basePath:'/401k-calculator/',
-      activeStates:[],  /* None live yet */
+      activeStates:[],
       comingSoonMsg:'State-specific 401(k) calculators coming soon — including tax-free states like Texas, Florida, Nevada, and Washington.'
     }
   };
 
-  /* All 50 US states for future grid expansion */
   var ALL_STATES=[
     {name:'Alabama',slug:'alabama'},{name:'Alaska',slug:'alaska'},
     {name:'Arizona',slug:'arizona'},{name:'Arkansas',slug:'arkansas'},
@@ -53,9 +52,6 @@
     {name:'Wisconsin',slug:'wisconsin'},{name:'Wyoming',slug:'wyoming'}
   ];
 
-  /* ============================================================
-     STATE GRID STYLES (added once)
-     ============================================================ */
   var stateGridStyles=document.createElement('style');
   stateGridStyles.textContent=
     '.sc-state-section{max-width:1100px;margin:40px auto;padding:36px 28px;background:linear-gradient(135deg,#fff 0%,#F8FAFC 100%);border-radius:24px;border:1px solid #E2E8F0;box-shadow:0 4px 20px rgba(10,22,40,.04)}'+
@@ -67,7 +63,6 @@
     '.sc-state-card.active .sc-state-arrow{color:#10B981}'+
     '.sc-state-card.disabled{background:#F8FAFC;color:#94A3B8;cursor:not-allowed;border-style:dashed}'+
     '.sc-state-card.disabled .sc-state-arrow{display:none}'+
-    '.sc-state-card.disabled .sc-state-soon{font-size:.65rem;color:#94A3B8;font-weight:600;text-transform:uppercase;letter-spacing:.05em;background:#E2E8F0;padding:2px 8px;border-radius:50px;font-family:var(--font-body,"DM Sans",sans-serif)}'+
     '.sc-state-arrow{color:#CBD5E1;font-size:1.1rem;font-weight:bold;transition:color .2s}'+
     '.sc-state-soon-banner{background:linear-gradient(135deg,rgba(16,185,129,.08),rgba(16,185,129,.02));border:1px dashed rgba(16,185,129,.3);border-radius:14px;padding:18px 22px;margin-top:20px;display:flex;align-items:flex-start;gap:14px;font-family:var(--font-body,"DM Sans",sans-serif)}'+
     '.sc-state-soon-banner-icon{font-size:1.6rem;flex-shrink:0;line-height:1}'+
@@ -80,18 +75,13 @@
     '}';
   document.head.appendChild(stateGridStyles);
 
-  /* ============================================================
-     RENDER STATE GRID
-     ============================================================ */
   function renderStateGrid(config){
     var html='<section class="sc-state-section" id="sc-state-section">';
     html+='<h2 class="sc-state-heading">'+config.heading+'</h2>';
     html+='<p class="sc-state-sub">'+config.sub+'</p>';
 
-    /* If we have at least one active state, show the grid */
     if(config.activeStates && config.activeStates.length>0){
       html+='<div class="sc-state-grid">';
-      /* Show only active states first */
       for(var i=0;i<ALL_STATES.length;i++){
         var st=ALL_STATES[i];
         var isActive=config.activeStates.indexOf(st.slug)>-1;
@@ -108,7 +98,6 @@
         '<p class="sc-state-soon-banner-text">'+config.comingSoonMsg+'</p>'+
       '</div>';
     }else{
-      /* No active states yet — just show the coming-soon banner */
       html+='<div class="sc-state-soon-banner" style="margin-top:0">'+
         '<span class="sc-state-soon-banner-icon">🇺🇸</span>'+
         '<p class="sc-state-soon-banner-text">'+config.comingSoonMsg+'</p>'+
@@ -120,104 +109,92 @@
   }
 
   function injectStateGrid(){
-    /* Determine which page we're on */
     var configKey=null;
     for(var key in STATE_GRIDS){
-      /* Match exactly /key/ to avoid matching /mortgage-calculator/texas/ as mortgage main page */
       if(path==='/'+key+'/' || path==='/'+key){
         configKey=key;break;
       }
     }
     if(!configKey)return;
-    if(document.getElementById('sc-state-section'))return;  /* already injected */
+    if(document.getElementById('sc-state-section'))return;
 
     var config=STATE_GRIDS[configKey];
     var wrapper=document.createElement('div');
     wrapper.innerHTML=renderStateGrid(config);
     var gridEl=wrapper.firstChild;
 
-    /* Insert before footer */
     var footer=document.querySelector('footer');
     if(footer && footer.parentNode){footer.parentNode.insertBefore(gridEl,footer);}
     else{document.body.appendChild(gridEl);}
   }
 
   /* ============================================================
-     ORIGINAL v3 CALCULATOR GUIDES DATA (401k only for now)
+     401K GUIDE DATA (kept from v4)
      ============================================================ */
   var GUIDES={
-
     '401k-calculator':{
       title:'Complete Guide to the 401(k) Calculator',
       intro:'Your 401(k) is one of the most powerful retirement-building tools available to American workers. Understanding how to use this calculator — and the strategy behind your contributions — can mean the difference between retiring comfortably and working into your 70s. This guide walks through every input field, the real pros and cons of 401(k) plans, and answers the questions most people ask before they contribute.',
-
       howToUse:{
         heading:'How to Use This 401(k) Calculator',
         intro:'Each input below affects your projected balance at retirement. Be realistic with your numbers — overestimating returns or contributions is the most common mistake people make when projecting retirement wealth.',
         fields:[
-          {label:'Annual Salary ($)',desc:'Enter your gross annual income before taxes and deductions. This is your base salary from your primary employer. Do not include bonuses, side income, spousal income, or investment income — this calculator focuses on income that flows through your 401(k)-eligible paycheck. If you receive an annual raise, the calculator assumes consistent salary, so you may want to recalculate every 1-2 years to stay accurate.'},
-          {label:'Your Contribution (%)',desc:'The percentage of your gross salary you contribute to your 401(k) each pay period. For 2026, the IRS limits you to $23,500 per year if you are under 50, or $31,000 if you are 50 or older (the extra $7,500 is the "catch-up" contribution). A common starting point is whatever percentage triggers your full employer match — often 4% to 6%.'},
-          {label:'Employer Match (%)',desc:'The percentage of your contributions your employer adds to your account, up to a salary cap they set. A "100% match up to 4% of salary" means your employer contributes one dollar for every dollar you contribute, until you have contributed 4% of your salary. This is free money — failing to contribute enough to capture the full match is one of the costliest mistakes in personal finance.'},
-          {label:'Current 401k Balance ($)',desc:'The total dollar amount currently in your 401(k) account, including any old 401(k) balances you have rolled in from previous employers. If you are just starting your career or this is your first 401(k), enter $0. Check your most recent statement or log into your plan provider (Fidelity, Vanguard, Empower, etc.) for the exact figure.'},
-          {label:'Expected Return (%)',desc:'The average annual investment return you expect your 401(k) to earn. The historical long-term average for a diversified stock-heavy portfolio is roughly 7%-10% before inflation, and 5%-7% after inflation. Conservative portfolios (more bonds) earn less. A realistic default is 6%-7%. Avoid using 10% or higher in your projections — that is wishful thinking, not planning.'},
-          {label:'Years Until Retirement',desc:'How many years until you plan to stop working and start withdrawing from your 401(k). Most Americans target ages 62 to 67. If you are 35 and plan to retire at 65, enter 30. The longer your time horizon, the more compound growth works in your favor — every extra year of contributions in your 30s is worth far more than the same contribution in your 60s.'}
+          {label:'Annual Salary ($)',desc:'Enter your gross annual income before taxes and deductions. This is your base salary from your primary employer. Do not include bonuses, side income, spousal income, or investment income — this calculator focuses on income that flows through your 401(k)-eligible paycheck.'},
+          {label:'Your Contribution (%)',desc:'The percentage of your gross salary you contribute to your 401(k) each pay period. For 2026, the IRS limits you to $23,500 per year if you are under 50, or $31,000 if you are 50 or older. A common starting point is whatever percentage triggers your full employer match — often 4% to 6%.'},
+          {label:'Employer Match (%)',desc:'The percentage of your contributions your employer adds, up to a salary cap they set. A "100% match up to 4% of salary" means your employer contributes one dollar for every dollar you contribute, until you have contributed 4% of your salary. This is free money — failing to contribute enough to capture the full match is one of the costliest mistakes in personal finance.'},
+          {label:'Current 401k Balance ($)',desc:'The total dollar amount currently in your 401(k) account, including any old 401(k) balances you have rolled in from previous employers. If you are just starting your career or this is your first 401(k), enter $0.'},
+          {label:'Expected Return (%)',desc:'The average annual investment return you expect your 401(k) to earn. The historical long-term average for a diversified stock-heavy portfolio is roughly 7%-10% before inflation, and 5%-7% after inflation. A realistic default is 6%-7%.'},
+          {label:'Years Until Retirement',desc:'How many years until you plan to stop working and start withdrawing from your 401(k). Most Americans target ages 62 to 67. If you are 35 and plan to retire at 65, enter 30.'}
         ]
       },
-
       pros:[
-        {title:'Free Money from Employer Matching',desc:'Most employers match a portion of your contributions, typically 50% to 100% of the first 3% to 6% of your salary. This is an instant 50%-100% return on your money — better than any investment you can find elsewhere.'},
-        {title:'Significant Tax Savings Today',desc:'Traditional 401(k) contributions reduce your taxable income for the year. If you contribute $10,000 and you are in the 24% federal tax bracket, you save roughly $2,400 in federal taxes this year (plus state tax savings in most states).'},
-        {title:'Tax-Deferred Compound Growth',desc:'Your money grows without being taxed on dividends, interest, or capital gains each year. Over 30+ years, this tax deferral can add hundreds of thousands of dollars to your final balance compared to a regular taxable brokerage account.'},
-        {title:'Automatic, Effortless Saving',desc:'Contributions come directly out of your paycheck before you ever see the money. This "pay yourself first" automation removes the temptation to spend and is the single most effective habit for building long-term wealth.'},
-        {title:'High Contribution Limits',desc:'You can contribute up to $23,500 per year in 2026 ($31,000 if 50+), which is roughly 4.7 times the IRA contribution limit. For high earners, the 401(k) is the only practical way to shelter significant amounts of pre-tax income.'},
-        {title:'Strong Creditor Protection',desc:'401(k) assets are protected from most creditors and lawsuits under federal ERISA law. If you face bankruptcy, your 401(k) balance is generally untouchable — providing financial security that other assets cannot match.'},
-        {title:'Loan Option in Emergencies',desc:'Most plans let you borrow up to 50% of your vested balance (max $50,000) and pay yourself back with interest. While not ideal, this option provides a safety net most retirement accounts do not offer.'},
-        {title:'Portability Between Jobs',desc:'When you leave an employer, you can roll your 401(k) into your new employer plan or into an IRA without paying taxes. Your retirement savings follow you throughout your career.'},
-        {title:'Forced Long-Term Discipline',desc:'Early withdrawal penalties (10% plus income tax) discourage you from touching the money before retirement. This barrier helps protect your future self from short-term temptation.'},
-        {title:'Roth 401(k) Option Available',desc:'Many employers now offer a Roth 401(k) alongside the traditional version. Roth contributions are made with after-tax dollars but grow and are withdrawn tax-free, giving you tax diversification in retirement.'}
+        {title:'Free Money from Employer Matching',desc:'Most employers match a portion of your contributions, typically 50% to 100% of the first 3% to 6% of your salary. This is an instant 50%-100% return on your money.'},
+        {title:'Significant Tax Savings Today',desc:'Traditional 401(k) contributions reduce your taxable income for the year. If you contribute $10,000 and you are in the 24% federal tax bracket, you save roughly $2,400 in federal taxes this year.'},
+        {title:'Tax-Deferred Compound Growth',desc:'Your money grows without being taxed on dividends, interest, or capital gains each year. Over 30+ years, this tax deferral can add hundreds of thousands of dollars to your final balance.'},
+        {title:'Automatic, Effortless Saving',desc:'Contributions come directly out of your paycheck before you ever see the money. This "pay yourself first" automation is the single most effective habit for building long-term wealth.'},
+        {title:'High Contribution Limits',desc:'You can contribute up to $23,500 per year in 2026 ($31,000 if 50+), which is roughly 4.7 times the IRA contribution limit.'},
+        {title:'Strong Creditor Protection',desc:'401(k) assets are protected from most creditors and lawsuits under federal ERISA law.'},
+        {title:'Loan Option in Emergencies',desc:'Most plans let you borrow up to 50% of your vested balance (max $50,000) and pay yourself back with interest.'},
+        {title:'Portability Between Jobs',desc:'When you leave an employer, you can roll your 401(k) into your new employer plan or into an IRA without paying taxes.'},
+        {title:'Forced Long-Term Discipline',desc:'Early withdrawal penalties (10% plus income tax) discourage you from touching the money before retirement.'},
+        {title:'Roth 401(k) Option Available',desc:'Many employers now offer a Roth 401(k) alongside the traditional version, giving you tax diversification in retirement.'}
       ],
-
       cons:[
-        {title:'Limited Investment Choices',desc:'Most plans offer only 10 to 30 mutual funds chosen by your employer. You cannot buy individual stocks, ETFs from other companies, or alternative investments. Your options may not include the lowest-fee or highest-quality funds available in the broader market.'},
-        {title:'High Fees in Many Plans',desc:'Small and mid-size employer plans often charge expense ratios of 0.50% to 1.50% per year, plus administrative fees. Over a 30-year career, a 1% higher fee can reduce your final balance by 25% or more. Always check your plan fee disclosure.'},
-        {title:'10% Early Withdrawal Penalty',desc:'If you withdraw before age 59½, you pay a 10% penalty on top of regular income taxes. This makes 401(k) funds effectively locked away for decades — bad for emergencies or career changes.'},
-        {title:'Required Minimum Distributions (RMDs)',desc:'Starting at age 73 (rising to 75 in coming years), you must withdraw a calculated minimum amount each year whether you need it or not. RMDs are taxable income and can push you into a higher tax bracket in retirement.'},
-        {title:'Future Tax Rate Uncertainty',desc:'You defer taxes now and pay them later in retirement. If federal tax rates rise over the coming decades (a real possibility given national debt levels), you may end up paying more in taxes than you saved.'},
-        {title:'Employer Match Vesting Schedules',desc:'Many employers require you to work 3 to 6 years before you fully own their matching contributions. Leave too early and you forfeit some or all of the employer match — a costly surprise for job-hoppers.'},
-        {title:'No Tax Benefit on Capital Gains',desc:'Withdrawals are taxed as ordinary income, not at the lower long-term capital gains rate. A taxable brokerage account holding the same investments would receive better tax treatment on growth.'},
-        {title:'Plan Loan Risks',desc:'If you borrow from your 401(k) and leave your job, the loan typically must be repaid within 60 to 90 days or it becomes a taxable distribution plus the 10% penalty. Job loss timing can be financially devastating.'},
-        {title:'No Help With Pre-Retirement Goals',desc:'401(k) money is locked away — it cannot help you buy a home, fund a child education, or weather a job loss. You still need separate emergency savings and taxable investments for shorter-term goals.'},
-        {title:'Concentration Risk if Employer Stock Heavy',desc:'Some plans default new contributions into employer stock. If your job AND your retirement savings depend on the same company, a single business failure can destroy both your income and your retirement at once.'},
-        {title:'Required Employer Sponsorship',desc:'You can only contribute to a 401(k) if your employer offers one. Self-employed workers, contractors, and employees of small businesses without 401(k) plans must use alternatives like SEP-IRAs or Solo 401(k)s.'},
-        {title:'Limited Tax Planning Flexibility',desc:'Once money goes into a traditional 401(k), you cannot easily convert it to Roth without triggering taxes. Compared to taxable accounts, your flexibility for tax-loss harvesting and estate planning strategies is reduced.'}
+        {title:'Limited Investment Choices',desc:'Most plans offer only 10 to 30 mutual funds chosen by your employer. You cannot buy individual stocks, ETFs from other companies, or alternative investments.'},
+        {title:'High Fees in Many Plans',desc:'Small and mid-size employer plans often charge expense ratios of 0.50% to 1.50% per year, plus administrative fees. Over a 30-year career, a 1% higher fee can reduce your final balance by 25% or more.'},
+        {title:'10% Early Withdrawal Penalty',desc:'If you withdraw before age 59½, you pay a 10% penalty on top of regular income taxes.'},
+        {title:'Required Minimum Distributions (RMDs)',desc:'Starting at age 73, you must withdraw a calculated minimum amount each year whether you need it or not.'},
+        {title:'Future Tax Rate Uncertainty',desc:'You defer taxes now and pay them later in retirement. If federal tax rates rise, you may end up paying more in taxes than you saved.'},
+        {title:'Employer Match Vesting Schedules',desc:'Many employers require you to work 3 to 6 years before you fully own their matching contributions.'},
+        {title:'No Tax Benefit on Capital Gains',desc:'Withdrawals are taxed as ordinary income, not at the lower long-term capital gains rate.'},
+        {title:'Plan Loan Risks',desc:'If you borrow from your 401(k) and leave your job, the loan typically must be repaid within 60 to 90 days or it becomes a taxable distribution plus the 10% penalty.'},
+        {title:'No Help With Pre-Retirement Goals',desc:'401(k) money is locked away — it cannot help you buy a home, fund a child education, or weather a job loss.'},
+        {title:'Concentration Risk if Employer Stock Heavy',desc:'Some plans default new contributions into employer stock. If your job AND your retirement savings depend on the same company, a single business failure can destroy both.'},
+        {title:'Required Employer Sponsorship',desc:'You can only contribute to a 401(k) if your employer offers one. Self-employed workers must use alternatives like SEP-IRAs or Solo 401(k)s.'},
+        {title:'Limited Tax Planning Flexibility',desc:'Once money goes into a traditional 401(k), you cannot easily convert it to Roth without triggering taxes.'}
       ],
-
       faq:[
-        {q:'How much should I contribute to my 401(k)?',a:'At absolute minimum, contribute enough to capture your full employer match — this is a guaranteed 50%-100% return on your money. Beyond the match, financial planners commonly recommend saving 15% of gross income for retirement including employer contributions. If you started saving late (40s or 50s), you may need 20%-25% to catch up. Use this calculator to test different percentages and see how each one affects your projected retirement balance.'},
-        {q:'What is the 2026 401(k) contribution limit?',a:'For 2026, you can contribute up to $23,500 of your own money if you are under 50. If you are 50 or older, you can add a $7,500 catch-up contribution for a total of $31,000. There is also a higher catch-up of $11,250 for workers ages 60 to 63 under SECURE 2.0 rules. These limits apply only to your contributions — employer matching does not count against these caps, but there is a separate combined limit of $70,000 ($77,500 if 50+).'},
-        {q:'Is a 401(k) better than an IRA?',a:'Both have advantages. The 401(k) offers higher contribution limits, employer matching, and stronger creditor protection. The IRA offers far more investment choices, typically lower fees, and more flexibility. The common recommendation is to contribute to your 401(k) up to the employer match, then max a Roth IRA ($7,000 in 2026, or $8,000 if 50+), then return to the 401(k) for additional contributions.'},
-        {q:'Should I choose a traditional or Roth 401(k)?',a:'It depends on whether you expect your tax rate to be higher now or in retirement. Traditional 401(k) reduces taxes today and you pay later — good if you expect lower income in retirement. Roth 401(k) is taxed now but tax-free later — good if you expect higher taxes in retirement or you are early in your career and currently in a low bracket. Many financial planners suggest splitting contributions between both to hedge against future tax uncertainty.'},
-        {q:'What happens to my 401(k) when I change jobs?',a:'You have four options: (1) Leave it with your old employer (allowed if balance is above $7,000). (2) Roll it into your new employer 401(k) plan. (3) Roll it into an IRA — usually the best choice for investment flexibility and lower fees. (4) Cash it out, which triggers income taxes plus a 10% early withdrawal penalty if you are under 59½. Option 4 is almost always a mistake. Direct rollovers (trustee-to-trustee transfers) avoid taxes and penalties.'},
-        {q:'What is a good 401(k) balance by age?',a:'Common benchmarks from Fidelity Investments: 1x your annual salary by age 30, 3x by 40, 6x by 50, 8x by 60, and 10x by 67. These are rough guidelines — your actual target depends on your retirement lifestyle, Social Security expectations, other assets, and where you plan to live. Use the calculator above with your actual numbers for a more personalized projection.'},
-        {q:'Can I withdraw money early from my 401(k)?',a:'Yes, but it is expensive. Withdrawals before age 59½ trigger a 10% IRS penalty plus regular federal and state income taxes. Hardship withdrawals are allowed for specific qualifying events (medical bills, foreclosure, college costs) but still owe regular taxes. A 401(k) loan is often a better option — you borrow up to 50% of your balance (max $50,000) and repay yourself with interest, avoiding taxes and penalties as long as the loan is repaid on schedule.'},
-        {q:'What investment returns are realistic to expect?',a:'The S&P 500 has averaged roughly 10% annual returns nominally and 7% after inflation over the past 50 years. A balanced 60/40 stock/bond portfolio has averaged 7%-8% nominal, 4%-5% real. Many financial planners use 6%-7% as a conservative projection. Avoid using 10% or higher in your calculator — that assumes 100% stocks with no inflation adjustment, which underestimates the impact of bear markets and rising prices.'},
-        {q:'Are 401(k) contributions tax-deductible?',a:'Traditional 401(k) contributions reduce your taxable income for the year, which lowers your federal income tax bill. Most states also exempt 401(k) contributions from state income tax (exceptions include Pennsylvania, which taxes contributions but not withdrawals). Roth 401(k) contributions are NOT tax-deductible — you pay tax now in exchange for tax-free withdrawals later.'},
-        {q:'What is vesting and how does it affect my 401(k)?',a:'Vesting determines when you fully own the matching contributions your employer makes. Your own contributions are always 100% yours immediately. Employer matches may follow a graded vesting schedule (e.g., 20% per year over 5 years) or cliff vesting (e.g., 0% for 2 years, then 100%). If you leave before fully vesting, you forfeit the unvested portion. Always check your plan summary description before quitting a job — staying an extra few months can sometimes secure thousands in employer contributions.'}
+        {q:'How much should I contribute to my 401(k)?',a:'At minimum, contribute enough to capture your full employer match. Beyond the match, financial planners commonly recommend saving 15% of gross income for retirement including employer contributions. If you started late, you may need 20%-25%.'},
+        {q:'What is the 2026 401(k) contribution limit?',a:'For 2026, you can contribute up to $23,500 of your own money if under 50. If 50+, add $7,500 catch-up for $31,000 total. Ages 60-63 get an enhanced $11,250 catch-up under SECURE 2.0.'},
+        {q:'Is a 401(k) better than an IRA?',a:'Both have advantages. The 401(k) offers higher contribution limits and employer matching. The IRA offers more investment choices and lower fees. Common recommendation: contribute to 401(k) up to match, then max Roth IRA, then return to 401(k).'},
+        {q:'Should I choose a traditional or Roth 401(k)?',a:'Traditional reduces taxes today — good if you expect lower income in retirement. Roth is taxed now but tax-free later — good if you expect higher taxes in retirement or you are early in your career.'},
+        {q:'What happens to my 401(k) when I change jobs?',a:'Four options: leave with old employer, roll into new employer plan, roll into an IRA (usually best for flexibility), or cash out (almost always a mistake — triggers taxes plus 10% penalty if under 59½).'},
+        {q:'What is a good 401(k) balance by age?',a:'Fidelity benchmarks: 1x salary by 30, 3x by 40, 6x by 50, 8x by 60, 10x by 67. These are guidelines — your actual target depends on lifestyle, Social Security, and other assets.'},
+        {q:'Can I withdraw money early from my 401(k)?',a:'Yes but expensive. Withdrawals before age 59½ trigger 10% IRS penalty plus regular income taxes. A 401(k) loan is often a better option — you borrow up to 50% (max $50,000) and repay yourself with interest.'},
+        {q:'What investment returns are realistic to expect?',a:'The S&P 500 has averaged roughly 10% annual returns nominally, 7% after inflation. A balanced 60/40 portfolio has averaged 7%-8% nominal. Conservative projections use 6%-7%.'},
+        {q:'Are 401(k) contributions tax-deductible?',a:'Traditional 401(k) contributions reduce your taxable income. Most states also exempt them from state income tax (exception: Pennsylvania taxes contributions but not withdrawals). Roth 401(k) contributions are NOT tax-deductible.'},
+        {q:'What is vesting and how does it affect my 401(k)?',a:'Vesting determines when you fully own the matching contributions your employer makes. Your own contributions are always 100% yours. Employer matches may follow graded vesting (e.g., 20% per year) or cliff vesting (e.g., 0% then 100% at year 3).'}
       ],
-
       related:[
-        {title:'Retirement Calculator',desc:'See if your total retirement savings (401k + IRA + pension + Social Security) will support your lifestyle.',url:'/retirement-calculator/',icon:'🏠'},
+        {title:'Retirement Calculator',desc:'See if your total retirement savings will support your lifestyle.',url:'/retirement-calculator/',icon:'🏠'},
         {title:'Roth IRA Calculator',desc:'Compare tax-free Roth growth against your 401(k) projection.',url:'/roth-ira-calculator/',icon:'📋'},
         {title:'Compound Interest Calculator',desc:'Visualize how compound growth multiplies your retirement contributions.',url:'/compound-interest-calculator/',icon:'📈'},
-        {title:'Paycheck Calculator',desc:'See how 401(k) contributions affect your take-home pay each pay period.',url:'/paycheck-calculator/',icon:'💵'}
+        {title:'Paycheck Calculator',desc:'See how 401(k) contributions affect your take-home pay.',url:'/paycheck-calculator/',icon:'💵'}
       ]
     }
-
   };
 
-  /* ============================================================
-     EVERY PAGE: HIDE EMPTY LEFTOVER CONTAINERS
-     ============================================================ */
+  /* HIDE EMPTY CONTAINERS */
   function hideEmptyContainers(){
     var candidates=document.querySelectorAll('main div, main section, main article, .container > div, .container > section');
     for(var i=0;i<candidates.length;i++){
@@ -242,18 +219,13 @@
   else{window.addEventListener('load',function(){setTimeout(hideEmptyContainers,300);});}
   setTimeout(hideEmptyContainers,1500);
 
-  /* ============================================================
-     RUN STATE GRID ON ELIGIBLE PAGES
-     ============================================================ */
   if(document.readyState==='complete'){
     setTimeout(injectStateGrid,100);
   }else{
     window.addEventListener('load',function(){setTimeout(injectStateGrid,100);});
   }
 
-  /* ============================================================
-     CALCULATOR-SPECIFIC GUIDES (401k only for now)
-     ============================================================ */
+  /* CALCULATOR-SPECIFIC GUIDES */
   var currentCalc=null;
   for(var key in GUIDES){
     if(path.indexOf('/'+key+'/')>-1 || path.indexOf('/'+key)>-1){
@@ -266,15 +238,7 @@
   if(!data)return;
 
   function hideOldContent(){
-    var oldHeadings=[
-      'how does a 401',
-      'understanding employer match',
-      'how much should i contribute',
-      '401(k) vs',
-      'what happens when i change',
-      'frequently asked questions',
-      'related guides'
-    ];
+    var oldHeadings=['how does a 401','understanding employer match','how much should i contribute','401(k) vs','what happens when i change','frequently asked questions','related guides'];
     var allHeads=document.querySelectorAll('h2, h3');
     for(var i=0;i<allHeads.length;i++){
       var h=allHeads[i];
@@ -301,8 +265,7 @@
     '.sc-cta-box{display:block;max-width:1100px;margin:30px auto;padding:32px 24px;background:linear-gradient(135deg,#059669 0%,#10B981 100%);border-radius:20px;color:#fff;text-align:center;box-shadow:0 8px 24px rgba(16,185,129,.25)}'+
     '.sc-cta-box h3{font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-size:1.5rem;font-weight:800;margin:0 0 8px;color:#fff}'+
     '.sc-cta-box p{font-size:1rem;color:rgba(255,255,255,.92);margin:0 0 20px;line-height:1.6}'+
-    '.sc-cta-btn{display:inline-block;background:#fff;color:#059669;padding:12px 28px;border-radius:50px;font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-weight:700;text-decoration:none;font-size:.95rem;transition:transform .2s,box-shadow .2s}'+
-    '.sc-cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.15)}'+
+    '.sc-cta-btn{display:inline-block;background:#fff;color:#059669;padding:12px 28px;border-radius:50px;font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-weight:700;text-decoration:none;font-size:.95rem}'+
     '.sc-guide{display:block!important;visibility:visible!important;opacity:1!important;position:relative;z-index:5;max-width:1100px;margin:40px auto;padding:40px 24px;font-family:var(--font-body,"DM Sans",sans-serif);color:#0F172A;background:#fff;border-radius:24px;box-shadow:0 4px 20px rgba(10,22,40,.06)}'+
     '.sc-guide h2{font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-size:1.85rem;font-weight:800;color:#0A1628;margin:50px 0 16px;letter-spacing:-.02em;line-height:1.2}'+
     '.sc-guide h2:first-child{margin-top:0}'+
@@ -316,7 +279,7 @@
     '.sc-field-label{font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-weight:700;color:#059669;font-size:1.02rem;margin-bottom:6px;display:block}'+
     '.sc-field-desc{font-size:.95rem;color:#475569;line-height:1.7;margin:0}'+
     '.sc-procons{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:24px 0}'+
-    '.sc-procons-col{background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:24px;box-shadow:0 1px 3px rgba(10,22,40,.04)}'+
+    '.sc-procons-col{background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:24px}'+
     '.sc-procons-col.pros{border-top:4px solid #10B981}'+
     '.sc-procons-col.cons{border-top:4px solid #EF4444}'+
     '.sc-procons-heading{font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-size:1.25rem;font-weight:800;margin:0 0 4px}'+
@@ -326,27 +289,25 @@
     '.sc-pc-item{padding:14px 0;border-bottom:1px solid #F1F5F9}'+
     '.sc-pc-item:last-child{border-bottom:none}'+
     '.sc-pc-title{font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-weight:700;color:#0F172A;font-size:.98rem;margin:0 0 4px;display:flex;align-items:flex-start;gap:8px}'+
-    '.sc-procons-col.pros .sc-pc-title::before{content:"\u2713";color:#10B981;font-weight:900;font-size:1.1rem;line-height:1;flex-shrink:0;margin-top:2px}'+
-    '.sc-procons-col.cons .sc-pc-title::before{content:"\u2715";color:#EF4444;font-weight:900;font-size:1.05rem;line-height:1;flex-shrink:0;margin-top:2px}'+
+    '.sc-procons-col.pros .sc-pc-title::before{content:"\u2713";color:#10B981;font-weight:900;font-size:1.1rem;flex-shrink:0;margin-top:2px}'+
+    '.sc-procons-col.cons .sc-pc-title::before{content:"\u2715";color:#EF4444;font-weight:900;font-size:1.05rem;flex-shrink:0;margin-top:2px}'+
     '.sc-pc-desc{font-size:.9rem;color:#64748B;line-height:1.65;margin:0;padding-left:20px}'+
-    '.sc-faq-item{background:#fff;border:1px solid #E2E8F0;border-radius:14px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}'+
-    '.sc-faq-item:hover{border-color:#10B981}'+
+    '.sc-faq-item{background:#fff;border:1px solid #E2E8F0;border-radius:14px;margin-bottom:10px;overflow:hidden}'+
     '.sc-faq-q{padding:18px 22px;font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-weight:700;color:#0F172A;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:1rem;line-height:1.4;user-select:none}'+
-    '.sc-faq-icon{width:24px;height:24px;flex-shrink:0;border-radius:50%;background:#F0FDF4;color:#059669;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:900;transition:transform .25s,background .25s}'+
+    '.sc-faq-icon{width:24px;height:24px;flex-shrink:0;border-radius:50%;background:#F0FDF4;color:#059669;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:900;transition:transform .25s}'+
     '.sc-faq-item.open .sc-faq-icon{transform:rotate(45deg);background:#10B981;color:#fff}'+
     '.sc-faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;padding:0 22px;color:#475569;font-size:.97rem;line-height:1.75}'+
     '.sc-faq-item.open .sc-faq-a{max-height:600px;padding:0 22px 20px}'+
     '.sc-related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:24px 0}'+
-    '.sc-related-card{background:#fff;border:1px solid #E2E8F0;border-radius:18px;padding:22px;text-decoration:none;color:#0F172A;transition:transform .25s,box-shadow .25s,border-color .25s;display:block}'+
+    '.sc-related-card{background:#fff;border:1px solid #E2E8F0;border-radius:18px;padding:22px;text-decoration:none;color:#0F172A;display:block}'+
     '.sc-related-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(10,22,40,.08);border-color:#10B981}'+
     '.sc-rc-icon{font-size:2rem;margin-bottom:10px;display:block}'+
     '.sc-rc-title{font-family:var(--font-head,"Plus Jakarta Sans",sans-serif);font-weight:800;color:#0A1628;font-size:1.05rem;margin:0 0 6px}'+
     '.sc-rc-desc{font-size:.86rem;color:#64748B;line-height:1.6;margin:0}'+
     '@media(max-width:768px){'+
       '.sc-guide{margin:24px 12px;padding:24px 16px;border-radius:18px}'+
-      '.sc-guide h2{font-size:1.4rem;margin:32px 0 12px}'+
+      '.sc-guide h2{font-size:1.4rem}'+
       '.sc-cta-box{margin:24px 12px;padding:24px 18px}'+
-      '.sc-cta-box h3{font-size:1.2rem}'+
       '.sc-howto{padding:20px}'+
       '.sc-procons{grid-template-columns:1fr;gap:16px}'+
       '.sc-procons-col{padding:20px}'+
@@ -361,7 +322,7 @@
     return '<div class="sc-cta-box" id="sc-cta-box">'+
       '<h3>Explore More Free Financial Calculators</h3>'+
       '<p>Make smarter decisions about retirement, debt, savings, and more — all 17 calculators free, no signup required.</p>'+
-      '<a href="#all-calculators" class="sc-cta-btn" onclick="document.querySelector(\'.calculator-grid,.all-calculators,h2\')&&document.querySelector(\'.calculator-grid,.all-calculators,h2\').scrollIntoView({behavior:\'smooth\'});return false;">See All Calculators →</a>'+
+      '<a href="/" class="sc-cta-btn">See All Calculators →</a>'+
       '</div>';
   }
 
@@ -369,7 +330,6 @@
     var html='<section class="sc-guide" id="sc-guide-block">';
     html+='<h2>'+esc(data.title)+'</h2>';
     html+='<p class="sc-intro">'+esc(data.intro)+'</p>';
-
     html+='<h2>'+esc(data.howToUse.heading)+'</h2>';
     html+='<div class="sc-howto">';
     html+='<p class="sc-howto-intro">'+esc(data.howToUse.intro)+'</p>';
@@ -378,7 +338,6 @@
       html+='<div class="sc-field"><span class="sc-field-label">'+esc(f.label)+'</span><p class="sc-field-desc">'+esc(f.desc)+'</p></div>';
     }
     html+='</div>';
-
     html+='<h2>Pros and Cons of a 401(k) Plan</h2>';
     html+='<div class="sc-procons">';
     html+='<div class="sc-procons-col pros"><h3 class="sc-procons-heading pros">Pros</h3><p class="sc-procons-sub">Why a 401(k) is the foundation of most retirement plans</p>';
@@ -386,12 +345,11 @@
       html+='<div class="sc-pc-item"><div class="sc-pc-title">'+esc(data.pros[i].title)+'</div><p class="sc-pc-desc">'+esc(data.pros[i].desc)+'</p></div>';
     }
     html+='</div>';
-    html+='<div class="sc-procons-col cons"><h3 class="sc-procons-heading cons">Cons</h3><p class="sc-procons-sub">Trade-offs and limitations to understand before contributing</p>';
+    html+='<div class="sc-procons-col cons"><h3 class="sc-procons-heading cons">Cons</h3><p class="sc-procons-sub">Trade-offs to understand before contributing</p>';
     for(var i=0;i<data.cons.length;i++){
       html+='<div class="sc-pc-item"><div class="sc-pc-title">'+esc(data.cons[i].title)+'</div><p class="sc-pc-desc">'+esc(data.cons[i].desc)+'</p></div>';
     }
     html+='</div></div>';
-
     html+='<h2>Frequently Asked Questions</h2>';
     for(var i=0;i<data.faq.length;i++){
       html+='<div class="sc-faq-item" data-idx="'+i+'">'+
@@ -399,7 +357,6 @@
         '<div class="sc-faq-a">'+esc(data.faq[i].a)+'</div>'+
       '</div>';
     }
-
     html+='<h2>Related Calculators</h2>';
     html+='<div class="sc-related">';
     for(var i=0;i<data.related.length;i++){
@@ -416,14 +373,7 @@
 
   function injectGuide(){
     if(document.getElementById('sc-guide-block'))return;
-
-    var anchor=document.querySelector('.calculator-section')
-            ||document.querySelector('.calculator-card')
-            ||document.querySelector('.calc-wrapper')
-            ||document.querySelector('main .container:first-of-type')
-            ||document.querySelector('main')
-            ||document.querySelector('.container');
-
+    var anchor=document.querySelector('.calculator-section')||document.querySelector('.calculator-card')||document.querySelector('.calc-wrapper')||document.querySelector('main .container:first-of-type')||document.querySelector('main')||document.querySelector('.container');
     if(!document.getElementById('sc-cta-box')){
       var ctaWrap=document.createElement('div');
       ctaWrap.innerHTML=buildCTABox();
@@ -433,7 +383,6 @@
         else{anchor.parentNode.appendChild(ctaEl);}
       }
     }
-
     var guideWrap=document.createElement('div');
     guideWrap.innerHTML=buildGuide();
     var guideEl=guideWrap.firstChild;
@@ -446,14 +395,7 @@
       if(footer && footer.parentNode){footer.parentNode.insertBefore(guideEl,footer);}
       else{document.body.appendChild(guideEl);}
     }
-
-    var faqSchema={
-      "@context":"https://schema.org",
-      "@type":"FAQPage",
-      "mainEntity":data.faq.map(function(item){
-        return {"@type":"Question","name":item.q,"acceptedAnswer":{"@type":"Answer","text":item.a}};
-      })
-    };
+    var faqSchema={"@context":"https://schema.org","@type":"FAQPage","mainEntity":data.faq.map(function(item){return {"@type":"Question","name":item.q,"acceptedAnswer":{"@type":"Answer","text":item.a}};})};
     var schemaScript=document.createElement('script');
     schemaScript.type='application/ld+json';
     schemaScript.textContent=JSON.stringify(faqSchema);
