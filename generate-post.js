@@ -343,7 +343,7 @@ SavingsClub
 <section style="padding:100px 0 60px"><div class="container" style="max-width:800px">
 <a href="../" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:24px;color:var(--text-light);font-weight:500">← Back to Blog</a>
 <h1 style="font-size:2rem;margin-bottom:16px;line-height:1.3">${title}</h1>
-<div style="color:var(--text-light);margin-bottom:32px;font-size:.95rem">By Editorial Team · ${date} · ${readTime} min read</div>
+<div style="color:var(--text-light);margin-bottom:32px;font-size:.95rem">By SavingsClub Research Team · ${date} · ${readTime} min read</div>
 <img src="${blogImage}" alt="${title}" style="width:100%;height:300px;object-fit:cover;border-radius:0;margin:0 -24px 32px;width:calc(100% + 48px);max-width:none;box-shadow:none" loading="lazy">
 ${photoCredit}
 <div class="blog-content">${cleanContent}</div>
