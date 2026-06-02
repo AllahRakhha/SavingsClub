@@ -1,18 +1,15 @@
-/* SavingsClub - Calculator Guides v5
-   v4 features + California, Florida, New York added to active states */
+/* SavingsClub - Calculator Guides v6
+   All 10 mortgage states now clickable: TX, CA, FL, NY, PA, IL, OH, GA, NC, MI */
 (function(){
 
   var path=window.location.pathname.toLowerCase();
 
-  /* ============================================================
-     STATE GRID CONFIG
-     ============================================================ */
   var STATE_GRIDS={
     'mortgage-calculator':{
       heading:'Mortgage Calculator by State',
       sub:'See state-specific mortgage rates, property tax, and median home prices.',
       basePath:'/mortgage-calculator/',
-      activeStates:['texas','california','florida','new-york'],
+      activeStates:['texas','california','florida','new-york','pennsylvania','illinois','ohio','georgia','north-carolina','michigan'],
       comingSoonMsg:'More states coming soon — we are launching all 50 state-specific mortgage calculators in 2026.'
     },
     '401k-calculator':{
@@ -128,9 +125,7 @@
     else{document.body.appendChild(gridEl);}
   }
 
-  /* ============================================================
-     401K GUIDE DATA (kept from v4)
-     ============================================================ */
+  /* 401K GUIDE DATA */
   var GUIDES={
     '401k-calculator':{
       title:'Complete Guide to the 401(k) Calculator',
@@ -160,30 +155,30 @@
         {title:'Roth 401(k) Option Available',desc:'Many employers now offer a Roth 401(k) alongside the traditional version, giving you tax diversification in retirement.'}
       ],
       cons:[
-        {title:'Limited Investment Choices',desc:'Most plans offer only 10 to 30 mutual funds chosen by your employer. You cannot buy individual stocks, ETFs from other companies, or alternative investments.'},
-        {title:'High Fees in Many Plans',desc:'Small and mid-size employer plans often charge expense ratios of 0.50% to 1.50% per year, plus administrative fees. Over a 30-year career, a 1% higher fee can reduce your final balance by 25% or more.'},
+        {title:'Limited Investment Choices',desc:'Most plans offer only 10 to 30 mutual funds chosen by your employer.'},
+        {title:'High Fees in Many Plans',desc:'Small and mid-size employer plans often charge expense ratios of 0.50% to 1.50% per year. Over a 30-year career, a 1% higher fee can reduce your final balance by 25% or more.'},
         {title:'10% Early Withdrawal Penalty',desc:'If you withdraw before age 59½, you pay a 10% penalty on top of regular income taxes.'},
         {title:'Required Minimum Distributions (RMDs)',desc:'Starting at age 73, you must withdraw a calculated minimum amount each year whether you need it or not.'},
         {title:'Future Tax Rate Uncertainty',desc:'You defer taxes now and pay them later in retirement. If federal tax rates rise, you may end up paying more in taxes than you saved.'},
         {title:'Employer Match Vesting Schedules',desc:'Many employers require you to work 3 to 6 years before you fully own their matching contributions.'},
         {title:'No Tax Benefit on Capital Gains',desc:'Withdrawals are taxed as ordinary income, not at the lower long-term capital gains rate.'},
-        {title:'Plan Loan Risks',desc:'If you borrow from your 401(k) and leave your job, the loan typically must be repaid within 60 to 90 days or it becomes a taxable distribution plus the 10% penalty.'},
-        {title:'No Help With Pre-Retirement Goals',desc:'401(k) money is locked away — it cannot help you buy a home, fund a child education, or weather a job loss.'},
+        {title:'Plan Loan Risks',desc:'If you borrow from your 401(k) and leave your job, the loan typically must be repaid within 60 to 90 days.'},
+        {title:'No Help With Pre-Retirement Goals',desc:'401(k) money is locked away — it cannot help you buy a home or weather a job loss.'},
         {title:'Concentration Risk if Employer Stock Heavy',desc:'Some plans default new contributions into employer stock. If your job AND your retirement savings depend on the same company, a single business failure can destroy both.'},
-        {title:'Required Employer Sponsorship',desc:'You can only contribute to a 401(k) if your employer offers one. Self-employed workers must use alternatives like SEP-IRAs or Solo 401(k)s.'},
+        {title:'Required Employer Sponsorship',desc:'You can only contribute to a 401(k) if your employer offers one.'},
         {title:'Limited Tax Planning Flexibility',desc:'Once money goes into a traditional 401(k), you cannot easily convert it to Roth without triggering taxes.'}
       ],
       faq:[
-        {q:'How much should I contribute to my 401(k)?',a:'At minimum, contribute enough to capture your full employer match. Beyond the match, financial planners commonly recommend saving 15% of gross income for retirement including employer contributions. If you started late, you may need 20%-25%.'},
-        {q:'What is the 2026 401(k) contribution limit?',a:'For 2026, you can contribute up to $23,500 of your own money if under 50. If 50+, add $7,500 catch-up for $31,000 total. Ages 60-63 get an enhanced $11,250 catch-up under SECURE 2.0.'},
-        {q:'Is a 401(k) better than an IRA?',a:'Both have advantages. The 401(k) offers higher contribution limits and employer matching. The IRA offers more investment choices and lower fees. Common recommendation: contribute to 401(k) up to match, then max Roth IRA, then return to 401(k).'},
-        {q:'Should I choose a traditional or Roth 401(k)?',a:'Traditional reduces taxes today — good if you expect lower income in retirement. Roth is taxed now but tax-free later — good if you expect higher taxes in retirement or you are early in your career.'},
-        {q:'What happens to my 401(k) when I change jobs?',a:'Four options: leave with old employer, roll into new employer plan, roll into an IRA (usually best for flexibility), or cash out (almost always a mistake — triggers taxes plus 10% penalty if under 59½).'},
-        {q:'What is a good 401(k) balance by age?',a:'Fidelity benchmarks: 1x salary by 30, 3x by 40, 6x by 50, 8x by 60, 10x by 67. These are guidelines — your actual target depends on lifestyle, Social Security, and other assets.'},
-        {q:'Can I withdraw money early from my 401(k)?',a:'Yes but expensive. Withdrawals before age 59½ trigger 10% IRS penalty plus regular income taxes. A 401(k) loan is often a better option — you borrow up to 50% (max $50,000) and repay yourself with interest.'},
-        {q:'What investment returns are realistic to expect?',a:'The S&P 500 has averaged roughly 10% annual returns nominally, 7% after inflation. A balanced 60/40 portfolio has averaged 7%-8% nominal. Conservative projections use 6%-7%.'},
-        {q:'Are 401(k) contributions tax-deductible?',a:'Traditional 401(k) contributions reduce your taxable income. Most states also exempt them from state income tax (exception: Pennsylvania taxes contributions but not withdrawals). Roth 401(k) contributions are NOT tax-deductible.'},
-        {q:'What is vesting and how does it affect my 401(k)?',a:'Vesting determines when you fully own the matching contributions your employer makes. Your own contributions are always 100% yours. Employer matches may follow graded vesting (e.g., 20% per year) or cliff vesting (e.g., 0% then 100% at year 3).'}
+        {q:'How much should I contribute to my 401(k)?',a:'At minimum, contribute enough to capture your full employer match. Beyond the match, financial planners commonly recommend saving 15% of gross income for retirement.'},
+        {q:'What is the 2026 401(k) contribution limit?',a:'For 2026, you can contribute up to $23,500 of your own money if under 50. If 50+, add $7,500 catch-up for $31,000 total.'},
+        {q:'Is a 401(k) better than an IRA?',a:'Both have advantages. The 401(k) offers higher contribution limits and employer matching. The IRA offers more investment choices and lower fees. Common recommendation: 401(k) to match, then max Roth IRA, then return to 401(k).'},
+        {q:'Should I choose a traditional or Roth 401(k)?',a:'Traditional reduces taxes today — good if you expect lower income in retirement. Roth is taxed now but tax-free later — good if you expect higher taxes in retirement.'},
+        {q:'What happens to my 401(k) when I change jobs?',a:'Four options: leave with old employer, roll into new employer plan, roll into an IRA (usually best for flexibility), or cash out (almost always a mistake).'},
+        {q:'What is a good 401(k) balance by age?',a:'Fidelity benchmarks: 1x salary by 30, 3x by 40, 6x by 50, 8x by 60, 10x by 67.'},
+        {q:'Can I withdraw money early from my 401(k)?',a:'Yes but expensive. Before age 59½ triggers 10% IRS penalty plus regular income taxes. A 401(k) loan is often a better option — you borrow up to 50% (max $50,000) and repay yourself with interest.'},
+        {q:'What investment returns are realistic to expect?',a:'The S&P 500 has averaged roughly 10% nominal returns, 7% after inflation. Conservative projections use 6%-7%.'},
+        {q:'Are 401(k) contributions tax-deductible?',a:'Traditional 401(k) contributions reduce your taxable income. Roth 401(k) contributions are NOT tax-deductible.'},
+        {q:'What is vesting and how does it affect my 401(k)?',a:'Vesting determines when you fully own the matching contributions. Your own contributions are always 100% yours. Employer matches may follow graded vesting (e.g., 20% per year) or cliff vesting.'}
       ],
       related:[
         {title:'Retirement Calculator',desc:'See if your total retirement savings will support your lifestyle.',url:'/retirement-calculator/',icon:'🏠'},
@@ -194,7 +189,6 @@
     }
   };
 
-  /* HIDE EMPTY CONTAINERS */
   function hideEmptyContainers(){
     var candidates=document.querySelectorAll('main div, main section, main article, .container > div, .container > section');
     for(var i=0;i<candidates.length;i++){
@@ -225,7 +219,6 @@
     window.addEventListener('load',function(){setTimeout(injectStateGrid,100);});
   }
 
-  /* CALCULATOR-SPECIFIC GUIDES */
   var currentCalc=null;
   for(var key in GUIDES){
     if(path.indexOf('/'+key+'/')>-1 || path.indexOf('/'+key)>-1){
