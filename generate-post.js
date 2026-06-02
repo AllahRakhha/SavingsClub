@@ -195,7 +195,7 @@ CRITICAL REQUIREMENTS:
 - Write 1,800-2,200 words minimum. This is non-negotiable.
 - Use HTML formatting: h2/h3 for sections, p for paragraphs, ul/li for lists where appropriate
 - Do NOT include h1 (the template adds it)
-- Start with: <p><em>Financial information reflects conditions as of 2026. Always verify current details with providers.</em></p>
+- Start with: <p><em>SavingsClub provides educational financial content only and does not offer financial, legal, tax, or investment advice. Rates, terms, and product details may change. Always verify current information directly with the provider before making financial decisions.</em></p>
 - Use at least 6 subheadings (h2 or h3) spread throughout — one every 200-300 words
 - Include real-world examples with specific dollar amounts (e.g., "On a $50,000 salary..." or "If you save $300/month...")
 - Reference specific US states naturally (not just ${state})
@@ -263,7 +263,7 @@ Write unique, original content. Do not repeat advice generically — be specific
         }).on('error', reject);
       });
       if (unsplashData && unsplashData.urls) {
-        blogImage = unsplashData.urls.regular;
+        blogImage = unsplashData.urls.raw + '&w=1200&q=75&auto=format';
         const photographer = unsplashData.user ? unsplashData.user.name : 'Unsplash';
         const profileUrl = unsplashData.user ? unsplashData.user.links.html : 'https://unsplash.com';
         photoCredit = '<p style="font-size:.75rem;color:var(--text-lighter);margin-top:8px;text-align:center">Photo by <a href="' + profileUrl + '?utm_source=savingsclub&utm_medium=referral" style="color:var(--text-lighter)">' + photographer + '</a> on <a href="https://unsplash.com?utm_source=savingsclub&utm_medium=referral" style="color:var(--text-lighter)">Unsplash</a></p>';
