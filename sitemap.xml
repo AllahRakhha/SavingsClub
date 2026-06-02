@@ -12,6 +12,12 @@
   <url><loc>https://savingsclub.com/mortgage-calculator/california/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://savingsclub.com/mortgage-calculator/florida/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://savingsclub.com/mortgage-calculator/new-york/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://savingsclub.com/mortgage-calculator/pennsylvania/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://savingsclub.com/mortgage-calculator/illinois/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://savingsclub.com/mortgage-calculator/ohio/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://savingsclub.com/mortgage-calculator/georgia/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://savingsclub.com/mortgage-calculator/north-carolina/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://savingsclub.com/mortgage-calculator/michigan/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://savingsclub.com/auto-loan-calculator/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://savingsclub.com/net-worth-calculator/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://savingsclub.com/emergency-fund-calculator/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
@@ -27,6 +33,13 @@
   <url><loc>https://savingsclub.com/terms-of-service/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://savingsclub.com/cookie-policy/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://savingsclub.com/disclaimer/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://savingsclub.com/401k-calculator/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://savingsclub.com/roth-ira-calculator/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://savingsclub.com/inflation-calculator/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://savingsclub.com/loan-payoff-calculator/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://savingsclub.com/paycheck-calculator/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://savingsclub.com/cd-calculator/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://savingsclub.com/faq/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://savingsclub.com/blog/how-to-build-an-emergency-fund-a-step-by-step-guide-for-every-american/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://savingsclub.com/blog/the-50-30-20-budget-rule-simplest-way-to-manage-your-money/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://savingsclub.com/blog/best-high-yield-savings-accounts-where-to-earn-4-apy-in-2026/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
@@ -47,15 +60,7 @@
   <url><loc>https://savingsclub.com/blog/balance-transfer-credit-cards-how-to-use-them-strategically/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://savingsclub.com/blog/financial-planning-checklist-for-new-parents/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://savingsclub.com/blog/smart-money-moves-to-make-before-year-end-2026/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://savingsclub.com/401k-calculator/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://savingsclub.com/roth-ira-calculator/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://savingsclub.com/inflation-calculator/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://savingsclub.com/loan-payoff-calculator/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://savingsclub.com/paycheck-calculator/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://savingsclub.com/cd-calculator/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://savingsclub.com/faq/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://savingsclub.com/blog/how-to-create-multiple-streams-of-income/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://savingsclub.com/blog/smart-money-moves-for-millennials-in-ohio/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://savingsclub.com/blog/how-to-save-for-college-with-a-529-plan/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://savingsclub.com/blog/best-rewards-credit-cards-for-dining-out/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
