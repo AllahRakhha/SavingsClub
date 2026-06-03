@@ -1,0 +1,6 @@
+# Redirects for deleted blog posts
+# Format: /old-path  /new-path  301
+# Add a new line every time you delete a blog post
+
+/blog/smart-money-moves-to-make-before-year-end-2026/*  /blog/  301
+/blog/smart-money-moves-to-make-before-year-end-2026  /blog/  301
