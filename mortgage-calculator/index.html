@@ -13,7 +13,10 @@
 <meta property="og:site_name" content="SavingsClub">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much house can I afford?","acceptedAnswer":{"@type":"Answer","text":"A common guideline is that your total housing payment (including taxes and insurance) should be no more than 28% of your gross monthly income. On a $6,000/month income, that's $1,680 for housing."}}]}</script>
 <link rel="stylesheet" href="../css/style.css">
-<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/sc-favicon.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/sc-favicon.png?v=2">
+<link rel="shortcut icon" href="/img/sc-favicon.png?v=2">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
@@ -22,6 +25,35 @@
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://savingsclub.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://savingsclub.com/savings-calculator/"},{"@type":"ListItem","position":3,"name":"Mortgage Calculator","item":"https://savingsclub.com/mortgage-calculator/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Calculate Your Mortgage Payment","step":[{"@type":"HowToStep","position":1,"text":"Enter the home purchase price"},{"@type":"HowToStep","position":2,"text":"Input your down payment amount"},{"@type":"HowToStep","position":3,"text":"Set the mortgage interest rate"},{"@type":"HowToStep","position":4,"text":"Choose the loan term (15 or 30 years)"},{"@type":"HowToStep","position":5,"text":"View your monthly payment including principal and interest"}]}</script>
+<style>
+/* Stage 1: Two-column layout for mortgage calculator only */
+.mc-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:32px;align-items:start}
+.mc-inputs-col{display:flex;flex-direction:column;gap:16px}
+.mc-inputs-col label{display:block;font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:6px}
+.mc-inputs-col input,.mc-inputs-col select{width:100%;padding:12px 14px;border:1.5px solid #e5e7eb;border-radius:10px;font-size:1rem;font-family:inherit;transition:border-color .2s,box-shadow .2s}
+.mc-inputs-col input:focus,.mc-inputs-col select:focus{outline:none;border-color:#059669;box-shadow:0 0 0 3px rgba(5,150,105,.1)}
+.mc-results-col{background:linear-gradient(135deg,#F0FDF4,#F8FAFC);border-radius:16px;padding:28px;border:1px solid rgba(5,150,105,.1);min-height:500px}
+.mc-section-title{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:18px;letter-spacing:-.01em}
+.mc-calc-btn{width:100%;margin-top:8px;padding:14px 24px;font-size:1rem;font-weight:700}
+#chart{min-height:280px;width:100%;margin-top:20px}
+#chart svg{max-width:100%;height:auto;display:block;margin:0 auto}
+.mc-result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.mc-result-item{background:rgba(255,255,255,.7);padding:14px 16px;border-radius:10px;border:1px solid rgba(0,0,0,.05)}
+.mc-result-label{font-size:.8rem;color:var(--text-light);display:block;margin-bottom:4px;font-weight:500}
+.mc-result-value{font-size:1.2rem;font-weight:700;color:var(--navy);display:block}
+.mc-monthly-total{background:linear-gradient(135deg,#059669,#10B981);color:#fff;padding:20px;border-radius:14px;text-align:center;margin-bottom:18px;box-shadow:0 4px 15px rgba(5,150,105,.25)}
+.mc-monthly-total-label{font-size:.85rem;opacity:.9;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;display:block}
+.mc-monthly-total-value{font-size:2.4rem;font-weight:800;letter-spacing:-.02em;display:block}
+@media (max-width: 900px){
+  .mc-layout{grid-template-columns:1fr;gap:20px}
+  .mc-results-col{min-height:auto;padding:20px}
+  .mc-monthly-total-value{font-size:2rem}
+  .mc-result-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 480px){
+  .mc-result-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body><nav id="mainNav">
 <div class="nav-inner">
@@ -56,11 +88,21 @@ SavingsClub
 <section class="calc-page">
 <div class="container">
 <div style="margin-bottom:24px"><a href="../" style="color:var(--text-light);font-weight:500">← Home</a></div>
+
+<div style="text-align:center;margin-bottom:32px">
+<h1 style="font-size:2.2rem;margin-bottom:8px;letter-spacing:-.02em">Mortgage Calculator</h1>
+<p style="color:var(--text-light);max-width:600px;margin:0 auto;font-size:1.05rem">Estimate monthly payments including taxes, insurance, and PMI.</p>
+<p style="font-size:.8rem;color:var(--text-lighter);margin-top:8px">Last updated: May 2026</p>
+</div>
+
 <div class="calc-section reveal" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
-<h2><div class="calc-icon" style="background:linear-gradient(135deg,#15803D,#22C55E)">💲</div> Mortgage Calculator</h2>
-<p class="calc-desc">Estimate monthly payments including taxes, insurance, and PMI.</p>
-<p style="font-size:.8rem;color:var(--text-lighter);margin-top:4px">Last updated: May 2026</p>
-<div class="calc-grid">
+
+<div class="mc-layout">
+
+<!-- LEFT COLUMN: INPUTS -->
+<div>
+<h3 class="mc-section-title">Loan Details</h3>
+<div class="mc-inputs-col">
 <div><label>Home Price ($)</label><input type="number" id="mortPrice" value="350000" oninput="calc()"></div>
 <div><label>Down Payment ($)</label><input type="number" id="mortDown" value="70000" oninput="calc()"></div>
 <div><label>Loan Term</label><select id="mortTerm" onchange="calc()"><option value="30">30 years</option><option value="20">20 years</option><option value="15">15 years</option></select></div>
@@ -68,12 +110,19 @@ SavingsClub
 <div><label>Property Tax / Year ($)</label><input type="number" id="mortTax" value="4200" oninput="calc()"></div>
 <div><label>Home Insurance / Year ($)</label><input type="number" id="mortInsure" value="1500" oninput="calc()"></div>
 </div>
-<div class="accent-line" style="width:100%;margin:0 0 20px;height:2px"></div>
-<button class="btn btn-primary" onclick="calc()">Calculate</button>
-<div id="calcResult" class="calc-result"></div>
+<button class="btn btn-primary mc-calc-btn" onclick="calc()">Calculate</button>
 </div>
 
-<div class="seo-content reveal">
+<!-- RIGHT COLUMN: RESULTS + CHART -->
+<div class="mc-results-col">
+<h3 class="mc-section-title">Your Monthly Payment</h3>
+<div id="calcResult"></div>
+</div>
+
+</div>
+</div>
+
+<div class="seo-content reveal" style="margin-top:32px">
 <h2>Understanding Mortgage Payments</h2><p>Your monthly mortgage payment includes more than just principal and interest. Property taxes, homeowners insurance, and PMI (if your down payment is less than 20%) all add to the total. This calculator gives you the complete picture so there are no surprises.</p><h3>PMI Explained</h3><p>Private Mortgage Insurance is required when your down payment is less than 20% of the home price. It typically costs 0.5-1% of the loan amount annually. On a $280,000 loan, that's $1,400-$2,800 per year added to your payment. PMI is removed once you reach 20% equity.</p>
 </div>
 <div class="seo-content reveal" style="margin-top:24px"><h2>Frequently Asked Questions</h2><h3>How much house can I afford?</h3><p>A common guideline is that your total housing payment (including taxes and insurance) should be no more than 28% of your gross monthly income. On a $6,000/month income, that's $1,680 for housing.</p></div><div class="blog-recs reveal" style="margin-top:24px">
@@ -107,6 +156,7 @@ SavingsClub
 <script src="../js/charts.js"></script>
 <script>
 function fmt(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function fmtI(n){return Math.round(n).toLocaleString('en-US');}
 function calc(){
 var price=+(document.getElementById('mortPrice').value||0),down=+(document.getElementById('mortDown').value||0),term=+(document.getElementById('mortTerm').value||30),rate=+(document.getElementById('mortRate').value||0)/100/12,tax=+(document.getElementById('mortTax').value||0),ins=+(document.getElementById('mortInsure').value||0);
 var loan=price-down,n=term*12;
@@ -114,7 +164,7 @@ var mp=rate>0?loan*(rate*Math.pow(1+rate,n))/(Math.pow(1+rate,n)-1):loan/n;
 var mt=tax/12,mi=ins/12;var dp=price>0?(down/price*100):0;
 var pmi=dp<20?(loan*0.005)/12:0;var total=mp+mt+mi+pmi;var ti=mp*n-loan;
 var el=document.getElementById('calcResult');
-el.innerHTML='<div class="result-grid"><div class="result-item"><span class="result-label">Monthly Payment</span><span class="result-value" style="color:var(--green)">$'+fmt(total)+'</span></div><div class="result-item"><span class="result-label">P&I</span><span class="result-value">$'+fmt(mp)+'</span></div><div class="result-item"><span class="result-label">Tax</span><span class="result-value">$'+fmt(mt)+'</span></div><div class="result-item"><span class="result-label">Insurance</span><span class="result-value">$'+fmt(mi)+'</span></div>'+(pmi>0?'<div class="result-item"><span class="result-label">PMI</span><span class="result-value" style="color:#DC2626">$'+fmt(pmi)+'</span></div>':'')+'<div class="result-item"><span class="result-label">Total Interest</span><span class="result-value" style="color:var(--gold)">$'+fmtI(ti)+'</span></div></div><div id="chart"></div>';
+el.innerHTML='<div class="mc-monthly-total"><span class="mc-monthly-total-label">Total Monthly Payment</span><span class="mc-monthly-total-value">$'+fmt(total)+'</span></div><div class="mc-result-grid"><div class="mc-result-item"><span class="mc-result-label">Principal &amp; Interest</span><span class="mc-result-value">$'+fmt(mp)+'</span></div><div class="mc-result-item"><span class="mc-result-label">Property Tax</span><span class="mc-result-value">$'+fmt(mt)+'</span></div><div class="mc-result-item"><span class="mc-result-label">Insurance</span><span class="mc-result-value">$'+fmt(mi)+'</span></div>'+(pmi>0?'<div class="mc-result-item"><span class="mc-result-label" style="color:#DC2626">PMI</span><span class="mc-result-value" style="color:#DC2626">$'+fmt(pmi)+'</span></div>':'<div class="mc-result-item"><span class="mc-result-label">PMI</span><span class="mc-result-value" style="color:var(--text-light)">$0.00</span></div>')+'<div class="mc-result-item" style="grid-column:1/-1"><span class="mc-result-label">Total Interest Over '+term+' Years</span><span class="mc-result-value" style="color:#D97706">$'+fmtI(ti)+'</span></div></div><div id="chart"></div>';
 var segs=[{value:mp,color:'#3B82F6',label:'Principal & Interest'},{value:mt,color:'#10B981',label:'Property Tax'},{value:mi,color:'#F59E0B',label:'Insurance'}];
 if(pmi>0)segs.push({value:pmi,color:'#EF4444',label:'PMI'});
 drawDonutChart('#chart',segs,{title:'Monthly Payment Breakdown',centerTop:'$'+fmtI(total),centerBot:'/month'});
