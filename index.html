@@ -24,6 +24,14 @@
 <meta property="og:image" content="https://savingsclub.com/img/savings-jar.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"SavingsClub","url":"https://savingsclub.com","logo":"https://savingsclub.com/img/sc-icon.png","description":"Free financial calculators and expert money guides for Americans across all 50 states.","sameAs":[]}</script>
+<style>
+.hero-visual-wrap{display:none}
+@media (min-width: 1024px){
+  .hero-content{display:grid !important;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center;text-align:left}
+  .hero-visual-wrap{display:flex;justify-content:center;align-items:center;position:relative}
+  .hero-visual-wrap svg{width:100%;max-width:440px;height:auto;filter:drop-shadow(0 20px 40px rgba(0,0,0,.3))}
+}
+</style>
 </head>
 <body>
 <nav id="mainNav">
@@ -59,6 +67,7 @@ SavingsClub
 <div class="hero-shapes"><div class="shape shape-1"></div><div class="shape shape-2"></div><div class="shape shape-3"></div><div class="shape shape-4"></div><div class="shape shape-5"></div></div>
 <div class="container">
 <div class="hero-content">
+<div>
 <div class="hero-badge" style="animation:float2 8s ease-in-out infinite">✦ Free Calculators for Every American</div>
 <h1 style="font-size:3.6rem;font-weight:800;color:#fff;margin-bottom:20px;letter-spacing:-.03em;line-height:1.1">Finance Made <span style="color:#34D399">Simpler.</span></h1>
 <div class="accent-line" style="width:60px;margin:0 0 20px;background:linear-gradient(90deg,#60A5FA,#34D399)"></div>
@@ -66,6 +75,111 @@ SavingsClub
 <div class="hero-btns">
 <a href="savings-calculator/" class="btn btn-hero">Explore Free Tools →</a>
 <a href="blog/" class="btn btn-hero-outline">Read Our Guides</a>
+</div>
+</div>
+<div class="hero-visual-wrap" aria-hidden="true">
+<svg viewBox="0 0 400 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SavingsClub finance dashboard preview">
+<defs>
+<linearGradient id="phoneBody" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#1e293b"/>
+<stop offset="100%" stop-color="#0f172a"/>
+</linearGradient>
+<linearGradient id="chartFill" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" stop-color="#10B981" stop-opacity="0.6"/>
+<stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+</linearGradient>
+<radialGradient id="coinFill">
+<stop offset="0%" stop-color="#FCD34D"/>
+<stop offset="100%" stop-color="#D97706"/>
+</radialGradient>
+<linearGradient id="bottomCard" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#059669"/>
+<stop offset="100%" stop-color="#10B981"/>
+</linearGradient>
+</defs>
+
+<!-- Phone body -->
+<rect x="100" y="40" width="220" height="460" rx="36" fill="url(#phoneBody)" stroke="#1e293b" stroke-width="2"/>
+<!-- Screen -->
+<rect x="110" y="52" width="200" height="436" rx="26" fill="#ffffff"/>
+<!-- Top notch -->
+<rect x="170" y="56" width="80" height="20" rx="10" fill="#0f172a"/>
+<circle cx="240" cy="66" r="2.5" fill="#1e293b"/>
+
+<!-- Status row -->
+<text x="125" y="98" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#64748B" font-weight="500">Total Balance</text>
+
+<!-- Balance -->
+<text x="125" y="128" font-family="Plus Jakarta Sans, sans-serif" font-size="28" fill="#0A1628" font-weight="800">$24,580</text>
+
+<!-- Growth -->
+<g transform="translate(125, 148)">
+<path d="M 0 -5 L 8 -12 L 16 -5" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="22" y="0" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#059669" font-weight="700">+$1,240 this month</text>
+</g>
+
+<!-- Chart -->
+<g transform="translate(122, 175)">
+<rect width="178" height="90" rx="10" fill="#F8FAFC"/>
+<path d="M 12 70 Q 30 55, 45 50 T 75 35 T 110 28 T 145 18 T 166 12" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M 12 70 Q 30 55, 45 50 T 75 35 T 110 28 T 145 18 T 166 12 L 166 78 L 12 78 Z" fill="url(#chartFill)"/>
+<circle cx="166" cy="12" r="4" fill="#10B981" stroke="#fff" stroke-width="2"/>
+</g>
+
+<!-- Quick action cards -->
+<g transform="translate(122, 285)">
+<rect width="80" height="70" rx="12" fill="#ECFDF5"/>
+<text x="14" y="28" font-family="Plus Jakarta Sans, sans-serif" font-size="20">💰</text>
+<text x="14" y="50" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#0A1628" font-weight="700">Savings</text>
+<text x="14" y="62" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="#64748B">Calculator</text>
+</g>
+
+<g transform="translate(212, 285)">
+<rect width="80" height="70" rx="12" fill="#EFF6FF"/>
+<text x="14" y="28" font-family="Plus Jakarta Sans, sans-serif" font-size="20">🏡</text>
+<text x="14" y="50" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#0A1628" font-weight="700">Mortgage</text>
+<text x="14" y="62" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="#64748B">Calculator</text>
+</g>
+
+<!-- Bottom highlight card -->
+<g transform="translate(122, 370)">
+<rect width="170" height="100" rx="14" fill="url(#bottomCard)"/>
+<text x="16" y="28" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="rgba(255,255,255,0.9)" font-weight="600">COMPOUND INTEREST</text>
+<text x="16" y="60" font-family="Plus Jakarta Sans, sans-serif" font-size="22" fill="#ffffff" font-weight="800">$3,420</text>
+<text x="16" y="80" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="rgba(255,255,255,0.85)" font-weight="500">earned this year</text>
+<g transform="translate(135, 50)">
+<circle cx="0" cy="0" r="18" fill="rgba(255,255,255,0.2)"/>
+<text x="0" y="6" font-family="Plus Jakarta Sans, sans-serif" font-size="18" fill="#fff" text-anchor="middle">📈</text>
+</g>
+</g>
+
+<!-- Floating coin -->
+<g>
+<circle cx="50" cy="200" r="26" fill="url(#coinFill)" stroke="#92400E" stroke-width="1.5"/>
+<text x="50" y="210" font-family="Plus Jakarta Sans, sans-serif" font-size="26" fill="#7C2D12" font-weight="800" text-anchor="middle">$</text>
+<animateTransform attributeName="transform" type="translate" values="0,0; 0,-12; 0,0" dur="4s" repeatCount="indefinite"/>
+</g>
+
+<!-- Floating green arrow circle -->
+<g>
+<circle cx="360" cy="120" r="22" fill="#059669"/>
+<path d="M 351 124 L 360 114 L 369 124" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 360 114 L 360 130" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+<animateTransform attributeName="transform" type="translate" values="0,0; 0,-8; 0,0" dur="3.5s" repeatCount="indefinite"/>
+</g>
+
+<!-- Sparkle -->
+<g>
+<path d="M 55 420 L 58 411 L 67 408 L 58 405 L 55 396 L 52 405 L 43 408 L 52 411 Z" fill="#34D399"/>
+<animateTransform attributeName="transform" type="rotate" from="0 55 408" to="360 55 408" dur="10s" repeatCount="indefinite"/>
+</g>
+
+<!-- Small sparkle 2 -->
+<g>
+<path d="M 365 380 L 367 374 L 373 372 L 367 370 L 365 364 L 363 370 L 357 372 L 363 374 Z" fill="#FCD34D"/>
+<animateTransform attributeName="transform" type="rotate" from="0 365 372" to="-360 365 372" dur="8s" repeatCount="indefinite"/>
+</g>
+</svg>
 </div>
 </div>
 <div class="stats-bar">
@@ -76,12 +190,6 @@ SavingsClub
 </div>
 </div>
 </section>
-
-<div class="wave-divider wave-bottom">
-<svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-<path d="M0,40 C320,80 440,0 720,40 C1000,80 1120,0 1440,40 L1440,0 L0,0 Z" fill="#0A1628"/>
-</svg>
-</div>
 
 <!-- VISUAL INTRO -->
 <section class="section" style="padding:60px 0"><div class="container">
@@ -112,11 +220,6 @@ SavingsClub
 </div>
 </div></section>
 
-<div class="wave-divider wave-bottom">
-<svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-<path d="M0,30 C360,60 720,0 1080,30 C1260,45 1380,20 1440,30 L1440,0 L0,0 Z" fill="#EFF6FF"/>
-</svg>
-</div>
 <!-- ALL CALCULATORS -->
 <section class="section"><div class="container">
 <div class="section-header reveal"><div class="accent-line-sm"></div><h2>All 17 Free Financial Calculators</h2><p>Everything you need to make smarter money decisions — no signup required.</p></div>
@@ -157,11 +260,6 @@ SavingsClub
 <h3>CD Calculator</h3><p>Free cd calculator.</p></a></div>
 </div></section>
 
-<div class="wave-divider wave-top">
-<svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-<path d="M0,30 C360,0 720,60 1080,30 C1260,15 1380,40 1440,30 L1440,60 L0,60 Z" fill="#ECFDF5"/>
-</svg>
-</div>
 <!-- WHY SAVINGSCLUB -->
 <section class="section section-dark"><div class="container">
 <div class="section-header reveal"><h2>Why Choose SavingsClub</h2><p>Built different from day one.</p></div>
@@ -182,7 +280,7 @@ SavingsClub
 <p>We may earn affiliate commissions, but our tools and editorial content are never influenced by partnerships. We recommend what's genuinely best.</p>
 </div>
 </div>
-<div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,20 C180,50 360,10 540,30 C720,50 900,10 1080,30 C1260,50 1440,20 1440,20 L1440,60 L0,60 Z" fill="#FFFFFF"/></svg></div></div></section>
+</div></section>
 
 <!-- TRUST STRIP -->
 <section class="section trust-dark"><div class="container">
@@ -193,12 +291,6 @@ SavingsClub
 <div class="trust-item"><div class="ti-icon" style="background:#F5F3FF">🇺🇸</div>All 50 states</div>
 </div>
 </div></section>
-
-<div class="wave-divider wave-top">
-<svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-<path d="M0,20 C240,50 480,10 720,30 C960,50 1200,10 1440,30 L1440,60 L0,60 Z" fill="#F8FAFC"/>
-</svg>
-</div>
 
 <!-- BANKING CTA -->
 <section class="section section-dark" style="padding:80px 0"><div class="container">
@@ -233,12 +325,12 @@ SavingsClub
 </a>
 <a href="blog/best-high-yield-savings-accounts-where-to-earn-4-apy-in-2026/" class="blog-preview reveal stagger-3">
 <div class="bp-cat" style="background:#FFFBEB;color:#D97706">Banking</div>
-<h3>Best High-Yield Savings Accounts 2026</h3>
+<h3>Best High Yield Savings Accounts 2026</h3>
 <p>Where to earn 4%+ APY with no minimums and no fees.</p>
 </a>
 </div>
 <div style="text-align:center;margin-top:32px" class="reveal"><a href="blog/" class="btn btn-outline">View All Articles →</a></div>
-<div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,20 C240,50 480,10 720,35 C960,55 1200,15 1440,25 L1440,60 L0,60 Z" fill="#FFFFFF"/></svg></div></div></section>
+</div></section>
 
 <!-- HOW IT WORKS -->
 <section class="section section-dark"><div class="container">
