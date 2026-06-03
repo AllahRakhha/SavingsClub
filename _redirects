@@ -1,6 +1,18 @@
 # Redirects for deleted blog posts
 # Format: /old-path  /new-path  301
-# Add a new line every time you delete a blog post
 
+# Already deleted
 /blog/smart-money-moves-to-make-before-year-end-2026/*  /blog/  301
 /blog/smart-money-moves-to-make-before-year-end-2026  /blog/  301
+
+# Deleting credit score post -> send to credit cards page (more useful)
+/blog/credit-score-explained-what-it-is-and-how-to-improve-it/*  /credit-cards/  301
+/blog/credit-score-explained-what-it-is-and-how-to-improve-it  /credit-cards/  301
+
+# Deleting debt comparison -> send to debt payoff calculator (more useful)
+/blog/debt-snowball-vs-debt-avalanche-which-strategy-wins/*  /debt-payoff-calculator/  301
+/blog/debt-snowball-vs-debt-avalanche-which-strategy-wins  /debt-payoff-calculator/  301
+
+# Deleting CD comparison -> send to CD calculator (more useful)
+/blog/best-high-yield-cds-vs-savings-accounts-compared/*  /cd-calculator/  301
+/blog/best-high-yield-cds-vs-savings-accounts-compared  /cd-calculator/  301
