@@ -3,17 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Savings Calculator — How Much Will My Savings Grow? | SavingsClub</title>
-<meta name="description" content="Free savings calculator with compound interest charts. See how your savings grow over time with monthly contributions. Works for all 50 states.">
+<title>Savings Calculator — Track Your Goal Progress | SavingsClub</title>
+<meta name="description" content="Free savings calculator with goal tracking, compound interest charts, and year-by-year growth. See exactly when you'll reach your savings target.">
 <link rel="canonical" href="https://savingsclub.com/savings-calculator/">
-<meta property="og:title" content="Savings Calculator — How Much Will My Savings Grow? | SavingsClub">
-<meta property="og:description" content="Free savings calculator with compound interest charts. See how your savings grow over time with monthly contributions. Works for all 50 states.">
+<meta property="og:title" content="Savings Calculator — Track Your Goal Progress | SavingsClub">
+<meta property="og:description" content="Free savings calculator with goal tracking and year-by-year growth breakdown.">
 <meta property="og:url" content="https://savingsclub.com/savings-calculator/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SavingsClub">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much interest will I earn on $10,000?","acceptedAnswer":{"@type":"Answer","text":"At 4.5% APY, $10,000 earns approximately $450 in the first year. With compound interest over 10 years and no additional contributions, it grows to about $15,530."}},{"@type":"Question","name":"Is a savings calculator accurate?","acceptedAnswer":{"@type":"Answer","text":"Savings calculators provide reliable estimates based on the compound interest formula. Actual results may vary slightly due to how your bank compounds interest (daily vs monthly) and rate changes over time."}},{"@type":"Question","name":"What is a good savings rate?","acceptedAnswer":{"@type":"Answer","text":"Financial experts recommend saving at least 20% of after-tax income. If that feels unreachable, start with whatever you can and increase by 1% each month."}}]}</script>
 <link rel="stylesheet" href="../css/style.css">
-<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/sc-favicon.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/sc-favicon.png?v=2">
+<link rel="shortcut icon" href="/img/sc-favicon.png?v=2">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
@@ -21,7 +24,91 @@
 <meta property="og:image" content="https://savingsclub.com/img/savings-jar.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://savingsclub.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://savingsclub.com/savings-calculator/"},{"@type":"ListItem","position":3,"name":"Savings Calculator","item":"https://savingsclub.com/savings-calculator/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Calculate Savings Growth","step":[{"@type":"HowToStep","position":1,"text":"Enter your initial deposit amount"},{"@type":"HowToStep","position":2,"text":"Add your planned monthly contribution"},{"@type":"HowToStep","position":3,"text":"Set the annual interest rate (APY)"},{"@type":"HowToStep","position":4,"text":"Choose your savings time period in years"},{"@type":"HowToStep","position":5,"text":"Click Calculate to see your projected savings growth with compound interest"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Calculate Savings Growth","step":[{"@type":"HowToStep","position":1,"text":"Enter your initial deposit amount"},{"@type":"HowToStep","position":2,"text":"Add your planned monthly contribution"},{"@type":"HowToStep","position":3,"text":"Set the annual interest rate (APY)"},{"@type":"HowToStep","position":4,"text":"Choose your savings time period in years"},{"@type":"HowToStep","position":5,"text":"Optionally set a savings goal to track progress"},{"@type":"HowToStep","position":6,"text":"Click Calculate to see your projected savings growth"}]}</script>
+<style>
+.sv-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:32px;align-items:start}
+.sv-inputs-col{display:flex;flex-direction:column;gap:16px}
+.sv-inputs-col label{display:block;font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:6px}
+.sv-inputs-col input,.sv-inputs-col select{width:100%;padding:12px 14px;border:1.5px solid #e5e7eb;border-radius:10px;font-size:1rem;font-family:inherit;transition:border-color .2s,box-shadow .2s}
+.sv-inputs-col input:focus,.sv-inputs-col select:focus{outline:none;border-color:#059669;box-shadow:0 0 0 3px rgba(5,150,105,.1)}
+.sv-results-col{background:linear-gradient(135deg,#F0FDF4,#F8FAFC);border-radius:16px;padding:28px;border:1px solid rgba(5,150,105,.1);min-height:500px}
+.sv-section-title{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:18px;letter-spacing:-.01em}
+.sv-calc-btn{width:100%;margin-top:8px;padding:14px 24px;font-size:1rem;font-weight:700}
+#chart{min-height:280px;width:100%;margin-top:20px}
+#chart svg{max-width:100%;height:auto;display:block;margin:0 auto}
+.sv-result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.sv-result-item{background:rgba(255,255,255,.7);padding:14px 16px;border-radius:10px;border:1px solid rgba(0,0,0,.05)}
+.sv-result-label{font-size:.8rem;color:var(--text-light);display:block;margin-bottom:4px;font-weight:500}
+.sv-result-value{font-size:1.2rem;font-weight:700;color:var(--navy);display:block}
+.sv-final-total{background:linear-gradient(135deg,#059669,#10B981);color:#fff;padding:20px;border-radius:14px;text-align:center;margin-bottom:18px;box-shadow:0 4px 15px rgba(5,150,105,.25)}
+.sv-final-total-label{font-size:.85rem;opacity:.9;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;display:block}
+.sv-final-total-value{font-size:2.4rem;font-weight:800;letter-spacing:-.02em;display:block}
+.sv-goal-card{background:#fff;border:1.5px solid #e5e7eb;border-radius:14px;padding:18px;margin-bottom:16px}
+.sv-goal-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;flex-wrap:wrap;gap:6px}
+.sv-goal-title{font-size:.95rem;font-weight:700;color:var(--navy)}
+.sv-goal-pct{font-size:1.4rem;font-weight:800;color:#059669;letter-spacing:-.02em}
+.sv-goal-pct.sv-short{color:#D97706}
+.sv-progress-track{height:14px;background:#f1f5f9;border-radius:8px;overflow:hidden;margin-bottom:12px;position:relative}
+.sv-progress-fill{height:100%;background:linear-gradient(90deg,#059669,#10B981,#34D399);border-radius:8px;transition:width .5s ease-out}
+.sv-progress-fill.sv-short{background:linear-gradient(90deg,#D97706,#F59E0B,#FCD34D)}
+.sv-goal-status{font-size:.88rem;color:var(--text);line-height:1.5}
+.sv-goal-status.sv-success{color:#059669;font-weight:600}
+.sv-goal-status.sv-warn{color:#D97706;font-weight:600}
+.sv-advanced-toggle{background:transparent;color:#059669;border:1.5px solid #059669;padding:10px 18px;border-radius:10px;font-weight:600;font-size:.9rem;cursor:pointer;width:100%;margin-top:4px;transition:all .2s;font-family:inherit}
+.sv-advanced-toggle:hover{background:#059669;color:#fff}
+.sv-advanced-panel{display:none;flex-direction:column;gap:16px;padding-top:16px;border-top:1.5px dashed #e5e7eb;margin-top:8px}
+.sv-advanced-panel.open{display:flex}
+.sv-table-wrap{margin-top:32px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.sv-table-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:20px}
+.sv-table-header h2{font-size:1.4rem;margin:0;color:var(--navy)}
+.sv-table-toggle{display:inline-flex;background:#f3f4f6;border-radius:10px;padding:4px;gap:4px}
+.sv-table-toggle button{padding:8px 16px;border:none;background:transparent;border-radius:8px;cursor:pointer;font-weight:600;font-size:.85rem;color:var(--text-light);font-family:inherit;transition:all .2s}
+.sv-table-toggle button.active{background:#059669;color:#fff;box-shadow:0 2px 8px rgba(5,150,105,.25)}
+.sv-table-scroll{overflow-x:auto;border-radius:12px;border:1px solid #f1f5f9;max-height:600px;overflow-y:auto}
+.sv-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:560px}
+.sv-table th,.sv-table td{padding:12px 16px;text-align:right;border-bottom:1px solid #f1f5f9}
+.sv-table th{background:#f8fafc;font-weight:700;color:var(--text);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;position:sticky;top:0;z-index:1}
+.sv-table th:first-child,.sv-table td:first-child{text-align:left;font-weight:600}
+.sv-table tbody tr:hover{background:#f8fafc}
+.sv-table tbody tr.sv-goal-row{background:#ECFDF5}
+.sv-table tbody tr.sv-goal-row td{color:#059669;font-weight:700}
+.sv-table tbody tr:last-child td{border-bottom:none}
+.sv-howto-wrap{margin-top:32px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.sv-howto-wrap h2{font-size:1.4rem;margin:0 0 6px;color:var(--navy);letter-spacing:-.01em}
+.sv-howto-wrap>p{color:var(--text-light);margin:0 0 20px}
+.sv-howto-list{counter-reset:step-counter;list-style:none;padding:0;margin:0}
+.sv-howto-list li{counter-increment:step-counter;position:relative;padding:14px 16px 14px 56px;background:#F8FAFC;border-radius:12px;margin-bottom:10px;border:1px solid #f1f5f9}
+.sv-howto-list li::before{content:counter(step-counter);position:absolute;left:14px;top:12px;width:30px;height:30px;background:linear-gradient(135deg,#059669,#10B981);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;box-shadow:0 2px 6px rgba(5,150,105,.25)}
+.sv-howto-list li strong{display:block;color:var(--navy);font-size:1rem;margin-bottom:3px;font-weight:700}
+.sv-howto-list li span{color:var(--text-light);font-size:.92rem;line-height:1.5}
+.sv-warning-wrap{margin-top:32px;background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FCD34D;border-radius:16px;padding:24px 28px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.sv-warning-wrap h3{font-size:1.15rem;margin:0 0 10px;color:#92400E;display:flex;align-items:center;gap:8px}
+.sv-warning-wrap p{color:#78350F;font-size:.92rem;line-height:1.7;margin:0 0 10px}
+.sv-warning-wrap p:last-child{margin-bottom:0}
+.sv-warning-wrap strong{color:#7C2D12}
+.sv-related-wrap{margin-top:32px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.sv-related-wrap h2{font-size:1.5rem;margin:0 0 6px;color:var(--navy);letter-spacing:-.01em}
+.sv-related-wrap>p{color:var(--text-light);margin:0 0 24px;font-size:1rem}
+.sv-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sv-related-card{display:block;text-decoration:none;background:#F8FAFC;border:1.5px solid #e5e7eb;border-radius:14px;padding:24px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.sv-related-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.08);border-color:#059669;background:#fff}
+.sv-related-icon{font-size:32px;margin-bottom:12px;display:block}
+.sv-related-card h3{font-size:1.15rem;margin:0 0 8px;color:var(--navy);font-weight:700}
+.sv-related-card p{color:var(--text-light);font-size:.9rem;margin:0 0 14px;line-height:1.5}
+.sv-related-link{color:#059669;font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:4px}
+@media (max-width: 900px){
+  .sv-layout{grid-template-columns:1fr;gap:20px}
+  .sv-results-col{min-height:auto;padding:20px}
+  .sv-final-total-value{font-size:2rem}
+  .sv-result-grid{grid-template-columns:1fr 1fr}
+  .sv-table-wrap,.sv-howto-wrap,.sv-related-wrap{padding:20px}
+  .sv-table-header h2{font-size:1.2rem}
+  .sv-related-grid{grid-template-columns:1fr;gap:14px}
+}
+@media (max-width: 480px){
+  .sv-result-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body><nav id="mainNav">
 <div class="nav-inner">
@@ -56,23 +143,103 @@ SavingsClub
 <section class="calc-page">
 <div class="container">
 <div style="margin-bottom:24px"><a href="../" style="color:var(--text-light);font-weight:500">← Home</a></div>
-<div class="calc-section reveal" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
-<h2><div class="calc-icon" style="background:linear-gradient(135deg,#2563EB,#3B82F6)">💲</div> Savings Calculator</h2>
-<p class="calc-desc">Calculate how your savings will grow over time with compound interest.</p>
-<p style="font-size:.8rem;color:var(--text-lighter);margin-top:4px">Last updated: May 2026</p>
-<div class="calc-grid">
-<div><label>Initial Deposit ($)</label><input type="number" id="savInit" value="1000" oninput="calc()"></div>
-<div><label>Monthly Contribution ($)</label><input type="number" id="savMonthly" value="200" oninput="calc()"></div>
-<div><label>Annual Interest Rate (%)</label><input type="number" id="savRate" value="4.5" step="0.1" oninput="calc()"></div>
-<div><label>Time Period (Years)</label><input type="number" id="savYears" value="10" oninput="calc()"></div>
-</div>
-<div class="accent-line" style="width:100%;margin:0 0 20px;height:2px"></div>
-<button class="btn btn-primary" onclick="calc()">Calculate</button>
-<div id="calcResult" class="calc-result"></div>
+
+<div style="text-align:center;margin-bottom:32px">
+<h1 style="font-size:2.2rem;margin-bottom:8px;letter-spacing:-.02em">Savings Calculator</h1>
+<p style="color:var(--text-light);max-width:600px;margin:0 auto;font-size:1.05rem">See how your savings grow with compound interest. Set a goal to track exactly when you'll reach it.</p>
+<p style="font-size:.8rem;color:var(--text-lighter);margin-top:8px">Last updated: May 2026</p>
 </div>
 
-<div style="margin:32px 0"><img src="../img/savings-jar.jpg" alt="Smart savings strategies" class="premium-img" style="width:100%;height:240px;object-fit:cover" loading="lazy"></div>
-<div class="seo-content reveal">
+<div class="calc-section reveal" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
+
+<div class="sv-layout">
+
+<!-- LEFT COLUMN: INPUTS -->
+<div>
+<h3 class="sv-section-title">Savings Details</h3>
+<div class="sv-inputs-col">
+
+<div><label>Starting Balance ($)</label><input type="number" id="savInit" value="1000" oninput="calc()"></div>
+
+<div><label>Monthly Deposit ($)</label><input type="number" id="savMonthly" value="200" oninput="calc()"></div>
+
+<div><label>Annual Interest Rate / APY (%)</label><input type="number" id="savRate" value="4.5" step="0.1" oninput="calc()"></div>
+
+<div><label>Time Period (Years)</label><input type="number" id="savYears" value="10" oninput="calc()"></div>
+
+<div><label>Compounding Frequency</label><select id="savFreq" onchange="calc()"><option value="365">Daily (most banks)</option><option value="12" selected>Monthly</option><option value="4">Quarterly</option><option value="1">Annually</option></select></div>
+
+<button type="button" class="sv-advanced-toggle" id="sv-advanced-btn" onclick="toggleAdvanced()">Show Advanced ▼</button>
+
+<div class="sv-advanced-panel" id="sv-advanced">
+<div><label>Savings Goal ($) <span style="font-weight:400;color:var(--text-lighter)">— optional</span></label><input type="number" id="savGoal" value="0" oninput="calc()" placeholder="e.g. 50000"></div>
+<div><label>Annual Deposit Increase (%)</label><input type="number" id="savIncrease" value="0" step="0.5" oninput="calc()" placeholder="0"></div>
+<div><label>Inflation Rate (%)</label><input type="number" id="savInflation" value="0" step="0.1" oninput="calc()" placeholder="0"></div>
+</div>
+
+</div>
+<button class="btn btn-primary sv-calc-btn" onclick="calc()">Calculate</button>
+</div>
+
+<!-- RIGHT COLUMN: RESULTS + CHART -->
+<div class="sv-results-col">
+<h3 class="sv-section-title">Your Savings Growth</h3>
+<div id="calcResult"></div>
+</div>
+
+</div>
+</div>
+
+<!-- YEAR-BY-YEAR TABLE -->
+<div class="sv-table-wrap reveal">
+<div class="sv-table-header">
+<h2>Year-by-Year Savings Growth</h2>
+<div class="sv-table-toggle">
+<button class="active" id="tableYearlyBtn" onclick="setTableView('yearly')">Yearly</button>
+<button id="tableMonthlyBtn" onclick="setTableView('monthly')">Monthly</button>
+</div>
+</div>
+<div class="sv-table-scroll">
+<table class="sv-table">
+<thead>
+<tr>
+<th id="tableDateHeader">Year</th>
+<th>Starting Balance</th>
+<th>Deposits</th>
+<th>Interest Earned</th>
+<th>Ending Balance</th>
+</tr>
+</thead>
+<tbody id="growthTableBody"></tbody>
+</table>
+</div>
+</div>
+
+<!-- HOW TO USE -->
+<div class="sv-howto-wrap reveal">
+<h2>How to Use This Calculator</h2>
+<p>Follow these steps to project your savings growth and track progress toward your goal.</p>
+<ol class="sv-howto-list">
+<li><strong>Enter your starting balance</strong><span>The amount you already have in your savings account. If you're starting from zero, enter 0.</span></li>
+<li><strong>Set your monthly deposit</strong><span>How much you can realistically save each month. Even small amounts like $25-$50 add up significantly over time.</span></li>
+<li><strong>Enter your interest rate or APY</strong><span>For high-yield savings: 4-5% in 2026. For traditional bank savings: usually under 0.5%. For CDs: 4-5.5%. Always confirm with your bank.</span></li>
+<li><strong>Choose your time period</strong><span>How many years you'll keep saving. The longer the period, the more dramatic the compound effect.</span></li>
+<li><strong>Pick your compounding frequency</strong><span>Most U.S. savings accounts compound daily. Check your account terms to confirm.</span></li>
+<li><strong>(Optional) Set a savings goal</strong><span>Enter a target amount (e.g., $50,000) and see exactly when you'll reach it. Try different deposit amounts to find your plan.</span></li>
+<li><strong>(Optional) Add inflation rate</strong><span>Typical assumption is 2-3%. This shows the "real" value of your savings in today's dollars.</span></li>
+<li><strong>Review the year-by-year table</strong><span>Switch between yearly and monthly views to see exactly when interest accrues and when you hit your goal.</span></li>
+</ol>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="sv-warning-wrap reveal">
+<h3>⚠️ Important Disclaimer</h3>
+<p><strong>Results are estimates only.</strong> The values shown by this calculator are mathematical projections based on the inputs you provide. Actual returns from any savings account, CD, or money market account will vary based on rate changes, fees, taxes, and the specific terms offered by your financial institution.</p>
+<p><strong>Always verify current rates and terms with your bank or financial institution before making any decisions.</strong> Interest rates change frequently. The APY you enter here may not reflect what is actually available to you today.</p>
+<p><strong>SavingsClub is not a licensed financial advisor, tax professional, investment advisor, or legal professional.</strong> This calculator is provided for educational and informational purposes only and should not be considered as professional financial, tax, investment, or legal advice. Always consult with qualified licensed professionals before making important financial decisions.</p>
+</div>
+
+<div class="seo-content reveal" style="margin-top:32px">
 <h2>How Does a Savings Calculator Work?</h2>
 <p>A savings calculator uses the compound interest formula to project how your money grows over time. You enter your initial deposit, monthly contribution, expected interest rate, and time horizon. The calculator then shows your total future value, broken down into contributions and earned interest.</p>
 <p>Compound interest is the key force at work here. Unlike simple interest, which only earns returns on your original deposit, compound interest earns returns on your returns. This creates an exponential growth curve that accelerates the longer you save.</p>
@@ -85,47 +252,203 @@ SavingsClub
 <h3>Savings Goals by Age</h3>
 <p>While everyone's situation is different, common benchmarks include having one month of expenses saved by 25, three months by 30, and six months by 35. Your emergency fund should cover 3-6 months of essential expenses. Beyond that, long-term savings go into retirement accounts and investment portfolios.</p>
 <h3>Tips to Boost Your Savings</h3>
-<p>Automate transfers to your savings account right after payday. Even small amounts — $25 or $50 per week — compound significantly over years. Redirect windfalls like tax refunds and bonuses directly to savings. Cut one subscription you rarely use and put that money to work instead.</p>
+<p>Automate transfers to your savings account right after payday. Even small amounts — $25 or $50 per week compound significantly over years. Redirect windfalls like tax refunds and bonuses directly to savings. Cut one subscription you rarely use and put that money to work instead.</p>
 </div>
 <div class="seo-content reveal" style="margin-top:24px"><h2>Frequently Asked Questions</h2><h3>How much interest will I earn on $10,000?</h3><p>At 4.5% APY, $10,000 earns approximately $450 in the first year. With compound interest over 10 years and no additional contributions, it grows to about $15,530.</p><h3>Is a savings calculator accurate?</h3><p>Savings calculators provide reliable estimates based on the compound interest formula. Actual results may vary slightly due to how your bank compounds interest (daily vs monthly) and rate changes over time.</p><h3>What is a good savings rate?</h3><p>Financial experts recommend saving at least 20% of after-tax income. If that feels unreachable, start with whatever you can and increase by 1% each month.</p></div><div class="blog-recs reveal" style="margin-top:24px">
 <h3 style="margin-bottom:12px;font-size:1.1rem">📚 Related Guides</h3>
 <a href="../blog/how-to-build-an-emergency-fund-a-step-by-step-guide-for-every-american/" class="related-blog-card">How to Build an Emergency Fund →</a><a href="../blog/best-high-yield-savings-accounts-where-to-earn-4-apy-in-2026/" class="related-blog-card">Best High-Yield Savings Accounts 2026 →</a>
 </div>
-<div class="related-tools reveal">
-<h3>More Free Tools</h3>
-<a href="../budget-planner/" class="related-tool-link">📊 Budget Planner</a>
-<a href="../debt-payoff-calculator/" class="related-tool-link">🔥 Debt Payoff</a>
-<a href="../compound-interest-calculator/" class="related-tool-link">📈 Compound Interest</a>
-<a href="../retirement-calculator/" class="related-tool-link">🏠 Retirement Planner</a>
-<a href="../investment-calculator/" class="related-tool-link">💎 Investment Growth</a>
-<a href="../mortgage-calculator/" class="related-tool-link">🏡 Mortgage Calculator</a>
-<a href="../auto-loan-calculator/" class="related-tool-link">🚗 Auto Loan</a>
-<a href="../net-worth-calculator/" class="related-tool-link">💳 Net Worth</a>
-<a href="../emergency-fund-calculator/" class="related-tool-link">🛡️ Emergency Fund</a>
-<a href="../credit-card-payoff-calculator/" class="related-tool-link">💳 CC Payoff</a>
-<a href="../financial-health-score/" class="related-tool-link">❤️ Financial Health Score</a>
-<a href="../credit-card-quiz/" class="related-tool-link">🃏 Credit Card Quiz</a>
 
-<a href="../401k-calculator/" class="related-tool-link">🏦 401(k)</a>
-<a href="../roth-ira-calculator/" class="related-tool-link">📋 Roth IRA</a>
-<a href="../inflation-calculator/" class="related-tool-link">📉 Inflation</a>
-<a href="../loan-payoff-calculator/" class="related-tool-link">🎯 Loan Payoff</a>
-<a href="../paycheck-calculator/" class="related-tool-link">💵 Take-Home Pay</a>
-<a href="../cd-calculator/" class="related-tool-link">🔐 CD Calculator</a>
+<div class="sv-related-wrap reveal">
+<h2>Related Calculators</h2>
+<p>Continue planning your savings strategy with these helpful tools.</p>
+<div class="sv-related-grid">
+<a href="../compound-interest-calculator/" class="sv-related-card">
+<span class="sv-related-icon">📈</span>
+<h3>Compound Interest Calculator</h3>
+<p>See exactly how compound interest accelerates your savings with inflation and tax adjustments.</p>
+<span class="sv-related-link">Calculate Compound Growth →</span>
+</a>
+<a href="../emergency-fund-calculator/" class="sv-related-card">
+<span class="sv-related-icon">🛡️</span>
+<h3>Emergency Fund Calculator</h3>
+<p>Calculate how much you need in emergency savings 3 to 6 months of essential expenses.</p>
+<span class="sv-related-link">Build Your Safety Net →</span>
+</a>
+<a href="../budget-planner/" class="sv-related-card">
+<span class="sv-related-icon">📊</span>
+<h3>Budget Planner</h3>
+<p>Find room in your budget to increase monthly deposits using the 50/30/20 rule.</p>
+<span class="sv-related-link">Plan Your Budget →</span>
+</a>
 </div>
+</div>
+
 </div>
 </section>
 <script src="../js/charts.js"></script>
 <script>
+var tableView='yearly';
+var growthSchedule=[];
+var goalReachedMonth=null;
+
 function fmt(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function fmtI(n){return Math.round(n).toLocaleString('en-US');}
+function fmtMoney(n){return '$'+Math.round(n).toLocaleString('en-US');}
+
+function toggleAdvanced(){
+  var adv=document.getElementById('sv-advanced');
+  var btn=document.getElementById('sv-advanced-btn');
+  if(adv.classList.contains('open')){
+    adv.classList.remove('open');
+    btn.innerHTML='Show Advanced ▼';
+  }else{
+    adv.classList.add('open');
+    btn.innerHTML='Hide Advanced ▲';
+  }
+}
+
+function setTableView(view){
+  tableView=view;
+  document.getElementById('tableYearlyBtn').classList.toggle('active',view==='yearly');
+  document.getElementById('tableMonthlyBtn').classList.toggle('active',view==='monthly');
+  document.getElementById('tableDateHeader').textContent=view==='yearly'?'Year':'Month';
+  renderTable();
+}
+
+function renderTable(){
+  var tbody=document.getElementById('growthTableBody');
+  if(!growthSchedule.length){tbody.innerHTML='<tr><td colspan="5" style="text-align:center;padding:24px;color:var(--text-light)">Enter savings details above</td></tr>';return;}
+  var goalReachedYear=goalReachedMonth?Math.ceil(goalReachedMonth/12):null;
+  var html='';
+  if(tableView==='yearly'){
+    for(var i=0;i<growthSchedule.length;i++){
+      var r=growthSchedule[i];
+      var cls=(goalReachedYear===r.year)?' class="sv-goal-row"':'';
+      html+='<tr'+cls+'><td>Year '+r.year+(goalReachedYear===r.year?' 🎯':'')+'</td><td>'+fmtMoney(r.start)+'</td><td>'+fmtMoney(r.contributions)+'</td><td>'+fmtMoney(r.interest)+'</td><td>'+fmtMoney(r.end)+'</td></tr>';
+    }
+  }else{
+    var monthCounter=0;
+    for(var j=0;j<growthSchedule.length;j++){
+      var yr=growthSchedule[j];
+      for(var k=0;k<yr.monthlyDetail.length;k++){
+        monthCounter++;
+        var md=yr.monthlyDetail[k];
+        var cls2=(goalReachedMonth===monthCounter)?' class="sv-goal-row"':'';
+        html+='<tr'+cls2+'><td>Y'+yr.year+' M'+(k+1)+(goalReachedMonth===monthCounter?' 🎯':'')+'</td><td>'+fmtMoney(md.start)+'</td><td>'+fmtMoney(md.contribution)+'</td><td>'+fmtMoney(md.interest)+'</td><td>'+fmtMoney(md.end)+'</td></tr>';
+      }
+    }
+  }
+  tbody.innerHTML=html;
+}
+
 function calc(){
-var i=+(document.getElementById('savInit').value||0),m=+(document.getElementById('savMonthly').value||0),r=+(document.getElementById('savRate').value||0)/100/12,y=+(document.getElementById('savYears').value||0);
-var n=y*12;var b=i;var pts=[{x:'Now',y:i}];var cPts=[{x:'Now',y:i}];
-for(var x=0;x<n;x++){b=b*(1+r)+m;if((x+1)%(Math.max(1,Math.floor(n/10)))===0||x===n-1){var yr=((x+1)/12).toFixed(0);pts.push({x:'Y'+yr,y:b});cPts.push({x:'Y'+yr,y:i+m*(x+1)});}}
-var tc=i+m*n,int=b-tc;
-var el=document.getElementById('calcResult');
-el.innerHTML='<div class="result-grid"><div class="result-item"><span class="result-label">Future Value</span><span class="result-value" style="color:var(--green)">$'+fmt(b)+'</span></div><div class="result-item"><span class="result-label">Total Contributions</span><span class="result-value">$'+fmt(tc)+'</span></div><div class="result-item"><span class="result-label">Interest Earned</span><span class="result-value" style="color:var(--blue)">$'+fmt(int)+'</span></div></div><div id="chart"></div>';
-if(y>0)drawLineChart('#chart',pts,{title:'Balance Growth Over '+y+' Years',colors:['#10B981','#3B82F6'],labels:['Total Balance','Contributions'],datasets:[pts,cPts]});
+  var p=+(document.getElementById('savInit').value||0);
+  var m=+(document.getElementById('savMonthly').value||0);
+  var rate=+(document.getElementById('savRate').value||0)/100;
+  var y=+(document.getElementById('savYears').value||0);
+  var freq=+(document.getElementById('savFreq').value||12);
+  var goal=+(document.getElementById('savGoal').value||0);
+  var increase=+(document.getElementById('savIncrease').value||0)/100;
+  var inflation=+(document.getElementById('savInflation').value||0)/100;
+
+  var balance=p;
+  var totalDeposited=p;
+  var currentMonthly=m;
+  goalReachedMonth=null;
+  growthSchedule=[];
+
+  var pts=[{x:'Now',y:p}];
+  var cPts=[{x:'Now',y:p}];
+
+  var monthCounter=0;
+
+  for(var year=1;year<=y;year++){
+    var yearStart=balance;
+    var yearDeposits=0;
+    var yearInterest=0;
+    var monthlyDetail=[];
+
+    for(var month=0;month<12;month++){
+      monthCounter++;
+      var monthStart=balance;
+      var monthInterest=0;
+      var periodsPerMonth=freq/12;
+      var periodRate=rate/freq;
+
+      for(var pp=0;pp<periodsPerMonth;pp++){
+        var intThisPeriod=balance*periodRate;
+        balance+=intThisPeriod;
+        monthInterest+=intThisPeriod;
+      }
+      balance+=currentMonthly;
+
+      yearInterest+=monthInterest;
+      yearDeposits+=currentMonthly;
+      monthlyDetail.push({start:monthStart,contribution:currentMonthly,interest:monthInterest,end:balance});
+
+      if(goal>0 && goalReachedMonth===null && balance>=goal){
+        goalReachedMonth=monthCounter;
+      }
+    }
+
+    totalDeposited+=yearDeposits;
+    growthSchedule.push({year:year,start:yearStart,contributions:yearDeposits,interest:yearInterest,end:balance,monthlyDetail:monthlyDetail});
+
+    pts.push({x:'Y'+year,y:balance});
+    cPts.push({x:'Y'+year,y:totalDeposited});
+
+    currentMonthly=currentMonthly*(1+increase);
+  }
+
+  var totalInterest=balance-totalDeposited;
+  var inflationAdjusted=inflation>0?balance/Math.pow(1+inflation,y):balance;
+
+  var el=document.getElementById('calcResult');
+  var html='<div class="sv-final-total"><span class="sv-final-total-label">Future Balance (after '+y+' years)</span><span class="sv-final-total-value">$'+fmtI(balance)+'</span></div>';
+
+  if(goal>0){
+    var progress=Math.min(balance/goal*100,100);
+    var progressActual=balance/goal*100;
+    var isShort=balance<goal;
+    var goalYearsToReach=goalReachedMonth?Math.ceil(goalReachedMonth/12):null;
+    var goalMonthsRem=goalReachedMonth?(goalReachedMonth%12||12):null;
+    var goalDisplayYear=goalReachedMonth?Math.floor((goalReachedMonth-1)/12)+1:null;
+    var goalDisplayMonth=goalReachedMonth?((goalReachedMonth-1)%12)+1:null;
+    var shortfall=goal-balance;
+
+    html+='<div class="sv-goal-card">';
+    html+='<div class="sv-goal-header"><span class="sv-goal-title">Goal: $'+fmtI(goal)+'</span><span class="sv-goal-pct'+(isShort?' sv-short':'')+'">'+progressActual.toFixed(1)+'%</span></div>';
+    html+='<div class="sv-progress-track"><div class="sv-progress-fill'+(isShort?' sv-short':'')+'" style="width:'+progress+'%"></div></div>';
+
+    if(goalReachedMonth){
+      html+='<div class="sv-goal-status sv-success">🎯 Goal reached in Year '+goalDisplayYear+', Month '+goalDisplayMonth+' — about '+goalReachedMonth+' months from today.</div>';
+    }else if(isShort){
+      html+='<div class="sv-goal-status sv-warn">⚠️ Shortfall of $'+fmtI(shortfall)+'. Try increasing your monthly deposit or extending the time period to reach your goal.</div>';
+    }else{
+      html+='<div class="sv-goal-status sv-success">🎯 Goal achieved at the end of the time period.</div>';
+    }
+    html+='</div>';
+  }
+
+  html+='<div class="sv-result-grid">';
+  html+='<div class="sv-result-item"><span class="sv-result-label">Total Deposited</span><span class="sv-result-value">$'+fmtI(totalDeposited)+'</span></div>';
+  html+='<div class="sv-result-item"><span class="sv-result-label">Interest Earned</span><span class="sv-result-value" style="color:#059669">$'+fmtI(totalInterest)+'</span></div>';
+  if(inflation>0){
+    html+='<div class="sv-result-item"><span class="sv-result-label">Inflation-Adjusted (today\'s $)</span><span class="sv-result-value" style="color:#D97706">$'+fmtI(inflationAdjusted)+'</span></div>';
+  }
+  if(goal===0 && inflation===0){
+    var growthMultiple=p>0?(balance/p).toFixed(1):'-';
+    html+='<div class="sv-result-item"><span class="sv-result-label">Growth Multiple</span><span class="sv-result-value" style="color:#059669">'+growthMultiple+'x</span></div>';
+  }
+  html+='</div><div id="chart"></div>';
+
+  el.innerHTML=html;
+
+  if(y>0){
+    drawLineChart('#chart',pts,{title:'Balance Growth Over '+y+' Years',colors:['#059669','#94A3B8'],labels:['Total Balance','Deposits Only'],datasets:[pts,cPts]});
+  }
+  renderTable();
 }
 document.addEventListener('DOMContentLoaded',function(){calc();});
 </script>
