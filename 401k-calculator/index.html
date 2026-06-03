@@ -3,16 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>401(k) Calculator — How Much Will My 401k Be Worth? | SavingsClub</title>
-<meta name="description" content="Free 401(k) retirement calculator. See how employer matching and contributions grow your 401k over time. Updated for 2026 limits.">
+<title>401(k) Calculator How Much Will My 401k Be Worth? | SavingsClub</title>
+<meta name="description" content="Free 401(k) retirement calculator with employer matching, salary growth, and inflation adjustments. See your projected retirement income.">
 <link rel="canonical" href="https://savingsclub.com/401k-calculator/">
 <meta property="og:title" content="401(k) Calculator — How Much Will My 401k Be Worth? | SavingsClub">
-<meta property="og:description" content="Free 401(k) retirement calculator. See how employer matching and contributions grow your 401k over time. Updated for 2026 limits.">
+<meta property="og:description" content="Free 401(k) retirement calculator with employer matching, salary growth, and inflation adjustments.">
 <meta property="og:url" content="https://savingsclub.com/401k-calculator/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SavingsClub">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much should I put in my 401k?","acceptedAnswer":{"@type":"Answer","text":"Contribute at least enough to get your full employer match. Beyond that, aim for 15% of gross income including employer contributions. The 2026 limit is $23,500 ($31,000 if over 50)."}},{"@type":"Question","name":"Is a 401k better than a savings account?","acceptedAnswer":{"@type":"Answer","text":"For retirement savings, yes. A 401(k) offers tax advantages and employer matching that savings accounts cannot. However, you should still maintain a separate emergency fund in a savings account for short-term needs."}},{"@type":"Question","name":"What is a good 401k balance by age?","acceptedAnswer":{"@type":"Answer","text":"Common benchmarks: 1x salary by 30, 3x by 40, 6x by 50, 8x by 60. These are rough guidelines — use our calculator with your actual numbers for a personalized projection."}}]}</script>
-<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/sc-favicon.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/sc-favicon.png?v=2">
+<link rel="shortcut icon" href="/img/sc-favicon.png?v=2">
 <link rel="stylesheet" href="../css/style.css">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
@@ -22,6 +25,79 @@
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://savingsclub.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://savingsclub.com/savings-calculator/"},{"@type":"ListItem","position":3,"name":"401(k) Calculator","item":"https://savingsclub.com/401k-calculator/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Project Your 401(k) Growth","step":[{"@type":"HowToStep","position":1,"text":"Enter your annual salary"},{"@type":"HowToStep","position":2,"text":"Set your contribution percentage"},{"@type":"HowToStep","position":3,"text":"Add your employer match percentage"},{"@type":"HowToStep","position":4,"text":"Enter your current 401(k) balance"},{"@type":"HowToStep","position":5,"text":"Set your expected annual return and years until retirement"},{"@type":"HowToStep","position":6,"text":"View your projected 401(k) value at retirement"}]}</script>
+<style>
+.kc-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:32px;align-items:start}
+.kc-inputs-col{display:flex;flex-direction:column;gap:16px}
+.kc-inputs-col label{display:block;font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:6px}
+.kc-inputs-col input,.kc-inputs-col select{width:100%;padding:12px 14px;border:1.5px solid #e5e7eb;border-radius:10px;font-size:1rem;font-family:inherit;transition:border-color .2s,box-shadow .2s}
+.kc-inputs-col input:focus,.kc-inputs-col select:focus{outline:none;border-color:#0369A1;box-shadow:0 0 0 3px rgba(3,105,161,.1)}
+.kc-results-col{background:linear-gradient(135deg,#EFF6FF,#F8FAFC);border-radius:16px;padding:28px;border:1px solid rgba(3,105,161,.1);min-height:500px}
+.kc-section-title{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:18px;letter-spacing:-.01em}
+.kc-calc-btn{width:100%;margin-top:8px;padding:14px 24px;font-size:1rem;font-weight:700}
+#chart{min-height:280px;width:100%;margin-top:20px}
+#chart svg{max-width:100%;height:auto;display:block;margin:0 auto}
+.kc-result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.kc-result-item{background:rgba(255,255,255,.7);padding:14px 16px;border-radius:10px;border:1px solid rgba(0,0,0,.05)}
+.kc-result-label{font-size:.8rem;color:var(--text-light);display:block;margin-bottom:4px;font-weight:500}
+.kc-result-value{font-size:1.2rem;font-weight:700;color:var(--navy);display:block}
+.kc-final-total{background:linear-gradient(135deg,#0369A1,#0EA5E9);color:#fff;padding:20px;border-radius:14px;text-align:center;margin-bottom:18px;box-shadow:0 4px 15px rgba(3,105,161,.25)}
+.kc-final-total-label{font-size:.85rem;opacity:.9;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;display:block}
+.kc-final-total-value{font-size:2.4rem;font-weight:800;letter-spacing:-.02em;display:block}
+.kc-income-card{background:#fff;border:1.5px solid #0EA5E9;border-radius:14px;padding:18px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.kc-income-label{font-size:.88rem;color:var(--text);font-weight:600}
+.kc-income-sublabel{font-size:.78rem;color:var(--text-light);display:block;margin-top:2px}
+.kc-income-value{font-size:1.5rem;font-weight:800;color:#0369A1;letter-spacing:-.02em}
+.kc-warning-inline{background:#FEF3C7;border-left:4px solid #F59E0B;padding:10px 14px;border-radius:8px;margin-top:12px;font-size:.85rem;color:#78350F;line-height:1.5}
+.kc-advanced-toggle{background:transparent;color:#0369A1;border:1.5px solid #0369A1;padding:10px 18px;border-radius:10px;font-weight:600;font-size:.9rem;cursor:pointer;width:100%;margin-top:4px;transition:all .2s;font-family:inherit}
+.kc-advanced-toggle:hover{background:#0369A1;color:#fff}
+.kc-advanced-panel{display:none;flex-direction:column;gap:16px;padding-top:16px;border-top:1.5px dashed #e5e7eb;margin-top:8px}
+.kc-advanced-panel.open{display:flex}
+.kc-table-wrap{margin-top:32px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.kc-table-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:20px}
+.kc-table-header h2{font-size:1.4rem;margin:0;color:var(--navy)}
+.kc-table-scroll{overflow-x:auto;border-radius:12px;border:1px solid #f1f5f9;max-height:600px;overflow-y:auto}
+.kc-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:640px}
+.kc-table th,.kc-table td{padding:12px 14px;text-align:right;border-bottom:1px solid #f1f5f9}
+.kc-table th{background:#f8fafc;font-weight:700;color:var(--text);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;position:sticky;top:0;z-index:1}
+.kc-table th:first-child,.kc-table td:first-child{text-align:left;font-weight:600}
+.kc-table tbody tr:hover{background:#f8fafc}
+.kc-table tbody tr:last-child td{border-bottom:none}
+.kc-howto-wrap{margin-top:32px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.kc-howto-wrap h2{font-size:1.4rem;margin:0 0 6px;color:var(--navy);letter-spacing:-.01em}
+.kc-howto-wrap>p{color:var(--text-light);margin:0 0 20px}
+.kc-howto-list{counter-reset:step-counter;list-style:none;padding:0;margin:0}
+.kc-howto-list li{counter-increment:step-counter;position:relative;padding:14px 16px 14px 56px;background:#F8FAFC;border-radius:12px;margin-bottom:10px;border:1px solid #f1f5f9}
+.kc-howto-list li::before{content:counter(step-counter);position:absolute;left:14px;top:12px;width:30px;height:30px;background:linear-gradient(135deg,#0369A1,#0EA5E9);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;box-shadow:0 2px 6px rgba(3,105,161,.25)}
+.kc-howto-list li strong{display:block;color:var(--navy);font-size:1rem;margin-bottom:3px;font-weight:700}
+.kc-howto-list li span{color:var(--text-light);font-size:.92rem;line-height:1.5}
+.kc-warning-wrap{margin-top:32px;background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FCD34D;border-radius:16px;padding:24px 28px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.kc-warning-wrap h3{font-size:1.15rem;margin:0 0 10px;color:#92400E;display:flex;align-items:center;gap:8px}
+.kc-warning-wrap p{color:#78350F;font-size:.92rem;line-height:1.7;margin:0 0 10px}
+.kc-warning-wrap p:last-child{margin-bottom:0}
+.kc-warning-wrap strong{color:#7C2D12}
+.kc-related-wrap{margin-top:32px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.kc-related-wrap h2{font-size:1.5rem;margin:0 0 6px;color:var(--navy);letter-spacing:-.01em}
+.kc-related-wrap>p{color:var(--text-light);margin:0 0 24px;font-size:1rem}
+.kc-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.kc-related-card{display:block;text-decoration:none;background:#F8FAFC;border:1.5px solid #e5e7eb;border-radius:14px;padding:24px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.kc-related-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.08);border-color:#0369A1;background:#fff}
+.kc-related-icon{font-size:32px;margin-bottom:12px;display:block}
+.kc-related-card h3{font-size:1.15rem;margin:0 0 8px;color:var(--navy);font-weight:700}
+.kc-related-card p{color:var(--text-light);font-size:.9rem;margin:0 0 14px;line-height:1.5}
+.kc-related-link{color:#0369A1;font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:4px}
+@media (max-width: 900px){
+  .kc-layout{grid-template-columns:1fr;gap:20px}
+  .kc-results-col{min-height:auto;padding:20px}
+  .kc-final-total-value{font-size:2rem}
+  .kc-result-grid{grid-template-columns:1fr 1fr}
+  .kc-table-wrap,.kc-howto-wrap,.kc-related-wrap{padding:20px}
+  .kc-table-header h2{font-size:1.2rem}
+  .kc-related-grid{grid-template-columns:1fr;gap:14px}
+}
+@media (max-width: 480px){
+  .kc-result-grid{grid-template-columns:1fr}
+}
+</style>
 </head><body><nav id="mainNav">
 <div class="nav-inner">
 <div class="logo" onclick="location.href='../'">
@@ -56,27 +132,108 @@ SavingsClub
 <section class="calc-page">
 <div class="container">
 <div style="margin-bottom:24px"><a href="../" style="color:var(--text-light);font-weight:500">← Home</a></div>
+
+<div style="text-align:center;margin-bottom:32px">
+<h1 style="font-size:2.2rem;margin-bottom:8px;letter-spacing:-.02em">401(k) Calculator</h1>
+<p style="color:var(--text-light);max-width:600px;margin:0 auto;font-size:1.05rem">See how your contributions and employer match grow into a retirement nest egg. Updated for 2026 limits.</p>
+<p style="font-size:.8rem;color:var(--text-lighter);margin-top:8px">Last updated: June 2026</p>
+</div>
+
 <div class="calc-section reveal" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
-<h2><div class="calc-icon" style="background:linear-gradient(135deg,#0369A1,#0EA5E9)">🏦</div> 401(k) Calculator</h2>
-<p class="calc-desc">See how your 401(k) contributions and employer match grow over time.</p>
-<p style="font-size:.8rem;color:var(--text-lighter);margin-top:4px">Last updated: May 2026</p>
-<div class="calc-grid">
-<div><label>Annual Salary ($)</label><input type="number" id="c1" value="65000" oninput="calc()"></div>
-<div><label>Your Contribution (%)</label><input type="number" id="c2" value="6" step="0.5" oninput="calc()"></div>
-<div><label>Employer Match (%)</label><input type="number" id="c3" value="4" step="0.5" oninput="calc()"></div>
-<div><label>Current 401k Balance ($)</label><input type="number" id="c4" value="25000" oninput="calc()"></div>
-<div><label>Expected Return (%)</label><input type="number" id="c5" value="7" step="0.5" oninput="calc()"></div>
-<div><label>Years Until Retirement</label><input type="number" id="c6" value="30" oninput="calc()"></div>
+
+<div class="kc-layout">
+
+<!-- LEFT COLUMN: INPUTS -->
+<div>
+<h3 class="kc-section-title">Your 401(k) Details</h3>
+<div class="kc-inputs-col">
+
+<div><label>Annual Salary ($)</label><input type="number" id="kSalary" value="65000" oninput="calc()"></div>
+
+<div><label>Your Contribution (%)</label><input type="number" id="kContrib" value="6" step="0.5" oninput="calc()"></div>
+
+<div><label>Employer Match Cap (%)</label><input type="number" id="kMatch" value="4" step="0.5" oninput="calc()"></div>
+
+<div><label>Current 401(k) Balance ($)</label><input type="number" id="kBalance" value="25000" oninput="calc()"></div>
+
+<div><label>Expected Annual Return (%)</label><input type="number" id="kReturn" value="7" step="0.5" oninput="calc()"></div>
+
+<div><label>Years Until Retirement</label><input type="number" id="kYears" value="30" oninput="calc()"></div>
+
+<button type="button" class="kc-advanced-toggle" id="kc-advanced-btn" onclick="toggleAdvanced()">Show Advanced ▼</button>
+
+<div class="kc-advanced-panel" id="kc-advanced">
+<div><label>Annual Salary Increase (%)</label><input type="number" id="kSalaryInc" value="2" step="0.5" oninput="calc()" placeholder="2"></div>
+<div><label>Employer Match Type</label><select id="kMatchType" onchange="calc()"><option value="1.0" selected>Full match (100%)</option><option value="0.5">Partial match (50%)</option></select></div>
+<div><label>Inflation Rate (%)</label><input type="number" id="kInflation" value="0" step="0.1" oninput="calc()" placeholder="0"></div>
 </div>
-<div class="accent-line" style="width:100%;margin:0 0 20px;height:2px"></div>
-<button class="btn btn-primary" onclick="calc()">Calculate</button>
-<div id="calcResult" class="calc-result"></div>
+
 </div>
+<button class="btn btn-primary kc-calc-btn" onclick="calc()">Calculate</button>
+</div>
+
+<!-- RIGHT COLUMN: RESULTS + CHART -->
+<div class="kc-results-col">
+<h3 class="kc-section-title">Your Retirement Projection</h3>
+<div id="calcResult"></div>
+</div>
+
+</div>
+</div>
+
+<!-- YEAR-BY-YEAR TABLE -->
+<div class="kc-table-wrap reveal">
+<div class="kc-table-header">
+<h2>Year-by-Year 401(k) Growth</h2>
+</div>
+<div class="kc-table-scroll">
+<table class="kc-table">
+<thead>
+<tr>
+<th>Year</th>
+<th>Salary</th>
+<th>Your Contribution</th>
+<th>Employer Match</th>
+<th>Interest Earned</th>
+<th>Ending Balance</th>
+</tr>
+</thead>
+<tbody id="growthTableBody"></tbody>
+</table>
+</div>
+</div>
+
+<!-- HOW TO USE -->
+<div class="kc-howto-wrap reveal">
+<h2>How to Use This Calculator</h2>
+<p>Follow these steps to project your 401(k) retirement balance accurately.</p>
+<ol class="kc-howto-list">
+<li><strong>Enter your annual salary</strong><span>Your gross (pre-tax) income from your primary employer. If you have multiple jobs, use only the salary from the employer offering the 401(k).</span></li>
+<li><strong>Set your contribution percentage</strong><span>The percentage of your salary you contribute each pay period. Most plans allow 1-100%. The 2026 IRS limit is $23,500 (or $31,000 if you're 50+).</span></li>
+<li><strong>Enter your employer match cap</strong><span>The maximum percentage your employer will match. Example: "100% match up to 4% of salary" means enter 4. Check your benefits handbook to confirm.</span></li>
+<li><strong>Add your current balance</strong><span>The total value of your existing 401(k) accounts. If you're just starting out, enter 0.</span></li>
+<li><strong>Set expected annual return</strong><span>Historical S&P 500 average is around 7-10%. A conservative estimate is 6-7%. Returns vary year to year don't expect a smooth line.</span></li>
+<li><strong>Choose years until retirement</strong><span>Subtract your current age from your target retirement age. Most Americans target 65, but 60-67 is the common range.</span></li>
+<li><strong>(Optional) Add annual salary increase</strong><span>Most people get 2-3% raises annually. As salary grows, your contribution dollar amount grows too (assuming you keep the same percentage).</span></li>
+<li><strong>(Optional) Pick employer match type</strong><span>"Full match" = 100% of what you contribute up to the cap. "Partial match" = 50% (common with companies like Fidelity that match 50% up to 6%).</span></li>
+<li><strong>(Optional) Add inflation rate</strong><span>Typical 2-3%. This shows what your retirement balance is "worth" in today's dollars.</span></li>
+</ol>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="kc-warning-wrap reveal">
+<h3>⚠️ Important Disclaimer</h3>
+<p><strong>Results are estimates only.</strong> The values shown by this calculator are mathematical projections based on the inputs you provide. Actual 401(k) returns vary widely based on market conditions, fund choices, fees, and the specific plan offered by your employer. Stock market returns are not guaranteed and past performance does not predict future results.</p>
+<p><strong>Always verify current contribution limits, employer match terms, and plan rules with your HR department or plan administrator.</strong> Contribution limits change annually. The 2026 limit is $23,500 ($31,000 with catch-up for those 50+), but this could change in future years.</p>
+<p><strong>SavingsClub is not a licensed financial advisor, tax professional, investment advisor, or legal professional.</strong> This calculator is provided for educational and informational purposes only and should not be considered as professional financial, tax, investment, or legal advice. Always consult with qualified licensed professionals before making important retirement decisions. The 4% withdrawal rule is a general guideline and may not apply to your specific situation.</p>
+</div>
+
 <div class="blog-recs reveal" style="margin-top:24px">
 <h3 style="margin-bottom:12px;font-size:1.1rem">📚 Related Guides</h3>
 <a href="../blog/retirement-planning-in-your-30s-the-decade-that-matters-most/" class="related-blog-card">Retirement Planning in Your 30s →</a>
 </div>
-<div class="seo-content reveal"><h2>How Does a 401(k) Calculator Work?</h2>
+
+<div class="seo-content reveal" style="margin-top:24px"><h2>How Does a 401(k) Calculator Work?</h2>
 <p>A 401(k) calculator projects the future value of your employer-sponsored retirement account based on your salary, contribution percentage, employer match, expected investment returns, and time until retirement. The 2026 annual contribution limit is $23,500 for those under 50, with an additional $7,500 catch-up contribution for workers 50 and older.</p>
 <h3>Understanding Employer Matching</h3>
 <p>Employer matching is free money. If your employer matches 100% of contributions up to 4% of salary, and you earn $65,000, that's $2,600 per year your employer adds to your account at no cost to you. Not contributing enough to get the full match is leaving money on the table — it's an immediate 100% return on your investment.</p>
@@ -85,22 +242,177 @@ SavingsClub
 <h3>401(k) vs. Roth IRA</h3>
 <p>A traditional 401(k) reduces your taxable income now but you pay taxes on withdrawals in retirement. A <a href="../roth-ira-calculator/">Roth IRA</a> is funded with after-tax dollars but grows and is withdrawn tax-free. Many financial planners recommend contributing to both — 401(k) up to the employer match, then max out a Roth IRA, then contribute more to the 401(k). Workers in states without income tax (Texas, Florida, Nevada, Washington) may find the traditional 401(k) slightly more advantageous for reducing federal taxes now.</p>
 <h3>What Happens When I Change Jobs?</h3>
-<p>When you leave an employer, you have several options: leave the 401(k) with the old employer, roll it into your new employer's plan, roll it into an IRA, or cash it out (which triggers taxes and a 10% early withdrawal penalty if you're under 59½). Rolling into an IRA typically provides the most investment choices and flexibility.</p></div><div class="seo-content reveal" style="margin-top:24px"><h2>Frequently Asked Questions</h2><h3>How much should I put in my 401k?</h3><p>Contribute at least enough to get your full employer match. Beyond that, aim for 15% of gross income including employer contributions. The 2026 limit is $23,500 ($31,000 if over 50).</p><h3>Is a 401k better than a savings account?</h3><p>For retirement savings, yes. A 401(k) offers tax advantages and employer matching that savings accounts cannot. However, you should still maintain a separate emergency fund in a savings account for short-term needs.</p><h3>What is a good 401k balance by age?</h3><p>Common benchmarks: 1x salary by 30, 3x by 40, 6x by 50, 8x by 60. These are rough guidelines — use our calculator with your actual numbers for a personalized projection.</p></div><div class="related-tools reveal">
-<h3>All Calculators</h3>
-<a href="../savings-calculator/" class="related-tool-link">💰 Savings</a><a href="../budget-planner/" class="related-tool-link">📊 Budget</a><a href="../debt-payoff-calculator/" class="related-tool-link">🔥 Debt Payoff</a><a href="../compound-interest-calculator/" class="related-tool-link">📈 Compound Interest</a><a href="../retirement-calculator/" class="related-tool-link">🏠 Retirement</a><a href="../investment-calculator/" class="related-tool-link">💎 Investment</a><a href="../mortgage-calculator/" class="related-tool-link">🏡 Mortgage</a><a href="../auto-loan-calculator/" class="related-tool-link">🚗 Auto Loan</a><a href="../net-worth-calculator/" class="related-tool-link">💳 Net Worth</a><a href="../emergency-fund-calculator/" class="related-tool-link">🛡️ Emergency Fund</a><a href="../credit-card-payoff-calculator/" class="related-tool-link">💳 CC Payoff</a><a href="../roth-ira-calculator/" class="related-tool-link">📋 Roth IRA</a><a href="../inflation-calculator/" class="related-tool-link">📉 Inflation</a><a href="../loan-payoff-calculator/" class="related-tool-link">🎯 Loan Payoff</a><a href="../paycheck-calculator/" class="related-tool-link">💵 Take-Home Pay</a><a href="../cd-calculator/" class="related-tool-link">🔐 CD Calculator</a>
-</div></div></section><script src="../js/charts.js"></script>
+<p>When you leave an employer, you have several options: leave the 401(k) with the old employer, roll it into your new employer's plan, roll it into an IRA, or cash it out (which triggers taxes and a 10% early withdrawal penalty if you're under 59½). Rolling into an IRA typically provides the most investment choices and flexibility.</p>
+<h3>The 4% Withdrawal Rule</h3>
+<p>The 4% rule is a guideline that says you can safely withdraw 4% of your retirement balance in the first year, then adjust for inflation each year, for a 30-year retirement without running out of money. So a $1 million balance gives you about $40,000 in annual income. This rule isn't perfect and assumes a balanced portfolio of stocks and bonds.</p>
+</div>
+<div class="seo-content reveal" style="margin-top:24px"><h2>Frequently Asked Questions</h2><h3>How much should I put in my 401k?</h3><p>Contribute at least enough to get your full employer match. Beyond that, aim for 15% of gross income including employer contributions. The 2026 limit is $23,500 ($31,000 if over 50).</p><h3>Is a 401k better than a savings account?</h3><p>For retirement savings, yes. A 401(k) offers tax advantages and employer matching that savings accounts cannot. However, you should still maintain a separate emergency fund in a savings account for short-term needs.</p><h3>What is a good 401k balance by age?</h3><p>Common benchmarks: 1x salary by 30, 3x by 40, 6x by 50, 8x by 60. These are rough guidelines — use our calculator with your actual numbers for a personalized projection.</p></div>
+
+<div class="kc-related-wrap reveal">
+<h2>Related Calculators</h2>
+<p>Continue planning your retirement with these helpful tools.</p>
+<div class="kc-related-grid">
+<a href="../roth-ira-calculator/" class="kc-related-card">
+<span class="kc-related-icon">📋</span>
+<h3>Roth IRA Calculator</h3>
+<p>Compare tax-free Roth IRA growth with traditional 401(k) many people benefit from both.</p>
+<span class="kc-related-link">Calculate Roth IRA →</span>
+</a>
+<a href="../retirement-calculator/" class="kc-related-card">
+<span class="kc-related-icon">🏠</span>
+<h3>Retirement Calculator</h3>
+<p>See if you're on track for your target retirement age across all your retirement accounts.</p>
+<span class="kc-related-link">Plan Retirement →</span>
+</a>
+<a href="../compound-interest-calculator/" class="kc-related-card">
+<span class="kc-related-icon">📈</span>
+<h3>Compound Interest Calculator</h3>
+<p>Understand the math behind how decades of compound growth transform modest contributions.</p>
+<span class="kc-related-link">See Compound Growth →</span>
+</a>
+</div>
+</div>
+
+</div>
+</section>
+<script src="../js/charts.js"></script>
 <script>
-function fmt(n){if(n===undefined||isNaN(n))return'$0';return n<0?'-$'+Math.abs(n).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,','):'$'+n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+var growthSchedule=[];
+
+function fmt(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function fmtI(n){return Math.round(n).toLocaleString('en-US');}
+function fmtMoney(n){return '$'+Math.round(n).toLocaleString('en-US');}
+
+function toggleAdvanced(){
+  var adv=document.getElementById('kc-advanced');
+  var btn=document.getElementById('kc-advanced-btn');
+  if(adv.classList.contains('open')){
+    adv.classList.remove('open');
+    btn.innerHTML='Show Advanced ▼';
+  }else{
+    adv.classList.add('open');
+    btn.innerHTML='Hide Advanced ▲';
+  }
+}
+
+function renderTable(){
+  var tbody=document.getElementById('growthTableBody');
+  if(!growthSchedule.length){tbody.innerHTML='<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--text-light)">Enter 401(k) details above</td></tr>';return;}
+  var html='';
+  for(var i=0;i<growthSchedule.length;i++){
+    var r=growthSchedule[i];
+    html+='<tr><td>Year '+r.year+'</td><td>'+fmtMoney(r.salary)+'</td><td>'+fmtMoney(r.contributions)+'</td><td>'+fmtMoney(r.employerMatch)+'</td><td>'+fmtMoney(r.interest)+'</td><td>'+fmtMoney(r.end)+'</td></tr>';
+  }
+  tbody.innerHTML=html;
+}
+
 function calc(){
-var sal=+(document.getElementById('c1').value||0),cp=+(document.getElementById('c2').value||0)/100,mp=+(document.getElementById('c3').value||0)/100;
-var bal=+(document.getElementById('c4').value||0),ret=+(document.getElementById('c5').value||0)/100/12,yrs=+(document.getElementById('c6').value||0);
-var monthly=(sal*cp)/12,ematch=(sal*Math.min(mp,cp))/12,total_monthly=monthly+ematch;
-var n=yrs*12,b=bal,pts=[{x:'Now',y:bal}];
-for(var i=0;i<n;i++){b=b*(1+ret)+total_monthly;if((i+1)%(Math.max(1,Math.floor(n/10)))===0||i===n-1){pts.push({x:'Y'+Math.round((i+1)/12),y:b});}}
-var tc=bal+total_monthly*n,interest=b-tc;
-var el=document.getElementById('calcResult');
-el.innerHTML='<div class="result-grid"><div class="result-item"><span class="result-label">Projected 401(k) Value</span><span class="result-value" style="color:var(--green)">'+fmt(b)+'</span></div><div class="result-item"><span class="result-label">Your Contributions</span><span class="result-value">'+fmt(monthly*n)+'</span></div><div class="result-item"><span class="result-label">Employer Match Total</span><span class="result-value" style="color:var(--gold)">'+fmt(ematch*n)+'</span></div><div class="result-item"><span class="result-label">Investment Growth</span><span class="result-value" style="color:var(--blue)">'+fmt(interest)+'</span></div></div><div id="chart"></div>';
-if(yrs>0)drawLineChart('#chart',pts,{title:'401(k) Growth Over '+yrs+' Years',colors:['#10B981']});
+  var salary=+(document.getElementById('kSalary').value||0);
+  var contribPct=+(document.getElementById('kContrib').value||0)/100;
+  var matchCap=+(document.getElementById('kMatch').value||0)/100;
+  var startBalance=+(document.getElementById('kBalance').value||0);
+  var annualReturn=+(document.getElementById('kReturn').value||0)/100;
+  var years=+(document.getElementById('kYears').value||0);
+  var salaryIncrease=+(document.getElementById('kSalaryInc').value||0)/100;
+  var matchMultiplier=+(document.getElementById('kMatchType').value||1);
+  var inflation=+(document.getElementById('kInflation').value||0)/100;
+
+  var balance=startBalance;
+  var currentSalary=salary;
+  var totalYourContribs=0;
+  var totalEmployerMatch=0;
+  var monthlyRate=annualReturn/12;
+  growthSchedule=[];
+
+  var pts=[{x:'Now',y:startBalance}];
+  var yourPts=[{x:'Now',y:startBalance}];
+  var matchPts=[{x:'Now',y:0}];
+  var growthPts=[{x:'Now',y:0}];
+  var cumYourContribs=0;
+  var cumMatch=0;
+  var cumGrowth=0;
+
+  for(var year=1;year<=years;year++){
+    var yearStart=balance;
+    var yearContribs=0;
+    var yearMatch=0;
+    var yearInterest=0;
+
+    var effectiveMatchPct=Math.min(matchCap,contribPct)*matchMultiplier;
+    var monthlyContrib=(currentSalary*contribPct)/12;
+    var monthlyMatch=(currentSalary*effectiveMatchPct)/12;
+
+    for(var month=0;month<12;month++){
+      var interestThisMonth=balance*monthlyRate;
+      balance+=interestThisMonth+monthlyContrib+monthlyMatch;
+      yearInterest+=interestThisMonth;
+      yearContribs+=monthlyContrib;
+      yearMatch+=monthlyMatch;
+    }
+
+    totalYourContribs+=yearContribs;
+    totalEmployerMatch+=yearMatch;
+    cumYourContribs+=yearContribs;
+    cumMatch+=yearMatch;
+    cumGrowth+=yearInterest;
+
+    growthSchedule.push({year:year,salary:currentSalary,contributions:yearContribs,employerMatch:yearMatch,interest:yearInterest,end:balance});
+
+    pts.push({x:'Y'+year,y:balance});
+    yourPts.push({x:'Y'+year,y:startBalance+cumYourContribs});
+    matchPts.push({x:'Y'+year,y:cumMatch});
+    growthPts.push({x:'Y'+year,y:cumGrowth});
+
+    currentSalary*=(1+salaryIncrease);
+  }
+
+  var totalGrowth=balance-(startBalance+totalYourContribs+totalEmployerMatch);
+  var annualIncome4pct=balance*0.04;
+  var monthlyIncome4pct=annualIncome4pct/12;
+  var inflationAdjusted=inflation>0?balance/Math.pow(1+inflation,years):balance;
+  var inflationAdjustedIncome=inflation>0?annualIncome4pct/Math.pow(1+inflation,years):annualIncome4pct;
+
+  var contributionWarning='';
+  var annualContribDollars=salary*contribPct;
+  if(annualContribDollars>23500){
+    var excess=annualContribDollars-23500;
+    contributionWarning='<div class="kc-warning-inline"><strong>⚠️ Over the 2026 limit:</strong> Your annual contribution of $'+fmtI(annualContribDollars)+' exceeds the $23,500 IRS limit by $'+fmtI(excess)+'. If you\'re under 50, your employer will cap this. If 50+, the catch-up limit is $31,000.</div>';
+  }
+
+  var matchWarning='';
+  if(contribPct<matchCap){
+    var missed=salary*(matchCap-contribPct)*matchMultiplier;
+    matchWarning='<div class="kc-warning-inline"><strong>💡 You\'re leaving money on the table:</strong> Increase your contribution to '+(matchCap*100).toFixed(1)+'% to capture the full employer match. You\'re missing $'+fmtI(missed)+' per year in free money.</div>';
+  }
+
+  var el=document.getElementById('calcResult');
+  var html='<div class="kc-final-total"><span class="kc-final-total-label">Projected 401(k) at Retirement</span><span class="kc-final-total-value">$'+fmtI(balance)+'</span></div>';
+
+  html+='<div class="kc-income-card"><div><div class="kc-income-label">Annual Income at 4% Rule</div><span class="kc-income-sublabel">$'+fmtI(monthlyIncome4pct)+'/month equivalent</span></div><div class="kc-income-value">$'+fmtI(annualIncome4pct)+'</div></div>';
+
+  html+='<div class="kc-result-grid">';
+  html+='<div class="kc-result-item"><span class="kc-result-label">Your Contributions</span><span class="kc-result-value">$'+fmtI(totalYourContribs)+'</span></div>';
+  html+='<div class="kc-result-item"><span class="kc-result-label">Employer Match Total</span><span class="kc-result-value" style="color:#D97706">$'+fmtI(totalEmployerMatch)+'</span></div>';
+  html+='<div class="kc-result-item"><span class="kc-result-label">Investment Growth</span><span class="kc-result-value" style="color:#0369A1">$'+fmtI(totalGrowth)+'</span></div>';
+  if(inflation>0){
+    html+='<div class="kc-result-item"><span class="kc-result-label">Inflation-Adjusted (today\'s $)</span><span class="kc-result-value" style="color:#D97706">$'+fmtI(inflationAdjusted)+'</span></div>';
+  }else{
+    var freeMoneyPct=balance>0?(totalEmployerMatch/balance*100).toFixed(1):'0';
+    html+='<div class="kc-result-item"><span class="kc-result-label">Free Money from Employer</span><span class="kc-result-value" style="color:#059669">'+freeMoneyPct+'%</span></div>';
+  }
+  html+='</div>';
+
+  html+=matchWarning;
+  html+=contributionWarning;
+
+  html+='<div id="chart"></div>';
+
+  el.innerHTML=html;
+
+  if(years>0){
+    drawLineChart('#chart',pts,{title:'401(k) Growth Breakdown Over '+years+' Years',colors:['#0369A1','#94A3B8','#D97706','#059669'],labels:['Total Balance','Your Contributions','Employer Match','Investment Growth'],datasets:[pts,yourPts,matchPts,growthPts]});
+  }
+  renderTable();
 }
 document.addEventListener("DOMContentLoaded",function(){calc();});
 </script><footer>
@@ -147,7 +459,6 @@ document.addEventListener("DOMContentLoaded",function(){calc();});
 window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
 function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
 function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
-function fmt(n){return n<0?'-$'+Math.abs(n).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,','):'$'+n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
 var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
 </script><script>
