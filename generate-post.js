@@ -280,7 +280,7 @@ Write unique, original content. Do not repeat advice generically — be specific
     slug: slug,
     category: category,
     date: date,
-    author: 'Editorial Team',
+    author: 'By SavingsClub Research Team',
     excerpt: title
   };
 
