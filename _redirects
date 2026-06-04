@@ -1,18 +1,67 @@
 # Redirects for deleted blog posts
 # Format: /old-path  /new-path  301
 
-# Already deleted
+# Previously deleted posts
 /blog/smart-money-moves-to-make-before-year-end-2026/*  /blog/  301
 /blog/smart-money-moves-to-make-before-year-end-2026  /blog/  301
 
-# Deleting credit score post -> send to credit cards page (more useful)
 /blog/credit-score-explained-what-it-is-and-how-to-improve-it/*  /credit-cards/  301
 /blog/credit-score-explained-what-it-is-and-how-to-improve-it  /credit-cards/  301
 
-# Deleting debt comparison -> send to debt payoff calculator (more useful)
 /blog/debt-snowball-vs-debt-avalanche-which-strategy-wins/*  /debt-payoff-calculator/  301
 /blog/debt-snowball-vs-debt-avalanche-which-strategy-wins  /debt-payoff-calculator/  301
 
-# Deleting CD comparison -> send to CD calculator (more useful)
 /blog/best-high-yield-cds-vs-savings-accounts-compared/*  /cd-calculator/  301
 /blog/best-high-yield-cds-vs-savings-accounts-compared  /cd-calculator/  301
+
+# New deletions - smart redirects to relevant calculators
+/blog/how-to-build-an-emergency-fund-a-step-by-step-guide-for-every-american/*  /emergency-fund-calculator/  301
+/blog/how-to-build-an-emergency-fund-a-step-by-step-guide-for-every-american  /emergency-fund-calculator/  301
+
+/blog/the-50-30-20-budget-rule-simplest-way-to-manage-your-money/*  /budget-planner/  301
+/blog/the-50-30-20-budget-rule-simplest-way-to-manage-your-money  /budget-planner/  301
+
+/blog/best-high-yield-savings-accounts-where-to-earn-4-apy-in-2026/*  /savings-calculator/  301
+/blog/best-high-yield-savings-accounts-where-to-earn-4-apy-in-2026  /savings-calculator/  301
+
+/blog/how-compound-interest-works-and-why-it-matters/*  /compound-interest-calculator/  301
+/blog/how-compound-interest-works-and-why-it-matters  /compound-interest-calculator/  301
+
+/blog/best-no-annual-fee-credit-cards-for-everyday-spending/*  /credit-cards/  301
+/blog/best-no-annual-fee-credit-cards-for-everyday-spending  /credit-cards/  301
+
+/blog/how-to-save-for-a-house-down-payment-a-practical-timeline/*  /mortgage-calculator/  301
+/blog/how-to-save-for-a-house-down-payment-a-practical-timeline  /mortgage-calculator/  301
+
+/blog/retirement-planning-in-your-30s-the-decade-that-matters-most/*  /retirement-calculator/  301
+/blog/retirement-planning-in-your-30s-the-decade-that-matters-most  /retirement-calculator/  301
+
+/blog/how-to-negotiate-lower-interest-rates-on-credit-cards/*  /credit-cards/  301
+/blog/how-to-negotiate-lower-interest-rates-on-credit-cards  /credit-cards/  301
+
+/blog/emergency-fund-101-how-much-you-really-need/*  /emergency-fund-calculator/  301
+/blog/emergency-fund-101-how-much-you-really-need  /emergency-fund-calculator/  301
+
+/blog/best-cash-back-credit-cards-earn-money-on-every-purchase/*  /credit-cards/  301
+/blog/best-cash-back-credit-cards-earn-money-on-every-purchase  /credit-cards/  301
+
+/blog/how-to-build-credit-as-a-new-immigrant-in-the-us/*  /credit-cards/  301
+/blog/how-to-build-credit-as-a-new-immigrant-in-the-us  /credit-cards/  301
+
+/blog/understanding-mortgage-options-fixed-vs-adjustable-rate/*  /mortgage-calculator/  301
+/blog/understanding-mortgage-options-fixed-vs-adjustable-rate  /mortgage-calculator/  301
+
+/blog/free-checking-accounts-worth-opening-in-2026/*  /banking/  301
+/blog/free-checking-accounts-worth-opening-in-2026  /banking/  301
+
+/blog/how-to-start-investing-with-just-100/*  /investment-calculator/  301
+/blog/how-to-start-investing-with-just-100  /investment-calculator/  301
+
+/blog/understanding-apr-vs-apy-what-every-borrower-should-know/*  /banking/  301
+/blog/understanding-apr-vs-apy-what-every-borrower-should-know  /banking/  301
+
+/blog/balance-transfer-credit-cards-how-to-use-them-strategically/*  /credit-cards/  301
+/blog/balance-transfer-credit-cards-how-to-use-them-strategically  /credit-cards/  301
+
+/blog/financial-planning-checklist-for-new-parents/*  /blog/  301
+/blog/financial-planning-checklist-for-new-parents  /blog/  301
