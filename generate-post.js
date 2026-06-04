@@ -87,11 +87,13 @@ const TOPICS = [
 ];
 
 const STATES = [
-  "California","Texas","Florida","New York","Illinois","Pennsylvania","Ohio","Georgia",
-  "North Carolina","Michigan","New Jersey","Virginia","Washington","Arizona","Massachusetts",
-  "Tennessee","Indiana","Missouri","Maryland","Wisconsin","Colorado","Minnesota",
-  "South Carolina","Alabama","Louisiana","Kentucky","Oregon","Oklahoma","Connecticut","Utah",
-  "Iowa","Nevada","Arkansas","Mississippi","Kansas"
+  "Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware",
+  "Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas",
+  "Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi",
+  "Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York",
+  "North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina",
+  "South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia",
+  "Wisconsin","Wyoming"
 ];
 
 const CALCULATOR_LINKS = [
@@ -234,7 +236,7 @@ Write unique, original content. Do not repeat advice generically — be specific
   const readTime = Math.max(1, Math.round(wordCount / 200));
 
   // Fetch unique image from Unsplash
-  let blogImage = '../../img/savings-jar.jpg';
+  let blogImage = '/img/savings-jar.jpg';
   let photoCredit = '';
   try {
     const searchTerms = {
@@ -282,8 +284,9 @@ Write unique, original content. Do not repeat advice generically — be specific
     slug: slug,
     category: category,
     date: date,
-    author: 'By SavingsClub Research Team',
-    excerpt: title
+    author: 'SavingsClub Research Team',
+    excerpt: title,
+    image: blogImage
   };
 
   // Create blog post HTML file
