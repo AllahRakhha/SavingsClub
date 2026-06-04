@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Money Blog — Expert Financial Guides | SavingsClub</title>
+<title>Money Blog Expert Financial Guides | SavingsClub</title>
 <meta name="description" content="Expert guides on saving, investing, credit, and building wealth. Free personal finance articles for Americans in every state.">
 <link rel="canonical" href="https://savingsclub.com/blog/">
 <meta property="og:title" content="Money Blog — Expert Financial Guides | SavingsClub">
@@ -90,13 +90,19 @@ if(!posts.length){grid.innerHTML='<p style="text-align:center;color:var(--text-l
 var html='';
 posts.forEach(function(p,i){
 var t=BLOG_THEMES[i%BLOG_THEMES.length];
-html+='<a href="'+p.slug+'/" class="card card-glow reveal" style="text-decoration:none;color:inherit">'
-+'<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">'
+var imageHtml = p.image
+? '<div style="width:100%;height:200px;overflow:hidden;background:#f3f4f6;border-radius:20px 20px 0 0"><img src="'+p.image+'" alt="'+p.title+'" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease"></div>'
+: '';
+html+='<a href="'+p.slug+'/" class="card card-glow reveal" style="text-decoration:none;color:inherit;padding:0;overflow:hidden;display:flex;flex-direction:column">'
++imageHtml
++'<div style="padding:24px;display:flex;flex-direction:column;flex:1">'
++'<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap">'
 +'<span style="background:'+t.bg+';color:'+t.color+';padding:4px 14px;border-radius:20px;font-size:.8rem;font-weight:600">'+t.emoji+' '+p.category+'</span>'
 +'<span style="color:var(--text-lighter);font-size:.85rem">'+p.date+'</span></div>'
-+'<h3 style="margin-bottom:8px;font-size:1.05rem">'+p.title+'</h3>'
++'<h3 style="margin-bottom:8px;font-size:1.05rem;line-height:1.4">'+p.title+'</h3>'
 +'<span style="color:var(--text-light);font-size:.85rem">By '+p.author+'</span>'
-+'<div style="margin-top:12px"><span style="color:var(--blue);font-weight:600;font-size:.9rem">Read Article →</span></div></a>';
++'<div style="margin-top:auto;padding-top:12px"><span style="color:var(--blue);font-weight:600;font-size:.9rem">Read Article →</span></div>'
++'</div></a>';
 });
 grid.innerHTML=html;
 // Trigger reveals
