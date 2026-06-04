@@ -6,7 +6,8 @@
     "category": "Savings",
     "date": "June 2, 2026",
     "author": "SavingsClub Research Team",
-    "excerpt": "How to save money on rent in Florida"
+    "excerpt": "How to save money on rent in Florida",
+    "image": "https://images.unsplash.com/photo-1768839721719-c5ed97c1fd58?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODA0MDM3OTV8&ixlib=rb-4.1.0&w=1200&q=75&auto=format"
   },
   {
     "id": "gen_1780339159698",
@@ -15,7 +16,8 @@
     "category": "Credit Cards",
     "date": "June 1, 2026",
     "author": "SavingsClub Research Team",
-    "excerpt": "Best rewards credit cards for dining out"
+    "excerpt": "Best rewards credit cards for dining out",
+    "image": "https://images.unsplash.com/photo-1726066012714-261f6d8c07bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODAzMzkxNTl8&ixlib=rb-4.1.0&q=80&w=1080"
   },
   {
     "id": "gen_1780073029505",
@@ -24,7 +26,8 @@
     "category": "Savings",
     "date": "May 29, 2026",
     "author": "SavingsClub Research Team",
-    "excerpt": "How to save for college with a 529 plan"
+    "excerpt": "How to save for college with a 529 plan",
+    "image": "https://images.unsplash.com/photo-1591331922516-beed9d388bc3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODAwNzMwMjl8&ixlib=rb-4.1.0&q=80&w=1080"
   },
   {
     "id": "gen_1779972385576",
@@ -33,7 +36,8 @@
     "category": "Money Tips",
     "date": "May 28, 2026",
     "author": "SavingsClub Research Team",
-    "excerpt": "Smart money moves for millennials in Ohio"
+    "excerpt": "Smart money moves for millennials in Ohio",
+    "image": "https://images.unsplash.com/photo-1515606378517-3451a4fa2e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Nzk5NzIzODV8&ixlib=rb-4.1.0&q=80&w=1080"
   },
   {
     "id": "gen_1779962829628",
@@ -42,6 +46,7 @@
     "category": "Income",
     "date": "May 28, 2026",
     "author": "SavingsClub Research Team",
-    "excerpt": "How to create multiple streams of income"
+    "excerpt": "How to create multiple streams of income",
+    "image": "https://savingsclub.com/img/savings-jar.jpg"
   }
 ]
