@@ -25,55 +25,44 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <style>
-.hero-visual-wrap { display: none; }
+/* HERO CALCULATOR STYLES */
+.hero-intro{text-align:center;max-width:720px;margin:0 auto 32px;position:relative;z-index:2}
+.hero-title{font-size:2.4rem;font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-.025em;line-height:1.15}
+.hero-subtitle{color:rgba(255,255,255,.8);font-size:1.05rem;margin-bottom:0}
+.hero-calc-card{background:rgba(255,255,255,.98);border-radius:24px;display:grid;grid-template-columns:1fr 1fr;max-width:900px;margin:0 auto 40px;box-shadow:0 30px 80px rgba(0,0,0,.25);overflow:hidden;position:relative;z-index:2}
+.hero-calc-form{padding:32px}
+.hero-calc-form h3{font-size:1.35rem;font-weight:700;color:#0F172A;margin:0 0 4px}
+.hero-calc-form-sub{color:#64748B;font-size:.85rem;margin:0 0 20px}
+.hcc-row{margin-bottom:16px}
+.hcc-row:last-child{margin-bottom:0}
+.hcc-row label{display:block;font-size:.82rem;font-weight:600;color:#475569;margin-bottom:6px}
+.hcc-input-wrap{position:relative}
+.hcc-row input{width:100%;padding:12px 16px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:1rem;font-family:inherit;outline:none;transition:border-color .2s,box-shadow .2s;box-sizing:border-box;color:#0F172A;font-weight:600;background:#F8FAFC}
+.hcc-row input:focus{border-color:#059669;box-shadow:0 0 0 3px rgba(5,150,105,.12);background:#fff}
+.hcc-prefix,.hcc-suffix{position:absolute;top:50%;transform:translateY(-50%);color:#94A3B8;font-weight:600;font-size:.95rem;pointer-events:none}
+.hcc-prefix{left:14px}
+.hcc-suffix{right:16px}
+.hcc-input-wrap input[type="number"]{padding-left:28px}
+.hcc-input-wrap input[id="heroAPY"]{padding-left:16px;padding-right:32px}
+.hero-calc-result{background:linear-gradient(135deg,#F0FDF4 0%,#ECFDF5 50%,#D1FAE5 100%);padding:32px;display:flex;flex-direction:column;justify-content:center}
+.hcr-label{font-size:.75rem;color:#059669;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.hcr-amount{font-size:2.75rem;font-weight:800;color:#0F172A;margin:0 0 20px;letter-spacing:-.02em;line-height:1}
+.hcr-breakdown{margin-bottom:24px;padding-top:16px;border-top:1px solid rgba(5,150,105,.15)}
+.hcr-item{font-size:.85rem;color:#475569;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.hcr-item:last-child{margin-bottom:0}
+.hcr-item span:nth-child(2){flex:1}
+.hcr-item strong{color:#0F172A;font-weight:700}
+.hcr-dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0}
+.hcr-btn{display:inline-block;width:100%;text-align:center;margin-top:20px;background:linear-gradient(135deg,#059669,#10B981);color:#fff;padding:13px 24px;border-radius:50px;text-decoration:none;font-weight:600;font-size:.92rem;box-shadow:0 4px 15px rgba(5,150,105,.3);transition:transform .2s,box-shadow .2s;box-sizing:border-box}
+.hcr-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(5,150,105,.4)}
 
-@media (min-width: 1024px) {
-  .hero-content {
-    display: grid !important;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 50px;
-    align-items: center;
-    text-align: left;
-  }
-  .hero-visual-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  .hero-visual-wrap svg {
-    width: 100%;
-    max-width: 440px;
-    height: auto;
-    filter: drop-shadow(0 20px 40px rgba(0,0,0,.3));
-  }
+@media(max-width:768px){
+  .hero-title{font-size:1.85rem}
+  .hero-subtitle{font-size:.95rem}
+  .hero-calc-card{grid-template-columns:1fr;max-width:100%}
+  .hero-calc-form,.hero-calc-result{padding:24px}
+  .hcr-amount{font-size:2.25rem}
 }
-
-/* Optimized SVG Rendering + Animations */
-.float-coin,
-.float-arrow,
-.rotate-sparkle,
-.rotate-sparkle2 {
-  will-change: transform;
-}
-
-@keyframes floatCoin {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-@keyframes floatArrow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-@keyframes rotateSparkle {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.float-coin   { animation: floatCoin 4s ease-in-out infinite; }
-.float-arrow  { animation: floatArrow 3.5s ease-in-out infinite; }
-.rotate-sparkle  { animation: rotateSparkle 10s linear infinite; }
-.rotate-sparkle2 { animation: rotateSparkle 8s linear infinite; }
 </style>
 </head>
 <body>
@@ -121,118 +110,71 @@ SavingsClub
 </div>
 
 <div class="container">
-<div class="hero-content">
-<div>
+<div class="hero-intro">
 <div class="hero-badge" style="animation:float2 8s ease-in-out infinite">✦ Free Calculators for Every American</div>
-<h1 style="font-size:3.6rem;font-weight:800;color:#fff;margin-bottom:20px;letter-spacing:-.03em;line-height:1.1">
-  Finance Made <span style="color:#34D399">Simpler.</span>
-</h1>
-<div class="accent-line" style="width:60px;margin:0 0 20px;background:linear-gradient(90deg,#60A5FA,#34D399)"></div>
-<p class="hero-sub" style="color:rgba(255,255,255,.75);font-size:1.2rem;max-width:560px;margin-bottom:40px">
-  Smart tools, calculators, and financial resources designed to help everyday people make better money decisions.
-</p>
-<div class="hero-btns">
-<a href="savings-calculator/" class="btn btn-hero">Explore Free Tools →</a>
-<a href="blog/" class="btn btn-hero-outline">Read Our Guides</a>
+<h1 class="hero-title">Finance Made <span style="color:#34D399">Simpler.</span></h1>
+<p class="hero-subtitle">Try our most-used calculator instantly. No signup, no paywall.</p>
+</div>
+
+<!-- INTERACTIVE SAVINGS CALCULATOR -->
+<div class="hero-calc-card">
+<div class="hero-calc-form">
+<h3>Savings Calculator</h3>
+<p class="hero-calc-form-sub">See how much your money can grow over time</p>
+
+<div class="hcc-row">
+<label for="heroInitial">Initial deposit</label>
+<div class="hcc-input-wrap">
+<span class="hcc-prefix">$</span>
+<input type="number" id="heroInitial" value="10000" min="0" max="10000000" inputmode="numeric">
 </div>
 </div>
 
-<!-- Optimized SVG -->
-<div class="hero-visual-wrap" aria-hidden="true">
-<svg viewBox="0 0 400 540" xmlns="http://www.w3.org/2000/svg" 
-     role="img" aria-label="SavingsClub finance dashboard preview"
-     shape-rendering="optimizeSpeed">
-<defs>
-<linearGradient id="phoneBody" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" stop-color="#1e293b"/>
-<stop offset="100%" stop-color="#0f172a"/>
-</linearGradient>
-<linearGradient id="chartFill" x1="0%" y1="0%" x2="0%" y2="100%">
-<stop offset="0%" stop-color="#10B981" stop-opacity="0.6"/>
-<stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
-</linearGradient>
-<radialGradient id="coinFill">
-<stop offset="0%" stop-color="#FCD34D"/>
-<stop offset="100%" stop-color="#D97706"/>
-</radialGradient>
-<linearGradient id="bottomCard" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" stop-color="#059669"/>
-<stop offset="100%" stop-color="#10B981"/>
-</linearGradient>
-</defs>
+<div class="hcc-row">
+<label for="heroMonthly">Monthly contribution</label>
+<div class="hcc-input-wrap">
+<span class="hcc-prefix">$</span>
+<input type="number" id="heroMonthly" value="200" min="0" max="100000" inputmode="numeric">
+</div>
+</div>
 
-<!-- Phone body -->
-<rect x="100" y="40" width="220" height="460" rx="36" fill="url(#phoneBody)" stroke="#1e293b" stroke-width="2"/>
-<rect x="110" y="52" width="200" height="436" rx="26" fill="#ffffff"/>
-<rect x="170" y="56" width="80" height="20" rx="10" fill="#0f172a"/>
-<circle cx="240" cy="66" r="2.5" fill="#1e293b"/>
+<div class="hcc-row">
+<label for="heroYears">Period (years)</label>
+<input type="number" id="heroYears" value="10" min="1" max="50" inputmode="numeric">
+</div>
 
-<!-- Balance -->
-<text x="125" y="98" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#64748B" font-weight="500">Total Balance</text>
-<text x="125" y="128" font-family="Plus Jakarta Sans, sans-serif" font-size="28" fill="#0A1628" font-weight="800">$24,580</text>
+<div class="hcc-row">
+<label for="heroAPY">APY (%)</label>
+<div class="hcc-input-wrap">
+<input type="number" id="heroAPY" value="4.5" min="0" max="20" step="0.01" inputmode="decimal">
+<span class="hcc-suffix">%</span>
+</div>
+</div>
+</div>
 
-<!-- Growth -->
-<g transform="translate(125, 148)">
-<path d="M 0 -5 L 8 -12 L 16 -5" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="22" y="0" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#059669" font-weight="700">+$1,240 this month</text>
-</g>
+<div class="hero-calc-result">
+<div class="hcr-label">Your total savings</div>
+<div class="hcr-amount" id="heroTotal">$45,663</div>
 
-<!-- Chart -->
-<g transform="translate(122, 175)">
-<rect width="178" height="90" rx="10" fill="#F8FAFC"/>
-<path d="M 12 70 Q 30 55, 45 50 T 75 35 T 110 28 T 145 18 T 166 12" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/>
-<path d="M 12 70 Q 30 55, 45 50 T 75 35 T 110 28 T 145 18 T 166 12 L 166 78 L 12 78 Z" fill="url(#chartFill)"/>
-<circle cx="166" cy="12" r="4" fill="#10B981" stroke="#fff" stroke-width="2"/>
-</g>
+<div class="hcr-breakdown">
+<div class="hcr-item">
+<span class="hcr-dot" style="background:#3B82F6"></span>
+<span>Initial deposit</span>
+<strong id="heroPrincipalDisplay">$10,000</strong>
+</div>
+<div class="hcr-item">
+<span class="hcr-dot" style="background:#10B981"></span>
+<span>Total contributions</span>
+<strong id="heroContribDisplay">$24,000</strong>
+</div>
+<div class="hcr-item">
+<span class="hcr-dot" style="background:#FCD34D"></span>
+<span>Interest earned</span>
+<strong id="heroInterestDisplay">$11,663</strong>
+</div>
+</div>
 
-<!-- Quick cards -->
-<g transform="translate(122, 285)">
-<rect width="80" height="70" rx="12" fill="#ECFDF5"/>
-<text x="14" y="28" font-family="Plus Jakarta Sans, sans-serif" font-size="20">💰</text>
-<text x="14" y="50" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#0A1628" font-weight="700">Savings</text>
-<text x="14" y="62" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="#64748B">Calculator</text>
-</g>
-<g transform="translate(212, 285)">
-<rect width="80" height="70" rx="12" fill="#EFF6FF"/>
-<text x="14" y="28" font-family="Plus Jakarta Sans, sans-serif" font-size="20">🏡</text>
-<text x="14" y="50" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#0A1628" font-weight="700">Mortgage</text>
-<text x="14" y="62" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="#64748B">Calculator</text>
-</g>
-
-<!-- Bottom card -->
-<g transform="translate(122, 370)">
-<rect width="170" height="100" rx="14" fill="url(#bottomCard)"/>
-<text x="16" y="28" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="rgba(255,255,255,0.9)" font-weight="600">COMPOUND INTEREST</text>
-<text x="16" y="60" font-family="Plus Jakarta Sans, sans-serif" font-size="22" fill="#ffffff" font-weight="800">$3,420</text>
-<text x="16" y="80" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="rgba(255,255,255,0.85)" font-weight="500">earned this year</text>
-<g transform="translate(135, 50)">
-<circle cx="0" cy="0" r="18" fill="rgba(255,255,255,0.2)"/>
-<text x="0" y="6" font-family="Plus Jakarta Sans, sans-serif" font-size="18" fill="#fff" text-anchor="middle">📈</text>
-</g>
-</g>
-
-<!-- Floating coin -->
-<g class="float-coin">
-<circle cx="50" cy="200" r="26" fill="url(#coinFill)" stroke="#92400E" stroke-width="1.5"/>
-<text x="50" y="210" font-family="Plus Jakarta Sans, sans-serif" font-size="26" fill="#7C2D12" font-weight="800" text-anchor="middle">$</text>
-</g>
-
-<!-- Floating arrow circle -->
-<g class="float-arrow">
-<circle cx="360" cy="120" r="22" fill="#059669"/>
-<path d="M 351 124 L 360 114 L 369 124" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 360 114 L 360 130" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
-</g>
-
-<!-- Sparkles -->
-<g class="rotate-sparkle">
-<path d="M 55 420 L 58 411 L 67 408 L 58 405 L 55 396 L 52 405 L 43 408 L 52 411 Z" fill="#34D399"/>
-</g>
-<g class="rotate-sparkle2">
-<path d="M 365 380 L 367 374 L 373 372 L 367 370 L 365 364 L 363 370 L 357 372 L 363 374 Z" fill="#FCD34D"/>
-</g>
-
-</svg>
+<a href="savings-calculator/" class="hcr-btn">See Full Calculator with Charts →</a>
 </div>
 </div>
 
@@ -241,7 +183,6 @@ SavingsClub
 <div class="stat"><div class="stat-num" style="font-size:2rem">50</div><div class="stat-label">States Covered</div></div>
 <div class="stat"><div class="stat-num" style="font-size:2rem">20+</div><div class="stat-label">Personal Finance Guides</div></div>
 <div class="stat"><div class="stat-num" style="font-size:2rem">100%</div><div class="stat-label">Free</div></div>
-</div>
 </div>
 </div>
 </section>
@@ -382,25 +323,11 @@ SavingsClub
 </div>
 </div></section>
 
-<!-- LATEST FROM BLOG -->
-<section class="section section-gray"><div class="container">
+<!-- LATEST FROM BLOG (DYNAMIC) -->
+<section class="section section-gray" id="homeBlogSection"><div class="container">
 <div class="section-header reveal"><h2>Latest from the Blog</h2><p>Fresh personal finance guides published every week.</p></div>
 <div class="grid-3" id="homeBlog">
-<a href="blog/how-to-build-an-emergency-fund-a-step-by-step-guide-for-every-american/" class="blog-preview reveal stagger-1">
-<div class="bp-cat" style="background:#ECFDF5;color:#059669">Savings</div>
-<h3>How to Build an Emergency Fund</h3>
-<p>A step-by-step guide for every American to build financial security.</p>
-</a>
-<a href="blog/the-50-30-20-budget-rule-simplest-way-to-manage-your-money/" class="blog-preview reveal stagger-2">
-<div class="bp-cat" style="background:#EFF6FF;color:#2563EB">Budgeting</div>
-<h3>The 50/30/20 Budget Rule</h3>
-<p>The simplest framework to manage your money and build wealth.</p>
-</a>
-<a href="blog/best-high-yield-savings-accounts-where-to-earn-4-apy-in-2026/" class="blog-preview reveal stagger-3">
-<div class="bp-cat" style="background:#FFFBEB;color:#D97706">Banking</div>
-<h3>Best High Yield Savings Accounts 2026</h3>
-<p>Where to earn 4%+ APY with no minimums and no fees.</p>
-</a>
+<!-- Cards loaded dynamically from /generated-posts.json -->
 </div>
 <div style="text-align:center;margin-top:32px" class="reveal"><a href="blog/" class="btn btn-outline">View All Articles →</a></div>
 </div></section>
@@ -468,6 +395,101 @@ window.addEventListener('scroll',function(){var n=document.querySelector('nav');
 function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
 var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
+</script>
+
+<!-- HERO SAVINGS CALCULATOR -->
+<script>
+(function(){
+  var initial=document.getElementById('heroInitial');
+  var monthly=document.getElementById('heroMonthly');
+  var years=document.getElementById('heroYears');
+  var apyEl=document.getElementById('heroAPY');
+  var total=document.getElementById('heroTotal');
+  var pDisp=document.getElementById('heroPrincipalDisplay');
+  var cDisp=document.getElementById('heroContribDisplay');
+  var iDisp=document.getElementById('heroInterestDisplay');
+  if(!initial||!total)return;
+  function fmt(n){if(!isFinite(n)||n<0)n=0;return '$'+Math.round(n).toLocaleString('en-US');}
+  function calc(){
+    var P=parseFloat(initial.value)||0;
+    var PMT=parseFloat(monthly.value)||0;
+    var t=parseFloat(years.value)||0;
+    var apy=(parseFloat(apyEl.value)||0)/100;
+    var monthlyRate=apy/12;
+    var months=t*12;
+    var fvP=P*Math.pow(1+monthlyRate,months);
+    var fvC;
+    if(monthlyRate===0){fvC=PMT*months;}
+    else{fvC=PMT*((Math.pow(1+monthlyRate,months)-1)/monthlyRate);}
+    var tot=fvP+fvC;
+    var contributions=PMT*months;
+    var interest=tot-P-contributions;
+    total.textContent=fmt(tot);
+    pDisp.textContent=fmt(P);
+    cDisp.textContent=fmt(contributions);
+    iDisp.textContent=fmt(interest);
+  }
+  [initial,monthly,years,apyEl].forEach(function(el){el.addEventListener('input',calc);});
+  calc();
+})();
+</script>
+
+<!-- DYNAMIC BLOG LOADER -->
+<script>
+(function loadHomeBlog(){
+  var container=document.getElementById('homeBlog');
+  var section=document.getElementById('homeBlogSection');
+  if(!container)return;
+  fetch('/generated-posts.json')
+    .then(function(res){if(!res.ok)throw new Error('fetch failed');return res.json();})
+    .then(function(data){
+      var posts=Array.isArray(data)?data:(data.posts||[]);
+      if(!posts.length){if(section)section.style.display='none';return;}
+      posts.sort(function(a,b){
+        var dA=new Date(a.date||a.publishDate||a.created||0);
+        var dB=new Date(b.date||b.publishDate||b.created||0);
+        return dB-dA;
+      });
+      var catColors={
+        'savings':{bg:'#ECFDF5',c:'#059669'},
+        'budgeting':{bg:'#EFF6FF',c:'#2563EB'},
+        'budget':{bg:'#EFF6FF',c:'#2563EB'},
+        'banking':{bg:'#FFFBEB',c:'#D97706'},
+        'credit cards':{bg:'#FDF2F8',c:'#BE185D'},
+        'credit':{bg:'#FDF2F8',c:'#BE185D'},
+        'investing':{bg:'#F5F3FF',c:'#7C3AED'},
+        'investment':{bg:'#F5F3FF',c:'#7C3AED'},
+        'retirement':{bg:'#FEF3C7',c:'#92400E'},
+        'mortgage':{bg:'#ECFDF5',c:'#059669'},
+        'debt':{bg:'#FEE2E2',c:'#DC2626'}
+      };
+      var defaultColor={bg:'#F1F5F9',c:'#475569'};
+      var html='';
+      posts.slice(0,3).forEach(function(p,i){
+        var slug=p.slug||(p.url||'').replace(/^\/?blog\//,'').replace(/\/$/,'');
+        if(!slug)return;
+        var cat=(p.category||'General').toString();
+        var colors=catColors[cat.toLowerCase()]||defaultColor;
+        var excerpt=p.excerpt||p.description||p.summary||'';
+        html+='<a href="blog/'+slug+'/" class="blog-preview reveal stagger-'+(i+1)+'">';
+        html+='<div class="bp-cat" style="background:'+colors.bg+';color:'+colors.c+'">'+cat+'</div>';
+        html+='<h3>'+(p.title||'Untitled')+'</h3>';
+        if(excerpt)html+='<p>'+excerpt+'</p>';
+        html+='</a>';
+      });
+      if(!html){if(section)section.style.display='none';return;}
+      container.innerHTML=html;
+      if(window.IntersectionObserver){
+        var obs=new IntersectionObserver(function(entries){
+          entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+        },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+        container.querySelectorAll('.reveal').forEach(function(c){obs.observe(c);});
+      }else{
+        container.querySelectorAll('.reveal').forEach(function(c){c.classList.add('visible');});
+      }
+    })
+    .catch(function(){if(section)section.style.display='none';});
+})();
 </script>
 
 <script>
