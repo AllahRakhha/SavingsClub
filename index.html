@@ -12,6 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SavingsClub">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"SavingsClub","url":"https://savingsclub.com","description":"Free financial calculators and educational guides for Americans across all 50 states."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are these calculators really free?","acceptedAnswer":{"@type":"Answer","text":"Yes — completely free. No signup, no email required, no premium tier. All 17 calculators on SavingsClub are 100% free to use as many times as you need."}},{"@type":"Question","name":"Is my financial data saved or shared?","acceptedAnswer":{"@type":"Answer","text":"No. Everything you enter stays in your browser. We don't store, save, or transmit your financial data anywhere. Close the tab and the numbers are gone."}},{"@type":"Question","name":"How accurate are these calculators?","acceptedAnswer":{"@type":"Answer","text":"Our calculators use standard financial formulas. Results are estimates intended for educational planning. For major financial decisions, always consult a licensed financial advisor."}},{"@type":"Question","name":"Why don't you require a signup?","acceptedAnswer":{"@type":"Answer","text":"Because financial tools should be accessible to everyone. We make money through affiliate partnerships, not by collecting or selling your data."}},{"@type":"Question","name":"Who creates the content and calculators?","acceptedAnswer":{"@type":"Answer","text":"SavingsClub Research Team — humans using AI tools to research and produce educational content, with review before publication. We are not licensed financial advisors and we disclose this clearly."}},{"@type":"Question","name":"How often is the content updated?","acceptedAnswer":{"@type":"Answer","text":"We publish new blog content three times per week — Monday, Wednesday, and Friday. Calculators are reviewed regularly to ensure formulas and default rates stay current."}}]}</script>
 <link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
 <link rel="icon" type="image/png" sizes="192x192" href="/img/sc-favicon.png?v=2">
 <link rel="apple-touch-icon" sizes="180x180" href="/img/sc-favicon.png?v=2">
@@ -25,13 +26,19 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <style>
-/* HERO CALCULATOR STYLES */
-.hero-intro{text-align:center;max-width:720px;margin:0 auto 32px;position:relative;z-index:2}
-.hero-title{font-size:2.4rem;font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-.025em;line-height:1.15}
-.hero-subtitle{color:rgba(255,255,255,.8);font-size:1.05rem;margin-bottom:0}
-.hero-calc-card{background:rgba(255,255,255,.98);border-radius:24px;display:grid;grid-template-columns:1fr 1fr;max-width:900px;margin:0 auto 40px;box-shadow:0 30px 80px rgba(0,0,0,.25);overflow:hidden;position:relative;z-index:2}
+/* LIGHT HERO OVERRIDE */
+.hero{background:linear-gradient(180deg,#FFFFFF 0%,#F8FAFC 60%,#F1F5F9 100%) !important;padding:90px 0 60px !important;color:#0A1628}
+.hero .hero-grid,.hero .hero-glow,.hero .hero-shapes{display:none !important}
+
+.hero-intro{text-align:center;max-width:720px;margin:0 auto 28px;position:relative;z-index:2}
+.hero-badge-light{display:inline-block;background:#ECFDF5;color:#059669;padding:6px 16px;border-radius:50px;font-size:.82rem;font-weight:700;border:1px solid rgba(5,150,105,.2);margin-bottom:18px;letter-spacing:.02em}
+.hero-title-light{font-size:2.8rem;font-weight:800;color:#0A1628;margin-bottom:14px;letter-spacing:-.025em;line-height:1.1;font-family:'Plus Jakarta Sans',sans-serif}
+.hero-subtitle-light{color:#64748B;font-size:1.1rem;margin-bottom:0;line-height:1.5}
+
+/* CALCULATOR CARD */
+.hero-calc-card{background:#FFFFFF;border:1px solid #E2E8F0;border-radius:24px;display:grid;grid-template-columns:1fr 1fr;max-width:920px;margin:0 auto 40px;box-shadow:0 20px 50px rgba(10,22,40,.08);overflow:hidden}
 .hero-calc-form{padding:32px}
-.hero-calc-form h3{font-size:1.35rem;font-weight:700;color:#0F172A;margin:0 0 4px}
+.hero-calc-form h3{font-size:1.35rem;font-weight:700;color:#0A1628;margin:0 0 4px}
 .hero-calc-form-sub{color:#64748B;font-size:.85rem;margin:0 0 20px}
 .hcc-row{margin-bottom:16px}
 .hcc-row:last-child{margin-bottom:0}
@@ -44,24 +51,69 @@
 .hcc-suffix{right:16px}
 .hcc-input-wrap input[type="number"]{padding-left:28px}
 .hcc-input-wrap input[id="heroAPY"]{padding-left:16px;padding-right:32px}
+
 .hero-calc-result{background:linear-gradient(135deg,#F0FDF4 0%,#ECFDF5 50%,#D1FAE5 100%);padding:32px;display:flex;flex-direction:column;justify-content:center}
 .hcr-label{font-size:.75rem;color:#059669;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
-.hcr-amount{font-size:2.75rem;font-weight:800;color:#0F172A;margin:0 0 20px;letter-spacing:-.02em;line-height:1}
+.hcr-amount{font-size:2.75rem;font-weight:800;color:#0A1628;margin:0 0 20px;letter-spacing:-.02em;line-height:1}
 .hcr-breakdown{margin-bottom:24px;padding-top:16px;border-top:1px solid rgba(5,150,105,.15)}
 .hcr-item{font-size:.85rem;color:#475569;margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .hcr-item:last-child{margin-bottom:0}
 .hcr-item span:nth-child(2){flex:1}
-.hcr-item strong{color:#0F172A;font-weight:700}
+.hcr-item strong{color:#0A1628;font-weight:700}
 .hcr-dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0}
-.hcr-btn{display:inline-block;width:100%;text-align:center;margin-top:20px;background:linear-gradient(135deg,#059669,#10B981);color:#fff;padding:13px 24px;border-radius:50px;text-decoration:none;font-weight:600;font-size:.92rem;box-shadow:0 4px 15px rgba(5,150,105,.3);transition:transform .2s,box-shadow .2s;box-sizing:border-box}
+.hcr-btn{display:inline-block;width:100%;text-align:center;margin-top:8px;background:linear-gradient(135deg,#059669,#10B981);color:#fff;padding:13px 24px;border-radius:50px;text-decoration:none;font-weight:600;font-size:.92rem;box-shadow:0 4px 15px rgba(5,150,105,.3);transition:transform .2s,box-shadow .2s;box-sizing:border-box}
 .hcr-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(5,150,105,.4)}
 
+/* STATS BAR LIGHT */
+.stats-bar-light{display:flex;justify-content:space-around;flex-wrap:wrap;gap:20px;padding:24px;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:20px;max-width:920px;margin:0 auto;box-shadow:0 4px 20px rgba(10,22,40,.04)}
+.stats-bar-light .stat{text-align:center;flex:1;min-width:120px}
+.stats-bar-light .stat-num{font-size:1.8rem;font-weight:800;color:#059669;line-height:1;font-family:'Plus Jakarta Sans',sans-serif}
+.stats-bar-light .stat-label{font-size:.78rem;color:#64748B;font-weight:600;margin-top:4px}
+
+/* TRY ANOTHER CALCULATOR PILLS */
+.try-calc-section{padding:50px 0;background:#FFFFFF}
+.try-calc-header{text-align:center;margin-bottom:24px}
+.try-calc-header p{color:#64748B;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin:0}
+.try-calc-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:960px;margin:0 auto;padding:0 16px}
+.try-calc-pill{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:#F8FAFC;border:1.5px solid #E2E8F0;border-radius:50px;color:#0F172A;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .2s;font-family:inherit}
+.try-calc-pill:hover{border-color:#10B981;background:#F0FDF4;color:#059669;transform:translateY(-2px);box-shadow:0 4px 12px rgba(5,150,105,.15)}
+
+/* GOAL-BASED CARDS */
+.goal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1100px;margin:0 auto}
+.goal-card{background:#FFFFFF;border:1px solid #E2E8F0;border-radius:20px;padding:28px;text-decoration:none;color:inherit;transition:all .3s;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.goal-card:hover{border-color:#10B981;transform:translateY(-4px);box-shadow:0 20px 40px rgba(10,22,40,.08)}
+.goal-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#059669,#10B981,#34D399);opacity:0;transition:opacity .3s}
+.goal-card:hover::before{opacity:1}
+.goal-icon{font-size:2.4rem;margin-bottom:14px;display:block;line-height:1}
+.goal-card h3{font-size:1.15rem;font-weight:700;color:#0A1628;margin:0 0 8px;font-family:'Plus Jakarta Sans',sans-serif}
+.goal-card p{color:#64748B;font-size:.92rem;margin:0 0 14px;flex:1;line-height:1.6}
+.goal-tools{font-size:.78rem;color:#059669;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-top:auto}
+
+/* FAQ */
+.faq-list{max-width:820px;margin:0 auto}
+.faq-item{background:#FFFFFF;border:1px solid #E2E8F0;border-radius:14px;margin-bottom:12px;overflow:hidden;transition:border-color .2s}
+.faq-item:hover{border-color:#CBD5E1}
+.faq-item[open]{border-color:#10B981}
+.faq-item summary{padding:20px 24px;font-weight:700;color:#0A1628;font-size:1.02rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Plus Jakarta Sans',sans-serif;gap:16px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-size:1.5rem;font-weight:300;color:#10B981;flex-shrink:0;line-height:1}
+.faq-item[open] summary::after{content:"−"}
+.faq-item[open] summary{border-bottom:1px solid #F1F5F9}
+.faq-item div.faq-body{padding:18px 24px 22px;color:#475569;line-height:1.7;margin:0;font-size:.95rem}
+
 @media(max-width:768px){
-  .hero-title{font-size:1.85rem}
-  .hero-subtitle{font-size:.95rem}
+  .hero{padding:60px 0 40px !important}
+  .hero-title-light{font-size:1.95rem}
+  .hero-subtitle-light{font-size:1rem}
   .hero-calc-card{grid-template-columns:1fr;max-width:100%}
   .hero-calc-form,.hero-calc-result{padding:24px}
   .hcr-amount{font-size:2.25rem}
+  .stats-bar-light{padding:20px 12px;gap:12px}
+  .stats-bar-light .stat-num{font-size:1.4rem}
+  .stats-bar-light .stat-label{font-size:.7rem}
+  .goal-card{padding:22px}
+  .faq-item summary{padding:16px 18px;font-size:.95rem}
+  .faq-item div.faq-body{padding:14px 18px 18px;font-size:.9rem}
 }
 </style>
 </head>
@@ -96,27 +148,15 @@ SavingsClub
 <a href="banking/">Banking</a>
 </div>
 
+<!-- LIGHT HERO WITH WORKING CALCULATOR -->
 <section class="hero">
-<div class="hero-grid"></div>
-<div class="hero-glow hero-glow-1"></div>
-<div class="hero-glow hero-glow-2"></div>
-<div class="hero-glow hero-glow-3"></div>
-<div class="hero-shapes">
-<div class="shape shape-1"></div>
-<div class="shape shape-2"></div>
-<div class="shape shape-3"></div>
-<div class="shape shape-4"></div>
-<div class="shape shape-5"></div>
-</div>
-
 <div class="container">
 <div class="hero-intro">
-<div class="hero-badge" style="animation:float2 8s ease-in-out infinite">✦ Free Calculators for Every American</div>
-<h1 class="hero-title">Finance Made <span style="color:#34D399">Simpler.</span></h1>
-<p class="hero-subtitle">Try our most-used calculator instantly. No signup, no paywall.</p>
+<div class="hero-badge-light">✦ Free Calculators for Every American</div>
+<h1 class="hero-title-light">Finance Made <span style="color:#10B981">Simpler.</span></h1>
+<p class="hero-subtitle-light">Try our most-used calculator instantly. No signup, no paywall.</p>
 </div>
 
-<!-- INTERACTIVE SAVINGS CALCULATOR -->
 <div class="hero-calc-card">
 <div class="hero-calc-form">
 <h3>Savings Calculator</h3>
@@ -178,11 +218,30 @@ SavingsClub
 </div>
 </div>
 
-<div class="stats-bar">
-<div class="stat"><div class="stat-num" style="font-size:2rem">17</div><div class="stat-label">Free Calculators</div></div>
-<div class="stat"><div class="stat-num" style="font-size:2rem">50</div><div class="stat-label">States Covered</div></div>
-<div class="stat"><div class="stat-num" style="font-size:2rem">20+</div><div class="stat-label">Personal Finance Guides</div></div>
-<div class="stat"><div class="stat-num" style="font-size:2rem">100%</div><div class="stat-label">Free</div></div>
+<div class="stats-bar-light">
+<div class="stat"><div class="stat-num">17</div><div class="stat-label">Free Calculators</div></div>
+<div class="stat"><div class="stat-num">50</div><div class="stat-label">States Covered</div></div>
+<div class="stat"><div class="stat-num">20+</div><div class="stat-label">Personal Finance Guides</div></div>
+<div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free</div></div>
+</div>
+</div>
+</section>
+
+<!-- TRY ANOTHER CALCULATOR (NEW) -->
+<section class="try-calc-section">
+<div class="container">
+<div class="try-calc-header">
+<p>Want to calculate something else?</p>
+</div>
+<div class="try-calc-row">
+<a href="mortgage-calculator/" class="try-calc-pill">🏡 Mortgage</a>
+<a href="compound-interest-calculator/" class="try-calc-pill">📈 Compound Interest</a>
+<a href="401k-calculator/" class="try-calc-pill">🏦 401(k)</a>
+<a href="retirement-calculator/" class="try-calc-pill">🌴 Retirement</a>
+<a href="debt-payoff-calculator/" class="try-calc-pill">🔥 Debt Payoff</a>
+<a href="budget-planner/" class="try-calc-pill">📊 Budget</a>
+<a href="investment-calculator/" class="try-calc-pill">💎 Investment</a>
+<a href="paycheck-calculator/" class="try-calc-pill">💵 Paycheck</a>
 </div>
 </div>
 </section>
@@ -198,6 +257,49 @@ SavingsClub
 <p style="color:var(--text-light)">Whether you're saving for your first home, paying off debt, or planning retirement, SavingsClub gives you free tools and clear educational guidance to help you make confident money decisions. No financial advisor needed. No fees. Just clear numbers and accessible explanations.</p>
 <a href="savings-calculator/" class="btn btn-primary">Start Calculating →</a>
 </div>
+</div>
+</div></section>
+
+<!-- WHAT ARE YOU SAVING FOR? (NEW) -->
+<section class="section section-gray"><div class="container">
+<div class="section-header reveal"><h2>What Are You Saving For?</h2><p>Pick your goal — we'll guide you to the right calculator.</p></div>
+<div class="goal-grid">
+<a href="mortgage-calculator/" class="goal-card reveal stagger-1">
+<span class="goal-icon">🏡</span>
+<h3>Buying a Home</h3>
+<p>Plan your mortgage payments, calculate down payment, and see monthly housing costs.</p>
+<span class="goal-tools">Mortgage + Savings</span>
+</a>
+<a href="emergency-fund-calculator/" class="goal-card reveal stagger-2">
+<span class="goal-icon">🛡️</span>
+<h3>Emergency Fund</h3>
+<p>Figure out how much you need for unexpected expenses and how long it takes to build it.</p>
+<span class="goal-tools">Emergency Fund + Savings</span>
+</a>
+<a href="retirement-calculator/" class="goal-card reveal stagger-3">
+<span class="goal-icon">🌴</span>
+<h3>Retirement</h3>
+<p>Project retirement savings and optimize your 401k and IRA contributions.</p>
+<span class="goal-tools">Retirement + 401k + IRA</span>
+</a>
+<a href="debt-payoff-calculator/" class="goal-card reveal stagger-4">
+<span class="goal-icon">🔥</span>
+<h3>Paying Off Debt</h3>
+<p>See payoff timelines for credit cards, student loans, and other personal debt.</p>
+<span class="goal-tools">Debt Payoff + CC Payoff</span>
+</a>
+<a href="compound-interest-calculator/" class="goal-card reveal stagger-5">
+<span class="goal-icon">📈</span>
+<h3>Growing Wealth</h3>
+<p>See how compound interest builds wealth over time and explore investment scenarios.</p>
+<span class="goal-tools">Compound Interest + Investment</span>
+</a>
+<a href="budget-planner/" class="goal-card reveal stagger-6">
+<span class="goal-icon">💵</span>
+<h3>Managing Income</h3>
+<p>Build a monthly budget, calculate take-home pay, and plan spending intelligently.</p>
+<span class="goal-tools">Budget + Paycheck</span>
+</a>
 </div>
 </div></section>
 
@@ -223,52 +325,36 @@ SavingsClub
 <div class="tools-grid">
 <a href="savings-calculator/" class="card card-glow tool-card reveal stagger-1" style="text-decoration:none">
 <div class="icon-wrap" style="background:linear-gradient(135deg,#2563EB,#3B82F6)">💰</div><h3>Savings</h3><p>Free savings calculator.</p></a>
-
 <a href="budget-planner/" class="card card-glow tool-card reveal stagger-2" style="text-decoration:none">
 <div class="icon-wrap" style="background:linear-gradient(135deg,#059669,#10B981)">📊</div><h3>Budget</h3><p>Free budget planner.</p></a>
-
 <a href="debt-payoff-calculator/" class="card card-glow tool-card reveal stagger-3" style="text-decoration:none">
 <div class="icon-wrap" style="background:linear-gradient(135deg,#DC2626,#EF4444)">🔥</div><h3>Debt Payoff</h3><p>Free debt payoff calculator.</p></a>
-
 <a href="compound-interest-calculator/" class="card card-glow tool-card reveal stagger-4" style="text-decoration:none">
 <div class="icon-wrap" style="background:linear-gradient(135deg,#7C3AED,#8B5CF6)">📈</div><h3>Compound Interest</h3><p>Free compound interest calculator.</p></a>
-
 <a href="retirement-calculator/" class="card card-glow tool-card reveal stagger-5" style="text-decoration:none">
 <div class="icon-wrap" style="background:linear-gradient(135deg,#D97706,#F59E0B)">🏠</div><h3>Retirement</h3><p>Free retirement calculator.</p></a>
-
 <a href="investment-calculator/" class="card card-glow tool-card reveal stagger-6" style="text-decoration:none">
 <div class="icon-wrap" style="background:linear-gradient(135deg,#0891B2,#06B6D4)">💎</div><h3>Investment</h3><p>Free investment calculator.</p></a>
-
 <a href="mortgage-calculator/" class="card card-glow tool-card reveal stagger-1" style="text-decoration:none">
 <div class="icon-wrap" style="background:linear-gradient(135deg,#15803D,#22C55E)">🏡</div><h3>Mortgage</h3><p>Free mortgage calculator.</p></a>
-
 <a href="auto-loan-calculator/" class="card card-glow tool-card reveal stagger-2" style="text-decoration:none">
 <div class="icon-wrap" style="background:linear-gradient(135deg,#9333EA,#A855F7)">🚗</div><h3>Auto Loan</h3><p>Free auto loan calculator.</p></a>
-
 <a href="net-worth-calculator/" class="card card-glow tool-card reveal stagger-3" style="text-decoration:none">
 <div class="icon-wrap" style="background:linear-gradient(135deg,#1D4ED8,#60A5FA)">💳</div><h3>Net Worth</h3><p>Free net worth calculator.</p></a>
-
 <a href="emergency-fund-calculator/" class="card card-glow tool-card reveal stagger-4" style="text-decoration:none">
 <div class="icon-wrap" style="background:linear-gradient(135deg,#B91C1C,#F87171)">🛡️</div><h3>Emergency Fund</h3><p>Free emergency fund calculator.</p></a>
-
 <a href="credit-card-payoff-calculator/" class="card card-glow tool-card reveal stagger-5" style="text-decoration:none">
 <div class="icon-wrap" style="background:linear-gradient(135deg,#BE185D,#F472B6)">💳</div><h3>CC Payoff</h3><p>Free cc payoff calculator.</p></a>
-
 <a href="401k-calculator/" class="card card-glow tool-card reveal stagger-6" style="text-decoration:none">
 <div class="icon-wrap" style="background:linear-gradient(135deg,#0369A1,#0EA5E9)">🏦</div><h3>401(k)</h3><p>Free 401(k) calculator.</p></a>
-
 <a href="roth-ira-calculator/" class="card card-glow tool-card reveal stagger-1" style="text-decoration:none">
 <div class="icon-wrap" style="background:linear-gradient(135deg,#4338CA,#6366F1)">📋</div><h3>Roth IRA</h3><p>Free roth ira calculator.</p></a>
-
 <a href="inflation-calculator/" class="card card-glow tool-card reveal stagger-2" style="text-decoration:none">
 <div class="icon-wrap" style="background:linear-gradient(135deg,#92400E,#F59E0B)">📉</div><h3>Inflation</h3><p>Free inflation calculator.</p></a>
-
 <a href="loan-payoff-calculator/" class="card card-glow tool-card reveal stagger-3" style="text-decoration:none">
 <div class="icon-wrap" style="background:linear-gradient(135deg,#7C2D12,#EA580C)">🎯</div><h3>Loan Payoff</h3><p>Free loan payoff calculator.</p></a>
-
 <a href="paycheck-calculator/" class="card card-glow tool-card reveal stagger-4" style="text-decoration:none">
 <div class="icon-wrap" style="background:linear-gradient(135deg,#166534,#16A34A)">💵</div><h3>Take-Home Pay</h3><p>Free paycheck calculator.</p></a>
-
 <a href="cd-calculator/" class="card card-glow tool-card reveal stagger-5" style="text-decoration:none">
 <div class="icon-wrap" style="background:linear-gradient(135deg,#581C87,#9333EA)">🔐</div><h3>CD Calculator</h3><p>Free cd calculator.</p></a>
 </div>
@@ -339,6 +425,44 @@ SavingsClub
 <div class="step reveal stagger-1"><div class="step-num">1</div><h3>Pick a Calculator</h3><p>Choose from 17 tools covering savings, debt, mortgages, retirement, taxes, and more.</p></div>
 <div class="step reveal stagger-2"><div class="step-num">2</div><h3>Enter Your Numbers</h3><p>Input your financial data — everything stays 100% private in your browser. Nothing is sent to our servers.</p></div>
 <div class="step reveal stagger-3"><div class="step-num">3</div><h3>Get Instant Results</h3><p>See projections, charts, and breakdowns with actionable next steps and related guides.</p></div>
+</div>
+</div></section>
+
+<!-- FAQ (NEW) -->
+<section class="section" style="background:#F8FAFC"><div class="container">
+<div class="section-header reveal"><h2>Frequently Asked Questions</h2><p>Quick answers to common questions about SavingsClub.</p></div>
+<div class="faq-list">
+
+<details class="faq-item">
+<summary>Are these calculators really free?</summary>
+<div class="faq-body">Yes — completely free. No signup, no email required, no premium tier. All 17 calculators on SavingsClub are 100% free to use as many times as you need.</div>
+</details>
+
+<details class="faq-item">
+<summary>Is my financial data saved or shared?</summary>
+<div class="faq-body">No. Everything you enter stays in your browser. We don't store, save, or transmit your financial data anywhere. Close the tab and the numbers are gone.</div>
+</details>
+
+<details class="faq-item">
+<summary>How accurate are these calculators?</summary>
+<div class="faq-body">Our calculators use standard financial formulas. Results are estimates intended for educational planning. For major financial decisions, always consult a licensed financial advisor.</div>
+</details>
+
+<details class="faq-item">
+<summary>Why don't you require a signup?</summary>
+<div class="faq-body">Because financial tools should be accessible to everyone. We make money through affiliate partnerships, not by collecting or selling your data.</div>
+</details>
+
+<details class="faq-item">
+<summary>Who creates the content and calculators?</summary>
+<div class="faq-body">SavingsClub Research Team — humans using AI tools to research and produce educational content, with review before publication. We are not licensed financial advisors and we disclose this clearly on every page.</div>
+</details>
+
+<details class="faq-item">
+<summary>How often is the content updated?</summary>
+<div class="faq-body">We publish new blog content three times per week — Monday, Wednesday, and Friday. Calculators are reviewed regularly to ensure formulas and default rates stay current.</div>
+</details>
+
 </div>
 </div></section>
 
