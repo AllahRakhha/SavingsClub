@@ -1,67 +1,98 @@
-# Redirects for deleted blog posts
-# Format: /old-path  /new-path  301
+# _redirects - SavingsClub.com
+# Updated after removing 21 thin/deleted blog posts
+# Strategy: 
+# - Map credit, credit report, and building credit posts → kept credit report post
+# - Map Florida/state savings and rent posts → kept Florida rent post
+# - Map rewards/credit card posts → kept dining rewards post
+# - Map college/529 and retirement planning → kept 529 post or retirement calculator
+# - Map Ohio/state money moves → kept Ohio millennials post
+# - Map income streams and general money posts → kept multiple streams post or /blog/
+# - Keep strong existing mappings to calculators (emergency fund, budget, debt, compound interest, etc.)
+# Format: /old-path /new-path 301
 
-# Previously deleted posts
-/blog/smart-money-moves-to-make-before-year-end-2026/*  /blog/  301
-/blog/smart-money-moves-to-make-before-year-end-2026  /blog/  301
+# === Kept quality blog posts (do not redirect these) ===
+# /blog/understanding-your-credit-report-and-fixing-errors/
+# /blog/how-to-save-money-on-rent-in-florida/
+# /blog/best-rewards-credit-cards-for-dining-out/
+# /blog/how-to-save-for-college-with-a-529-plan/
+# /blog/smart-money-moves-for-millennials-in-ohio/
+# /blog/how-to-create-multiple-streams-of-income/
 
-/blog/credit-score-explained-what-it-is-and-how-to-improve-it/*  /credit-cards/  301
-/blog/credit-score-explained-what-it-is-and-how-to-improve-it  /credit-cards/  301
+# === Deleted thin posts - targeted redirects ===
 
-/blog/debt-snowball-vs-debt-avalanche-which-strategy-wins/*  /debt-payoff-calculator/  301
-/blog/debt-snowball-vs-debt-avalanche-which-strategy-wins  /debt-payoff-calculator/  301
+# Credit report / credit building / credit cards related → kept credit report post
+/blog/credit-score-explained-what-it-is-and-how-to-improve-it /blog/understanding-your-credit-report-and-fixing-errors/ 301
+/blog/credit-score-explained-what-it-is-and-how-to-improve-it/* /blog/understanding-your-credit-report-and-fixing-errors/ 301
+/blog/best-no-annual-fee-credit-cards-for-everyday-spending /blog/best-rewards-credit-cards-for-dining-out/ 301
+/blog/best-no-annual-fee-credit-cards-for-everyday-spending/* /blog/best-rewards-credit-cards-for-dining-out/ 301
+/blog/best-cash-back-credit-cards-earn-money-on-every-purchase /blog/best-rewards-credit-cards-for-dining-out/ 301
+/blog/best-cash-back-credit-cards-earn-money-on-every-purchase/* /blog/best-rewards-credit-cards-for-dining-out/ 301
+/blog/how-to-negotiate-lower-interest-rates-on-credit-cards /blog/understanding-your-credit-report-and-fixing-errors/ 301
+/blog/how-to-negotiate-lower-interest-rates-on-credit-cards/* /blog/understanding-your-credit-report-and-fixing-errors/ 301
+/blog/how-to-build-credit-as-a-new-immigrant-in-the-us /blog/understanding-your-credit-report-and-fixing-errors/ 301
+/blog/how-to-build-credit-as-a-new-immigrant-in-the-us/* /blog/understanding-your-credit-report-and-fixing-errors/ 301
+/blog/balance-transfer-credit-cards-how-to-use-them-strategically /credit-cards/ 301
+/blog/balance-transfer-credit-cards-how-to-use-them-strategically/* /credit-cards/ 301
 
-/blog/best-high-yield-cds-vs-savings-accounts-compared/*  /cd-calculator/  301
-/blog/best-high-yield-cds-vs-savings-accounts-compared  /cd-calculator/  301
+# Florida / state savings / rent related → kept Florida rent post
+/blog/how-to-save-money-on-rent-in-florida /blog/how-to-save-money-on-rent-in-florida/ 301
+/blog/money-saving-tips-for-single-income-families-in-arkansas /blog/how-to-save-money-on-rent-in-florida/ 301
+/blog/money-saving-tips-for-single-income-families-in-arkansas/* /blog/how-to-save-money-on-rent-in-florida/ 301
 
-# New deletions - smart redirects to relevant calculators
-/blog/how-to-build-an-emergency-fund-a-step-by-step-guide-for-every-american/*  /emergency-fund-calculator/  301
-/blog/how-to-build-an-emergency-fund-a-step-by-step-guide-for-every-american  /emergency-fund-calculator/  301
+# College savings / 529 / retirement planning → kept 529 post or retirement calculator
+/blog/how-to-save-for-college-with-a-529-plan /blog/how-to-save-for-college-with-a-529-plan/ 301
+/blog/retirement-planning-in-your-30s-the-decade-that-matters-most /retirement-calculator/ 301
+/blog/retirement-planning-in-your-30s-the-decade-that-matters-most/* /retirement-calculator/ 301
 
-/blog/the-50-30-20-budget-rule-simplest-way-to-manage-your-money/*  /budget-planner/  301
-/blog/the-50-30-20-budget-rule-simplest-way-to-manage-your-money  /budget-planner/  301
+# Ohio / state money moves → kept Ohio millennials post
+/blog/smart-money-moves-for-millennials-in-ohio /blog/smart-money-moves-for-millennials-in-ohio/ 301
 
-/blog/best-high-yield-savings-accounts-where-to-earn-4-apy-in-2026/*  /savings-calculator/  301
-/blog/best-high-yield-savings-accounts-where-to-earn-4-apy-in-2026  /savings-calculator/  301
+# Multiple income streams → kept multiple streams post
+/blog/how-to-create-multiple-streams-of-income /blog/how-to-create-multiple-streams-of-income/ 301
 
-/blog/how-compound-interest-works-and-why-it-matters/*  /compound-interest-calculator/  301
-/blog/how-compound-interest-works-and-why-it-matters  /compound-interest-calculator/  301
+# Emergency fund related (keep existing strong mappings)
+/blog/how-to-build-an-emergency-fund-a-step-by-step-guide-for-every-american /emergency-fund-calculator/ 301
+/blog/how-to-build-an-emergency-fund-a-step-by-step-guide-for-every-american/* /emergency-fund-calculator/ 301
+/blog/emergency-fund-101-how-much-you-really-need /emergency-fund-calculator/ 301
+/blog/emergency-fund-101-how-much-you-really-need/* /emergency-fund-calculator/ 301
 
-/blog/best-no-annual-fee-credit-cards-for-everyday-spending/*  /credit-cards/  301
-/blog/best-no-annual-fee-credit-cards-for-everyday-spending  /credit-cards/  301
+# Budget related (keep existing)
+/blog/the-50-30-20-budget-rule-simplest-way-to-manage-your-money /budget-planner/ 301
+/blog/the-50-30-20-budget-rule-simplest-way-to-manage-your-money/* /budget-planner/ 301
 
-/blog/how-to-save-for-a-house-down-payment-a-practical-timeline/*  /mortgage-calculator/  301
-/blog/how-to-save-for-a-house-down-payment-a-practical-timeline  /mortgage-calculator/  301
+# Savings / high-yield / CDs (keep existing)
+/blog/best-high-yield-savings-accounts-where-to-earn-4-apy-in-2026 /savings-calculator/ 301
+/blog/best-high-yield-savings-accounts-where-to-earn-4-apy-in-2026/* /savings-calculator/ 301
+/blog/best-high-yield-cds-vs-savings-accounts-compared /cd-calculator/ 301
+/blog/best-high-yield-cds-vs-savings-accounts-compared/* /cd-calculator/ 301
 
-/blog/retirement-planning-in-your-30s-the-decade-that-matters-most/*  /retirement-calculator/  301
-/blog/retirement-planning-in-your-30s-the-decade-that-matters-most  /retirement-calculator/  301
+# Compound interest (keep existing)
+/blog/how-compound-interest-works-and-why-it-matters /compound-interest-calculator/ 301
+/blog/how-compound-interest-works-and-why-it-matters/* /compound-interest-calculator/ 301
 
-/blog/how-to-negotiate-lower-interest-rates-on-credit-cards/*  /credit-cards/  301
-/blog/how-to-negotiate-lower-interest-rates-on-credit-cards  /credit-cards/  301
+# Debt related (keep existing)
+/blog/debt-snowball-vs-debt-avalanche-which-strategy-wins /debt-payoff-calculator/ 301
+/blog/debt-snowball-vs-debt-avalanche-which-strategy-wins/* /debt-payoff-calculator/ 301
 
-/blog/emergency-fund-101-how-much-you-really-need/*  /emergency-fund-calculator/  301
-/blog/emergency-fund-101-how-much-you-really-need  /emergency-fund-calculator/  301
+# House down payment / mortgage options (keep existing)
+/blog/how-to-save-for-a-house-down-payment-a-practical-timeline /mortgage-calculator/ 301
+/blog/how-to-save-for-a-house-down-payment-a-practical-timeline/* /mortgage-calculator/ 301
+/blog/understanding-mortgage-options-fixed-vs-adjustable-rate /mortgage-calculator/ 301
+/blog/understanding-mortgage-options-fixed-vs-adjustable-rate/* /mortgage-calculator/ 301
 
-/blog/best-cash-back-credit-cards-earn-money-on-every-purchase/*  /credit-cards/  301
-/blog/best-cash-back-credit-cards-earn-money-on-every-purchase  /credit-cards/  301
+# Banking / checking / APR-APY / investing (keep existing)
+/blog/free-checking-accounts-worth-opening-in-2026 /banking/ 301
+/blog/free-checking-accounts-worth-opening-in-2026/* /banking/ 301
+/blog/understanding-apr-vs-apy-what-every-borrower-should-know /banking/ 301
+/blog/understanding-apr-vs-apy-what-every-borrower-should-know/* /banking/ 301
+/blog/how-to-start-investing-with-just-100 /investment-calculator/ 301
+/blog/how-to-start-investing-with-just-100/* /investment-calculator/ 301
 
-/blog/how-to-build-credit-as-a-new-immigrant-in-the-us/*  /credit-cards/  301
-/blog/how-to-build-credit-as-a-new-immigrant-in-the-us  /credit-cards/  301
+# General / weak match → /blog/
+/blog/smart-money-moves-to-make-before-year-end-2026 /blog/ 301
+/blog/smart-money-moves-to-make-before-year-end-2026/* /blog/ 301
+/blog/financial-planning-checklist-for-new-parents /blog/ 301
+/blog/financial-planning-checklist-for-new-parents/* /blog/ 301
 
-/blog/understanding-mortgage-options-fixed-vs-adjustable-rate/*  /mortgage-calculator/  301
-/blog/understanding-mortgage-options-fixed-vs-adjustable-rate  /mortgage-calculator/  301
-
-/blog/free-checking-accounts-worth-opening-in-2026/*  /banking/  301
-/blog/free-checking-accounts-worth-opening-in-2026  /banking/  301
-
-/blog/how-to-start-investing-with-just-100/*  /investment-calculator/  301
-/blog/how-to-start-investing-with-just-100  /investment-calculator/  301
-
-/blog/understanding-apr-vs-apy-what-every-borrower-should-know/*  /banking/  301
-/blog/understanding-apr-vs-apy-what-every-borrower-should-know  /banking/  301
-
-/blog/balance-transfer-credit-cards-how-to-use-them-strategically/*  /credit-cards/  301
-/blog/balance-transfer-credit-cards-how-to-use-them-strategically  /credit-cards/  301
-
-/blog/financial-planning-checklist-for-new-parents/*  /blog/  301
-/blog/financial-planning-checklist-for-new-parents  /blog/  301
+# Catch-all for any other old blog posts not explicitly listed above
+/blog/* /blog/ 301
