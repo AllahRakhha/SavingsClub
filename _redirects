@@ -1,26 +1,11 @@
 # _redirects - SavingsClub.com
-# Updated after removing 21 thin/deleted blog posts
-# Strategy: 
-# - Map credit, credit report, and building credit posts → kept credit report post
-# - Map Florida/state savings and rent posts → kept Florida rent post
-# - Map rewards/credit card posts → kept dining rewards post
-# - Map college/529 and retirement planning → kept 529 post or retirement calculator
-# - Map Ohio/state money moves → kept Ohio millennials post
-# - Map income streams and general money posts → kept multiple streams post or /blog/
-# - Keep strong existing mappings to calculators (emergency fund, budget, debt, compound interest, etc.)
-# Format: /old-path /new-path 301
+# Updated: Includes targeted blog redirects + legacy spam cleanup from previous domain owner
 
-# === Kept quality blog posts (do not redirect these) ===
-# /blog/understanding-your-credit-report-and-fixing-errors/
-# /blog/how-to-save-money-on-rent-in-florida/
-# /blog/best-rewards-credit-cards-for-dining-out/
-# /blog/how-to-save-for-college-with-a-529-plan/
-# /blog/smart-money-moves-for-millennials-in-ohio/
-# /blog/how-to-create-multiple-streams-of-income/
+# ============================================
+# BLOG POST REDIRECTS (Quality Content)
+# ============================================
 
-# === Deleted thin posts - targeted redirects ===
-
-# Credit report / credit building / credit cards related → kept credit report post
+# Credit-related deleted posts → kept credit report post
 /blog/credit-score-explained-what-it-is-and-how-to-improve-it /blog/understanding-your-credit-report-and-fixing-errors/ 301
 /blog/credit-score-explained-what-it-is-and-how-to-improve-it/* /blog/understanding-your-credit-report-and-fixing-errors/ 301
 /blog/best-no-annual-fee-credit-cards-for-everyday-spending /blog/best-rewards-credit-cards-for-dining-out/ 301
@@ -34,53 +19,45 @@
 /blog/balance-transfer-credit-cards-how-to-use-them-strategically /credit-cards/ 301
 /blog/balance-transfer-credit-cards-how-to-use-them-strategically/* /credit-cards/ 301
 
-# Florida / state savings / rent related → kept Florida rent post
-/blog/how-to-save-money-on-rent-in-florida /blog/how-to-save-money-on-rent-in-florida/ 301
+# Florida / state savings related
 /blog/money-saving-tips-for-single-income-families-in-arkansas /blog/how-to-save-money-on-rent-in-florida/ 301
 /blog/money-saving-tips-for-single-income-families-in-arkansas/* /blog/how-to-save-money-on-rent-in-florida/ 301
 
-# College savings / 529 / retirement planning → kept 529 post or retirement calculator
-/blog/how-to-save-for-college-with-a-529-plan /blog/how-to-save-for-college-with-a-529-plan/ 301
+# College / retirement planning
 /blog/retirement-planning-in-your-30s-the-decade-that-matters-most /retirement-calculator/ 301
 /blog/retirement-planning-in-your-30s-the-decade-that-matters-most/* /retirement-calculator/ 301
 
-# Ohio / state money moves → kept Ohio millennials post
-/blog/smart-money-moves-for-millennials-in-ohio /blog/smart-money-moves-for-millennials-in-ohio/ 301
-
-# Multiple income streams → kept multiple streams post
-/blog/how-to-create-multiple-streams-of-income /blog/how-to-create-multiple-streams-of-income/ 301
-
-# Emergency fund related (keep existing strong mappings)
+# Emergency fund related
 /blog/how-to-build-an-emergency-fund-a-step-by-step-guide-for-every-american /emergency-fund-calculator/ 301
 /blog/how-to-build-an-emergency-fund-a-step-by-step-guide-for-every-american/* /emergency-fund-calculator/ 301
 /blog/emergency-fund-101-how-much-you-really-need /emergency-fund-calculator/ 301
 /blog/emergency-fund-101-how-much-you-really-need/* /emergency-fund-calculator/ 301
 
-# Budget related (keep existing)
+# Budget related
 /blog/the-50-30-20-budget-rule-simplest-way-to-manage-your-money /budget-planner/ 301
 /blog/the-50-30-20-budget-rule-simplest-way-to-manage-your-money/* /budget-planner/ 301
 
-# Savings / high-yield / CDs (keep existing)
+# Savings / CDs
 /blog/best-high-yield-savings-accounts-where-to-earn-4-apy-in-2026 /savings-calculator/ 301
 /blog/best-high-yield-savings-accounts-where-to-earn-4-apy-in-2026/* /savings-calculator/ 301
 /blog/best-high-yield-cds-vs-savings-accounts-compared /cd-calculator/ 301
 /blog/best-high-yield-cds-vs-savings-accounts-compared/* /cd-calculator/ 301
 
-# Compound interest (keep existing)
+# Compound interest
 /blog/how-compound-interest-works-and-why-it-matters /compound-interest-calculator/ 301
 /blog/how-compound-interest-works-and-why-it-matters/* /compound-interest-calculator/ 301
 
-# Debt related (keep existing)
+# Debt related
 /blog/debt-snowball-vs-debt-avalanche-which-strategy-wins /debt-payoff-calculator/ 301
 /blog/debt-snowball-vs-debt-avalanche-which-strategy-wins/* /debt-payoff-calculator/ 301
 
-# House down payment / mortgage options (keep existing)
+# Mortgage / house related
 /blog/how-to-save-for-a-house-down-payment-a-practical-timeline /mortgage-calculator/ 301
 /blog/how-to-save-for-a-house-down-payment-a-practical-timeline/* /mortgage-calculator/ 301
 /blog/understanding-mortgage-options-fixed-vs-adjustable-rate /mortgage-calculator/ 301
 /blog/understanding-mortgage-options-fixed-vs-adjustable-rate/* /mortgage-calculator/ 301
 
-# Banking / checking / APR-APY / investing (keep existing)
+# Banking / investing
 /blog/free-checking-accounts-worth-opening-in-2026 /banking/ 301
 /blog/free-checking-accounts-worth-opening-in-2026/* /banking/ 301
 /blog/understanding-apr-vs-apy-what-every-borrower-should-know /banking/ 301
@@ -88,11 +65,36 @@
 /blog/how-to-start-investing-with-just-100 /investment-calculator/ 301
 /blog/how-to-start-investing-with-just-100/* /investment-calculator/ 301
 
-# General / weak match → /blog/
+# General / weak match
 /blog/smart-money-moves-to-make-before-year-end-2026 /blog/ 301
 /blog/smart-money-moves-to-make-before-year-end-2026/* /blog/ 301
 /blog/financial-planning-checklist-for-new-parents /blog/ 301
 /blog/financial-planning-checklist-for-new-parents/* /blog/ 301
 
-# Catch-all for any other old blog posts not explicitly listed above
-/blog/* /blog/ 301
+# ============================================
+# LEGACY SPAM / OLD OWNER CONTENT CLEANUP
+# These are old paths from previous domain owner (GoDaddy auction)
+# Return 410 Gone so Google removes them from index faster
+# ============================================
+
+# Old spam / parking / media paths
+/__media__/*                    /    410
+
+# Old category pages (WordPress-style junk)
+/category/*                     /    410
+
+# Old admin / account / store paths
+/cpanel                         /    410
+/moderation                     /    410
+/my-account/*                   /    410
+/all-store/*                    /    410
+/blog-list                      /    410
+/free.html                      /    410
+
+# Very old weird paths from previous owner
+/truth/*                        /    410
+/wns/*                          /    410
+
+# Catch remaining old junk paths
+/comments/*                     /    410
+/feed/*                         /    410
