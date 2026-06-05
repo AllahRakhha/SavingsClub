@@ -7,21 +7,15 @@ def main():
 
     api_key = os.environ.get("CLAUDE_API_KEY")
     if not api_key:
-        print("ERROR: No API key found!")
+        print("ERROR: No API key!")
         return
 
     # Read prompt
-    try:
-        with open("prompts/SavingsClub_Master_AI_Guardian_Prompt.md", "r", encoding="utf-8") as f:
-            system_prompt = f.read()
-        print("Prompt file loaded successfully.")
-    except Exception as e:
-        print(f"ERROR loading prompt: {e}")
-        return
+    with open("prompts/SavingsClub_Master_AI_Guardian_Prompt.md", "r", encoding="utf-8") as f:
+        system_prompt = f.read()
 
-    user_message = "Run a weekly audit for SavingsClub.com. Focus on compliance risks first, then SEO and content. Create a clear report."
+    user_message = "You are running a weekly audit for SavingsClub.com. Focus on compliance and risk first. Then give SEO and content suggestions. Always ask for permission before recommending changes."
 
-    # Call Claude
     headers = {
         "x-api-key": api_key,
         "anthropic-version": "2023-06-01",
@@ -30,27 +24,27 @@ def main():
 
     data = {
         "model": "claude-3-5-sonnet-20241022",
-        "max_tokens": 3000,
+        "max_tokens": 4000,
         "messages": [{"role": "user", "content": system_prompt + "\n\n" + user_message}]
     }
 
-    print("Calling Claude API...")
+    print("Calling Claude...")
     response = requests.post("https://api.anthropic.com/v1/messages", headers=headers, json=data)
-    
-    if response.status_code != 200:
-        print(f"API Error: {response.text}")
-        return
-
     report = response.json()["content"][0]["text"]
-    print("Report received from Claude.")
 
-    # Save report
+    print("\n" + "="*50)
+    print("MASTER AI GUARDIAN REPORT")
+    print("="*50 + "\n")
+    print(report)
+    print("\n" + "="*50)
+    print("END OF REPORT")
+    print("="*50)
+
+    # Also try to save file
     filename = f"weekly_guardian_report_{datetime.now().strftime('%Y-%m-%d')}.md"
     with open(filename, "w", encoding="utf-8") as f:
         f.write(report)
-
-    print(f"Report saved as: {filename}")
-    print("=== Master AI Guardian Finished Successfully ===")
+    print(f"\nReport also saved as file: {filename}")
 
 if __name__ == "__main__":
     main()
