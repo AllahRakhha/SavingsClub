@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>50/30/20 Budget Planner — Free Budget Calculator | SavingsClub</title>
+<title>50/30/20 Budget Planner Free Budget Calculator | SavingsClub</title>
 <meta name="description" content="Free 50/30/20 budget calculator. See how to split your income between needs, wants, and savings. Interactive charts included.">
 <link rel="canonical" href="https://savingsclub.com/budget-planner/">
 <meta property="og:title" content="50/30/20 Budget Planner — Free Budget Calculator | SavingsClub">
@@ -23,7 +23,8 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://savingsclub.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://savingsclub.com/savings-calculator/"},{"@type":"ListItem","position":3,"name":"Budget Planner","item":"https://savingsclub.com/budget-planner/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Create a 50/30/20 Budget","step":[{"@type":"HowToStep","position":1,"text":"Enter your monthly after-tax income"},{"@type":"HowToStep","position":2,"text":"The calculator splits it into Needs (50%), Wants (30%), and Savings (20%)"},{"@type":"HowToStep","position":3,"text":"Compare your actual spending to these targets"},{"@type":"HowToStep","position":4,"text":"Adjust your spending categories to match the recommended percentages"}]}</script>
 </head>
-<body><nav id="mainNav">
+<body>
+<nav id="mainNav">
 <div class="nav-inner">
 <div class="logo" onclick="location.href='../'">
 <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
@@ -41,6 +42,7 @@ SavingsClub
 <div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
 </div>
 </nav>
+
 <div class="mobile-menu" id="mobileMenu">
 <a href="../">Home</a>
 <a href="../savings-calculator/">Savings</a>
@@ -53,15 +55,19 @@ SavingsClub
 <a href="../about/">About</a>
 <a href="../contact/">Contact</a>
 </div>
+
 <section class="calc-page">
 <div class="container">
 <div style="margin-bottom:24px"><a href="../" style="color:var(--text-light);font-weight:500">← Home</a></div>
+
 <div class="calc-section reveal" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
-<h2><div class="calc-icon" style="background:linear-gradient(135deg,#059669,#10B981)">💲</div> 50/30/20 Budget Planner</h2>
+<h1><div class="calc-icon" style="background:linear-gradient(135deg,#059669,#10B981)">💲</div> 50/30/20 Budget Planner</h1>
 <p class="calc-desc">See how your income should be split between needs, wants, and savings.</p>
+
 <div class="calc-grid">
 <div><label>Monthly After-Tax Income ($)</label><input type="number" id="budgetIncome" value="5000" oninput="calc()"></div>
 </div>
+
 <div class="accent-line" style="width:100%;margin:0 0 20px;height:2px"></div>
 <button class="btn btn-primary" onclick="calc()">Calculate</button>
 <div id="calcResult" class="calc-result"></div>
@@ -70,19 +76,35 @@ SavingsClub
 <div class="seo-content reveal">
 <h2>What Is the 50/30/20 Budget Rule?</h2>
 <p>The 50/30/20 rule is a simple budgeting framework that divides your after-tax income into three categories: 50% for needs, 30% for wants, and 20% for savings and debt repayment. It was popularized by Senator Elizabeth Warren in her book "All Your Worth."</p>
+
 <h3>Needs (50%)</h3>
 <p>Needs are expenses you cannot avoid: housing, groceries, utilities, transportation, insurance premiums, and minimum debt payments. If your needs exceed 50% of income, look at housing costs first — experts recommend keeping housing below 30% of gross income. In high-cost cities like San Francisco, New York, or Boston, this may require roommates or living further from the center.</p>
+
 <h3>Wants (30%)</h3>
-<p>Wants include dining out, entertainment, streaming subscriptions, hobbies, and non-essential shopping. This category prevents budget burnout. Americans in cities with lower costs of living — like Austin, Nashville, or Raleigh — often find this category stretches further than coastal cities.</p>
+<p>Wants include dining out, entertainment, streaming subscriptions, hobbies, and non-essential shopping. This category prevents budget burnout. Americans in cities with lower costs of living like Austin, Nashville, or Raleigh often find this category stretches further than coastal cities.</p>
+
 <h3>Savings and Debt Repayment (20%)</h3>
 <p>This is where wealth building happens: emergency fund contributions, retirement savings, extra debt payments above minimums, and investment contributions. Even if you can only start with 10%, the habit matters more than the percentage. Increase by 1% each month until you hit 20% or more.</p>
+
 <h3>When the 50/30/20 Rule Doesn't Work</h3>
 <p>If you live in an expensive metro area, your needs may consume 60-70% of income. In that case, consider the 60/20/20 or 70/20/10 split as a starting point. The goal is progress, not perfection. Use this budget planner to see where your money actually goes.</p>
 </div>
-<div class="seo-content reveal" style="margin-top:24px"><h2>Frequently Asked Questions</h2><h3>What counts as a need vs a want?</h3><p>Needs are essential for survival and basic functioning: rent, groceries, utilities, basic transportation, insurance, and minimum debt payments. Wants are everything else: dining out, entertainment, subscriptions, and upgrades.</p><h3>What if my needs are more than 50%?</h3><p>Many Americans, especially in high-cost cities, spend more than 50% on needs. Start by tracking your actual spending, then look for ways to reduce the biggest category — usually housing or transportation.</p></div><div class="blog-recs reveal" style="margin-top:24px">
-<h3 style="margin-bottom:12px;font-size:1.1rem">📚 Related Guides</h3>
-<a href="../blog/the-50-30-20-budget-rule-simplest-way-to-manage-your-money/" class="related-blog-card">The 50/30/20 Budget Rule →</a><a href="../blog/financial-planning-checklist-for-new-parents/" class="related-blog-card">Financial Planning for New Parents →</a>
+
+<div class="seo-content reveal" style="margin-top:24px">
+<h2>Frequently Asked Questions</h2>
+<h3>What counts as a need vs a want?</h3>
+<p>Needs are essential for survival and basic functioning: rent, groceries, utilities, basic transportation, insurance, and minimum debt payments. Wants are everything else: dining out, entertainment, subscriptions, and upgrades.</p>
+
+<h3>What if my needs are more than 50%?</h3>
+<p>Many Americans, especially in high-cost cities, spend more than 50% on needs. Start by tracking your actual spending, then look for ways to reduce the biggest category — usually housing or transportation.</p>
 </div>
+
+<div class="blog-recs reveal" style="margin-top:24px">
+<h3 style="margin-bottom:12px;font-size:1.1rem">📚 Related Guides</h3>
+<a href="../blog/the-50-30-20-budget-rule-simplest-way-to-manage-your-money/" class="related-blog-card">The 50/30/20 Budget Rule →</a>
+<a href="../blog/financial-planning-checklist-for-new-parents/" class="related-blog-card">Financial Planning for New Parents →</a>
+</div>
+
 <div class="related-tools reveal">
 <h3>More Free Tools</h3>
 <a href="../savings-calculator/" class="related-tool-link">💰 Savings Calculator</a>
@@ -97,7 +119,6 @@ SavingsClub
 <a href="../credit-card-payoff-calculator/" class="related-tool-link">💳 CC Payoff</a>
 <a href="../financial-health-score/" class="related-tool-link">❤️ Financial Health Score</a>
 <a href="../credit-card-quiz/" class="related-tool-link">🃏 Credit Card Quiz</a>
-
 <a href="../401k-calculator/" class="related-tool-link">🏦 401(k)</a>
 <a href="../roth-ira-calculator/" class="related-tool-link">📋 Roth IRA</a>
 <a href="../inflation-calculator/" class="related-tool-link">📉 Inflation</a>
@@ -105,19 +126,48 @@ SavingsClub
 <a href="../paycheck-calculator/" class="related-tool-link">💵 Take-Home Pay</a>
 <a href="../cd-calculator/" class="related-tool-link">🔐 CD Calculator</a>
 </div>
+
 </div>
 </section>
+
 <script src="../js/charts.js"></script>
 <script>
 function fmt(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+
 function calc(){
-var inc=+(document.getElementById('budgetIncome').value||0);var n=inc*.5,w=inc*.3,s=inc*.2;
-var el=document.getElementById('calcResult');
-el.innerHTML='<div class="result-grid"><div class="result-item"><span class="result-label">Needs (50%)</span><span class="result-value" style="color:#3B82F6">$'+fmt(n)+'</span></div><div class="result-item"><span class="result-label">Wants (30%)</span><span class="result-value" style="color:#F59E0B">$'+fmt(w)+'</span></div><div class="result-item"><span class="result-label">Savings (20%)</span><span class="result-value" style="color:#10B981">$'+fmt(s)+'</span></div></div><div id="chart"></div>';
-if(inc>0)drawDonutChart('#chart',[{value:n,color:'#3B82F6',label:'Needs'},{value:w,color:'#F59E0B',label:'Wants'},{value:s,color:'#10B981',label:'Savings'}],{title:'50/30/20 Breakdown',centerTop:'$'+fmtI(inc),centerBot:'Monthly'});
+var inc = +(document.getElementById('budgetIncome').value||0);
+var n = inc * .5, w = inc * .3, s = inc * .2;
+var el = document.getElementById('calcResult');
+
+el.innerHTML = `
+<div class="result-grid">
+  <div class="result-item">
+    <span class="result-label">Needs (50%)</span>
+    <span class="result-value" style="color:#3B82F6">$${fmt(n)}</span>
+  </div>
+  <div class="result-item">
+    <span class="result-label">Wants (30%)</span>
+    <span class="result-value" style="color:#F59E0B">$${fmt(w)}</span>
+  </div>
+  <div class="result-item">
+    <span class="result-label">Savings (20%)</span>
+    <span class="result-value" style="color:#10B981">$${fmt(s)}</span>
+  </div>
+</div>
+<div id="chart"></div>`;
+
+if(inc > 0){
+  drawDonutChart('#chart', [
+    {value:n, color:'#3B82F6', label:'Needs'},
+    {value:w, color:'#F59E0B', label:'Wants'},
+    {value:s, color:'#10B981', label:'Savings'}
+  ], {title:'50/30/20 Breakdown', centerTop:'$'+fmt(inc), centerBot:'Monthly'});
 }
-document.addEventListener('DOMContentLoaded',function(){calc();});
+}
+
+document.addEventListener('DOMContentLoaded', function(){ calc(); });
 </script>
+
 <footer>
 <div class="container">
 <div class="footer-grid">
@@ -163,6 +213,7 @@ function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classL
 var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
 </script>
+
 <script>
 (function(){
 if(localStorage.getItem('sc_cookies'))return;
@@ -181,7 +232,7 @@ localStorage.setItem('sc_cookies','decline');
 b.innerHTML='';
 var msg=document.createElement('span');
 msg.style.cssText='padding:12px 0;color:#10B981';
-msg.textContent='\u2713 No cookies stored. You can browse freely.';
+msg.textContent='✓ No cookies stored. You can browse freely.';
 b.appendChild(msg);
 setTimeout(function(){b.remove();},2500);
 };
