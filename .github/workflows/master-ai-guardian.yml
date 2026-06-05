@@ -1,43 +1,27 @@
 name: Master AI Guardian
 
 on:
-  schedule:
-    - cron: '0 3 * * 0'
   workflow_dispatch:
 
 jobs:
-  run-guardian:
+  run:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install requests
-        run: pip install requests
+      - run: pip install requests
 
       - name: Run Master Guardian
         env:
           CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
         run: python scripts/master_guardian.py
 
-      - name: Create Report Issue
-        uses: actions/github-script@v7
+      - name: Upload Report
+        uses: actions/upload-artifact@v4
         with:
-          script: |
-            const fs = require('fs');
-            const files = fs.readdirSync('.').filter(f => f.startsWith('weekly_guardian_report_'));
-            if (files.length > 0) {
-              const report = fs.readFileSync(files[0], 'utf8');
-              await github.rest.issues.create({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                title: `Master AI Guardian Report - ${new Date().toISOString().split('T')[0]}`,
-                body: report,
-                labels: ['guardian-report']
-              });
-            }
+          name: guardian-report
+          path: weekly_guardian_report_*.md
