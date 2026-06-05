@@ -32,7 +32,35 @@
 
 .hero-intro{text-align:center;max-width:720px;margin:0 auto 28px;position:relative;z-index:2}
 .hero-badge-light{display:inline-block;background:#ECFDF5;color:#059669;padding:6px 16px;border-radius:50px;font-size:.82rem;font-weight:700;border:1px solid rgba(5,150,105,.2);margin-bottom:18px;letter-spacing:.02em}
-.hero-title-light{font-size:2.8rem;font-weight:800;color:#0A1628;margin-bottom:14px;letter-spacing:-.025em;line-height:1.1;font-family:'Plus Jakarta Sans',sans-serif}
+
+/* CRITICAL: override style.css gradient text rules for h1 on light bg */
+.hero h1.hero-title-light{
+  font-size:2.4rem !important;
+  font-weight:800 !important;
+  color:#0A1628 !important;
+  margin:0 0 14px !important;
+  letter-spacing:-.025em !important;
+  line-height:1.15 !important;
+  font-family:'Plus Jakarta Sans',sans-serif !important;
+  background:none !important;
+  background-image:none !important;
+  -webkit-background-clip:initial !important;
+  background-clip:initial !important;
+  -webkit-text-fill-color:#0A1628 !important;
+  text-fill-color:#0A1628 !important;
+  text-shadow:none !important;
+  display:block !important;
+  filter:none !important;
+}
+.hero h1.hero-title-light span{
+  color:#10B981 !important;
+  background:none !important;
+  background-image:none !important;
+  -webkit-background-clip:initial !important;
+  background-clip:initial !important;
+  -webkit-text-fill-color:#10B981 !important;
+  text-fill-color:#10B981 !important;
+}
 .hero-subtitle-light{color:#64748B;font-size:1.1rem;margin-bottom:0;line-height:1.5}
 
 /* CALCULATOR CARD */
@@ -103,7 +131,7 @@
 
 @media(max-width:768px){
   .hero{padding:60px 0 40px !important}
-  .hero-title-light{font-size:1.95rem}
+  .hero h1.hero-title-light{font-size:1.9rem !important;line-height:1.2 !important}
   .hero-subtitle-light{font-size:1rem}
   .hero-calc-card{grid-template-columns:1fr;max-width:100%}
   .hero-calc-form,.hero-calc-result{padding:24px}
