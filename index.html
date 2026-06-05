@@ -23,16 +23,40 @@
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta property="og:image" content="https://savingsclub.com/img/savings-jar.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"SavingsClub","url":"https://savingsclub.com","logo":"https://savingsclub.com/img/sc-icon.png","description":"Free financial calculators and educational guides for Americans across all 50 states.","sameAs":[]}</script>
+
 <style>
-.hero-visual-wrap{display:none}
-@media (min-width: 1024px){
-  .hero-content{display:grid !important;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center;text-align:left}
-  .hero-visual-wrap{display:flex;justify-content:center;align-items:center;position:relative}
-  .hero-visual-wrap svg{width:100%;max-width:440px;height:auto;filter:drop-shadow(0 20px 40px rgba(0,0,0,.3))}
+.hero-visual-wrap { display: none; }
+
+@media (min-width: 1024px) {
+  .hero-content {
+    display: grid !important;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    text-align: left;
+  }
+  .hero-visual-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .hero-visual-wrap svg {
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,.3));
+  }
 }
 
-/* Optimized SVG Animations */
+/* Optimized SVG Rendering + Animations */
+.float-coin,
+.float-arrow,
+.rotate-sparkle,
+.rotate-sparkle2 {
+  will-change: transform;
+}
+
 @keyframes floatCoin {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
@@ -45,9 +69,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.float-coin   { animation: floatCoin 4s ease-in-out infinite; }
+.float-arrow  { animation: floatArrow 3.5s ease-in-out infinite; }
+.rotate-sparkle  { animation: rotateSparkle 10s linear infinite; }
+.rotate-sparkle2 { animation: rotateSparkle 8s linear infinite; }
 </style>
 </head>
 <body>
+
 <nav id="mainNav">
 <div class="nav-inner">
 <div class="logo" onclick="window.location='/';">
@@ -79,15 +109,28 @@ SavingsClub
 
 <section class="hero">
 <div class="hero-grid"></div>
-<div class="hero-glow hero-glow-1"></div><div class="hero-glow hero-glow-2"></div><div class="hero-glow hero-glow-3"></div>
-<div class="hero-shapes"><div class="shape shape-1"></div><div class="shape shape-2"></div><div class="shape shape-3"></div><div class="shape shape-4"></div><div class="shape shape-5"></div></div>
+<div class="hero-glow hero-glow-1"></div>
+<div class="hero-glow hero-glow-2"></div>
+<div class="hero-glow hero-glow-3"></div>
+<div class="hero-shapes">
+<div class="shape shape-1"></div>
+<div class="shape shape-2"></div>
+<div class="shape shape-3"></div>
+<div class="shape shape-4"></div>
+<div class="shape shape-5"></div>
+</div>
+
 <div class="container">
 <div class="hero-content">
 <div>
 <div class="hero-badge" style="animation:float2 8s ease-in-out infinite">✦ Free Calculators for Every American</div>
-<h1 style="font-size:3.6rem;font-weight:800;color:#fff;margin-bottom:20px;letter-spacing:-.03em;line-height:1.1">Finance Made <span style="color:#34D399">Simpler.</span></h1>
+<h1 style="font-size:3.6rem;font-weight:800;color:#fff;margin-bottom:20px;letter-spacing:-.03em;line-height:1.1">
+  Finance Made <span style="color:#34D399">Simpler.</span>
+</h1>
 <div class="accent-line" style="width:60px;margin:0 0 20px;background:linear-gradient(90deg,#60A5FA,#34D399)"></div>
-<p class="hero-sub" style="color:rgba(255,255,255,.75);font-size:1.2rem;max-width:560px;margin-bottom:40px">Smart tools, calculators, and financial resources designed to help everyday people make better money decisions.</p>
+<p class="hero-sub" style="color:rgba(255,255,255,.75);font-size:1.2rem;max-width:560px;margin-bottom:40px">
+  Smart tools, calculators, and financial resources designed to help everyday people make better money decisions.
+</p>
 <div class="hero-btns">
 <a href="savings-calculator/" class="btn btn-hero">Explore Free Tools →</a>
 <a href="blog/" class="btn btn-hero-outline">Read Our Guides</a>
@@ -96,7 +139,9 @@ SavingsClub
 
 <!-- Optimized SVG -->
 <div class="hero-visual-wrap" aria-hidden="true">
-<svg viewBox="0 0 400 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SavingsClub finance dashboard preview">
+<svg viewBox="0 0 400 540" xmlns="http://www.w3.org/2000/svg" 
+     role="img" aria-label="SavingsClub finance dashboard preview"
+     shape-rendering="optimizeSpeed">
 <defs>
 <linearGradient id="phoneBody" x1="0%" y1="0%" x2="100%" y2="100%">
 <stop offset="0%" stop-color="#1e293b"/>
@@ -114,30 +159,24 @@ SavingsClub
 <stop offset="0%" stop-color="#059669"/>
 <stop offset="100%" stop-color="#10B981"/>
 </linearGradient>
-<style>
-  .float-coin { animation: floatCoin 4s ease-in-out infinite; }
-  .float-arrow { animation: floatArrow 3.5s ease-in-out infinite; }
-  .rotate-sparkle { animation: rotateSparkle 10s linear infinite; }
-  .rotate-sparkle2 { animation: rotateSparkle 8s linear infinite; }
-</style>
 </defs>
 
 <!-- Phone body -->
 <rect x="100" y="40" width="220" height="460" rx="36" fill="url(#phoneBody)" stroke="#1e293b" stroke-width="2"/>
-<!-- Screen -->
 <rect x="110" y="52" width="200" height="436" rx="26" fill="#ffffff"/>
-<!-- Top notch -->
 <rect x="170" y="56" width="80" height="20" rx="10" fill="#0f172a"/>
 <circle cx="240" cy="66" r="2.5" fill="#1e293b"/>
-<!-- Status row -->
-<text x="125" y="98" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#64748B" font-weight="500">Total Balance</text>
+
 <!-- Balance -->
+<text x="125" y="98" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#64748B" font-weight="500">Total Balance</text>
 <text x="125" y="128" font-family="Plus Jakarta Sans, sans-serif" font-size="28" fill="#0A1628" font-weight="800">$24,580</text>
+
 <!-- Growth -->
 <g transform="translate(125, 148)">
 <path d="M 0 -5 L 8 -12 L 16 -5" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 <text x="22" y="0" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#059669" font-weight="700">+$1,240 this month</text>
 </g>
+
 <!-- Chart -->
 <g transform="translate(122, 175)">
 <rect width="178" height="90" rx="10" fill="#F8FAFC"/>
@@ -145,7 +184,8 @@ SavingsClub
 <path d="M 12 70 Q 30 55, 45 50 T 75 35 T 110 28 T 145 18 T 166 12 L 166 78 L 12 78 Z" fill="url(#chartFill)"/>
 <circle cx="166" cy="12" r="4" fill="#10B981" stroke="#fff" stroke-width="2"/>
 </g>
-<!-- Quick action cards -->
+
+<!-- Quick cards -->
 <g transform="translate(122, 285)">
 <rect width="80" height="70" rx="12" fill="#ECFDF5"/>
 <text x="14" y="28" font-family="Plus Jakarta Sans, sans-serif" font-size="20">💰</text>
@@ -158,7 +198,8 @@ SavingsClub
 <text x="14" y="50" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#0A1628" font-weight="700">Mortgage</text>
 <text x="14" y="62" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="#64748B">Calculator</text>
 </g>
-<!-- Bottom highlight card -->
+
+<!-- Bottom card -->
 <g transform="translate(122, 370)">
 <rect width="170" height="100" rx="14" fill="url(#bottomCard)"/>
 <text x="16" y="28" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="rgba(255,255,255,0.9)" font-weight="600">COMPOUND INTEREST</text>
@@ -170,25 +211,23 @@ SavingsClub
 </g>
 </g>
 
-<!-- Floating coin (Optimized with CSS) -->
+<!-- Floating coin -->
 <g class="float-coin">
 <circle cx="50" cy="200" r="26" fill="url(#coinFill)" stroke="#92400E" stroke-width="1.5"/>
 <text x="50" y="210" font-family="Plus Jakarta Sans, sans-serif" font-size="26" fill="#7C2D12" font-weight="800" text-anchor="middle">$</text>
 </g>
 
-<!-- Floating green arrow circle (Optimized with CSS) -->
+<!-- Floating arrow circle -->
 <g class="float-arrow">
 <circle cx="360" cy="120" r="22" fill="#059669"/>
 <path d="M 351 124 L 360 114 L 369 124" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 360 114 L 360 130" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
 </g>
 
-<!-- Sparkle 1 (Optimized with CSS) -->
+<!-- Sparkles -->
 <g class="rotate-sparkle">
 <path d="M 55 420 L 58 411 L 67 408 L 58 405 L 55 396 L 52 405 L 43 408 L 52 411 Z" fill="#34D399"/>
 </g>
-
-<!-- Sparkle 2 (Optimized with CSS) -->
 <g class="rotate-sparkle2">
 <path d="M 365 380 L 367 374 L 373 372 L 367 370 L 365 364 L 363 370 L 357 372 L 363 374 Z" fill="#FCD34D"/>
 </g>
@@ -221,7 +260,7 @@ SavingsClub
 </div>
 </div></section>
 
-<!-- POPULAR CALCULATORS QUICK ROW -->
+<!-- POPULAR CALCULATORS -->
 <section class="section section-blue"><div class="container">
 <div class="section-header reveal"><h2>Popular Calculators</h2><p>Jump straight to our most-used tools.</p></div>
 <div class="quick-row">
@@ -239,58 +278,58 @@ SavingsClub
 <!-- ALL CALCULATORS -->
 <section class="section"><div class="container">
 <div class="section-header reveal"><div class="accent-line-sm"></div><h2>All 17 Free Financial Calculators</h2><p>Everything you need to make smarter money decisions no signup required.</p></div>
+
 <div class="tools-grid">
 <a href="savings-calculator/" class="card card-glow tool-card reveal stagger-1" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#2563EB,#3B82F6);font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.15)">💰</div>
-<h3>Savings</h3><p>Free savings calculator.</p></a>
+<div class="icon-wrap" style="background:linear-gradient(135deg,#2563EB,#3B82F6)">💰</div><h3>Savings</h3><p>Free savings calculator.</p></a>
+
 <a href="budget-planner/" class="card card-glow tool-card reveal stagger-2" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#059669,#10B981);font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.15)">📊</div>
-<h3>Budget</h3><p>Free budget planner.</p></a>
+<div class="icon-wrap" style="background:linear-gradient(135deg,#059669,#10B981)">📊</div><h3>Budget</h3><p>Free budget planner.</p></a>
+
 <a href="debt-payoff-calculator/" class="card card-glow tool-card reveal stagger-3" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#DC2626,#EF4444);font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.15)">🔥</div>
-<h3>Debt Payoff</h3><p>Free debt payoff calculator.</p></a>
+<div class="icon-wrap" style="background:linear-gradient(135deg,#DC2626,#EF4444)">🔥</div><h3>Debt Payoff</h3><p>Free debt payoff calculator.</p></a>
+
 <a href="compound-interest-calculator/" class="card card-glow tool-card reveal stagger-4" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#7C3AED,#8B5CF6);font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.15)">📈</div>
-<h3>Compound Interest</h3><p>Free compound interest calculator.</p></a>
+<div class="icon-wrap" style="background:linear-gradient(135deg,#7C3AED,#8B5CF6)">📈</div><h3>Compound Interest</h3><p>Free compound interest calculator.</p></a>
+
 <a href="retirement-calculator/" class="card card-glow tool-card reveal stagger-5" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#D97706,#F59E0B);font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.15)">🏠</div>
-<h3>Retirement</h3><p>Free retirement calculator.</p></a>
+<div class="icon-wrap" style="background:linear-gradient(135deg,#D97706,#F59E0B)">🏠</div><h3>Retirement</h3><p>Free retirement calculator.</p></a>
+
 <a href="investment-calculator/" class="card card-glow tool-card reveal stagger-6" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#0891B2,#06B6D4);font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.15)">💎</div>
-<h3>Investment</h3><p>Free investment calculator.</p></a>
+<div class="icon-wrap" style="background:linear-gradient(135deg,#0891B2,#06B6D4)">💎</div><h3>Investment</h3><p>Free investment calculator.</p></a>
+
 <a href="mortgage-calculator/" class="card card-glow tool-card reveal stagger-1" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#15803D,#22C55E);font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.15)">🏡</div>
-<h3>Mortgage</h3><p>Free mortgage calculator.</p></a>
+<div class="icon-wrap" style="background:linear-gradient(135deg,#15803D,#22C55E)">🏡</div><h3>Mortgage</h3><p>Free mortgage calculator.</p></a>
+
 <a href="auto-loan-calculator/" class="card card-glow tool-card reveal stagger-2" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#9333EA,#A855F7);font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.15)">🚗</div>
-<h3>Auto Loan</h3><p>Free auto loan calculator.</p></a>
+<div class="icon-wrap" style="background:linear-gradient(135deg,#9333EA,#A855F7)">🚗</div><h3>Auto Loan</h3><p>Free auto loan calculator.</p></a>
+
 <a href="net-worth-calculator/" class="card card-glow tool-card reveal stagger-3" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#1D4ED8,#60A5FA);font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.15)">💳</div>
-<h3>Net Worth</h3><p>Free net worth calculator.</p></a>
+<div class="icon-wrap" style="background:linear-gradient(135deg,#1D4ED8,#60A5FA)">💳</div><h3>Net Worth</h3><p>Free net worth calculator.</p></a>
+
 <a href="emergency-fund-calculator/" class="card card-glow tool-card reveal stagger-4" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#B91C1C,#F87171);font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.15)">🛡️</div>
-<h3>Emergency Fund</h3><p>Free emergency fund calculator.</p></a>
+<div class="icon-wrap" style="background:linear-gradient(135deg,#B91C1C,#F87171)">🛡️</div><h3>Emergency Fund</h3><p>Free emergency fund calculator.</p></a>
+
 <a href="credit-card-payoff-calculator/" class="card card-glow tool-card reveal stagger-5" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#BE185D,#F472B6);font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.15)">💳</div>
-<h3>CC Payoff</h3><p>Free cc payoff calculator.</p></a>
+<div class="icon-wrap" style="background:linear-gradient(135deg,#BE185D,#F472B6)">💳</div><h3>CC Payoff</h3><p>Free cc payoff calculator.</p></a>
+
 <a href="401k-calculator/" class="card card-glow tool-card reveal stagger-6" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#0369A1,#0EA5E9);font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.15)">🏦</div>
-<h3>401(k)</h3><p>Free 401(k) calculator.</p></a>
+<div class="icon-wrap" style="background:linear-gradient(135deg,#0369A1,#0EA5E9)">🏦</div><h3>401(k)</h3><p>Free 401(k) calculator.</p></a>
+
 <a href="roth-ira-calculator/" class="card card-glow tool-card reveal stagger-1" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#4338CA,#6366F1);font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.15)">📋</div>
-<h3>Roth IRA</h3><p>Free roth ira calculator.</p></a>
+<div class="icon-wrap" style="background:linear-gradient(135deg,#4338CA,#6366F1)">📋</div><h3>Roth IRA</h3><p>Free roth ira calculator.</p></a>
+
 <a href="inflation-calculator/" class="card card-glow tool-card reveal stagger-2" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#92400E,#F59E0B);font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.15)">📉</div>
-<h3>Inflation</h3><p>Free inflation calculator.</p></a>
+<div class="icon-wrap" style="background:linear-gradient(135deg,#92400E,#F59E0B)">📉</div><h3>Inflation</h3><p>Free inflation calculator.</p></a>
+
 <a href="loan-payoff-calculator/" class="card card-glow tool-card reveal stagger-3" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#7C2D12,#EA580C);font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.15)">🎯</div>
-<h3>Loan Payoff</h3><p>Free loan payoff calculator.</p></a>
+<div class="icon-wrap" style="background:linear-gradient(135deg,#7C2D12,#EA580C)">🎯</div><h3>Loan Payoff</h3><p>Free loan payoff calculator.</p></a>
+
 <a href="paycheck-calculator/" class="card card-glow tool-card reveal stagger-4" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#166534,#16A34A);font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.15)">💵</div>
-<h3>Take-Home Pay</h3><p>Free paycheck calculator.</p></a>
+<div class="icon-wrap" style="background:linear-gradient(135deg,#166534,#16A34A)">💵</div><h3>Take-Home Pay</h3><p>Free paycheck calculator.</p></a>
+
 <a href="cd-calculator/" class="card card-glow tool-card reveal stagger-5" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#581C87,#9333EA);font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.15)">🔐</div>
-<h3>CD Calculator</h3><p>Free cd calculator.</p></a>
+<div class="icon-wrap" style="background:linear-gradient(135deg,#581C87,#9333EA)">🔐</div><h3>CD Calculator</h3><p>Free cd calculator.</p></a>
 </div>
 </div></section>
 
@@ -410,7 +449,13 @@ SavingsClub
 <a href="disclaimer/">Disclaimer</a>
 </div>
 </div>
-<div style="border-top:1px solid rgba(255,255,255,.08);padding-top:20px;margin-top:20px;margin-bottom:20px"><p style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.7;max-width:900px"><strong style="color:rgba(255,255,255,.5)">Important Disclaimer:</strong> SavingsClub provides free financial calculators and educational content for informational purposes only. We are not licensed financial advisors, tax professionals, investment advisors, or legal professionals. The information on this website should not be considered as professional financial advice, tax advice, investment advice, or legal advice. All financial decisions should be made after consulting with qualified licensed professionals. Calculator results are estimates and may not reflect actual outcomes. SavingsClub does not guarantee the accuracy, completeness, or reliability of any information provided. By using this website, you acknowledge that you are making financial decisions at your own risk. SavingsClub may receive compensation through affiliate partnerships, which does not influence which products we cover or how we describe them. Past performance of investments does not guarantee future results.</p></div>
+
+<div style="border-top:1px solid rgba(255,255,255,.08);padding-top:20px;margin-top:20px;margin-bottom:20px">
+<p style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.7;max-width:900px">
+<strong style="color:rgba(255,255,255,.5)">Important Disclaimer:</strong> SavingsClub provides free financial calculators and educational content for informational purposes only. We are not licensed financial advisors, tax professionals, investment advisors, or legal professionals. The information on this website should not be considered as professional financial advice, tax advice, investment advice, or legal advice. All financial decisions should be made after consulting with qualified licensed professionals. Calculator results are estimates and may not reflect actual outcomes. SavingsClub does not guarantee the accuracy, completeness, or reliability of any information provided. By using this website, you acknowledge that you are making financial decisions at your own risk. SavingsClub may receive compensation through affiliate partnerships, which does not influence which products we cover or how we describe them. Past performance of investments does not guarantee future results.
+</p>
+</div>
+
 <div class="footer-bottom">
 <p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
 <p>Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
@@ -421,7 +466,6 @@ SavingsClub
 <script>
 window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
 function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
-function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
 var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
 </script>
