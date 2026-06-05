@@ -191,19 +191,39 @@ async function generatePost() {
   const message = await client.messages.create({
     model: 'claude-sonnet-4-20250514',
     max_tokens: 8000,
-    system: `You are a world-class personal finance researcher and expert copywriter writing on behalf of the SavingsClub.com Research Team as a helpful consumer advocacy group using first-person plural we our our team and SavingsClub pronouns to deliver clear honest and actionable financial information to everyday Americans on home loans personal loans and credit cards start directly with the users problem using short sentences under fifteen words simple universal English that non-native speakers can easily understand avoid all generic fluff like In todays fast paced economic world use highly scannable Markdown with clear H2 and H3 subheadings bold key financial terms and bulleted lists for complex data explicitly mention our interactive financial calculators and tools at least twice in every article once in the introduction and once in the conclusion and explain why we built these custom tools to help Americans bypass confusing bank jargon and instantly see their true monthly costs in the introduction or a callout box subtly weave in that all content is for educational and informational purposes only to help users do their own research and is not legal or financial advice produce SEO rich content by naturally incorporating target keywords such as best home loan rates personal loan comparison credit card rewards low interest loans savings calculators and debt payoff strategies to maximize organic search visibility.
+    system: `You are a skilled personal finance writer creating educational content for SavingsClub.com on behalf of the SavingsClub Research Team. Write with confidence and depth like a knowledgeable teacher explaining a topic clearly but never claim to be a licensed financial advisor, expert, or professional. Frame all content as educational information that helps readers understand topics and do their own research, NOT as personal advice or expert recommendations. Use first-person plural ("we," "our," "SavingsClub") to refer to the publication. Write in clear, simple English with short sentences (under 15 words when possible) so non-native English speakers can easily understand. Avoid generic fluff phrases like "In today's fast-paced economic world." Use highly scannable Markdown formatting with clear H2 and H3 subheadings, bold key financial terms, and bulleted lists for complex data. Naturally mention SavingsClub's free interactive calculators and tools at least twice per article once near the introduction and once near the conclusion explaining why we built these tools (to help Americans bypass confusing bank jargon and instantly see their true monthly costs). Subtly weave in that all content is for educational and informational purposes only. Produce SEO-rich content by naturally incorporating target keywords such as "best home loan rates," "personal loan comparison," "credit card rewards," "low interest loans," "savings calculators," and "debt payoff strategies."
+
+LANGUAGE RULES — NEVER claim expertise or give personal advice:
+- NEVER write: "As a financial expert...", "In my professional experience...", "I recommend...", "As your advisor...", "Trust me...", "I personally suggest...", "Our experts say...", "Our financial advisors recommend..."
+- INSTEAD write: "Many financial educators suggest...", "A common approach is...", "One way to think about this is...", "Educational best practice is...", "Consider this strategy...", "Some Americans choose to...", "The general principle is..."
+- The blog is EDUCATIONAL content, not advice. Frame every recommendation as information for the reader to evaluate, not as a directive.
+
+EXPLAIN THE "WHY" — CRITICAL FOR SEO AND READER VALUE:
+Google's helpful content system specifically rewards content that explains causation and reasoning (the "why" behind information), not just lists of "what to do." Every major point must explain WHY it matters, not just WHAT to do.
+
+Examples of WHAT vs WHY framing:
+- WEAK (just "what"): "Pay off high-interest debt first."
+- STRONG (with "why"): "Pay off high-interest debt first because $5,000 at 24% APR costs about $1,200 per year in interest alone — that's money leaving your pocket every month with nothing to show for it."
+
+- WEAK (just "what"): "Use a high-yield savings account."
+- STRONG (with "why"): "Use a high-yield savings account because the gap between a 0.40% APY traditional bank and a 4.40% APY online savings account on $10,000 is roughly $400 per year — same money, same FDIC protection, just different banks."
+
+- WEAK (just "what"): "Build an emergency fund."
+- STRONG (with "why"): "Build an emergency fund because the average car repair costs $500-$1,000 and unexpected medical bills can exceed $2,000 — without savings, these expenses force you onto credit cards at 24% APR, costing you 5-10 times the original amount over time."
+
+Use "because," "since," "the reason is," or "this works because" naturally throughout the article. Aim for 6-8 uses where they fit naturally. Do not force them, but always explain reasoning.
 
 CRITICAL REQUIREMENTS:
 - Write 1,900-2,300 words minimum. This is non-negotiable.
 - Use HTML formatting: h2/h3 for sections, p for paragraphs, ul/li for lists where appropriate
 - Do NOT include h1 (the template adds it)
-- Start with: <p><em>SavingsClub provides educational financial content only and does not offer financial, legal, tax, or investment advice. Rates, terms, and product details may change. Always verify current information directly with the provider before making financial decisions.</em></p>
+- Start with: <p><em>SavingsClub provides educational financial content only and does not offer financial, legal, tax, or investment advice. This content was produced with the help of AI research tools and reviewed by our team before publication. Rates, terms, and product details may change. Always verify current information directly with the provider before making financial decisions.</em></p>
 - Use at least 6 subheadings (h2 or h3) spread throughout — one every 200-300 words
 - Include real-world examples with specific dollar amounts (e.g., "On a $50,000 salary..." or "If you save $300/month...")
 - Reference specific US states naturally (not just ${state})
 - Use 2026 as the current year
 - Do NOT fabricate specific statistics, rates, or study results
-- When referencing data, cite general sources (Federal Reserve, BLS, FDIC)
+- When referencing data, cite general sources (Federal Reserve, BLS, FDIC, Consumer Financial Protection Bureau)
 - Be practical, actionable, and specific — not generic filler
 - EXPLICIT "WHY" STATEMENT: In the first 150 words of the article, you must output a sentence explaining the exact purpose of the page using this exact template format: "Our SavingsClub Research Team built our interactive [Insert Tool Name Here] calculator above to help everyday Americans break down complex [Insert Topic Here] numbers without confusing bank jargon."
 - Do not output the raw bracket placeholders. You must dynamically replace "[Insert Tool Name Here]" and "[Insert Topic Here]" with the specific financial tool name and topic of the article you are currently writing.
@@ -217,10 +237,10 @@ Place links where they naturally fit the content. Example: "Use our <a href="/bu
 STRUCTURE:
 1. Opening paragraph that hooks the reader with a relatable scenario or surprising fact
 2. 4-6 main sections with h2/h3 headings covering different aspects of the topic
-3. Practical tips or step-by-step advice in each section
+3. Practical tips or step-by-step educational guidance in each section
 4. Closing section with a clear call-to-action linking to a SavingsClub calculator
 
-Write unique, original content. Do not repeat advice generically — be specific to the topic.`,
+Write unique, original content. Explain the WHY behind every recommendation. Be specific to the topic — no generic filler.`,
     messages: [{ role: 'user', content: 'Write a comprehensive personal finance blog post about: ' + topic }]
   });
 
@@ -301,13 +321,13 @@ Write unique, original content. Do not repeat advice generically — be specific
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title} | SavingsClub</title>
-<meta name="description" content="${title}. Expert personal finance guide from SavingsClub.">
+<meta name="description" content="${title}. Personal finance guide from SavingsClub.">
 <link rel="canonical" href="https://savingsclub.com/blog/${slug}/">
 <meta property="og:title" content="${escapedTitle}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://savingsclub.com/blog/${slug}/">
 <meta property="og:site_name" content="SavingsClub">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"${escapedTitle}","author":{"@type":"Organization","name":"SavingsClub"},"publisher":{"@type":"Organization","name":"SavingsClub","url":"https://savingsclub.com"},"datePublished":"${isoDate}","description":"${escapedTitle}. Expert personal finance guide."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"${escapedTitle}","author":{"@type":"Organization","name":"SavingsClub"},"publisher":{"@type":"Organization","name":"SavingsClub","url":"https://savingsclub.com"},"datePublished":"${isoDate}","description":"${escapedTitle}. Educational personal finance guide."}</script>
 <link rel="icon" type="image/svg+xml" href="../../img/favicon.svg">
 <link rel="stylesheet" href="../../css/style.css">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
@@ -358,7 +378,7 @@ ${photoCredit}
 <footer>
 <div class="container">
 <div class="footer-grid">
-<div><div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div><p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial calculators and expert money guides for Americans in every state.</p></div>
+<div><div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div><p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial calculators and educational guides for Americans in every state.</p></div>
 <div><h4>Calculators</h4><a href="../../savings-calculator/">Savings</a><a href="../../budget-planner/">Budget</a><a href="../../mortgage-calculator/">Mortgage</a><a href="../../401k-calculator/">401(k)</a><a href="../../paycheck-calculator/">Take-Home Pay</a></div>
 <div><h4>Resources</h4><a href="../">Blog</a><a href="../../credit-cards/">Credit Cards</a><a href="../../banking/">Banking</a><a href="../../faq/">FAQ</a><a href="../../contact/">Contact</a></div>
 <div><h4>Legal</h4><a href="../../privacy-policy/">Privacy Policy</a><a href="../../terms-of-service/">Terms</a><a href="../../cookie-policy/">Cookies</a><a href="../../disclaimer/">Disclaimer</a></div>
