@@ -3,15 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Money Blog Expert Financial Guides | SavingsClub</title>
-<meta name="description" content="Expert guides on saving, investing, credit, and building wealth. Free personal finance articles for Americans in every state.">
+<title>Personal Finance Blog | SavingsClub</title>
+<meta name="description" content="Practical personal finance guides on saving, budgeting, credit, debt payoff, and investing. Free articles for Americans in every state.">
 <link rel="canonical" href="https://savingsclub.com/blog/">
-<meta property="og:title" content="Money Blog — Expert Financial Guides | SavingsClub">
-<meta property="og:description" content="Expert guides on saving, investing, credit, and building wealth. Free personal finance articles for Americans in every state.">
+<meta property="og:title" content="Personal Finance Blog | SavingsClub">
+<meta property="og:description" content="Practical personal finance guides on saving, budgeting, credit, debt payoff, and investing. Free articles for Americans in every state.">
 <meta property="og:url" content="https://savingsclub.com/blog/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SavingsClub">
-
 <link rel="stylesheet" href="../css/style.css">
 <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
@@ -21,7 +20,8 @@
 <meta property="og:image" content="https://savingsclub.com/img/savings-jar.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
-<body><nav id="mainNav">
+<body>
+<nav id="mainNav">
 <div class="nav-inner">
 <div class="logo" onclick="location.href='../'">
 <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
@@ -39,6 +39,7 @@ SavingsClub
 <div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
 </div>
 </nav>
+
 <div class="mobile-menu" id="mobileMenu">
 <a href="../">Home</a>
 <a href="../savings-calculator/">Savings</a>
@@ -51,11 +52,17 @@ SavingsClub
 <a href="../about/">About</a>
 <a href="../contact/">Contact</a>
 </div>
-<section style="padding:100px 0 60px"><div class="container">
-<div class="section-header"><h2>Money Blog</h2><p>Expert guides on saving, investing, credit, and building wealth across all 50 states.</p></div>
+
+<section style="padding:100px 0 60px">
+<div class="container">
+<div class="section-header">
+<h1>Personal Finance Blog</h1>
+<p>Practical guides on saving, investing, credit, and building wealth across all 50 states.</p>
+</div>
 <div id="blogGrid" class="grid-3"></div>
 <noscript><p style="text-align:center;color:var(--text-light)">Please enable JavaScript to view blog posts.</p></noscript>
-</div></section>
+</div>
+</section>
 
 <script>
 var BLOG_THEMES=[
@@ -105,7 +112,6 @@ html+='<a href="'+p.slug+'/" class="card card-glow reveal" style="text-decoratio
 +'</div></a>';
 });
 grid.innerHTML=html;
-// Trigger reveals
 document.querySelectorAll('.reveal').forEach(function(el){
 revealObs.observe(el);
 });
@@ -114,14 +120,16 @@ revealObs.observe(el);
 document.getElementById('blogGrid').innerHTML='<p style="text-align:center;color:var(--text-light);grid-column:1/-1">Blog posts coming soon!</p>';
 });
 }
+
 document.addEventListener('DOMContentLoaded',loadBlog);
 </script>
+
 <footer>
 <div class="container">
 <div class="footer-grid">
 <div>
 <div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
-<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and expert guides for Americans in every state. Making money decisions simpler since 2026.</p>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and educational guides for Americans in every state. Making money decisions simpler since 2026.</p>
 </div>
 <div>
 <h4>Calculators</h4>
@@ -161,6 +169,7 @@ function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classL
 var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
 </script>
+
 <script>
 (function(){
 if(localStorage.getItem('sc_cookies'))return;
@@ -179,7 +188,7 @@ localStorage.setItem('sc_cookies','decline');
 b.innerHTML='';
 var msg=document.createElement('span');
 msg.style.cssText='padding:12px 0;color:#10B981';
-msg.textContent='\u2713 No cookies stored. You can browse freely.';
+msg.textContent='✓ No cookies stored. You can browse freely.';
 b.appendChild(msg);
 setTimeout(function(){b.remove();},2500);
 };
