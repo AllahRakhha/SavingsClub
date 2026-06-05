@@ -1,47 +1,43 @@
-name: Master AI Guardian - Weekly Audit
+name: Master AI Guardian
 
 on:
   schedule:
-    - cron: '0 3 * * 0'   # Every Sunday at 3:00 AM UTC
-  workflow_dispatch:       # Manual trigger
+    - cron: '0 3 * * 0'
+  workflow_dispatch:
 
 jobs:
-  master-guardian-audit:
+  run-guardian:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
+      - name: Install requests
         run: pip install requests
 
-      - name: Run Master AI Guardian Weekly Audit
+      - name: Run Master Guardian
         env:
           CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
         run: python scripts/master_guardian.py
 
-      - name: Create GitHub Issue with Report
+      - name: Create Report Issue
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
             const files = fs.readdirSync('.').filter(f => f.startsWith('weekly_guardian_report_'));
-            if (files.length === 0) {
-              console.log('No report found');
-              return;
+            if (files.length > 0) {
+              const report = fs.readFileSync(files[0], 'utf8');
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `Master AI Guardian Report - ${new Date().toISOString().split('T')[0]}`,
+                body: report,
+                labels: ['guardian-report']
+              });
             }
-            const report = fs.readFileSync(files[0], 'utf8');
-            
-            await github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: `Master AI Guardian Weekly Report - ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`,
-              body: report,
-              labels: ['guardian', 'compliance', 'seo', 'weekly-report']
-            });
-```
