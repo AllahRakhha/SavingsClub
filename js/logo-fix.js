@@ -30,7 +30,8 @@
     {t:"Blog",u:"/blog/",k:"blog articles guides",i:"\uD83D\uDCD6"},
     {t:"About",u:"/about/",k:"about mission",i:"\u2139\uFE0F"},
     {t:"Contact",u:"/contact/",k:"contact email",i:"\u2709\uFE0F"},
-    {t:"FAQ",u:"/faq/",k:"faq questions",i:"\u2753"}
+    {t:"FAQ",u:"/faq/",k:"faq questions",i:"\u2753"},
+    {t:"Credit Monitoring",u:"/credit-monitoring/",k:"credit monitoring smartcredit fico vantagescore identity theft protection",i:"\uD83D\uDD0D"}
   ];
 
   /* 1. REMOVE SC LOGO ICON */
@@ -319,6 +320,30 @@
   /* 9. REMOVE TOP DISCLAIMER */
   var topDisc=document.getElementById('scDisclaimer');
   if(topDisc)topDisc.remove();
+
+  /* 9b. ADD CREDIT MONITORING TO FOOTER RESOURCES COLUMN */
+  (function addCreditMonitoringToFooter(){
+    if(document.querySelector('footer a[href*="credit-monitoring"]'))return;
+    var headings=document.querySelectorAll('footer h4');
+    for(var i=0;i<headings.length;i++){
+      if(headings[i].textContent.trim().toLowerCase()==='resources'){
+        var col=headings[i].parentNode;
+        var links=col.querySelectorAll('a');
+        var anchor=null;
+        for(var j=0;j<links.length;j++){
+          var href=links[j].getAttribute('href')||'';
+          if(href.indexOf('credit-cards')>-1){anchor=links[j];break;}
+        }
+        var newLink=document.createElement('a');
+        newLink.href='/credit-monitoring/';
+        newLink.textContent='Credit Monitoring';
+        if(anchor && anchor.nextSibling){col.insertBefore(newLink,anchor.nextSibling);}
+        else if(anchor){col.appendChild(newLink);}
+        else{col.appendChild(newLink);}
+        break;
+      }
+    }
+  })();
 
   /* 10. GLOBAL STYLES + MOBILE NAV ORDER [SavingsClub, search-icon, EN, hamburger] */
   var style=document.createElement('style');
