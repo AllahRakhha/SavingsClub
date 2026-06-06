@@ -1,22 +1,90 @@
 {
-  "updated": "2026-06-06T14:10:53.409Z",
+  "updated": "2026-06-06T14:25:21.393Z",
   "source": "Federal Reserve Bank of St. Louis (FRED)",
   "sourceUrl": "https://fred.stlouisfed.org",
   "rates": {
     "fedFundsRate": {
       "value": "3.63",
       "label": "Fed Funds Rate",
-      "date": "2026-05-01"
+      "date": "2026-05-01",
+      "history": [
+        4.33,
+        4.33,
+        4.33,
+        4.22,
+        4.09,
+        3.88,
+        3.72,
+        3.64,
+        3.64,
+        3.64,
+        3.64,
+        3.63
+      ],
+      "fredSeriesId": "FEDFUNDS",
+      "fredUrl": "https://fred.stlouisfed.org/series/FEDFUNDS"
     },
     "mortgage30": {
       "value": "6.48",
       "label": "30-Year Mortgage",
-      "date": "2026-06-04"
+      "date": "2026-06-04",
+      "history": [
+        6.22,
+        6.38,
+        6.46,
+        6.37,
+        6.3,
+        6.23,
+        6.3,
+        6.37,
+        6.36,
+        6.51,
+        6.53,
+        6.48
+      ],
+      "fredSeriesId": "MORTGAGE30US",
+      "fredUrl": "https://fred.stlouisfed.org/series/MORTGAGE30US"
     },
     "personalSavings": {
       "value": "2.60",
       "label": "Personal Savings Rate",
-      "date": "2026-04-01"
+      "date": "2026-04-01",
+      "history": [
+        4.9,
+        4.6,
+        4.5,
+        4.4,
+        4.3,
+        3.9,
+        3.8,
+        3.6,
+        4.3,
+        3.6,
+        3.2,
+        2.6
+      ],
+      "fredSeriesId": "PSAVERT",
+      "fredUrl": "https://fred.stlouisfed.org/series/PSAVERT"
+    },
+    "inflation": {
+      "value": "3.95",
+      "label": "Inflation (CPI)",
+      "date": "2026-04-01",
+      "history": [
+        2.38,
+        2.68,
+        2.74,
+        2.94,
+        3.02,
+        2.99,
+        3,
+        2.83,
+        2.66,
+        3.32,
+        3.95
+      ],
+      "fredSeriesId": "CPIAUCSL",
+      "fredUrl": "https://fred.stlouisfed.org/series/CPIAUCSL"
     }
   }
 }
