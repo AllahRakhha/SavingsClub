@@ -26,8 +26,8 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <style>
-/* LIGHT HERO OVERRIDE */
-.hero{background:linear-gradient(180deg,#FFFFFF 0%,#F8FAFC 60%,#F1F5F9 100%) !important;padding:90px 0 60px !important;color:#0A1628}
+/* LIGHT HERO OVERRIDE with subtle decorative gradients */
+.hero{background:radial-gradient(circle at 85% 10%,rgba(16,185,129,.07),transparent 40%),radial-gradient(circle at 10% 90%,rgba(59,130,246,.05),transparent 45%),linear-gradient(180deg,#FFFFFF 0%,#F8FAFC 60%,#F1F5F9 100%) !important;padding:90px 0 60px !important;color:#0A1628;position:relative;overflow:hidden}
 .hero .hero-grid,.hero .hero-glow,.hero .hero-shapes{display:none !important}
 
 .hero-intro{text-align:center;max-width:720px;margin:0 auto 28px;position:relative;z-index:2}
@@ -63,11 +63,11 @@
 }
 .hero-subtitle-light{color:#64748B;font-size:1.1rem;margin-bottom:0;line-height:1.5}
 
-/* CALCULATOR CARD - full width on top */
-.hero-calc-card{background:#FFFFFF;border:1px solid #E2E8F0;border-radius:24px;display:grid;grid-template-columns:1fr 1fr;box-shadow:0 20px 50px rgba(10,22,40,.08);overflow:hidden;max-width:1200px;margin:0 auto 24px}
+/* CALCULATOR CARD - full width on top, enhanced depth */
+.hero-calc-card{background:#FFFFFF;border:1px solid #E2E8F0;border-radius:24px;display:grid;grid-template-columns:1fr 1fr;box-shadow:0 10px 30px rgba(10,22,40,.06),0 30px 60px -10px rgba(10,22,40,.10);overflow:hidden;max-width:1200px;margin:0 auto 24px;position:relative;z-index:2}
 
-/* TODAY'S RATES STRIP - horizontal below calculator */
-.rates-strip{background:#FFFFFF;border:1px solid #E2E8F0;border-radius:24px;box-shadow:0 20px 50px rgba(10,22,40,.08);max-width:1200px;margin:0 auto 40px;overflow:hidden}
+/* LIVE MARKET DESK STRIP - horizontal below calculator */
+.rates-strip{background:#FFFFFF;border:1px solid #E2E8F0;border-radius:24px;box-shadow:0 10px 30px rgba(10,22,40,.06),0 30px 60px -10px rgba(10,22,40,.10);max-width:1200px;margin:0 auto 40px;overflow:hidden;position:relative;z-index:2}
 .rates-strip-header{padding:18px 28px;border-bottom:1px solid #F1F5F9;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .rates-strip-title{font-size:1.05rem;font-weight:700;color:#0A1628;margin:0;font-family:'Plus Jakarta Sans',sans-serif;display:flex;align-items:center;gap:8px}
 .rates-strip-source{font-size:.75rem;color:#94A3B8;font-weight:500;margin:2px 0 0}
@@ -84,18 +84,26 @@
 .refresh-btn.refreshing .refresh-icon{animation:refreshSpin 1s linear infinite}
 @keyframes refreshSpin{to{transform:rotate(360deg)}}
 .rates-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.rate-cell{padding:22px 24px;border-right:1px solid #F1F5F9;display:flex;flex-direction:column;gap:8px;transition:background .2s}
+.rate-cell{padding:22px 24px;border-right:1px solid #F1F5F9;display:flex;flex-direction:column;gap:8px;transition:background .2s;position:relative}
 .rate-cell:last-child{border-right:none}
 .rate-cell:hover{background:#F8FAFC}
-.rate-cell-label{font-size:.82rem;color:#64748B;font-weight:600;margin:0;line-height:1.2}
-.rate-sparkline{height:40px;width:100%;display:block}
+.rate-cell-header{display:flex;align-items:center;gap:8px}
+.rate-cell-icon{font-size:1.15rem;line-height:1;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:#F0FDF4;flex-shrink:0}
+.rate-cell-label{font-size:.82rem;color:#475569;font-weight:700;margin:0;line-height:1.2}
+.rate-sparkline{height:40px;width:100%;display:block;overflow:visible}
+.rate-sparkline path[data-animate-line]{stroke-dasharray:1000;stroke-dashoffset:1000;transition:stroke-dashoffset 1.4s cubic-bezier(.25,.46,.45,.94)}
+.rate-sparkline path[data-animate-line].animate-in{stroke-dashoffset:0}
+.rate-sparkline circle[data-animate-dot]{opacity:0;transition:opacity .3s ease-out;transition-delay:1.2s}
+.rate-sparkline circle[data-animate-dot].animate-in{opacity:1}
+.rate-sparkline path[data-animate-fill]{opacity:0;transition:opacity .8s ease-out;transition-delay:.6s}
+.rate-sparkline path[data-animate-fill].animate-in{opacity:1}
 .rate-cell-value{font-size:1.75rem;font-weight:800;color:#059669;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;margin:4px 0 0}
 .rate-cell-link{font-size:.72rem;color:#94A3B8;text-decoration:none;font-weight:600;margin-top:2px;display:inline-flex;align-items:center;gap:3px;transition:color .2s}
-.rate-cell-link:hover{color:#059669}
+.rate-cell-link:hover{color:#059669;text-decoration:underline}
 .rates-strip-footer{padding:12px 28px;background:#F8FAFC;border-top:1px solid #F1F5F9;font-size:.72rem;color:#94A3B8;line-height:1.5}
 .rates-strip-footer .last-updated{color:#10B981;font-weight:700}
 .hero-calc-form{padding:32px}
-.hero-calc-form h3{font-size:1.35rem;font-weight:700;color:#0A1628;margin:0 0 4px}
+.hero-calc-form h2{font-size:1.35rem;font-weight:700;color:#0A1628;margin:0 0 4px;font-family:'Plus Jakarta Sans',sans-serif}
 .hero-calc-form-sub{color:#64748B;font-size:.85rem;margin:0 0 20px}
 .hcc-row{margin-bottom:16px}
 .hcc-row:last-child{margin-bottom:0}
@@ -218,6 +226,9 @@ SavingsClub
 <a href="banking/">Banking</a>
 </div>
 
+<!-- MAIN CONTENT LANDMARK (accessibility) -->
+<main id="main-content">
+
 <!-- LIGHT HERO WITH WORKING CALCULATOR -->
 <section class="hero">
 <div class="container">
@@ -230,7 +241,7 @@ SavingsClub
 <!-- CALCULATOR (full-width on top) -->
 <div class="hero-calc-card">
 <div class="hero-calc-form">
-<h3>Savings Calculator</h3>
+<h2>Savings Calculator</h2>
 <p class="hero-calc-form-sub">See how much your money can grow over time</p>
 
 <div class="hcc-row">
@@ -289,12 +300,12 @@ SavingsClub
 </div>
 </div>
 
-<!-- TODAY'S RATES STRIP (Live FRED data with sparklines + refresh) -->
+<!-- LIVE MARKET DESK STRIP (Live FRED data with sparklines + refresh) -->
 <div class="rates-strip" id="ratesStrip">
 <div class="rates-strip-header">
 <div>
-<h3 class="rates-strip-title">📊 Today's Federal Rates</h3>
-<p class="rates-strip-source">Federal Reserve Bank of St. Louis</p>
+<h2 class="rates-strip-title">📊 Live Market Desk</h2>
+<p class="rates-strip-source">Federal Reserve Bank of St. Louis · Updated daily</p>
 </div>
 <div class="rates-strip-meta">
 <span class="rates-strip-badge" id="ratesBadge"><span class="pulse-dot"></span>Sample</span>
@@ -307,29 +318,41 @@ SavingsClub
 
 <div class="rates-grid">
 <div class="rate-cell" data-rate="fedFundsRate">
+<div class="rate-cell-header">
+<span class="rate-cell-icon" aria-hidden="true">🏛️</span>
 <p class="rate-cell-label">Fed Funds Rate</p>
-<svg class="rate-sparkline" viewBox="0 0 100 40" preserveAspectRatio="none" data-spark="fedFundsRate"></svg>
+</div>
+<svg class="rate-sparkline" viewBox="0 0 100 40" preserveAspectRatio="none" data-spark="fedFundsRate" aria-hidden="true"></svg>
 <p class="rate-cell-value" data-value="fedFundsRate">4.50%</p>
 <a class="rate-cell-link" href="https://fred.stlouisfed.org/series/FEDFUNDS" target="_blank" rel="noopener" data-link="fedFundsRate">View on FRED →</a>
 </div>
 
 <div class="rate-cell" data-rate="mortgage30">
+<div class="rate-cell-header">
+<span class="rate-cell-icon" aria-hidden="true">🏠</span>
 <p class="rate-cell-label">30-Year Mortgage</p>
-<svg class="rate-sparkline" viewBox="0 0 100 40" preserveAspectRatio="none" data-spark="mortgage30"></svg>
+</div>
+<svg class="rate-sparkline" viewBox="0 0 100 40" preserveAspectRatio="none" data-spark="mortgage30" aria-hidden="true"></svg>
 <p class="rate-cell-value" data-value="mortgage30">6.85%</p>
 <a class="rate-cell-link" href="https://fred.stlouisfed.org/series/MORTGAGE30US" target="_blank" rel="noopener" data-link="mortgage30">View on FRED →</a>
 </div>
 
 <div class="rate-cell" data-rate="inflation">
+<div class="rate-cell-header">
+<span class="rate-cell-icon" aria-hidden="true">📈</span>
 <p class="rate-cell-label">Inflation (CPI)</p>
-<svg class="rate-sparkline" viewBox="0 0 100 40" preserveAspectRatio="none" data-spark="inflation"></svg>
+</div>
+<svg class="rate-sparkline" viewBox="0 0 100 40" preserveAspectRatio="none" data-spark="inflation" aria-hidden="true"></svg>
 <p class="rate-cell-value" data-value="inflation">3.10%</p>
 <a class="rate-cell-link" href="https://fred.stlouisfed.org/series/CPIAUCSL" target="_blank" rel="noopener" data-link="inflation">View on FRED →</a>
 </div>
 
 <div class="rate-cell" data-rate="personalSavings">
+<div class="rate-cell-header">
+<span class="rate-cell-icon" aria-hidden="true">💰</span>
 <p class="rate-cell-label">Personal Savings</p>
-<svg class="rate-sparkline" viewBox="0 0 100 40" preserveAspectRatio="none" data-spark="personalSavings"></svg>
+</div>
+<svg class="rate-sparkline" viewBox="0 0 100 40" preserveAspectRatio="none" data-spark="personalSavings" aria-hidden="true"></svg>
 <p class="rate-cell-value" data-value="personalSavings">4.20%</p>
 <a class="rate-cell-link" href="https://fred.stlouisfed.org/series/PSAVERT" target="_blank" rel="noopener" data-link="personalSavings">View on FRED →</a>
 </div>
@@ -588,6 +611,9 @@ SavingsClub
 </div>
 </div></section>
 
+</main>
+<!-- END MAIN CONTENT -->
+
 <footer>
 <div class="container">
 <div class="footer-grid">
@@ -685,8 +711,8 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
 (function(){
   var SERIES_KEYS=['fedFundsRate','mortgage30','inflation','personalSavings'];
 
-  // Draw an SVG sparkline from history array
-  function drawSparkline(svg,history){
+  // Draw SVG sparkline with animation support
+  function drawSparkline(svg,history,delay){
     if(!svg||!history||history.length<2)return;
     var w=100,h=40,pad=2;
     var min=Math.min.apply(null,history),max=Math.max.apply(null,history);
@@ -700,32 +726,74 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
     var fillD=pathD+' L '+pts[pts.length-1][0].toFixed(2)+','+h+' L '+pts[0][0].toFixed(2)+','+h+' Z';
     var trendUp=history[history.length-1]>=history[0];
     var stroke=trendUp?'#10B981':'#EF4444';
-    var fill=trendUp?'#10B981':'#EF4444';
     var lastPt=pts[pts.length-1];
     var gradId='sg_'+Math.random().toString(36).slice(2,9);
-    svg.innerHTML='<defs><linearGradient id="'+gradId+'" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="'+fill+'" stop-opacity="0.25"/><stop offset="100%" stop-color="'+fill+'" stop-opacity="0"/></linearGradient></defs>'
-      +'<path d="'+fillD+'" fill="url(#'+gradId+')"/>'
-      +'<path d="'+pathD+'" fill="none" stroke="'+stroke+'" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>'
-      +'<circle cx="'+lastPt[0].toFixed(2)+'" cy="'+lastPt[1].toFixed(2)+'" r="2.2" fill="'+stroke+'"/>';
+    svg.innerHTML='<defs><linearGradient id="'+gradId+'" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="'+stroke+'" stop-opacity="0.25"/><stop offset="100%" stop-color="'+stroke+'" stop-opacity="0"/></linearGradient></defs>'
+      +'<path data-animate-fill d="'+fillD+'" fill="url(#'+gradId+')"/>'
+      +'<path data-animate-line d="'+pathD+'" fill="none" stroke="'+stroke+'" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>'
+      +'<circle data-animate-dot cx="'+lastPt[0].toFixed(2)+'" cy="'+lastPt[1].toFixed(2)+'" r="2.2" fill="'+stroke+'"/>';
+    // Compute actual path length and set dasharray for accurate animation
+    var linePath=svg.querySelector('path[data-animate-line]');
+    if(linePath&&linePath.getTotalLength){
+      var len=linePath.getTotalLength();
+      linePath.style.strokeDasharray=len;
+      linePath.style.strokeDashoffset=len;
+      linePath.style.transitionDelay=(delay||0)+'ms';
+    }
+    var fillPath=svg.querySelector('path[data-animate-fill]');
+    if(fillPath)fillPath.style.transitionDelay=((delay||0)+200)+'ms';
+    var dot=svg.querySelector('circle[data-animate-dot]');
+    if(dot)dot.style.transitionDelay=((delay||0)+1100)+'ms';
+    // Trigger animation on next frame
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        if(linePath)linePath.classList.add('animate-in');
+        if(fillPath)fillPath.classList.add('animate-in');
+        if(dot)dot.classList.add('animate-in');
+      });
+    });
   }
 
-  // Apply FRED data to the DOM
-  function applyRates(data){
+  // Animated number count-up (eases from 0 to final value)
+  function animateNumberTo(el,finalValue,delay){
+    if(!el)return;
+    var dur=1100,start=performance.now()+(delay||0);
+    function tick(now){
+      var elapsed=now-start;
+      if(elapsed<0){requestAnimationFrame(tick);return;}
+      var p=Math.min(elapsed/dur,1);
+      var eased=1-Math.pow(1-p,3);
+      var current=(finalValue*eased).toFixed(2);
+      el.textContent=current+'%';
+      if(p<1)requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // Apply FRED data with staggered per-rate animations
+  function applyRates(data,animate){
     if(!data||!data.rates)return false;
     var updated=0;
-    SERIES_KEYS.forEach(function(key){
+    SERIES_KEYS.forEach(function(key,i){
       var rate=data.rates[key];
       if(!rate)return;
-      // Update value
+      var delay=animate?(i*180):0;
+      // Update value (animated count-up if animate=true)
       var valueEl=document.querySelector('[data-value="'+key+'"]');
       if(valueEl&&rate.value){
-        valueEl.textContent=rate.value+'%';
+        var finalVal=parseFloat(rate.value);
+        if(animate){
+          valueEl.textContent='0.00%';
+          animateNumberTo(valueEl,finalVal,delay+300);
+        }else{
+          valueEl.textContent=rate.value+'%';
+        }
         updated++;
       }
-      // Update sparkline
+      // Update sparkline (with staggered draw-in animation)
       var sparkEl=document.querySelector('[data-spark="'+key+'"]');
       if(sparkEl&&rate.history&&rate.history.length>=2){
-        drawSparkline(sparkEl,rate.history);
+        drawSparkline(sparkEl,rate.history,delay);
       }
       // Update FRED link
       var linkEl=document.querySelector('[data-link="'+key+'"]');
@@ -750,11 +818,11 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
     return true;
   }
 
-  // Initial load
-  function loadRates(){
+  // Initial load (with animations)
+  function loadRates(animate){
     return fetch('/data/rates.json',{cache:'no-store'})
       .then(function(res){if(!res.ok)throw new Error('rates.json not found');return res.json();})
-      .then(applyRates)
+      .then(function(data){return applyRates(data,animate!==false);})
       .catch(function(err){
         console.log('FRED rates not available:',err.message);
         return false;
@@ -770,7 +838,7 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
     var labelEl=btn.querySelector('.refresh-label');
     if(labelEl)labelEl.textContent='Checking...';
     var start=Date.now();
-    loadRates().then(function(success){
+    loadRates(true).then(function(success){
       var elapsed=Date.now()-start;
       var minWait=Math.max(0,600-elapsed);
       setTimeout(function(){
@@ -784,11 +852,12 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
     });
   };
 
-  // Auto-load on page ready
+  // Auto-load on page ready (with animations)
+  function initLoad(){loadRates(true);}
   if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',loadRates);
+    document.addEventListener('DOMContentLoaded',initLoad);
   }else{
-    loadRates();
+    initLoad();
   }
 })();
 </script>
