@@ -64,7 +64,25 @@
 .hero-subtitle-light{color:#64748B;font-size:1.1rem;margin-bottom:0;line-height:1.5}
 
 /* CALCULATOR CARD */
-.hero-calc-card{background:#FFFFFF;border:1px solid #E2E8F0;border-radius:24px;display:grid;grid-template-columns:1fr 1fr;max-width:920px;margin:0 auto 40px;box-shadow:0 20px 50px rgba(10,22,40,.08);overflow:hidden}
+.hero-calc-card{background:#FFFFFF;border:1px solid #E2E8F0;border-radius:24px;display:grid;grid-template-columns:1fr 1fr;box-shadow:0 20px 50px rgba(10,22,40,.08);overflow:hidden}
+
+/* 2-COLUMN HERO GRID (Calculator + Rates Panel) */
+.hero-content-grid{display:grid;grid-template-columns:1.7fr 1fr;gap:20px;max-width:1200px;margin:0 auto 40px;align-items:stretch}
+.hero-content-grid > *{min-width:0}
+
+/* TODAY'S RATES PANEL */
+.rates-card{background:#FFFFFF;border:1px solid #E2E8F0;border-radius:24px;padding:26px 28px;box-shadow:0 20px 50px rgba(10,22,40,.08);display:flex;flex-direction:column}
+.rates-title-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;gap:8px}
+.rates-title{font-size:1.05rem;font-weight:700;color:#0A1628;margin:0;font-family:'Plus Jakarta Sans',sans-serif;display:flex;align-items:center;gap:6px}
+.rates-badge{font-size:.62rem;background:#FEF3C7;color:#92400E;padding:3px 9px;border-radius:50px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;flex-shrink:0}
+.rates-source{font-size:.78rem;color:#94A3B8;margin:0 0 18px;font-weight:500}
+.rates-list{flex:1;border-top:1px solid #F1F5F9}
+.rate-item{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid #F1F5F9}
+.rate-item:last-child{border-bottom:none}
+.rate-label{font-size:.88rem;color:#475569;font-weight:600;line-height:1.3}
+.rate-value{font-size:1.2rem;font-weight:800;color:#059669;font-family:'Plus Jakarta Sans',sans-serif;flex-shrink:0}
+.rates-footer{margin-top:14px;padding-top:14px;border-top:1px solid #F1F5F9;font-size:.7rem;color:#94A3B8;line-height:1.55;display:flex;align-items:flex-start;gap:8px}
+.rates-footer span:first-child{color:#10B981;font-weight:700;flex-shrink:0;font-size:.85rem;line-height:1.1}
 .hero-calc-form{padding:32px}
 .hero-calc-form h3{font-size:1.35rem;font-weight:700;color:#0A1628;margin:0 0 4px}
 .hero-calc-form-sub{color:#64748B;font-size:.85rem;margin:0 0 20px}
@@ -129,6 +147,17 @@
 .faq-item[open] summary{border-bottom:1px solid #F1F5F9}
 .faq-item div.faq-body{padding:18px 24px 22px;color:#475569;line-height:1.7;margin:0;font-size:.95rem}
 
+/* Blog cards with images (dynamic) */
+.blog-preview.has-image{padding:0 !important;overflow:hidden !important;display:flex !important;flex-direction:column !important;text-decoration:none}
+.blog-preview.has-image .bp-img-wrap{width:100%;height:180px;overflow:hidden;background:#F1F5F9;position:relative}
+.blog-preview.has-image .bp-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.blog-preview.has-image:hover .bp-img-wrap img{transform:scale(1.05)}
+.blog-preview.has-image .bp-content{padding:20px 24px 24px}
+
+@media(max-width:1024px){
+  .hero-content-grid{grid-template-columns:1fr;gap:16px;max-width:920px}
+}
+
 @media(max-width:768px){
   .hero{padding:60px 0 40px !important}
   .hero h1.hero-title-light{font-size:1.9rem !important;line-height:1.2 !important}
@@ -184,6 +213,9 @@ SavingsClub
 <h1 class="hero-title-light">Finance Made <span style="color:#10B981">Simpler.</span></h1>
 <p class="hero-subtitle-light">Try our most-used calculator instantly. No signup, no paywall.</p>
 </div>
+
+<!-- CALCULATOR + TODAY'S RATES GRID -->
+<div class="hero-content-grid">
 
 <div class="hero-calc-card">
 <div class="hero-calc-form">
@@ -244,6 +276,27 @@ SavingsClub
 
 <a href="savings-calculator/" class="hcr-btn">See Full Calculator with Charts →</a>
 </div>
+</div>
+
+<!-- TODAY'S RATES PANEL (Placeholder for FRED API) -->
+<aside class="rates-card">
+<div class="rates-title-row">
+<h3 class="rates-title">📊 Today's Rates</h3>
+<span class="rates-badge">Sample</span>
+</div>
+<p class="rates-source">Federal Reserve Bank of St. Louis</p>
+<div class="rates-list">
+<div class="rate-item"><span class="rate-label">Fed Funds Rate</span><span class="rate-value">4.50%</span></div>
+<div class="rate-item"><span class="rate-label">30-Year Mortgage</span><span class="rate-value">6.85%</span></div>
+<div class="rate-item"><span class="rate-label">Inflation (CPI)</span><span class="rate-value">3.10%</span></div>
+<div class="rate-item"><span class="rate-label">Personal Savings Rate</span><span class="rate-value">4.20%</span></div>
+</div>
+<div class="rates-footer">
+<span>ⓘ</span>
+<span>Sample data shown for demonstration. Live Federal Reserve (FRED) integration coming soon — rates will update automatically each day.</span>
+</div>
+</aside>
+
 </div>
 
 <div class="stats-bar-light">
@@ -586,6 +639,45 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
 })();
 </script>
 
+<!-- FRED RATES LOADER (replaces sample data with live data from data/rates.json) -->
+<script>
+(function loadFredRates(){
+  fetch('/data/rates.json',{cache:'no-store'})
+    .then(function(res){if(!res.ok)throw new Error('rates.json not found');return res.json();})
+    .then(function(data){
+      if(!data||!data.rates)return;
+      var seriesOrder=['fedFundsRate','mortgage30','inflation','personalSavings'];
+      var rateItems=document.querySelectorAll('.rates-list .rate-value');
+      var updatedCount=0;
+      seriesOrder.forEach(function(key,i){
+        if(data.rates[key]&&data.rates[key].value&&rateItems[i]){
+          rateItems[i].textContent=data.rates[key].value+'%';
+          updatedCount++;
+        }
+      });
+      if(updatedCount===0)return;
+      // Change "Sample" badge to "Live"
+      var badge=document.querySelector('.rates-badge');
+      if(badge){
+        badge.textContent='Live';
+        badge.style.background='#D1FAE5';
+        badge.style.color='#059669';
+      }
+      // Update footer disclaimer with last-updated date
+      var footer=document.querySelector('.rates-footer');
+      if(footer&&data.updated){
+        var d=new Date(data.updated);
+        var dateStr=d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+        footer.innerHTML='<span style="color:#10B981;font-weight:700;flex-shrink:0;font-size:.85rem;line-height:1.1">✓</span><span>Live data from Federal Reserve Bank of St. Louis. Updated daily. Last refresh: '+dateStr+'.</span>';
+      }
+    })
+    .catch(function(err){
+      // rates.json doesn't exist yet OR fetch failed — keep sample data visible
+      console.log('FRED rates not available yet:',err.message);
+    });
+})();
+</script>
+
 <!-- DYNAMIC BLOG LOADER -->
 <script>
 (function loadHomeBlog(){
@@ -623,10 +715,17 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
         var cat=(p.category||'General').toString();
         var colors=catColors[cat.toLowerCase()]||defaultColor;
         var excerpt=p.excerpt||p.description||p.summary||'';
-        html+='<a href="blog/'+slug+'/" class="blog-preview reveal stagger-'+(i+1)+'">';
+        var image=p.image||p.imageUrl||p.featuredImage||p.thumbnail||'';
+        var hasImg=image && image.length>0;
+        html+='<a href="blog/'+slug+'/" class="blog-preview reveal stagger-'+(i+1)+(hasImg?' has-image':'')+'">';
+        if(hasImg){
+          html+='<div class="bp-img-wrap"><img src="'+image+'" alt="" loading="lazy" onerror="this.parentNode.style.display=\'none\'"></div>';
+          html+='<div class="bp-content">';
+        }
         html+='<div class="bp-cat" style="background:'+colors.bg+';color:'+colors.c+'">'+cat+'</div>';
         html+='<h3>'+(p.title||'Untitled')+'</h3>';
         if(excerpt)html+='<p>'+excerpt+'</p>';
+        if(hasImg)html+='</div>';
         html+='</a>';
       });
       if(!html){if(section)section.style.display='none';return;}
