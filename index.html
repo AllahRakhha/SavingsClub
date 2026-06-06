@@ -1,783 +1,185 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SavingsClub Free Financial Calculators for Every American</title>
-<meta name="description" content="Free financial calculators, credit card comparisons, budgeting tools, and educational guides. 17 calculators for Americans across all 50 states.">
-<link rel="canonical" href="https://savingsclub.com/">
-<meta property="og:title" content="SavingsClub — Free Financial Calculators for Every American">
-<meta property="og:description" content="Free financial calculators, credit card comparisons, budgeting tools, and educational guides. 17 calculators for Americans across all 50 states.">
-<meta property="og:url" content="https://savingsclub.com/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="SavingsClub">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"SavingsClub","url":"https://savingsclub.com","description":"Free financial calculators and educational guides for Americans across all 50 states."}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are these calculators really free?","acceptedAnswer":{"@type":"Answer","text":"Yes — completely free. No signup, no email required, no premium tier. All 17 calculators on SavingsClub are 100% free to use as many times as you need."}},{"@type":"Question","name":"Is my financial data saved or shared?","acceptedAnswer":{"@type":"Answer","text":"No. Everything you enter stays in your browser. We don't store, save, or transmit your financial data anywhere. Close the tab and the numbers are gone."}},{"@type":"Question","name":"How accurate are these calculators?","acceptedAnswer":{"@type":"Answer","text":"Our calculators use standard financial formulas. Results are estimates intended for educational planning. For major financial decisions, always consult a licensed financial advisor."}},{"@type":"Question","name":"Why don't you require a signup?","acceptedAnswer":{"@type":"Answer","text":"Because financial tools should be accessible to everyone. We make money through affiliate partnerships, not by collecting or selling your data."}},{"@type":"Question","name":"Who creates the content and calculators?","acceptedAnswer":{"@type":"Answer","text":"SavingsClub Research Team — humans using AI tools to research and produce educational content, with review before publication. We are not licensed financial advisors and we disclose this clearly."}},{"@type":"Question","name":"How often is the content updated?","acceptedAnswer":{"@type":"Answer","text":"We publish new blog content three times per week — Monday, Wednesday, and Friday. Calculators are reviewed regularly to ensure formulas and default rates stay current."}}]}</script>
-<link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
-<link rel="icon" type="image/png" sizes="192x192" href="/img/sc-favicon.png?v=2">
-<link rel="apple-touch-icon" sizes="180x180" href="/img/sc-favicon.png?v=2">
-<link rel="shortcut icon" href="/img/sc-favicon.png?v=2">
-<link rel="stylesheet" href="css/style.css">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-<meta property="og:image" content="https://savingsclub.com/img/savings-jar.jpg">
-<meta name="twitter:card" content="summary_large_image">
+// fetch-fred-rates.js
+// Fetches current rates + 12-month history from Federal Reserve (FRED) API
+// Saves to data/rates.json
+// Runs daily via GitHub Actions
 
-<style>
-/* LIGHT HERO OVERRIDE */
-.hero{background:linear-gradient(180deg,#FFFFFF 0%,#F8FAFC 60%,#F1F5F9 100%) !important;padding:90px 0 60px !important;color:#0A1628}
-.hero .hero-grid,.hero .hero-glow,.hero .hero-shapes{display:none !important}
+const fs = require('fs');
+const path = require('path');
+const https = require('https');
 
-.hero-intro{text-align:center;max-width:720px;margin:0 auto 28px;position:relative;z-index:2}
-.hero-badge-light{display:inline-block;background:#ECFDF5;color:#059669;padding:6px 16px;border-radius:50px;font-size:.82rem;font-weight:700;border:1px solid rgba(5,150,105,.2);margin-bottom:18px;letter-spacing:.02em}
-
-/* CRITICAL: override style.css gradient text rules for h1 on light bg */
-.hero h1.hero-title-light{
-  font-size:2.4rem !important;
-  font-weight:800 !important;
-  color:#0A1628 !important;
-  margin:0 0 14px !important;
-  letter-spacing:-.025em !important;
-  line-height:1.15 !important;
-  font-family:'Plus Jakarta Sans',sans-serif !important;
-  background:none !important;
-  background-image:none !important;
-  -webkit-background-clip:initial !important;
-  background-clip:initial !important;
-  -webkit-text-fill-color:#0A1628 !important;
-  text-fill-color:#0A1628 !important;
-  text-shadow:none !important;
-  display:block !important;
-  filter:none !important;
-}
-.hero h1.hero-title-light span{
-  color:#10B981 !important;
-  background:none !important;
-  background-image:none !important;
-  -webkit-background-clip:initial !important;
-  background-clip:initial !important;
-  -webkit-text-fill-color:#10B981 !important;
-  text-fill-color:#10B981 !important;
-}
-.hero-subtitle-light{color:#64748B;font-size:1.1rem;margin-bottom:0;line-height:1.5}
-
-/* CALCULATOR CARD */
-.hero-calc-card{background:#FFFFFF;border:1px solid #E2E8F0;border-radius:24px;display:grid;grid-template-columns:1fr 1fr;box-shadow:0 20px 50px rgba(10,22,40,.08);overflow:hidden}
-
-/* 2-COLUMN HERO GRID (Calculator + Rates Panel) */
-.hero-content-grid{display:grid;grid-template-columns:1.7fr 1fr;gap:20px;max-width:1200px;margin:0 auto 40px;align-items:stretch}
-.hero-content-grid > *{min-width:0}
-
-/* TODAY'S RATES PANEL */
-.rates-card{background:#FFFFFF;border:1px solid #E2E8F0;border-radius:24px;padding:26px 28px;box-shadow:0 20px 50px rgba(10,22,40,.08);display:flex;flex-direction:column}
-.rates-title-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;gap:8px}
-.rates-title{font-size:1.05rem;font-weight:700;color:#0A1628;margin:0;font-family:'Plus Jakarta Sans',sans-serif;display:flex;align-items:center;gap:6px}
-.rates-badge{font-size:.62rem;background:#FEF3C7;color:#92400E;padding:3px 9px;border-radius:50px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;flex-shrink:0}
-.rates-source{font-size:.78rem;color:#94A3B8;margin:0 0 18px;font-weight:500}
-.rates-list{flex:1;border-top:1px solid #F1F5F9}
-.rate-item{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid #F1F5F9}
-.rate-item:last-child{border-bottom:none}
-.rate-label{font-size:.88rem;color:#475569;font-weight:600;line-height:1.3}
-.rate-value{font-size:1.2rem;font-weight:800;color:#059669;font-family:'Plus Jakarta Sans',sans-serif;flex-shrink:0}
-.rates-footer{margin-top:14px;padding-top:14px;border-top:1px solid #F1F5F9;font-size:.7rem;color:#94A3B8;line-height:1.55;display:flex;align-items:flex-start;gap:8px}
-.rates-footer span:first-child{color:#10B981;font-weight:700;flex-shrink:0;font-size:.85rem;line-height:1.1}
-.hero-calc-form{padding:32px}
-.hero-calc-form h3{font-size:1.35rem;font-weight:700;color:#0A1628;margin:0 0 4px}
-.hero-calc-form-sub{color:#64748B;font-size:.85rem;margin:0 0 20px}
-.hcc-row{margin-bottom:16px}
-.hcc-row:last-child{margin-bottom:0}
-.hcc-row label{display:block;font-size:.82rem;font-weight:600;color:#475569;margin-bottom:6px}
-.hcc-input-wrap{position:relative}
-.hcc-row input{width:100%;padding:12px 16px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:1rem;font-family:inherit;outline:none;transition:border-color .2s,box-shadow .2s;box-sizing:border-box;color:#0F172A;font-weight:600;background:#F8FAFC}
-.hcc-row input:focus{border-color:#059669;box-shadow:0 0 0 3px rgba(5,150,105,.12);background:#fff}
-.hcc-prefix,.hcc-suffix{position:absolute;top:50%;transform:translateY(-50%);color:#94A3B8;font-weight:600;font-size:.95rem;pointer-events:none}
-.hcc-prefix{left:14px}
-.hcc-suffix{right:16px}
-.hcc-input-wrap input[type="number"]{padding-left:28px}
-.hcc-input-wrap input[id="heroAPY"]{padding-left:16px;padding-right:32px}
-
-.hero-calc-result{background:linear-gradient(135deg,#F0FDF4 0%,#ECFDF5 50%,#D1FAE5 100%);padding:32px;display:flex;flex-direction:column;justify-content:center}
-.hcr-label{font-size:.75rem;color:#059669;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
-.hcr-amount{font-size:2.75rem;font-weight:800;color:#0A1628;margin:0 0 20px;letter-spacing:-.02em;line-height:1}
-.hcr-breakdown{margin-bottom:24px;padding-top:16px;border-top:1px solid rgba(5,150,105,.15)}
-.hcr-item{font-size:.85rem;color:#475569;margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.hcr-item:last-child{margin-bottom:0}
-.hcr-item span:nth-child(2){flex:1}
-.hcr-item strong{color:#0A1628;font-weight:700}
-.hcr-dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0}
-.hcr-btn{display:inline-block;width:100%;text-align:center;margin-top:8px;background:linear-gradient(135deg,#059669,#10B981);color:#fff;padding:13px 24px;border-radius:50px;text-decoration:none;font-weight:600;font-size:.92rem;box-shadow:0 4px 15px rgba(5,150,105,.3);transition:transform .2s,box-shadow .2s;box-sizing:border-box}
-.hcr-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(5,150,105,.4)}
-
-/* STATS BAR LIGHT */
-.stats-bar-light{display:flex;justify-content:space-around;flex-wrap:wrap;gap:20px;padding:24px;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:20px;max-width:920px;margin:0 auto;box-shadow:0 4px 20px rgba(10,22,40,.04)}
-.stats-bar-light .stat{text-align:center;flex:1;min-width:120px}
-.stats-bar-light .stat-num{font-size:1.8rem;font-weight:800;color:#059669;line-height:1;font-family:'Plus Jakarta Sans',sans-serif}
-.stats-bar-light .stat-label{font-size:.78rem;color:#64748B;font-weight:600;margin-top:4px}
-
-/* TRY ANOTHER CALCULATOR PILLS */
-.try-calc-section{padding:50px 0;background:#FFFFFF}
-.try-calc-header{text-align:center;margin-bottom:24px}
-.try-calc-header p{color:#64748B;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin:0}
-.try-calc-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:960px;margin:0 auto;padding:0 16px}
-.try-calc-pill{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:#F8FAFC;border:1.5px solid #E2E8F0;border-radius:50px;color:#0F172A;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .2s;font-family:inherit}
-.try-calc-pill:hover{border-color:#10B981;background:#F0FDF4;color:#059669;transform:translateY(-2px);box-shadow:0 4px 12px rgba(5,150,105,.15)}
-
-/* GOAL-BASED CARDS */
-.goal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1100px;margin:0 auto}
-.goal-card{background:#FFFFFF;border:1px solid #E2E8F0;border-radius:20px;padding:28px;text-decoration:none;color:inherit;transition:all .3s;display:flex;flex-direction:column;position:relative;overflow:hidden}
-.goal-card:hover{border-color:#10B981;transform:translateY(-4px);box-shadow:0 20px 40px rgba(10,22,40,.08)}
-.goal-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#059669,#10B981,#34D399);opacity:0;transition:opacity .3s}
-.goal-card:hover::before{opacity:1}
-.goal-icon{font-size:2.4rem;margin-bottom:14px;display:block;line-height:1}
-.goal-card h3{font-size:1.15rem;font-weight:700;color:#0A1628;margin:0 0 8px;font-family:'Plus Jakarta Sans',sans-serif}
-.goal-card p{color:#64748B;font-size:.92rem;margin:0 0 14px;flex:1;line-height:1.6}
-.goal-tools{font-size:.78rem;color:#059669;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-top:auto}
-
-/* FAQ */
-.faq-list{max-width:820px;margin:0 auto}
-.faq-item{background:#FFFFFF;border:1px solid #E2E8F0;border-radius:14px;margin-bottom:12px;overflow:hidden;transition:border-color .2s}
-.faq-item:hover{border-color:#CBD5E1}
-.faq-item[open]{border-color:#10B981}
-.faq-item summary{padding:20px 24px;font-weight:700;color:#0A1628;font-size:1.02rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Plus Jakarta Sans',sans-serif;gap:16px}
-.faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{content:"+";font-size:1.5rem;font-weight:300;color:#10B981;flex-shrink:0;line-height:1}
-.faq-item[open] summary::after{content:"−"}
-.faq-item[open] summary{border-bottom:1px solid #F1F5F9}
-.faq-item div.faq-body{padding:18px 24px 22px;color:#475569;line-height:1.7;margin:0;font-size:.95rem}
-
-/* Blog cards with images (dynamic) */
-.blog-preview.has-image{padding:0 !important;overflow:hidden !important;display:flex !important;flex-direction:column !important;text-decoration:none}
-.blog-preview.has-image .bp-img-wrap{width:100%;height:180px;overflow:hidden;background:#F1F5F9;position:relative}
-.blog-preview.has-image .bp-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
-.blog-preview.has-image:hover .bp-img-wrap img{transform:scale(1.05)}
-.blog-preview.has-image .bp-content{padding:20px 24px 24px}
-
-@media(max-width:1024px){
-  .hero-content-grid{grid-template-columns:1fr;gap:16px;max-width:920px}
+const API_KEY_RAW = process.env.FRED_API_KEY;
+if (!API_KEY_RAW) {
+  console.error('ERROR: FRED_API_KEY environment variable not set');
+  console.error('Make sure the secret is named exactly "FRED_API_KEY" in GitHub Settings > Secrets and variables > Actions');
+  process.exit(1);
 }
 
-@media(max-width:768px){
-  .hero{padding:60px 0 40px !important}
-  .hero h1.hero-title-light{font-size:1.9rem !important;line-height:1.2 !important}
-  .hero-subtitle-light{font-size:1rem}
-  .hero-calc-card{grid-template-columns:1fr;max-width:100%}
-  .hero-calc-form,.hero-calc-result{padding:24px}
-  .hcr-amount{font-size:2.25rem}
-  .stats-bar-light{padding:20px 12px;gap:12px}
-  .stats-bar-light .stat-num{font-size:1.4rem}
-  .stats-bar-light .stat-label{font-size:.7rem}
-  .goal-card{padding:22px}
-  .faq-item summary{padding:16px 18px;font-size:.95rem}
-  .faq-item div.faq-body{padding:14px 18px 18px;font-size:.9rem}
+// Auto-clean common copy/paste mistakes (whitespace, quotes, line breaks)
+const API_KEY = API_KEY_RAW.trim().replace(/^["'`]+|["'`]+$/g, '').replace(/\s/g, '');
+
+console.log('=== API KEY DIAGNOSTIC ===');
+console.log('Raw length (before cleaning):    ' + API_KEY_RAW.length);
+console.log('Cleaned length:                  ' + API_KEY.length + '  (must be exactly 32)');
+console.log('Format check:                    ' + (/^[a-z0-9]{32}$/.test(API_KEY) ? 'PASS ✓' : 'FAIL ✗'));
+console.log('');
+
+if (API_KEY.length !== 32 || !/^[a-z0-9]+$/.test(API_KEY)) {
+  console.error('ERROR: API key invalid. Must be 32 lowercase alphanumeric characters.');
+  console.error('Get a valid key at: https://fredaccount.stlouisfed.org/apikeys');
+  process.exit(1);
 }
-</style>
-</head>
-<body>
 
-<nav id="mainNav">
-<div class="nav-inner">
-<div class="logo" onclick="window.location='/';">
-<img src="img/sc-icon.png" alt="SavingsClub" style="height:34px;width:34px;vertical-align:middle;background:transparent;border:none;mix-blend-mode:multiply">
-SavingsClub
-</div>
-<div class="nav-links" id="navLinks">
-<a href="/" class="active">Home</a>
-<a href="savings-calculator/">Calculators</a>
-<a href="credit-cards/">Credit Cards</a>
-<a href="blog/">Blog</a>
-<a href="banking/">Banking</a>
-</div>
-<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
-</div>
-</nav>
+console.log('✓ API key format valid. Fetching FRED data with 12-month history...');
+console.log('');
 
-<div class="mobile-menu" id="mobileMenu">
-<a href="/">Home</a>
-<a href="savings-calculator/">Savings</a>
-<a href="budget-planner/">Budget</a>
-<a href="mortgage-calculator/">Mortgage</a>
-<a href="401k-calculator/">401(k)</a>
-<a href="paycheck-calculator/">Paycheck</a>
-<a href="credit-cards/">Credit Cards</a>
-<a href="blog/">Blog</a>
-<a href="banking/">Banking</a>
-</div>
+const BASE_URL = 'https://api.stlouisfed.org/fred/series/observations';
 
-<!-- LIGHT HERO WITH WORKING CALCULATOR -->
-<section class="hero">
-<div class="container">
-<div class="hero-intro">
-<div class="hero-badge-light">✦ Free Calculators for Every American</div>
-<h1 class="hero-title-light">Finance Made <span style="color:#10B981">Simpler.</span></h1>
-<p class="hero-subtitle-light">Try our most-used calculator instantly. No signup, no paywall.</p>
-</div>
-
-<!-- CALCULATOR + TODAY'S RATES GRID -->
-<div class="hero-content-grid">
-
-<div class="hero-calc-card">
-<div class="hero-calc-form">
-<h3>Savings Calculator</h3>
-<p class="hero-calc-form-sub">See how much your money can grow over time</p>
-
-<div class="hcc-row">
-<label for="heroInitial">Initial deposit</label>
-<div class="hcc-input-wrap">
-<span class="hcc-prefix">$</span>
-<input type="number" id="heroInitial" value="10000" min="0" max="10000000" inputmode="numeric">
-</div>
-</div>
-
-<div class="hcc-row">
-<label for="heroMonthly">Monthly contribution</label>
-<div class="hcc-input-wrap">
-<span class="hcc-prefix">$</span>
-<input type="number" id="heroMonthly" value="200" min="0" max="100000" inputmode="numeric">
-</div>
-</div>
-
-<div class="hcc-row">
-<label for="heroYears">Period (years)</label>
-<input type="number" id="heroYears" value="10" min="1" max="50" inputmode="numeric">
-</div>
-
-<div class="hcc-row">
-<label for="heroAPY">APY (%)</label>
-<div class="hcc-input-wrap">
-<input type="number" id="heroAPY" value="4.5" min="0" max="20" step="0.01" inputmode="decimal">
-<span class="hcc-suffix">%</span>
-</div>
-</div>
-</div>
-
-<div class="hero-calc-result">
-<div class="hcr-label">Your total savings</div>
-<div class="hcr-amount" id="heroTotal">$45,663</div>
-
-<div class="hcr-breakdown">
-<div class="hcr-item">
-<span class="hcr-dot" style="background:#3B82F6"></span>
-<span>Initial deposit</span>
-<strong id="heroPrincipalDisplay">$10,000</strong>
-</div>
-<div class="hcr-item">
-<span class="hcr-dot" style="background:#10B981"></span>
-<span>Total contributions</span>
-<strong id="heroContribDisplay">$24,000</strong>
-</div>
-<div class="hcr-item">
-<span class="hcr-dot" style="background:#FCD34D"></span>
-<span>Interest earned</span>
-<strong id="heroInterestDisplay">$11,663</strong>
-</div>
-</div>
-
-<a href="savings-calculator/" class="hcr-btn">See Full Calculator with Charts →</a>
-</div>
-</div>
-
-<!-- TODAY'S RATES PANEL (Placeholder for FRED API) -->
-<aside class="rates-card">
-<div class="rates-title-row">
-<h3 class="rates-title">📊 Today's Rates</h3>
-<span class="rates-badge">Sample</span>
-</div>
-<p class="rates-source">Federal Reserve Bank of St. Louis</p>
-<div class="rates-list">
-<div class="rate-item"><span class="rate-label">Fed Funds Rate</span><span class="rate-value">4.50%</span></div>
-<div class="rate-item"><span class="rate-label">30-Year Mortgage</span><span class="rate-value">6.85%</span></div>
-<div class="rate-item"><span class="rate-label">Inflation (CPI)</span><span class="rate-value">3.10%</span></div>
-<div class="rate-item"><span class="rate-label">Personal Savings Rate</span><span class="rate-value">4.20%</span></div>
-</div>
-<div class="rates-footer">
-<span>ⓘ</span>
-<span>Sample data shown for demonstration. Live Federal Reserve (FRED) integration coming soon — rates will update automatically each day.</span>
-</div>
-</aside>
-
-</div>
-
-<div class="stats-bar-light">
-<div class="stat"><div class="stat-num">17</div><div class="stat-label">Free Calculators</div></div>
-<div class="stat"><div class="stat-num">50</div><div class="stat-label">States Covered</div></div>
-<div class="stat"><div class="stat-num">20+</div><div class="stat-label">Personal Finance Guides</div></div>
-<div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free</div></div>
-</div>
-</div>
-</section>
-
-<!-- TRY ANOTHER CALCULATOR (NEW) -->
-<section class="try-calc-section">
-<div class="container">
-<div class="try-calc-header">
-<p>Want to calculate something else?</p>
-</div>
-<div class="try-calc-row">
-<a href="mortgage-calculator/" class="try-calc-pill">🏡 Mortgage</a>
-<a href="compound-interest-calculator/" class="try-calc-pill">📈 Compound Interest</a>
-<a href="401k-calculator/" class="try-calc-pill">🏦 401(k)</a>
-<a href="retirement-calculator/" class="try-calc-pill">🌴 Retirement</a>
-<a href="debt-payoff-calculator/" class="try-calc-pill">🔥 Debt Payoff</a>
-<a href="budget-planner/" class="try-calc-pill">📊 Budget</a>
-<a href="investment-calculator/" class="try-calc-pill">💎 Investment</a>
-<a href="paycheck-calculator/" class="try-calc-pill">💵 Paycheck</a>
-</div>
-</div>
-</section>
-
-<!-- VISUAL INTRO -->
-<section class="section" style="padding:60px 0"><div class="container">
-<div class="dark-feature" style="background:none">
-<div>
-<img src="img/savings-jar.jpg" alt="Smart savings strategy" class="premium-img" style="width:100%;height:320px;object-fit:cover" loading="lazy">
-</div>
-<div class="dark-feature-text" style="color:var(--text)">
-<h2 style="color:var(--navy);font-size:1.8rem">Take Control of Your Financial Future</h2>
-<p style="color:var(--text-light)">Whether you're saving for your first home, paying off debt, or planning retirement, SavingsClub gives you free tools and clear educational guidance to help you make confident money decisions. No financial advisor needed. No fees. Just clear numbers and accessible explanations.</p>
-<a href="savings-calculator/" class="btn btn-primary">Start Calculating →</a>
-</div>
-</div>
-</div></section>
-
-<!-- WHAT ARE YOU SAVING FOR? (NEW) -->
-<section class="section section-gray"><div class="container">
-<div class="section-header reveal"><h2>What Are You Saving For?</h2><p>Pick your goal — we'll guide you to the right calculator.</p></div>
-<div class="goal-grid">
-<a href="mortgage-calculator/" class="goal-card reveal stagger-1">
-<span class="goal-icon">🏡</span>
-<h3>Buying a Home</h3>
-<p>Plan your mortgage payments, calculate down payment, and see monthly housing costs.</p>
-<span class="goal-tools">Mortgage + Savings</span>
-</a>
-<a href="emergency-fund-calculator/" class="goal-card reveal stagger-2">
-<span class="goal-icon">🛡️</span>
-<h3>Emergency Fund</h3>
-<p>Figure out how much you need for unexpected expenses and how long it takes to build it.</p>
-<span class="goal-tools">Emergency Fund + Savings</span>
-</a>
-<a href="retirement-calculator/" class="goal-card reveal stagger-3">
-<span class="goal-icon">🌴</span>
-<h3>Retirement</h3>
-<p>Project retirement savings and optimize your 401k and IRA contributions.</p>
-<span class="goal-tools">Retirement + 401k + IRA</span>
-</a>
-<a href="debt-payoff-calculator/" class="goal-card reveal stagger-4">
-<span class="goal-icon">🔥</span>
-<h3>Paying Off Debt</h3>
-<p>See payoff timelines for credit cards, student loans, and other personal debt.</p>
-<span class="goal-tools">Debt Payoff + CC Payoff</span>
-</a>
-<a href="compound-interest-calculator/" class="goal-card reveal stagger-5">
-<span class="goal-icon">📈</span>
-<h3>Growing Wealth</h3>
-<p>See how compound interest builds wealth over time and explore investment scenarios.</p>
-<span class="goal-tools">Compound Interest + Investment</span>
-</a>
-<a href="budget-planner/" class="goal-card reveal stagger-6">
-<span class="goal-icon">💵</span>
-<h3>Managing Income</h3>
-<p>Build a monthly budget, calculate take-home pay, and plan spending intelligently.</p>
-<span class="goal-tools">Budget + Paycheck</span>
-</a>
-</div>
-</div></section>
-
-<!-- POPULAR CALCULATORS -->
-<section class="section section-blue"><div class="container">
-<div class="section-header reveal"><h2>Popular Calculators</h2><p>Jump straight to our most-used tools.</p></div>
-<div class="quick-row">
-<a href="savings-calculator/" class="quick-link reveal stagger-1"><div class="ql-icon" style="background:linear-gradient(135deg,#2563EB,#3B82F6)">💰</div>Savings</a>
-<a href="mortgage-calculator/" class="quick-link reveal stagger-2"><div class="ql-icon" style="background:linear-gradient(135deg,#15803D,#22C55E)">🏡</div>Mortgage</a>
-<a href="401k-calculator/" class="quick-link reveal stagger-3"><div class="ql-icon" style="background:linear-gradient(135deg,#0369A1,#0EA5E9)">🏦</div>401(k)</a>
-<a href="paycheck-calculator/" class="quick-link reveal stagger-4"><div class="ql-icon" style="background:linear-gradient(135deg,#166534,#16A34A)">💵</div>Take-Home Pay</a>
-<a href="debt-payoff-calculator/" class="quick-link reveal stagger-5"><div class="ql-icon" style="background:linear-gradient(135deg,#DC2626,#EF4444)">🔥</div>Debt Payoff</a>
-<a href="retirement-calculator/" class="quick-link reveal stagger-6"><div class="ql-icon" style="background:linear-gradient(135deg,#D97706,#F59E0B)">🏠</div>Retirement</a>
-<a href="compound-interest-calculator/" class="quick-link reveal stagger-1"><div class="ql-icon" style="background:linear-gradient(135deg,#7C3AED,#8B5CF6)">📈</div>Compound Interest</a>
-<a href="budget-planner/" class="quick-link reveal stagger-2"><div class="ql-icon" style="background:linear-gradient(135deg,#059669,#10B981)">📊</div>Budget Planner</a>
-</div>
-</div></section>
-
-<!-- ALL CALCULATORS -->
-<section class="section"><div class="container">
-<div class="section-header reveal"><div class="accent-line-sm"></div><h2>All 17 Free Financial Calculators</h2><p>Everything you need to make smarter money decisions no signup required.</p></div>
-
-<div class="tools-grid">
-<a href="savings-calculator/" class="card card-glow tool-card reveal stagger-1" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#2563EB,#3B82F6)">💰</div><h3>Savings</h3><p>Free savings calculator.</p></a>
-<a href="budget-planner/" class="card card-glow tool-card reveal stagger-2" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#059669,#10B981)">📊</div><h3>Budget</h3><p>Free budget planner.</p></a>
-<a href="debt-payoff-calculator/" class="card card-glow tool-card reveal stagger-3" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#DC2626,#EF4444)">🔥</div><h3>Debt Payoff</h3><p>Free debt payoff calculator.</p></a>
-<a href="compound-interest-calculator/" class="card card-glow tool-card reveal stagger-4" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#7C3AED,#8B5CF6)">📈</div><h3>Compound Interest</h3><p>Free compound interest calculator.</p></a>
-<a href="retirement-calculator/" class="card card-glow tool-card reveal stagger-5" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#D97706,#F59E0B)">🏠</div><h3>Retirement</h3><p>Free retirement calculator.</p></a>
-<a href="investment-calculator/" class="card card-glow tool-card reveal stagger-6" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#0891B2,#06B6D4)">💎</div><h3>Investment</h3><p>Free investment calculator.</p></a>
-<a href="mortgage-calculator/" class="card card-glow tool-card reveal stagger-1" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#15803D,#22C55E)">🏡</div><h3>Mortgage</h3><p>Free mortgage calculator.</p></a>
-<a href="auto-loan-calculator/" class="card card-glow tool-card reveal stagger-2" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#9333EA,#A855F7)">🚗</div><h3>Auto Loan</h3><p>Free auto loan calculator.</p></a>
-<a href="net-worth-calculator/" class="card card-glow tool-card reveal stagger-3" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#1D4ED8,#60A5FA)">💳</div><h3>Net Worth</h3><p>Free net worth calculator.</p></a>
-<a href="emergency-fund-calculator/" class="card card-glow tool-card reveal stagger-4" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#B91C1C,#F87171)">🛡️</div><h3>Emergency Fund</h3><p>Free emergency fund calculator.</p></a>
-<a href="credit-card-payoff-calculator/" class="card card-glow tool-card reveal stagger-5" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#BE185D,#F472B6)">💳</div><h3>CC Payoff</h3><p>Free cc payoff calculator.</p></a>
-<a href="401k-calculator/" class="card card-glow tool-card reveal stagger-6" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#0369A1,#0EA5E9)">🏦</div><h3>401(k)</h3><p>Free 401(k) calculator.</p></a>
-<a href="roth-ira-calculator/" class="card card-glow tool-card reveal stagger-1" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#4338CA,#6366F1)">📋</div><h3>Roth IRA</h3><p>Free roth ira calculator.</p></a>
-<a href="inflation-calculator/" class="card card-glow tool-card reveal stagger-2" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#92400E,#F59E0B)">📉</div><h3>Inflation</h3><p>Free inflation calculator.</p></a>
-<a href="loan-payoff-calculator/" class="card card-glow tool-card reveal stagger-3" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#7C2D12,#EA580C)">🎯</div><h3>Loan Payoff</h3><p>Free loan payoff calculator.</p></a>
-<a href="paycheck-calculator/" class="card card-glow tool-card reveal stagger-4" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#166534,#16A34A)">💵</div><h3>Take-Home Pay</h3><p>Free paycheck calculator.</p></a>
-<a href="cd-calculator/" class="card card-glow tool-card reveal stagger-5" style="text-decoration:none">
-<div class="icon-wrap" style="background:linear-gradient(135deg,#581C87,#9333EA)">🔐</div><h3>CD Calculator</h3><p>Free cd calculator.</p></a>
-</div>
-</div></section>
-
-<!-- WHY SAVINGSCLUB -->
-<section class="section section-dark"><div class="container">
-<div class="section-header reveal"><h2>Why Choose SavingsClub</h2><p>Built different from day one.</p></div>
-<div class="grid-3">
-<div class="feature-card card reveal stagger-1">
-<div class="feature-icon" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">🔓</div>
-<h3>100% Free, No Signup</h3>
-<p>Every calculator and guide is completely free. No account needed, no email required, no paywalls. Your data stays in your browser we never see it.</p>
-</div>
-<div class="feature-card card reveal stagger-2">
-<div class="feature-icon" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5)">📝</div>
-<h3>Clear, Accessible Guides</h3>
-<p>We publish new educational guides three times a week researched and produced with the help of modern AI tools, then reviewed before publication. Plain-English explanations for real American households.</p>
-</div>
-<div class="feature-card card reveal stagger-3">
-<div class="feature-icon" style="background:linear-gradient(135deg,#FFFBEB,#FEF3C7)">⚖️</div>
-<h3>Disclosures</h3>
-<p>We're transparent about how content is created, which partnerships we have, and what we don't know. Clear disclosures on every page no hidden pitches, no fake expertise claims.</p>
-</div>
-</div>
-</div></section>
-
-<!-- TRUST STRIP -->
-<section class="section trust-dark"><div class="container">
-<div class="trust-strip reveal">
-<div class="trust-item"><div class="ti-icon" style="background:var(--blue-pale)">🔒</div>Data stays in your browser</div>
-<div class="trust-item"><div class="ti-icon" style="background:var(--green-pale)">✅</div>No paywalls or signups</div>
-<div class="trust-item"><div class="ti-icon" style="background:var(--gold-pale)">📊</div>Updated regularly</div>
-<div class="trust-item"><div class="ti-icon" style="background:#F5F3FF">🇺🇸</div>All 50 states</div>
-</div>
-</div></section>
-
-<!-- BANKING CTA -->
-<section class="section section-dark" style="padding:80px 0"><div class="container">
-<div class="dark-feature">
-<div class="dark-feature-text">
-<h2>Compare Banking and Credit Card Options</h2>
-<p>Read our plain-English educational guides on choosing checking accounts, high-yield savings, and credit cards. What to look for, what to avoid, and how FDIC insurance actually protects you.</p>
-<div style="display:flex;gap:12px;flex-wrap:wrap">
-<a href="banking/" class="btn btn-primary">Explore Banking →</a>
-<a href="credit-cards/" class="btn btn-hero-outline">Compare Credit Cards</a>
-</div>
-</div>
-<div>
-<img src="img/credit-card.jpg" alt="Smart banking and credit card choices" class="premium-img" style="width:100%;height:300px;object-fit:cover" loading="lazy">
-</div>
-</div>
-</div></section>
-
-<!-- LATEST FROM BLOG (DYNAMIC) -->
-<section class="section section-gray" id="homeBlogSection"><div class="container">
-<div class="section-header reveal"><h2>Latest from the Blog</h2><p>Fresh personal finance guides published every week.</p></div>
-<div class="grid-3" id="homeBlog">
-<!-- Cards loaded dynamically from /generated-posts.json -->
-</div>
-<div style="text-align:center;margin-top:32px" class="reveal"><a href="blog/" class="btn btn-outline">View All Articles →</a></div>
-</div></section>
-
-<!-- HOW IT WORKS -->
-<section class="section section-dark"><div class="container">
-<div class="section-header reveal"><h2>How SavingsClub Works</h2></div>
-<div class="steps">
-<div class="step reveal stagger-1"><div class="step-num">1</div><h3>Pick a Calculator</h3><p>Choose from 17 tools covering savings, debt, mortgages, retirement, taxes, and more.</p></div>
-<div class="step reveal stagger-2"><div class="step-num">2</div><h3>Enter Your Numbers</h3><p>Input your financial data — everything stays 100% private in your browser. Nothing is sent to our servers.</p></div>
-<div class="step reveal stagger-3"><div class="step-num">3</div><h3>Get Instant Results</h3><p>See projections, charts, and breakdowns with actionable next steps and related guides.</p></div>
-</div>
-</div></section>
-
-<!-- FAQ (NEW) -->
-<section class="section" style="background:#F8FAFC"><div class="container">
-<div class="section-header reveal"><h2>Frequently Asked Questions</h2><p>Quick answers to common questions about SavingsClub.</p></div>
-<div class="faq-list">
-
-<details class="faq-item">
-<summary>Are these calculators really free?</summary>
-<div class="faq-body">Yes — completely free. No signup, no email required, no premium tier. All 17 calculators on SavingsClub are 100% free to use as many times as you need.</div>
-</details>
-
-<details class="faq-item">
-<summary>Is my financial data saved or shared?</summary>
-<div class="faq-body">No. Everything you enter stays in your browser. We don't store, save, or transmit your financial data anywhere. Close the tab and the numbers are gone.</div>
-</details>
-
-<details class="faq-item">
-<summary>How accurate are these calculators?</summary>
-<div class="faq-body">Our calculators use standard financial formulas. Results are estimates intended for educational planning. For major financial decisions, always consult a licensed financial advisor.</div>
-</details>
-
-<details class="faq-item">
-<summary>Why don't you require a signup?</summary>
-<div class="faq-body">Because financial tools should be accessible to everyone. We make money through affiliate partnerships, not by collecting or selling your data.</div>
-</details>
-
-<details class="faq-item">
-<summary>Who creates the content and calculators?</summary>
-<div class="faq-body">SavingsClub Research Team — humans using AI tools to research and produce educational content, with review before publication. We are not licensed financial advisors and we disclose this clearly on every page.</div>
-</details>
-
-<details class="faq-item">
-<summary>How often is the content updated?</summary>
-<div class="faq-body">We publish new blog content three times per week — Monday, Wednesday, and Friday. Calculators are reviewed regularly to ensure formulas and default rates stay current.</div>
-</details>
-
-</div>
-</div></section>
-
-<footer>
-<div class="container">
-<div class="footer-grid">
-<div>
-<div class="footer-brand"><img src="img/sc-icon.png" alt="SavingsClub" style="height:26px;width:26px;vertical-align:middle;background:transparent;border:none">SavingsClub</div>
-<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial calculators and educational guides for Americans in every state. Making personal finance simpler since 2026.</p>
-</div>
-<div>
-<h4>Calculators</h4>
-<a href="savings-calculator/">Savings</a>
-<a href="budget-planner/">Budget Planner</a>
-<a href="mortgage-calculator/">Mortgage</a>
-<a href="debt-payoff-calculator/">Debt Payoff</a>
-<a href="retirement-calculator/">Retirement</a>
-<a href="401k-calculator/">401(k)</a>
-<a href="paycheck-calculator/">Take-Home Pay</a>
-<a href="cd-calculator/">CD Calculator</a>
-</div>
-<div>
-<h4>Resources</h4>
-<a href="blog/">Blog</a>
-<a href="credit-cards/">Credit Cards</a>
-<a href="banking/">Banking</a>
-<a href="contact/">Contact Us</a>
-<a href="about/">About Us</a>
-</div>
-<div>
-<h4>Legal</h4>
-<a href="privacy-policy/">Privacy Policy</a>
-<a href="terms-of-service/">Terms of Service</a>
-<a href="cookie-policy/">Cookie Policy</a>
-<a href="disclaimer/">Disclaimer</a>
-</div>
-</div>
-
-<div style="border-top:1px solid rgba(255,255,255,.08);padding-top:20px;margin-top:20px;margin-bottom:20px">
-<p style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.7;max-width:900px">
-<strong style="color:rgba(255,255,255,.5)">Important Disclaimer:</strong> SavingsClub provides free financial calculators and educational content for informational purposes only. We are not licensed financial advisors, tax professionals, investment advisors, or legal professionals. The information on this website should not be considered as professional financial advice, tax advice, investment advice, or legal advice. All financial decisions should be made after consulting with qualified licensed professionals. Calculator results are estimates and may not reflect actual outcomes. SavingsClub does not guarantee the accuracy, completeness, or reliability of any information provided. By using this website, you acknowledge that you are making financial decisions at your own risk. SavingsClub may receive compensation through affiliate partnerships, which does not influence which products we cover or how we describe them. Past performance of investments does not guarantee future results.
-</p>
-</div>
-
-<div class="footer-bottom">
-<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
-<p>Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
-</div>
-</div>
-</footer>
-
-<script>
-window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
-function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
-var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
-</script>
-
-<!-- HERO SAVINGS CALCULATOR -->
-<script>
-(function(){
-  var initial=document.getElementById('heroInitial');
-  var monthly=document.getElementById('heroMonthly');
-  var years=document.getElementById('heroYears');
-  var apyEl=document.getElementById('heroAPY');
-  var total=document.getElementById('heroTotal');
-  var pDisp=document.getElementById('heroPrincipalDisplay');
-  var cDisp=document.getElementById('heroContribDisplay');
-  var iDisp=document.getElementById('heroInterestDisplay');
-  if(!initial||!total)return;
-  function fmt(n){if(!isFinite(n)||n<0)n=0;return '$'+Math.round(n).toLocaleString('en-US');}
-  function calc(){
-    var P=parseFloat(initial.value)||0;
-    var PMT=parseFloat(monthly.value)||0;
-    var t=parseFloat(years.value)||0;
-    var apy=(parseFloat(apyEl.value)||0)/100;
-    var monthlyRate=apy/12;
-    var months=t*12;
-    var fvP=P*Math.pow(1+monthlyRate,months);
-    var fvC;
-    if(monthlyRate===0){fvC=PMT*months;}
-    else{fvC=PMT*((Math.pow(1+monthlyRate,months)-1)/monthlyRate);}
-    var tot=fvP+fvC;
-    var contributions=PMT*months;
-    var interest=tot-P-contributions;
-    total.textContent=fmt(tot);
-    pDisp.textContent=fmt(P);
-    cDisp.textContent=fmt(contributions);
-    iDisp.textContent=fmt(interest);
+// FRED series + their canonical FRED.org URLs (for "View →" links)
+const SERIES = {
+  fedFundsRate: {
+    id: 'FEDFUNDS',
+    label: 'Fed Funds Rate',
+    historyLimit: 12,
+    fredUrl: 'https://fred.stlouisfed.org/series/FEDFUNDS'
+  },
+  mortgage30: {
+    id: 'MORTGAGE30US',
+    label: '30-Year Mortgage',
+    historyLimit: 12,
+    fredUrl: 'https://fred.stlouisfed.org/series/MORTGAGE30US'
+  },
+  personalSavings: {
+    id: 'PSAVERT',
+    label: 'Personal Savings Rate',
+    historyLimit: 12,
+    fredUrl: 'https://fred.stlouisfed.org/series/PSAVERT'
   }
-  [initial,monthly,years,apyEl].forEach(function(el){el.addEventListener('input',calc);});
-  calc();
-})();
-</script>
-
-<!-- FRED RATES LOADER (replaces sample data with live data from data/rates.json) -->
-<script>
-(function loadFredRates(){
-  fetch('/data/rates.json',{cache:'no-store'})
-    .then(function(res){if(!res.ok)throw new Error('rates.json not found');return res.json();})
-    .then(function(data){
-      if(!data||!data.rates)return;
-      var seriesOrder=['fedFundsRate','mortgage30','inflation','personalSavings'];
-      var rateItems=document.querySelectorAll('.rates-list .rate-value');
-      var updatedCount=0;
-      seriesOrder.forEach(function(key,i){
-        if(data.rates[key]&&data.rates[key].value&&rateItems[i]){
-          rateItems[i].textContent=data.rates[key].value+'%';
-          updatedCount++;
-        }
-      });
-      if(updatedCount===0)return;
-      // Change "Sample" badge to "Live"
-      var badge=document.querySelector('.rates-badge');
-      if(badge){
-        badge.textContent='Live';
-        badge.style.background='#D1FAE5';
-        badge.style.color='#059669';
-      }
-      // Update footer disclaimer with last-updated date
-      var footer=document.querySelector('.rates-footer');
-      if(footer&&data.updated){
-        var d=new Date(data.updated);
-        var dateStr=d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-        footer.innerHTML='<span style="color:#10B981;font-weight:700;flex-shrink:0;font-size:.85rem;line-height:1.1">✓</span><span>Live data from Federal Reserve Bank of St. Louis. Updated daily. Last refresh: '+dateStr+'.</span>';
-      }
-    })
-    .catch(function(err){
-      // rates.json doesn't exist yet OR fetch failed — keep sample data visible
-      console.log('FRED rates not available yet:',err.message);
-    });
-})();
-</script>
-
-<!-- DYNAMIC BLOG LOADER -->
-<script>
-(function loadHomeBlog(){
-  var container=document.getElementById('homeBlog');
-  var section=document.getElementById('homeBlogSection');
-  if(!container)return;
-  fetch('/generated-posts.json')
-    .then(function(res){if(!res.ok)throw new Error('fetch failed');return res.json();})
-    .then(function(data){
-      var posts=Array.isArray(data)?data:(data.posts||[]);
-      if(!posts.length){if(section)section.style.display='none';return;}
-      posts.sort(function(a,b){
-        var dA=new Date(a.date||a.publishDate||a.created||0);
-        var dB=new Date(b.date||b.publishDate||b.created||0);
-        return dB-dA;
-      });
-      var catColors={
-        'savings':{bg:'#ECFDF5',c:'#059669'},
-        'budgeting':{bg:'#EFF6FF',c:'#2563EB'},
-        'budget':{bg:'#EFF6FF',c:'#2563EB'},
-        'banking':{bg:'#FFFBEB',c:'#D97706'},
-        'credit cards':{bg:'#FDF2F8',c:'#BE185D'},
-        'credit':{bg:'#FDF2F8',c:'#BE185D'},
-        'investing':{bg:'#F5F3FF',c:'#7C3AED'},
-        'investment':{bg:'#F5F3FF',c:'#7C3AED'},
-        'retirement':{bg:'#FEF3C7',c:'#92400E'},
-        'mortgage':{bg:'#ECFDF5',c:'#059669'},
-        'debt':{bg:'#FEE2E2',c:'#DC2626'}
-      };
-      var defaultColor={bg:'#F1F5F9',c:'#475569'};
-      var html='';
-      posts.slice(0,3).forEach(function(p,i){
-        var slug=p.slug||(p.url||'').replace(/^\/?blog\//,'').replace(/\/$/,'');
-        if(!slug)return;
-        var cat=(p.category||'General').toString();
-        var colors=catColors[cat.toLowerCase()]||defaultColor;
-        var excerpt=p.excerpt||p.description||p.summary||'';
-        var image=p.image||p.imageUrl||p.featuredImage||p.thumbnail||'';
-        var hasImg=image && image.length>0;
-        html+='<a href="blog/'+slug+'/" class="blog-preview reveal stagger-'+(i+1)+(hasImg?' has-image':'')+'">';
-        if(hasImg){
-          html+='<div class="bp-img-wrap"><img src="'+image+'" alt="" loading="lazy" onerror="this.parentNode.style.display=\'none\'"></div>';
-          html+='<div class="bp-content">';
-        }
-        html+='<div class="bp-cat" style="background:'+colors.bg+';color:'+colors.c+'">'+cat+'</div>';
-        html+='<h3>'+(p.title||'Untitled')+'</h3>';
-        if(excerpt)html+='<p>'+excerpt+'</p>';
-        if(hasImg)html+='</div>';
-        html+='</a>';
-      });
-      if(!html){if(section)section.style.display='none';return;}
-      container.innerHTML=html;
-      if(window.IntersectionObserver){
-        var obs=new IntersectionObserver(function(entries){
-          entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-        },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-        container.querySelectorAll('.reveal').forEach(function(c){obs.observe(c);});
-      }else{
-        container.querySelectorAll('.reveal').forEach(function(c){c.classList.add('visible');});
-      }
-    })
-    .catch(function(){if(section)section.style.display='none';});
-})();
-</script>
-
-<script>
-(function(){
-if(localStorage.getItem('sc_cookies'))return;
-var b=document.createElement('div');
-b.id='cookieBanner';
-b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
-var acceptBtn=document.createElement('button');
-acceptBtn.textContent='Accept';
-acceptBtn.style.cssText='background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
-acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
-var declineBtn=document.createElement('button');
-declineBtn.textContent='Decline';
-declineBtn.style.cssText='background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:8px;cursor:pointer';
-declineBtn.onclick=function(){
-localStorage.setItem('sc_cookies','decline');
-b.innerHTML='';
-var msg=document.createElement('span');
-msg.style.cssText='padding:12px 0;color:#10B981';
-msg.textContent='✓ No cookies stored. You can browse freely.';
-b.appendChild(msg);
-setTimeout(function(){b.remove();},2500);
 };
-var txt=document.createElement('span');
-txt.innerHTML='We use cookies to improve your experience. <a href="/cookie-policy/" style="color:#3B82F6">Cookie Policy</a>';
-var btnWrap=document.createElement('div');
-btnWrap.style.cssText='display:flex;gap:8px';
-btnWrap.appendChild(acceptBtn);
-btnWrap.appendChild(declineBtn);
-b.appendChild(txt);
-b.appendChild(btnWrap);
-document.body.appendChild(b);
-})();
-</script>
 
-<script src="js/logo-fix.js" defer></script>
-<script src="js/tips.js" defer></script>
-</body>
-</html>
+function fetchFred(seriesId, limit = 1) {
+  return new Promise((resolve, reject) => {
+    const url = `${BASE_URL}?series_id=${seriesId}&api_key=${API_KEY}&file_type=json&sort_order=desc&limit=${limit}`;
+    https.get(url, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        try {
+          const json = JSON.parse(data);
+          if (json.error_code || json.error_message) {
+            reject(new Error(json.error_message || 'FRED API error'));
+            return;
+          }
+          resolve(json);
+        } catch (e) {
+          reject(new Error('Failed to parse FRED response: ' + e.message));
+        }
+      });
+    }).on('error', reject);
+  });
+}
+
+// Fetch current value + history for a simple series
+async function fetchSeriesWithHistory(info) {
+  const result = await fetchFred(info.id, info.historyLimit);
+  const obs = result.observations || [];
+  const validObs = obs.filter(o => o.value !== '.' && !isNaN(parseFloat(o.value)));
+  if (validObs.length === 0) {
+    throw new Error(`No valid observations for ${info.id}`);
+  }
+  // validObs is descending (newest first). Reverse for chronological (oldest → newest) sparkline.
+  const history = validObs
+    .slice(0, info.historyLimit)
+    .reverse()
+    .map(o => parseFloat(parseFloat(o.value).toFixed(2)));
+  return {
+    value: parseFloat(validObs[0].value).toFixed(2),
+    label: info.label,
+    date: validObs[0].date,
+    history: history,
+    fredSeriesId: info.id,
+    fredUrl: info.fredUrl
+  };
+}
+
+// Calculate inflation YoY + 12-month history of inflation rates
+async function calculateInflationWithHistory() {
+  // Need 24 months of CPI data to calculate 12 months of YoY inflation
+  const result = await fetchFred('CPIAUCSL', 24);
+  const obs = result.observations || [];
+  const validObs = obs.filter(o => o.value !== '.' && !isNaN(parseFloat(o.value)));
+  if (validObs.length < 13) {
+    throw new Error('Not enough valid CPI observations for inflation calculation');
+  }
+  // validObs is descending. Calculate inflation for each month back to where we have year-ago data.
+  const inflationHistory = [];
+  const maxMonths = Math.min(12, validObs.length - 12);
+  for (let i = maxMonths - 1; i >= 0; i--) {
+    const current = parseFloat(validObs[i].value);
+    const yearAgo = parseFloat(validObs[i + 12].value);
+    if (yearAgo && !isNaN(yearAgo)) {
+      const inflation = ((current - yearAgo) / yearAgo) * 100;
+      inflationHistory.push(parseFloat(inflation.toFixed(2)));
+    }
+  }
+  const currentInflation = inflationHistory[inflationHistory.length - 1];
+  return {
+    value: currentInflation.toFixed(2),
+    label: 'Inflation (CPI)',
+    date: validObs[0].date,
+    history: inflationHistory,
+    fredSeriesId: 'CPIAUCSL',
+    fredUrl: 'https://fred.stlouisfed.org/series/CPIAUCSL'
+  };
+}
+
+async function main() {
+  const rates = {};
+  let successCount = 0;
+
+  // Fetch each series with history
+  for (const [key, info] of Object.entries(SERIES)) {
+    try {
+      const data = await fetchSeriesWithHistory(info);
+      rates[key] = data;
+      console.log(`✓ ${info.label}: ${data.value}% (${data.history.length} history points)`);
+      successCount++;
+    } catch (e) {
+      console.error(`✗ ${info.label}: ${e.message}`);
+    }
+  }
+
+  // Inflation with history
+  try {
+    const inflation = await calculateInflationWithHistory();
+    rates.inflation = inflation;
+    console.log(`✓ Inflation (CPI): ${inflation.value}% (${inflation.history.length} history points)`);
+    successCount++;
+  } catch (e) {
+    console.error(`✗ Inflation (CPI): ${e.message}`);
+  }
+
+  if (successCount === 0) {
+    console.error('\nFAILED: No rates fetched. Not writing rates.json.');
+    process.exit(1);
+  }
+
+  const output = {
+    updated: new Date().toISOString(),
+    source: 'Federal Reserve Bank of St. Louis (FRED)',
+    sourceUrl: 'https://fred.stlouisfed.org',
+    rates: rates
+  };
+
+  const dataDir = path.join(process.cwd(), 'data');
+  if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
+  }
+  const outputPath = path.join(dataDir, 'rates.json');
+  fs.writeFileSync(outputPath, JSON.stringify(output, null, 2));
+  console.log(`\n✓ Saved ${successCount} rates with history to data/rates.json`);
+}
+
+main().catch(e => {
+  console.error('Fatal error:', e.message);
+  process.exit(1);
+});
