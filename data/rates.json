@@ -1,0 +1,22 @@
+{
+  "updated": "2026-06-06T02:04:38.243Z",
+  "source": "Federal Reserve Bank of St. Louis (FRED)",
+  "sourceUrl": "https://fred.stlouisfed.org",
+  "rates": {
+    "fedFundsRate": {
+      "value": "3.63",
+      "label": "Fed Funds Rate",
+      "date": "2026-05-01"
+    },
+    "mortgage30": {
+      "value": "6.48",
+      "label": "30-Year Mortgage",
+      "date": "2026-06-04"
+    },
+    "personalSavings": {
+      "value": "2.60",
+      "label": "Personal Savings Rate",
+      "date": "2026-04-01"
+    }
+  }
+}
