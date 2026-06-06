@@ -1,5 +1,6 @@
 // fetch-fred-rates.js
-// Fetches current rates from Federal Reserve (FRED) API and saves to data/rates.json
+// Fetches current rates + 12-month history from Federal Reserve (FRED) API
+// Saves to data/rates.json
 // Runs daily via GitHub Actions
 
 const fs = require('fs');
@@ -19,41 +20,40 @@ const API_KEY = API_KEY_RAW.trim().replace(/^["'`]+|["'`]+$/g, '').replace(/\s/g
 console.log('=== API KEY DIAGNOSTIC ===');
 console.log('Raw length (before cleaning):    ' + API_KEY_RAW.length);
 console.log('Cleaned length:                  ' + API_KEY.length + '  (must be exactly 32)');
-console.log('Has uppercase letters:           ' + (/[A-Z]/.test(API_KEY) ? 'YES (BAD - should be all lowercase)' : 'NO (good)'));
-console.log('Has special characters:          ' + (/[^a-z0-9]/.test(API_KEY) ? 'YES (BAD - only a-z and 0-9 allowed)' : 'NO (good)'));
-console.log('First character is letter/digit: ' + (/[a-z0-9]/.test(API_KEY[0]) ? 'YES' : 'NO'));
 console.log('Format check:                    ' + (/^[a-z0-9]{32}$/.test(API_KEY) ? 'PASS ✓' : 'FAIL ✗'));
 console.log('');
 
-if (API_KEY.length !== 32) {
-  console.error('ERROR: API key must be exactly 32 characters. You have ' + API_KEY.length + '.');
-  console.error('');
-  console.error('FIX:');
-  console.error('1. Go to https://fredaccount.stlouisfed.org/apikeys');
-  console.error('2. Copy the 32-character key (NOT your email, NOT your account name)');
-  console.error('3. Go to https://github.com/AllahRakhha/SavingsClub/settings/secrets/actions');
-  console.error('4. Update FRED_API_KEY with the correct key');
-  console.error('5. Re-run this workflow');
+if (API_KEY.length !== 32 || !/^[a-z0-9]+$/.test(API_KEY)) {
+  console.error('ERROR: API key invalid. Must be 32 lowercase alphanumeric characters.');
+  console.error('Get a valid key at: https://fredaccount.stlouisfed.org/apikeys');
   process.exit(1);
 }
 
-if (!/^[a-z0-9]+$/.test(API_KEY)) {
-  console.error('ERROR: API key contains invalid characters.');
-  console.error('Valid FRED API keys contain ONLY lowercase letters (a-z) and numbers (0-9).');
-  console.error('No uppercase, no spaces, no dashes, no special characters.');
-  process.exit(1);
-}
-
-console.log('✓ API key format is valid. Proceeding to fetch data...');
+console.log('✓ API key format valid. Fetching FRED data with 12-month history...');
 console.log('');
 
 const BASE_URL = 'https://api.stlouisfed.org/fred/series/observations';
 
-// FRED series we want to display
+// FRED series + their canonical FRED.org URLs (for "View →" links)
 const SERIES = {
-  fedFundsRate: { id: 'FEDFUNDS', label: 'Fed Funds Rate' },
-  mortgage30: { id: 'MORTGAGE30US', label: '30-Year Mortgage' },
-  personalSavings: { id: 'PSAVERT', label: 'Personal Savings Rate' }
+  fedFundsRate: {
+    id: 'FEDFUNDS',
+    label: 'Fed Funds Rate',
+    historyLimit: 12,
+    fredUrl: 'https://fred.stlouisfed.org/series/FEDFUNDS'
+  },
+  mortgage30: {
+    id: 'MORTGAGE30US',
+    label: '30-Year Mortgage',
+    historyLimit: 12,
+    fredUrl: 'https://fred.stlouisfed.org/series/MORTGAGE30US'
+  },
+  personalSavings: {
+    id: 'PSAVERT',
+    label: 'Personal Savings Rate',
+    historyLimit: 12,
+    fredUrl: 'https://fred.stlouisfed.org/series/PSAVERT'
+  }
 };
 
 function fetchFred(seriesId, limit = 1) {
@@ -78,62 +78,81 @@ function fetchFred(seriesId, limit = 1) {
   });
 }
 
-// Calculate inflation rate as year-over-year change in CPI
-async function calculateInflation() {
-  const result = await fetchFred('CPIAUCSL', 13);
-  const obs = result.observations;
-  if (!obs || obs.length < 13) {
-    throw new Error('Not enough CPI observations to calculate YoY inflation');
+// Fetch current value + history for a simple series
+async function fetchSeriesWithHistory(info) {
+  const result = await fetchFred(info.id, info.historyLimit);
+  const obs = result.observations || [];
+  const validObs = obs.filter(o => o.value !== '.' && !isNaN(parseFloat(o.value)));
+  if (validObs.length === 0) {
+    throw new Error(`No valid observations for ${info.id}`);
   }
-  // Filter out non-numeric values (FRED sometimes returns ".")
+  // validObs is descending (newest first). Reverse for chronological (oldest → newest) sparkline.
+  const history = validObs
+    .slice(0, info.historyLimit)
+    .reverse()
+    .map(o => parseFloat(parseFloat(o.value).toFixed(2)));
+  return {
+    value: parseFloat(validObs[0].value).toFixed(2),
+    label: info.label,
+    date: validObs[0].date,
+    history: history,
+    fredSeriesId: info.id,
+    fredUrl: info.fredUrl
+  };
+}
+
+// Calculate inflation YoY + 12-month history of inflation rates
+async function calculateInflationWithHistory() {
+  // Need 24 months of CPI data to calculate 12 months of YoY inflation
+  const result = await fetchFred('CPIAUCSL', 24);
+  const obs = result.observations || [];
   const validObs = obs.filter(o => o.value !== '.' && !isNaN(parseFloat(o.value)));
   if (validObs.length < 13) {
-    throw new Error('Not enough valid CPI observations');
+    throw new Error('Not enough valid CPI observations for inflation calculation');
   }
-  const current = parseFloat(validObs[0].value);
-  const yearAgo = parseFloat(validObs[12].value);
-  const inflation = ((current - yearAgo) / yearAgo) * 100;
+  // validObs is descending. Calculate inflation for each month back to where we have year-ago data.
+  const inflationHistory = [];
+  const maxMonths = Math.min(12, validObs.length - 12);
+  for (let i = maxMonths - 1; i >= 0; i--) {
+    const current = parseFloat(validObs[i].value);
+    const yearAgo = parseFloat(validObs[i + 12].value);
+    if (yearAgo && !isNaN(yearAgo)) {
+      const inflation = ((current - yearAgo) / yearAgo) * 100;
+      inflationHistory.push(parseFloat(inflation.toFixed(2)));
+    }
+  }
+  const currentInflation = inflationHistory[inflationHistory.length - 1];
   return {
-    value: inflation.toFixed(2),
-    date: validObs[0].date
+    value: currentInflation.toFixed(2),
+    label: 'Inflation (CPI)',
+    date: validObs[0].date,
+    history: inflationHistory,
+    fredSeriesId: 'CPIAUCSL',
+    fredUrl: 'https://fred.stlouisfed.org/series/CPIAUCSL'
   };
 }
 
 async function main() {
-  console.log('Fetching FRED rates...\n');
   const rates = {};
   let successCount = 0;
 
-  // Fetch each simple series
+  // Fetch each series with history
   for (const [key, info] of Object.entries(SERIES)) {
     try {
-      const result = await fetchFred(info.id, 1);
-      const obs = result.observations && result.observations[0];
-      if (obs && obs.value !== '.' && !isNaN(parseFloat(obs.value))) {
-        rates[key] = {
-          value: parseFloat(obs.value).toFixed(2),
-          label: info.label,
-          date: obs.date
-        };
-        console.log(`✓ ${info.label}: ${rates[key].value}% (${obs.date})`);
-        successCount++;
-      } else {
-        console.warn(`⚠ ${info.label}: no valid data`);
-      }
+      const data = await fetchSeriesWithHistory(info);
+      rates[key] = data;
+      console.log(`✓ ${info.label}: ${data.value}% (${data.history.length} history points)`);
+      successCount++;
     } catch (e) {
       console.error(`✗ ${info.label}: ${e.message}`);
     }
   }
 
-  // Calculate inflation separately
+  // Inflation with history
   try {
-    const inflation = await calculateInflation();
-    rates.inflation = {
-      value: inflation.value,
-      label: 'Inflation (CPI)',
-      date: inflation.date
-    };
-    console.log(`✓ Inflation (CPI): ${inflation.value}% (${inflation.date})`);
+    const inflation = await calculateInflationWithHistory();
+    rates.inflation = inflation;
+    console.log(`✓ Inflation (CPI): ${inflation.value}% (${inflation.history.length} history points)`);
     successCount++;
   } catch (e) {
     console.error(`✗ Inflation (CPI): ${e.message}`);
@@ -151,15 +170,13 @@ async function main() {
     rates: rates
   };
 
-  // Ensure data directory exists
   const dataDir = path.join(process.cwd(), 'data');
   if (!fs.existsSync(dataDir)) {
     fs.mkdirSync(dataDir, { recursive: true });
   }
-
   const outputPath = path.join(dataDir, 'rates.json');
   fs.writeFileSync(outputPath, JSON.stringify(output, null, 2));
-  console.log(`\n✓ Saved ${successCount} rates to data/rates.json`);
+  console.log(`\n✓ Saved ${successCount} rates with history to data/rates.json`);
 }
 
 main().catch(e => {
