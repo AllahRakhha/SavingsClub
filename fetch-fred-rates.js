@@ -6,12 +6,46 @@ const fs = require('fs');
 const path = require('path');
 const https = require('https');
 
-const API_KEY = process.env.FRED_API_KEY;
-if (!API_KEY) {
+const API_KEY_RAW = process.env.FRED_API_KEY;
+if (!API_KEY_RAW) {
   console.error('ERROR: FRED_API_KEY environment variable not set');
-  console.error('Add it to GitHub Secrets: Settings > Secrets and variables > Actions');
+  console.error('Make sure the secret is named exactly "FRED_API_KEY" in GitHub Settings > Secrets and variables > Actions');
   process.exit(1);
 }
+
+// Auto-clean common copy/paste mistakes (whitespace, quotes, line breaks)
+const API_KEY = API_KEY_RAW.trim().replace(/^["'`]+|["'`]+$/g, '').replace(/\s/g, '');
+
+console.log('=== API KEY DIAGNOSTIC ===');
+console.log('Raw length (before cleaning):    ' + API_KEY_RAW.length);
+console.log('Cleaned length:                  ' + API_KEY.length + '  (must be exactly 32)');
+console.log('Has uppercase letters:           ' + (/[A-Z]/.test(API_KEY) ? 'YES (BAD - should be all lowercase)' : 'NO (good)'));
+console.log('Has special characters:          ' + (/[^a-z0-9]/.test(API_KEY) ? 'YES (BAD - only a-z and 0-9 allowed)' : 'NO (good)'));
+console.log('First character is letter/digit: ' + (/[a-z0-9]/.test(API_KEY[0]) ? 'YES' : 'NO'));
+console.log('Format check:                    ' + (/^[a-z0-9]{32}$/.test(API_KEY) ? 'PASS ✓' : 'FAIL ✗'));
+console.log('');
+
+if (API_KEY.length !== 32) {
+  console.error('ERROR: API key must be exactly 32 characters. You have ' + API_KEY.length + '.');
+  console.error('');
+  console.error('FIX:');
+  console.error('1. Go to https://fredaccount.stlouisfed.org/apikeys');
+  console.error('2. Copy the 32-character key (NOT your email, NOT your account name)');
+  console.error('3. Go to https://github.com/AllahRakhha/SavingsClub/settings/secrets/actions');
+  console.error('4. Update FRED_API_KEY with the correct key');
+  console.error('5. Re-run this workflow');
+  process.exit(1);
+}
+
+if (!/^[a-z0-9]+$/.test(API_KEY)) {
+  console.error('ERROR: API key contains invalid characters.');
+  console.error('Valid FRED API keys contain ONLY lowercase letters (a-z) and numbers (0-9).');
+  console.error('No uppercase, no spaces, no dashes, no special characters.');
+  process.exit(1);
+}
+
+console.log('✓ API key format is valid. Proceeding to fetch data...');
+console.log('');
 
 const BASE_URL = 'https://api.stlouisfed.org/fred/series/observations';
 
