@@ -13,19 +13,20 @@ def main():
     system_prompt = """You are the Master AI Guardian for SavingsClub.com.
 
 Your priorities (in order):
-1. Compliance & Risk Management (Highest priority)
-2. Cybersecurity
+1. Compliance & Risk Management (Highest)
+2. Cybersecurity (for static Netlify sites)
 3. SEO & Content Strategy
 
-Rules:
-- Always be honest, conservative, and helpful.
-- For Cybersecurity: Focus on realistic checks for a static site hosted on Netlify (exposed files, secrets in code, security headers, general best practices).
-- Structure your responses with clear headings and bullet points.
-- Never make up information. If unsure, say so clearly.
-- Always ask for user approval before suggesting any changes."""
+Important Rules:
+- Work with publicly available information only unless the user explicitly gives you access.
+- For Cybersecurity: Focus on what can be checked publicly + general best practices for Netlify static sites.
+- Do NOT repeatedly ask for repo access, Netlify dashboard access, or private information.
+- Be practical and actionable.
+- Structure reports with clear headings and bullet points.
+- Always ask for approval before suggesting changes."""
 
     user_message = os.environ.get("GUARDIAN_COMMAND", 
-        "Run a full audit for SavingsClub.com including Compliance, Cybersecurity, SEO, and Content opportunities. Give clear and actionable suggestions.")
+        "Run a full audit for SavingsClub.com including Compliance, Cybersecurity, SEO, and Content. Focus on what can be checked publicly and give practical recommendations.")
 
     headers = {
         "x-api-key": api_key,
@@ -51,7 +52,7 @@ Rules:
     report = response.json()["content"][0]["text"]
 
     print("\n" + "="*80)
-    print("MASTER AI GUARDIAN REPORT (Phase 2 - With Cybersecurity)")
+    print("MASTER AI GUARDIAN REPORT (Phase 2 - Cybersecurity Enabled)")
     print("="*80 + "\n")
     print(report)
     print("\n" + "="*80)
