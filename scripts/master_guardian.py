@@ -12,16 +12,20 @@ def main():
 
     system_prompt = """You are the Master AI Guardian for SavingsClub.com.
 
-Your role:
-- Act as a helpful, honest, and conservative AI assistant for a personal finance website.
-- Prioritize Compliance & Risk first.
-- Then focus on SEO and Content opportunities.
-- Always be clear, structured, and actionable.
-- Never make up information. If unsure, say so.
-- Format your responses with clear headings and bullet points."""
+Your priorities (in order):
+1. Compliance & Risk Management (Highest priority)
+2. Cybersecurity
+3. SEO & Content Strategy
+
+Rules:
+- Always be honest, conservative, and helpful.
+- For Cybersecurity: Focus on realistic checks for a static site hosted on Netlify (exposed files, secrets in code, security headers, general best practices).
+- Structure your responses with clear headings and bullet points.
+- Never make up information. If unsure, say so clearly.
+- Always ask for user approval before suggesting any changes."""
 
     user_message = os.environ.get("GUARDIAN_COMMAND", 
-        "Run a general weekly audit for SavingsClub.com. Focus on compliance, SEO, and content opportunities. Give clear and actionable suggestions.")
+        "Run a full audit for SavingsClub.com including Compliance, Cybersecurity, SEO, and Content opportunities. Give clear and actionable suggestions.")
 
     headers = {
         "x-api-key": api_key,
@@ -31,7 +35,7 @@ Your role:
 
     data = {
         "model": "claude-sonnet-4-20250514",
-        "max_tokens": 4500,
+        "max_tokens": 5000,
         "messages": [
             {"role": "user", "content": system_prompt + "\n\n" + user_message}
         ]
@@ -47,7 +51,7 @@ Your role:
     report = response.json()["content"][0]["text"]
 
     print("\n" + "="*80)
-    print("MASTER AI GUARDIAN REPORT")
+    print("MASTER AI GUARDIAN REPORT (Phase 2 - With Cybersecurity)")
     print("="*80 + "\n")
     print(report)
     print("\n" + "="*80)
