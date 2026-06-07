@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+]<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -90,7 +90,7 @@
 .rate-cell-header{display:flex;align-items:center;gap:8px}
 .rate-cell-icon{font-size:1.15rem;line-height:1;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:#F0FDF4;flex-shrink:0}
 .rate-cell-label{font-size:.82rem;color:#475569;font-weight:700;margin:0;line-height:1.2}
-.rate-sparkline{height:52px;width:100%;display:block;overflow:visible}
+.rate-sparkline{height:60px;width:100%;display:block;overflow:visible}
 .rate-sparkline path[data-animate-line]{stroke-dasharray:1000;stroke-dashoffset:1000;transition:stroke-dashoffset 1.4s cubic-bezier(.25,.46,.45,.94)}
 .rate-sparkline path[data-animate-line].animate-in{stroke-dashoffset:0}
 .rate-sparkline circle[data-animate-dot]{opacity:0;transition:opacity .3s ease-out;transition-delay:1.2s}
@@ -322,7 +322,7 @@ SavingsClub
 <span class="rate-cell-icon" aria-hidden="true">🏛️</span>
 <p class="rate-cell-label">Fed Funds Rate</p>
 </div>
-<svg class="rate-sparkline" viewBox="0 0 100 52" preserveAspectRatio="none" data-spark="fedFundsRate" aria-hidden="true"></svg>
+<svg class="rate-sparkline" viewBox="0 0 100 60" preserveAspectRatio="none" data-spark="fedFundsRate" aria-hidden="true"></svg>
 <p class="rate-cell-value" data-value="fedFundsRate">4.50%</p>
 <a class="rate-cell-link" href="https://fred.stlouisfed.org/series/FEDFUNDS" target="_blank" rel="noopener" data-link="fedFundsRate">View on FRED →</a>
 </div>
@@ -332,7 +332,7 @@ SavingsClub
 <span class="rate-cell-icon" aria-hidden="true">🏠</span>
 <p class="rate-cell-label">30-Year Mortgage</p>
 </div>
-<svg class="rate-sparkline" viewBox="0 0 100 52" preserveAspectRatio="none" data-spark="mortgage30" aria-hidden="true"></svg>
+<svg class="rate-sparkline" viewBox="0 0 100 60" preserveAspectRatio="none" data-spark="mortgage30" aria-hidden="true"></svg>
 <p class="rate-cell-value" data-value="mortgage30">6.85%</p>
 <a class="rate-cell-link" href="https://fred.stlouisfed.org/series/MORTGAGE30US" target="_blank" rel="noopener" data-link="mortgage30">View on FRED →</a>
 </div>
@@ -342,7 +342,7 @@ SavingsClub
 <span class="rate-cell-icon" aria-hidden="true">📈</span>
 <p class="rate-cell-label">Inflation (CPI)</p>
 </div>
-<svg class="rate-sparkline" viewBox="0 0 100 52" preserveAspectRatio="none" data-spark="inflation" aria-hidden="true"></svg>
+<svg class="rate-sparkline" viewBox="0 0 100 60" preserveAspectRatio="none" data-spark="inflation" aria-hidden="true"></svg>
 <p class="rate-cell-value" data-value="inflation">3.10%</p>
 <a class="rate-cell-link" href="https://fred.stlouisfed.org/series/CPIAUCSL" target="_blank" rel="noopener" data-link="inflation">View on FRED →</a>
 </div>
@@ -352,7 +352,7 @@ SavingsClub
 <span class="rate-cell-icon" aria-hidden="true">💰</span>
 <p class="rate-cell-label">Personal Savings</p>
 </div>
-<svg class="rate-sparkline" viewBox="0 0 100 52" preserveAspectRatio="none" data-spark="personalSavings" aria-hidden="true"></svg>
+<svg class="rate-sparkline" viewBox="0 0 100 60" preserveAspectRatio="none" data-spark="personalSavings" aria-hidden="true"></svg>
 <p class="rate-cell-value" data-value="personalSavings">4.20%</p>
 <a class="rate-cell-link" href="https://fred.stlouisfed.org/series/PSAVERT" target="_blank" rel="noopener" data-link="personalSavings">View on FRED →</a>
 </div>
@@ -721,10 +721,30 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
     return !trendUp;
   }
 
-  // Draw SVG sparkline with animation support + consumer-impact colors
+  // Build a smooth bezier path through points (Catmull-Rom to Cubic Bezier)
+  // Same technique used by Robinhood, Yahoo Finance, TradingView
+  function buildSmoothPath(pts){
+    if(!pts||pts.length<2)return '';
+    var path='M '+pts[0][0].toFixed(2)+','+pts[0][1].toFixed(2);
+    var smoothing=0.18; // tension - lower = smoother curves
+    for(var i=0;i<pts.length-1;i++){
+      var p0=pts[i-1]||pts[i];
+      var p1=pts[i];
+      var p2=pts[i+1];
+      var p3=pts[i+2]||pts[i+1];
+      var cp1x=p1[0]+(p2[0]-p0[0])*smoothing;
+      var cp1y=p1[1]+(p2[1]-p0[1])*smoothing;
+      var cp2x=p2[0]-(p3[0]-p1[0])*smoothing;
+      var cp2y=p2[1]-(p3[1]-p1[1])*smoothing;
+      path+=' C '+cp1x.toFixed(2)+','+cp1y.toFixed(2)+' '+cp2x.toFixed(2)+','+cp2y.toFixed(2)+' '+p2[0].toFixed(2)+','+p2[1].toFixed(2);
+    }
+    return path;
+  }
+
+  // Draw SVG sparkline: smooth bezier curves + vibrant colors + glow + prominent dot
   function drawSparkline(svg,history,delay,seriesKey){
     if(!svg||!history||history.length<2)return;
-    var w=100,h=52,pad=3;
+    var w=100,h=60,pad=4;
     var min=Math.min.apply(null,history),max=Math.max.apply(null,history);
     var range=(max-min)||1;
     var pts=history.map(function(v,i){
@@ -732,18 +752,28 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
       var y=h-pad-((v-min)/range)*(h-pad*2);
       return [x,y];
     });
-    var pathD=pts.map(function(p,i){return(i===0?'M ':'L ')+p[0].toFixed(2)+','+p[1].toFixed(2);}).join(' ');
+    var pathD=buildSmoothPath(pts);
+    // Build a closed fill path using the same smooth curve
     var fillD=pathD+' L '+pts[pts.length-1][0].toFixed(2)+','+h+' L '+pts[0][0].toFixed(2)+','+h+' Z';
-    // Consumer-impact color: favorable = darker green, unfavorable = darker red
+    // Consumer-impact color: favorable = vibrant emerald, unfavorable = vibrant red
     var favorable=isFavorableTrend(seriesKey,history);
-    var lineColor=favorable?'#047857':'#B91C1C';   // dark line (high contrast against fill)
-    var fillColor=favorable?'#10B981':'#EF4444';   // softer fill underneath
+    var lineColor=favorable?'#10B981':'#DC2626';   // vibrant — matches Robinhood/Yahoo Finance
+    var fillColor=favorable?'#10B981':'#DC2626';
     var lastPt=pts[pts.length-1];
-    var gradId='sg_'+Math.random().toString(36).slice(2,9);
-    svg.innerHTML='<defs><linearGradient id="'+gradId+'" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="'+fillColor+'" stop-opacity="0.18"/><stop offset="100%" stop-color="'+fillColor+'" stop-opacity="0"/></linearGradient></defs>'
-      +'<path data-animate-fill d="'+fillD+'" fill="url(#'+gradId+')"/>'
-      +'<path data-animate-line d="'+pathD+'" fill="none" stroke="'+lineColor+'" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>'
-      +'<circle data-animate-dot cx="'+lastPt[0].toFixed(2)+'" cy="'+lastPt[1].toFixed(2)+'" r="4" fill="'+lineColor+'" stroke="#FFFFFF" stroke-width="1.8"/>';
+    var uid='sp_'+Math.random().toString(36).slice(2,9);
+    svg.innerHTML='<defs>'
+      +'<linearGradient id="g_'+uid+'" x1="0%" y1="0%" x2="0%" y2="100%">'
+      +'<stop offset="0%" stop-color="'+fillColor+'" stop-opacity="0.22"/>'
+      +'<stop offset="100%" stop-color="'+fillColor+'" stop-opacity="0"/>'
+      +'</linearGradient>'
+      +'<filter id="f_'+uid+'" x="-30%" y="-30%" width="160%" height="160%">'
+      +'<feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-color="'+lineColor+'" flood-opacity="0.35"/>'
+      +'</filter>'
+      +'</defs>'
+      +'<path data-animate-fill d="'+fillD+'" fill="url(#g_'+uid+')"/>'
+      +'<path data-animate-line d="'+pathD+'" fill="none" stroke="'+lineColor+'" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#f_'+uid+')"/>'
+      +'<circle data-animate-glow cx="'+lastPt[0].toFixed(2)+'" cy="'+lastPt[1].toFixed(2)+'" r="9" fill="'+lineColor+'" opacity="0.18"/>'
+      +'<circle data-animate-dot cx="'+lastPt[0].toFixed(2)+'" cy="'+lastPt[1].toFixed(2)+'" r="5" fill="'+lineColor+'" stroke="#FFFFFF" stroke-width="2"/>';
     // Compute actual path length for accurate stroke-dasharray animation
     var linePath=svg.querySelector('path[data-animate-line]');
     if(linePath&&linePath.getTotalLength){
@@ -754,12 +784,18 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
     }
     var fillPath=svg.querySelector('path[data-animate-fill]');
     if(fillPath)fillPath.style.transitionDelay=((delay||0)+200)+'ms';
+    var glowRing=svg.querySelector('circle[data-animate-glow]');
+    if(glowRing){
+      glowRing.style.opacity='0';
+      glowRing.style.transition='opacity 0.5s ease-out '+((delay||0)+1100)+'ms';
+    }
     var dot=svg.querySelector('circle[data-animate-dot]');
     if(dot)dot.style.transitionDelay=((delay||0)+1100)+'ms';
     requestAnimationFrame(function(){
       requestAnimationFrame(function(){
         if(linePath)linePath.style.strokeDashoffset='0';
         if(fillPath)fillPath.classList.add('animate-in');
+        if(glowRing)glowRing.style.opacity='0.18';
         if(dot)dot.classList.add('animate-in');
       });
     });
