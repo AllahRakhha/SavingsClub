@@ -1,4 +1,4 @@
-]<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -83,24 +83,27 @@
 .refresh-btn .refresh-icon{display:inline-block;font-size:.9rem;line-height:1}
 .refresh-btn.refreshing .refresh-icon{animation:refreshSpin 1s linear infinite}
 @keyframes refreshSpin{to{transform:rotate(360deg)}}
-.rates-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.rate-cell{padding:22px 24px;border-right:1px solid #F1F5F9;display:flex;flex-direction:column;gap:8px;transition:background .2s;position:relative}
-.rate-cell:last-child{border-right:none}
-.rate-cell:hover{background:#F8FAFC}
-.rate-cell-header{display:flex;align-items:center;gap:8px}
-.rate-cell-icon{font-size:1.15rem;line-height:1;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:#F0FDF4;flex-shrink:0}
-.rate-cell-label{font-size:.82rem;color:#475569;font-weight:700;margin:0;line-height:1.2}
+.rates-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:14px;background:#F8FAFC;border-top:1px solid #F1F5F9}
+.rate-cell{padding:18px;border:1px solid #E2E8F0;border-radius:14px;background:#FFFFFF;display:flex;flex-direction:column;gap:8px;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;position:relative;box-shadow:0 1px 2px rgba(10,22,40,.04)}
+.rate-cell:hover{transform:translateY(-3px);box-shadow:0 14px 28px -8px rgba(10,22,40,.12),0 4px 8px -4px rgba(10,22,40,.06);border-color:#CBD5E1}
+.rate-cell-header{display:flex;align-items:center;gap:10px}
+.rate-cell-icon{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:#F0FDF4;color:#059669;flex-shrink:0;transition:background .25s,color .25s}
+.rate-cell-icon svg{width:18px;height:18px;display:block}
+.rate-cell.unfavorable .rate-cell-icon{background:#FEF2F2;color:#DC2626}
+.rate-cell-label{font-size:.85rem;color:#475569;font-weight:700;margin:0;line-height:1.2}
 .rate-sparkline{height:60px;width:100%;display:block;overflow:visible}
-.rate-sparkline path[data-animate-line]{stroke-dasharray:1000;stroke-dashoffset:1000;transition:stroke-dashoffset 1.4s cubic-bezier(.25,.46,.45,.94)}
-.rate-sparkline path[data-animate-line].animate-in{stroke-dashoffset:0}
-.rate-sparkline circle[data-animate-dot]{opacity:0;transition:opacity .3s ease-out;transition-delay:1.2s}
-.rate-sparkline circle[data-animate-dot].animate-in{opacity:1}
 .rate-sparkline path[data-animate-fill]{opacity:0;transition:opacity .8s ease-out;transition-delay:.6s}
 .rate-sparkline path[data-animate-fill].animate-in{opacity:1}
-.rate-cell-value{font-size:1.75rem;font-weight:800;color:#059669;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;margin:4px 0 0}
-.rate-cell-link{font-size:.72rem;color:#94A3B8;text-decoration:none;font-weight:600;margin-top:2px;display:inline-flex;align-items:center;gap:3px;transition:color .2s}
+.rate-sparkline circle[data-animate-dot]{opacity:0;transform-origin:center;transition:opacity .3s ease-out}
+.rate-sparkline circle[data-animate-dot].animate-in{opacity:1}
+.rate-cell-value{font-size:1.85rem;font-weight:800;color:#10B981;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;margin:2px 0 0;transition:color .3s ease}
+.rate-cell-delta{font-size:.78rem;font-weight:800;margin:2px 0 0;display:inline-flex;align-items:center;gap:4px;color:#94A3B8;letter-spacing:.01em}
+.rate-cell-delta.favorable{color:#10B981}
+.rate-cell-delta.unfavorable{color:#DC2626}
+.rate-cell-delta .delta-arrow{font-size:.9rem;line-height:1}
+.rate-cell-link{font-size:.74rem;color:#94A3B8;text-decoration:none;font-weight:600;margin-top:6px;display:inline-flex;align-items:center;gap:3px;transition:color .2s}
 .rate-cell-link:hover{color:#059669;text-decoration:underline}
-.rates-strip-footer{padding:12px 28px;background:#F8FAFC;border-top:1px solid #F1F5F9;font-size:.72rem;color:#94A3B8;line-height:1.5}
+.rates-strip-footer{padding:14px 28px;background:#FFFFFF;border-top:1px solid #F1F5F9;font-size:.72rem;color:#94A3B8;line-height:1.5}
 .rates-strip-footer .last-updated{color:#10B981;font-weight:700}
 .hero-calc-form{padding:32px}
 .hero-calc-form h2{font-size:1.35rem;font-weight:700;color:#0A1628;margin:0 0 4px;font-family:'Plus Jakarta Sans',sans-serif}
@@ -319,41 +322,45 @@ SavingsClub
 <div class="rates-grid">
 <div class="rate-cell" data-rate="fedFundsRate">
 <div class="rate-cell-header">
-<span class="rate-cell-icon" aria-hidden="true">🏛️</span>
+<span class="rate-cell-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="21" x2="21" y2="21"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="5 6 12 3 19 6"/><line x1="4" y1="10" x2="4" y2="21"/><line x1="20" y1="10" x2="20" y2="21"/><line x1="8" y1="14" x2="8" y2="18"/><line x1="12" y1="14" x2="12" y2="18"/><line x1="16" y1="14" x2="16" y2="18"/></svg></span>
 <p class="rate-cell-label">Fed Funds Rate</p>
 </div>
 <svg class="rate-sparkline" viewBox="0 0 100 60" preserveAspectRatio="none" data-spark="fedFundsRate" aria-hidden="true"></svg>
 <p class="rate-cell-value" data-value="fedFundsRate">4.50%</p>
+<p class="rate-cell-delta" data-delta="fedFundsRate">&nbsp;</p>
 <a class="rate-cell-link" href="https://fred.stlouisfed.org/series/FEDFUNDS" target="_blank" rel="noopener" data-link="fedFundsRate">View on FRED →</a>
 </div>
 
 <div class="rate-cell" data-rate="mortgage30">
 <div class="rate-cell-header">
-<span class="rate-cell-icon" aria-hidden="true">🏠</span>
+<span class="rate-cell-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V21H3z"/><polyline points="9 21 9 15 15 15 15 21"/></svg></span>
 <p class="rate-cell-label">30-Year Mortgage</p>
 </div>
 <svg class="rate-sparkline" viewBox="0 0 100 60" preserveAspectRatio="none" data-spark="mortgage30" aria-hidden="true"></svg>
 <p class="rate-cell-value" data-value="mortgage30">6.85%</p>
+<p class="rate-cell-delta" data-delta="mortgage30">&nbsp;</p>
 <a class="rate-cell-link" href="https://fred.stlouisfed.org/series/MORTGAGE30US" target="_blank" rel="noopener" data-link="mortgage30">View on FRED →</a>
 </div>
 
 <div class="rate-cell" data-rate="inflation">
 <div class="rate-cell-header">
-<span class="rate-cell-icon" aria-hidden="true">📈</span>
+<span class="rate-cell-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></svg></span>
 <p class="rate-cell-label">Inflation (CPI)</p>
 </div>
 <svg class="rate-sparkline" viewBox="0 0 100 60" preserveAspectRatio="none" data-spark="inflation" aria-hidden="true"></svg>
 <p class="rate-cell-value" data-value="inflation">3.10%</p>
+<p class="rate-cell-delta" data-delta="inflation">&nbsp;</p>
 <a class="rate-cell-link" href="https://fred.stlouisfed.org/series/CPIAUCSL" target="_blank" rel="noopener" data-link="inflation">View on FRED →</a>
 </div>
 
 <div class="rate-cell" data-rate="personalSavings">
 <div class="rate-cell-header">
-<span class="rate-cell-icon" aria-hidden="true">💰</span>
+<span class="rate-cell-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v6c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 11v6c0 1.66 4.03 3 9 3s9-1.34 9-3v-6"/></svg></span>
 <p class="rate-cell-label">Personal Savings</p>
 </div>
 <svg class="rate-sparkline" viewBox="0 0 100 60" preserveAspectRatio="none" data-spark="personalSavings" aria-hidden="true"></svg>
 <p class="rate-cell-value" data-value="personalSavings">4.20%</p>
+<p class="rate-cell-delta" data-delta="personalSavings">&nbsp;</p>
 <a class="rate-cell-link" href="https://fred.stlouisfed.org/series/PSAVERT" target="_blank" rel="noopener" data-link="personalSavings">View on FRED →</a>
 </div>
 </div>
@@ -825,10 +832,19 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
       var rate=data.rates[key];
       if(!rate)return;
       var delay=animate?(i*180):0;
-      // Update value (animated count-up if animate=true)
+      var favorable=isFavorableTrend(key,rate.history);
+      var rateColor=favorable?'#10B981':'#DC2626';
+      // Toggle favorability class on the cell (drives icon color, etc.)
+      var cellEl=document.querySelector('[data-rate="'+key+'"]');
+      if(cellEl){
+        cellEl.classList.remove('favorable','unfavorable');
+        cellEl.classList.add(favorable?'favorable':'unfavorable');
+      }
+      // Update value (animated count-up if animate=true) + match color to trend
       var valueEl=document.querySelector('[data-value="'+key+'"]');
       if(valueEl&&rate.value){
         var finalVal=parseFloat(rate.value);
+        valueEl.style.color=rateColor;
         if(animate){
           valueEl.textContent='0.00%';
           animateNumberTo(valueEl,finalVal,delay+300);
@@ -836,6 +852,18 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
           valueEl.textContent=rate.value+'%';
         }
         updated++;
+      }
+      // Update trend delta (change from start of history to now)
+      var deltaEl=document.querySelector('[data-delta="'+key+'"]');
+      if(deltaEl&&rate.history&&rate.history.length>=2){
+        var startVal=rate.history[0];
+        var endVal=parseFloat(rate.value);
+        var diff=endVal-startVal;
+        var absDiff=Math.abs(diff).toFixed(2);
+        var arrow=diff>0?'↑':(diff<0?'↓':'—');
+        deltaEl.classList.remove('favorable','unfavorable');
+        deltaEl.classList.add(favorable?'favorable':'unfavorable');
+        deltaEl.innerHTML='<span class="delta-arrow">'+arrow+'</span> '+absDiff+' pts vs 12mo ago';
       }
       // Update sparkline (with staggered draw-in animation + consumer-impact colors)
       var sparkEl=document.querySelector('[data-spark="'+key+'"]');
@@ -853,7 +881,6 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
         linkEl.addEventListener('click',function(ev){
           var url=this.getAttribute('href');
           if(!url||url==='#'||url===''){ev.preventDefault();return;}
-          // Let normal navigation happen; this listener is just a safety net
         });
       }
     });
