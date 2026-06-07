@@ -750,7 +750,7 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
       var len=linePath.getTotalLength();
       linePath.style.strokeDasharray=len;
       linePath.style.strokeDashoffset=len;
-      linePath.style.transitionDelay=(delay||0)+'ms';
+      linePath.style.transition='stroke-dashoffset 1.4s cubic-bezier(.25,.46,.45,.94) '+(delay||0)+'ms';
     }
     var fillPath=svg.querySelector('path[data-animate-fill]');
     if(fillPath)fillPath.style.transitionDelay=((delay||0)+200)+'ms';
@@ -758,7 +758,7 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
     if(dot)dot.style.transitionDelay=((delay||0)+1100)+'ms';
     requestAnimationFrame(function(){
       requestAnimationFrame(function(){
-        if(linePath)linePath.classList.add('animate-in');
+        if(linePath)linePath.style.strokeDashoffset='0';
         if(fillPath)fillPath.classList.add('animate-in');
         if(dot)dot.classList.add('animate-in');
       });
@@ -806,10 +806,19 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
       if(sparkEl&&rate.history&&rate.history.length>=2){
         drawSparkline(sparkEl,rate.history,delay,key);
       }
-      // Update FRED link
+      // Update FRED link (defensive: only override if fredUrl is a valid https URL)
       var linkEl=document.querySelector('[data-link="'+key+'"]');
-      if(linkEl&&rate.fredUrl){
+      if(linkEl&&rate.fredUrl&&typeof rate.fredUrl==='string'&&rate.fredUrl.indexOf('https://')===0){
         linkEl.setAttribute('href',rate.fredUrl);
+      }
+      // Ensure click works even if browser blocks default link behavior
+      if(linkEl&&!linkEl.dataset.clickBound){
+        linkEl.dataset.clickBound='1';
+        linkEl.addEventListener('click',function(ev){
+          var url=this.getAttribute('href');
+          if(!url||url==='#'||url===''){ev.preventDefault();return;}
+          // Let normal navigation happen; this listener is just a safety net
+        });
       }
     });
     if(updated===0)return false;
