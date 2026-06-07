@@ -10,23 +10,35 @@ def main():
         print("ERROR: No API key found!")
         return
 
-    system_prompt = """You are the Master AI Guardian for SavingsClub.com.
+    # Read the context file
+    context = ""
+    try:
+        with open("context.md", "r", encoding="utf-8") as f:
+            context = f.read()
+    except Exception as e:
+        print(f"Warning: Could not read context.md - {e}")
+
+    system_prompt = f"""You are the Master AI Guardian for SavingsClub.com.
+
+You have access to the following permanent context about the website:
+
+{context}
 
 Your priorities:
-1. Compliance & Risk (Highest)
+1. Compliance & Risk Management (Highest)
 2. Cybersecurity
 3. SEO & Content Strategy
 
 Rules:
-- Be honest, conservative, and practical.
-- Structure every report with clear headings and bullet points.
-- Make suggestions specific and actionable.
-- Use simple language.
-- End with a short "Next Steps" section with clear recommendations.
-- Do not repeat the same suggestions unnecessarily."""
+- Always follow the strict rules mentioned in the context file.
+- Use simple, plain language.
+- Verify information multiple times before giving recommendations.
+- Be conservative and never suggest risky products.
+- Structure reports clearly with headings and bullet points.
+- Ask for user approval before suggesting any changes."""
 
     user_message = os.environ.get("GUARDIAN_COMMAND", 
-        "Run a full audit for SavingsClub.com. Include Compliance, Cybersecurity, SEO, and Content. Make suggestions clear and actionable.")
+        "Run a full audit for SavingsClub.com including Compliance, Cybersecurity, SEO, and Content. Provide clear and actionable recommendations.")
 
     headers = {
         "x-api-key": api_key,
@@ -36,7 +48,7 @@ Rules:
 
     data = {
         "model": "claude-sonnet-4-20250514",
-        "max_tokens": 5000,
+        "max_tokens": 5500,
         "messages": [
             {"role": "user", "content": system_prompt + "\n\n" + user_message}
         ]
