@@ -1,53 +1,50 @@
-# Master AI Guardian - Phase 1 Guide
+import os
+import requests
+from datetime import datetime
 
-## What is Phase 1?
+def main():
+    print("=== Master AI Guardian Started ===")
 
-Phase 1 gives you a working **Master AI Guardian** with these features:
+    api_key = os.environ.get("CLAUDE_API_KEY")
+    if not api_key:
+        print("ERROR: No API key found!")
+        return
 
-- Chat with the agent using **GitHub Issues** (manual for now)
-- Get reports on **Compliance, SEO, and Content**
-- Simple and stable system
+    system_prompt = "You are the Master AI Guardian for SavingsClub.com. Your highest priority is compliance and risk. Always explain clearly and ask for permission before suggesting changes."
 
----
+    user_message = os.environ.get("GUARDIAN_COMMAND", 
+        "Run a general weekly audit for SavingsClub.com. Focus on compliance, SEO, and content opportunities.")
 
-## How to Use It (Step by Step)
+    headers = {
+        "x-api-key": api_key,
+        "anthropic-version": "2023-06-01",
+        "content-type": "application/json"
+    }
 
-### Method 1: Quick General Audit (Recommended to start)
+    data = {
+        "model": "claude-sonnet-4-20250514",
+        "max_tokens": 4000,
+        "messages": [
+            {"role": "user", "content": system_prompt + "\n\n" + user_message}
+        ]
+    }
 
-1. Go to your repository → **Actions** tab
-2. Click on **"Master AI Guardian (Phase 1)"**
-3. Click **"Run workflow"**
-4. (Optional) In the `command` field, you can type something like:
-   - `Check my website for SEO issues`
-   - `Suggest content ideas for high-yield savings`
-5. Click **"Run workflow"**
+    print("Calling Claude API...")
+    response = requests.post("https://api.anthropic.com/v1/messages", headers=headers, json=data)
 
-The agent will run and show the report in the logs.
+    if response.status_code != 200:
+        print("API Error:", response.text)
+        return
 
-### Method 2: Chat using GitHub Issues (Manual)
+    report = response.json()["content"][0]["text"]
 
-1. Create a new **Issue** in your repository.
-2. Write your request clearly in the issue (example):
-   - "Analyze my homepage for compliance problems"
-   - "What SEO improvements can I make on the emergency fund page?"
-3. Go to **Actions** → **Master AI Guardian (Phase 1)**
-4. Run the workflow and paste your request in the `command` field.
-5. The agent will respond. You can continue the conversation by commenting on the same issue.
+    print("\n" + "="*70)
+    print("MASTER AI GUARDIAN REPORT")
+    print("="*70 + "\n")
+    print(report)
+    print("\n" + "="*70)
+    print("END OF REPORT")
+    print("="*70)
 
----
-
-## Important Notes
-
-- The agent currently **cannot** automatically read new Issues. You need to manually run the workflow and provide the command.
-- This is **Phase 1**. In later phases, we will make the chatting experience smoother and add Pull Request creation.
-
----
-
-## Next Phases (Coming Soon)
-
-- **Phase 2**: Add Cybersecurity checks
-- **Phase 3**: Agent can create Pull Requests after your approval
-
----
-
-You now have a working Master AI Guardian system. Start by running a general audit and see how it performs!
+if __name__ == "__main__":
+    main()
