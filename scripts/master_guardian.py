@@ -10,10 +10,18 @@ def main():
         print("ERROR: No API key found!")
         return
 
-    system_prompt = "You are the Master AI Guardian for SavingsClub.com. Your highest priority is compliance and risk. Always explain clearly and ask for permission before suggesting changes."
+    system_prompt = """You are the Master AI Guardian for SavingsClub.com.
+
+Your role:
+- Act as a helpful, honest, and conservative AI assistant for a personal finance website.
+- Prioritize Compliance & Risk first.
+- Then focus on SEO and Content opportunities.
+- Always be clear, structured, and actionable.
+- Never make up information. If unsure, say so.
+- Format your responses with clear headings and bullet points."""
 
     user_message = os.environ.get("GUARDIAN_COMMAND", 
-        "Run a general weekly audit for SavingsClub.com. Focus on compliance, SEO, and content opportunities.")
+        "Run a general weekly audit for SavingsClub.com. Focus on compliance, SEO, and content opportunities. Give clear and actionable suggestions.")
 
     headers = {
         "x-api-key": api_key,
@@ -23,7 +31,7 @@ def main():
 
     data = {
         "model": "claude-sonnet-4-20250514",
-        "max_tokens": 4000,
+        "max_tokens": 4500,
         "messages": [
             {"role": "user", "content": system_prompt + "\n\n" + user_message}
         ]
@@ -38,13 +46,13 @@ def main():
 
     report = response.json()["content"][0]["text"]
 
-    print("\n" + "="*70)
+    print("\n" + "="*80)
     print("MASTER AI GUARDIAN REPORT")
-    print("="*70 + "\n")
+    print("="*80 + "\n")
     print(report)
-    print("\n" + "="*70)
+    print("\n" + "="*80)
     print("END OF REPORT")
-    print("="*70)
+    print("="*80)
 
 if __name__ == "__main__":
     main()
