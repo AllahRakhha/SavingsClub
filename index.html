@@ -90,7 +90,7 @@
 .rate-cell-header{display:flex;align-items:center;gap:8px}
 .rate-cell-icon{font-size:1.15rem;line-height:1;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:#F0FDF4;flex-shrink:0}
 .rate-cell-label{font-size:.82rem;color:#475569;font-weight:700;margin:0;line-height:1.2}
-.rate-sparkline{height:40px;width:100%;display:block;overflow:visible}
+.rate-sparkline{height:52px;width:100%;display:block;overflow:visible}
 .rate-sparkline path[data-animate-line]{stroke-dasharray:1000;stroke-dashoffset:1000;transition:stroke-dashoffset 1.4s cubic-bezier(.25,.46,.45,.94)}
 .rate-sparkline path[data-animate-line].animate-in{stroke-dashoffset:0}
 .rate-sparkline circle[data-animate-dot]{opacity:0;transition:opacity .3s ease-out;transition-delay:1.2s}
@@ -322,7 +322,7 @@ SavingsClub
 <span class="rate-cell-icon" aria-hidden="true">🏛️</span>
 <p class="rate-cell-label">Fed Funds Rate</p>
 </div>
-<svg class="rate-sparkline" viewBox="0 0 100 40" preserveAspectRatio="none" data-spark="fedFundsRate" aria-hidden="true"></svg>
+<svg class="rate-sparkline" viewBox="0 0 100 52" preserveAspectRatio="none" data-spark="fedFundsRate" aria-hidden="true"></svg>
 <p class="rate-cell-value" data-value="fedFundsRate">4.50%</p>
 <a class="rate-cell-link" href="https://fred.stlouisfed.org/series/FEDFUNDS" target="_blank" rel="noopener" data-link="fedFundsRate">View on FRED →</a>
 </div>
@@ -332,7 +332,7 @@ SavingsClub
 <span class="rate-cell-icon" aria-hidden="true">🏠</span>
 <p class="rate-cell-label">30-Year Mortgage</p>
 </div>
-<svg class="rate-sparkline" viewBox="0 0 100 40" preserveAspectRatio="none" data-spark="mortgage30" aria-hidden="true"></svg>
+<svg class="rate-sparkline" viewBox="0 0 100 52" preserveAspectRatio="none" data-spark="mortgage30" aria-hidden="true"></svg>
 <p class="rate-cell-value" data-value="mortgage30">6.85%</p>
 <a class="rate-cell-link" href="https://fred.stlouisfed.org/series/MORTGAGE30US" target="_blank" rel="noopener" data-link="mortgage30">View on FRED →</a>
 </div>
@@ -342,7 +342,7 @@ SavingsClub
 <span class="rate-cell-icon" aria-hidden="true">📈</span>
 <p class="rate-cell-label">Inflation (CPI)</p>
 </div>
-<svg class="rate-sparkline" viewBox="0 0 100 40" preserveAspectRatio="none" data-spark="inflation" aria-hidden="true"></svg>
+<svg class="rate-sparkline" viewBox="0 0 100 52" preserveAspectRatio="none" data-spark="inflation" aria-hidden="true"></svg>
 <p class="rate-cell-value" data-value="inflation">3.10%</p>
 <a class="rate-cell-link" href="https://fred.stlouisfed.org/series/CPIAUCSL" target="_blank" rel="noopener" data-link="inflation">View on FRED →</a>
 </div>
@@ -352,7 +352,7 @@ SavingsClub
 <span class="rate-cell-icon" aria-hidden="true">💰</span>
 <p class="rate-cell-label">Personal Savings</p>
 </div>
-<svg class="rate-sparkline" viewBox="0 0 100 40" preserveAspectRatio="none" data-spark="personalSavings" aria-hidden="true"></svg>
+<svg class="rate-sparkline" viewBox="0 0 100 52" preserveAspectRatio="none" data-spark="personalSavings" aria-hidden="true"></svg>
 <p class="rate-cell-value" data-value="personalSavings">4.20%</p>
 <a class="rate-cell-link" href="https://fred.stlouisfed.org/series/PSAVERT" target="_blank" rel="noopener" data-link="personalSavings">View on FRED →</a>
 </div>
@@ -711,10 +711,20 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
 (function(){
   var SERIES_KEYS=['fedFundsRate','mortgage30','inflation','personalSavings'];
 
-  // Draw SVG sparkline with animation support
-  function drawSparkline(svg,history,delay){
+  // Determine if a trend is FAVORABLE for the consumer (not just up/down)
+  // For borrowing rates (Fed Funds, Mortgage, Inflation): DOWN is favorable
+  // For Personal Savings Rate: UP is favorable (Americans saving more is healthy)
+  function isFavorableTrend(seriesKey,history){
+    if(!history||history.length<2)return true;
+    var trendUp=history[history.length-1]>history[0];
+    if(seriesKey==='personalSavings')return trendUp;
+    return !trendUp;
+  }
+
+  // Draw SVG sparkline with animation support + consumer-impact colors
+  function drawSparkline(svg,history,delay,seriesKey){
     if(!svg||!history||history.length<2)return;
-    var w=100,h=40,pad=2;
+    var w=100,h=52,pad=3;
     var min=Math.min.apply(null,history),max=Math.max.apply(null,history);
     var range=(max-min)||1;
     var pts=history.map(function(v,i){
@@ -724,15 +734,17 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
     });
     var pathD=pts.map(function(p,i){return(i===0?'M ':'L ')+p[0].toFixed(2)+','+p[1].toFixed(2);}).join(' ');
     var fillD=pathD+' L '+pts[pts.length-1][0].toFixed(2)+','+h+' L '+pts[0][0].toFixed(2)+','+h+' Z';
-    var trendUp=history[history.length-1]>=history[0];
-    var stroke=trendUp?'#10B981':'#EF4444';
+    // Consumer-impact color: favorable = darker green, unfavorable = darker red
+    var favorable=isFavorableTrend(seriesKey,history);
+    var lineColor=favorable?'#047857':'#B91C1C';   // dark line (high contrast against fill)
+    var fillColor=favorable?'#10B981':'#EF4444';   // softer fill underneath
     var lastPt=pts[pts.length-1];
     var gradId='sg_'+Math.random().toString(36).slice(2,9);
-    svg.innerHTML='<defs><linearGradient id="'+gradId+'" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="'+stroke+'" stop-opacity="0.25"/><stop offset="100%" stop-color="'+stroke+'" stop-opacity="0"/></linearGradient></defs>'
+    svg.innerHTML='<defs><linearGradient id="'+gradId+'" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="'+fillColor+'" stop-opacity="0.18"/><stop offset="100%" stop-color="'+fillColor+'" stop-opacity="0"/></linearGradient></defs>'
       +'<path data-animate-fill d="'+fillD+'" fill="url(#'+gradId+')"/>'
-      +'<path data-animate-line d="'+pathD+'" fill="none" stroke="'+stroke+'" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>'
-      +'<circle data-animate-dot cx="'+lastPt[0].toFixed(2)+'" cy="'+lastPt[1].toFixed(2)+'" r="2.2" fill="'+stroke+'"/>';
-    // Compute actual path length and set dasharray for accurate animation
+      +'<path data-animate-line d="'+pathD+'" fill="none" stroke="'+lineColor+'" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>'
+      +'<circle data-animate-dot cx="'+lastPt[0].toFixed(2)+'" cy="'+lastPt[1].toFixed(2)+'" r="4" fill="'+lineColor+'" stroke="#FFFFFF" stroke-width="1.8"/>';
+    // Compute actual path length for accurate stroke-dasharray animation
     var linePath=svg.querySelector('path[data-animate-line]');
     if(linePath&&linePath.getTotalLength){
       var len=linePath.getTotalLength();
@@ -744,7 +756,6 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
     if(fillPath)fillPath.style.transitionDelay=((delay||0)+200)+'ms';
     var dot=svg.querySelector('circle[data-animate-dot]');
     if(dot)dot.style.transitionDelay=((delay||0)+1100)+'ms';
-    // Trigger animation on next frame
     requestAnimationFrame(function(){
       requestAnimationFrame(function(){
         if(linePath)linePath.classList.add('animate-in');
@@ -790,10 +801,10 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
         }
         updated++;
       }
-      // Update sparkline (with staggered draw-in animation)
+      // Update sparkline (with staggered draw-in animation + consumer-impact colors)
       var sparkEl=document.querySelector('[data-spark="'+key+'"]');
       if(sparkEl&&rate.history&&rate.history.length>=2){
-        drawSparkline(sparkEl,rate.history,delay);
+        drawSparkline(sparkEl,rate.history,delay,key);
       }
       // Update FRED link
       var linkEl=document.querySelector('[data-link="'+key+'"]');
@@ -813,7 +824,7 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
     if(footer&&data.updated){
       var d=new Date(data.updated);
       var dateStr=d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-      footer.innerHTML='<span class="last-updated">✓ Live data</span> from Federal Reserve Bank of St. Louis (FRED). Updated daily. Last refresh: <strong>'+dateStr+'</strong>. Click "View on FRED →" for full historical charts.';
+      footer.innerHTML='<span class="last-updated">✓ Live data</span> from Federal Reserve Bank of St. Louis (FRED). Updated daily. Last refresh: <strong>'+dateStr+'</strong>. <strong style="color:#047857">Green</strong> = trend favorable for consumers, <strong style="color:#B91C1C">red</strong> = unfavorable. Click "View on FRED →" for full historical charts.';
     }
     return true;
   }
