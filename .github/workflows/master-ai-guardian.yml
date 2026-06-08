@@ -1,8 +1,8 @@
-name: Master AI Guardian (Phase 3)
+name: Master AI Guardian (Final)
 
 on:
   schedule:
-    - cron: '0 10 * * 0'   # Every Sunday at 10:00 UTC
+    - cron: '0 10 * * 0'
   workflow_dispatch:
     inputs:
       command:
@@ -15,14 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
-      - name: Install dependencies
-        run: pip install requests PyGithub
-
+      - run: pip install requests PyGithub
       - name: Run Master AI Guardian
         env:
           CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
