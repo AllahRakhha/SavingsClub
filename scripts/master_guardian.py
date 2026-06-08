@@ -32,7 +32,7 @@ def main():
     except:
         pass
 
-    # SEO Detection
+    # SEO Detection + Moz (same as before)
     technical_keywords = ["technical seo", "schema", "sitemap", "core web vitals", "mobile", "crawl", "structured data"]
     regular_keywords = ["keyword", "content gap", "competitor", "backlink", "title tag", "meta description", "on-page"]
 
@@ -40,7 +40,6 @@ def main():
     is_regular = any(kw in user_command_lower for kw in regular_keywords)
     use_moz = is_technical or is_regular or "seo" in user_command_lower
 
-    # Moz API
     moz_data = ""
     if use_moz and os.environ.get("MOZ_ACCESS_ID") and os.environ.get("MOZ_SECRET_KEY"):
         print("Fetching Moz data...")
@@ -57,27 +56,32 @@ def main():
         except Exception as e:
             print(f"Moz error: {e}")
 
-    # Generate Report
     seo_focus = ""
     if is_technical:
-        seo_focus = "\nFocus: Technical SEO"
+        seo_focus = "\nFocus: Technical SEO (schema, speed, crawlability, structured data, etc.)"
     elif is_regular:
-        seo_focus = "\nFocus: Content & Keyword SEO"
+        seo_focus = "\nFocus: Content & Keyword SEO (keywords, content gaps, competitors, backlinks, etc.)"
 
-    system_prompt = f"""You are the Master AI Guardian for SavingsClub.com.
+    # === Improved Prompt for High-Quality Suggestions ===
+    system_prompt = f"""You are the Master AI Guardian for SavingsClub.com. You are an expert in personal finance websites, SEO, and user experience.
 
-Context:
+Your task is to provide **high-quality, practical, and actionable suggestions** based on the user's request.
+
+Website Context:
 {context}
 
-Feedback:
+Previous Feedback & Rules:
 {feedback}
 {moz_data}
 {seo_focus}
 
-Rules:
-- Keep reports clear, short, and actionable.
+Rules for your response:
+- Be specific and practical (give clear steps, not vague advice).
+- Prioritize suggestions by impact and effort.
 - Use simple language.
-- Be conservative and practical."""
+- Structure your response with clear headings and bullet points.
+- Focus only on what is realistically implementable for a finance website.
+- Be conservative — avoid risky or overly complex suggestions."""
 
     headers = {
         "x-api-key": api_key,
@@ -100,60 +104,35 @@ Rules:
     print(report)
     print("\n" + "="*80)
 
-    # === Phase 3 Features ===
-    if not github_token:
-        print("GitHub token not found. Skipping Issue/PR creation.")
-        return
-
-    auth = Auth.Token(github_token)
-    g = Github(auth=auth)
-    repo = g.get_repo("AllahRakhha/SavingsClub")
-
-    # 1. Create Issue
-    if any(kw in user_command_lower for kw in ["create issue", "make issue"]):
-        print("Creating GitHub Issue...")
+    # === Phase 3: Create File + Pull Request with High-Quality Content ===
+    if any(kw in user_command_lower for kw in ["create file", "update file", "create pr", "approve issue"]):
+        print("Creating file and Pull Request with high-quality suggestions...")
         try:
-            issue = repo.create_issue(
-                title=f"AI Guardian Suggestions - {datetime.now().strftime('%Y-%m-%d')}",
-                body=report
-            )
-            print(f"✅ Issue created: {issue.html_url}")
-        except Exception as e:
-            print(f"❌ Error creating Issue: {e}")
-        return
-
-    # 2. Approve Issue and Create PR
-    if "approve issue" in user_command_lower and "create pr" in user_command_lower:
-        print("Creating Pull Request from approved Issue...")
-        try:
-            match = re.search(r"#(\d+)", user_command)
-            if not match:
-                print("Please use format: Approve issue #5 and create PR")
-                return
-
-            issue_number = int(match.group(1))
-            issue = repo.get_issue(issue_number)
-
-            base = repo.get_branch("main")
-            branch_name = f"ai-guardian-pr-{datetime.now().strftime('%Y%m%d%H%M')}"
-            repo.create_git_ref(ref=f"refs/heads/{branch_name}", sha=base.commit.sha)
+            auth = Auth.Token(github_token)
+            g = Github(auth=auth)
+            repo = g.get_repo("AllahRakhha/SavingsClub")
 
             file_name = f"ai-improvement-{datetime.now().strftime('%Y%m%d%H%M')}.md"
             file_path = f".github/{file_name}"
 
+            base = repo.get_branch("main")
+            branch_name = f"ai-guardian-{datetime.now().strftime('%Y%m%d%H%M')}"
+            repo.create_git_ref(ref=f"refs/heads/{branch_name}", sha=base.commit.sha)
+
             repo.create_file(
                 path=file_path,
-                message=f"AI Guardian: Approved suggestions from Issue #{issue_number}",
+                message=f"AI Guardian: {user_command}",
                 content=report,
                 branch=branch_name
             )
 
             pr = repo.create_pull(
-                title=f"AI Guardian Suggestions from Issue #{issue_number}",
-                body=f"**Approved suggestions from Issue #{issue_number}**",
+                title=f"AI Guardian: {user_command}",
+                body=f"**High-quality suggestions generated by Master AI Guardian**\n\n**Command:** {user_command}",
                 head=branch_name,
                 base="main"
             )
+
             print(f"✅ Pull Request created: {pr.html_url}")
 
         except Exception as e:
