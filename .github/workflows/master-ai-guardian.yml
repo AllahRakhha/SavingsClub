@@ -1,12 +1,12 @@
-name: Master AI Guardian (Phase 2)
+name: Master AI Guardian (Phase 3)
 
 on:
   schedule:
-    - cron: '0 10 * * 0'   # Runs every Sunday at 10:00 UTC
+    - cron: '0 10 * * 0'   # Every Sunday at 10:00 UTC
   workflow_dispatch:
     inputs:
       command:
-        description: 'Optional command for the agent (leave empty for full audit)'
+        description: 'Command for the agent'
         required: false
         default: ''
 
@@ -20,10 +20,14 @@ jobs:
         with:
           python-version: '3.11'
 
-      - run: pip install requests
+      - name: Install dependencies
+        run: pip install requests PyGithub
 
       - name: Run Master AI Guardian
         env:
           CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
           GUARDIAN_COMMAND: ${{ github.event.inputs.command }}
+          MOZ_ACCESS_ID: ${{ secrets.MOZ_ACCESS_ID }}
+          MOZ_SECRET_KEY: ${{ secrets.MOZ_SECRET_KEY }}
+          AGENT_GITHUB_TOKEN: ${{ secrets.AGENT_GITHUB_TOKEN }}
         run: python scripts/master_guardian.py
