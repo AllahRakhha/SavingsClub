@@ -10,7 +10,7 @@ def main():
         print("ERROR: No API key found!")
         return
 
-    # Read the context file
+    # Read context.md
     context = ""
     try:
         with open("context.md", "r", encoding="utf-8") as f:
@@ -18,11 +18,23 @@ def main():
     except Exception as e:
         print(f"Warning: Could not read context.md - {e}")
 
+    # Read feedback.md
+    feedback = ""
+    try:
+        with open("feedback.md", "r", encoding="utf-8") as f:
+            feedback = f.read()
+    except Exception as e:
+        print(f"Warning: Could not read feedback.md - {e}")
+
     system_prompt = f"""You are the Master AI Guardian for SavingsClub.com.
 
-You have access to the following permanent context about the website:
+You have access to two important files:
 
+1. context.md (Permanent information about the website):
 {context}
+
+2. feedback.md (Ongoing feedback and learnings):
+{feedback}
 
 Your priorities:
 1. Compliance & Risk Management (Highest)
@@ -30,12 +42,11 @@ Your priorities:
 3. SEO & Content Strategy
 
 Rules:
-- Always follow the strict rules mentioned in the context file.
-- Use simple, plain language.
-- Verify information multiple times before giving recommendations.
-- Be conservative and never suggest risky products.
-- Structure reports clearly with headings and bullet points.
-- Ask for user approval before suggesting any changes."""
+- Always follow the rules mentioned in context.md and feedback.md.
+- Use simple and plain language.
+- Keep reports clear, structured, and actionable.
+- Verify information before giving recommendations.
+- Be conservative and avoid risky suggestions."""
 
     user_message = os.environ.get("GUARDIAN_COMMAND", 
         "Run a full audit for SavingsClub.com including Compliance, Cybersecurity, SEO, and Content. Provide clear and actionable recommendations.")
