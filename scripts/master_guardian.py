@@ -7,10 +7,8 @@ def main():
     print("=== Master AI Guardian Started ===")
 
     api_key = os.environ.get("CLAUDE_API_KEY")
-    github_token = os.environ.get("AGENT_GITHUB_TOKEN")
-
     if not api_key:
-        print("ERROR: No Claude API key found!")
+        print("ERROR: No API key found!")
         return
 
     # Read context and feedback
@@ -18,62 +16,108 @@ def main():
     try:
         with open("context.md", "r", encoding="utf-8") as f:
             context = f.read()
-    except:
-        pass
+    except Exception as e:
+        print(f"Warning: Could not read context.md - {e}")
 
     feedback = ""
     try:
         with open("feedback.md", "r", encoding="utf-8") as f:
             feedback = f.read()
-    except:
-        pass
+    except Exception as e:
+        print(f"Warning: Could not read feedback.md - {e}")
 
     user_command = os.environ.get("GUARDIAN_COMMAND", "")
     user_command_lower = user_command.lower()
 
-    # === Detect if user wants to create PR ===
-    create_pr_keywords = ["create pr", "create pull request", "approve and create pr", "make pr"]
-    should_create_pr = any(keyword in user_command_lower for keyword in create_pr_keywords)
+    # SEO Detection
+    technical_seo_keywords = ["technical seo", "schema", "sitemap", "core web vitals", "mobile", "crawl", "indexing", "structured data", "robots.txt"]
+    regular_seo_keywords = ["keyword", "content gap", "competitor", "backlink", "title tag", "meta description", "on-page seo"]
 
-    if should_create_pr and github_token:
-        print("Creating Pull Request for approved suggestions...")
+    is_technical_seo = any(word in user_command_lower for word in technical_seo_keywords)
+    is_regular_seo = any(word in user_command_lower for word in regular_seo_keywords)
+    is_general_seo = "seo" in user_command_lower
+    use_moz = is_technical_seo or is_regular_seo or is_general_seo
+
+    # Moz API
+    moz_access_id = os.environ.get("MOZ_ACCESS_ID")
+    moz_secret_key = os.environ.get("MOZ_SECRET_KEY")
+
+    moz_data = ""
+    if use_moz and moz_access_id and moz_secret_key:
+        print("Fetching Moz data...")
         try:
-            g = Github(github_token)
-            repo = g.get_repo("AllahRakhha/SavingsClub")  # Change if needed
-
-            # Get the latest open issue created by the agent
-            issues = repo.get_issues(state="open", creator="AllahRakhha")  # Change username if needed
-            latest_issue = None
-            for issue in issues:
-                if "AI Guardian" in issue.title:
-                    latest_issue = issue
-                    break
-
-            if latest_issue:
-                # Create a new branch
-                base = repo.get_branch("main")
-                branch_name = f"ai-guardian-suggestions-{datetime.now().strftime('%Y%m%d-%H%M')}"
-                repo.create_git_ref(ref=f"refs/heads/{branch_name}", sha=base.commit.sha)
-
-                # Create Pull Request
-                pr_title = f"AI Guardian Suggestions - {datetime.now().strftime('%Y-%m-%d')}"
-                pr_body = f"**This Pull Request contains suggestions from the Master AI Guardian.**\n\n" \
-                          f"**Original Issue:** #{latest_issue.number}\n\n" \
-                          f"**Suggestions:**\n\n{latest_issue.body}"
-
-                pr = repo.create_pull(title=pr_title, body=pr_body, head=branch_name, base="main")
-                print(f"Pull Request created successfully: {pr.html_url}")
-            else:
-                print("No recent AI Guardian Issue found to create PR from.")
+            auth = (moz_access_id, moz_secret_key)
+            payload = {"targets": ["https://savingsclub.com"]}
+            response = requests.post("https://lsapi.seomoz.com/v2/url_metrics", auth=auth, json=payload, timeout=15)
+            if response.status_code == 200:
+                moz_data = f"\n\n--- Moz Data ---\n{response.text}\n"
         except Exception as e:
-            print(f"Failed to create Pull Request: {e}")
-        return
+            print(f"Moz error: {e}")
 
-    # === Normal Audit Flow ===
-    # (Your existing SEO detection + Moz + Claude logic stays here)
-    # For now, I'll keep it short. You can paste your full current logic here.
+    # Determine SEO focus
+    seo_focus = ""
+    if is_technical_seo:
+        seo_focus = "\nFocus: Technical SEO"
+    elif is_regular_seo:
+        seo_focus = "\nFocus: Content & Keyword SEO"
+    elif is_general_seo:
+        seo_focus = "\nFocus: General SEO"
 
-    print("Running normal audit...")
+    system_prompt = f"""You are the Master AI Guardian for SavingsClub.com.
+
+You have access to:
+- context.md
+- feedback.md
+{moz_data}
+{seo_focus}
+
+Your job is to give clear, actionable suggestions. Keep reports short and practical."""
+
+    user_message = user_command if user_command else "Run a full audit."
+
+    # Call Claude
+    headers = {
+        "x-api-key": api_key,
+        "anthropic-version": "2023-06-01",
+        "content-type": "application/json"
+    }
+
+    data = {
+        "model": "claude-sonnet-4-20250514",
+        "max_tokens": 5000,
+        "messages": [{"role": "user", "content": system_prompt + "\n\n" + user_message}]
+    }
+
+    response = requests.post("https://api.anthropic.com/v1/messages", headers=headers, json=data)
+    report = response.json()["content"][0]["text"] if response.status_code == 200 else "Error generating report."
+
+    print("\n" + "="*80)
+    print("MASTER AI GUARDIAN REPORT")
+    print("="*80 + "\n")
+    print(report)
+    print("\n" + "="*80)
+
+    # === PHASE 3: Create GitHub Issue if commanded ===
+    create_issue_keywords = ["create an issue", "create issue", "make an issue", "open an issue"]
+    should_create_issue = any(keyword in user_command_lower for keyword in create_issue_keywords)
+
+    if should_create_issue:
+        print("Creating GitHub Issue...")
+        try:
+            github_token = os.environ.get("AGENT_GITHUB_TOKEN")
+            if github_token:
+                g = Github(github_token)
+                repo = g.get_repo("AllahRakhha/SavingsClub")  # Change if your repo name is different
+
+                issue_title = f"AI Guardian Suggestions - {datetime.now().strftime('%Y-%m-%d')}"
+                issue_body = f"**Generated by Master AI Guardian**\n\n{report}"
+
+                repo.create_issue(title=issue_title, body=issue_body)
+                print("GitHub Issue created successfully!")
+            else:
+                print("AGENT_GITHUB_TOKEN not found in secrets.")
+        except Exception as e:
+            print(f"Failed to create GitHub Issue: {e}")
 
 if __name__ == "__main__":
     main()
