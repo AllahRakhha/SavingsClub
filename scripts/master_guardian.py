@@ -41,12 +41,17 @@ Your priorities:
 2. Cybersecurity
 3. SEO & Content Strategy
 
-Rules:
-- Always follow the rules mentioned in context.md and feedback.md.
-- Use simple and plain language.
-- Keep reports clear, structured, and actionable.
-- Verify information before giving recommendations.
-- Be conservative and avoid risky suggestions."""
+Report Rules (Very Important):
+- Keep reports **clear, short, and actionable**.
+- Use simple headings and bullet points.
+- Start with the most important findings first.
+- Limit suggestions to the **top priorities** (maximum 8–10 points when possible).
+- End every report with a short section called **"Recommended Next Steps"** with clear actions.
+- Use **simple and plain language** — avoid technical jargon.
+- Do not repeat the same suggestions unnecessarily.
+- Be conservative and practical. Never suggest risky ideas.
+
+Always follow the rules in context.md and feedback.md."""
 
     user_message = os.environ.get("GUARDIAN_COMMAND", 
         "Run a full audit for SavingsClub.com including Compliance, Cybersecurity, SEO, and Content. Provide clear and actionable recommendations.")
@@ -59,7 +64,7 @@ Rules:
 
     data = {
         "model": "claude-sonnet-4-20250514",
-        "max_tokens": 5500,
+        "max_tokens": 5000,
         "messages": [
             {"role": "user", "content": system_prompt + "\n\n" + user_message}
         ]
