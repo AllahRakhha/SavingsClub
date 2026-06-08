@@ -7,55 +7,83 @@ import re
 def main():
     print("=== Master AI Guardian Started ===")
 
+    api_key = os.environ.get("CLAUDE_API_KEY")
     github_token = os.environ.get("AGENT_GITHUB_TOKEN")
-    if not github_token:
-        print("ERROR: AGENT_GITHUB_TOKEN not found!")
+
+    if not api_key or not github_token:
+        print("ERROR: Missing required API keys!")
         return
 
     user_command = os.environ.get("GUARDIAN_COMMAND", "")
     user_command_lower = user_command.lower()
 
-    if "create pr for issue" in user_command_lower:
-        print("Creating Pull Request from Issue...")
+    # Read context.md and feedback.md
+    context = ""
+    try:
+        with open("context.md", "r", encoding="utf-8") as f:
+            context = f.read()
+    except:
+        pass
+
+    feedback = ""
+    try:
+        with open("feedback.md", "r", encoding="utf-8") as f:
+            feedback = f.read()
+    except:
+        pass
+
+    # === Phase 3: Create or Update Markdown File + Pull Request ===
+    if any(kw in user_command_lower for kw in ["create file", "update file", "improve file", "create pr"]):
+        print("Creating/Updating file and Pull Request...")
         try:
-            match = re.search(r"#(\d+)", user_command)
-            if not match:
-                print("Please use format: Create PR for issue #1")
-                return
-
-            issue_number = int(match.group(1))
-
             auth = Auth.Token(github_token)
             g = Github(auth=auth)
             repo = g.get_repo("AllahRakhha/SavingsClub")  # Change if needed
 
-            issue = repo.get_issue(issue_number)
+            # Simple example: Create a new markdown file in .github/
+            file_name = f"ai-improvement-{datetime.now().strftime('%Y%m%d%H%M')}.md"
+            file_path = f".github/{file_name}"
 
-            # Create new branch
+            file_content = f"""# AI Guardian Improvement Suggestion
+**Date:** {datetime.now().strftime('%Y-%m-%d %H:%M')}
+
+**Command:** {user_command}
+
+**Suggestion:**
+This file was created by the Master AI Guardian based on your request.
+
+You can replace this content with actual suggestions or improvements.
+"""
+
+            # Create the file on a new branch
             base = repo.get_branch("main")
-            branch_name = f"ai-guardian-pr-{datetime.now().strftime('%Y%m%d%H%M')}"
+            branch_name = f"ai-guardian-{datetime.now().strftime('%Y%m%d%H%M')}"
             repo.create_git_ref(ref=f"refs/heads/{branch_name}", sha=base.commit.sha)
 
-            # Create a small commit (required by GitHub)
+            # Create file
             repo.create_file(
-                path=f".github/ai-guardian-suggestions-{datetime.now().strftime('%Y%m%d%H%M')}.md",
-                message=f"AI Guardian suggestions from Issue #{issue_number}",
-                content=f"# Suggestions from Issue #{issue_number}\n\n{issue.body}",
+                path=file_path,
+                message=f"AI Guardian: {user_command}",
+                content=file_content,
                 branch=branch_name
             )
 
             # Create Pull Request
-            pr_title = f"AI Guardian Suggestions from Issue #{issue_number}"
-            pr_body = f"**This PR contains suggestions from Issue #{issue_number}**\n\n{issue.body}"
+            pr = repo.create_pull(
+                title=f"AI Guardian: {user_command}",
+                body=f"**This PR was created by Master AI Guardian**\n\nCommand: {user_command}",
+                head=branch_name,
+                base="main"
+            )
 
-            pr = repo.create_pull(title=pr_title, body=pr_body, head=branch_name, base="main")
-            print(f"✅ Pull Request created successfully: {pr.html_url}")
+            print(f"✅ Pull Request created: {pr.html_url}")
 
         except Exception as e:
-            print(f"❌ Failed to create Pull Request: {e}")
+            print(f"❌ Error: {e}")
         return
 
-    print("No matching command. Running normal flow...")
+    # Normal flow (you can expand this later)
+    print("Running normal audit flow...")
 
 if __name__ == "__main__":
     main()
