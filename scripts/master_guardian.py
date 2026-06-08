@@ -31,7 +31,6 @@ def main():
     use_moz = any(word in user_command for word in ["seo", "keyword", "competitor", "backlink", "domain authority"])
 
     # Moz credentials from GitHub Secrets
-    moz_access_id = os.environ.get("MOZ_ACCESS_ID")
     moz_secret_key = os.environ.get("MOZ_SECRET_KEY")
 
     moz_data = ""
