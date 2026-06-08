@@ -10,8 +10,8 @@ def main():
     api_key = os.environ.get("CLAUDE_API_KEY")
     github_token = os.environ.get("AGENT_GITHUB_TOKEN")
 
-    if not api_key or not github_token:
-        print("ERROR: Missing API keys!")
+    if not api_key:
+        print("ERROR: No Claude API key found!")
         return
 
     user_command = os.environ.get("GUARDIAN_COMMAND", "")
@@ -32,77 +32,107 @@ def main():
     except:
         pass
 
-    # === Phase 3: Create Markdown File + Pull Request with Real Content ===
-    if any(kw in user_command_lower for kw in ["create file", "update file", "improve file", "create pr"]):
-        print("Generating real suggestions and creating file + PR...")
+    # === SEO Detection ===
+    technical_keywords = ["technical seo", "schema", "sitemap", "core web vitals", "mobile", "crawl", "structured data"]
+    regular_keywords = ["keyword", "content gap", "competitor", "backlink", "title tag", "meta description", "on-page"]
 
-        # Step 1: Ask Claude to generate useful content based on the command
-        system_prompt = f"""You are the Master AI Guardian for SavingsClub.com.
+    is_technical = any(kw in user_command_lower for kw in technical_keywords)
+    is_regular = any(kw in user_command_lower for kw in regular_keywords)
+    use_moz = is_technical or is_regular or "seo" in user_command_lower
 
-Your task is to provide clear, practical, and actionable suggestions based on the user's request.
+    # === Moz API ===
+    moz_data = ""
+    if use_moz and os.environ.get("MOZ_ACCESS_ID") and os.environ.get("MOZ_SECRET_KEY"):
+        print("Fetching Moz data...")
+        try:
+            auth = (os.environ.get("MOZ_ACCESS_ID"), os.environ.get("MOZ_SECRET_KEY"))
+            response = requests.post(
+                "https://lsapi.seomoz.com/v2/url_metrics",
+                auth=auth,
+                json={"targets": ["https://savingsclub.com"]},
+                timeout=15
+            )
+            if response.status_code == 200:
+                moz_data = f"\n\n--- Moz Data ---\n{response.text}\n"
+        except Exception as e:
+            print(f"Moz error: {e}")
 
-Context about the website:
+    # === Generate Report using Claude ===
+    seo_focus = ""
+    if is_technical:
+        seo_focus = "\nFocus: Technical SEO"
+    elif is_regular:
+        seo_focus = "\nFocus: Content & Keyword SEO"
+
+    system_prompt = f"""You are the Master AI Guardian for SavingsClub.com.
+
+Context:
 {context}
 
-Previous feedback:
+Feedback:
 {feedback}
+{moz_data}
+{seo_focus}
 
-User Command: {user_command}
+Rules:
+- Keep reports clear, short, and actionable.
+- Use simple language.
+- Be conservative and practical."""
 
-Write a well-structured markdown response with real suggestions. Keep it professional, concise, and useful."""
+    headers = {
+        "x-api-key": api_key,
+        "anthropic-version": "2023-06-01",
+        "content-type": "application/json"
+    }
 
-        headers = {
-            "x-api-key": api_key,
-            "anthropic-version": "2023-06-01",
-            "content-type": "application/json"
-        }
+    data = {
+        "model": "claude-sonnet-4-20250514",
+        "max_tokens": 4500,
+        "messages": [{"role": "user", "content": system_prompt + "\n\n" + user_command}]
+    }
 
-        data = {
-            "model": "claude-sonnet-4-20250514",
-            "max_tokens": 4000,
-            "messages": [{"role": "user", "content": system_prompt}]
-        }
+    response = requests.post("https://api.anthropic.com/v1/messages", headers=headers, json=data)
+    report = response.json()["content"][0]["text"] if response.status_code == 200 else "Error generating report."
 
-        response = requests.post("https://api.anthropic.com/v1/messages", headers=headers, json=data)
-        suggestions = response.json()["content"][0]["text"] if response.status_code == 200 else "Error generating suggestions."
+    print("\n" + "="*80)
+    print("MASTER AI GUARDIAN REPORT")
+    print("="*80 + "\n")
+    print(report)
+    print("\n" + "="*80)
 
-        # Step 2: Create file and Pull Request
+    # === Phase 3: Create File + Pull Request ===
+    if any(kw in user_command_lower for kw in ["create file", "update file", "create pr"]):
+        print("Creating file and Pull Request with real content...")
         try:
             auth = Auth.Token(github_token)
             g = Github(auth=auth)
-            repo = g.get_repo("AllahRakhha/SavingsClub")  # Change if needed
+            repo = g.get_repo("AllahRakhha/SavingsClub")
 
             file_name = f"ai-improvement-{datetime.now().strftime('%Y%m%d%H%M')}.md"
             file_path = f".github/{file_name}"
 
-            # Create branch
             base = repo.get_branch("main")
             branch_name = f"ai-guardian-{datetime.now().strftime('%Y%m%d%H%M')}"
             repo.create_git_ref(ref=f"refs/heads/{branch_name}", sha=base.commit.sha)
 
-            # Create file with real suggestions
             repo.create_file(
                 path=file_path,
                 message=f"AI Guardian: {user_command}",
-                content=suggestions,
+                content=report,
                 branch=branch_name
             )
 
-            # Create Pull Request
             pr = repo.create_pull(
                 title=f"AI Guardian: {user_command}",
-                body=f"**This PR was created by Master AI Guardian**\n\n**Command:** {user_command}\n\n**File created:** `{file_path}`",
+                body=f"**Generated by Master AI Guardian**\n\n**Command:** {user_command}",
                 head=branch_name,
                 base="main"
             )
 
-            print(f"✅ Pull Request created successfully: {pr.html_url}")
+            print(f"✅ Pull Request created: {pr.html_url}")
 
         except Exception as e:
-            print(f"❌ Error: {e}")
-        return
-
-    print("No matching command found.")
+            print(f"❌ Error creating PR: {e}")
 
 if __name__ == "__main__":
     main()
