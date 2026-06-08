@@ -26,36 +26,6 @@ def main():
     except Exception as e:
         print(f"Warning: Could not read feedback.md - {e}")
 
-    # Check if command is SEO-related
-    user_command = os.environ.get("GUARDIAN_COMMAND", "").lower()
-    use_moz = any(word in user_command for word in ["seo", "keyword", "competitor", "backlink", "domain authority"])
-
-    # Moz credentials from GitHub Secrets
-    moz_access_id = os.environ.get("MOZ_ACCESS_ID")
-    moz_secret_key = os.environ.get("MOZ_SECRET_KEY")
-
-    moz_data = ""
-    if use_moz and moz_access_id and moz_secret_key:
-        print("SEO-related command detected. Fetching data from Moz...")
-        try:
-            auth = (moz_access_id, moz_secret_key)
-            payload = {"targets": ["https://savingsclub.com"]}
-            response = requests.post(
-                "https://lsapi.seomoz.com/v2/url_metrics",
-                auth=auth,
-                json=payload,
-                timeout=15
-            )
-            if response.status_code == 200:
-                moz_data = f"\n\n--- Moz Data ---\n{response.text}\n"
-                print("Moz data fetched successfully.")
-            else:
-                print(f"Moz API returned status: {response.status_code}")
-        except Exception as e:
-            print(f"Could not fetch Moz data: {e}")
-    elif use_moz:
-        print("Moz credentials not found in secrets. Skipping Moz API.")
-
     system_prompt = f"""You are the Master AI Guardian for SavingsClub.com.
 
 You have access to two important files:
@@ -65,8 +35,6 @@ You have access to two important files:
 
 2. feedback.md (Ongoing feedback and learnings):
 {feedback}
-
-{moz_data}
 
 Your priorities:
 1. Compliance & Risk Management (Highest)
@@ -83,10 +51,9 @@ Report Rules (Very Important):
 - Do not repeat the same suggestions unnecessarily.
 - Be conservative and practical. Never suggest risky ideas.
 
-When Moz data is available, use it to give data-backed SEO recommendations.
 Always follow the rules in context.md and feedback.md."""
 
-    user_message = os.environ.get("GUARDIAN_COMMAND",
+    user_message = os.environ.get("GUARDIAN_COMMAND", 
         "Run a full audit for SavingsClub.com including Compliance, Cybersecurity, SEO, and Content. Provide clear and actionable recommendations.")
 
     headers = {
