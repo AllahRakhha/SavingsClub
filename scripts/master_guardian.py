@@ -26,6 +26,54 @@ def main():
     except Exception as e:
         print(f"Warning: Could not read feedback.md - {e}")
 
+    user_command = os.environ.get("GUARDIAN_COMMAND", "")
+    user_command_lower = user_command.lower()
+
+    # Improved SEO Detection
+    technical_seo_keywords = ["technical seo", "schema", "sitemap", "core web vitals", "mobile", "crawl", "indexing", "structured data", "robots.txt", "page speed"]
+    regular_seo_keywords = ["keyword", "content gap", "competitor", "backlink", "title tag", "meta description", "on-page seo", "content optimization"]
+
+    is_technical_seo = any(word in user_command_lower for word in technical_seo_keywords)
+    is_regular_seo = any(word in user_command_lower for word in regular_seo_keywords)
+    is_general_seo = "seo" in user_command_lower
+
+    use_moz = is_technical_seo or is_regular_seo or is_general_seo
+
+    # Moz credentials
+    moz_access_id = os.environ.get("MOZ_ACCESS_ID")
+    moz_secret_key = os.environ.get("MOZ_SECRET_KEY")
+
+    moz_data = ""
+    if use_moz and moz_access_id and moz_secret_key:
+        print("SEO command detected. Fetching data from Moz API...")
+        try:
+            auth = (moz_access_id, moz_secret_key)
+            payload = {"targets": ["https://savingsclub.com"]}
+            response = requests.post(
+                "https://lsapi.seomoz.com/v2/url_metrics",
+                auth=auth,
+                json=payload,
+                timeout=15
+            )
+            if response.status_code == 200:
+                moz_data = f"\n\n--- Moz SEO Data ---\n{response.text}\n"
+                print("Moz data fetched successfully.")
+            else:
+                print(f"Moz API Error: {response.status_code}")
+        except Exception as e:
+            print(f"Could not fetch Moz data: {e}")
+    elif use_moz:
+        print("Moz credentials not configured. Skipping Moz API.")
+
+    # Determine SEO focus type for the prompt
+    seo_focus = ""
+    if is_technical_seo:
+        seo_focus = "\nFocus Area: Technical SEO (schema, speed, crawlability, structured data, etc.)"
+    elif is_regular_seo:
+        seo_focus = "\nFocus Area: Content & Keyword SEO (keywords, content gaps, competitors, backlinks, etc.)"
+    elif is_general_seo:
+        seo_focus = "\nFocus Area: General SEO improvements"
+
     system_prompt = f"""You are the Master AI Guardian for SavingsClub.com.
 
 You have access to two important files:
@@ -35,6 +83,9 @@ You have access to two important files:
 
 2. feedback.md (Ongoing feedback and learnings):
 {feedback}
+
+{moz_data}
+{seo_focus}
 
 Your priorities:
 1. Compliance & Risk Management (Highest)
@@ -51,10 +102,11 @@ Report Rules (Very Important):
 - Do not repeat the same suggestions unnecessarily.
 - Be conservative and practical. Never suggest risky ideas.
 
+When Moz data is available, use it to give data-backed SEO recommendations.
 Always follow the rules in context.md and feedback.md."""
 
-    user_message = os.environ.get("GUARDIAN_COMMAND", 
-        "Run a full audit for SavingsClub.com including Compliance, Cybersecurity, SEO, and Content. Provide clear and actionable recommendations.")
+    user_message = user_command if user_command else \
+        "Run a full audit for SavingsClub.com including Compliance, Cybersecurity, SEO, and Content. Provide clear and actionable recommendations."
 
     headers = {
         "x-api-key": api_key,
