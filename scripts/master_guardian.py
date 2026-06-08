@@ -11,7 +11,7 @@ def main():
     github_token = os.environ.get("AGENT_GITHUB_TOKEN")
 
     if not api_key or not github_token:
-        print("ERROR: Missing required API keys!")
+        print("ERROR: Missing API keys!")
         return
 
     user_command = os.environ.get("GUARDIAN_COMMAND", "")
@@ -32,58 +32,77 @@ def main():
     except:
         pass
 
-    # === Phase 3: Create or Update Markdown File + Pull Request ===
+    # === Phase 3: Create Markdown File + Pull Request with Real Content ===
     if any(kw in user_command_lower for kw in ["create file", "update file", "improve file", "create pr"]):
-        print("Creating/Updating file and Pull Request...")
+        print("Generating real suggestions and creating file + PR...")
+
+        # Step 1: Ask Claude to generate useful content based on the command
+        system_prompt = f"""You are the Master AI Guardian for SavingsClub.com.
+
+Your task is to provide clear, practical, and actionable suggestions based on the user's request.
+
+Context about the website:
+{context}
+
+Previous feedback:
+{feedback}
+
+User Command: {user_command}
+
+Write a well-structured markdown response with real suggestions. Keep it professional, concise, and useful."""
+
+        headers = {
+            "x-api-key": api_key,
+            "anthropic-version": "2023-06-01",
+            "content-type": "application/json"
+        }
+
+        data = {
+            "model": "claude-sonnet-4-20250514",
+            "max_tokens": 4000,
+            "messages": [{"role": "user", "content": system_prompt}]
+        }
+
+        response = requests.post("https://api.anthropic.com/v1/messages", headers=headers, json=data)
+        suggestions = response.json()["content"][0]["text"] if response.status_code == 200 else "Error generating suggestions."
+
+        # Step 2: Create file and Pull Request
         try:
             auth = Auth.Token(github_token)
             g = Github(auth=auth)
             repo = g.get_repo("AllahRakhha/SavingsClub")  # Change if needed
 
-            # Simple example: Create a new markdown file in .github/
             file_name = f"ai-improvement-{datetime.now().strftime('%Y%m%d%H%M')}.md"
             file_path = f".github/{file_name}"
 
-            file_content = f"""# AI Guardian Improvement Suggestion
-**Date:** {datetime.now().strftime('%Y-%m-%d %H:%M')}
-
-**Command:** {user_command}
-
-**Suggestion:**
-This file was created by the Master AI Guardian based on your request.
-
-You can replace this content with actual suggestions or improvements.
-"""
-
-            # Create the file on a new branch
+            # Create branch
             base = repo.get_branch("main")
             branch_name = f"ai-guardian-{datetime.now().strftime('%Y%m%d%H%M')}"
             repo.create_git_ref(ref=f"refs/heads/{branch_name}", sha=base.commit.sha)
 
-            # Create file
+            # Create file with real suggestions
             repo.create_file(
                 path=file_path,
                 message=f"AI Guardian: {user_command}",
-                content=file_content,
+                content=suggestions,
                 branch=branch_name
             )
 
             # Create Pull Request
             pr = repo.create_pull(
                 title=f"AI Guardian: {user_command}",
-                body=f"**This PR was created by Master AI Guardian**\n\nCommand: {user_command}",
+                body=f"**This PR was created by Master AI Guardian**\n\n**Command:** {user_command}\n\n**File created:** `{file_path}`",
                 head=branch_name,
                 base="main"
             )
 
-            print(f"✅ Pull Request created: {pr.html_url}")
+            print(f"✅ Pull Request created successfully: {pr.html_url}")
 
         except Exception as e:
             print(f"❌ Error: {e}")
         return
 
-    # Normal flow (you can expand this later)
-    print("Running normal audit flow...")
+    print("No matching command found.")
 
 if __name__ == "__main__":
     main()
