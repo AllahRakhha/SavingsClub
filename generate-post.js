@@ -382,21 +382,23 @@ function generateRSS() {
 
   const items = recentPosts.map(p => {
     const url = 'https://savingsclub.com/blog/' + p.slug + '/';
+    const escapedUrl = escapeXml(url);
     const pubDate = toRFC822(p);
     const imgUrl = absoluteImageUrl(p.image);
+    const escapedImgUrl = escapeXml(imgUrl);
     const title = escapeXml(p.title);
     const description = escapeXml(p.excerpt || p.title);
     const category = escapeXml(p.category || 'Money Tips');
 
     return '  <item>\n' +
       '    <title>' + title + '</title>\n' +
-      '    <link>' + url + '</link>\n' +
-      '    <guid isPermaLink="true">' + url + '</guid>\n' +
+      '    <link>' + escapedUrl + '</link>\n' +
+      '    <guid isPermaLink="true">' + escapedUrl + '</guid>\n' +
       '    <pubDate>' + pubDate + '</pubDate>\n' +
       '    <category>' + category + '</category>\n' +
       '    <description><![CDATA[' + (p.excerpt || p.title) + ']]></description>\n' +
-      '    <enclosure url="' + imgUrl + '" type="image/jpeg" />\n' +
-      '    <media:content url="' + imgUrl + '" medium="image" />\n' +
+      '    <enclosure url="' + escapedImgUrl + '" type="image/jpeg" />\n' +
+      '    <media:content url="' + escapedImgUrl + '" medium="image" />\n' +
       '  </item>';
   }).join('\n');
 
