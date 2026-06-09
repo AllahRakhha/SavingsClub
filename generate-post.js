@@ -329,6 +329,164 @@ function pickUnusedTopic(usedTitles) {
   return { topic: fallbackTopic + ' — ' + new Date().getFullYear() + ' update', state: fallbackState };
 }
 
+/**
+ * Generate RSS 2.0 feed from generated-posts.json.
+ * Reads all blog posts, outputs rss.xml at repo root.
+ * Make.com watches this URL (https://savingsclub.com/rss.xml) to auto-post new
+ * blogs to Facebook. Each item includes an <enclosure> tag so Make.com can
+ * attach the featured image to the Facebook post.
+ */
+function generateRSS() {
+  let posts = [];
+  try {
+    posts = JSON.parse(fs.readFileSync('generated-posts.json', 'utf8'));
+  } catch (e) {
+    console.log('Could not read generated-posts.json for RSS: ' + e.message);
+    return;
+  }
+
+  // Limit to most recent 50 posts (RSS best practice — keeps file size manageable)
+  const recentPosts = posts.slice(0, 50);
+
+  function escapeXml(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&apos;');
+  }
+
+  function absoluteImageUrl(img) {
+    if (!img) return 'https://savingsclub.com/img/savings-jar.jpg';
+    if (img.indexOf('http://') === 0 || img.indexOf('https://') === 0) return img;
+    if (img.indexOf('/') === 0) return 'https://savingsclub.com' + img;
+    return 'https://savingsclub.com/' + img;
+  }
+
+  function toRFC822(post) {
+    // Prefer explicit pubDate (new posts), then isoDate, then parse human-readable date
+    try {
+      if (post.pubDate) return post.pubDate;
+      if (post.isoDate) {
+        const d = new Date(post.isoDate);
+        if (!isNaN(d.getTime())) return d.toUTCString();
+      }
+      if (post.date) {
+        const d = new Date(post.date);
+        if (!isNaN(d.getTime())) return d.toUTCString();
+      }
+    } catch (e) {}
+    return new Date().toUTCString();
+  }
+
+  const items = recentPosts.map(p => {
+    const url = 'https://savingsclub.com/blog/' + p.slug + '/';
+    const pubDate = toRFC822(p);
+    const imgUrl = absoluteImageUrl(p.image);
+    const title = escapeXml(p.title);
+    const description = escapeXml(p.excerpt || p.title);
+    const category = escapeXml(p.category || 'Money Tips');
+
+    return '  <item>\n' +
+      '    <title>' + title + '</title>\n' +
+      '    <link>' + url + '</link>\n' +
+      '    <guid isPermaLink="true">' + url + '</guid>\n' +
+      '    <pubDate>' + pubDate + '</pubDate>\n' +
+      '    <category>' + category + '</category>\n' +
+      '    <description><![CDATA[' + (p.excerpt || p.title) + ']]></description>\n' +
+      '    <enclosure url="' + imgUrl + '" type="image/jpeg" />\n' +
+      '    <media:content url="' + imgUrl + '" medium="image" />\n' +
+      '  </item>';
+  }).join('\n');
+
+  const now = new Date().toUTCString();
+  const rss = '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">\n' +
+    '<channel>\n' +
+    '<title>SavingsClub Blog</title>\n' +
+    '<link>https://savingsclub.com/blog/</link>\n' +
+    '<atom:link href="https://savingsclub.com/rss.xml" rel="self" type="application/rss+xml" />\n' +
+    '<description>Free personal finance education, calculators, and money guides for Americans in every state.</description>\n' +
+    '<language>en-us</language>\n' +
+    '<lastBuildDate>' + now + '</lastBuildDate>\n' +
+    '<image>\n' +
+    '<url>https://savingsclub.com/img/sc-logo-full.png</url>\n' +
+    '<title>SavingsClub Blog</title>\n' +
+    '<link>https://savingsclub.com/blog/</link>\n' +
+    '</image>\n' +
+    items + '\n' +
+    '</channel>\n' +
+    '</rss>\n';
+
+  fs.writeFileSync('rss.xml', rss);
+  console.log('RSS feed updated: rss.xml (' + recentPosts.length + ' items)');
+}
+
+/**
+ * Generate a markdown image report at blog-image-report.md.
+ * Lists every recent blog post with image thumbnail, search query used,
+ * and direct "Edit on GitHub" link for replacing wrong images.
+ * Updated automatically after every blog generation.
+ */
+function generateImageReport() {
+  let posts = [];
+  try {
+    posts = JSON.parse(fs.readFileSync('generated-posts.json', 'utf8'));
+  } catch (e) {
+    console.log('Could not read generated-posts.json for image report: ' + e.message);
+    return;
+  }
+
+  // Show all posts (RSS limits to 50, but report can show everything)
+  const recentPosts = posts.slice(0, 50);
+
+  const today = new Date().toISOString().split('T')[0];
+  const lines = [
+    '# Blog Image Report',
+    '',
+    '_Last updated: ' + today + '_',
+    '',
+    'Quick review — scroll through the thumbnails below. If an image does NOT match its blog topic, follow the "Replace this image" steps under that post.',
+    '',
+    '## How to replace a wrong image',
+    '',
+    '1. Open [Unsplash.com](https://unsplash.com) in a new tab',
+    '2. Search for what you want (e.g., `piggy bank coins`)',
+    '3. Click an image you like → click the **"..."** menu → **Copy image link**',
+    '4. Come back here, click the **🔧 Edit image** link below the wrong post',
+    '5. In the GitHub editor, use **Ctrl+F** to find `<img src="`',
+    '6. Replace the URL with the one you copied from Unsplash',
+    '7. Scroll to bottom → **Commit changes**',
+    '',
+    '---',
+    ''
+  ];
+
+  recentPosts.forEach((p, i) => {
+    const editUrl = 'https://github.com/AllahRakhha/SavingsClub/edit/main/blog/' + p.slug + '/index.html';
+    const liveUrl = 'https://savingsclub.com/blog/' + p.slug + '/';
+    let imageUrl = p.image || 'https://savingsclub.com/img/savings-jar.jpg';
+    // Convert relative image paths to absolute for the markdown preview
+    if (imageUrl.indexOf('/') === 0) imageUrl = 'https://savingsclub.com' + imageUrl;
+    const query = p.searchQuery || '_(not tracked — older post)_';
+
+    lines.push('### ' + (i + 1) + '. ' + p.title);
+    lines.push('');
+    lines.push('<img src="' + imageUrl + '" width="500" alt="Image for blog post" />');
+    lines.push('');
+    lines.push('- **Search query used:** `' + query + '`');
+    lines.push('- **Live post:** ' + liveUrl);
+    lines.push('- **🔧 [Edit image on GitHub →](' + editUrl + ')**');
+    lines.push('');
+    lines.push('---');
+    lines.push('');
+  });
+
+  fs.writeFileSync('blog-image-report.md', lines.join('\n'));
+  console.log('Image report updated: blog-image-report.md (' + recentPosts.length + ' posts)');
+}
+
 async function generatePost() {
   const client = new Anthropic();
   const usedTitles = getUsedTopics();
@@ -410,10 +568,10 @@ Write unique, original content. Explain the WHY behind every recommendation. Be 
   const readTime = Math.max(1, Math.round(wordCount / 200));
 
   // Fetch unique image from Unsplash using STRONG topic-specific search query
+  const searchQuery = getImageQuery(title, category);
   let blogImage = '/img/savings-jar.jpg';
   let photoCredit = '';
   try {
-    const searchQuery = getImageQuery(title, category);
     console.log('Unsplash query: "' + searchQuery + '" (for topic: ' + title + ')');
     const unsplashKey = process.env.UNSPLASH_ACCESS_KEY;
     if (unsplashKey) {
@@ -451,9 +609,12 @@ Write unique, original content. Explain the WHY behind every recommendation. Be 
     slug: slug,
     category: category,
     date: date,
+    isoDate: isoDate,
+    pubDate: new Date().toUTCString(),
     author: 'SavingsClub Research Team',
     excerpt: title,
-    image: blogImage
+    image: blogImage,
+    searchQuery: searchQuery
   };
 
   // Create blog post HTML file
@@ -559,6 +720,12 @@ function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.class
       console.log('Added to sitemap');
     }
   } catch (e) { console.log('Could not update sitemap: ' + e.message); }
+
+  // Generate RSS feed for Make.com social media automation
+  generateRSS();
+
+  // Generate image report (helps you review and fix wrong images)
+  generateImageReport();
 
   console.log('Published: ' + title + ' [' + category + ']');
   console.log('Word count estimate: ' + cleanContent.replace(/<[^>]*>/g, '').split(/\s+/).length);
