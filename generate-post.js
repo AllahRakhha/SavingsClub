@@ -2,7 +2,7 @@ const Anthropic = require('@anthropic-ai/sdk');
 const fs = require('fs');
 const path = require('path');
 
-// 60 unique topic templates — each used ONCE then never repeated
+// 79 unique topic templates — each used ONCE then never repeated
 const TOPICS = [
   "Best high-yield savings accounts for {STATE} residents",
   "How to save for a house down payment in {STATE}",
@@ -139,6 +139,160 @@ function categorize(title) {
   return 'Money Tips';
 }
 
+/**
+ * STRONG, TOPIC-SPECIFIC Unsplash search queries.
+ * Returns 2-4 concrete visual nouns matching the actual blog topic,
+ * not generic category labels. Order matters: most specific first.
+ */
+function getImageQuery(topic, category) {
+  const t = topic.toLowerCase();
+
+  // === LIFE EVENTS & DEMOGRAPHICS (most specific) ===
+  if (t.includes('teach kids') || t.includes('kids about money') || t.includes('teaching kids')) return 'child piggy bank coins learning';
+  if (t.includes('new parents') || t.includes('having a baby') || t.includes('financially prepare') && t.includes('baby')) return 'baby crib nursery family';
+  if (t.includes('couple') && (t.includes('manage') || t.includes('money'))) return 'couple kitchen finances laptop';
+  if (t.includes('single-income family') || t.includes('single income')) return 'parent child home kitchen';
+  if (t.includes('millennial')) return 'young professional laptop coffee shop';
+  if (t.includes('in your 20s')) return 'young woman laptop apartment work';
+  if (t.includes('in your 30s')) return 'professional woman office desk';
+  if (t.includes('in your 40s') || t.includes('early retirement')) return 'middle aged couple beach hammock';
+  if (t.includes('immigrant')) return 'passport visa documents america flag';
+  if (t.includes('back-to-school') || t.includes('back to school')) return 'school supplies backpack notebooks pencils';
+  if (t.includes('wedding')) return 'wedding rings bouquet ceremony';
+  if (t.includes('vacation') || (t.includes('travel') && !t.includes('credit card'))) return 'beach vacation suitcase passport';
+  if (t.includes('holiday shopping') || t.includes('holiday')) return 'christmas gifts shopping bags wrapping';
+  if (t.includes('job loss') || t.includes('recession') || t.includes('layoff')) return 'cardboard box office desk empty';
+  if (t.includes('small business')) return 'small business owner laptop cafe';
+  if (t.includes('gig economy') || t.includes('freelance')) return 'delivery driver phone app gig';
+
+  // === SAVINGS TOPICS ===
+  if (t.includes('high-yield savings') || t.includes('high yield savings')) return 'piggy bank pink coins jar';
+  if (t.includes('emergency fund')) return 'glass jar coins emergency cash';
+  if (t.includes('savings account') && t.includes('checking')) return 'bank atm debit card hand';
+  if (t.includes('high-yield cds') || t.includes('cds vs savings')) return 'bank vault safe deposit gold';
+  if (t.includes('save money on rent')) return 'apartment keys door city';
+  if (t.includes('save money on groceries') || t.includes('save on groceries')) return 'grocery shopping bags vegetables fruits';
+  if (t.includes('save money on utilities')) return 'thermostat dial energy electricity';
+  if (t.includes('save money on car insurance')) return 'car keys insurance document policy';
+  if (t.includes('save money on healthcare')) return 'stethoscope medical bill receipt';
+  if (t.includes('save money on holiday')) return 'christmas gifts ribbon shopping';
+  if (t.includes('save for a wedding')) return 'wedding rings flowers bouquet';
+  if (t.includes('save for a vacation') || t.includes('save for vacation')) return 'beach palm trees suitcase travel';
+  if (t.includes('save for a house') || t.includes('down payment')) return 'house keys front door home';
+  if (t.includes('save for college') || t.includes('529 plan')) return 'graduation cap diploma books campus';
+  if (t.includes('save for retirement')) return 'older couple beach sunset walking';
+  if (t.includes('save money while paying off debt')) return 'piggy bank bills calculator desk';
+  if (t.includes('saving money automatically') || (t.includes('app') && t.includes('saving'))) return 'phone screen savings app banking';
+  if (t.includes('money saving tips') || t.includes('save money')) return 'piggy bank coins counting money';
+
+  // === INVESTING TOPICS ===
+  if (t.includes('start investing') || t.includes('invest with') || t.includes('investing with')) return 'phone stock chart growth screen';
+  if (t.includes('investment portfolio') || t.includes('build an investment')) return 'laptop stock charts trading desk';
+  if (t.includes('compound interest')) return 'growing plant coins green growth';
+  if (t.includes('roth ira') || t.includes('traditional ira') || t.includes('ira vs')) return 'retirement document calculator paperwork';
+  if (t.includes('401k') || t.includes('401(k)') || t.includes('employer matching')) return 'retirement planning paperwork desk';
+
+  // === RETIREMENT ===
+  if (t.includes('early retirement')) return 'beach hammock palm trees retirement';
+  if (t.includes('retirement') && t.includes('30s')) return 'young professional laptop planning';
+  if (t.includes('retirement') && t.includes('40s')) return 'middle aged couple planning kitchen';
+  if (t.includes('retirement')) return 'older couple beach sunset retirement';
+
+  // === CREDIT CARDS ===
+  if (t.includes('travel credit card') || t.includes('foreign transaction')) return 'passport airplane boarding suitcase';
+  if (t.includes('cash back') && (t.includes('gas') || t.includes('groceries'))) return 'gas pump grocery store receipt';
+  if (t.includes('cash back credit card') || t.includes('cash back')) return 'credit card cash dollars wallet';
+  if (t.includes('rewards credit card') && t.includes('dining')) return 'restaurant table dinner couple dining';
+  if (t.includes('credit card rewards')) return 'credit card wallet leather travel';
+  if (t.includes('no-annual-fee') || t.includes('no annual fee')) return 'credit card wallet payment store';
+  if (t.includes('secured credit card')) return 'credit card young person building';
+  if (t.includes('balance transfer')) return 'credit cards stack multiple wallet';
+  if (t.includes('credit card payoff') || (t.includes('credit card') && t.includes('debt'))) return 'scissors cutting credit card debt';
+  if (t.includes('lower interest rates') || (t.includes('negotiate') && t.includes('credit card'))) return 'phone call paperwork credit card';
+  if (t.includes('credit card')) return 'credit cards payment wallet store';
+
+  // === CREDIT SCORE / REPORT ===
+  if (t.includes('credit score')) return 'credit score 750 screen excellent';
+  if (t.includes('credit report')) return 'credit report document checking review';
+  if (t.includes('build credit') || t.includes('building credit')) return 'young person credit card building';
+
+  // === DEBT ===
+  if (t.includes('refinancing student loans') || t.includes('student loan')) return 'graduation cap diploma student debt';
+  if (t.includes('debt snowball') || t.includes('debt avalanche')) return 'bills paperwork calculator debt desk';
+  if (t.includes('pay off') && t.includes('debt')) return 'scissors cutting credit card freedom';
+  if (t.includes('debt payoff') || t.includes('debt consolidation')) return 'bills calculator paperwork desk debt';
+  if (t.includes('personal loan')) return 'loan paperwork pen signature contract';
+
+  // === BANKING ===
+  if (t.includes('checking account') || t.includes('free checking')) return 'bank atm debit card hand';
+  if (t.includes('money market')) return 'bank documents savings paperwork desk';
+  if (t.includes('overdraft')) return 'empty wallet zero balance worry';
+  if (t.includes('cd ') || t.includes('certificate of deposit')) return 'bank vault safe deposit gold';
+  if (t.includes('bank bonus') || t.includes('sign-up offer')) return 'cash dollars bank deposit hundred';
+  if (t.includes('fdic')) return 'bank vault security door safe';
+  if (t.includes('choose the right bank') || t.includes('right bank')) return 'bank building entrance corporate';
+
+  // === BUDGETING ===
+  if (t.includes('zero-based budget') || t.includes('zero based budget')) return 'budget spreadsheet notebook pen calculator';
+  if (t.includes('budget') && t.includes('app')) return 'phone budgeting app screen finance';
+  if (t.includes('budget') && (t.includes('parent') || t.includes('families') || t.includes('family'))) return 'family kitchen table budget planning';
+  if (t.includes('budget')) return 'budget planner notebook calculator desk';
+
+  // === INCOME / PAYCHECK / WEALTH ===
+  if (t.includes('take-home pay') || t.includes('paycheck')) return 'paycheck cash dollars envelope';
+  if (t.includes('w-2') || t.includes('w2')) return 'w-2 tax form paperwork desk';
+  if (t.includes('side hustle')) return 'laptop home office work side hustle';
+  if (t.includes('multiple streams') || t.includes('build wealth') || t.includes('wealth')) return 'success laptop dollars investment';
+  if (t.includes('lifestyle inflation') || t.includes('income grows')) return 'business success climbing career';
+  if (t.includes('net worth')) return 'spreadsheet calculator finance laptop';
+
+  // === TAXES ===
+  if (t.includes('tax refund')) return 'tax refund check envelope mail';
+  if (t.includes('tax-saving') || t.includes('tax saving')) return 'tax forms calculator paperwork desk';
+  if (t.includes('tax')) return 'tax documents 1040 paperwork desk';
+
+  // === INSURANCE / HEALTHCARE ===
+  if (t.includes('hsa') || t.includes('health savings account')) return 'stethoscope medical bill calculator';
+  if (t.includes('car insurance')) return 'car insurance document keys policy';
+  if (t.includes('healthcare cost') || t.includes('healthcare')) return 'medical bills hospital paperwork stethoscope';
+
+  // === HOUSING ===
+  if (t.includes('first-time homebuyer') || t.includes('first time home')) return 'new house keys couple home';
+  if (t.includes('mortgage refinance') || t.includes('refinance') && t.includes('mortgage')) return 'mortgage document signature pen house';
+  if (t.includes('mortgage') || t.includes('home loan')) return 'house keys mortgage document home';
+
+  // === AUTO ===
+  if (t.includes('auto loan') || t.includes('car loan')) return 'car keys dealership document new car';
+
+  // === CONCEPTS ===
+  if (t.includes('inflation')) return 'grocery prices shopping cart receipt';
+  if (t.includes('apr') || t.includes('apy')) return 'calculator interest rate paperwork bank';
+  if (t.includes('fraud') || t.includes('scam') || t.includes('protect')) return 'cybersecurity padlock laptop security';
+  if (t.includes('financial goal') || (t.includes('goal') && t.includes('achieve'))) return 'target dart goal achievement success';
+  if (t.includes('employer benefit') || t.includes('benefits package')) return 'office employee handshake benefits';
+  if (t.includes('financial mistake')) return 'stressed young adult bills laptop';
+  if (t.includes('financial planning checklist') || t.includes('financial planning')) return 'checklist clipboard planning desk pen';
+
+  // === CATEGORY FALLBACK (only if no specific match found) ===
+  const catMap = {
+    'Savings': 'piggy bank pink coins savings',
+    'Budgeting': 'budget planner notebook calculator pen',
+    'Credit Cards': 'credit cards wallet payment',
+    'Debt': 'bills paperwork calculator debt',
+    'Investing': 'stock chart laptop growth investment',
+    'Banking': 'bank atm debit card',
+    'Credit': 'credit score report document',
+    'Insurance': 'umbrella family protection shield',
+    'Retirement': 'older couple beach retirement',
+    'Housing': 'house keys home front door',
+    'Taxes': 'tax forms 1040 calculator paperwork',
+    'Income': 'cash dollars hundred envelope',
+    'Money Tips': 'coins jar piggy bank savings'
+  };
+
+  return catMap[category] || 'coins savings jar money';
+}
+
 function makeSlug(title) {
   return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').substring(0, 80);
 }
@@ -255,44 +409,37 @@ Write unique, original content. Explain the WHY behind every recommendation. Be 
   const wordCount = cleanContent.replace(/<[^>]*>/g, '').split(/\s+/).length;
   const readTime = Math.max(1, Math.round(wordCount / 200));
 
-  // Fetch unique image from Unsplash
+  // Fetch unique image from Unsplash using STRONG topic-specific search query
   let blogImage = '/img/savings-jar.jpg';
   let photoCredit = '';
   try {
-    const searchTerms = {
-      'Savings': 'saving money piggy bank',
-      'Budgeting': 'budget planning notebook',
-      'Credit Cards': 'credit card payment',
-      'Debt': 'financial stress bills',
-      'Investing': 'stock market investing growth',
-      'Banking': 'bank building finance',
-      'Credit': 'credit score report',
-      'Insurance': 'insurance protection family',
-      'Retirement': 'retirement planning senior',
-      'Housing': 'house keys mortgage',
-      'Taxes': 'tax documents filing',
-      'Income': 'money income salary',
-      'Money Tips': 'personal finance money'
-    };
-    const searchQuery = searchTerms[category] || 'personal finance money';
+    const searchQuery = getImageQuery(title, category);
+    console.log('Unsplash query: "' + searchQuery + '" (for topic: ' + title + ')');
     const unsplashKey = process.env.UNSPLASH_ACCESS_KEY;
     if (unsplashKey) {
       const https = require('https');
       const unsplashData = await new Promise((resolve, reject) => {
-        const url = 'https://api.unsplash.com/photos/random?query=' + encodeURIComponent(searchQuery) + '&orientation=landscape&client_id=' + unsplashKey;
+        const url = 'https://api.unsplash.com/photos/random?query=' + encodeURIComponent(searchQuery) + '&orientation=landscape&content_filter=high&client_id=' + unsplashKey;
         https.get(url, (res) => {
           let data = '';
           res.on('data', (chunk) => data += chunk);
-          res.on('end', () => resolve(JSON.parse(data)));
+          res.on('end', () => {
+            try { resolve(JSON.parse(data)); }
+            catch (e) { reject(e); }
+          });
         }).on('error', reject);
       });
-      if (unsplashData && unsplashData.urls) {
+      if (unsplashData && unsplashData.urls && unsplashData.urls.raw) {
         blogImage = unsplashData.urls.raw + '&w=1200&q=75&auto=format';
         const photographer = unsplashData.user ? unsplashData.user.name : 'Unsplash';
-        const profileUrl = unsplashData.user ? unsplashData.user.links.html : 'https://unsplash.com';
+        const profileUrl = unsplashData.user && unsplashData.user.links ? unsplashData.user.links.html : 'https://unsplash.com';
         photoCredit = '<p style="font-size:.75rem;color:var(--text-lighter);margin-top:8px;text-align:center">Photo by <a href="' + profileUrl + '?utm_source=savingsclub&utm_medium=referral" style="color:var(--text-lighter)">' + photographer + '</a> on <a href="https://unsplash.com?utm_source=savingsclub&utm_medium=referral" style="color:var(--text-lighter)">Unsplash</a></p>';
-        console.log('Unsplash image: ' + unsplashData.urls.regular);
+        console.log('Unsplash image: ' + unsplashData.urls.regular + ' by ' + photographer);
+      } else {
+        console.log('Unsplash returned no usable result; using default. Response: ' + JSON.stringify(unsplashData).substring(0, 200));
       }
+    } else {
+      console.log('UNSPLASH_ACCESS_KEY not set; using default image');
     }
   } catch (e) {
     console.log('Unsplash failed, using default image: ' + e.message);
