@@ -426,6 +426,65 @@ function generateRSS() {
 }
 
 /**
+ * Extract the first real content paragraph from blog HTML.
+ * Skips the FTC disclaimer that all posts start with.
+ * Returns clean text truncated to ~220 chars at a sentence boundary.
+ * Used as the description in RSS feed and Facebook post caption.
+ */
+function extractExcerpt(htmlContent) {
+  // Find all <p>...</p> blocks
+  const paragraphs = htmlContent.match(/<p[^>]*>[\s\S]*?<\/p>/g) || [];
+
+  let excerpt = '';
+  for (const p of paragraphs) {
+    // Strip HTML tags
+    let text = p.replace(/<[^>]*>/g, '').trim();
+
+    // Decode common HTML entities
+    text = text
+      .replace(/&amp;/g, '&')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'")
+      .replace(/&apos;/g, "'")
+      .replace(/&nbsp;/g, ' ')
+      .replace(/\s+/g, ' ');
+
+    // Skip the FTC disclaimer paragraph
+    if (text.toLowerCase().includes('educational financial content only') ||
+        text.toLowerCase().includes('does not offer financial, legal') ||
+        text.toLowerCase().includes('ai research tools')) {
+      continue;
+    }
+
+    // Skip stub paragraphs
+    if (text.length < 60) continue;
+
+    excerpt = text;
+    break;
+  }
+
+  if (!excerpt) return '';
+
+  // Truncate to ~220 chars at a sentence boundary
+  if (excerpt.length > 220) {
+    const truncated = excerpt.substring(0, 220);
+    const lastPeriod = truncated.lastIndexOf('.');
+
+    if (lastPeriod > 120) {
+      // Use the sentence boundary
+      excerpt = truncated.substring(0, lastPeriod + 1);
+    } else {
+      // No good sentence break — cut at word boundary + ellipsis
+      excerpt = truncated.replace(/\s+\S*$/, '') + '...';
+    }
+  }
+
+  return excerpt;
+}
+
+/**
  * Generate a markdown image report at blog-image-report.md.
  * Lists every recent blog post with image thumbnail, search query used,
  * and direct "Edit on GitHub" link for replacing wrong images.
@@ -614,7 +673,7 @@ Write unique, original content. Explain the WHY behind every recommendation. Be 
     isoDate: isoDate,
     pubDate: new Date().toUTCString(),
     author: 'SavingsClub Research Team',
-    excerpt: title,
+    excerpt: extractExcerpt(cleanContent) || title,
     image: blogImage,
     searchQuery: searchQuery
   };
