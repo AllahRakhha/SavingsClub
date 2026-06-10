@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Emergency Fund Calculator — Personalized Target Based on Your Risk | SavingsClub</title>
-<meta name="description" content="Free emergency fund calculator with a personalized target based on your job stability, dependents, and income type. See progress rings, months to your goal, and interest earnings.">
+<meta name="description" content="Free emergency fund calculator with personalized target, recovery simulator, and goal-by-date planner. See progress rings, milestones, and what-if scenarios.">
 <link rel="canonical" href="https://savingsclub.com/emergency-fund-calculator/">
 <meta property="og:title" content="Emergency Fund Calculator — Personalized Target Based on Your Risk | SavingsClub">
-<meta property="og:description" content="Free emergency fund calculator with a personalized target based on your job stability, dependents, and income type. See progress rings, months to your goal, and interest earnings.">
+<meta property="og:description" content="Free emergency fund calculator with personalized target, recovery simulator, and goal-by-date planner. See progress rings, milestones, and what-if scenarios.">
 <meta property="og:url" content="https://savingsclub.com/emergency-fund-calculator/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SavingsClub">
@@ -37,12 +37,12 @@
   "@context":"https://schema.org",
   "@type":"FAQPage",
   "mainEntity":[
-    {"@type":"Question","name":"How much should I have in my emergency fund?","acceptedAnswer":{"@type":"Answer","text":"Most financial educators suggest 3 to 6 months of essential expenses. The right number for you depends on factors like job stability, number of dependents, whether you have a single or dual income, and whether your income is salaried, hourly, or self-employed. This calculator personalizes that range based on your situation."}},
-    {"@type":"Question","name":"Should my emergency fund be in a savings account?","acceptedAnswer":{"@type":"Answer","text":"A high-yield savings account is the most common choice because it keeps your money liquid, FDIC-insured up to $250,000 per depositor per insured bank, and earns interest. Money market accounts and short-term Treasury bills are alternatives some people consider. Stocks and long-term investments are generally not used for emergency funds because their value can drop right when you need the money."}},
-    {"@type":"Question","name":"How is an emergency fund different from regular savings?","acceptedAnswer":{"@type":"Answer","text":"An emergency fund is reserved for true emergencies: job loss, urgent medical bills, major car or home repairs. Regular savings might be for vacations, gifts, or planned purchases. Keeping them in separate accounts helps prevent accidentally spending your safety net on non-emergencies."}},
-    {"@type":"Question","name":"What counts as an emergency expense?","acceptedAnswer":{"@type":"Answer","text":"Generally: unexpected job loss, urgent medical care, essential car repairs needed to keep working, emergency travel for family situations, and home repairs that protect health or safety (heating in winter, leaking roof). Predictable expenses like holiday shopping, planned vacations, and routine maintenance are not emergencies even if they feel urgent."}},
-    {"@type":"Question","name":"How fast should I build my emergency fund?","acceptedAnswer":{"@type":"Answer","text":"There is no single right pace. A common approach is to start with a small starter fund of around $1,000, then build to one month of expenses, then three months, then your personalized target. Automating a fixed transfer each payday tends to work better than relying on willpower."}},
-    {"@type":"Question","name":"Should I pay off debt or build an emergency fund first?","acceptedAnswer":{"@type":"Answer","text":"This is a personal decision and many educators suggest doing both in parallel: build a small starter emergency fund first (often around $1,000), then split your extra money between debt payoff and growing the fund to its full target. The reason is that without any emergency cash, a single unexpected expense often forces people back into debt and undoes their progress."}}
+    {"@type":"Question","name":"How much should I have in my emergency fund?","acceptedAnswer":{"@type":"Answer","text":"Most financial educators suggest 3 to 6 months of essential expenses. The right number for you depends on job stability, number of dependents, whether you have a single or dual income, and whether your income is salaried, hourly, or self-employed. This calculator personalizes that range based on your situation."}},
+    {"@type":"Question","name":"Should my emergency fund be in a savings account?","acceptedAnswer":{"@type":"Answer","text":"A high-yield savings account is the most common choice because it keeps your money liquid, FDIC-insured up to $250,000 per depositor per insured bank, and earns interest. Money market accounts and short-term Treasury bills are alternatives some people consider. Stocks and long-term investments are generally not used because their value can drop when you need the money."}},
+    {"@type":"Question","name":"How is an emergency fund different from regular savings?","acceptedAnswer":{"@type":"Answer","text":"An emergency fund is reserved for true emergencies: job loss, urgent medical bills, major repairs. Regular savings might be for vacations, gifts, or planned purchases. Keeping them in separate accounts helps prevent accidentally spending your safety net on non-emergencies."}},
+    {"@type":"Question","name":"What counts as an emergency expense?","acceptedAnswer":{"@type":"Answer","text":"Generally: unexpected job loss, urgent medical care, essential car repairs needed to keep working, emergency family travel, and home repairs that protect health or safety. Predictable expenses like holiday shopping or planned vacations are not emergencies even if they feel urgent."}},
+    {"@type":"Question","name":"How fast should I build my emergency fund?","acceptedAnswer":{"@type":"Answer","text":"There is no single right pace. A common approach is to start with a $1,000 starter fund, then build to one month of expenses, then three months, then your personalized target. Automating a fixed transfer each payday tends to work better than relying on willpower."}},
+    {"@type":"Question","name":"Should I pay off debt or build an emergency fund first?","acceptedAnswer":{"@type":"Answer","text":"Many educators suggest doing both in parallel: build a small starter emergency fund first (often around $1,000), then split your extra money between debt payoff and growing the fund. Without any emergency cash, a single unexpected expense often forces people back into debt."}}
   ]
 }
 </script>
@@ -82,43 +82,107 @@ SavingsClub
 </div>
 
 <style>
-/* Calculator-specific styles. All other styling comes from /css/style.css. */
-.ef-notice{background:linear-gradient(135deg,#FEF3C7,#FDE68A);border-left:4px solid #D97706;padding:14px 18px;border-radius:12px;margin-bottom:24px;font-size:.9rem;color:#78350F;line-height:1.55}
-.ef-notice strong{color:#92400E}
+/* ====== Hero card ====== */
+.ef-hero{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;background:linear-gradient(135deg,#0A1628 0%,#0F2942 50%,#064E3B 100%);border-radius:20px;padding:32px;color:#fff;margin-bottom:28px;position:relative;overflow:hidden}
+.ef-hero::before{content:'';position:absolute;top:-30%;right:-15%;width:55%;height:160%;background:radial-gradient(circle,rgba(16,185,129,.18) 0%,transparent 62%);pointer-events:none}
+.ef-hero::after{content:'';position:absolute;bottom:-40%;left:-10%;width:45%;height:140%;background:radial-gradient(circle,rgba(5,150,105,.12) 0%,transparent 60%);pointer-events:none}
+.ef-hero-left{position:relative;z-index:1}
+.ef-hero h1{color:#fff;font-size:2.1rem;margin:0 0 12px;line-height:1.15;font-weight:800}
+.ef-hero-sub{color:rgba(255,255,255,.88);font-size:1.02rem;line-height:1.55;margin:0 0 14px}
+.ef-hero-disclaimer{color:rgba(255,255,255,.55);font-size:.8rem;font-style:italic;margin:0 0 10px;line-height:1.45}
+.ef-hero-meta{color:rgba(255,255,255,.4);font-size:.75rem;margin:0}
+.ef-hero-stat{background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.32);border-radius:16px;padding:24px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1;backdrop-filter:blur(4px)}
+.ef-hero-stat-number{font-size:3.2rem;font-weight:800;color:#34D399;line-height:1;margin-bottom:10px;font-family:'Plus Jakarta Sans',sans-serif}
+.ef-hero-stat-label{color:rgba(255,255,255,.92);font-size:.92rem;line-height:1.45}
+.ef-hero-stat-source{color:rgba(255,255,255,.5);font-size:.72rem;margin-top:10px;font-style:italic}
+
+/* ====== Section headers ====== */
 .ef-section-title{font-size:1.05rem;font-weight:700;color:#0A1628;margin:28px 0 14px;display:flex;align-items:center;gap:10px}
 .ef-section-title .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#059669,#10B981)}
-.ef-risk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:8px}
-.ef-risk-grid label{display:block;font-size:.85rem;color:#4B5563;font-weight:500;margin-bottom:6px}
-.ef-risk-grid select{width:100%;padding:12px 14px;border:1px solid #D1D5DB;border-radius:10px;font-family:inherit;font-size:.95rem;color:#0A1628;background:#fff;cursor:pointer;transition:border-color .15s}
-.ef-risk-grid select:focus{outline:none;border-color:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,.12)}
-.ef-target-banner{background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border:1px solid #A7F3D0;border-radius:16px;padding:20px 22px;margin:20px 0}
-.ef-target-banner-label{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:#047857;font-weight:600;margin-bottom:4px}
-.ef-target-banner-value{font-size:2rem;font-weight:800;color:#064E3B;line-height:1.1}
-.ef-target-banner-sub{font-size:.9rem;color:#047857;margin-top:6px;line-height:1.5}
-.ef-target-reasons{margin-top:10px;font-size:.82rem;color:#065F46}
-.ef-target-reasons span{display:inline-block;background:rgba(5,150,105,.12);padding:3px 10px;border-radius:20px;margin:3px 4px 0 0}
+
+/* ====== Make all selects in calc-grid look like inputs ====== */
+.calc-grid select{width:100%;padding:14px 38px 14px 16px;border:1px solid #E5E7EB;border-radius:12px;font-family:inherit;font-size:1rem;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%236B7280' stroke-width='1.6'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 16px center;background-size:12px;color:#0A1628;cursor:pointer;appearance:none;-webkit-appearance:none;transition:border-color .15s,box-shadow .15s}
+.calc-grid select:focus{outline:none;border-color:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,.12)}
+.calc-grid input[type="date"]{width:100%;padding:13px 16px;border:1px solid #E5E7EB;border-radius:12px;font-family:inherit;font-size:1rem;background:#fff;color:#0A1628;cursor:pointer}
+
+/* ====== Personalized target banner ====== */
+.ef-target-banner{background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border:1px solid #A7F3D0;border-radius:16px;padding:22px 24px;margin:20px 0}
+.ef-target-banner-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:#047857;font-weight:700;margin-bottom:4px}
+.ef-target-banner-value{font-size:2.1rem;font-weight:800;color:#064E3B;line-height:1.1;font-family:'Plus Jakarta Sans',sans-serif}
+.ef-target-banner-sub{font-size:.92rem;color:#047857;margin-top:6px;line-height:1.5}
+.ef-target-reasons{margin-top:12px;font-size:.82rem;color:#065F46}
+.ef-target-reasons strong{display:block;margin-bottom:4px}
+.ef-target-reasons span{display:inline-block;background:rgba(5,150,105,.13);padding:4px 11px;border-radius:20px;margin:3px 4px 0 0;font-weight:500}
+
+/* ====== Progress rings ====== */
 .ef-rings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin:24px 0}
-.ef-ring-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:18px;text-align:center;transition:transform .2s,box-shadow .2s}
+.ef-ring-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:20px;text-align:center;transition:transform .2s,box-shadow .2s,border-color .2s}
 .ef-ring-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.06)}
-.ef-ring-card svg{display:block;margin:0 auto}
-.ef-ring-label{font-weight:700;color:#0A1628;margin-top:8px;font-size:1rem}
-.ef-ring-amount{font-size:.82rem;color:#6B7280;margin-top:4px}
 .ef-ring-card.cleared{background:linear-gradient(135deg,#ECFDF5,#fff);border-color:#A7F3D0}
+.ef-ring-card svg{display:block;margin:0 auto}
+.ef-ring-label{font-weight:700;color:#0A1628;margin-top:10px;font-size:1rem}
+.ef-ring-amount{font-size:.82rem;color:#6B7280;margin-top:4px}
+
+/* ====== Milestones ====== */
 .ef-milestones{margin:24px 0}
-.ef-milestone-track{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;position:relative;margin-top:14px}
-.ef-milestone{text-align:center;padding:14px 8px;border-radius:12px;background:#F9FAFB;border:1px solid #E5E7EB;transition:all .2s}
-.ef-milestone.cleared{background:linear-gradient(135deg,#059669,#10B981);border-color:#059669;color:#fff}
+.ef-milestone-track{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+.ef-milestone{text-align:center;padding:14px 8px;border-radius:12px;background:#F9FAFB;border:1px solid #E5E7EB;transition:all .25s}
+.ef-milestone.cleared{background:linear-gradient(135deg,#059669,#10B981);border-color:#059669;color:#fff;box-shadow:0 4px 14px rgba(5,150,105,.25)}
 .ef-milestone-marker{width:34px;height:34px;border-radius:50%;background:#fff;color:#9CA3AF;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-weight:700;font-size:1.1rem;border:2px solid #E5E7EB}
 .ef-milestone.cleared .ef-milestone-marker{background:#fff;color:#059669;border-color:#fff}
-.ef-milestone-label{font-size:.82rem;font-weight:600}
-.ef-milestone-amount{font-size:.85rem;margin-top:3px;opacity:.85}
-.ef-projection{background:#F0F9FF;border:1px solid #BAE6FD;border-radius:12px;padding:16px 18px;margin-top:16px;font-size:.92rem;color:#075985;line-height:1.6}
+.ef-milestone-label{font-size:.85rem;font-weight:600}
+.ef-milestone-amount{font-size:.82rem;margin-top:3px;opacity:.85}
+
+/* ====== Projection ====== */
+.ef-projection{background:#F0F9FF;border:1px solid #BAE6FD;border-radius:12px;padding:18px 20px;margin-top:18px;font-size:.94rem;color:#075985;line-height:1.6}
 .ef-projection strong{color:#0C4A6E}
-.ef-interest-note{font-size:.8rem;color:#6B7280;margin-top:6px;font-style:italic}
-.ef-savings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:8px}
-@media(max-width:640px){
+.ef-interest-note{font-size:.8rem;color:#6B7280;margin-top:8px;font-style:italic}
+
+/* ====== What-if cards ====== */
+.ef-scenarios{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:24px}
+.ef-scenario-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:22px;transition:box-shadow .2s}
+.ef-scenario-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.06)}
+.ef-scenario-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:12px}
+.ef-scenario-icon.booster{background:linear-gradient(135deg,#3B82F6,#1D4ED8);color:#fff}
+.ef-scenario-icon.recovery{background:linear-gradient(135deg,#F59E0B,#D97706);color:#fff}
+.ef-scenario-title{font-size:1.1rem;font-weight:700;color:#0A1628;margin-bottom:6px}
+.ef-scenario-desc{font-size:.85rem;color:#6B7280;margin-bottom:14px;line-height:1.5}
+.ef-slider-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.ef-slider-row input[type=range]{flex:1;height:6px;-webkit-appearance:none;appearance:none;background:#E5E7EB;border-radius:3px;outline:none}
+.ef-slider-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:#10B981;cursor:pointer;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.ef-slider-row input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#10B981;cursor:pointer;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.ef-slider-value{font-weight:700;color:#059669;font-size:1.05rem;min-width:70px;text-align:right}
+.ef-preset-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.ef-preset-btn{padding:6px 12px;border:1px solid #E5E7EB;border-radius:20px;background:#fff;color:#4B5563;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .15s;font-family:inherit}
+.ef-preset-btn:hover{border-color:#10B981;color:#059669}
+.ef-preset-btn.active{background:#059669;color:#fff;border-color:#059669}
+.ef-scenario-result{background:#F9FAFB;border-radius:10px;padding:12px 14px;font-size:.92rem;color:#0A1628;line-height:1.5}
+.ef-scenario-result strong{color:#059669;font-size:1.05rem}
+.ef-scenario-result.warn strong{color:#D97706}
+
+/* ====== Common costs expandable ====== */
+.ef-costs-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;margin-top:24px;overflow:hidden}
+.ef-costs-header{padding:18px 22px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;background:#F9FAFB;border-bottom:1px solid transparent;transition:border-color .2s}
+.ef-costs-header:hover{background:#F3F4F6}
+.ef-costs-card.open .ef-costs-header{border-bottom-color:#E5E7EB}
+.ef-costs-title{font-weight:700;color:#0A1628;font-size:1rem;display:flex;align-items:center;gap:10px}
+.ef-costs-toggle{font-size:1.2rem;color:#6B7280;transition:transform .2s}
+.ef-costs-card.open .ef-costs-toggle{transform:rotate(180deg)}
+.ef-costs-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.ef-costs-card.open .ef-costs-body{max-height:900px}
+.ef-costs-list{padding:16px 22px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.ef-cost-item{padding:12px 14px;background:#F9FAFB;border-radius:10px;border-left:3px solid #10B981}
+.ef-cost-name{font-weight:600;color:#0A1628;font-size:.92rem;margin-bottom:2px}
+.ef-cost-range{font-size:.85rem;color:#059669;font-weight:600}
+.ef-costs-source{padding:0 22px 18px;font-size:.75rem;color:#9CA3AF;font-style:italic}
+
+/* ====== Mobile ====== */
+@media(max-width:760px){
+  .ef-hero{grid-template-columns:1fr;padding:24px}
+  .ef-hero h1{font-size:1.7rem}
+  .ef-hero-stat-number{font-size:2.6rem}
+  .ef-target-banner-value{font-size:1.7rem}
   .ef-milestone-track{grid-template-columns:repeat(2,1fr)}
-  .ef-target-banner-value{font-size:1.6rem}
 }
 </style>
 
@@ -129,14 +193,22 @@ SavingsClub
 
 <div class="calc-section reveal" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
 
-<h1><div class="calc-icon" style="background:linear-gradient(135deg,#B91C1C,#F87171)">🛟</div> Emergency Fund Calculator</h1>
-<p class="calc-desc">A personalized safety-net target based on your essentials, household, and job risk — not a generic 3-to-6-month rule.</p>
-<p style="font-size:.8rem;color:var(--text-lighter);margin-top:4px">Last updated: June 2026</p>
-
-<div class="ef-notice">
-<strong>Educational tool — not financial advice.</strong> SavingsClub is not a licensed financial advisor. The personalized target below is a guideline based on widely accepted educator frameworks. Your actual needs may differ. Consider speaking with a licensed professional for advice specific to your situation.
+<!-- ============ HERO ============ -->
+<div class="ef-hero">
+  <div class="ef-hero-left">
+    <h1>Emergency Fund Calculator</h1>
+    <p class="ef-hero-sub">A personalized safety-net target based on your essentials, household, and job risk — not a generic 3-to-6-month rule. With recovery simulator and goal-date planner.</p>
+    <p class="ef-hero-disclaimer">Educational tool — not financial advice. SavingsClub is not a licensed financial advisor.</p>
+    <p class="ef-hero-meta">Last updated June 2026</p>
+  </div>
+  <div class="ef-hero-stat">
+    <div class="ef-hero-stat-number">1 in 3</div>
+    <div class="ef-hero-stat-label">U.S. adults would struggle to cover an unexpected $400 emergency expense</div>
+    <div class="ef-hero-stat-source">Source: Federal Reserve SHED</div>
+  </div>
 </div>
 
+<!-- ============ INPUTS ============ -->
 <div class="ef-section-title"><span class="dot"></span> Your essential monthly expenses</div>
 <div class="calc-grid">
 <div><label>Rent / Mortgage ($)</label><input type="number" id="efHousing" value="1500" min="0" oninput="calc()"></div>
@@ -148,22 +220,23 @@ SavingsClub
 </div>
 
 <div class="ef-section-title"><span class="dot"></span> Where you stand today</div>
-<div class="ef-savings-grid">
+<div class="calc-grid">
 <div><label>Current Emergency Savings ($)</label><input type="number" id="efCurrent" value="2000" min="0" oninput="calc()"></div>
 <div><label>Monthly Contribution ($)</label><input type="number" id="efContrib" value="300" min="0" oninput="calc()"></div>
+<div><label>Target Date <span style="color:#9CA3AF;font-weight:400">(optional)</span></label><input type="date" id="efTargetDate" oninput="calc()"></div>
 </div>
 
 <div class="ef-section-title"><span class="dot"></span> Personalize your target</div>
-<div class="ef-risk-grid">
+<div class="calc-grid">
 <div>
-<label>Income earners in household</label>
+<label>Income Earners</label>
 <select id="efEarners" onchange="calc()">
 <option value="2">Two or more</option>
 <option value="1" selected>One (single income)</option>
 </select>
 </div>
 <div>
-<label>Dependents (children or others you support)</label>
+<label>Dependents</label>
 <select id="efDependents" onchange="calc()">
 <option value="0">None</option>
 <option value="1" selected>1</option>
@@ -172,19 +245,19 @@ SavingsClub
 </select>
 </div>
 <div>
-<label>Job stability</label>
+<label>Job Stability</label>
 <select id="efStability" onchange="calc()">
-<option value="stable">Stable (2+ years, low layoff risk)</option>
-<option value="moderate" selected>Moderate (some uncertainty)</option>
-<option value="unstable">Less stable (new role, high-turnover industry)</option>
+<option value="stable">Stable (2+ years)</option>
+<option value="moderate" selected>Moderate uncertainty</option>
+<option value="unstable">Less stable / new role</option>
 </select>
 </div>
 <div>
-<label>Income type</label>
+<label>Income Type</label>
 <select id="efIncomeType" onchange="calc()">
 <option value="w2">W-2 salaried</option>
-<option value="hourly" selected>Hourly / variable hours</option>
-<option value="selfemployed">Self-employed / 1099 / freelance</option>
+<option value="hourly" selected>Hourly / variable</option>
+<option value="selfemployed">Self-employed / 1099</option>
 </select>
 </div>
 </div>
@@ -194,18 +267,42 @@ SavingsClub
 <div id="calcResult" class="calc-result"></div>
 </div>
 
+<!-- ============ COMMON COSTS REFERENCE ============ -->
+<div class="ef-costs-card reveal" id="efCostsCard">
+  <div class="ef-costs-header" onclick="toggleCosts()">
+    <div class="ef-costs-title">💡 What real emergencies actually cost</div>
+    <div class="ef-costs-toggle">▼</div>
+  </div>
+  <div class="ef-costs-body">
+    <div class="ef-costs-list">
+      <div class="ef-cost-item"><div class="ef-cost-name">Car repair (major)</div><div class="ef-cost-range">$500 – $2,000</div></div>
+      <div class="ef-cost-item"><div class="ef-cost-name">Transmission replacement</div><div class="ef-cost-range">$2,500 – $4,500</div></div>
+      <div class="ef-cost-item"><div class="ef-cost-name">ER visit (uninsured)</div><div class="ef-cost-range">$1,200 – $3,000+</div></div>
+      <div class="ef-cost-item"><div class="ef-cost-name">HVAC system failure</div><div class="ef-cost-range">$3,000 – $8,000</div></div>
+      <div class="ef-cost-item"><div class="ef-cost-name">Major dental work</div><div class="ef-cost-range">$1,000 – $3,500</div></div>
+      <div class="ef-cost-item"><div class="ef-cost-name">Pet emergency surgery</div><div class="ef-cost-range">$800 – $5,000</div></div>
+      <div class="ef-cost-item"><div class="ef-cost-name">Roof leak repair</div><div class="ef-cost-range">$400 – $2,500</div></div>
+      <div class="ef-cost-item"><div class="ef-cost-name">Water heater replacement</div><div class="ef-cost-range">$1,200 – $3,500</div></div>
+      <div class="ef-cost-item"><div class="ef-cost-name">Home appliance repair</div><div class="ef-cost-range">$200 – $800</div></div>
+      <div class="ef-cost-item"><div class="ef-cost-name">Job loss (1 mo essentials)</div><div class="ef-cost-range">$3,000 – $6,000</div></div>
+    </div>
+    <div class="ef-costs-source">Ranges reflect typical 2025-2026 U.S. costs and vary by region. Use as a planning reference, not a quote.</div>
+  </div>
+</div>
+
 <div style="margin:32px 0">
 <img src="../img/savings-jar.jpg" alt="Building an emergency safety net" class="premium-img" style="width:100%;height:240px;object-fit:cover" loading="lazy">
 </div>
 
+<!-- ============ SEO CONTENT ============ -->
 <div class="seo-content reveal">
 <h2>How this calculator decides your personalized target</h2>
-<p>Most online calculators use a flat 3-to-6-month rule. That rule isn't wrong, but it ignores the four factors that actually drive emergency fund risk: how many people earn income in your household, how many people depend on that income, how stable your job is, and how variable your income is each month. This calculator starts at a base of 3 months of essential expenses and adjusts up based on your specific situation, capping at 12 months on the high end.</p>
+<p>Most online calculators use a flat 3-to-6-month rule. That rule isn't wrong, but it ignores the four factors that actually drive emergency fund risk: how many people earn income in your household, how many people depend on that income, how stable your job is, and how variable your income is each month. This calculator starts at a base of 3 months of essential expenses and adjusts up based on your specific situation, capping at 12 months.</p>
 
 <p>A two-earner household with stable salaried jobs and no dependents can usually function safely on the lower end of the range, because the chance of both incomes disappearing at the same time is small. A single self-employed parent supporting three kids is in a very different position. Their income can drop by 50% in a slow month without anyone losing a "job," so a thicker cushion is reasonable. Generic calculators treat these two situations the same. This one doesn't.</p>
 
 <h2>What counts as an essential expense</h2>
-<p>Only include expenses you would still have to pay if you lost your income tomorrow. That generally means housing, basic food, utilities, transportation needed to job-hunt or work, required insurance, and any minimum debt payments. It generally does not include subscriptions you would cancel, dining out, entertainment, travel, gifts, or savings contributions. The point of the emergency fund is to keep the lights on, not to maintain your current lifestyle indefinitely.</p>
+<p>Only include expenses you would still have to pay if you lost your income tomorrow. That generally means housing, basic food, utilities, transportation needed to job-hunt or work, required insurance, and minimum debt payments. It generally does not include subscriptions you would cancel, dining out, entertainment, travel, or savings contributions. The point of the emergency fund is to keep the lights on, not to maintain your current lifestyle indefinitely.</p>
 
 <p>One useful test: imagine your income stopped this Friday. What would still hit your account next month? That number is closer to your "essentials" than the total of your typical monthly spending.</p>
 
@@ -221,25 +318,20 @@ SavingsClub
 <p>The wrong places for an emergency fund are anywhere the value can drop quickly: stocks, crypto, individual bonds with long maturities, anything with early-withdrawal penalties that meaningfully eat into the principal.</p>
 
 <h2>The four-stage build approach</h2>
-<p>Most educators suggest building in stages instead of trying to hit the full target immediately:</p>
+<p><strong>Stage 1: $1,000 starter fund.</strong> The goal here is to break the cycle of every small surprise becoming credit-card debt.</p>
 
-<p><strong>Stage 1: $1,000 starter fund.</strong> The goal here is to break the cycle of every small surprise becoming credit-card debt. A flat tire, a broken phone, a small medical copay — covered without borrowing.</p>
+<p><strong>Stage 2: One month of essentials.</strong> A single missed paycheck stops being a crisis. For many households this is the most psychologically valuable step.</p>
 
-<p><strong>Stage 2: One month of essentials.</strong> Now a single missed paycheck stops being a crisis. For many households this is the most psychologically valuable step because it changes how a slow week at work feels.</p>
+<p><strong>Stage 3: Three months of essentials.</strong> The traditional minimum target. A job loss becomes a problem you can solve over weeks instead of days.</p>
 
-<p><strong>Stage 3: Three months of essentials.</strong> This is the traditional minimum target. At this level, a job loss becomes a problem you can solve over weeks instead of days.</p>
-
-<p><strong>Stage 4: Your personalized target.</strong> Whatever the calculator above shows for you specifically, this is the level where most planners consider your emergency cushion "done" — at which point any extra money is generally better deployed toward retirement, investing, or paying down debt.</p>
-
-<h2>Rebuilding after you use it</h2>
-<p>An emergency fund is a tool, and tools get used. If you tap it for a real emergency, the priority is to pause non-essential spending and route the money back into the fund until it's whole again. This isn't a moral failure — it's the system working. The mistake is leaving it depleted for months and pretending the risk has gone away.</p>
+<p><strong>Stage 4: Your personalized target.</strong> The level where most planners consider your emergency cushion "done" — at which point any extra money is generally better deployed toward retirement, investing, or paying down debt.</p>
 
 <h2>Common mistakes to avoid</h2>
 <p><strong>Treating it like a vacation fund.</strong> If it can be spent on planned purchases, it isn't an emergency fund. Keep it in a separate account, ideally at a different bank than your checking, so it doesn't show up next to your spending balance.</p>
 
-<p><strong>Building it too slowly.</strong> A $25-a-week contribution to a $15,000 target takes over 11 years. Start there if you have to, but look for one expense to cut entirely and redirect that full amount into the fund. Automation matters more than amount.</p>
+<p><strong>Building it too slowly.</strong> A $25-a-week contribution to a $15,000 target takes over 11 years. Start there if you have to, but look for one expense to cut entirely and redirect that full amount. Automation matters more than amount.</p>
 
-<p><strong>Investing it for higher returns.</strong> The math looks good on paper. The problem is sequence-of-returns risk: emergencies don't wait for the market to recover. A 30% drop in stocks the same month you lose your job turns a 6-month fund into a 4-month fund right when you can least afford it.</p>
+<p><strong>Investing it for higher returns.</strong> Emergencies don't wait for the market to recover. A 30% drop in stocks the same month you lose your job turns a 6-month fund into a 4-month fund right when you can least afford it.</p>
 
 <p><strong>Counting credit cards as your emergency fund.</strong> Available credit is not the same as available cash. Card issuers can lower limits or close accounts at any time, especially during recessions when you'd actually need them.</p>
 
@@ -250,22 +342,22 @@ SavingsClub
 <h2>Frequently Asked Questions</h2>
 
 <h3>How much should I have in my emergency fund?</h3>
-<p>Most financial educators suggest 3 to 6 months of essential expenses. The right number for you depends on factors like job stability, number of dependents, whether you have a single or dual income, and whether your income is salaried, hourly, or self-employed. This calculator personalizes that range based on your situation.</p>
+<p>Most financial educators suggest 3 to 6 months of essential expenses. The right number for you depends on job stability, dependents, whether you have a single or dual income, and whether your income is salaried, hourly, or self-employed. This calculator personalizes that range.</p>
 
 <h3>Should my emergency fund be in a savings account?</h3>
-<p>A high-yield savings account is the most common choice because it keeps your money liquid, FDIC-insured up to $250,000 per depositor per insured bank, and earns interest. Money market accounts and short-term Treasury bills are alternatives some people consider. Stocks and long-term investments are generally not used for emergency funds because their value can drop right when you need the money.</p>
+<p>A high-yield savings account is the most common choice because it keeps your money liquid, FDIC-insured up to $250,000 per depositor per insured bank, and earns interest. Money market accounts and short-term Treasury bills are alternatives. Stocks and long-term investments are generally not used because their value can drop when you need the money.</p>
 
 <h3>How is an emergency fund different from regular savings?</h3>
-<p>An emergency fund is reserved for true emergencies: job loss, urgent medical bills, major car or home repairs. Regular savings might be for vacations, gifts, or planned purchases. Keeping them in separate accounts helps prevent accidentally spending your safety net on non-emergencies.</p>
+<p>An emergency fund is reserved for true emergencies: job loss, urgent medical bills, major repairs. Regular savings might be for vacations, gifts, or planned purchases. Keep them in separate accounts so you don't accidentally spend your safety net.</p>
 
 <h3>What counts as an emergency expense?</h3>
-<p>Generally: unexpected job loss, urgent medical care, essential car repairs needed to keep working, emergency travel for family situations, and home repairs that protect health or safety (heating in winter, leaking roof). Predictable expenses like holiday shopping, planned vacations, and routine maintenance are not emergencies even if they feel urgent.</p>
+<p>Generally: unexpected job loss, urgent medical care, essential car repairs, emergency family travel, and home repairs that protect health or safety. Predictable expenses like holiday shopping or planned vacations are not emergencies even if they feel urgent.</p>
 
 <h3>How fast should I build my emergency fund?</h3>
-<p>There is no single right pace. A common approach is to start with a small starter fund of around $1,000, then build to one month of expenses, then three months, then your personalized target. Automating a fixed transfer each payday tends to work better than relying on willpower.</p>
+<p>There is no single right pace. A common approach is to start with a $1,000 starter fund, then build to one month, then three months, then your personalized target. Automating a fixed transfer each payday tends to work better than relying on willpower.</p>
 
 <h3>Should I pay off debt or build an emergency fund first?</h3>
-<p>This is a personal decision and many educators suggest doing both in parallel: build a small starter emergency fund first (often around $1,000), then split your extra money between debt payoff and growing the fund to its full target. The reason is that without any emergency cash, a single unexpected expense often forces people back into debt and undoes their progress.</p>
+<p>Many educators suggest doing both in parallel: build a small starter fund first (often around $1,000), then split your extra money between debt payoff and growing the fund. Without any emergency cash, a single unexpected expense often forces people back into debt.</p>
 </div>
 
 <div class="blog-recs reveal" style="margin-top:24px">
@@ -301,46 +393,36 @@ SavingsClub
 
 <script>
 /* =========================================================
-   Emergency Fund Calculator — calculation logic
-   Self-contained: does NOT depend on /js/charts.js
+   Emergency Fund Calculator v2 — self-contained logic
    ========================================================= */
 
-// Estimated HYSA APY used for interest projection. Update annually.
 var HYSA_APY = 0.04;
 
-// Format a number with commas, no decimals (cleaner for money displays).
-function fmt(n){
-  return Math.round(n).toLocaleString('en-US');
-}
+function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
 
-// Pull every input value at once.
 function getInputs(){
   return {
-    housing:     +document.getElementById('efHousing').value     || 0,
-    food:        +document.getElementById('efFood').value        || 0,
-    utils:       +document.getElementById('efUtils').value       || 0,
-    transport:   +document.getElementById('efTransport').value   || 0,
-    insurance:   +document.getElementById('efInsurance').value   || 0,
-    other:       +document.getElementById('efOther').value       || 0,
-    current:     +document.getElementById('efCurrent').value     || 0,
-    contrib:     +document.getElementById('efContrib').value     || 0,
-    earners:     document.getElementById('efEarners').value,
-    dependents:  document.getElementById('efDependents').value,
-    stability:   document.getElementById('efStability').value,
-    incomeType:  document.getElementById('efIncomeType').value
+    housing:    +document.getElementById('efHousing').value    || 0,
+    food:       +document.getElementById('efFood').value       || 0,
+    utils:      +document.getElementById('efUtils').value      || 0,
+    transport:  +document.getElementById('efTransport').value  || 0,
+    insurance:  +document.getElementById('efInsurance').value  || 0,
+    other:      +document.getElementById('efOther').value      || 0,
+    current:    +document.getElementById('efCurrent').value    || 0,
+    contrib:    +document.getElementById('efContrib').value    || 0,
+    targetDate: document.getElementById('efTargetDate').value,
+    earners:    document.getElementById('efEarners').value,
+    dependents: document.getElementById('efDependents').value,
+    stability:  document.getElementById('efStability').value,
+    incomeType: document.getElementById('efIncomeType').value
   };
 }
 
-// Compute the personalized target in months, plus the list of reasons.
-// Base = 3 months. Each risk factor pushes it up. Capped at 12.
 function calculateTargetMonths(inputs){
   var months = 3;
   var reasons = [];
 
-  if(inputs.earners === '1'){
-    months += 1;
-    reasons.push('Single income (+1)');
-  }
+  if(inputs.earners === '1'){ months += 1; reasons.push('Single income (+1)'); }
 
   var dep = parseInt(inputs.dependents, 10);
   if(dep === 1){ months += 0.5; reasons.push('1 dependent (+0.5)'); }
@@ -353,14 +435,10 @@ function calculateTargetMonths(inputs){
   if(inputs.incomeType === 'hourly'){ months += 1; reasons.push('Hourly income (+1)'); }
   else if(inputs.incomeType === 'selfemployed'){ months += 2; reasons.push('Self-employed (+2)'); }
 
-  // Cap range: never below 3, never above 12.
   months = Math.max(3, Math.min(12, months));
-
   return { months: months, reasons: reasons };
 }
 
-// Render a single SVG progress ring.
-// percent = 0 to 100. Anything over 100 caps at 100 visually.
 function renderRing(percent, label, amount, target, isPersonal){
   var capped = Math.max(0, Math.min(100, percent));
   var radius = 70;
@@ -385,7 +463,6 @@ function renderRing(percent, label, amount, target, isPersonal){
     + '</div>';
 }
 
-// Render the milestone tier strip (Starter → 1 mo → 3 mo → 6 mo).
 function renderMilestones(current, monthly){
   var tiers = [
     { label: 'Starter',  amount: 1000 },
@@ -393,7 +470,6 @@ function renderMilestones(current, monthly){
     { label: '3 Months', amount: monthly * 3 },
     { label: '6 Months', amount: monthly * 6 }
   ];
-
   var html = '';
   for(var i = 0; i < tiers.length; i++){
     var t = tiers[i];
@@ -407,39 +483,29 @@ function renderMilestones(current, monthly){
   return html;
 }
 
-// Main calculation function. Pulls inputs, runs math, builds the result HTML.
+function monthsBetween(date1, date2){
+  return (date2.getFullYear() - date1.getFullYear()) * 12 + (date2.getMonth() - date1.getMonth());
+}
+
 function calc(){
   var x = getInputs();
-
-  // Total essential monthly expenses.
   var monthly = x.housing + x.food + x.utils + x.transport + x.insurance + x.other;
-
-  // Personalized target.
   var targetInfo = calculateTargetMonths(x);
   var targetMonths = targetInfo.months;
   var targetAmount = monthly * targetMonths;
-
-  // Standard reference amounts.
   var threeMonth = monthly * 3;
   var sixMonth = monthly * 6;
 
-  // Progress percentages (current savings vs each target).
   var progress3 = monthly > 0 ? (x.current / threeMonth) * 100 : 0;
   var progress6 = monthly > 0 ? (x.current / sixMonth) * 100 : 0;
   var progressTarget = monthly > 0 ? (x.current / targetAmount) * 100 : 0;
 
-  // Remaining and time-to-goal.
   var remaining = Math.max(0, targetAmount - x.current);
-  var monthsToGoal = null;
-  if(x.contrib > 0 && remaining > 0){
-    monthsToGoal = Math.ceil(remaining / x.contrib);
-  }
-
-  // Annual interest estimate on current balance only (conservative).
+  var monthsToGoal = (x.contrib > 0 && remaining > 0) ? Math.ceil(remaining / x.contrib) : null;
   var annualInterest = x.current * HYSA_APY;
 
-  // Build reasons display.
-  var reasonsHtml = '';
+  // ----- Reasons -----
+  var reasonsHtml;
   if(targetInfo.reasons.length > 0){
     reasonsHtml = '<div class="ef-target-reasons"><strong>Why this number:</strong> ';
     for(var r = 0; r < targetInfo.reasons.length; r++){
@@ -447,11 +513,11 @@ function calc(){
     }
     reasonsHtml += '</div>';
   } else {
-    reasonsHtml = '<div class="ef-target-reasons"><strong>Why this number:</strong> <span>Base 3 months — your situation has low added risk factors</span></div>';
+    reasonsHtml = '<div class="ef-target-reasons"><strong>Why this number:</strong> <span>Base 3 months — low added risk factors</span></div>';
   }
 
-  // Build projection text.
-  var projectionHtml = '';
+  // ----- Time to goal projection -----
+  var projectionHtml;
   if(monthly === 0){
     projectionHtml = '<div class="ef-projection">Enter your monthly essentials above to see your projection.</div>';
   } else if(remaining === 0){
@@ -466,13 +532,81 @@ function calc(){
     if(leftMonths > 0) timeStr += (years > 0 ? ' and ' : '') + leftMonths + ' month' + (leftMonths > 1 ? 's' : '');
     if(timeStr === '') timeStr = monthsToGoal + ' months';
     projectionHtml = '<div class="ef-projection">'
-      + 'At $' + fmt(x.contrib) + '/month, you\'ll reach your $' + fmt(targetAmount) + ' target in <strong>' + timeStr + '</strong> '
-      + '(' + monthsToGoal + ' months).'
-      + '<div class="ef-interest-note">Projection excludes interest. With a ~4% APY high-yield savings account, you\'d also earn roughly $' + fmt(annualInterest) + '/year on your current balance, which slightly speeds this up.</div>'
+      + 'At $' + fmt(x.contrib) + '/month, you\'ll reach your $' + fmt(targetAmount) + ' target in <strong>' + timeStr + '</strong> (' + monthsToGoal + ' months).'
+      + '<div class="ef-interest-note">Excludes interest. With a ~4% APY HYSA, you\'d also earn roughly $' + fmt(annualInterest) + '/year on your current balance.</div>'
       + '</div>';
   }
 
-  // Final HTML assembled into the result container.
+  // ----- Goal-by-date result -----
+  var goalDateHtml = '';
+  if(x.targetDate && monthly > 0){
+    var today = new Date();
+    today.setDate(1);
+    var goalDate = new Date(x.targetDate);
+    var monthsUntil = monthsBetween(today, goalDate);
+    if(monthsUntil > 0){
+      var requiredContrib = Math.ceil(remaining / monthsUntil);
+      if(remaining === 0){
+        goalDateHtml = '<div class="ef-projection" style="background:#ECFDF5;border-color:#A7F3D0;color:#065F46;margin-top:12px"><strong>You\'ve already hit your target</strong> — your goal date is no longer needed.</div>';
+      } else {
+        var diffFromCurrent = requiredContrib - x.contrib;
+        var changeNote = '';
+        if(diffFromCurrent > 0){
+          changeNote = ' That\'s <strong>$' + fmt(diffFromCurrent) + '/month more</strong> than your current contribution.';
+        } else if(diffFromCurrent < 0){
+          changeNote = ' Your current $' + fmt(x.contrib) + '/month already exceeds this pace.';
+        }
+        goalDateHtml = '<div class="ef-projection" style="background:#FEF3C7;border-color:#FCD34D;color:#78350F;margin-top:12px">'
+          + 'To hit your target by <strong>' + goalDate.toLocaleDateString('en-US',{month:'long',year:'numeric'}) + '</strong> (' + monthsUntil + ' months), you\'d need to save <strong>$' + fmt(requiredContrib) + '/month</strong>.'
+          + changeNote
+          + '</div>';
+      }
+    } else {
+      goalDateHtml = '<div class="ef-projection" style="background:#FEE2E2;border-color:#FECACA;color:#991B1B;margin-top:12px">Your target date is in the past. Pick a future date.</div>';
+    }
+  }
+
+  // ----- What-if booster scenario -----
+  var boostAmount = parseInt(document.getElementById('boostSlider') ? document.getElementById('boostSlider').value : 50, 10);
+  var boosterResult;
+  if(remaining === 0){
+    boosterResult = '<div class="ef-scenario-result">Target already reached — no boost needed.</div>';
+  } else if(x.contrib <= 0){
+    boosterResult = '<div class="ef-scenario-result warn">Enter a monthly contribution above to see boost impact.</div>';
+  } else {
+    var currentMonths = Math.ceil(remaining / x.contrib);
+    var newMonths = Math.ceil(remaining / (x.contrib + boostAmount));
+    var saved = currentMonths - newMonths;
+    if(saved <= 0){
+      boosterResult = '<div class="ef-scenario-result">Boost too small to round off a month. Try a larger amount.</div>';
+    } else {
+      boosterResult = '<div class="ef-scenario-result">Adding <strong>$' + boostAmount + '/month</strong> would get you to your target <strong>' + saved + ' month' + (saved>1?'s':'') + ' sooner</strong> (' + newMonths + ' months instead of ' + currentMonths + ').</div>';
+    }
+  }
+
+  // ----- Recovery simulator -----
+  var withdrawAmount = parseInt(document.getElementById('recoverySlider') ? document.getElementById('recoverySlider').value : 3000, 10);
+  var recoveryResult;
+  var afterWithdrawal = Math.max(0, x.current - withdrawAmount);
+  var rebuildNeeded = targetAmount - afterWithdrawal;
+  if(x.current === 0){
+    recoveryResult = '<div class="ef-scenario-result warn">Add current savings above to simulate recovery.</div>';
+  } else if(withdrawAmount > x.current){
+    recoveryResult = '<div class="ef-scenario-result warn">That\'s more than your current $' + fmt(x.current) + ' balance. Try a smaller amount.</div>';
+  } else if(x.contrib <= 0){
+    recoveryResult = '<div class="ef-scenario-result warn">Enter a monthly contribution above to estimate rebuild time.</div>';
+  } else {
+    var rebuildMonths = Math.ceil(rebuildNeeded / x.contrib);
+    var rebuildYears = Math.floor(rebuildMonths / 12);
+    var rebuildLeft = rebuildMonths % 12;
+    var rebuildStr = '';
+    if(rebuildYears > 0) rebuildStr += rebuildYears + 'y ';
+    if(rebuildLeft > 0) rebuildStr += rebuildLeft + 'mo';
+    if(rebuildStr === '') rebuildStr = rebuildMonths + ' months';
+    recoveryResult = '<div class="ef-scenario-result">After spending <strong>$' + fmt(withdrawAmount) + '</strong>, you\'d have <strong>$' + fmt(afterWithdrawal) + '</strong> left. At $' + fmt(x.contrib) + '/mo, you\'d rebuild to your full target in <strong>' + rebuildStr.trim() + '</strong>.</div>';
+  }
+
+  // ----- Final HTML assembly -----
   document.getElementById('calcResult').innerHTML =
       '<div class="ef-target-banner">'
     +   '<div class="ef-target-banner-label">Your personalized target</div>'
@@ -492,7 +626,7 @@ function calc(){
     + '<div class="ef-rings-grid">'
     +   renderRing(progress3, '3-Month Goal', x.current, threeMonth, false)
     +   renderRing(progress6, '6-Month Goal', x.current, sixMonth, false)
-    +   renderRing(progressTarget, 'Your Target (' + targetMonths + ' mo)', x.current, targetAmount, true)
+    +   renderRing(progressTarget, 'Your Target (' + targetMonths + 'mo)', x.current, targetAmount, true)
     + '</div>'
 
     + '<div class="ef-milestones">'
@@ -500,10 +634,55 @@ function calc(){
     +   '<div class="ef-milestone-track">' + renderMilestones(x.current, monthly) + '</div>'
     + '</div>'
 
-    + projectionHtml;
+    + projectionHtml
+    + goalDateHtml
+
+    + '<div class="ef-section-title" style="margin-top:28px"><span class="dot"></span> What-if scenarios</div>'
+
+    + '<div class="ef-scenarios">'
+
+    +   '<div class="ef-scenario-card">'
+    +     '<div class="ef-scenario-icon booster">⚡</div>'
+    +     '<div class="ef-scenario-title">Booster</div>'
+    +     '<div class="ef-scenario-desc">How much sooner could you finish if you added extra to your monthly contribution?</div>'
+    +     '<div class="ef-slider-row">'
+    +       '<input type="range" id="boostSlider" min="10" max="500" step="10" value="' + boostAmount + '" oninput="calc()">'
+    +       '<div class="ef-slider-value">+$' + boostAmount + '</div>'
+    +     '</div>'
+    +     boosterResult
+    +   '</div>'
+
+    +   '<div class="ef-scenario-card">'
+    +     '<div class="ef-scenario-icon recovery">🛠</div>'
+    +     '<div class="ef-scenario-title">Recovery Simulator</div>'
+    +     '<div class="ef-scenario-desc">If you tapped your fund tomorrow for an emergency, how long to rebuild it?</div>'
+    +     '<div class="ef-preset-row">'
+    +       '<button type="button" class="ef-preset-btn' + (withdrawAmount===1500?' active':'') + '" onclick="setRecovery(1500)">$1,500</button>'
+    +       '<button type="button" class="ef-preset-btn' + (withdrawAmount===3000?' active':'') + '" onclick="setRecovery(3000)">$3,000</button>'
+    +       '<button type="button" class="ef-preset-btn' + (withdrawAmount===5000?' active':'') + '" onclick="setRecovery(5000)">$5,000</button>'
+    +       '<button type="button" class="ef-preset-btn' + (withdrawAmount===10000?' active':'') + '" onclick="setRecovery(10000)">$10,000</button>'
+    +     '</div>'
+    +     '<div class="ef-slider-row">'
+    +       '<input type="range" id="recoverySlider" min="100" max="20000" step="100" value="' + withdrawAmount + '" oninput="calc()">'
+    +       '<div class="ef-slider-value">$' + fmt(withdrawAmount) + '</div>'
+    +     '</div>'
+    +     recoveryResult
+    +   '</div>'
+
+    + '</div>';
 }
 
-// Run on page load so default values display a result immediately.
+// Quick-pick buttons for recovery slider
+function setRecovery(amount){
+  document.getElementById('recoverySlider').value = amount;
+  calc();
+}
+
+// Expandable common costs card
+function toggleCosts(){
+  document.getElementById('efCostsCard').classList.toggle('open');
+}
+
 document.addEventListener('DOMContentLoaded', function(){ calc(); });
 </script>
 
