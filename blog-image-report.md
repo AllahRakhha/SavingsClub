@@ -1,6 +1,6 @@
 # Blog Image Report
 
-_Last updated: 2026-06-09_
+_Last updated: 2026-06-10_
 
 Quick review — scroll through the thumbnails below. If an image does NOT match its blog topic, follow the "Replace this image" steps under that post.
 
@@ -16,7 +16,17 @@ Quick review — scroll through the thumbnails below. If an image does NOT match
 
 ---
 
-### 1. Best cash back credit cards for gas and groceries
+### 1. How to create a debt payoff plan that works
+
+<img src="https://images.unsplash.com/photo-1772588627327-1eeddcf73c11?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODExMDkwNTd8&ixlib=rb-4.1.0&w=1200&q=75&auto=format" width="500" alt="Image for blog post" />
+
+- **Search query used:** `bills calculator paperwork desk debt`
+- **Live post:** https://savingsclub.com/blog/how-to-create-a-debt-payoff-plan-that-works/
+- **🔧 [Edit image on GitHub →](https://github.com/AllahRakhha/SavingsClub/edit/main/blog/how-to-create-a-debt-payoff-plan-that-works/index.html)**
+
+---
+
+### 2. Best cash back credit cards for gas and groceries
 
 <img src="https://images.unsplash.com/photo-1650237093631-3d7ebd993c76?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODEwMDY1NTF8&ixlib=rb-4.1.0&w=1200&q=75&auto=format" width="500" alt="Image for blog post" />
 
@@ -26,7 +36,7 @@ Quick review — scroll through the thumbnails below. If an image does NOT match
 
 ---
 
-### 2. How to improve your credit score in 90 days
+### 3. How to improve your credit score in 90 days
 
 <img src="https://images.unsplash.com/photo-1584931423312-5d53d862446a?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODA5MzcxMTZ8&ixlib=rb-4.1.0&w=1200&q=75&auto=format" width="500" alt="Image for blog post" />
 
@@ -36,7 +46,7 @@ Quick review — scroll through the thumbnails below. If an image does NOT match
 
 ---
 
-### 3. How to save money on utilities in Iowa
+### 4. How to save money on utilities in Iowa
 
 <img src="https://images.unsplash.com/photo-1634757439914-23b8acb9d411?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODA2ODM1MjF8&ixlib=rb-4.1.0&w=1200&q=75&auto=format" width="500" alt="Image for blog post" />
 
@@ -46,7 +56,7 @@ Quick review — scroll through the thumbnails below. If an image does NOT match
 
 ---
 
-### 4. Understanding your credit report and fixing errors
+### 5. Understanding your credit report and fixing errors
 
 <img src="https://images.unsplash.com/photo-1618044733300-9472054094ee?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODA1NTExNDV8&ixlib=rb-4.1.0&w=1200&q=75&auto=format" width="500" alt="Image for blog post" />
 
@@ -56,7 +66,7 @@ Quick review — scroll through the thumbnails below. If an image does NOT match
 
 ---
 
-### 5. How to save money on rent in Florida
+### 6. How to save money on rent in Florida
 
 <img src="https://images.unsplash.com/photo-1768839721719-c5ed97c1fd58?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODA0MDM3OTV8&ixlib=rb-4.1.0&w=1200&q=75&auto=format" width="500" alt="Image for blog post" />
 
@@ -66,7 +76,7 @@ Quick review — scroll through the thumbnails below. If an image does NOT match
 
 ---
 
-### 6. Best rewards credit cards for dining out
+### 7. Best rewards credit cards for dining out
 
 <img src="https://images.unsplash.com/photo-1726066012714-261f6d8c07bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODAzMzkxNTl8&ixlib=rb-4.1.0&q=80&w=1080" width="500" alt="Image for blog post" />
 
@@ -76,7 +86,7 @@ Quick review — scroll through the thumbnails below. If an image does NOT match
 
 ---
 
-### 7. How to save for college with a 529 plan
+### 8. How to save for college with a 529 plan
 
 <img src="https://images.unsplash.com/photo-1591331922516-beed9d388bc3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODAwNzMwMjl8&ixlib=rb-4.1.0&q=80&w=1080" width="500" alt="Image for blog post" />
 
@@ -86,7 +96,7 @@ Quick review — scroll through the thumbnails below. If an image does NOT match
 
 ---
 
-### 8. Smart money moves for millennials in Ohio
+### 9. Smart money moves for millennials in Ohio
 
 <img src="https://images.unsplash.com/photo-1515606378517-3451a4fa2e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Nzk5NzIzODV8&ixlib=rb-4.1.0&q=80&w=1080" width="500" alt="Image for blog post" />
 
@@ -96,7 +106,7 @@ Quick review — scroll through the thumbnails below. If an image does NOT match
 
 ---
 
-### 9. How to create multiple streams of income
+### 10. How to create multiple streams of income
 
 <img src="https://savingsclub.com/img/savings-jar.jpg" width="500" alt="Image for blog post" />
 

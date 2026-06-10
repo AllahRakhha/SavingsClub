@@ -6,12 +6,22 @@
 <atom:link href="https://savingsclub.com/rss.xml" rel="self" type="application/rss+xml" />
 <description>Free personal finance education, calculators, and money guides for Americans in every state.</description>
 <language>en-us</language>
-<lastBuildDate>Tue, 09 Jun 2026 12:16:48 GMT</lastBuildDate>
+<lastBuildDate>Wed, 10 Jun 2026 16:30:57 GMT</lastBuildDate>
 <image>
 <url>https://savingsclub.com/img/sc-logo-full.png</url>
 <title>SavingsClub Blog</title>
 <link>https://savingsclub.com/blog/</link>
 </image>
+  <item>
+    <title>How to create a debt payoff plan that works</title>
+    <link>https://savingsclub.com/blog/how-to-create-a-debt-payoff-plan-that-works/</link>
+    <guid isPermaLink="true">https://savingsclub.com/blog/how-to-create-a-debt-payoff-plan-that-works/</guid>
+    <pubDate>Wed, 10 Jun 2026 16:30:57 GMT</pubDate>
+    <category>Debt</category>
+    <description><![CDATA[Sarah stared at her kitchen table covered in credit card statements, student loan papers, and a car payment notice. The total? $47,000 in debt across seven different accounts.]]></description>
+    <enclosure url="https://images.unsplash.com/photo-1772588627327-1eeddcf73c11?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODExMDkwNTd8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" type="image/jpeg" />
+    <media:content url="https://images.unsplash.com/photo-1772588627327-1eeddcf73c11?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODExMDkwNTd8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" medium="image" />
+  </item>
   <item>
     <title>Best cash back credit cards for gas and groceries</title>
     <link>https://savingsclub.com/blog/best-cash-back-credit-cards-for-gas-and-groceries/</link>
