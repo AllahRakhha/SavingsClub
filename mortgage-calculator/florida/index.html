@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Florida Mortgage Calculator 2026 Property Tax, Hurricane Insurance & Real Monthly Payment | SavingsClub</title>
+<title>Florida Mortgage Calculator 2026 — Property Tax, Hurricane Insurance & Real Monthly Payment | SavingsClub</title>
 <meta name="description" content="Free Florida mortgage calculator with current state rates (6.49%), 0.91% property tax, $410K median home, hurricane insurance reality, NO state income tax, and Homestead Exemption rules.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="https://savingsclub.com/mortgage-calculator/florida/">
@@ -43,7 +43,7 @@
 {"@type":"Question","name":"Why is homeowners insurance so expensive in Florida?","acceptedAnswer":{"@type":"Answer","text":"Florida faces hurricane risk plus an unusually high frequency of property insurance lawsuits. Many major insurers including State Farm, Farmers, AAA, and Progressive have left or restricted coverage. Statewide average homeowners insurance is approximately $4,500 to $6,000 per year. Coastal properties commonly pay $8,000 to $15,000 or more. Always get a property specific insurance quote before making an offer."}},
 {"@type":"Question","name":"What is the Florida Homestead Exemption?","acceptedAnswer":{"@type":"Answer","text":"Florida's Homestead Exemption reduces the taxable value of your primary residence by up to $50,000 ($25,000 from all property taxes plus another $25,000 from non school taxes). You must file by March 1 of the year following your purchase. The exemption saves typical Florida homeowners $750 to $1,200 per year."}},
 {"@type":"Question","name":"What is the Save Our Homes cap?","acceptedAnswer":{"@type":"Answer","text":"The Save Our Homes amendment caps annual assessment increases on Florida homestead properties at 3 percent or the rate of inflation, whichever is lower. This protects long term homeowners from rapidly rising property tax bills during real estate booms. The cap applies only to homes with an active Homestead Exemption filing."}},
-{"@type":"Question","name":"What firsttime homebuyer programs are available in Florida?","acceptedAnswer":{"@type":"Answer","text":"Florida Hometown Heroes provides up to $35,000 in down payment and closing cost assistance for teachers, healthcare workers, law enforcement, firefighters, military, and active service members. Florida Assist offers up to $10,000 in 0 percent interest deferred payment second mortgages. HFA Preferred Conventional provides competitive 30 year fixed rates with reduced mortgage insurance for income qualified first time buyers."}}]}
+{"@type":"Question","name":"What first time homebuyer programs are available in Florida?","acceptedAnswer":{"@type":"Answer","text":"Florida Hometown Heroes provides up to $35,000 in down payment and closing cost assistance for teachers, healthcare workers, law enforcement, firefighters, military, and active service members. Florida Assist offers up to $10,000 in 0 percent interest deferred payment second mortgages. HFA Preferred Conventional provides competitive 30 year fixed rates with reduced mortgage insurance for income qualified first time buyers."}}]}
 </script>
 
 <style>
@@ -93,8 +93,9 @@
 .sm-section-title .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#059669,#10B981)}
 
 /* Calculator inputs */
-.calc-grid select{width:100%;padding:14px 38px 14px 16px;border:1px solid #E5E7EB;border-radius:12px;font-family:inherit;font-size:1rem;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%236B7280' stroke-width='1.6'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 16px center;background-size:12px;color:#0A1628;cursor:pointer;appearance:none;-webkit-appearance:none;transition:border-color .15s,box-shadow .15s;box-sizing:border-box}
+.calc-grid select{width:100%;padding:14px 38px 14px 16px;border:1px solid #E5E7EB;border-radius:12px;font-family:inherit;font-size:1rem;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%236B7280' stroke-width='1.6'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 16px center;background-size:12px;color:#0A1628;cursor:pointer;appearance:none;-webkit-appearance:none;transition:border-color .15s,box-shadow .15s;box-sizing:border-box;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
 .calc-grid select:focus{outline:none;border-color:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,.12)}
+.calc-grid .lbl-hint{display:block;font-size:.7rem;color:#94A3B8;font-weight:400;text-transform:none;letter-spacing:0;margin-top:3px;font-style:normal}
 
 /* Result banner */
 .sm-result-banner{border-radius:18px;padding:26px 28px;margin:20px 0 0;background:linear-gradient(135deg,#0A1628 0%,#0F2942 100%);color:#fff}
@@ -248,7 +249,7 @@ SavingsClub
   </div>
   <div class="sm-hero-stat">
     <div class="sm-hero-stat-number">$4,500–$6,000</div>
-    <div class="sm-hero-stat-label">Average Florida homeowners insurance per year — roughly 3x the national average, with coastal homes paying $8K–$15K+</div>
+    <div class="sm-hero-stat-label">Average Florida homeowners insurance per year roughly 3x the national average, with coastal homes paying $8K–$15K+</div>
     <div class="sm-hero-stat-source">Source: Florida Office of Insurance Regulation</div>
   </div>
 </div>
@@ -294,26 +295,26 @@ SavingsClub
     </select>
   </div>
   <div>
-    <label>Property Tax (%) <span style="color:#9CA3AF;font-weight:400">— pick your county</span></label>
+    <label>Property Tax (%)<span class="lbl-hint">Pick your county</span></label>
     <select id="smPropTax" onchange="smCalc()">
-      <option value="0.91" selected>Statewide average — 0.91%</option>
+      <option value="0.91" selected>Statewide — 0.91%</option>
       <option value="0.99">Miami-Dade — 0.99%</option>
-      <option value="1.07">Broward (Fort Lauderdale) — 1.07%</option>
-      <option value="0.93">Orange (Orlando) — 0.93%</option>
-      <option value="1.04">Hillsborough (Tampa) — 1.04%</option>
-      <option value="0.96">Duval (Jacksonville) — 0.96%</option>
+      <option value="1.07">Broward — 1.07%</option>
+      <option value="0.93">Orange — 0.93%</option>
+      <option value="1.04">Hillsborough — 1.04%</option>
+      <option value="0.96">Duval — 0.96%</option>
       <option value="1.06">Palm Beach — 1.06%</option>
     </select>
   </div>
-  <div><label>Annual Homeowners Insurance ($) <span style="color:#9CA3AF;font-weight:400">— coastal ≈ $8K+</span></label><input type="number" id="smInsurance" value="5400" min="0" oninput="smCalc()"></div>
+  <div><label>Annual Insurance ($)<span class="lbl-hint">Coastal ≈ $8K+</span></label><input type="number" id="smInsurance" value="5400" min="0" oninput="smCalc()"></div>
   <div>
-    <label>Homestead Exemption <span style="color:#9CA3AF;font-weight:400">— primary residence only</span></label>
+    <label>Homestead Exemption<span class="lbl-hint">Primary residence only</span></label>
     <select id="smHomestead" onchange="smCalc()">
-      <option value="0" selected>No — not primary residence</option>
-      <option value="50000">Yes — apply $50K exemption</option>
+      <option value="0" selected>No homestead</option>
+      <option value="50000">Yes — $50K exemption</option>
     </select>
   </div>
-  <div><label>HOA Fees ($/month) <span style="color:#9CA3AF;font-weight:400">— condos ≈ $400+</span></label><input type="number" id="smHOA" value="0" min="0" oninput="smCalc()"></div>
+  <div><label>HOA Fees ($/month)<span class="lbl-hint">Condos ≈ $400+</span></label><input type="number" id="smHOA" value="0" min="0" oninput="smCalc()"></div>
 </div>
 
 <div class="accent-line" style="width:100%;margin:24px 0 20px;height:2px"></div>
@@ -327,12 +328,12 @@ SavingsClub
 <p>The current 30 year fixed mortgage rate in Florida averages approximately <strong>6.49%</strong>, slightly below the national average. Florida's median home price of <strong>$410,000</strong> is moderate compared to coastal states like California or New York — but the true cost of homeownership in many areas is dominated by hurricane insurance, which can rival or exceed the property tax bill.</p>
 
 <h2>The Florida homeowners insurance crisis</h2>
-<p>Insurance is the single biggest financial surprise for new Florida homebuyers. Statewide average homeowners insurance is <strong>$4,500–$6,000 per year</strong>, roughly 3x the national average. Coastal properties and homes in hurricane prone counties often pay <strong>$8,000–$15,000 per year</strong>. Many of the largest national insurers have left Florida entirely or stopped writing new policies including State Farm, Farmers, AAA, and parts of Progressive's portfolio.</p>
-<p>The state run <strong>Citizens Property Insurance Corporation</strong> acts as insurer of last resort but is being deliberately downsized, and the state is actively pushing existing Citizens policyholders into private market alternatives. New construction often has lower premiums than older homes due to updated building codes (post-2002 construction with hurricane straps and impact windows).</p>
+<p>Insurance is the single biggest financial surprise for new Florida homebuyers. Statewide average homeowners insurance is <strong>$4,500–$6,000 per year</strong>, roughly 3x the national average. Coastal properties and homes in hurricane-prone counties often pay <strong>$8,000–$15,000 per year</strong>. Many of the largest national insurers have left Florida entirely or stopped writing new policies including State Farm, Farmers, AAA, and parts of Progressive's portfolio.</p>
+<p>The state run <strong>Citizens Property Insurance Corporation</strong> acts as insurer of last resort but is being deliberately downsized, and the state is actively pushing existing Citizens policyholders into private market alternatives. New construction often has lower premiums than older homes due to updated building codes (post 2002 construction with hurricane straps and impact windows).</p>
 <p><strong>Before making any offer in Florida, get a property specific insurance quote — not a statewide estimate.</strong> In some areas, you may discover no standard insurer will write you a policy at all, leaving you to rely on Citizens or risk pools at higher cost. Lenders require insurance to close. If you can't get insurance, you can't close the loan.</p>
 
 <h2>Florida property tax & the Homestead Exemption</h2>
-<p>Florida's effective property tax rate of <strong>0.91%</strong> is below the national average. For a median $410,000 home, that's approximately $3,730 per year, or $311 per month — before exemptions. Two powerful protections reduce this further for primary residents:</p>
+<p>Florida's effective property tax rate of <strong>0.91%</strong> is below the national average. For a median $410,000 home, that's approximately $3,730 per year, or $311 per month before exemptions. Two powerful protections reduce this further for primary residents:</p>
 </div>
 
 <div class="sm-homestead">
@@ -343,7 +344,7 @@ SavingsClub
 </div>
 
 <div class="sm-prose">
-<p>Florida property tax rates vary modestly by county. Coastal urban counties pay slightly more; inland and northern counties pay slightly less. The variation is small compared to states like New York or Texas but still worth using in your calculation:</p>
+<p>Florida property tax rates vary modestly by county. Coastal urban counties pay slightly more; inland and northern counties pay slightly less. The variation is small compared to states like New York or Texas — but still worth using in your calculation:</p>
 </div>
 
 <div class="sm-ref-card">
@@ -413,15 +414,15 @@ SavingsClub
   <div class="sm-tips-list">
     <div class="sm-tip">
       <div class="sm-tip-num">1</div>
-      <div class="sm-tip-body"><strong>Get a property specific insurance quote BEFORE making an offer, not after.</strong> Major insurers have left Florida. In coastal counties and some inland areas, you may discover no standard carrier will write you a policy at all — leaving you with Citizens Property Insurance at higher cost and reduced coverage. Lenders require insurance to close. <strong>No insurance = no closing.</strong> This kills deals every week in Florida. Always get a quote on the specific address during your inspection period.</div>
+      <div class="sm-tip-body"><strong>Get a property specific insurance quote BEFORE making an offer, not after.</strong> Major insurers have left Florida. In coastal counties and some inland areas, you may discover no standard carrier will write you a policy at all leaving you with Citizens Property Insurance at higher cost and reduced coverage. Lenders require insurance to close. <strong>No insurance = no closing.</strong> This kills deals every week in Florida. Always get a quote on the specific address during your inspection period.</div>
     </div>
     <div class="sm-tip">
       <div class="sm-tip-num">2</div>
-      <div class="sm-tip-body"><strong>File for the Homestead Exemption by March 1 of your first full year or lose $750–$1,200/year permanently.</strong> Most new homeowners miss the filing deadline and don't realize they can't claim retroactively. The Save Our Homes 3% cap on annual assessment increases only kicks in <em>after</em> you have the exemption filed. Missing one year means paying full assessment increases until you fix it, plus losing that year's savings forever.</div>
+      <div class="sm-tip-body"><strong>File for the Homestead Exemption by March 1 of your first full year — or lose $750–$1,200/year permanently.</strong> Most new homeowners miss the filing deadline and don't realize they can't claim retroactively. The Save Our Homes 3% cap on annual assessment increases only kicks in <em>after</em> you have the exemption filed. Missing one year means paying full assessment increases until you fix it, plus losing that year's savings forever.</div>
     </div>
     <div class="sm-tip">
       <div class="sm-tip-num">3</div>
-      <div class="sm-tip-body"><strong>Be careful with Florida condos — read the HOA reserve study before signing anything.</strong> After the 2021 Surfside collapse, Florida now requires mandatory structural inspections for condos 30+ years old, and many older buildings are hitting owners with $30,000–$100,000+ special assessments. Newer condos and townhouses are also being repriced for insurance. Always request the HOA's most recent reserve study, recent special assessment history, and master insurance policy <em>before</em> the inspection period ends.</div>
+      <div class="sm-tip-body"><strong>Be careful with Florida condos read the HOA reserve study before signing anything.</strong> After the 2021 Surfside collapse, Florida now requires mandatory structural inspections for condos 30+ years old, and many older buildings are hitting owners with $30,000–$100,000+ special assessments. Newer condos and townhouses are also being repriced for insurance. Always request the HOA's most recent reserve study, recent special assessment history, and master insurance policy <em>before</em> the inspection period ends.</div>
     </div>
   </div>
 </div>
@@ -437,22 +438,22 @@ SavingsClub
 
 <details>
 <summary>Does Florida have a state income tax?</summary>
-<div class="answer">No. Florida is one of seven U.S. states with no state income tax. This makes Florida especially attractive for high earners, retirees collecting investment income, and remote workers. Combined with no state estate tax, Florida is one of the most tax-friendly states for retirement — though the savings can be partially or fully offset by property insurance costs.</div>
+<div class="answer">No. Florida is one of seven U.S. states with no state income tax. This makes Florida especially attractive for high earners, retirees collecting investment income, and remote workers. Combined with no state estate tax, Florida is one of the most tax friendly states for retirement though the savings can be partially or fully offset by property insurance costs.</div>
 </details>
 
 <details>
 <summary>Why is homeowners insurance so expensive in Florida?</summary>
-<div class="answer">Florida faces hurricane risk plus an unusually high frequency of property insurance lawsuits. Many major insurers (State Farm, Farmers, AAA, parts of Progressive) have left or restricted coverage. Statewide average is approximately $4,500–$6,000/year. Coastal homes often pay $8,000–$15,000 or more. Always get a property specific insurance quote before making an offer — and during your inspection period, confirm the policy will actually be issued at the quoted rate.</div>
+<div class="answer">Florida faces hurricane risk plus an unusually high frequency of property insurance lawsuits. Many major insurers (State Farm, Farmers, AAA, parts of Progressive) have left or restricted coverage. Statewide average is approximately $4,500–$6,000/year. Coastal homes often pay $8,000 to $15,000 or more. Always get a property specific insurance quote before making an offer and during your inspection period, confirm the policy will actually be issued at the quoted rate.</div>
 </details>
 
 <details>
 <summary>What is the Florida Homestead Exemption?</summary>
-<div class="answer">Florida's Homestead Exemption reduces the taxable value of your primary residence by up to $50,000. You must file by March 1 of the year following your purchase. Florida also has the Save Our Homes amendment, which caps annual assessment increases at 3% — protecting long term homeowners from rapidly rising tax bills during real estate booms. You can also "port" up to $500,000 of accumulated Save Our Homes savings to a new Florida home when you move.</div>
+<div class="answer">Florida's Homestead Exemption reduces the taxable value of your primary residence by up to $50,000. You must file by March 1 of the year following your purchase. Florida also has the Save Our Homes amendment, which caps annual assessment increases at 3% protecting long term homeowners from rapidly rising tax bills during real estate booms. You can also "port" up to $500,000 of accumulated Save Our Homes savings to a new Florida home when you move.</div>
 </details>
 
 <details>
 <summary>Where in Florida is most affordable?</summary>
-<div class="answer">Northern Florida (Tallahassee, Jacksonville) and inland Central Florida offer the most affordable home prices, generally under $325,000 median. Avoiding coastal counties also dramatically reduces insurance costs — often saving $3,000–$6,000 per year. Trade off: fewer high paying jobs and longer drives to beaches. Cape Coral and inland parts of Lee County are popular middle ground options that balance price, access to coast, and somewhat lower insurance.</div>
+<div class="answer">Northern Florida (Tallahassee, Jacksonville) and inland Central Florida offer the most affordable home prices, generally under $325,000 median. Avoiding coastal counties also dramatically reduces insurance costs often saving $3,000–$6,000 per year. Trade off: fewer high paying jobs and longer drives to beaches. Cape Coral and inland parts of Lee County are popular middle ground options that balance price, access to coast, and somewhat lower insurance.</div>
 </details>
 
 <details>
@@ -465,7 +466,7 @@ SavingsClub
 <!-- ============ CTA ============ -->
 <div class="sm-cta">
   <h2>Need the full mortgage calculator?</h2>
-  <p>The calculator above is pre filled with Florida state defaults including realistic hurricane insurance and Homestead Exemption support. For amortization schedules, extra payment scenarios, and side-by-side rate comparisons, use the main calculator.</p>
+  <p>The calculator above is pre-filled with Florida state defaults including realistic hurricane insurance and Homestead Exemption support. For amortization schedules, extra payment scenarios, and side-by-side rate comparisons, use the main calculator.</p>
   <a href="/mortgage-calculator/" class="btn-white">Open Full Mortgage Calculator →</a>
 </div>
 
