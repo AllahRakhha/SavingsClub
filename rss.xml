@@ -6,12 +6,22 @@
 <atom:link href="https://savingsclub.com/rss.xml" rel="self" type="application/rss+xml" />
 <description>Free personal finance education, calculators, and money guides for Americans in every state.</description>
 <language>en-us</language>
-<lastBuildDate>Wed, 10 Jun 2026 16:30:57 GMT</lastBuildDate>
+<lastBuildDate>Fri, 12 Jun 2026 16:13:50 GMT</lastBuildDate>
 <image>
 <url>https://savingsclub.com/img/sc-logo-full.png</url>
 <title>SavingsClub Blog</title>
 <link>https://savingsclub.com/blog/</link>
 </image>
+  <item>
+    <title>How to set financial goals you will actually achieve</title>
+    <link>https://savingsclub.com/blog/how-to-set-financial-goals-you-will-actually-achieve/</link>
+    <guid isPermaLink="true">https://savingsclub.com/blog/how-to-set-financial-goals-you-will-actually-achieve/</guid>
+    <pubDate>Fri, 12 Jun 2026 16:13:50 GMT</pubDate>
+    <category>Money Tips</category>
+    <description><![CDATA[Your financial goals are sitting in a notes app on your phone, collecting digital dust. Maybe it's "save more money" from January 2024, or "pay off debt" from two years ago.]]></description>
+    <enclosure url="https://images.unsplash.com/photo-1728212018177-61a5c547fa23?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODEyODA4MzB8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" type="image/jpeg" />
+    <media:content url="https://images.unsplash.com/photo-1728212018177-61a5c547fa23?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODEyODA4MzB8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" medium="image" />
+  </item>
   <item>
     <title>How to create a debt payoff plan that works</title>
     <link>https://savingsclub.com/blog/how-to-create-a-debt-payoff-plan-that-works/</link>
