@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mortgage Calculator — Estimate Monthly Payments with PMI | SavingsClub</title>
+<title>Mortgage Calculator  Estimate Monthly Payments with PMI | SavingsClub</title>
 <meta name="description" content="Free mortgage calculator with taxes, insurance, PMI, HOA fees, and full amortization schedule. See your complete monthly payment breakdown.">
 <link rel="canonical" href="https://savingsclub.com/mortgage-calculator/">
 <meta property="og:title" content="Mortgage Calculator — Estimate Monthly Payments with PMI | SavingsClub">
@@ -62,21 +62,31 @@
 .mc-amort-table tbody tr:hover{background:#f8fafc}
 .mc-amort-table tbody tr:last-child td{border-bottom:none}
 .mc-amort-note{font-size:.8rem;color:var(--text-lighter);margin-top:12px;text-align:center}
-.mc-cta-wrap{margin-top:32px;background:linear-gradient(135deg,#050D1A,#0A1628);border-radius:20px;padding:40px 32px;box-shadow:0 4px 20px rgba(0,0,0,.08);color:#fff}
-.mc-cta-header{text-align:center;margin-bottom:28px}
-.mc-cta-header h2{font-size:1.8rem;margin:0 0 10px;color:#fff;letter-spacing:-.02em}
-.mc-cta-header p{color:rgba(255,255,255,.75);font-size:1.05rem;max-width:600px;margin:0 auto}
-.mc-cta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:20px}
-.mc-cta-card{background:#fff;border-radius:16px;padding:24px;color:var(--text);position:relative;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
-.mc-cta-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,.15)}
-.mc-cta-card-badge{position:absolute;top:-10px;left:20px;background:linear-gradient(135deg,#059669,#10B981);color:#fff;padding:5px 12px;border-radius:20px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;box-shadow:0 2px 8px rgba(5,150,105,.3)}
-.mc-cta-card h3{font-size:1.3rem;margin:14px 0 6px;color:var(--navy)}
-.mc-cta-card-tagline{font-size:.9rem;color:var(--text-light);margin-bottom:16px;min-height:42px}
-.mc-cta-features{list-style:none;padding:0;margin:0 0 20px;flex:1}
-.mc-cta-features li{font-size:.88rem;color:var(--text);padding:5px 0;font-weight:500}
-.mc-cta-btn{display:block;text-align:center;background:linear-gradient(135deg,#059669,#10B981);color:#fff;padding:13px 20px;border-radius:50px;text-decoration:none;font-weight:700;font-size:.95rem;box-shadow:0 4px 12px rgba(5,150,105,.3);transition:transform .15s,box-shadow .2s}
-.mc-cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(5,150,105,.4)}
-.mc-cta-disclosure{font-size:.75rem;color:rgba(255,255,255,.55);text-align:center;line-height:1.6;max-width:760px;margin:16px auto 0}
+
+/* ============ LENDER GUIDANCE SECTION (REPLACES PLACEHOLDER CARDS) ============ */
+.mc-lender-guide{margin-top:32px;background:linear-gradient(135deg,#050D1A,#0A1628);border-radius:20px;padding:40px 32px;box-shadow:0 4px 20px rgba(0,0,0,.08);color:#fff}
+.mc-lender-guide-header{text-align:center;margin-bottom:28px;position:relative}
+.mc-lender-guide-header h2{font-size:1.7rem;margin:0 0 10px;color:#fff;letter-spacing:-.02em;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800}
+.mc-lender-guide-header p{color:rgba(255,255,255,.78);font-size:1.02rem;max-width:680px;margin:0 auto;line-height:1.65}
+.mc-lender-guide-honest{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.22);border-radius:14px;padding:18px 22px;margin:0 0 22px;font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.92)}
+.mc-lender-guide-honest strong{color:#34D399;font-weight:700}
+.mc-lender-guide-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
+.mc-lender-guide-col{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:22px}
+.mc-lender-guide-col h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.05rem;font-weight:700;color:#34D399;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+.mc-lender-guide-col ul{list-style:none;padding:0;margin:0}
+.mc-lender-guide-col li{font-size:.92rem;color:rgba(255,255,255,.88);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);line-height:1.55}
+.mc-lender-guide-col li:last-child{border-bottom:none}
+.mc-lender-guide-col li strong{color:#fff;font-weight:600}
+.mc-lender-guide-cta{text-align:center;margin-top:8px}
+.mc-lender-guide-cta a{display:inline-block;background:linear-gradient(135deg,#059669,#10B981);color:#fff;padding:14px 32px;border-radius:50px;text-decoration:none;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.98rem;box-shadow:0 4px 14px rgba(5,150,105,.3);transition:transform .15s,box-shadow .2s}
+.mc-lender-guide-cta a:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(5,150,105,.4)}
+.mc-state-pages{margin-top:24px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:22px}
+.mc-state-pages-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.05rem;font-weight:700;color:#34D399;margin:0 0 14px;display:flex;align-items:center;gap:8px}
+.mc-state-pages-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
+.mc-state-page-link{display:block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:11px 14px;text-decoration:none;color:#fff;font-size:.88rem;font-weight:600;transition:all .2s}
+.mc-state-page-link:hover{background:rgba(52,211,153,.12);border-color:rgba(52,211,153,.4)}
+.mc-state-page-link .rate{display:block;font-size:.74rem;color:rgba(255,255,255,.55);font-weight:400;margin-top:2px}
+
 .mc-related-wrap{margin-top:32px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .mc-related-wrap h2{font-size:1.5rem;margin:0 0 6px;color:var(--navy);letter-spacing:-.01em}
 .mc-related-wrap>p{color:var(--text-light);margin:0 0 24px;font-size:1rem}
@@ -94,9 +104,9 @@
   .mc-result-grid{grid-template-columns:1fr 1fr}
   .mc-amort-wrap{padding:20px}
   .mc-amort-header h2{font-size:1.2rem}
-  .mc-cta-wrap{padding:28px 20px}
-  .mc-cta-header h2{font-size:1.4rem}
-  .mc-cta-grid{grid-template-columns:1fr;gap:24px;margin-top:16px}
+  .mc-lender-guide{padding:28px 20px}
+  .mc-lender-guide-header h2{font-size:1.35rem}
+  .mc-lender-guide-cols{grid-template-columns:1fr;gap:14px}
   .mc-related-wrap{padding:24px 20px}
   .mc-related-grid{grid-template-columns:1fr;gap:14px}
 }
@@ -142,7 +152,7 @@ SavingsClub
 <div style="text-align:center;margin-bottom:32px">
 <h1 style="font-size:2.2rem;margin-bottom:8px;letter-spacing:-.02em">Mortgage Calculator</h1>
 <p style="color:var(--text-light);max-width:600px;margin:0 auto;font-size:1.05rem">Estimate monthly payments including taxes, insurance, PMI, and HOA fees. See your complete amortization schedule.</p>
-<p style="font-size:.8rem;color:var(--text-lighter);margin-top:8px">Last updated: May 2026</p>
+<p style="font-size:.8rem;color:var(--text-lighter);margin-top:8px">Last updated: June 2026</p>
 </div>
 
 <div class="calc-section reveal" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
@@ -218,52 +228,59 @@ SavingsClub
 <p class="mc-amort-note">This schedule shows how each payment splits between principal and interest. Early payments are mostly interest; later payments are mostly principal.</p>
 </div>
 
-<!-- AFFILIATE CTA SECTION -->
-<div class="mc-cta-wrap reveal">
-<div class="mc-cta-header">
-<h2>Ready to Take the Next Step?</h2>
-<p>Compare real mortgage rates from top lenders. Pre-qualify in minutes without affecting your credit score.</p>
-</div>
-<div class="mc-cta-grid">
+<!-- ============ LENDER GUIDANCE SECTION (REPLACES PLACEHOLDER CARDS) ============ -->
+<div class="mc-lender-guide reveal">
+  <div class="mc-lender-guide-header">
+    <h2>Looking for a Mortgage Lender?</h2>
+    <p>SavingsClub doesn't currently partner with mortgage lenders  we'd rather give you honest education than push you toward whoever pays us the most. Here's how to actually find the right mortgage for your situation.</p>
+  </div>
 
-<div class="mc-cta-card">
-<div class="mc-cta-card-badge">⭐ Best Overall</div>
-<h3>[LENDER NAME 1]</h3>
-<p class="mc-cta-card-tagline">Quick online application with fast pre-approval and competitive rates</p>
-<ul class="mc-cta-features">
-<li>✓ Pre-qualify in 5 minutes</li>
-<li>✓ No impact to credit score</li>
-<li>✓ Multiple offers in one place</li>
-</ul>
-<a href="[AFFILIATE LINK PLACEHOLDER 1]" rel="sponsored nofollow" target="_blank" class="mc-cta-btn">Get Your Rate →</a>
-</div>
+  <div class="mc-lender-guide-honest">
+    <strong>The shopping rule that saves the most money:</strong> Get pre-approval quotes from at least 3 lenders within a 14-day window. Multiple mortgage credit pulls within 14 days count as ONE inquiry on your credit score (per FICO and VantageScore rules) — so there's no penalty for shopping aggressively. A 0.25% rate difference on a $350,000 loan is $18,000 over 30 years. Don't take the first quote.
+  </div>
 
-<div class="mc-cta-card">
-<div class="mc-cta-card-badge">⭐ Lowest Rates</div>
-<h3>[LENDER NAME 2]</h3>
-<p class="mc-cta-card-tagline">Compete for the best rate from multiple lenders nationwide</p>
-<ul class="mc-cta-features">
-<li>✓ Multiple lender offers</li>
-<li>✓ No fees, no obligation</li>
-<li>✓ Trusted by millions</li>
-</ul>
-<a href="[AFFILIATE LINK PLACEHOLDER 2]" rel="sponsored nofollow" target="_blank" class="mc-cta-btn">See My Offers →</a>
-</div>
+  <div class="mc-lender-guide-cols">
+    <div class="mc-lender-guide-col">
+      <h3>✓ Where to start your search</h3>
+      <ul>
+        <li><strong>Your existing bank or credit union</strong> — often best rates for current customers; relationship discounts of 0.10–0.25% common</li>
+        <li><strong>Local credit unions</strong>  typically 0.10–0.25% below national lenders for well qualified buyers</li>
+        <li><strong>Online lenders</strong>  Rocket Mortgage, Better.com, Zillow Home Loans; fast pre-approvals, often competitive rates</li>
+        <li><strong>HUD-approved housing counselors</strong> FREE, unbiased mortgage advice; find one at hud.gov/findcounselor</li>
+        <li><strong>Mortgage brokers</strong>  work with multiple lenders on your behalf; useful if you have unique circumstances</li>
+      </ul>
+    </div>
+    <div class="mc-lender-guide-col">
+      <h3>⚠ Watch out for these traps</h3>
+      <ul>
+        <li><strong>Rate quotes that aren't APR</strong>  always compare APR (which includes fees), not the "interest rate" alone</li>
+        <li><strong>Discount points pitched as savings</strong>  paying points only makes sense if you'll hold the loan 5+ years; run the breakeven math</li>
+        <li><strong>"Lender credits"</strong>  they raise your rate to reduce closing costs; useful for short holds, costly for long holds</li>
+        <li><strong>Aggressive prequalification timelines</strong>  pressure to lock TODAY usually means the rate isn't actually competitive</li>
+        <li><strong>Higher than quoted closing costs at table</strong>  your Loan Estimate (3 days after applying) locks in most fees; compare the Closing Disclosure carefully</li>
+      </ul>
+    </div>
+  </div>
 
-<div class="mc-cta-card">
-<div class="mc-cta-card-badge">⭐ First-Time Buyers</div>
-<h3>[LENDER NAME 3]</h3>
-<p class="mc-cta-card-tagline">Specialized programs for first-time homebuyers with flexible options</p>
-<ul class="mc-cta-features">
-<li>✓ Low down payment options</li>
-<li>✓ First-time buyer programs</li>
-<li>✓ Personal loan officer</li>
-</ul>
-<a href="[AFFILIATE LINK PLACEHOLDER 3]" rel="sponsored nofollow" target="_blank" class="mc-cta-btn">Apply Now →</a>
-</div>
+  <div class="mc-state-pages">
+    <div class="mc-state-pages-title">📍 Compare state-specific mortgage data</div>
+    <div class="mc-state-pages-grid">
+      <a href="../mortgage-calculator/california/" class="mc-state-page-link">California<span class="rate">0.71% tax · $785K</span></a>
+      <a href="../mortgage-calculator/florida/" class="mc-state-page-link">Florida<span class="rate">0.91% tax · $410K</span></a>
+      <a href="../mortgage-calculator/texas/" class="mc-state-page-link">Texas<span class="rate">1.58% tax · $310K</span></a>
+      <a href="../mortgage-calculator/georgia/" class="mc-state-page-link">Georgia<span class="rate">0.92% tax · $335K</span></a>
+      <a href="../mortgage-calculator/new-york/" class="mc-state-page-link">New York<span class="rate">1.40% tax · $475K</span></a>
+      <a href="../mortgage-calculator/north-carolina/" class="mc-state-page-link">North Carolina<span class="rate">0.82% tax · $345K</span></a>
+      <a href="../mortgage-calculator/illinois/" class="mc-state-page-link">Illinois<span class="rate">2.08% tax · $275K</span></a>
+      <a href="../mortgage-calculator/pennsylvania/" class="mc-state-page-link">Pennsylvania<span class="rate">1.43% tax · $265K</span></a>
+      <a href="../mortgage-calculator/michigan/" class="mc-state-page-link">Michigan<span class="rate">1.55% tax · $245K</span></a>
+      <a href="../mortgage-calculator/ohio/" class="mc-state-page-link">Ohio<span class="rate">1.36% tax · $235K</span></a>
+    </div>
+  </div>
 
-</div>
-<p class="mc-cta-disclosure">SavingsClub may receive compensation when you click on links above. This does not influence our editorial recommendations. Rates and terms are subject to change without notice. We recommend partners we believe offer value to our readers.</p>
+  <div class="mc-lender-guide-cta">
+    <a href="../blog/">Read Our Mortgage Guides →</a>
+  </div>
 </div>
 
 <div class="seo-content reveal" style="margin-top:32px">
@@ -280,7 +297,7 @@ SavingsClub
 <a href="../auto-loan-calculator/" class="mc-related-card">
 <span class="mc-related-icon">🚗</span>
 <h3>Auto Loan Calculator</h3>
-<p>Calculate monthly car payments, total interest, and compare loan terms — just like a mortgage.</p>
+<p>Calculate monthly car payments, total interest, and compare loan terms just like a mortgage.</p>
 <span class="mc-related-link">Calculate Auto Loan →</span>
 </a>
 <a href="../budget-planner/" class="mc-related-card">
