@@ -2,7 +2,7 @@ const Anthropic = require('@anthropic-ai/sdk');
 const fs = require('fs');
 const path = require('path');
 
-// 79 unique topic templates — each used ONCE then never repeated
+// 79 unique topic templates, each used ONCE then never repeated
 const TOPICS = [
   "Best high-yield savings accounts for {STATE} residents",
   "How to save for a house down payment in {STATE}",
@@ -140,14 +140,108 @@ function categorize(title) {
 }
 
 /**
+ * STRIP AI-TELL PATTERNS FROM GENERATED CONTENT.
+ *
+ * AI-detection tools (GPTZero, Originality.ai, Copyleaks) and Google's helpful
+ * content algorithm flag patterns that AI overuses. This function removes them
+ * as a safety net AFTER the AI generates content, even if the system prompt
+ * instructions slip.
+ *
+ * Removes:
+ * - Em-dashes and en-dashes, the #1 AI-detection signal
+ * - HTML entity versions (&mdash; &ndash;)
+ * - Formal transitions ("Moreover," "Furthermore," "Additionally,")
+ * - Filler phrases ("It's worth noting that," "Keep in mind that")
+ * - "Whether you're X" sentence openers
+ *
+ * Headings (h1-h6) get em-dashes converted to colons (better for titles).
+ * Body text gets em-dashes converted to commas (natural sentence flow).
+ * Number ranges ($1,500-$2,000) get converted to "X to Y" format.
+ */
+function removeAITells(htmlContent) {
+  if (!htmlContent) return '';
+  let cleaned = htmlContent;
+
+  // Count tells before cleanup (for GitHub Actions log)
+  var emDashCount = (cleaned.match(/[\u2014\u2013]/g) || []).length;
+  var entityCount = (cleaned.match(/&mdash;|&ndash;|&#8212;|&#8211;|&#x2014;|&#x2013;/gi) || []).length;
+  var transitionCount = (cleaned.match(/(?:Moreover|Furthermore|Additionally),/g) || []).length;
+  var fillerCount = (cleaned.match(/It['\u2019]s worth noting that|It is worth noting that|It['\u2019]s important to (?:remember|note) that|Keep in mind that|Bear in mind that/gi) || []).length;
+  var whetherCount = (cleaned.match(/[Ww]hether you['\u2019]re/g) || []).length;
+
+  // === STEP 1: Normalize HTML entities to Unicode ===
+  cleaned = cleaned.replace(/&mdash;|&#8212;|&#x2014;/gi, '\u2014');
+  cleaned = cleaned.replace(/&ndash;|&#8211;|&#x2013;/gi, '\u2013');
+
+  // === STEP 2: Em-dashes inside HEADINGS (h1-h6) become colons ===
+  cleaned = cleaned.replace(/<(h[1-6])([^>]*)>([\s\S]*?)<\/\1>/g, function(match, tag, attrs, inner) {
+    var replaced = inner.replace(/\s*[\u2014\u2013]\s*/g, ': ');
+    return '<' + tag + attrs + '>' + replaced + '</' + tag + '>';
+  });
+
+  // === STEP 3: Number ranges ($1,500-$2,000) become "from X to Y" ===
+  cleaned = cleaned.replace(/(\$?[\d,.]+)\s*[\u2014\u2013]\s*(\$?[\d,.]+)/g, '$1 to $2');
+
+  // === STEP 4: Spaced em-dash sentence breaks become commas ===
+  cleaned = cleaned.replace(/\s+[\u2014\u2013]\s+/g, ', ');
+
+  // === STEP 5: Any remaining em/en dashes become commas ===
+  cleaned = cleaned.replace(/[\u2014\u2013]/g, ',');
+
+  // === STEP 6: Remove AI transitions (Moreover, Furthermore, Additionally) ===
+  cleaned = cleaned.replace(/(<p[^>]*>\s*)Moreover,\s+/g, '$1Also, ');
+  cleaned = cleaned.replace(/(<p[^>]*>\s*)Furthermore,\s+/g, '$1Plus, ');
+  cleaned = cleaned.replace(/(<p[^>]*>\s*)Additionally,\s+/g, '$1Also, ');
+  cleaned = cleaned.replace(/(<li[^>]*>\s*)Moreover,\s+/g, '$1Also, ');
+  cleaned = cleaned.replace(/(<li[^>]*>\s*)Furthermore,\s+/g, '$1Plus, ');
+  cleaned = cleaned.replace(/(<li[^>]*>\s*)Additionally,\s+/g, '$1Also, ');
+  cleaned = cleaned.replace(/(\.\s+)Moreover,\s+/g, '$1Also, ');
+  cleaned = cleaned.replace(/(\.\s+)Furthermore,\s+/g, '$1Plus, ');
+  cleaned = cleaned.replace(/(\.\s+)Additionally,\s+/g, '$1Also, ');
+
+  // === STEP 7: Remove AI filler phrases ===
+  cleaned = cleaned.replace(/It['\u2019]s worth noting that\s+/gi, '');
+  cleaned = cleaned.replace(/It is worth noting that\s+/gi, '');
+  cleaned = cleaned.replace(/It['\u2019]s important to (?:remember|note) that\s+/gi, '');
+  cleaned = cleaned.replace(/It is important to (?:remember|note) that\s+/gi, '');
+  cleaned = cleaned.replace(/Keep in mind that\s+/gi, '');
+  cleaned = cleaned.replace(/Bear in mind that\s+/gi, '');
+
+  // === STEP 8: "Whether you're" becomes "If you're" ===
+  cleaned = cleaned.replace(/\bWhether you['\u2019]re\b/g, "If you're");
+  cleaned = cleaned.replace(/\bwhether you['\u2019]re\b/g, "if you're");
+  cleaned = cleaned.replace(/\bWhether you are\b/g, "If you are");
+  cleaned = cleaned.replace(/\bwhether you are\b/g, "if you are");
+
+  // === STEP 9: Cleanup artifacts from replacements ===
+  cleaned = cleaned.replace(/,\s*,/g, ',');               // double commas
+  cleaned = cleaned.replace(/,([a-zA-Z])/g, ', $1');      // comma+letter becomes comma+space+letter (preserves "1,000")
+  cleaned = cleaned.replace(/[ \t]{2,}/g, ' ');           // collapse multiple spaces
+  cleaned = cleaned.replace(/,\s*\./g, '.');              // comma before period
+  cleaned = cleaned.replace(/\.\s*,/g, '.');              // period before comma
+
+  // Capitalize letter after period+space (filler removal may have broken caps)
+  cleaned = cleaned.replace(/(\.\s+)([a-z])/g, function(_, prefix, letter) {
+    return prefix + letter.toUpperCase();
+  });
+
+  // Capitalize letter at start of paragraph (after <p> tag opening)
+  cleaned = cleaned.replace(/(<p[^>]*>\s*)([a-z])/g, function(_, prefixWithTag, letter) {
+    return prefixWithTag + letter.toUpperCase();
+  });
+
+  var totalRemoved = emDashCount + entityCount + transitionCount + fillerCount + whetherCount;
+  console.log('AI tells removed: ' + (emDashCount + entityCount) + ' dashes, ' + transitionCount + ' transitions, ' + fillerCount + ' filler phrases, ' + whetherCount + ' whether-you-are, total: ' + totalRemoved);
+
+  return cleaned;
+}
+
+/**
  * STRONG, TOPIC-SPECIFIC Unsplash search queries.
- * Returns 2-4 concrete visual nouns matching the actual blog topic,
- * not generic category labels. Order matters: most specific first.
  */
 function getImageQuery(topic, category) {
   const t = topic.toLowerCase();
 
-  // === LIFE EVENTS & DEMOGRAPHICS (most specific) ===
   if (t.includes('teach kids') || t.includes('kids about money') || t.includes('teaching kids')) return 'child piggy bank coins learning';
   if (t.includes('new parents') || t.includes('having a baby') || t.includes('financially prepare') && t.includes('baby')) return 'baby crib nursery family';
   if (t.includes('couple') && (t.includes('manage') || t.includes('money'))) return 'couple kitchen finances laptop';
@@ -165,7 +259,6 @@ function getImageQuery(topic, category) {
   if (t.includes('small business')) return 'small business owner laptop cafe';
   if (t.includes('gig economy') || t.includes('freelance')) return 'delivery driver phone app gig';
 
-  // === SAVINGS TOPICS ===
   if (t.includes('high-yield savings') || t.includes('high yield savings')) return 'piggy bank pink coins jar';
   if (t.includes('emergency fund')) return 'glass jar coins emergency cash';
   if (t.includes('savings account') && t.includes('checking')) return 'bank atm debit card hand';
@@ -185,20 +278,17 @@ function getImageQuery(topic, category) {
   if (t.includes('saving money automatically') || (t.includes('app') && t.includes('saving'))) return 'phone screen savings app banking';
   if (t.includes('money saving tips') || t.includes('save money')) return 'piggy bank coins counting money';
 
-  // === INVESTING TOPICS ===
   if (t.includes('start investing') || t.includes('invest with') || t.includes('investing with')) return 'phone stock chart growth screen';
   if (t.includes('investment portfolio') || t.includes('build an investment')) return 'laptop stock charts trading desk';
   if (t.includes('compound interest')) return 'growing plant coins green growth';
   if (t.includes('roth ira') || t.includes('traditional ira') || t.includes('ira vs')) return 'retirement document calculator paperwork';
   if (t.includes('401k') || t.includes('401(k)') || t.includes('employer matching')) return 'retirement planning paperwork desk';
 
-  // === RETIREMENT ===
   if (t.includes('early retirement')) return 'beach hammock palm trees retirement';
   if (t.includes('retirement') && t.includes('30s')) return 'young professional laptop planning';
   if (t.includes('retirement') && t.includes('40s')) return 'middle aged couple planning kitchen';
   if (t.includes('retirement')) return 'older couple beach sunset retirement';
 
-  // === CREDIT CARDS ===
   if (t.includes('travel credit card') || t.includes('foreign transaction')) return 'passport airplane boarding suitcase';
   if (t.includes('cash back') && (t.includes('gas') || t.includes('groceries'))) return 'gas pump grocery store receipt';
   if (t.includes('cash back credit card') || t.includes('cash back')) return 'credit card cash dollars wallet';
@@ -211,19 +301,16 @@ function getImageQuery(topic, category) {
   if (t.includes('lower interest rates') || (t.includes('negotiate') && t.includes('credit card'))) return 'phone call paperwork credit card';
   if (t.includes('credit card')) return 'credit cards payment wallet store';
 
-  // === CREDIT SCORE / REPORT ===
   if (t.includes('credit score')) return 'credit score 750 screen excellent';
   if (t.includes('credit report')) return 'credit report document checking review';
   if (t.includes('build credit') || t.includes('building credit')) return 'young person credit card building';
 
-  // === DEBT ===
   if (t.includes('refinancing student loans') || t.includes('student loan')) return 'graduation cap diploma student debt';
   if (t.includes('debt snowball') || t.includes('debt avalanche')) return 'bills paperwork calculator debt desk';
   if (t.includes('pay off') && t.includes('debt')) return 'scissors cutting credit card freedom';
   if (t.includes('debt payoff') || t.includes('debt consolidation')) return 'bills calculator paperwork desk debt';
   if (t.includes('personal loan')) return 'loan paperwork pen signature contract';
 
-  // === BANKING ===
   if (t.includes('checking account') || t.includes('free checking')) return 'bank atm debit card hand';
   if (t.includes('money market')) return 'bank documents savings paperwork desk';
   if (t.includes('overdraft')) return 'empty wallet zero balance worry';
@@ -232,13 +319,11 @@ function getImageQuery(topic, category) {
   if (t.includes('fdic')) return 'bank vault security door safe';
   if (t.includes('choose the right bank') || t.includes('right bank')) return 'bank building entrance corporate';
 
-  // === BUDGETING ===
   if (t.includes('zero-based budget') || t.includes('zero based budget')) return 'budget spreadsheet notebook pen calculator';
   if (t.includes('budget') && t.includes('app')) return 'phone budgeting app screen finance';
   if (t.includes('budget') && (t.includes('parent') || t.includes('families') || t.includes('family'))) return 'family kitchen table budget planning';
   if (t.includes('budget')) return 'budget planner notebook calculator desk';
 
-  // === INCOME / PAYCHECK / WEALTH ===
   if (t.includes('take-home pay') || t.includes('paycheck')) return 'paycheck cash dollars envelope';
   if (t.includes('w-2') || t.includes('w2')) return 'w-2 tax form paperwork desk';
   if (t.includes('side hustle')) return 'laptop home office work side hustle';
@@ -246,25 +331,20 @@ function getImageQuery(topic, category) {
   if (t.includes('lifestyle inflation') || t.includes('income grows')) return 'business success climbing career';
   if (t.includes('net worth')) return 'spreadsheet calculator finance laptop';
 
-  // === TAXES ===
   if (t.includes('tax refund')) return 'tax refund check envelope mail';
   if (t.includes('tax-saving') || t.includes('tax saving')) return 'tax forms calculator paperwork desk';
   if (t.includes('tax')) return 'tax documents 1040 paperwork desk';
 
-  // === INSURANCE / HEALTHCARE ===
   if (t.includes('hsa') || t.includes('health savings account')) return 'stethoscope medical bill calculator';
   if (t.includes('car insurance')) return 'car insurance document keys policy';
   if (t.includes('healthcare cost') || t.includes('healthcare')) return 'medical bills hospital paperwork stethoscope';
 
-  // === HOUSING ===
   if (t.includes('first-time homebuyer') || t.includes('first time home')) return 'new house keys couple home';
   if (t.includes('mortgage refinance') || t.includes('refinance') && t.includes('mortgage')) return 'mortgage document signature pen house';
   if (t.includes('mortgage') || t.includes('home loan')) return 'house keys mortgage document home';
 
-  // === AUTO ===
   if (t.includes('auto loan') || t.includes('car loan')) return 'car keys dealership document new car';
 
-  // === CONCEPTS ===
   if (t.includes('inflation')) return 'grocery prices shopping cart receipt';
   if (t.includes('apr') || t.includes('apy')) return 'calculator interest rate paperwork bank';
   if (t.includes('fraud') || t.includes('scam') || t.includes('protect')) return 'cybersecurity padlock laptop security';
@@ -273,7 +353,6 @@ function getImageQuery(topic, category) {
   if (t.includes('financial mistake')) return 'stressed young adult bills laptop';
   if (t.includes('financial planning checklist') || t.includes('financial planning')) return 'checklist clipboard planning desk pen';
 
-  // === CATEGORY FALLBACK (only if no specific match found) ===
   const catMap = {
     'Savings': 'piggy bank pink coins savings',
     'Budgeting': 'budget planner notebook calculator pen',
@@ -308,13 +387,11 @@ function getUsedTopics() {
 
 function pickUnusedTopic(usedTitles) {
   const state = pickRandom(STATES);
-  // Shuffle topics randomly
   const shuffled = [...TOPICS].sort(() => Math.random() - 0.5);
 
   for (const template of shuffled) {
     const topic = template.replace('{STATE}', state);
     const topicLower = topic.toLowerCase();
-    // Check if any existing post title contains the core topic (without state)
     const coreWords = template.replace('{STATE}', '').toLowerCase().replace(/[^a-z ]/g, '').trim().split(' ').filter(w => w.length > 3);
     const isUsed = usedTitles.some(used => {
       const matchCount = coreWords.filter(w => used.includes(w)).length;
@@ -323,18 +400,13 @@ function pickUnusedTopic(usedTitles) {
     if (!isUsed) return { topic, state };
   }
 
-  // Fallback: pick random with different state
   const fallbackState = pickRandom(STATES);
   const fallbackTopic = pickRandom(TOPICS).replace('{STATE}', fallbackState);
-  return { topic: fallbackTopic + ' — ' + new Date().getFullYear() + ' update', state: fallbackState };
+  return { topic: fallbackTopic + ' (' + new Date().getFullYear() + ' update)', state: fallbackState };
 }
 
 /**
  * Generate RSS 2.0 feed from generated-posts.json.
- * Reads all blog posts, outputs rss.xml at repo root.
- * Make.com watches this URL (https://savingsclub.com/rss.xml) to auto-post new
- * blogs to Facebook. Each item includes an <enclosure> tag so Make.com can
- * attach the featured image to the Facebook post.
  */
 function generateRSS() {
   let posts = [];
@@ -345,7 +417,6 @@ function generateRSS() {
     return;
   }
 
-  // Limit to most recent 50 posts (RSS best practice — keeps file size manageable)
   const recentPosts = posts.slice(0, 50);
 
   function escapeXml(str) {
@@ -365,7 +436,6 @@ function generateRSS() {
   }
 
   function toRFC822(post) {
-    // Prefer explicit pubDate (new posts), then isoDate, then parse human-readable date
     try {
       if (post.pubDate) return post.pubDate;
       if (post.isoDate) {
@@ -427,20 +497,14 @@ function generateRSS() {
 
 /**
  * Extract the first real content paragraph from blog HTML.
- * Skips the FTC disclaimer that all posts start with.
- * Returns clean text truncated to ~220 chars at a sentence boundary.
- * Used as the description in RSS feed and Facebook post caption.
  */
 function extractExcerpt(htmlContent) {
-  // Find all <p>...</p> blocks
   const paragraphs = htmlContent.match(/<p[^>]*>[\s\S]*?<\/p>/g) || [];
 
   let excerpt = '';
   for (const p of paragraphs) {
-    // Strip HTML tags
     let text = p.replace(/<[^>]*>/g, '').trim();
 
-    // Decode common HTML entities
     text = text
       .replace(/&amp;/g, '&')
       .replace(/&lt;/g, '<')
@@ -451,14 +515,12 @@ function extractExcerpt(htmlContent) {
       .replace(/&nbsp;/g, ' ')
       .replace(/\s+/g, ' ');
 
-    // Skip the FTC disclaimer paragraph
     if (text.toLowerCase().includes('educational financial content only') ||
         text.toLowerCase().includes('does not offer financial, legal') ||
         text.toLowerCase().includes('ai research tools')) {
       continue;
     }
 
-    // Skip stub paragraphs
     if (text.length < 60) continue;
 
     excerpt = text;
@@ -467,16 +529,13 @@ function extractExcerpt(htmlContent) {
 
   if (!excerpt) return '';
 
-  // Truncate to ~220 chars at a sentence boundary
   if (excerpt.length > 220) {
     const truncated = excerpt.substring(0, 220);
     const lastPeriod = truncated.lastIndexOf('.');
 
     if (lastPeriod > 120) {
-      // Use the sentence boundary
       excerpt = truncated.substring(0, lastPeriod + 1);
     } else {
-      // No good sentence break — cut at word boundary + ellipsis
       excerpt = truncated.replace(/\s+\S*$/, '') + '...';
     }
   }
@@ -486,9 +545,6 @@ function extractExcerpt(htmlContent) {
 
 /**
  * Generate a markdown image report at blog-image-report.md.
- * Lists every recent blog post with image thumbnail, search query used,
- * and direct "Edit on GitHub" link for replacing wrong images.
- * Updated automatically after every blog generation.
  */
 function generateImageReport() {
   let posts = [];
@@ -499,7 +555,6 @@ function generateImageReport() {
     return;
   }
 
-  // Show all posts (RSS limits to 50, but report can show everything)
   const recentPosts = posts.slice(0, 50);
 
   const today = new Date().toISOString().split('T')[0];
@@ -508,17 +563,17 @@ function generateImageReport() {
     '',
     '_Last updated: ' + today + '_',
     '',
-    'Quick review — scroll through the thumbnails below. If an image does NOT match its blog topic, follow the "Replace this image" steps under that post.',
+    'Quick review, scroll through the thumbnails below. If an image does NOT match its blog topic, follow the "Replace this image" steps under that post.',
     '',
     '## How to replace a wrong image',
     '',
     '1. Open [Unsplash.com](https://unsplash.com) in a new tab',
     '2. Search for what you want (e.g., `piggy bank coins`)',
-    '3. Click an image you like → click the **"..."** menu → **Copy image link**',
-    '4. Come back here, click the **🔧 Edit image** link below the wrong post',
+    '3. Click an image you like, then click the **"..."** menu, then **Copy image link**',
+    '4. Come back here, click the **Edit image** link below the wrong post',
     '5. In the GitHub editor, use **Ctrl+F** to find `<img src="`',
     '6. Replace the URL with the one you copied from Unsplash',
-    '7. Scroll to bottom → **Commit changes**',
+    '7. Scroll to bottom, then **Commit changes**',
     '',
     '---',
     ''
@@ -528,9 +583,8 @@ function generateImageReport() {
     const editUrl = 'https://github.com/AllahRakhha/SavingsClub/edit/main/blog/' + p.slug + '/index.html';
     const liveUrl = 'https://savingsclub.com/blog/' + p.slug + '/';
     let imageUrl = p.image || 'https://savingsclub.com/img/savings-jar.jpg';
-    // Convert relative image paths to absolute for the markdown preview
     if (imageUrl.indexOf('/') === 0) imageUrl = 'https://savingsclub.com' + imageUrl;
-    const query = p.searchQuery || '_(not tracked — older post)_';
+    const query = p.searchQuery || '_(not tracked, older post)_';
 
     lines.push('### ' + (i + 1) + '. ' + p.title);
     lines.push('');
@@ -538,7 +592,7 @@ function generateImageReport() {
     lines.push('');
     lines.push('- **Search query used:** `' + query + '`');
     lines.push('- **Live post:** ' + liveUrl);
-    lines.push('- **🔧 [Edit image on GitHub →](' + editUrl + ')**');
+    lines.push('- **[Edit image on GitHub](' + editUrl + ')**');
     lines.push('');
     lines.push('---');
     lines.push('');
@@ -556,7 +610,6 @@ async function generatePost() {
   console.log('Topic: ' + topic);
   console.log('Used posts so far: ' + usedTitles.length);
 
-  // Pick 4-6 relevant calculator links to require in the post
   const shuffledCalcs = [...CALCULATOR_LINKS].sort(() => Math.random() - 0.5);
   const requiredLinks = shuffledCalcs.slice(0, 5);
   const linkInstructions = requiredLinks.map(c => `  <a href="${c.url}">${c.name}</a>`).join('\n');
@@ -566,42 +619,66 @@ async function generatePost() {
     max_tokens: 8000,
     system: `You are a skilled personal finance writer creating educational content for SavingsClub.com on behalf of the SavingsClub Research Team. Write with confidence and depth like a knowledgeable teacher explaining a topic clearly but never claim to be a licensed financial advisor, expert, or professional. Frame all content as educational information that helps readers understand topics and do their own research, NOT as personal advice or expert recommendations. Use first-person plural ("we," "our," "SavingsClub") to refer to the publication. Write in clear, simple English with short sentences (under 15 words when possible) so non-native English speakers can easily understand. Avoid generic fluff phrases like "In today's fast-paced economic world." Use highly scannable Markdown formatting with clear H2 and H3 subheadings, bold key financial terms, and bulleted lists for complex data. Naturally mention SavingsClub's free interactive calculators and tools at least twice per article once near the introduction and once near the conclusion explaining why we built these tools (to help Americans bypass confusing bank jargon and instantly see their true monthly costs). Subtly weave in that all content is for educational and informational purposes only. Produce SEO-rich content by naturally incorporating target keywords such as "best home loan rates," "personal loan comparison," "credit card rewards," "low interest loans," "savings calculators," and "debt payoff strategies."
 
-LANGUAGE RULES — NEVER claim expertise or give personal advice:
+LANGUAGE RULES, NEVER claim expertise or give personal advice:
 - NEVER write: "As a financial expert...", "In my professional experience...", "I recommend...", "As your advisor...", "Trust me...", "I personally suggest...", "Our experts say...", "Our financial advisors recommend..."
 - INSTEAD write: "Many financial educators suggest...", "A common approach is...", "One way to think about this is...", "Educational best practice is...", "Consider this strategy...", "Some Americans choose to...", "The general principle is..."
 - The blog is EDUCATIONAL content, not advice. Frame every recommendation as information for the reader to evaluate, not as a directive.
 
-EXPLAIN THE "WHY" — CRITICAL FOR SEO AND READER VALUE:
+HUMAN-VOICE RULES, CRITICAL TO AVOID AI-DETECTION PENALTIES:
+The goal is for your writing to sound like a real American wrote it, not like AI. Follow these rules strictly:
+
+PUNCTUATION:
+- NEVER use em-dashes anywhere. This is the number-one AI-detection signal. Replace with commas, periods, or parentheses. Wrong example: "Pay off debt then it saves money" with an em-dash between. Right example: "Pay off debt. It saves money."
+- NEVER use en-dashes for number ranges. Write "from $1,500 to $2,000" using the word "to" between numbers. Never use a dash between numbers.
+- For section headings (h2/h3), use a colon (:) not a dash. Right example: "Strategy 1: Make Biweekly Payments". Never use a dash in a heading.
+
+FORBIDDEN AI PHRASES (do not use these in any form):
+- "Moreover," "Furthermore," "Additionally," at the start of sentences. Use "Also," "Plus," "And," or no transition word at all.
+- "It's worth noting that," "Keep in mind that," "Bear in mind that," "It's important to remember that," "It's important to note that." Just say the thing directly without the filler.
+- "Whether you're X or Y" sentence openers. Use "If you're X" or just describe the situation directly.
+- "Not only X but also Y" construction. Say "X. Plus, Y" or just "X and Y."
+- "In today's fast-paced world," "In conclusion," "All in all," "At the end of the day," "When all is said and done."
+- "Delve into," "Navigate the complexities," "Embark on," "Leverage," "Robust," "Tapestry," "Realm," "Landscape" (corporate AI buzzwords).
+
+SOUND LIKE A REAL PERSON WROTE THIS:
+- Use contractions naturally (don't, won't, can't, you're, it's, that's). AI tends to write "do not" and "you are." Real people use contractions.
+- Vary sentence length. Mix short punchy sentences (under 10 words) with longer explanatory ones.
+- It's OK to start sentences with "And," "But," "So," "Plus." Real American writers do this constantly.
+- Mix list lengths. Don't always do three items. Sometimes two, sometimes four. Sometimes use prose instead of lists.
+- Use specific dollar amounts and percentages (real humans love concrete examples).
+- Use occasional informal phrasing like "Here's the thing," "The truth is," "Honestly," "Frankly" where it fits naturally.
+
+EXPLAIN THE "WHY", CRITICAL FOR SEO AND READER VALUE:
 Google's helpful content system specifically rewards content that explains causation and reasoning (the "why" behind information), not just lists of "what to do." Every major point must explain WHY it matters, not just WHAT to do.
 
 Examples of WHAT vs WHY framing:
 - WEAK (just "what"): "Pay off high-interest debt first."
-- STRONG (with "why"): "Pay off high-interest debt first because $5,000 at 24% APR costs about $1,200 per year in interest alone — that's money leaving your pocket every month with nothing to show for it."
+- STRONG (with "why"): "Pay off high-interest debt first because $5,000 at 24% APR costs about $1,200 per year in interest alone. That's money leaving your pocket every month with nothing to show for it."
 
 - WEAK (just "what"): "Use a high-yield savings account."
-- STRONG (with "why"): "Use a high-yield savings account because the gap between a 0.40% APY traditional bank and a 4.40% APY online savings account on $10,000 is roughly $400 per year — same money, same FDIC protection, just different banks."
+- STRONG (with "why"): "Use a high-yield savings account because the gap between a 0.40% APY traditional bank and a 4.40% APY online savings account on $10,000 is roughly $400 per year. Same money, same FDIC protection, just different banks."
 
 - WEAK (just "what"): "Build an emergency fund."
-- STRONG (with "why"): "Build an emergency fund because the average car repair costs $500-$1,000 and unexpected medical bills can exceed $2,000 — without savings, these expenses force you onto credit cards at 24% APR, costing you 5-10 times the original amount over time."
+- STRONG (with "why"): "Build an emergency fund because the average car repair costs $500 to $1,000 and unexpected medical bills can exceed $2,000. Without savings, these expenses force you onto credit cards at 24% APR, costing you 5 to 10 times the original amount over time."
 
-Use "because," "since," "the reason is," or "this works because" naturally throughout the article. Aim for 6-8 uses where they fit naturally. Do not force them, but always explain reasoning.
+Use "because," "since," "the reason is," or "this works because" naturally throughout the article. Aim for 6 to 8 uses where they fit naturally. Do not force them, but always explain reasoning.
 
 CRITICAL REQUIREMENTS:
-- Write 1,900-2,300 words minimum. This is non-negotiable.
+- Write 1,900 to 2,300 words minimum. This is non-negotiable.
 - Use HTML formatting: h2/h3 for sections, p for paragraphs, ul/li for lists where appropriate
 - Do NOT include h1 (the template adds it)
 - Start with: <p><em>SavingsClub provides educational financial content only and does not offer financial, legal, tax, or investment advice. This content was produced with the help of AI research tools and reviewed by our team before publication. Rates, terms, and product details may change. Always verify current information directly with the provider before making financial decisions.</em></p>
-- Use at least 6 subheadings (h2 or h3) spread throughout — one every 200-300 words
+- Use at least 6 subheadings (h2 or h3) spread throughout, one every 200 to 300 words
 - Include real-world examples with specific dollar amounts (e.g., "On a $50,000 salary..." or "If you save $300/month...")
 - Reference specific US states naturally (not just ${state})
 - Use 2026 as the current year
 - Do NOT fabricate specific statistics, rates, or study results
 - When referencing data, cite general sources (Federal Reserve, BLS, FDIC, Consumer Financial Protection Bureau)
-- Be practical, actionable, and specific — not generic filler
+- Be practical, actionable, and specific, not generic filler
 - EXPLICIT "WHY" STATEMENT: In the first 150 words of the article, you must output a sentence explaining the exact purpose of the page using this exact template format: "Our SavingsClub Research Team built our interactive [Insert Tool Name Here] calculator above to help everyday Americans break down complex [Insert Topic Here] numbers without confusing bank jargon."
 - Do not output the raw bracket placeholders. You must dynamically replace "[Insert Tool Name Here]" and "[Insert Topic Here]" with the specific financial tool name and topic of the article you are currently writing.
 
-INTERNAL LINKS — You MUST include at least 4 of these links naturally within the article:
+INTERNAL LINKS, You MUST include at least 4 of these links naturally within the article:
 ${linkInstructions}
   <a href="/blog/">Read more guides on SavingsClub</a>
 
@@ -609,18 +686,27 @@ Place links where they naturally fit the content. Example: "Use our <a href="/bu
 
 STRUCTURE:
 1. Opening paragraph that hooks the reader with a relatable scenario or surprising fact
-2. 4-6 main sections with h2/h3 headings covering different aspects of the topic
+2. 4 to 6 main sections with h2/h3 headings covering different aspects of the topic
 3. Practical tips or step-by-step educational guidance in each section
 4. Closing section with a clear call-to-action linking to a SavingsClub calculator
 
-Write unique, original content. Explain the WHY behind every recommendation. Be specific to the topic — no generic filler.`,
+Write unique, original content. Explain the WHY behind every recommendation. Be specific to the topic, no generic filler. Remember: NO em-dashes, NO "Moreover," NO "It's worth noting," NO "Whether you're." Sound like a real person wrote this.`,
     messages: [{ role: 'user', content: 'Write a comprehensive personal finance blog post about: ' + topic }]
   });
 
   const content = message.content[0].text;
   const titleMatch = content.match(/<h1>(.*?)<\/h1>/);
-  const title = titleMatch ? titleMatch[1] : topic;
-  const cleanContent = content.replace(/<h1>.*?<\/h1>/, '');
+  let title = titleMatch ? titleMatch[1] : topic;
+
+  // Apply AI-tell cleanup to title (em-dash in title becomes colon, not comma)
+  title = title.replace(/&mdash;|&#8212;|&#x2014;/gi, '\u2014');
+  title = title.replace(/&ndash;|&#8211;|&#x2013;/gi, '\u2013');
+  title = title.replace(/\s*[\u2014\u2013]\s*/g, ': ');
+
+  // Extract content, remove h1, then run full AI-tell cleanup
+  let cleanContent = content.replace(/<h1>.*?<\/h1>/, '');
+  cleanContent = removeAITells(cleanContent);
+
   const category = categorize(title);
   const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   const isoDate = new Date().toISOString().split('T')[0];
@@ -628,7 +714,6 @@ Write unique, original content. Explain the WHY behind every recommendation. Be 
   const wordCount = cleanContent.replace(/<[^>]*>/g, '').split(/\s+/).length;
   const readTime = Math.max(1, Math.round(wordCount / 200));
 
-  // Fetch unique image from Unsplash using STRONG topic-specific search query
   const searchQuery = getImageQuery(title, category);
   let blogImage = '/img/savings-jar.jpg';
   let photoCredit = '';
@@ -678,7 +763,6 @@ Write unique, original content. Explain the WHY behind every recommendation. Be 
     searchQuery: searchQuery
   };
 
-  // Create blog post HTML file
   const postDir = path.join('blog', slug);
   if (!fs.existsSync(postDir)) fs.mkdirSync(postDir, { recursive: true });
 
@@ -765,13 +849,11 @@ function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.class
   fs.writeFileSync(path.join(postDir, 'index.html'), postHtml);
   console.log('Created: blog/' + slug + '/index.html');
 
-  // Update generated-posts.json
   let posts = [];
   try { posts = JSON.parse(fs.readFileSync('generated-posts.json', 'utf8')); } catch (e) { posts = []; }
   posts.unshift(post);
   fs.writeFileSync('generated-posts.json', JSON.stringify(posts, null, 2));
 
-  // Add to sitemap
   try {
     let sitemap = fs.readFileSync('sitemap.xml', 'utf8');
     const newUrl = '  <url><loc>https://savingsclub.com/blog/' + slug + '/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>';
@@ -782,10 +864,7 @@ function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.class
     }
   } catch (e) { console.log('Could not update sitemap: ' + e.message); }
 
-  // Generate RSS feed for Make.com social media automation
   generateRSS();
-
-  // Generate image report (helps you review and fix wrong images)
   generateImageReport();
 
   console.log('Published: ' + title + ' [' + category + ']');
