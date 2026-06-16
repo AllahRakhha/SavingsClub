@@ -6,12 +6,22 @@
 <atom:link href="https://savingsclub.com/rss.xml" rel="self" type="application/rss+xml" />
 <description>Free personal finance education, calculators, and money guides for Americans in every state.</description>
 <language>en-us</language>
-<lastBuildDate>Fri, 12 Jun 2026 16:13:50 GMT</lastBuildDate>
+<lastBuildDate>Tue, 16 Jun 2026 02:10:54 GMT</lastBuildDate>
 <image>
 <url>https://savingsclub.com/img/sc-logo-full.png</url>
 <title>SavingsClub Blog</title>
 <link>https://savingsclub.com/blog/</link>
 </image>
+  <item>
+    <title>How to pay off student loan debt faster</title>
+    <link>https://savingsclub.com/blog/how-to-pay-off-student-loan-debt-faster/</link>
+    <guid isPermaLink="true">https://savingsclub.com/blog/how-to-pay-off-student-loan-debt-faster/</guid>
+    <pubDate>Tue, 16 Jun 2026 02:10:54 GMT</pubDate>
+    <category>Debt</category>
+    <description><![CDATA[Imagine paying $350 every month for ten years and still owing nearly what you started with. That's the reality for millions of Americans carrying student loan debt at mid-to-high interest rates.]]></description>
+    <enclosure url="https://images.unsplash.com/photo-1665567031458-8f6889b3fdb1?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODE1NzU4NTR8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" type="image/jpeg" />
+    <media:content url="https://images.unsplash.com/photo-1665567031458-8f6889b3fdb1?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODE1NzU4NTR8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" medium="image" />
+  </item>
   <item>
     <title>How to set financial goals you will actually achieve</title>
     <link>https://savingsclub.com/blog/how-to-set-financial-goals-you-will-actually-achieve/</link>
