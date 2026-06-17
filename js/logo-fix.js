@@ -1,8 +1,35 @@
-/* SavingsClub - Global Site Enhancements v9
+/* SavingsClub - Global Site Enhancements v10
    - Mobile nav order: [SavingsClub] [search icon] [EN] [hamburger]
    - Full-screen mobile search overlay with popular calculators
-   - Smart disclaimer (exactly ONE per page) */
+   - Smart disclaimer (exactly ONE per page)
+   - NEW v10: Auto-fix favicon on every page (Section 11) */
 (function(){
+
+  /* === SECTION 11: FAVICON FIX (runs first for fastest visual update) === */
+  (function fixFavicons(){
+    /* Remove all existing favicon link tags (old SVG, broken paths, etc.) */
+    var existingIcons=document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"], link[rel="apple-touch-icon"], link[rel="mask-icon"]');
+    for(var i=0;i<existingIcons.length;i++){
+      existingIcons[i].remove();
+    }
+
+    /* Inject correct favicon link tags pointing to the SC green logo */
+    var faviconUrl='/img/sc-favicon.png?v=3';
+    var iconSpecs=[
+      {rel:'icon',type:'image/png',sizes:'32x32',href:faviconUrl},
+      {rel:'icon',type:'image/png',sizes:'192x192',href:faviconUrl},
+      {rel:'apple-touch-icon',sizes:'180x180',href:faviconUrl},
+      {rel:'shortcut icon',href:faviconUrl}
+    ];
+
+    for(var j=0;j<iconSpecs.length;j++){
+      var link=document.createElement('link');
+      for(var key in iconSpecs[j]){
+        link.setAttribute(key,iconSpecs[j][key]);
+      }
+      document.head.appendChild(link);
+    }
+  })();
 
   /* Shared pages list (used by both desktop search and mobile search overlay) */
   var pages=[
@@ -366,7 +393,7 @@
       '#scLangBtn{padding:5px 10px!important;font-size:.75rem!important}'+
       /* tighten nav padding */
       'nav .nav-inner,.nav-inner{padding-left:12px!important;padding-right:12px!important;gap:6px!important}'+
-      /* ORDER: SavingsClub(1) → search-icon(2) → EN(3) → hamburger(4) */
+      /* ORDER: SavingsClub(1) -> search-icon(2) -> EN(3) -> hamburger(4) */
       'nav .logo,nav .navbar-brand,nav a[href="/"]:first-child{order:1!important;margin-right:auto!important}'+
       '#scMobileSearchBtn{order:2!important;margin-left:0!important}'+
       '#scLangWrap,#scLangBtn{order:3!important;margin-left:4px!important}'+
