@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Debt Payoff Calculator When Will I Be Debt Free? | SavingsClub</title>
+<title>Debt Payoff Calculator: When Will I Be Debt Free? | SavingsClub</title>
 <meta name="description" content="Free debt payoff calculator with extra payment savings, year-by-year breakdown, and 4-line visual showing principal vs interest. Find your debt-free date.">
 <link rel="canonical" href="https://savingsclub.com/debt-payoff-calculator/">
-<meta property="og:title" content="Debt Payoff Calculator — When Will I Be Debt Free? | SavingsClub">
+<meta property="og:title" content="Debt Payoff Calculator: When Will I Be Debt Free? | SavingsClub">
 <meta property="og:description" content="Free debt payoff calculator. Find your payoff date, total interest cost, and see exactly where your money goes.">
 <meta property="og:url" content="https://savingsclub.com/debt-payoff-calculator/">
 <meta property="og:type" content="website">
@@ -73,11 +73,9 @@
 .dc-howto-list li::before{content:counter(step-counter);position:absolute;left:14px;top:12px;width:30px;height:30px;background:linear-gradient(135deg,#DC2626,#EF4444);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;box-shadow:0 2px 6px rgba(220,38,38,.25)}
 .dc-howto-list li strong{display:block;color:var(--navy);font-size:1rem;margin-bottom:3px;font-weight:700}
 .dc-howto-list li span{color:var(--text-light);font-size:.92rem;line-height:1.5}
-.dc-warning-wrap{margin-top:32px;background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FCD34D;border-radius:16px;padding:24px 28px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.dc-warning-wrap h3{font-size:1.15rem;margin:0 0 10px;color:#92400E;display:flex;align-items:center;gap:8px}
-.dc-warning-wrap p{color:#78350F;font-size:.92rem;line-height:1.7;margin:0 0 10px}
-.dc-warning-wrap p:last-child{margin-bottom:0}
-.dc-warning-wrap strong{color:#7C2D12}
+.dc-disclaimer-mini{margin-top:24px;background:#F8FAFC;border-left:3px solid #94A3B8;padding:12px 18px;border-radius:8px;font-size:.82rem;color:var(--text-light);line-height:1.6}
+.dc-disclaimer-mini p{margin:0}
+.dc-disclaimer-mini a{color:var(--text);font-weight:600;text-decoration:underline}
 .dc-info-wrap{margin-top:32px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .dc-info-wrap h2{font-size:1.4rem;margin:0 0 16px;color:var(--navy);letter-spacing:-.01em}
 .dc-info-wrap h3{font-size:1.1rem;margin:20px 0 8px;color:var(--navy);font-weight:700}
@@ -88,13 +86,13 @@
 .dc-related-wrap{margin-top:32px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .dc-related-wrap h2{font-size:1.5rem;margin:0 0 6px;color:var(--navy);letter-spacing:-.01em}
 .dc-related-wrap>p{color:var(--text-light);margin:0 0 24px;font-size:1rem}
-.dc-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.dc-related-card{display:block;text-decoration:none;background:#F8FAFC;border:1.5px solid #e5e7eb;border-radius:14px;padding:24px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.dc-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.dc-related-card{display:flex;flex-direction:column;text-decoration:none;background:#F8FAFC;border:1.5px solid #e5e7eb;border-radius:14px;padding:24px;transition:transform .2s,box-shadow .2s,border-color .2s;height:100%}
 .dc-related-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.08);border-color:#DC2626;background:#fff}
 .dc-related-icon{font-size:32px;margin-bottom:12px;display:block}
-.dc-related-card h3{font-size:1.15rem;margin:0 0 8px;color:var(--navy);font-weight:700}
-.dc-related-card p{color:var(--text-light);font-size:.9rem;margin:0 0 14px;line-height:1.5}
-.dc-related-link{color:#DC2626;font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:4px}
+.dc-related-card h3{font-size:1.15rem;margin:0 0 8px;color:var(--navy);font-weight:700;min-height:28px}
+.dc-related-card p{color:var(--text-light);font-size:.9rem;margin:0 0 14px;line-height:1.5;flex:1;min-height:60px}
+.dc-related-link{color:#DC2626;font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:4px;margin-top:auto}
 @media (max-width: 900px){
   .dc-layout{grid-template-columns:1fr;gap:20px}
   .dc-results-col{min-height:auto;padding:20px}
@@ -104,6 +102,8 @@
   .dc-table-wrap,.dc-howto-wrap,.dc-related-wrap,.dc-info-wrap{padding:20px}
   .dc-table-header h2{font-size:1.2rem}
   .dc-related-grid{grid-template-columns:1fr;gap:14px}
+  .dc-related-card p{min-height:auto}
+  .dc-related-card h3{min-height:auto}
 }
 @media (max-width: 480px){
   .dc-result-grid,.dc-savings-grid{grid-template-columns:1fr}
@@ -168,7 +168,7 @@ SavingsClub
 <button type="button" class="dc-advanced-toggle" id="dc-advanced-btn" onclick="toggleAdvanced()">Show Advanced ▼</button>
 
 <div class="dc-advanced-panel" id="dc-advanced">
-<div><label>Extra Monthly Payment ($) <span style="font-weight:400;color:var(--text-lighter)">— see savings</span></label><input type="number" id="debtExtra" value="0" oninput="calc()" placeholder="0"></div>
+<div><label>Extra Monthly Payment ($) <span style="font-weight:400;color:var(--text-lighter)">(see savings)</span></label><input type="number" id="debtExtra" value="0" oninput="calc()" placeholder="0"></div>
 <div><label>One-Time Lump Sum ($)</label><input type="number" id="debtLump" value="0" oninput="calc()" placeholder="0"></div>
 <div><label>Apply Lump Sum in Month #</label><input type="number" id="debtLumpMonth" value="1" min="1" oninput="calc()" placeholder="1"></div>
 </div>
@@ -211,35 +211,32 @@ SavingsClub
 <!-- HOW TO USE -->
 <div class="dc-howto-wrap reveal">
 <h2>How to Use This Calculator</h2>
-<p>Follow these steps to plan your debt-free date and see how extra payments save you money.</p>
+<p>Follow these steps to plan your debt free date and see how extra payments save you money.</p>
 <ol class="dc-howto-list">
 <li><strong>Enter your total debt balance</strong><span>The full amount you currently owe across all accounts you want to pay off together. For credit cards, use the statement balance, not the minimum payment.</span></li>
-<li><strong>Add your interest rate (APR)</strong><span>Found on your statement or online banking. Credit cards typically run 18-29% APR. Personal loans range 7-20%. Auto loans 5-12%. Mortgages 6-7% in 2026.</span></li>
+<li><strong>Add your interest rate (APR)</strong><span>Found on your statement or online banking. Credit cards typically run 18 to 29% APR. Personal loans range 7 to 20%. Auto loans 5 to 12%. Mortgages 6 to 7% in 2026.</span></li>
 <li><strong>Set your monthly payment</strong><span>What you can realistically commit to paying each month. Must be higher than your monthly interest charge, or you'll never pay it off.</span></li>
-<li><strong>(Optional) Add extra monthly payment</strong><span>See how much faster you'd be debt-free if you paid an extra $50, $100, or $200 per month. The savings are usually shocking — try different amounts.</span></li>
+<li><strong>(Optional) Add extra monthly payment</strong><span>See how much faster you'd be debt free if you paid an extra $50, $100, or $200 per month. The savings are usually shocking. Try different amounts.</span></li>
 <li><strong>(Optional) Add a one-time lump sum</strong><span>Got a tax refund, bonus, or unexpected money? Enter it here and pick a month to apply it. Watch how much interest you save.</span></li>
 <li><strong>Review the chart</strong><span>4 lines show you exactly where each dollar goes: balance declining (red), money out (purple), principal paid (green), interest lost (gold). The gap between green and gold tells the story.</span></li>
-<li><strong>Use the year-by-year table</strong><span>See your progress for each year of payoff — exactly when you cross milestones.</span></li>
+<li><strong>Use the year-by-year table</strong><span>See your progress for each year of payoff. You will see exactly when you cross milestones.</span></li>
 </ol>
 </div>
 
-<!-- DISCLAIMER -->
-<div class="dc-warning-wrap reveal">
-<h3>⚠️ Important Disclaimer</h3>
-<p><strong>Results are estimates only.</strong> The values shown by this calculator are mathematical projections based on the inputs you provide. Actual payoff timelines may vary if your interest rate changes (common with variable-rate credit cards), if you miss payments and incur fees, or if you take on additional debt during the payoff period.</p>
-<p><strong>Always verify your exact balance, APR, and minimum payment with your lender or credit card company before making decisions.</strong> Promotional 0% APR periods can change to high rates suddenly. Check your statement carefully.</p>
-<p><strong>SavingsClub is not a licensed financial advisor, credit counselor, tax professional, or legal professional.</strong> This calculator is provided for educational and informational purposes only and should not be considered as professional financial, credit, tax, or legal advice. If you're struggling with debt, consider speaking with a non-profit credit counseling agency. Always consult with qualified licensed professionals before making important debt decisions.</p>
+<!-- SMALL DISCLAIMER -->
+<div class="dc-disclaimer-mini reveal">
+<p>Results are estimates for educational purposes only. Verify your actual balance and rate with your lender before making decisions. SavingsClub is not a financial advisor. <a href="../disclaimer/">Read full disclaimer</a>.</p>
 </div>
 
 <div class="dc-info-wrap reveal">
 <h2>How to Pay Off Debt Faster</h2>
 <p>The debt payoff calculator shows you exactly when you'll be debt-free based on your current balance, interest rate, and monthly payment. Even small increases in your monthly payment can dramatically reduce your payoff timeline and total interest paid.</p>
 <h3>Debt Snowball vs Debt Avalanche</h3>
-<p>The snowball method pays smallest balances first for quick psychological wins. The avalanche method targets highest-interest debt first to minimize total interest. Both work the best method is the one you stick with consistently. If you have multiple debts, use this calculator for each one separately.</p>
+<p>The snowball method pays smallest balances first for quick psychological wins. The avalanche method targets highest-interest debt first to minimize total interest. Both work. The best method is the one you stick with consistently. If you have multiple debts, use this calculator for each one separately.</p>
 <h3>The True Cost of Minimum Payments</h3>
 <p>Paying only the minimum on a $5,000 credit card at 22% APR can take over 20 years and cost more than $8,000 in interest alone. Doubling your payment cuts the timeline to under 3 years and saves thousands. Use the "extra payment" feature above to see for yourself.</p>
 <h3>Balance Transfer Cards</h3>
-<p>If your debt is on a high-APR credit card, a 0% APR balance transfer card can save thousands in interest. These cards typically offer 0% for 12-21 months on transferred balances. Compare options on our <a href="../credit-cards/">credit cards page</a>. There's usually a 3-5% transfer fee, but the interest savings often dwarf the fee.</p>
+<p>If your debt is on a high-APR credit card, a 0% APR balance transfer card can save thousands in interest. These cards typically offer 0% for 12 to 21 months on transferred balances. Compare options on our <a href="../credit-cards/">credit cards page</a>. There's usually a 3 to 5% transfer fee, but the interest savings often dwarf the fee.</p>
 <h3>When to Consider Debt Consolidation</h3>
 <p>Consolidating multiple high-interest debts into one personal loan with a lower rate can simplify payments and save money. This works best when you can get a lower interest rate AND you commit not to run up new credit card balances after consolidating.</p>
 <h3>Building an Emergency Fund First</h3>
@@ -251,9 +248,9 @@ SavingsClub
 <h3>How long does it take to pay off $10,000 in credit card debt?</h3>
 <p>At 22% APR with $300 monthly payments, it takes about 4 years and costs roughly $4,400 in interest. Increasing to $500/month cuts it to about 2 years and saves over $2,000 in interest. Use this calculator with your exact numbers to find your debt-free date.</p>
 <h3>Is it better to save or pay off debt first?</h3>
-<p>Save a small emergency fund ($1,000) first, then aggressively pay off high-interest debt (anything above 7% APR), then build a full 3-6 month emergency fund. Credit card debt at 20%+ APR almost always beats saving you'd need investments to earn 20%+ to come out ahead, which is unrealistic.</p>
+<p>Save a small emergency fund ($1,000) first, then aggressively pay off high-interest debt (anything above 7% APR), then build a full 3 to 6 month emergency fund. Credit card debt at 20%+ APR almost always beats saving. You'd need investments to earn 20%+ to come out ahead, which is unrealistic.</p>
 <h3>Should I pay off debt with my savings?</h3>
-<p>If your savings earn less interest than your debt charges (almost always true with credit cards), then yes — use savings beyond your emergency fund to pay down debt. But never empty your emergency fund completely. Keep at least $1,000 untouched.</p>
+<p>If your savings earn less interest than your debt charges (almost always true with credit cards), then yes, use savings beyond your emergency fund to pay down debt. But never empty your emergency fund completely. Keep at least $1,000 untouched.</p>
 </div>
 
 <div class="dc-related-wrap reveal">
@@ -263,19 +260,19 @@ SavingsClub
 <a href="../credit-card-payoff-calculator/" class="dc-related-card">
 <span class="dc-related-icon">💳</span>
 <h3>Credit Card Payoff Calculator</h3>
-<p>Focused on credit card debt specifically, with minimum payment warnings and balance transfer comparisons.</p>
+<p>Focus on credit card debt with minimum payment warnings and balance transfer savings.</p>
 <span class="dc-related-link">Pay Off Credit Cards →</span>
 </a>
 <a href="../loan-payoff-calculator/" class="dc-related-card">
 <span class="dc-related-icon">🎯</span>
 <h3>Loan Payoff Calculator</h3>
-<p>For personal loans, student loans, or any installment debt calculate the savings of paying ahead.</p>
+<p>Pay off personal loans, student loans, or any installment debt ahead of schedule.</p>
 <span class="dc-related-link">Pay Off Loans Faster →</span>
 </a>
 <a href="../budget-planner/" class="dc-related-card">
 <span class="dc-related-icon">📊</span>
 <h3>Budget Planner</h3>
-<p>Find room in your budget to add extra debt payments using the 50/30/20 framework.</p>
+<p>Find extra room in your monthly budget to put toward debt payments faster.</p>
 <span class="dc-related-link">Plan Your Budget →</span>
 </a>
 </div>
@@ -454,7 +451,7 @@ document.addEventListener('DOMContentLoaded',function(){calc();});
 <div class="footer-grid">
 <div>
 <div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
-<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and expert guides for Americans in every state. Making money decisions simpler since 2026.</p>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and educational guides for Americans in every state. Making money decisions simpler since 2026.</p>
 </div>
 <div>
 <h4>Calculators</h4>
