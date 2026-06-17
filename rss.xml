@@ -6,12 +6,22 @@
 <atom:link href="https://savingsclub.com/rss.xml" rel="self" type="application/rss+xml" />
 <description>Free personal finance education, calculators, and money guides for Americans in every state.</description>
 <language>en-us</language>
-<lastBuildDate>Tue, 16 Jun 2026 02:10:54 GMT</lastBuildDate>
+<lastBuildDate>Wed, 17 Jun 2026 16:34:13 GMT</lastBuildDate>
 <image>
 <url>https://savingsclub.com/img/sc-logo-full.png</url>
 <title>SavingsClub Blog</title>
 <link>https://savingsclub.com/blog/</link>
 </image>
+  <item>
+    <title>How to plan for early retirement in your 40s</title>
+    <link>https://savingsclub.com/blog/how-to-plan-for-early-retirement-in-your-40s/</link>
+    <guid isPermaLink="true">https://savingsclub.com/blog/how-to-plan-for-early-retirement-in-your-40s/</guid>
+    <pubDate>Wed, 17 Jun 2026 16:34:13 GMT</pubDate>
+    <category>Retirement</category>
+    <description><![CDATA[Imagine waking up on a Tuesday at 9 a.m. With nowhere to be. No commute, no boss, no performance review. For millions of Americans, that's the dream.]]></description>
+    <enclosure url="https://images.unsplash.com/photo-1770387210801-e6de72701aaa?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODE3MTQwNTN8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" type="image/jpeg" />
+    <media:content url="https://images.unsplash.com/photo-1770387210801-e6de72701aaa?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODE3MTQwNTN8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" medium="image" />
+  </item>
   <item>
     <title>How to pay off student loan debt faster</title>
     <link>https://savingsclub.com/blog/how-to-pay-off-student-loan-debt-faster/</link>
