@@ -808,3 +808,170 @@ input,select,button,textarea,a,.btn,.hamburger,.nav-links a,.mobile-menu a,.logo
 /* LOGO */
 .logo{color:#059669!important;-webkit-text-fill-color:#059669!important;background:none!important;animation:none!important;-webkit-background-clip:initial!important}
 .gradient-text{color:#34D399!important;-webkit-text-fill-color:#34D399!important;background:none!important;animation:none!important}
+/* ============================================
+   UNIVERSAL DISCLAIMER SOFTENING - June 2026
+   Softens all yellow "warning" disclaimer boxes 
+   across the entire site without modifying 
+   individual HTML files.
+   ============================================ */
+
+/* Target all calculator-specific disclaimer wrappers */
+.sv-warning-wrap,
+.cc-warning-wrap,
+.dc-warning-wrap,
+.mc-warning-wrap,
+.rc-warning-wrap,
+.bp-warning-wrap,
+.ef-warning-wrap,
+.al-warning-wrap,
+.nw-warning-wrap,
+.ri-warning-wrap,
+.ic-warning-wrap,
+.lp-warning-wrap,
+.cd-warning-wrap,
+.pc-warning-wrap,
+.calc-warning-wrap,
+div[class*="-warning-wrap"]{
+  background: #F8FAFC !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 12px !important;
+  padding: 18px 22px !important;
+  box-shadow: none !important;
+  margin-top: 32px !important;
+}
+
+/* Soften the warning heading */
+.sv-warning-wrap h3,
+.cc-warning-wrap h3,
+.dc-warning-wrap h3,
+.mc-warning-wrap h3,
+.rc-warning-wrap h3,
+.bp-warning-wrap h3,
+.ef-warning-wrap h3,
+.al-warning-wrap h3,
+.nw-warning-wrap h3,
+.ri-warning-wrap h3,
+.ic-warning-wrap h3,
+.lp-warning-wrap h3,
+.cd-warning-wrap h3,
+.pc-warning-wrap h3,
+.calc-warning-wrap h3,
+div[class*="-warning-wrap"] h3{
+  color: #475569 !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  margin: 0 0 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+/* Replace scary emoji with subtle info icon by hiding emoji */
+.sv-warning-wrap h3::first-letter,
+.cc-warning-wrap h3::first-letter,
+.dc-warning-wrap h3::first-letter,
+.mc-warning-wrap h3::first-letter,
+.rc-warning-wrap h3::first-letter,
+.bp-warning-wrap h3::first-letter,
+.ef-warning-wrap h3::first-letter,
+.al-warning-wrap h3::first-letter,
+.nw-warning-wrap h3::first-letter,
+.ri-warning-wrap h3::first-letter,
+.ic-warning-wrap h3::first-letter,
+.lp-warning-wrap h3::first-letter,
+.cd-warning-wrap h3::first-letter,
+.pc-warning-wrap h3::first-letter,
+.calc-warning-wrap h3::first-letter,
+div[class*="-warning-wrap"] h3::first-letter{
+  /* keeps the emoji but makes it less prominent */
+  opacity: 0.5;
+}
+
+/* Soften the warning body text */
+.sv-warning-wrap p,
+.cc-warning-wrap p,
+.dc-warning-wrap p,
+.mc-warning-wrap p,
+.rc-warning-wrap p,
+.bp-warning-wrap p,
+.ef-warning-wrap p,
+.al-warning-wrap p,
+.nw-warning-wrap p,
+.ri-warning-wrap p,
+.ic-warning-wrap p,
+.lp-warning-wrap p,
+.cd-warning-wrap p,
+.pc-warning-wrap p,
+.calc-warning-wrap p,
+div[class*="-warning-wrap"] p{
+  color: #64748b !important;
+  font-size: 0.85rem !important;
+  line-height: 1.6 !important;
+  margin: 0 0 8px !important;
+}
+
+.sv-warning-wrap p:last-child,
+.cc-warning-wrap p:last-child,
+.dc-warning-wrap p:last-child,
+.mc-warning-wrap p:last-child,
+.rc-warning-wrap p:last-child,
+.bp-warning-wrap p:last-child,
+.ef-warning-wrap p:last-child,
+.al-warning-wrap p:last-child,
+.nw-warning-wrap p:last-child,
+.ri-warning-wrap p:last-child,
+.ic-warning-wrap p:last-child,
+.lp-warning-wrap p:last-child,
+.cd-warning-wrap p:last-child,
+.pc-warning-wrap p:last-child,
+.calc-warning-wrap p:last-child,
+div[class*="-warning-wrap"] p:last-child{
+  margin-bottom: 0 !important;
+}
+
+/* Soften the strong/bold text within disclaimers */
+.sv-warning-wrap strong,
+.cc-warning-wrap strong,
+.dc-warning-wrap strong,
+.mc-warning-wrap strong,
+.rc-warning-wrap strong,
+.bp-warning-wrap strong,
+.ef-warning-wrap strong,
+.al-warning-wrap strong,
+.nw-warning-wrap strong,
+.ri-warning-wrap strong,
+.ic-warning-wrap strong,
+.lp-warning-wrap strong,
+.cd-warning-wrap strong,
+.pc-warning-wrap strong,
+.calc-warning-wrap strong,
+div[class*="-warning-wrap"] strong{
+  color: #475569 !important;
+  font-weight: 600 !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 900px){
+  .sv-warning-wrap,
+  .cc-warning-wrap,
+  .dc-warning-wrap,
+  .mc-warning-wrap,
+  .rc-warning-wrap,
+  .bp-warning-wrap,
+  .ef-warning-wrap,
+  .al-warning-wrap,
+  .nw-warning-wrap,
+  .ri-warning-wrap,
+  .ic-warning-wrap,
+  .lp-warning-wrap,
+  .cd-warning-wrap,
+  .pc-warning-wrap,
+  .calc-warning-wrap,
+  div[class*="-warning-wrap"]{
+    padding: 16px 18px !important;
+  }
+}
+
+/* ============================================
+   END UNIVERSAL DISCLAIMER SOFTENING
+   ============================================ */
