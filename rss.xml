@@ -6,12 +6,22 @@
 <atom:link href="https://savingsclub.com/rss.xml" rel="self" type="application/rss+xml" />
 <description>Free personal finance education, calculators, and money guides for Americans in every state.</description>
 <language>en-us</language>
-<lastBuildDate>Fri, 19 Jun 2026 15:57:39 GMT</lastBuildDate>
+<lastBuildDate>Mon, 22 Jun 2026 17:27:18 GMT</lastBuildDate>
 <image>
 <url>https://savingsclub.com/img/sc-logo-full.png</url>
 <title>SavingsClub Blog</title>
 <link>https://savingsclub.com/blog/</link>
 </image>
+  <item>
+    <title>How to prepare financially for a recession</title>
+    <link>https://savingsclub.com/blog/how-to-prepare-financially-for-a-recession/</link>
+    <guid isPermaLink="true">https://savingsclub.com/blog/how-to-prepare-financially-for-a-recession/</guid>
+    <pubDate>Mon, 22 Jun 2026 17:27:18 GMT</pubDate>
+    <category>Money Tips</category>
+    <description><![CDATA[Picture this: your employer announces layoffs on a Tuesday morning. You weren't expecting it. Your emergency fund has $400 in it. Your credit cards are carrying balances. And rent is due in two weeks.]]></description>
+    <enclosure url="https://images.unsplash.com/photo-1586864030275-edd6e51dc880?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODIxNDkyMzh8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" type="image/jpeg" />
+    <media:content url="https://images.unsplash.com/photo-1586864030275-edd6e51dc880?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODIxNDkyMzh8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" medium="image" />
+  </item>
   <item>
     <title>Best high-yield savings accounts for Oklahoma residents</title>
     <link>https://savingsclub.com/blog/best-high-yield-savings-accounts-for-oklahoma-residents/</link>
