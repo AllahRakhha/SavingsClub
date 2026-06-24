@@ -6,12 +6,22 @@
 <atom:link href="https://savingsclub.com/rss.xml" rel="self" type="application/rss+xml" />
 <description>Free personal finance education, calculators, and money guides for Americans in every state.</description>
 <language>en-us</language>
-<lastBuildDate>Mon, 22 Jun 2026 17:27:18 GMT</lastBuildDate>
+<lastBuildDate>Wed, 24 Jun 2026 15:31:05 GMT</lastBuildDate>
 <image>
 <url>https://savingsclub.com/img/sc-logo-full.png</url>
 <title>SavingsClub Blog</title>
 <link>https://savingsclub.com/blog/</link>
 </image>
+  <item>
+    <title>Top budgeting strategies for families in Connecticut</title>
+    <link>https://savingsclub.com/blog/top-budgeting-strategies-for-families-in-connecticut/</link>
+    <guid isPermaLink="true">https://savingsclub.com/blog/top-budgeting-strategies-for-families-in-connecticut/</guid>
+    <pubDate>Wed, 24 Jun 2026 15:31:05 GMT</pubDate>
+    <category>Budgeting</category>
+    <description><![CDATA[Here's the thing about living in Connecticut. It's one of the most expensive states in the entire country, and the numbers prove it.]]></description>
+    <enclosure url="https://images.unsplash.com/photo-1627662056294-94fa1ac27a06?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODIzMTUwNjV8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" type="image/jpeg" />
+    <media:content url="https://images.unsplash.com/photo-1627662056294-94fa1ac27a06?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODIzMTUwNjV8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" medium="image" />
+  </item>
   <item>
     <title>How to prepare financially for a recession</title>
     <link>https://savingsclub.com/blog/how-to-prepare-financially-for-a-recession/</link>
