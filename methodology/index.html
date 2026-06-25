@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator Methodology and Formulas | SavingsClub</title>
+<meta name="description" content="How SavingsClub calculators work. Standard financial formulas, data sources, default assumptions, validation methods, and limitations for all 17 free calculators.">
+<link rel="canonical" href="https://savingsclub.com/methodology/">
+<meta property="og:title" content="Calculator Methodology and Formulas | SavingsClub">
+<meta property="og:description" content="How SavingsClub calculators work. Standard financial formulas, data sources, default assumptions, validation methods, and limitations for all 17 free calculators.">
+<meta property="og:url" content="https://savingsclub.com/methodology/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SavingsClub">
+<meta property="og:image" content="https://savingsclub.com/img/savings-jar.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="author" content="SavingsClub Research Team">
+<meta property="article:published_time" content="2026-06-24T00:00:00Z">
+<meta property="article:modified_time" content="2026-06-24T00:00:00Z">
+<meta name="keywords" content="calculator methodology, financial formulas, compound interest formula, mortgage calculation, retirement formula, financial calculator accuracy">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Calculator Methodology and Formulas","description":"How SavingsClub calculators work, including the financial formulas, data sources, default assumptions, and validation methods for all 17 free calculators.","image":"https://savingsclub.com/img/savings-jar.jpg","author":{"@type":"Organization","name":"SavingsClub Research Team","url":"https://savingsclub.com/about/"},"publisher":{"@type":"Organization","name":"SavingsClub","logo":{"@type":"ImageObject","url":"https://savingsclub.com/img/sc-favicon.png"}},"datePublished":"2026-06-24","dateModified":"2026-06-24","mainEntityOfPage":{"@type":"WebPage","@id":"https://savingsclub.com/methodology/"}}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://savingsclub.com/"},{"@type":"ListItem","position":2,"name":"About","item":"https://savingsclub.com/about/"},{"@type":"ListItem","position":3,"name":"Methodology","item":"https://savingsclub.com/methodology/"}]}</script>
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/sc-favicon.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/sc-favicon.png?v=2">
+<link rel="shortcut icon" href="/img/sc-favicon.png?v=2">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
+
+<style>
+.me-hero{background:linear-gradient(135deg,#0A1628 0%,#0F2540 50%,#059669 100%);color:#fff;padding:40px 28px;border-radius:20px;margin-bottom:24px;text-align:center;box-shadow:0 8px 24px rgba(10,22,40,.15)}
+.me-hero h1{color:#fff !important;font-size:2.2rem;margin:0 0 12px;letter-spacing:-.02em;line-height:1.2}
+.me-hero .me-tagline{color:rgba(255,255,255,.88);font-size:1.05rem;max-width:720px;margin:0 auto;line-height:1.6}
+.me-hero .me-meta-row{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:16px;font-size:.85rem;color:rgba(255,255,255,.75)}
+.me-hero .me-meta-row span{display:inline-flex;align-items:center;gap:6px}
+.me-hero .me-meta-row svg{width:16px;height:16px;color:#34D399}
+
+.me-byline{background:#F8FAFC;border-left:3px solid #10B981;padding:14px 20px;border-radius:8px;margin-bottom:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:.85rem;color:var(--text-light)}
+.me-byline-author{font-weight:700;color:var(--navy)}
+.me-byline-dates{display:flex;flex-direction:column;text-align:right;line-height:1.5;font-size:.8rem}
+
+.me-toc{background:#F8FAFC;border:1px solid #e5e7eb;border-radius:14px;padding:20px 24px;margin-bottom:24px}
+.me-toc-title{font-size:.95rem;font-weight:700;color:var(--navy);margin:0 0 12px;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+.me-toc-title svg{width:18px;height:18px;color:#10B981}
+.me-toc-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:6px 20px}
+.me-toc-list li{font-size:.88rem;line-height:1.5}
+.me-toc-list a{color:var(--text);text-decoration:none;border-bottom:1px dashed transparent;transition:all .2s}
+.me-toc-list a:hover{color:#059669;border-bottom-color:#059669}
+.me-toc-num{color:#10B981;font-weight:700;margin-right:6px}
+
+.me-info-wrap{margin-bottom:24px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.me-info-wrap h2{font-size:1.4rem;margin:0 0 16px;color:var(--navy);letter-spacing:-.01em;scroll-margin-top:80px}
+.me-info-wrap h3{font-size:1.1rem;margin:20px 0 8px;color:var(--navy);font-weight:700}
+.me-info-wrap p{color:var(--text);font-size:.95rem;line-height:1.7;margin:0 0 12px}
+.me-info-wrap p:last-child{margin-bottom:0}
+.me-info-wrap ul,.me-info-wrap ol{color:var(--text);font-size:.95rem;line-height:1.7;margin:0 0 14px;padding-left:22px}
+.me-info-wrap li{margin-bottom:5px}
+.me-info-wrap a{color:#059669;font-weight:600;text-decoration:none;border-bottom:1px dashed #059669}
+.me-info-wrap a:hover{color:#10B981;border-bottom-style:solid}
+.me-info-wrap strong{color:var(--navy);font-weight:700}
+
+.me-callout{background:linear-gradient(135deg,#ECFDF5,#F8FAFC);border-left:3px solid #10B981;padding:14px 18px;border-radius:8px;margin:16px 0;font-size:.92rem;color:var(--text);line-height:1.6}
+.me-callout strong{color:#047857}
+
+.me-formula-card{background:#F8FAFC;border:1px solid #e5e7eb;border-radius:14px;padding:20px 24px;margin:18px 0}
+.me-formula-card h3{margin:0 0 12px;color:var(--navy);font-size:1.05rem;font-weight:700;display:flex;align-items:center;gap:8px}
+.me-formula-card h3 svg{width:18px;height:18px;color:#10B981}
+.me-formula-display{background:#0F172A;color:#E0E7FF;padding:18px 20px;border-radius:10px;font-family:'Courier New',monospace;font-size:1.05rem;text-align:center;margin:12px 0;letter-spacing:.02em;overflow-x:auto;line-height:1.6}
+.me-formula-display strong{color:#34D399;font-weight:700}
+.me-formula-vars{margin-top:12px;padding-top:12px;border-top:1px dashed #e5e7eb}
+.me-formula-vars p{font-size:.9rem;line-height:1.7;color:var(--text);margin:0 0 4px}
+.me-formula-vars p strong{color:#059669;font-family:'Courier New',monospace}
+.me-formula-example{background:#ECFDF5;border:1px solid rgba(16,185,129,.25);border-radius:10px;padding:14px 18px;margin-top:12px;font-size:.88rem;color:var(--text);line-height:1.55}
+.me-formula-example strong{color:#047857}
+
+.me-calc-list{counter-reset:calc-counter;list-style:none;padding:0;margin:0}
+.me-calc-list li{counter-increment:calc-counter;position:relative;padding:14px 16px 14px 56px;background:#F8FAFC;border-radius:12px;margin-bottom:10px;border:1px solid #f1f5f9}
+.me-calc-list li::before{content:counter(calc-counter);position:absolute;left:14px;top:12px;width:30px;height:30px;background:linear-gradient(135deg,#059669,#10B981);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;box-shadow:0 2px 6px rgba(16,185,129,.25)}
+.me-calc-list li strong{display:block;color:var(--navy);font-size:1rem;margin-bottom:4px;font-weight:700}
+.me-calc-list li p{color:var(--text);font-size:.92rem;line-height:1.55;margin:0}
+.me-calc-list li a{color:#059669;font-weight:600;text-decoration:none;border-bottom:1px dashed #059669}
+
+.me-defaults-table{overflow-x:auto;margin:14px 0 20px;border-radius:12px;border:1px solid #e5e7eb}
+.me-table{width:100%;border-collapse:collapse;background:#fff;font-size:.88rem}
+.me-table thead{background:linear-gradient(135deg,#0A1628,#059669);color:#fff}
+.me-table th{padding:11px 14px;text-align:left;font-weight:700;font-size:.85rem;letter-spacing:.02em}
+.me-table td{padding:11px 14px;border-bottom:1px solid #f1f5f9;color:var(--text)}
+.me-table tr:last-child td{border-bottom:none}
+.me-table tr:hover td{background:#F8FAFC}
+.me-table td:first-child{font-weight:700;color:var(--navy)}
+
+.me-limitation-list{list-style:none;padding:0;margin:14px 0}
+.me-limitation-list li{padding:12px 16px 12px 42px;background:#FEF3C7;border-radius:10px;margin-bottom:8px;position:relative;font-size:.92rem;line-height:1.6;color:var(--text);border-left:3px solid #F59E0B}
+.me-limitation-list li::before{content:'!';position:absolute;left:14px;top:50%;transform:translateY(-50%);width:20px;height:20px;background:#F59E0B;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem}
+.me-limitation-list li strong{color:#92400E}
+
+.me-validation-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+.me-validation-card{background:#F8FAFC;border:1px solid #e5e7eb;border-radius:12px;padding:18px 20px;display:flex;gap:14px;align-items:start}
+.me-validation-icon{width:42px;height:42px;border-radius:10px;background:#ECFDF5;color:#059669;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.me-validation-icon svg{width:22px;height:22px}
+.me-validation-content{flex:1}
+.me-validation-title{font-size:.95rem;font-weight:700;color:var(--navy);margin:0 0 6px;line-height:1.3}
+.me-validation-desc{font-size:.85rem;color:var(--text-light);line-height:1.5;margin:0}
+
+.me-disclaimer-mini{margin-top:24px;background:#F8FAFC;border-left:3px solid #94A3B8;padding:12px 18px;border-radius:8px;font-size:.82rem;color:var(--text-light);line-height:1.6}
+.me-disclaimer-mini p{margin:0}
+.me-disclaimer-mini a{color:var(--text);font-weight:600;text-decoration:underline}
+
+.me-related-wrap{margin-top:32px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.me-related-wrap h2{font-size:1.5rem;margin:0 0 6px;color:var(--navy);letter-spacing:-.01em}
+.me-related-wrap>p{color:var(--text-light);margin:0 0 24px;font-size:1rem}
+.me-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.me-related-card{display:flex;flex-direction:column;text-decoration:none;background:#F8FAFC;border:1.5px solid #e5e7eb;border-radius:14px;padding:24px;transition:transform .2s,box-shadow .2s,border-color .2s;height:100%}
+.me-related-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.08);border-color:#10B981;background:#fff}
+.me-related-icon{width:44px;height:44px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px}
+.me-related-icon svg{width:22px;height:22px}
+.me-related-card h3{font-size:1.15rem;margin:0 0 8px;color:var(--navy);font-weight:700;min-height:28px}
+.me-related-card p{color:var(--text-light);font-size:.9rem;margin:0 0 14px;line-height:1.5;flex:1;min-height:60px}
+.me-related-link{color:#059669;font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:4px;margin-top:auto}
+
+@media (max-width: 900px){
+  .me-hero{padding:30px 20px}
+  .me-hero h1{font-size:1.6rem}
+  .me-hero .me-tagline{font-size:.95rem}
+  .me-toc-list{grid-template-columns:1fr;gap:4px}
+  .me-info-wrap,.me-related-wrap{padding:20px}
+  .me-info-wrap h2{font-size:1.2rem}
+  .me-info-wrap h3{font-size:1.05rem}
+  .me-validation-grid{grid-template-columns:1fr;gap:10px}
+  .me-related-grid{grid-template-columns:1fr;gap:14px}
+  .me-related-card p{min-height:auto}
+  .me-related-card h3{min-height:auto}
+  .me-byline{flex-direction:column;align-items:flex-start;text-align:left}
+  .me-byline-dates{text-align:left;flex-direction:row;gap:10px;flex-wrap:wrap}
+  .me-hero .me-meta-row{font-size:.78rem;gap:12px}
+  .me-formula-display{font-size:.9rem;padding:14px 16px}
+  .me-table{font-size:.82rem}
+  .me-table th,.me-table td{padding:9px 10px}
+}
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+<div class="nav-inner">
+<div class="logo" onclick="location.href='../'">
+<div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+SavingsClub
+</div>
+<div class="nav-links" id="navLinks">
+<a href="../">Home</a>
+<a href="../savings-calculator/">Calculators</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/" class="active">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="../">Home</a>
+<a href="../savings-calculator/">Savings</a>
+<a href="../budget-planner/">Budget</a>
+<a href="../mortgage-calculator/">Mortgage</a>
+<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../editorial-standards/">Editorial Standards</a>
+<a href="../methodology/">Methodology</a>
+<a href="../contact/">Contact</a>
+</div>
+
+<section class="calc-page">
+<div class="container">
+
+<div style="margin-bottom:24px"><a href="../" style="color:var(--text-light);font-weight:500">← Home</a></div>
+
+<div class="me-hero reveal">
+<h1>Calculator Methodology and Formulas</h1>
+<p class="me-tagline">Exactly how our 17 financial calculators work. The formulas we use, the data sources we trust, the assumptions we make, and the limitations every reader should know before relying on calculator results.</p>
+<div class="me-meta-row">
+<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Standard formulas</span>
+<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>Updated June 2026</span>
+<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>17 calculators documented</span>
+</div>
+</div>
+
+<div class="me-byline reveal">
+<div class="me-byline-author">By SavingsClub Research Team</div>
+<div class="me-byline-dates">
+<span>Published: June 24, 2026</span>
+<span>Last updated: June 24, 2026</span>
+</div>
+</div>
+
+<div class="me-toc reveal">
+<h3 class="me-toc-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>What's In This Page</h3>
+<ul class="me-toc-list">
+<li><span class="me-toc-num">1.</span><a href="#overview">Our Calculation Philosophy</a></li>
+<li><span class="me-toc-num">2.</span><a href="#formulas">Core Financial Formulas</a></li>
+<li><span class="me-toc-num">3.</span><a href="#calculator-list">All 17 Calculators Explained</a></li>
+<li><span class="me-toc-num">4.</span><a href="#defaults">Default Values and Assumptions</a></li>
+<li><span class="me-toc-num">5.</span><a href="#data-sources">Data Sources</a></li>
+<li><span class="me-toc-num">6.</span><a href="#validation">How We Validate Calculations</a></li>
+<li><span class="me-toc-num">7.</span><a href="#limitations">Limitations You Should Know</a></li>
+<li><span class="me-toc-num">8.</span><a href="#privacy">Data Privacy in Calculators</a></li>
+</ul>
+</div>
+
+<div class="me-info-wrap reveal" id="overview">
+<h2>Our Calculation Philosophy</h2>
+<p>Personal finance is math. Specific formulas, well-documented for decades, that produce predictable results from predictable inputs. Our 17 free calculators use the same standard financial formulas you would find in finance textbooks, taught in business schools, and used by banks, mortgage lenders, and financial advisors.</p>
+<p>What separates one calculator from another is not the formula. It is transparency. Many financial calculator websites hide their math, hide their assumptions, and hide their default values. We do the opposite. Every formula we use is documented on this page. Every assumption we make is disclosed. Every default value has a source.</p>
+<p>Why? Because personal finance decisions deserve transparency. When you use our retirement calculator, you should know it assumes 8 percent annual returns based on long-term S&P 500 averages. When you use our mortgage calculator, you should know it uses the standard amortization formula. When you use our compound interest calculator, you should know how monthly contributions are added to the principal calculation.</p>
+<p>This page exists so any reader, financial advisor, or curious math student can verify that our calculator results are accurate and our methodology is sound.</p>
+</div>
+
+<div class="me-info-wrap reveal" id="formulas">
+<h2>Core Financial Formulas We Use</h2>
+<p>The following formulas power most of our calculators. Each is a standard formula used throughout the financial industry.</p>
+
+<div class="me-formula-card">
+<h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></svg>Compound Interest (with Periodic Contributions)</h3>
+<div class="me-formula-display">A = P(1 + r/n)<strong>^(nt)</strong> + PMT × [((1 + r/n)<strong>^(nt)</strong> - 1) / (r/n)]</div>
+<div class="me-formula-vars">
+<p><strong>A</strong> = Final amount (future value)</p>
+<p><strong>P</strong> = Initial principal (starting balance)</p>
+<p><strong>r</strong> = Annual interest rate (as decimal)</p>
+<p><strong>n</strong> = Compounding periods per year (usually 12 for monthly)</p>
+<p><strong>t</strong> = Time in years</p>
+<p><strong>PMT</strong> = Periodic contribution (added each compounding period)</p>
+</div>
+<div class="me-formula-example">
+<strong>Example:</strong> $10,000 initial deposit, $200 monthly contribution, 4.5 percent APY, 10 years. Result: approximately $45,663. The compound interest calculator and savings calculator both use this formula.
+</div>
+</div>
+
+<div class="me-formula-card">
+<h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-9 9 9"/><path d="M5 10v10a1 1 0 001 1h3v-6h6v6h3a1 1 0 001-1V10"/></svg>Mortgage Payment (Standard Amortization)</h3>
+<div class="me-formula-display">M = P × [r(1 + r)<strong>^n</strong>] / [(1 + r)<strong>^n</strong> - 1]</div>
+<div class="me-formula-vars">
+<p><strong>M</strong> = Monthly payment (principal and interest only)</p>
+<p><strong>P</strong> = Principal loan amount</p>
+<p><strong>r</strong> = Monthly interest rate (annual rate divided by 12)</p>
+<p><strong>n</strong> = Total number of payments (years × 12)</p>
+</div>
+<div class="me-formula-example">
+<strong>Example:</strong> $400,000 loan at 6.5 percent annual interest for 30 years. Monthly payment: approximately $2,528. This is principal and interest only. Property taxes, insurance, and PMI are calculated separately when applicable.
+</div>
+</div>
+
+<div class="me-formula-card">
+<h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Net Worth Calculation</h3>
+<div class="me-formula-display"><strong>Net Worth</strong> = Total Assets Total Liabilities</div>
+<div class="me-formula-vars">
+<p><strong>Total Assets</strong> = Cash + Savings + Investments + Retirement + Home Value + Vehicles + Other Assets</p>
+<p><strong>Total Liabilities</strong> = Mortgage + Home Equity Loan + Student Loans + Car Loans + Credit Cards + Personal Loans + Medical Debt + Other Liabilities</p>
+<p><strong>Liquid Net Worth</strong> = (Cash + Savings + Investments)  (Credit Cards + Personal Loans + Medical Debt + Other Liabilities)</p>
+<p><strong>Investable Net Worth</strong> = Cash + Savings + Investments only</p>
+</div>
+<div class="me-formula-example">
+<strong>Example:</strong> $475,000 in total assets minus $295,000 in total liabilities equals $180,000 net worth. Our net worth calculator also computes liquid and investable net worth automatically.
+</div>
+</div>
+
+<div class="me-formula-card">
+<h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>Debt Payoff (Avalanche and Snowball Methods)</h3>
+<div class="me-formula-display"><strong>Months to Payoff</strong> = -log(1 - (rB/M)) / log(1 + r)</div>
+<div class="me-formula-vars">
+<p><strong>B</strong> = Current debt balance</p>
+<p><strong>r</strong> = Monthly interest rate (APR divided by 12)</p>
+<p><strong>M</strong> = Monthly payment amount</p>
+</div>
+<div class="me-formula-example">
+<strong>Avalanche method:</strong> Pay minimums on all debts, throw extra payments at highest-interest debt first. Mathematically optimal. <strong>Snowball method:</strong> Pay minimums on all debts, throw extra payments at smallest balance first. Psychologically motivating. Our debt payoff calculator supports both methods.
+</div>
+</div>
+
+<div class="me-formula-card">
+<h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Inflation Adjustment</h3>
+<div class="me-formula-display"><strong>Future Value</strong> = Present Value × (1 + i)<strong>^n</strong></div>
+<div class="me-formula-vars">
+<p><strong>i</strong> = Annual inflation rate (as decimal)</p>
+<p><strong>n</strong> = Number of years</p>
+</div>
+<div class="me-formula-example">
+<strong>Example:</strong> $100 today at 3 percent inflation will require $134.39 to maintain the same purchasing power in 10 years. Our inflation calculator computes the reverse as well, showing how much past dollars are worth today.
+</div>
+</div>
+</div>
+
+<div class="me-info-wrap reveal" id="calculator-list">
+<h2>All 17 Calculators Explained</h2>
+<p>Each calculator below uses one or more of the formulas above, plus calculator-specific logic where applicable. Click any calculator to use it.</p>
+
+<ol class="me-calc-list">
+<li>
+<strong><a href="../savings-calculator/">Savings Calculator</a></strong>
+<p>Uses the compound interest formula with periodic contributions. Inputs: initial deposit, monthly contribution, APY, time period. Output: future value plus breakdown of principal, contributions, and interest earned.</p>
+</li>
+<li>
+<strong><a href="../budget-planner/">Budget Planner</a></strong>
+<p>Categorizes monthly income against expenses. Uses standard 50/30/20 budget framework as default benchmark (50% needs, 30% wants, 20% savings). Calculates monthly surplus or shortfall.</p>
+</li>
+<li>
+<strong><a href="../debt-payoff-calculator/">Debt Payoff Calculator</a></strong>
+<p>Implements both avalanche (highest interest first) and snowball (smallest balance first) methods. Calculates total interest paid, payoff date, and savings from different strategies.</p>
+</li>
+<li>
+<strong><a href="../compound-interest-calculator/">Compound Interest Calculator</a></strong>
+<p>Pure compound interest demonstration. Supports daily, monthly, quarterly, and annual compounding frequencies. Shows the dramatic effect of compounding period on long-term growth.</p>
+</li>
+<li>
+<strong><a href="../retirement-calculator/">Retirement Calculator</a></strong>
+<p>Projects retirement balance based on current age, retirement age, current savings, annual contributions, and expected return rate. Default 8 percent return assumption from long-term S&P 500 historical average.</p>
+</li>
+<li>
+<strong><a href="../investment-calculator/">Investment Calculator</a></strong>
+<p>Models investment growth with regular contributions and varying return rates. Supports comparisons across different scenarios (conservative vs aggressive returns).</p>
+</li>
+<li>
+<strong><a href="../mortgage-calculator/">Mortgage Calculator</a></strong>
+<p>Standard amortization formula. Calculates monthly principal and interest payment. State specific versions add property tax estimates and insurance defaults for that state.</p>
+</li>
+<li>
+<strong><a href="../auto-loan-calculator/">Auto Loan Calculator</a></strong>
+<p>Standard amortization for auto loans. Supports loan term, interest rate, down payment, trade-in value, and sales tax inputs. Output: monthly payment and total interest paid.</p>
+</li>
+<li>
+<strong><a href="../net-worth-calculator/">Net Worth Calculator</a></strong>
+<p>Computes total, liquid, and investable net worth using the formulas above. Includes age based benchmark comparison against Federal Reserve Survey of Consumer Finances data.</p>
+</li>
+<li>
+<strong><a href="../emergency-fund-calculator/">Emergency Fund Calculator</a></strong>
+<p>Calculates target emergency fund based on monthly essential expenses multiplied by recommended months of coverage (3 to 6 months typical, adjusted by life situation).</p>
+</li>
+<li>
+<strong><a href="../credit-card-payoff-calculator/">Credit Card Payoff Calculator</a></strong>
+<p>Calculates payoff timeline for credit card debt at current minimum payment versus increased payment. Shows total interest paid under each scenario.</p>
+</li>
+<li>
+<strong><a href="../401k-calculator/">401(k) Calculator</a></strong>
+<p>Projects 401(k) growth including employer match. Inputs: current balance, contribution rate, employer match percentage, salary, expected return. Output: retirement balance projection.</p>
+</li>
+<li>
+<strong><a href="../roth-ira-calculator/">Roth IRA Calculator</a></strong>
+<p>Projects Roth IRA growth with annual contribution limits enforced (current IRS limits). Output includes tax-free retirement balance projection.</p>
+</li>
+<li>
+<strong><a href="../inflation-calculator/">Inflation Calculator</a></strong>
+<p>Calculates future purchasing power loss at given inflation rate, or historical equivalent value. Default inflation rate based on long-term Federal Reserve CPI data.</p>
+</li>
+<li>
+<strong><a href="../loan-payoff-calculator/">Loan Payoff Calculator</a></strong>
+<p>General-purpose loan amortization for any loan type (personal loans, student loans, medical debt). Same amortization formula as mortgage calculator.</p>
+</li>
+<li>
+<strong><a href="../paycheck-calculator/">Paycheck Calculator</a></strong>
+<p>Estimates take-home pay after federal taxes, FICA, state taxes (estimated), and pre-tax deductions. Uses current IRS tax brackets and state-specific deduction estimates.</p>
+</li>
+<li>
+<strong><a href="../cd-calculator/">CD Calculator</a></strong>
+<p>Standard compound interest formula applied to certificate of deposit terms. Calculates maturity value and total interest earned over CD term.</p>
+</li>
+</ol>
+</div>
+
+<div class="me-info-wrap reveal" id="defaults">
+<h2>Default Values and Assumptions</h2>
+<p>When you load any calculator on SavingsClub, default values are pre-filled to give you an instant example. These defaults are not arbitrary. They are based on realistic averages from authoritative data sources.</p>
+
+<div class="me-defaults-table">
+<table class="me-table">
+<thead>
+<tr><th>Default Value</th><th>Used In</th><th>Source</th></tr>
+</thead>
+<tbody>
+<tr><td>4.5% APY</td><td>Savings, CD</td><td>FDIC average plus current HYSA market rates</td></tr>
+<tr><td>8% annual return</td><td>Retirement, 401k, Investment</td><td>Long-term S&P 500 historical average</td></tr>
+<tr><td>3% inflation</td><td>Inflation, Retirement</td><td>Long-term Federal Reserve CPI average</td></tr>
+<tr><td>6.5% mortgage rate</td><td>Mortgage</td><td>FRED MORTGAGE30US current data</td></tr>
+<tr><td>22% credit card APR</td><td>Credit Card Payoff</td><td>Federal Reserve credit card rate data</td></tr>
+<tr><td>$23,000 401k limit</td><td>401k Calculator</td><td>IRS 2026 contribution limit</td></tr>
+<tr><td>$7,000 IRA limit</td><td>Roth IRA Calculator</td><td>IRS 2026 contribution limit (under age 50)</td></tr>
+<tr><td>6% employer match</td><td>401k Calculator</td><td>Average US employer match rate</td></tr>
+<tr><td>6.5% auto loan rate</td><td>Auto Loan</td><td>Federal Reserve auto loan average</td></tr>
+<tr><td>3-6 months expenses</td><td>Emergency Fund</td><td>Standard personal finance recommendation</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="me-callout">
+<strong>You can always override defaults.</strong> Default values are starting points for instant examples. Every calculator accepts your specific inputs. Enter your actual interest rate, your actual salary, your actual debt balance. Defaults exist so calculators are immediately useful even before you customize them.
+</div>
+</div>
+
+<div class="me-info-wrap reveal" id="data-sources">
+<h2>Data Sources</h2>
+<p>Default values, statistical benchmarks, and reference data on our calculators come from these primary sources. We do not use estimates from competitor calculators or unverified secondary sources.</p>
+
+<h3>Interest Rate and Economic Data</h3>
+<ul>
+<li><a href="https://fred.stlouisfed.org/" target="_blank" rel="noopener">FRED (Federal Reserve Economic Data)</a> for mortgage rates, Fed funds rate, inflation (CPI), and personal savings rate</li>
+<li><a href="https://www.federalreserve.gov/" target="_blank" rel="noopener">Federal Reserve</a> for credit card interest rates, auto loan rates, and household financial data</li>
+<li><a href="https://www.bls.gov/" target="_blank" rel="noopener">Bureau of Labor Statistics</a> for inflation measures and wage data</li>
+</ul>
+
+<h3>Tax and Retirement Account Data</h3>
+<ul>
+<li><a href="https://www.irs.gov/" target="_blank" rel="noopener">Internal Revenue Service</a> for federal tax brackets, FICA rates, contribution limits, and tax regulations</li>
+<li>Individual state revenue departments for state income tax estimates in our paycheck calculator</li>
+</ul>
+
+<h3>Net Worth and Household Finance Benchmarks</h3>
+<ul>
+<li><a href="https://www.federalreserve.gov/publications/files/scf23.pdf" target="_blank" rel="noopener">Federal Reserve Survey of Consumer Finances</a> for median net worth by age data used in our net worth calculator</li>
+</ul>
+
+<h3>Investment Return Assumptions</h3>
+<ul>
+<li>Long-term historical S&P 500 returns (1928 to 2024) for default 8 percent retirement projection</li>
+<li>Long-term bond returns for conservative retirement scenarios</li>
+</ul>
+
+<p>For our complete list of editorial sources and our content research process, see our <a href="../editorial-standards/">Editorial Standards page</a>.</p>
+</div>
+
+<div class="me-info-wrap reveal" id="validation">
+<h2>How We Validate Calculations</h2>
+<p>Mathematical accuracy is non-negotiable for a calculator. Every calculator on SavingsClub goes through these validation steps before publication.</p>
+
+<div class="me-validation-grid">
+
+<div class="me-validation-card">
+<div class="me-validation-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+<div class="me-validation-content">
+<h4 class="me-validation-title">Reference Case Testing</h4>
+<p class="me-validation-desc">Calculators are tested against known reference cases with predictable outputs (such as $10,000 at 5% for 10 years = $16,289 with annual compounding).</p>
+</div>
+</div>
+
+<div class="me-validation-card">
+<div class="me-validation-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+<div class="me-validation-content">
+<h4 class="me-validation-title">Cross-Reference Validation</h4>
+<p class="me-validation-desc">Results are compared against established financial calculators from major financial institutions to ensure mathematical consistency.</p>
+</div>
+</div>
+
+<div class="me-validation-card">
+<div class="me-validation-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+<div class="me-validation-content">
+<h4 class="me-validation-title">Edge Case Handling</h4>
+<p class="me-validation-desc">Calculators are tested with edge inputs (zero values, very large values, zero interest rate) to ensure they handle unusual inputs gracefully without errors.</p>
+</div>
+</div>
+
+<div class="me-validation-card">
+<div class="me-validation-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+<div class="me-validation-content">
+<h4 class="me-validation-title">Periodic Re-Testing</h4>
+<p class="me-validation-desc">Calculators are re-tested when default values update (annual IRS limits, current interest rates) to ensure changes do not introduce new bugs.</p>
+</div>
+</div>
+
+</div>
+
+<p>If you ever find a calculation that does not match standard financial formulas, please report it immediately to <a href="mailto:info@savingsclub.com">info@savingsclub.com</a>. We take calculation accuracy seriously and will investigate and correct any error within 48 hours.</p>
+</div>
+
+<div class="me-info-wrap reveal" id="limitations">
+<h2>Limitations You Should Know</h2>
+<p>Our calculators are educational tools. They are not substitutes for personalized financial advice. Here are the most important limitations every reader should understand before relying on calculator results.</p>
+
+<ul class="me-limitation-list">
+<li><strong>Results are estimates, not guarantees.</strong> Future returns, future inflation, future tax rates, and future market conditions cannot be predicted. Calculator results show what would happen if assumptions hold, not what will happen.</li>
+<li><strong>Taxes are simplified.</strong> Our paycheck calculator estimates federal and state taxes but does not account for every personal tax situation. For accurate tax projections, consult a licensed tax professional or use IRS withholding calculators directly.</li>
+<li><strong>Fees and expenses are not included by default.</strong> Mutual fund expense ratios, financial advisor fees, account maintenance fees, and trading costs reduce real-world returns. Our investment calculator does not subtract these unless you enter them.</li>
+<li><strong>Inflation is simplified.</strong> Future purchasing power calculations assume a constant inflation rate. Real inflation varies year to year and by spending category.</li>
+<li><strong>Market volatility is not modeled.</strong> Our retirement and investment calculators show smooth annual growth. Real markets crash, recover, and crash again. Average returns over decades may match our projections, but year to year variance is significant.</li>
+<li><strong>Personal circumstances are not factored in.</strong> Health changes, job loss, family events, divorce, inheritance, and other life events significantly affect real financial outcomes. Calculators cannot predict these.</li>
+<li><strong>State-specific defaults are estimates.</strong> When calculators include state-specific values (state income tax, property tax averages, mortgage insurance), these are state averages and may not match your specific local rates.</li>
+<li><strong>Calculator inputs require accurate data from you.</strong> A calculator is only as accurate as the inputs you provide. Use current account balances, actual interest rates, and realistic estimates rather than guesses.</li>
+</ul>
+
+<div class="me-callout">
+<strong>When to consult a professional:</strong> For major financial decisions like home purchases, retirement planning, tax strategy, estate planning, or investment portfolio construction, consult a licensed financial advisor, tax professional, or attorney. Our calculators are starting points for self-education, not substitutes for personalized professional advice.
+</div>
+</div>
+
+<div class="me-info-wrap reveal" id="privacy">
+<h2>Data Privacy in Calculators</h2>
+<p>Every calculator on SavingsClub runs entirely in your browser. We do not store, transmit, or log any of the financial data you enter.</p>
+
+<h3>What Happens When You Use a Calculator</h3>
+<p>When you enter values into a calculator, those values are processed by JavaScript running on your device. The results display on your screen. Nothing is sent to our servers. Nothing is saved in your account (we do not have user accounts). Nothing is shared with advertisers or affiliate partners.</p>
+
+<h3>What This Means in Practice</h3>
+<ul>
+<li>You can enter your real account balances, real debts, real salary without privacy concern</li>
+<li>If you refresh the page or close the tab, your data is gone permanently</li>
+<li>We have no way to recover your inputs because we never had access to them</li>
+<li>You can use any calculator on a public computer because nothing persists after you leave</li>
+</ul>
+
+<h3>What We Do Track</h3>
+<p>We use Google Analytics to track aggregate page views and basic visitor information (country, device type, traffic source). This data is anonymous and aggregated. We cannot tie any analytics data to specific calculator inputs because calculator inputs never leave your browser. For complete details on what we collect and how, see our <a href="../privacy-policy/">Privacy Policy</a>.</p>
+</div>
+
+<div class="me-related-wrap reveal">
+<h2>Related Information</h2>
+<p>Learn more about how SavingsClub operates and how to use our resources.</p>
+<div class="me-related-grid">
+<a href="../editorial-standards/" class="me-related-card">
+<span class="me-related-icon" style="background:#ECFDF5;color:#059669"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
+<h3>Editorial Standards</h3>
+<p>Our research process, AI usage disclosure, sources we cite, and fact-checking standards.</p>
+<span class="me-related-link">Read Standards →</span>
+</a>
+<a href="../about/" class="me-related-card">
+<span class="me-related-icon" style="background:#DBEAFE;color:#1D4ED8"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+<h3>About SavingsClub</h3>
+<p>Our mission, who creates content, and why we built a finance site without paywalls.</p>
+<span class="me-related-link">Read About →</span>
+</a>
+<a href="../disclaimer/" class="me-related-card">
+<span class="me-related-icon" style="background:#FEF3C7;color:#B45309"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+<h3>Full Disclaimer</h3>
+<p>Complete disclaimer covering financial advice limitations and content accuracy.</p>
+<span class="me-related-link">Read Disclaimer →</span>
+</a>
+</div>
+</div>
+
+<div class="me-disclaimer-mini reveal">
+<p>Calculator results on SavingsClub are estimates based on standard financial formulas and the inputs you provide. Actual outcomes may vary due to market conditions, taxes, fees, life events, and other factors not modeled in our calculators. SavingsClub is not a licensed financial advisor. Content is researched and drafted using AI tools with human review before publication. For decisions involving your specific financial situation, consult a licensed financial advisor, tax professional, or legal counsel. <a href="../disclaimer/">Read full disclaimer</a>.</p>
+</div>
+
+</div>
+</section>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and educational guides for Americans in every state. Making money decisions simpler since 2026.</p>
+</div>
+<div>
+<h4>Calculators</h4>
+<a href="../savings-calculator/">Savings Calculator</a>
+<a href="../budget-planner/">Budget Planner</a>
+<a href="../mortgage-calculator/">Mortgage Calculator</a>
+<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../auto-loan-calculator/">Auto Loan</a>
+<a href="../net-worth-calculator/">Net Worth</a>
+</div>
+<div>
+<h4>Resources</h4>
+<a href="../blog/">Blog</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../contact/">Contact Us</a>
+</div>
+<div>
+<h4>Legal</h4>
+<a href="../privacy-policy/">Privacy Policy</a>
+<a href="../terms-of-service/">Terms of Service</a>
+<a href="../cookie-policy/">Cookie Policy</a>
+<a href="../disclaimer/">Disclaimer</a>
+<a href="../editorial-standards/">Editorial Standards</a>
+<a href="../methodology/">Methodology</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
+<p>Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+</div>
+</div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
+function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
+var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
+
+document.querySelectorAll('.me-toc-list a').forEach(function(link){
+  link.addEventListener('click',function(e){
+    e.preventDefault();
+    var target=document.querySelector(this.getAttribute('href'));
+    if(target){window.scrollTo({top:target.offsetTop-20,behavior:'smooth'});}
+  });
+});
+</script>
+
+<script>
+(function(){
+if(localStorage.getItem('sc_cookies'))return;
+var b=document.createElement('div');
+b.id='cookieBanner';
+b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
+var acceptBtn=document.createElement('button');
+acceptBtn.textContent='Accept';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
+var declineBtn=document.createElement('button');
+declineBtn.textContent='Decline';
+declineBtn.style.cssText='background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:8px;cursor:pointer';
+declineBtn.onclick=function(){
+localStorage.setItem('sc_cookies','decline');
+b.innerHTML='';
+var msg=document.createElement('span');
+msg.style.cssText='padding:12px 0;color:#10B981';
+msg.textContent='\u2713 No cookies stored. You can browse freely.';
+b.appendChild(msg);
+setTimeout(function(){b.remove();},2500);
+};
+var txt=document.createElement('span');
+txt.innerHTML='We use cookies to improve your experience. <a href="../cookie-policy/" style="color:#3B82F6">Cookie Policy</a>';
+var btnWrap=document.createElement('div');
+btnWrap.style.cssText='display:flex;gap:8px';
+btnWrap.appendChild(acceptBtn);
+btnWrap.appendChild(declineBtn);
+b.appendChild(txt);
+b.appendChild(btnWrap);
+document.body.appendChild(b);
+})();
+</script>
+
+</body>
+</html>
