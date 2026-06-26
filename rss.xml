@@ -6,12 +6,22 @@
 <atom:link href="https://savingsclub.com/rss.xml" rel="self" type="application/rss+xml" />
 <description>Free personal finance education, calculators, and money guides for Americans in every state.</description>
 <language>en-us</language>
-<lastBuildDate>Wed, 24 Jun 2026 15:31:05 GMT</lastBuildDate>
+<lastBuildDate>Fri, 26 Jun 2026 15:21:30 GMT</lastBuildDate>
 <image>
 <url>https://savingsclub.com/img/sc-logo-full.png</url>
 <title>SavingsClub Blog</title>
 <link>https://savingsclub.com/blog/</link>
 </image>
+  <item>
+    <title>Financial planning checklist for new parents</title>
+    <link>https://savingsclub.com/blog/financial-planning-checklist-for-new-parents/</link>
+    <guid isPermaLink="true">https://savingsclub.com/blog/financial-planning-checklist-for-new-parents/</guid>
+    <pubDate>Fri, 26 Jun 2026 15:21:30 GMT</pubDate>
+    <category>Housing</category>
+    <description><![CDATA[You just brought home a tiny human who can't yet tell you what they want, but they've already completely rearranged your finances.]]></description>
+    <enclosure url="https://images.unsplash.com/photo-1725271765568-ff737f0ab736?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODI0ODcyOTB8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" type="image/jpeg" />
+    <media:content url="https://images.unsplash.com/photo-1725271765568-ff737f0ab736?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODI0ODcyOTB8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" medium="image" />
+  </item>
   <item>
     <title>Top budgeting strategies for families in Connecticut</title>
     <link>https://savingsclub.com/blog/top-budgeting-strategies-for-families-in-connecticut/</link>
