@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retirement Calculator Personalized Projection with Employer Match & Self-Employed Options | SavingsClub</title>
-<meta name="description" content="Free retirement calculator with employer match, Social Security, and self-employed support (Solo 401k/SEP IRA). See your projected nest egg, benchmark comparison, and what-if scenarios.">
+<title>Retirement Calculator: 401k, Roth & Social Security Projection | SavingsClub</title>
+<meta name="description" content="Free retirement calculator with 401k employer match, Roth vs Traditional comparison, Social Security, and self-employed support (Solo 401k / SEP IRA). See your projected nest egg and what changes get you on track.">
 <link rel="canonical" href="https://savingsclub.com/retirement-calculator/">
-<meta property="og:title" content="Retirement Calculator — Personalized Projection with Employer Match & Self-Employed Options | SavingsClub">
-<meta property="og:description" content="Free retirement calculator with employer match, Social Security, and self-employed support (Solo 401k/SEP IRA). See your projected nest egg, benchmark comparison, and what-if scenarios.">
+<meta property="og:title" content="Retirement Calculator: 401k, Roth & Social Security Projection | SavingsClub">
+<meta property="og:description" content="Free retirement calculator with 401k employer match, Roth vs Traditional comparison, Social Security, and self-employed support. See your projected nest egg and what changes get you on track.">
 <meta property="og:url" content="https://savingsclub.com/retirement-calculator/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SavingsClub">
@@ -39,10 +39,11 @@
   "mainEntity":[
     {"@type":"Question","name":"How much should I have saved for retirement by age 40?","acceptedAnswer":{"@type":"Answer","text":"A widely-cited Fidelity guideline suggests having about 3 times your annual salary saved by age 40. If you earn $75,000, that's $225,000. By 50 the target is roughly 6x, by 60 it's 8x, and by full retirement age 67 it's 10x your annual salary. These are benchmarks, not requirements, and your actual needs depend on the lifestyle you want and other income sources."}},
     {"@type":"Question","name":"What is the 25x rule for retirement savings?","acceptedAnswer":{"@type":"Answer","text":"The 25x rule says you need to save about 25 times your desired annual retirement income. It comes from the 4% safe withdrawal rule, which is based on historical research showing a diversified portfolio could sustain a 4% annual withdrawal for at least 30 years. If you want $60,000 per year in retirement, the rule suggests a target of $1.5 million. It's a useful guideline, not a guarantee."}},
-    {"@type":"Question","name":"Should I prioritize Traditional or Roth retirement contributions?","acceptedAnswer":{"@type":"Answer","text":"Traditional contributions give you a tax break now but are taxed when withdrawn in retirement. Roth contributions are taxed now but grow and withdraw tax-free. If you expect to be in a higher tax bracket in retirement, Roth often wins. If you expect lower taxes in retirement, Traditional may be better. Many educators suggest splitting between both for tax diversification, since future tax rates are uncertain."}},
+    {"@type":"Question","name":"Should I prioritize Traditional or Roth 401k contributions?","acceptedAnswer":{"@type":"Answer","text":"Traditional 401k contributions give you a tax break now but are taxed when withdrawn in retirement. Roth 401k contributions are taxed now but grow and withdraw tax-free. If you expect to be in a higher tax bracket in retirement, Roth often wins. If you expect lower taxes in retirement, Traditional may be better. Many educators suggest splitting between both for tax diversification, since future tax rates are uncertain."}},
     {"@type":"Question","name":"How does an employer match work and should I always get it?","acceptedAnswer":{"@type":"Answer","text":"An employer match means your company contributes to your retirement account when you do, up to a limit. A common match is 50 cents on the dollar up to 6 percent of your salary, or dollar-for-dollar up to 3 to 4 percent. This is the highest-return investment most people have access to: a 100 percent match is an immediate 100 percent return. Most planners suggest contributing at least enough to capture the full match before anything else."}},
     {"@type":"Question","name":"Can I retire with $1 million in savings?","acceptedAnswer":{"@type":"Answer","text":"Using the 4 percent rule, $1 million supports about $40,000 per year in retirement income. Combined with average Social Security benefits (around $22,800 per year at full retirement age), total income would be roughly $62,800 per year before taxes. Whether that's enough depends entirely on your cost of living, housing situation, healthcare needs, and lifestyle. It's enough for many Americans and not enough for others."}},
-    {"@type":"Question","name":"What if I'm behind on retirement savings?","acceptedAnswer":{"@type":"Answer","text":"If you're 50 or older, the IRS allows catch-up contributions: an extra $7,500 per year to a 401(k) and an extra $1,000 to an IRA in 2026. SECURE 2.0 added an even larger 'super catch-up' for ages 60 to 63. Other strategies include working a few extra years, delaying Social Security (each year of delay past full retirement age increases benefits by about 8 percent), reducing planned expenses, and considering part-time work in retirement. Behind doesn't mean hopeless."}}
+    {"@type":"Question","name":"What is the Social Security retirement age?","acceptedAnswer":{"@type":"Answer","text":"You can start collecting reduced Social Security retirement benefits as early as age 62. Full retirement age is 66 to 67 depending on your birth year. Delaying past full retirement age increases your benefit by about 8 percent per year until age 70, when delayed retirement credits stop. The average monthly benefit at full retirement age in 2026 is approximately $1,900, or roughly $22,800 per year."}},
+    {"@type":"Question","name":"What if I'm behind on retirement savings?","acceptedAnswer":{"@type":"Answer","text":"If you're 50 or older, the IRS allows catch-up contributions: an extra $7,500 per year to a 401(k) and an extra $1,000 to an IRA in 2026. SECURE 2.0 added an even larger super catch-up for ages 60 to 63. Other strategies include working a few extra years, delaying Social Security (each year of delay past full retirement age increases benefits by about 8 percent), reducing planned expenses, and considering part-time work in retirement. Behind doesn't mean hopeless."}}
   ]
 }
 </script>
@@ -82,23 +83,30 @@ SavingsClub
 </div>
 
 <style>
-/* ====== Hero ====== */
-.ret-hero{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;background:linear-gradient(135deg,#0F172A 0%,#1E293B 50%,#451A03 100%);border-radius:20px;padding:32px;color:#fff;margin-bottom:28px;position:relative;overflow:hidden}
-.ret-hero::before{content:'';position:absolute;top:-30%;right:-15%;width:55%;height:160%;background:radial-gradient(circle,rgba(251,191,36,.16) 0%,transparent 62%);pointer-events:none}
-.ret-hero::after{content:'';position:absolute;bottom:-40%;left:-10%;width:45%;height:140%;background:radial-gradient(circle,rgba(245,158,11,.12) 0%,transparent 60%);pointer-events:none}
+/* ====== Hero (navy to emerald) ====== */
+.ret-hero{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;background:linear-gradient(135deg,#0A1628 0%,#0F2540 50%,#059669 100%);border-radius:20px;padding:32px;color:#fff;margin-bottom:28px;position:relative;overflow:hidden}
+.ret-hero::before{content:'';position:absolute;top:-30%;right:-15%;width:55%;height:160%;background:radial-gradient(circle,rgba(52,211,153,.18) 0%,transparent 62%);pointer-events:none}
+.ret-hero::after{content:'';position:absolute;bottom:-40%;left:-10%;width:45%;height:140%;background:radial-gradient(circle,rgba(16,185,129,.12) 0%,transparent 60%);pointer-events:none}
 .ret-hero-left{position:relative;z-index:1}
 .ret-hero h1{color:#fff;font-size:2.1rem;margin:0 0 12px;line-height:1.15;font-weight:800}
-.ret-hero-sub{color:rgba(255,255,255,.88);font-size:1.02rem;line-height:1.55;margin:0 0 14px}
+.ret-hero-sub{color:rgba(255,255,255,.9);font-size:1.02rem;line-height:1.55;margin:0 0 14px}
 .ret-hero-disclaimer{color:rgba(255,255,255,.55);font-size:.8rem;font-style:italic;margin:0 0 10px;line-height:1.45}
-.ret-hero-meta{color:rgba(255,255,255,.4);font-size:.75rem;margin:0}
-.ret-hero-stat{background:rgba(251,191,36,.13);border:1px solid rgba(251,191,36,.32);border-radius:16px;padding:24px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1;backdrop-filter:blur(4px)}
-.ret-hero-stat-number{font-size:3.2rem;font-weight:800;color:#FBBF24;line-height:1;margin-bottom:10px;font-family:'Plus Jakarta Sans',sans-serif}
-.ret-hero-stat-label{color:rgba(255,255,255,.92);font-size:.92rem;line-height:1.45}
-.ret-hero-stat-source{color:rgba(255,255,255,.5);font-size:.72rem;margin-top:10px;font-style:italic}
+.ret-hero-meta{color:rgba(255,255,255,.45);font-size:.75rem;margin:0}
+.ret-hero-stat{background:rgba(16,185,129,.18);border:1px solid rgba(52,211,153,.4);border-radius:16px;padding:24px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1;backdrop-filter:blur(4px)}
+.ret-hero-stat-number{font-size:3.2rem;font-weight:800;color:#34D399;line-height:1;margin-bottom:10px;font-family:'Plus Jakarta Sans',sans-serif}
+.ret-hero-stat-label{color:rgba(255,255,255,.95);font-size:.92rem;line-height:1.45}
+.ret-hero-stat-source{color:rgba(255,255,255,.55);font-size:.72rem;margin-top:10px;font-style:italic}
+
+/* ====== Byline ====== */
+.ret-byline{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:14px 18px;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:12px;margin-bottom:24px;font-size:.85rem}
+.ret-byline-author{font-weight:700;color:#0A1628}
+.ret-byline-dates{display:flex;gap:14px;color:#6B7280;flex-wrap:wrap}
+.ret-byline-ai{width:100%;font-size:.78rem;color:#6B7280;font-style:italic;line-height:1.5;padding-top:8px;border-top:1px solid #E5E7EB;margin-top:4px}
 
 /* ====== Section headers ====== */
 .ret-section-title{font-size:1.05rem;font-weight:700;color:#0A1628;margin:28px 0 14px;display:flex;align-items:center;gap:10px}
-.ret-section-title .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#059669,#10B981)}
+.ret-section-title .ret-icon{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#059669,#10B981);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.ret-section-title .ret-icon svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 
 /* ====== Select styling to match inputs ====== */
 .calc-grid select{width:100%;padding:14px 38px 14px 16px;border:1px solid #E5E7EB;border-radius:12px;font-family:inherit;font-size:1rem;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%236B7280' stroke-width='1.6'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 16px center;background-size:12px;color:#0A1628;cursor:pointer;appearance:none;-webkit-appearance:none;transition:border-color .15s,box-shadow .15s;box-sizing:border-box}
@@ -117,11 +125,34 @@ SavingsClub
 .ret-toggle-label{font-weight:600;color:#0A1628;font-size:.95rem;line-height:1.3}
 .ret-toggle-sub{font-size:.78rem;color:#6B7280;line-height:1.3}
 
+/* ====== Buttons row ====== */
+.ret-btn-row{display:flex;gap:12px;margin:24px 0 8px;flex-wrap:wrap}
+.ret-btn-calc{background:linear-gradient(135deg,#059669,#10B981);color:#fff;border:none;padding:14px 32px;border-radius:999px;font-weight:700;font-size:1rem;cursor:pointer;box-shadow:0 4px 12px rgba(5,150,105,.3);transition:transform .15s,box-shadow .15s;font-family:inherit}
+.ret-btn-calc:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(5,150,105,.4)}
+.ret-btn-reset{background:#fff;color:#0A1628;border:1px solid #E5E7EB;padding:14px 28px;border-radius:999px;font-weight:600;font-size:1rem;cursor:pointer;transition:all .15s;font-family:inherit}
+.ret-btn-reset:hover{background:#F9FAFB;border-color:#D1D5DB}
+
+/* ====== Empty state ====== */
+.ret-empty{border:2px dashed #E5E7EB;border-radius:16px;padding:36px 24px;text-align:center;margin-top:20px;color:#6B7280}
+.ret-empty-icon{width:48px;height:48px;border-radius:14px;background:#F3F4F6;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px}
+.ret-empty-icon svg{width:24px;height:24px;stroke:#9CA3AF;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ret-empty-title{font-weight:700;color:#0A1628;font-size:1.05rem;margin-bottom:6px}
+.ret-empty-text{font-size:.92rem;line-height:1.5}
+
 /* ====== Result banner ====== */
-.ret-result-banner{border-radius:16px;padding:24px;margin:20px 0;position:relative;overflow:hidden}
+.ret-result-banner{border-radius:16px;padding:24px;margin:20px 0;position:relative;overflow:hidden;display:flex;align-items:flex-start;gap:18px}
 .ret-result-banner.ontrack{background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border:1px solid #A7F3D0}
 .ret-result-banner.behind{background:linear-gradient(135deg,#FEF3C7,#FDE68A);border:1px solid #FCD34D}
 .ret-result-banner.gap{background:linear-gradient(135deg,#FEE2E2,#FECACA);border:1px solid #FCA5A5}
+.ret-result-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ret-result-banner.ontrack .ret-result-icon{background:rgba(5,150,105,.15)}
+.ret-result-banner.behind .ret-result-icon{background:rgba(180,83,9,.15)}
+.ret-result-banner.gap .ret-result-icon{background:rgba(153,27,27,.15)}
+.ret-result-icon svg{width:24px;height:24px;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.ret-result-banner.ontrack .ret-result-icon svg{stroke:#047857}
+.ret-result-banner.behind .ret-result-icon svg{stroke:#92400E}
+.ret-result-banner.gap .ret-result-icon svg{stroke:#991B1B}
+.ret-result-body{flex:1;min-width:0}
 .ret-result-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px}
 .ret-result-banner.ontrack .ret-result-label{color:#047857}
 .ret-result-banner.behind .ret-result-label{color:#92400E}
@@ -135,7 +166,13 @@ SavingsClub
 .ret-result-banner.behind .ret-result-sub{color:#92400E}
 .ret-result-banner.gap .ret-result-sub{color:#991B1B}
 
-/* ====== SVG Growth Chart ====== */
+/* ====== Stats grid ====== */
+.ret-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:18px;align-items:start}
+.ret-stat{background:#F9FAFB;border-radius:12px;padding:14px 16px;border:1px solid #E5E7EB}
+.ret-stat-label{font-size:.75rem;color:#6B7280;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+.ret-stat-value{font-size:1.15rem;font-weight:800;color:#0A1628;font-family:'Plus Jakarta Sans',sans-serif}
+
+/* ====== Chart card ====== */
 .ret-chart-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:22px;margin-top:18px}
 .ret-chart-title{font-weight:700;color:#0A1628;font-size:1.02rem;margin-bottom:6px}
 .ret-chart-sub{font-size:.85rem;color:#6B7280;margin-bottom:14px}
@@ -151,14 +188,31 @@ SavingsClub
 .ret-benchmark-multiplier{font-size:.85rem;color:#6B7280}
 .ret-benchmark-target{font-weight:600;color:#0A1628;font-size:.95rem;text-align:right}
 
+/* ====== Trad vs Roth WINNER ====== */
+.ret-vs-note{font-size:.82rem;color:#6B7280;background:#F9FAFB;border-left:3px solid #10B981;padding:10px 14px;border-radius:8px;margin:12px 0 18px;line-height:1.55}
+.ret-vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0 8px;align-items:start}
+.ret-vs-card{background:#fff;border:1.5px solid #E5E7EB;border-radius:16px;padding:22px;position:relative;display:flex;flex-direction:column;gap:10px}
+.ret-vs-card.winner{border-color:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,.12),0 8px 24px rgba(5,150,105,.12)}
+.ret-vs-card.winner::before{content:'WINNER';position:absolute;top:-12px;left:18px;background:linear-gradient(135deg,#059669,#10B981);color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.1em;padding:5px 12px;border-radius:999px;box-shadow:0 4px 10px rgba(5,150,105,.3)}
+.ret-vs-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#F3F4F6}
+.ret-vs-icon svg{width:20px;height:20px;fill:none;stroke:#0A1628;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ret-vs-card.winner .ret-vs-icon{background:linear-gradient(135deg,#ECFDF5,#D1FAE5)}
+.ret-vs-card.winner .ret-vs-icon svg{stroke:#047857}
+.ret-vs-title{font-size:1.05rem;font-weight:800;color:#0A1628;font-family:'Plus Jakarta Sans',sans-serif}
+.ret-vs-subtitle{font-size:.82rem;color:#6B7280;margin-top:-4px;line-height:1.4}
+.ret-vs-metric-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:#6B7280;font-weight:700;margin-top:6px}
+.ret-vs-metric{font-size:1.7rem;font-weight:800;color:#0A1628;line-height:1.1;font-family:'Plus Jakarta Sans',sans-serif}
+.ret-vs-card.winner .ret-vs-metric{color:#047857}
+.ret-vs-detail{font-size:.85rem;color:#4B5563;line-height:1.5;margin-top:6px;padding-top:10px;border-top:1px solid #F3F4F6}
+.ret-vs-summary{background:linear-gradient(135deg,#ECFDF5,#F0FDF4);border:1px solid #A7F3D0;border-radius:12px;padding:14px 16px;margin-top:12px;font-size:.92rem;color:#064E3B;line-height:1.55}
+.ret-vs-summary strong{color:#047857}
+
 /* ====== What-if scenarios ====== */
-.ret-scenarios{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:24px;align-items:stretch}
+.ret-scenarios{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:18px;align-items:start}
 .ret-scenario-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:22px;display:flex;flex-direction:column;transition:box-shadow .2s}
 .ret-scenario-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.06)}
-.ret-scenario-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:12px;color:#fff}
-.ret-scenario-icon.age{background:linear-gradient(135deg,#3B82F6,#1D4ED8)}
-.ret-scenario-icon.boost{background:linear-gradient(135deg,#059669,#10B981)}
-.ret-scenario-icon.market{background:linear-gradient(135deg,#F59E0B,#D97706)}
+.ret-scenario-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;background:linear-gradient(135deg,#059669,#10B981)}
+.ret-scenario-icon svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .ret-scenario-title{font-size:1.1rem;font-weight:700;color:#0A1628;margin-bottom:6px}
 .ret-scenario-desc{font-size:.85rem;color:#6B7280;margin-bottom:14px;line-height:1.5}
 .ret-slider-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
@@ -171,25 +225,29 @@ SavingsClub
 
 /* ====== Benchmark info expandable ====== */
 .ret-info-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;margin-top:24px;overflow:hidden}
-.ret-info-header{padding:18px 22px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;background:#F9FAFB;border-bottom:1px solid transparent;transition:border-color .2s}
+.ret-info-header{padding:18px 22px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;background:#F9FAFB;border-bottom:1px solid transparent;transition:border-color .2s;gap:10px}
 .ret-info-header:hover{background:#F3F4F6}
 .ret-info-card.open .ret-info-header{border-bottom-color:#E5E7EB}
+.ret-info-title-row{display:flex;align-items:center;gap:10px}
+.ret-info-title-icon{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#059669,#10B981);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.ret-info-title-icon svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 .ret-info-title{font-weight:700;color:#0A1628;font-size:1rem}
-.ret-info-toggle{font-size:1.2rem;color:#6B7280;transition:transform .2s}
+.ret-info-toggle{font-size:1.2rem;color:#6B7280;transition:transform .2s;flex-shrink:0}
 .ret-info-card.open .ret-info-toggle{transform:rotate(180deg)}
 .ret-info-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
 .ret-info-card.open .ret-info-body{max-height:800px}
-.ret-info-list{padding:16px 22px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.ret-info-item{padding:12px 14px;background:#F9FAFB;border-radius:10px;border-left:3px solid #F59E0B}
+.ret-info-list{padding:16px 22px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;align-items:start}
+.ret-info-item{padding:12px 14px;background:#F9FAFB;border-radius:10px;border-left:3px solid #10B981}
 .ret-info-item-name{font-weight:600;color:#0A1628;font-size:.92rem;margin-bottom:2px}
-.ret-info-item-range{font-size:.85rem;color:#D97706;font-weight:600}
+.ret-info-item-range{font-size:.85rem;color:#047857;font-weight:600}
 .ret-info-source{padding:0 22px 18px;font-size:.75rem;color:#9CA3AF;font-style:italic}
 
-/* ====== SavingsClub Tips card ====== */
+/* ====== Tips card ====== */
 .ret-tips-card{background:linear-gradient(135deg,#ECFDF5 0%,#F0FDF4 100%);border:1px solid #A7F3D0;border-radius:18px;padding:24px;margin:32px 0;position:relative;overflow:hidden}
 .ret-tips-card::before{content:'';position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(16,185,129,.12) 0%,transparent 70%);pointer-events:none}
 .ret-tips-header{display:flex;align-items:center;gap:12px;margin-bottom:18px;position:relative;z-index:1}
-.ret-tips-icon{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#059669,#10B981);display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 4px 12px rgba(5,150,105,.25)}
+.ret-tips-icon{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#059669,#10B981);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(5,150,105,.25)}
+.ret-tips-icon svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .ret-tips-title{font-weight:800;color:#064E3B;font-size:1.15rem;font-family:'Plus Jakarta Sans',sans-serif}
 .ret-tips-subtitle{font-size:.82rem;color:#047857;font-weight:500}
 .ret-tips-list{display:flex;flex-direction:column;gap:14px;position:relative;z-index:1}
@@ -198,11 +256,10 @@ SavingsClub
 .ret-tip-body{font-size:.92rem;line-height:1.5;color:#064E3B}
 .ret-tip-body strong{color:#047857;font-weight:700}
 
-/* ====== Stats grid override ====== */
-.ret-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:18px}
-.ret-stat{background:#F9FAFB;border-radius:12px;padding:14px 16px;border:1px solid #E5E7EB}
-.ret-stat-label{font-size:.75rem;color:#6B7280;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
-.ret-stat-value{font-size:1.15rem;font-weight:800;color:#0A1628;font-family:'Plus Jakarta Sans',sans-serif}
+/* ====== Related tools / guides ====== */
+.ret-related-heading{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:1.1rem;color:#0A1628;font-weight:700}
+.ret-related-icon{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#059669,#10B981);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.ret-related-icon svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 
 /* ====== Mobile ====== */
 @media(max-width:760px){
@@ -210,57 +267,80 @@ SavingsClub
   .ret-hero h1{font-size:1.7rem}
   .ret-hero-stat-number{font-size:2.6rem}
   .ret-result-value{font-size:1.8rem}
+  .ret-result-banner{flex-direction:column;gap:12px}
   .ret-toggles{grid-template-columns:1fr}
+  .ret-vs-grid{grid-template-columns:1fr;gap:14px}
   .ret-scenarios{grid-template-columns:1fr;gap:14px}
   .ret-benchmark-row{grid-template-columns:60px 1fr auto;gap:8px;padding:10px 12px}
   .ret-tips-card{padding:20px;margin:24px 0}
+  .ret-btn-row{flex-direction:column}
+  .ret-btn-calc,.ret-btn-reset{width:100%}
 }
 </style>
 
 <section class="calc-page">
 <div class="container">
 
-<div style="margin-bottom:24px"><a href="../" style="color:var(--text-light);font-weight:500">← Home</a></div>
+<div style="margin-bottom:24px"><a href="../" style="color:var(--text-light);font-weight:500">&larr; Home</a></div>
 
 <div class="calc-section reveal" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
 
 <!-- ============ HERO ============ -->
 <div class="ret-hero">
   <div class="ret-hero-left">
-    <h1>Retirement Calculator</h1>
-    <p class="ret-hero-sub">Personalized projection with employer match, Social Security, and self-employed support (Solo 401k / SEP IRA). See where you stand against benchmark, and what changes get you on track.</p>
-    <p class="ret-hero-disclaimer">Educational tool not financial advice. SavingsClub is not a licensed financial advisor.</p>
+    <h1>Retirement Calculator: How Much Do You Need?</h1>
+    <p class="ret-hero-sub">Free retirement calculator with 401k employer match, Roth vs Traditional comparison, Social Security, and self-employed support (Solo 401k and SEP IRA). See where you stand against benchmark, and what changes get you on track.</p>
+    <p class="ret-hero-disclaimer">Educational tool, not financial advice. SavingsClub is not a licensed financial advisor.</p>
     <p class="ret-hero-meta">Last updated June 2026</p>
   </div>
   <div class="ret-hero-stat">
     <div class="ret-hero-stat-number">$185K</div>
-    <div class="ret-hero-stat-label">Median retirement savings for U.S. households age 55–64 far below most planning benchmarks</div>
-    <div class="ret-hero-stat-source">Source: Federal Reserve SCF</div>
+    <div class="ret-hero-stat-label">Median retirement savings for U.S. households age 55 to 64, far below most planning benchmarks.</div>
+    <div class="ret-hero-stat-source">Source: Federal Reserve Survey of Consumer Finances</div>
   </div>
 </div>
 
+<!-- ============ BYLINE ============ -->
+<div class="ret-byline">
+  <div class="ret-byline-author">By SavingsClub Research Team</div>
+  <div class="ret-byline-dates">
+    <span>Published: June 2026</span>
+    <span>Last updated: June 2026</span>
+  </div>
+  <div class="ret-byline-ai">This guide was created with AI assistance and reviewed by SavingsClub editors before publication. We follow the same disclosure approach used by major publishers such as Forbes and AP News. We are not licensed financial advisors. Always consult a qualified professional before making major retirement decisions.</div>
+</div>
+
 <!-- ============ INPUTS: ABOUT YOU ============ -->
-<div class="ret-section-title"><span class="dot"></span> About you</div>
+<div class="ret-section-title">
+  <span class="ret-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></span>
+  About you
+</div>
 <div class="calc-grid">
-<div><label>Current Age</label><input type="number" id="retAge" value="30" min="18" max="80" oninput="calc()"></div>
-<div><label>Target Retirement Age</label><input type="number" id="retTarget" value="65" min="40" max="85" oninput="calc()"></div>
-<div><label>Current Annual Income ($)</label><input type="number" id="retIncome" value="75000" min="0" oninput="calc()"></div>
+<div><label>Current Age</label><input type="number" id="retAge" value="30" min="18" max="80"></div>
+<div><label>Target Retirement Age</label><input type="number" id="retTarget" value="65" min="40" max="85"></div>
+<div><label>Current Annual Income ($)</label><input type="number" id="retIncome" value="75000" min="0"></div>
 </div>
 
 <!-- ============ INPUTS: WHAT YOU'VE SAVED ============ -->
-<div class="ret-section-title"><span class="dot"></span> What you've saved</div>
+<div class="ret-section-title">
+  <span class="ret-icon"><svg viewBox="0 0 24 24"><path d="M3 7h18v12H3z"/><path d="M3 11h18"/><circle cx="12" cy="15" r="1.4"/></svg></span>
+  What you've saved
+</div>
 <div class="calc-grid">
-<div><label>Current Retirement Savings ($)</label><input type="number" id="retSaved" value="50000" min="0" oninput="calc()"></div>
-<div><label>Monthly Contribution ($)</label><input type="number" id="retMonthly" value="500" min="0" oninput="calc()"></div>
-<div><label>Expected Annual Return (%)</label><input type="number" id="retReturn" value="7" min="0" max="15" step="0.1" oninput="calc()"></div>
+<div><label>Current Retirement Savings ($)</label><input type="number" id="retSaved" value="50000" min="0"></div>
+<div><label>Monthly Contribution ($)</label><input type="number" id="retMonthly" value="500" min="0"></div>
+<div><label>Expected Annual Return (%)</label><input type="number" id="retReturn" value="7" min="0" max="15" step="0.1"></div>
 </div>
 
 <!-- ============ INPUTS: PERSONALIZE ============ -->
-<div class="ret-section-title"><span class="dot"></span> Personalize your projection</div>
+<div class="ret-section-title">
+  <span class="ret-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg></span>
+  Personalize your projection
+</div>
 <div class="calc-grid">
 <div>
 <label>Account Type</label>
-<select id="retAcct" onchange="calc()">
+<select id="retAcct">
 <option value="traditional">Traditional 401(k) / IRA</option>
 <option value="roth">Roth 401(k) / Roth IRA</option>
 <option value="mix" selected>Mix of Traditional + Roth</option>
@@ -270,7 +350,7 @@ SavingsClub
 </div>
 <div>
 <label>Employer Match</label>
-<select id="retMatch" onchange="calc()">
+<select id="retMatch">
 <option value="0">None</option>
 <option value="3">3% of salary</option>
 <option value="4" selected>4% of salary</option>
@@ -281,52 +361,97 @@ SavingsClub
 </div>
 <div>
 <label>Desired Annual Retirement Income ($)</label>
-<input type="number" id="retDesiredIncome" value="60000" min="0" oninput="calc()">
+<input type="number" id="retDesiredIncome" value="60000" min="0">
 </div>
+</div>
+
+<!-- ============ INPUTS: TAX PLANNING ============ -->
+<div class="ret-section-title">
+  <span class="ret-icon"><svg viewBox="0 0 24 24"><path d="M5 3h14l-1 18H6L5 3z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span>
+  Tax planning (for Traditional vs Roth comparison)
+</div>
+<div class="calc-grid">
+<div>
+<label>Current Marginal Tax Rate</label>
+<select id="retTaxNow">
+<option value="10">10% (lowest bracket)</option>
+<option value="12">12%</option>
+<option value="22" selected>22% (middle)</option>
+<option value="24">24%</option>
+<option value="32">32%</option>
+<option value="35">35%</option>
+<option value="37">37% (highest)</option>
+</select>
+</div>
+<div>
+<label>Expected Tax Rate in Retirement</label>
+<select id="retTaxLater">
+<option value="0">0% (very low income)</option>
+<option value="10">10%</option>
+<option value="12" selected>12%</option>
+<option value="22">22%</option>
+<option value="24">24%</option>
+</select>
+</div>
+<div></div>
 </div>
 
 <div class="ret-toggles">
 <label class="ret-toggle">
-<input type="checkbox" id="retSSToggle" onchange="calc()">
+<input type="checkbox" id="retSSToggle">
 <div class="ret-toggle-slider"></div>
 <div class="ret-toggle-text">
 <div class="ret-toggle-label">Include Social Security</div>
-<div class="ret-toggle-sub">Adds ~$22,800/yr at full retirement age</div>
+<div class="ret-toggle-sub">Adds about $22,800/yr at full retirement age</div>
 </div>
 </label>
 <label class="ret-toggle">
-<input type="checkbox" id="retInflationToggle" onchange="calc()">
+<input type="checkbox" id="retInflationToggle">
 <div class="ret-toggle-slider"></div>
 <div class="ret-toggle-text">
 <div class="ret-toggle-label">Show in today's dollars</div>
-<div class="ret-toggle-sub">Adjusted for ~3% annual inflation</div>
+<div class="ret-toggle-sub">Adjusted for about 3% annual inflation</div>
 </div>
 </label>
 </div>
 
-<div class="accent-line" style="width:100%;margin:24px 0 20px;height:2px"></div>
-<button class="btn btn-primary" onclick="calc()">Recalculate</button>
-<div id="calcResult" class="calc-result"></div>
+<div class="ret-btn-row">
+  <button class="ret-btn-calc" onclick="calc()">Calculate</button>
+  <button class="ret-btn-reset" onclick="resetCalc()">Reset</button>
+</div>
+
+<!-- ============ EMPTY STATE ============ -->
+<div id="retEmptyState" class="ret-empty">
+  <div class="ret-empty-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+  <div class="ret-empty-title">Ready when you are</div>
+  <div class="ret-empty-text">Fill in your details above and click Calculate to see your projected nest egg, benchmark comparison, Traditional vs Roth winner, and personalized what-if scenarios.</div>
+</div>
+
+<!-- ============ RESULTS CONTAINER (hidden initially) ============ -->
+<div id="calcResult" style="display:none"></div>
 </div>
 
 <!-- ============ BENCHMARK INFO EXPANDABLE ============ -->
 <div class="ret-info-card reveal" id="retInfoCard">
   <div class="ret-info-header" onclick="toggleInfo()">
-    <div class="ret-info-title">📊 Retirement savings benchmarks & 2026 contribution limits</div>
-    <div class="ret-info-toggle">▼</div>
+    <div class="ret-info-title-row">
+      <span class="ret-info-title-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg></span>
+      <div class="ret-info-title">Retirement savings benchmarks and 2026 contribution limits</div>
+    </div>
+    <div class="ret-info-toggle">&#9662;</div>
   </div>
   <div class="ret-info-body">
     <div class="ret-info-list">
-      <div class="ret-info-item"><div class="ret-info-item-name">By age 30</div><div class="ret-info-item-range">1× annual salary saved</div></div>
-      <div class="ret-info-item"><div class="ret-info-item-name">By age 35</div><div class="ret-info-item-range">2× annual salary</div></div>
-      <div class="ret-info-item"><div class="ret-info-item-name">By age 40</div><div class="ret-info-item-range">3× annual salary</div></div>
-      <div class="ret-info-item"><div class="ret-info-item-name">By age 45</div><div class="ret-info-item-range">4× annual salary</div></div>
-      <div class="ret-info-item"><div class="ret-info-item-name">By age 50</div><div class="ret-info-item-range">6× annual salary</div></div>
-      <div class="ret-info-item"><div class="ret-info-item-name">By age 60</div><div class="ret-info-item-range">8× annual salary</div></div>
-      <div class="ret-info-item"><div class="ret-info-item-name">By age 67</div><div class="ret-info-item-range">10× annual salary</div></div>
-      <div class="ret-info-item"><div class="ret-info-item-name">401(k) limit (2026)</div><div class="ret-info-item-range">~$24,000 / $31,500 if 50+</div></div>
-      <div class="ret-info-item"><div class="ret-info-item-name">IRA limit (2026)</div><div class="ret-info-item-range">~$7,500 / $8,500 if 50+</div></div>
-      <div class="ret-info-item"><div class="ret-info-item-name">Solo 401(k) / SEP IRA</div><div class="ret-info-item-range">Up to ~$70,000 total</div></div>
+      <div class="ret-info-item"><div class="ret-info-item-name">By age 30</div><div class="ret-info-item-range">1x annual salary saved</div></div>
+      <div class="ret-info-item"><div class="ret-info-item-name">By age 35</div><div class="ret-info-item-range">2x annual salary</div></div>
+      <div class="ret-info-item"><div class="ret-info-item-name">By age 40</div><div class="ret-info-item-range">3x annual salary</div></div>
+      <div class="ret-info-item"><div class="ret-info-item-name">By age 45</div><div class="ret-info-item-range">4x annual salary</div></div>
+      <div class="ret-info-item"><div class="ret-info-item-name">By age 50</div><div class="ret-info-item-range">6x annual salary</div></div>
+      <div class="ret-info-item"><div class="ret-info-item-name">By age 60</div><div class="ret-info-item-range">8x annual salary</div></div>
+      <div class="ret-info-item"><div class="ret-info-item-name">By age 67</div><div class="ret-info-item-range">10x annual salary</div></div>
+      <div class="ret-info-item"><div class="ret-info-item-name">401(k) limit (2026)</div><div class="ret-info-item-range">About $24,000 / $31,500 if 50+</div></div>
+      <div class="ret-info-item"><div class="ret-info-item-name">IRA limit (2026)</div><div class="ret-info-item-range">About $7,500 / $8,500 if 50+</div></div>
+      <div class="ret-info-item"><div class="ret-info-item-name">Solo 401(k) / SEP IRA</div><div class="ret-info-item-range">Up to about $70,000 total</div></div>
     </div>
     <div class="ret-info-source">Benchmark multipliers based on Fidelity's widely-cited retirement savings guidelines. Contribution limits are approximate 2026 IRS figures and may change. Consult IRS Publication 590 for current limits.</div>
   </div>
@@ -335,7 +460,7 @@ SavingsClub
 <!-- ============ TIPS CARD ============ -->
 <div class="ret-tips-card reveal">
   <div class="ret-tips-header">
-    <div class="ret-tips-icon">👍</div>
+    <div class="ret-tips-icon"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.8.7 1.3 1.6 1.5 2.3h5c.2-.7.7-1.6 1.5-2.3A7 7 0 0 0 12 2z"/></svg></div>
     <div>
       <div class="ret-tips-title">SavingsClub Tips</div>
       <div class="ret-tips-subtitle">Three retirement moves most people don't fully use</div>
@@ -344,7 +469,7 @@ SavingsClub
   <div class="ret-tips-list">
     <div class="ret-tip">
       <div class="ret-tip-number">1</div>
-      <div class="ret-tip-body"><strong>Capture the full employer match before anything else.</strong> A 50% match is an instant 50% return on every dollar no investment in the world reliably beats that. If your employer offers 4% match and you're contributing 2%, you're leaving free money on the table every paycheck. Adjust your contribution rate at your next pay cycle.</div>
+      <div class="ret-tip-body"><strong>Capture the full employer match before anything else.</strong> A 50% match is an instant 50% return on every dollar. No investment in the world reliably beats that. If your employer offers 4% match and you're contributing 2%, you're leaving free money on the table every paycheck. Adjust your contribution rate at your next pay cycle.</div>
     </div>
     <div class="ret-tip">
       <div class="ret-tip-number">2</div>
@@ -352,7 +477,7 @@ SavingsClub
     </div>
     <div class="ret-tip">
       <div class="ret-tip-number">3</div>
-      <div class="ret-tip-body"><strong>Auto-escalate your contribution by 1% every year.</strong> Most 401(k) plans let you turn this on once. You won't notice 1% of your paycheck disappearing each year, but over a 30-year career it can double your final nest egg. If your plan doesn't support auto-escalation, put a calendar reminder for your next raise — bump it then so you never see the money in your spending account.</div>
+      <div class="ret-tip-body"><strong>Auto-escalate your contribution by 1% every year.</strong> Most 401(k) plans let you turn this on once. You won't notice 1% of your paycheck disappearing each year, but over a 30-year career it can double your final nest egg. If your plan doesn't support auto-escalation, put a calendar reminder for your next raise and bump it then so you never see the money in your spending account.</div>
     </div>
   </div>
 </div>
@@ -360,21 +485,21 @@ SavingsClub
 <!-- ============ SEO CONTENT ============ -->
 <div class="seo-content reveal">
 <h2>How much do you actually need to retire?</h2>
-<p>The most widely-used rule of thumb is the 25× rule: save 25 times your desired annual retirement income. If you want $60,000 per year in retirement, the rule suggests a target of $1.5 million. This is derived from the 4% safe withdrawal rule, based on historical research showing a diversified portfolio could sustain a 4% annual withdrawal for at least 30 years without running out.</p>
+<p>The most widely-used rule of thumb is the 25x rule: save 25 times your desired annual retirement income. If you want $60,000 per year in retirement, the rule suggests a target of $1.5 million. This is derived from the 4% safe withdrawal rule, based on historical research showing a diversified portfolio could sustain a 4% annual withdrawal for at least 30 years without running out.</p>
 
-<p>The rule has limitations. It assumes a 30-year retirement, a balanced stock-bond portfolio, and historical market returns continuing into the future. None of these are guaranteed. People retiring earlier may want to use 3% to 3.5% as a more conservative withdrawal rate, which means saving 28× to 33× annual income. People with substantial Social Security or a pension may need less in personal savings.</p>
+<p>The rule has limitations. It assumes a 30-year retirement, a balanced stock-bond portfolio, and historical market returns continuing into the future. None of these are guaranteed. People retiring earlier may want to use 3% to 3.5% as a more conservative withdrawal rate, which means saving 28x to 33x annual income. People with substantial Social Security or a pension may need less in personal savings.</p>
 
-<h2>Traditional vs Roth: which is right for you?</h2>
+<h2>Traditional 401k vs Roth 401k: which is right for you?</h2>
 <p><strong>Traditional 401(k) and IRA contributions</strong> give you a tax deduction now. The money grows tax-deferred, and you pay ordinary income tax on withdrawals in retirement. This works well if you expect to be in a lower tax bracket in retirement than you are today.</p>
 
 <p><strong>Roth 401(k) and Roth IRA contributions</strong> are made with after-tax dollars. There's no immediate tax break, but the money grows tax-free and qualified withdrawals in retirement are completely tax-free. This works well if you expect to be in the same or higher tax bracket in retirement, or if you simply want certainty about your future tax bill.</p>
 
-<p>Most people don't know which bracket they'll be in 30 years from now. Tax laws change. Income trajectories change. This is why many educators suggest splitting contributions between both account types — a strategy sometimes called "tax diversification." A 50/50 split gives you flexibility to manage your tax bracket year by year in retirement, taking withdrawals from whichever bucket is most tax-efficient at the time.</p>
+<p>Most people don't know which bracket they'll be in 30 years from now. Tax laws change. Income trajectories change. This is why many educators suggest splitting contributions between both account types, a strategy sometimes called "tax diversification." A 50/50 split gives you flexibility to manage your tax bracket year by year in retirement, taking withdrawals from whichever bucket is most tax-efficient at the time.</p>
 
-<h2>The employer match: the highest-return investment available</h2>
+<h2>The 401k employer match: the highest-return investment available</h2>
 <p>If your employer offers a 401(k) match, it is mathematically the best investment you have access to. A typical match is 50 cents on the dollar up to 6% of your salary, or dollar-for-dollar up to 3% or 4%. That match is, effectively, an instant 50% or 100% return on every contribution you make up to the cap.</p>
 
-<p>There is no other investment where you can reliably double your money the moment you make it. Even if you have credit card debt at 22% APR, the employer match is still usually the better deal up to the match cap. Below the match cap, employer match. Above the match cap, prioritize debt. Most financial educators agree on this order.</p>
+<p>There is no other investment where you can reliably double your money the moment you make it. Even if you have credit card debt at 22% APR, the employer match is still usually the better deal up to the match cap. Below the match cap, employer match wins. Above the match cap, prioritize debt. Most financial educators agree on this order.</p>
 
 <p>Studies have estimated that American workers leave billions of dollars on the table every year by not contributing enough to capture their full match. If you're not sure what your employer offers, check your benefits portal or ask HR. Adjust your contribution rate to at least the match threshold at your next pay cycle.</p>
 
@@ -383,26 +508,26 @@ SavingsClub
 
 <p>SECURE 2.0, which took effect over the past several years, added an even larger "super catch-up" for workers ages 60 to 63, allowing higher catch-up amounts during that specific window. The exact rules and amounts have been adjusted over time, so check current IRS guidance or ask your plan administrator for the latest figures.</p>
 
-<h2>Self-employed retirement options</h2>
+<h2>Self-employed retirement options: Solo 401k and SEP IRA</h2>
 <p>One of the biggest planning gaps for self-employed people, gig workers, and small business owners is that they often don't realize their retirement contribution limits are much higher than employees of larger companies. Solo 401(k) plans allow combined employee and employer contributions of up to roughly $70,000 per year for someone under 50 in 2026. SEP IRAs allow up to 25% of compensation, capped near the same $70,000 figure.</p>
 
-<p>This means a self-employed person earning $200,000 can potentially shield substantially more from taxes each year than a W-2 employee at the same income level. The trade-off is more complexity — you have to set up and administer the plan yourself, and contribution math is more involved. But the tax advantages are large enough that most self-employed earners with significant income benefit from at least exploring these options.</p>
+<p>This means a self-employed person earning $200,000 can potentially shield substantially more from taxes each year than a W-2 employee at the same income level. The trade-off is more complexity. You have to set up and administer the plan yourself, and contribution math is more involved. The tax advantages are large enough that most self-employed earners with significant income benefit from at least exploring these options.</p>
 
-<h2>Social Security: a foundation, not a plan</h2>
-<p>The average Social Security retirement benefit in 2026 is approximately $1,900 per month at full retirement age, or roughly $22,800 per year. This replaces about 40% of pre-retirement income for the average earner — useful, but not enough to maintain most lifestyles on its own.</p>
+<h2>Social Security retirement age and benefits</h2>
+<p>The average Social Security retirement benefit in 2026 is approximately $1,900 per month at full retirement age, or roughly $22,800 per year. This replaces about 40% of pre-retirement income for the average earner. Useful, but not enough to maintain most lifestyles on its own.</p>
 
-<p>The Social Security trust fund is projected to face shortfalls in the 2030s without legislative changes. Most policy experts expect Social Security to continue in some form, but benefits could be reduced or eligibility ages raised. Building your plan around Social Security alone is risky. Building your plan with Social Security as a partial floor is reasonable most financial planners include it but apply some discount for political and demographic uncertainty.</p>
+<p>Full retirement age is 66 to 67 depending on your birth year. You can start collecting reduced benefits as early as age 62, but delaying past full retirement age increases your benefit by about 8% per year until age 70. The Social Security trust fund is projected to face shortfalls in the 2030s without legislative changes. Most policy experts expect Social Security to continue in some form, but benefits could be reduced or eligibility ages raised. Building your plan around Social Security alone is risky. Building your plan with Social Security as a partial floor is reasonable, and most financial planners include it but apply some discount for political and demographic uncertainty.</p>
 
 <h2>Common retirement planning mistakes</h2>
-<p><strong>Not starting early enough.</strong> A 25-year-old investing $300 a month with a 7% annual return ends up with about $750,000 by 65. A 35-year-old investing the same $300 a month with the same return ends up with about $370,000. The 10-year head start more than doubles the outcome because of compounding there is no way to make up that gap later by saving more.</p>
+<p><strong>Not starting early enough.</strong> A 25-year-old investing $300 a month with a 7% annual return ends up with about $750,000 by 65. A 35-year-old investing the same $300 a month with the same return ends up with about $370,000. The 10-year head start more than doubles the outcome because of compounding. There is no way to make up that gap later just by saving more.</p>
 
 <p><strong>Cashing out a 401(k) when changing jobs.</strong> Roughly 40% of workers cash out their 401(k) instead of rolling it over when they leave a job. The result is income tax plus a 10% early-withdrawal penalty plus the loss of decades of compounding. The better moves are a rollover IRA or transferring to your new employer's plan.</p>
 
-<p><strong>Treating retirement savings as an emergency fund.</strong> Withdrawals before age 59½ typically trigger a 10% penalty on top of income tax. Emergency funds belong in a high-yield savings account, not a 401(k).</p>
+<p><strong>Treating retirement savings as an emergency fund.</strong> Withdrawals before age 59&frac12; typically trigger a 10% penalty on top of income tax. Emergency funds belong in a <a href="../emergency-fund-calculator/">high-yield savings account</a>, not a 401(k).</p>
 
 <p><strong>Overestimating future investment returns.</strong> Calculators that assume 10%+ annual returns produce overly optimistic projections. The long-term stock market average is closer to 7% after inflation, and bond-heavy portfolios return less. Building your plan around 6% to 7% gives you margin for reality.</p>
 
-<p><strong>Forgetting about healthcare.</strong> Medicare covers most basic healthcare after 65 but doesn't cover everything long-term care, dental, vision, and certain prescriptions are major gaps. The average couple retiring at 65 may face $300,000+ in out-of-pocket healthcare costs over their retirement. This is rarely included in basic calculators.</p>
+<p><strong>Forgetting about healthcare.</strong> Medicare covers most basic healthcare after 65 but doesn't cover everything. Long-term care, dental, vision, and certain prescriptions are major gaps. The average couple retiring at 65 may face $300,000+ in out-of-pocket healthcare costs over their retirement. This is rarely included in basic calculators.</p>
 </div>
 
 <div class="seo-content reveal" style="margin-top:24px">
@@ -411,11 +536,11 @@ SavingsClub
 <h3>How much should I have saved for retirement by age 40?</h3>
 <p>A widely-cited Fidelity guideline suggests having about 3 times your annual salary saved by age 40. If you earn $75,000, that's $225,000. By 50 the target is roughly 6x, by 60 it's 8x, and by full retirement age 67 it's 10x your annual salary. These are benchmarks, not requirements, and your actual needs depend on the lifestyle you want and other income sources.</p>
 
-<h3>What is the 25× rule for retirement savings?</h3>
-<p>The 25× rule says you need to save about 25 times your desired annual retirement income. It comes from the 4% safe withdrawal rule, which is based on historical research showing a diversified portfolio could sustain a 4% annual withdrawal for at least 30 years. If you want $60,000 per year in retirement, the rule suggests a target of $1.5 million. It's a useful guideline, not a guarantee.</p>
+<h3>What is the 25x rule for retirement savings?</h3>
+<p>The 25x rule says you need to save about 25 times your desired annual retirement income. It comes from the 4% safe withdrawal rule, which is based on historical research showing a diversified portfolio could sustain a 4% annual withdrawal for at least 30 years. If you want $60,000 per year in retirement, the rule suggests a target of $1.5 million. It's a useful guideline, not a guarantee.</p>
 
-<h3>Should I prioritize Traditional or Roth retirement contributions?</h3>
-<p>Traditional contributions give you a tax break now but are taxed when withdrawn in retirement. Roth contributions are taxed now but grow and withdraw tax-free. If you expect to be in a higher tax bracket in retirement, Roth often wins. If you expect lower taxes in retirement, Traditional may be better. Many educators suggest splitting between both for tax diversification, since future tax rates are uncertain.</p>
+<h3>Should I prioritize Traditional or Roth 401k contributions?</h3>
+<p>Traditional 401k contributions give you a tax break now but are taxed when withdrawn in retirement. Roth 401k contributions are taxed now but grow and withdraw tax-free. If you expect to be in a higher tax bracket in retirement, Roth often wins. If you expect lower taxes in retirement, Traditional may be better. Use the Traditional vs Roth comparison above for your specific numbers. Many educators suggest splitting between both for tax diversification, since future tax rates are uncertain.</p>
 
 <h3>How does an employer match work and should I always get it?</h3>
 <p>An employer match means your company contributes to your retirement account when you do, up to a limit. A common match is 50 cents on the dollar up to 6% of your salary, or dollar-for-dollar up to 3% to 4%. This is the highest-return investment most people have access to: a 100% match is an immediate 100% return. Most planners suggest contributing at least enough to capture the full match before anything else.</p>
@@ -423,36 +548,42 @@ SavingsClub
 <h3>Can I retire with $1 million in savings?</h3>
 <p>Using the 4% rule, $1 million supports about $40,000 per year in retirement income. Combined with average Social Security benefits (around $22,800 per year at full retirement age), total income would be roughly $62,800 per year before taxes. Whether that's enough depends entirely on your cost of living, housing situation, healthcare needs, and lifestyle. It's enough for many Americans and not enough for others.</p>
 
+<h3>What is the Social Security retirement age?</h3>
+<p>You can start collecting reduced Social Security retirement benefits as early as age 62. Full retirement age is 66 to 67 depending on your birth year. Delaying past full retirement age increases your benefit by about 8% per year until age 70, when delayed retirement credits stop. The average monthly benefit at full retirement age in 2026 is approximately $1,900, or roughly $22,800 per year.</p>
+
 <h3>What if I'm behind on retirement savings?</h3>
 <p>If you're 50 or older, the IRS allows catch-up contributions: an extra $7,500 per year to a 401(k) and an extra $1,000 to an IRA in 2026. SECURE 2.0 added an even larger "super catch-up" for ages 60 to 63. Other strategies include working a few extra years, delaying Social Security (each year of delay past full retirement age increases benefits by about 8%), reducing planned expenses, and considering part-time work in retirement. Behind doesn't mean hopeless.</p>
 </div>
 
 <div class="blog-recs reveal" style="margin-top:24px">
-<h3 style="margin-bottom:12px;font-size:1.1rem">📚 Related Guides</h3>
-<a href="../blog/retirement-planning-in-your-30s-the-decade-that-matters-most/" class="related-blog-card">Retirement Planning in Your 30s →</a>
-<a href="../blog/smart-money-moves-to-make-before-year-end-2026/" class="related-blog-card">Year-End Money Moves →</a>
+<div class="ret-related-heading">
+  <span class="ret-related-icon"><svg viewBox="0 0 24 24"><path d="M4 4h12a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3z"/><path d="M4 17a3 3 0 0 1 3-3h12"/></svg></span>
+  Related Guides
+</div>
+<a href="../blog/retirement-planning-in-your-30s-the-decade-that-matters-most/" class="related-blog-card">Retirement Planning in Your 30s &rarr;</a>
+<a href="../blog/smart-money-moves-to-make-before-year-end-2026/" class="related-blog-card">Year-End Money Moves &rarr;</a>
 </div>
 
 <div class="related-tools reveal">
 <h3>More Free Tools</h3>
-<a href="../savings-calculator/" class="related-tool-link">💰 Savings Calculator</a>
-<a href="../budget-planner/" class="related-tool-link">📊 Budget Planner</a>
-<a href="../debt-payoff-calculator/" class="related-tool-link">🔥 Debt Payoff</a>
-<a href="../compound-interest-calculator/" class="related-tool-link">📈 Compound Interest</a>
-<a href="../investment-calculator/" class="related-tool-link">💎 Investment Growth</a>
-<a href="../mortgage-calculator/" class="related-tool-link">🏡 Mortgage Calculator</a>
-<a href="../auto-loan-calculator/" class="related-tool-link">🚗 Auto Loan</a>
-<a href="../net-worth-calculator/" class="related-tool-link">💳 Net Worth</a>
-<a href="../emergency-fund-calculator/" class="related-tool-link">🛟 Emergency Fund</a>
-<a href="../credit-card-payoff-calculator/" class="related-tool-link">💳 CC Payoff</a>
-<a href="../financial-health-score/" class="related-tool-link">❤️ Financial Health Score</a>
-<a href="../credit-card-quiz/" class="related-tool-link">🃏 Credit Card Quiz</a>
-<a href="../401k-calculator/" class="related-tool-link">🏦 401(k)</a>
-<a href="../roth-ira-calculator/" class="related-tool-link">📋 Roth IRA</a>
-<a href="../inflation-calculator/" class="related-tool-link">📉 Inflation</a>
-<a href="../loan-payoff-calculator/" class="related-tool-link">🎯 Loan Payoff</a>
-<a href="../paycheck-calculator/" class="related-tool-link">💵 Take-Home Pay</a>
-<a href="../cd-calculator/" class="related-tool-link">🔐 CD Calculator</a>
+<a href="../savings-calculator/" class="related-tool-link">Savings Calculator</a>
+<a href="../budget-planner/" class="related-tool-link">Budget Planner</a>
+<a href="../debt-payoff-calculator/" class="related-tool-link">Debt Payoff</a>
+<a href="../compound-interest-calculator/" class="related-tool-link">Compound Interest</a>
+<a href="../investment-calculator/" class="related-tool-link">Investment Growth</a>
+<a href="../mortgage-calculator/" class="related-tool-link">Mortgage Calculator</a>
+<a href="../auto-loan-calculator/" class="related-tool-link">Auto Loan</a>
+<a href="../net-worth-calculator/" class="related-tool-link">Net Worth</a>
+<a href="../emergency-fund-calculator/" class="related-tool-link">Emergency Fund</a>
+<a href="../credit-card-payoff-calculator/" class="related-tool-link">Credit Card Payoff</a>
+<a href="../financial-health-score/" class="related-tool-link">Financial Health Score</a>
+<a href="../credit-card-quiz/" class="related-tool-link">Credit Card Quiz</a>
+<a href="../401k-calculator/" class="related-tool-link">401(k) Calculator</a>
+<a href="../roth-ira-calculator/" class="related-tool-link">Roth IRA Calculator</a>
+<a href="../inflation-calculator/" class="related-tool-link">Inflation Calculator</a>
+<a href="../loan-payoff-calculator/" class="related-tool-link">Loan Payoff</a>
+<a href="../paycheck-calculator/" class="related-tool-link">Take-Home Pay</a>
+<a href="../cd-calculator/" class="related-tool-link">CD Calculator</a>
 </div>
 
 </div>
@@ -460,16 +591,18 @@ SavingsClub
 
 <script>
 /* =========================================================
-   Retirement Calculator v2
-   Self-contained logic — no external chart dependency
+   Retirement Calculator v3
+   Navy/emerald brand, Calculate+Reset pattern, empty state,
+   Traditional 401k vs Roth 401k WINNER comparison.
    ========================================================= */
 
 // Assumptions
 var INFLATION_RATE = 0.03;            // 3% annual inflation
 var SS_ANNUAL_BENEFIT = 22800;        // 2026 SSA average retirement benefit (~$1,900/mo)
 var WITHDRAWAL_RATE = 0.04;           // 4% safe withdrawal rule
+var RETIREMENT_YEARS = 30;            // Assumed retirement length for total income figures
 
-// Fidelity-style by-age savings multipliers (×annual salary)
+// Fidelity-style by-age savings multipliers (x annual salary)
 var BENCHMARK_MULTIPLIERS = [
   {age: 30, mult: 1},
   {age: 35, mult: 2},
@@ -480,6 +613,15 @@ var BENCHMARK_MULTIPLIERS = [
   {age: 60, mult: 8},
   {age: 67, mult: 10}
 ];
+
+// Default values for Reset
+var DEFAULTS = {
+  retAge: 30, retTarget: 65, retIncome: 75000,
+  retSaved: 50000, retMonthly: 500, retReturn: 7,
+  retAcct: 'mix', retMatch: '4', retDesiredIncome: 60000,
+  retTaxNow: '22', retTaxLater: '12',
+  retSSToggle: false, retInflationToggle: false
+};
 
 function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
 function fmtK(n){
@@ -499,6 +641,8 @@ function getInputs(){
     accountType:    document.getElementById('retAcct').value,
     matchPct:       +document.getElementById('retMatch').value || 0,
     desiredIncome:  +document.getElementById('retDesiredIncome').value || 0,
+    taxNow:         +document.getElementById('retTaxNow').value || 22,
+    taxLater:       +document.getElementById('retTaxLater').value || 12,
     includeSS:      document.getElementById('retSSToggle').checked,
     todayDollars:   document.getElementById('retInflationToggle').checked
   };
@@ -523,12 +667,8 @@ function projectGrowth(inputs){
   var trajectory = [];
   var balance = inputs.saved;
   var monthlyRate = inputs.annualReturn / 100 / 12;
-
-  // Employer match: monthly $ added on top of user's contribution
-  // Assumed: user contributes enough to capture full match (educational simplification)
   var monthlyMatch = (inputs.matchPct / 100) * inputs.income / 12;
 
-  // Snapshot at current age
   trajectory.push({
     age: inputs.currentAge,
     value: balance,
@@ -536,7 +676,6 @@ function projectGrowth(inputs){
   });
 
   for (var age = inputs.currentAge + 1; age <= inputs.retirementAge; age++){
-    // 12 months of compounding + contributions
     for (var m = 0; m < 12; m++){
       balance = balance * (1 + monthlyRate) + inputs.monthlyContrib + monthlyMatch;
     }
@@ -554,7 +693,6 @@ function projectGrowth(inputs){
 function renderGrowthChart(trajectory, target, todayDollars, yearsFromNow){
   if (trajectory.length === 0) return '';
 
-  // Find max for Y scale
   var maxVal = target;
   for (var i = 0; i < trajectory.length; i++){
     if (trajectory[i].value > maxVal) maxVal = trajectory[i].value;
@@ -571,7 +709,6 @@ function renderGrowthChart(trajectory, target, todayDollars, yearsFromNow){
   function xCoord(i){ return padding.left + (i / (n - 1)) * chartW; }
   function yCoord(v){ return padding.top + chartH - (v / maxVal) * chartH; }
 
-  // Paths
   var projPath = '';
   var benchPath = '';
   for (var i = 0; i < trajectory.length; i++){
@@ -582,10 +719,8 @@ function renderGrowthChart(trajectory, target, todayDollars, yearsFromNow){
     benchPath += (i === 0 ? 'M' : ' L') + xCoord(i).toFixed(1) + ',' + yCoord(displayBench).toFixed(1);
   }
 
-  // Area under projection line (light fill)
   var areaPath = projPath + ' L' + xCoord(n-1).toFixed(1) + ',' + yCoord(0).toFixed(1) + ' L' + xCoord(0).toFixed(1) + ',' + yCoord(0).toFixed(1) + ' Z';
 
-  // Y-axis ticks (5)
   var yTicks = '';
   for (var t = 0; t <= 4; t++){
     var tickVal = maxVal * t / 4;
@@ -594,19 +729,16 @@ function renderGrowthChart(trajectory, target, todayDollars, yearsFromNow){
            +  '<text x="' + (padding.left - 8) + '" y="' + (ty + 4) + '" text-anchor="end" font-size="11" fill="#9CA3AF" font-family="DM Sans,sans-serif">' + fmtK(tickVal) + '</text>';
   }
 
-  // X-axis labels (5 ages spread out)
   var xLabels = '';
   var ageStep = Math.max(1, Math.floor((n-1) / 5));
   for (var i = 0; i < n; i += ageStep){
     var lx = xCoord(i);
     xLabels += '<text x="' + lx + '" y="' + (height - padding.bottom + 18) + '" text-anchor="middle" font-size="11" fill="#6B7280" font-family="DM Sans,sans-serif">' + trajectory[i].age + '</text>';
   }
-  // Always include last age
   if ((n-1) % ageStep !== 0){
     xLabels += '<text x="' + xCoord(n-1) + '" y="' + (height - padding.bottom + 18) + '" text-anchor="middle" font-size="11" fill="#6B7280" font-family="DM Sans,sans-serif">' + trajectory[n-1].age + '</text>';
   }
 
-  // Target horizontal line (dashed)
   var displayTarget = todayDollars ? target / Math.pow(1 + INFLATION_RATE, yearsFromNow) : target;
   var targetY = yCoord(displayTarget);
   var targetLine = '';
@@ -614,10 +746,6 @@ function renderGrowthChart(trajectory, target, todayDollars, yearsFromNow){
     targetLine = '<line x1="' + padding.left + '" y1="' + targetY + '" x2="' + (width - padding.right) + '" y2="' + targetY + '" stroke="#DC2626" stroke-width="2" stroke-dasharray="6,4"/>'
               +  '<text x="' + (width - padding.right + 6) + '" y="' + (targetY + 4) + '" font-size="11" fill="#DC2626" font-weight="600" font-family="DM Sans,sans-serif">Target</text>';
   }
-
-  // Final value label
-  var lastTraj = trajectory[n-1];
-  var lastDisplay = todayDollars ? lastTraj.value / Math.pow(1 + INFLATION_RATE, n-1) : lastTraj.value;
 
   return '<svg viewBox="0 0 ' + width + ' ' + height + '" width="100%" preserveAspectRatio="xMidYMid meet" style="display:block;height:auto" role="img" aria-label="Retirement savings growth chart">'
        +   yTicks
@@ -630,7 +758,7 @@ function renderGrowthChart(trajectory, target, todayDollars, yearsFromNow){
 }
 
 // Render benchmark milestone rows for key ages.
-function renderBenchmarkRows(inputs, trajectory){
+function renderBenchmarkRows(inputs){
   var keyAges = [30, 40, 50, 60, 67];
   var html = '';
   for (var i = 0; i < keyAges.length; i++){
@@ -638,15 +766,88 @@ function renderBenchmarkRows(inputs, trajectory){
     if (age < inputs.currentAge - 5 || age > inputs.retirementAge + 5) continue;
     var multiplier = getBenchmarkMultiplier(age);
     var target = multiplier * inputs.income;
-    var isCurrent = (age === Math.round(inputs.currentAge / 5) * 5) ||
-                    (Math.abs(age - inputs.currentAge) < 3);
+    var isCurrent = Math.abs(age - inputs.currentAge) < 3;
     html += '<div class="ret-benchmark-row' + (isCurrent ? ' current' : '') + '">'
          +   '<div><div class="ret-benchmark-age">Age ' + age + '</div></div>'
-         +   '<div class="ret-benchmark-multiplier">' + multiplier + '× annual income</div>'
+         +   '<div class="ret-benchmark-multiplier">' + multiplier + 'x annual income</div>'
          +   '<div class="ret-benchmark-target">' + fmtK(target) + '</div>'
          + '</div>';
   }
   return html;
+}
+
+/* ============== TRADITIONAL vs ROTH WINNER ==============
+   Assumption: same gross monthly contribution into each account.
+   Traditional 401k: balance taxed at retirement bracket on withdrawal.
+   Roth 401k: balance tax-free at withdrawal.
+   Total after-tax retirement income compared over a 30-year retirement
+   using the 4% safe withdrawal rule.
+   This isolates the tax-timing decision. We acknowledge a real-world
+   nuance: Traditional contributions also free up tax savings today that
+   could be invested separately. Most people spend that tax savings, so
+   we use the conservative "same contribution" model here.
+============================================================ */
+function renderTradVsRoth(inputs, nestEggNominal, yearsFromNow){
+  var displayNest = inputs.todayDollars
+    ? nestEggNominal / Math.pow(1 + INFLATION_RATE, yearsFromNow)
+    : nestEggNominal;
+
+  var taxLater = inputs.taxLater / 100;
+  var taxNow = inputs.taxNow / 100;
+
+  // Annual after-tax withdrawal (4% rule)
+  var tradAnnual = displayNest * WITHDRAWAL_RATE * (1 - taxLater);
+  var rothAnnual = displayNest * WITHDRAWAL_RATE;
+
+  // Total over 30-year retirement (rough)
+  var tradTotal = tradAnnual * RETIREMENT_YEARS;
+  var rothTotal = rothAnnual * RETIREMENT_YEARS;
+
+  var rothWins = rothTotal > tradTotal;
+  var diff = Math.abs(rothTotal - tradTotal);
+  var diffPct = tradTotal > 0 ? Math.round((diff / Math.min(tradTotal, rothTotal)) * 100) : 0;
+
+  var tradClass = rothWins ? '' : 'winner';
+  var rothClass = rothWins ? 'winner' : '';
+
+  var summary;
+  if (taxLater < taxNow){
+    summary = '<strong>Traditional has the edge for you</strong> because you expect to be in a lower tax bracket in retirement (' + inputs.taxLater + '%) than today (' + inputs.taxNow + '%). The upfront tax deduction is worth more than the taxes you pay later. Difference over a 30-year retirement: about ' + fmtK(diff) + ' (' + diffPct + '% more from Traditional).';
+  } else if (taxLater > taxNow){
+    summary = '<strong>Roth has the edge for you</strong> because you expect to be in a higher tax bracket in retirement (' + inputs.taxLater + '%) than today (' + inputs.taxNow + '%). Paying taxes now at a lower rate beats paying them later at a higher rate. Difference over a 30-year retirement: about ' + fmtK(diff) + ' (' + diffPct + '% more from Roth).';
+  } else if (taxLater === 0){
+    summary = '<strong>Roth wins by a wide margin</strong> because you expect zero tax in retirement, which means all of your Roth withdrawals are tax-free. But check this assumption: very few people end up with truly zero tax bracket in retirement.';
+  } else {
+    summary = '<strong>It is close to a tie</strong> because your expected current and retirement tax rates are the same. In a true tie, Roth is usually slightly preferred for the certainty (no future tax-rate risk) and because Roth has no required minimum distributions in retirement. Many planners split contributions between both for tax diversification.';
+  }
+
+  return '<div class="ret-section-title">'
+       +   '<span class="ret-icon"><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>'
+       +   'Traditional 401k vs Roth 401k'
+       + '</div>'
+       + '<div class="ret-vs-note"><strong>How we compare:</strong> same monthly contribution into each account, same growth, same retirement age. Traditional is taxed at withdrawal at your expected retirement bracket. Roth is tax-free at withdrawal. Total after-tax retirement income shown over a 30-year retirement using the 4% rule.</div>'
+       + '<div class="ret-vs-grid">'
+
+       +   '<div class="ret-vs-card ' + tradClass + '">'
+       +     '<div class="ret-vs-icon"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M8 14h4"/></svg></div>'
+       +     '<div class="ret-vs-title">Traditional 401(k)</div>'
+       +     '<div class="ret-vs-subtitle">Pre-tax now, taxed at withdrawal</div>'
+       +     '<div class="ret-vs-metric-label">After-tax annual income</div>'
+       +     '<div class="ret-vs-metric">' + fmtK(tradAnnual) + '/yr</div>'
+       +     '<div class="ret-vs-detail">Total over 30-year retirement: <strong>' + fmtK(tradTotal) + '</strong>. Taxed at ' + inputs.taxLater + '% retirement bracket. Best when you expect a lower tax rate in retirement than today.</div>'
+       +   '</div>'
+
+       +   '<div class="ret-vs-card ' + rothClass + '">'
+       +     '<div class="ret-vs-icon"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M8 14l3 3 5-7"/></svg></div>'
+       +     '<div class="ret-vs-title">Roth 401(k)</div>'
+       +     '<div class="ret-vs-subtitle">Taxed now, tax-free at withdrawal</div>'
+       +     '<div class="ret-vs-metric-label">After-tax annual income</div>'
+       +     '<div class="ret-vs-metric">' + fmtK(rothAnnual) + '/yr</div>'
+       +     '<div class="ret-vs-detail">Total over 30-year retirement: <strong>' + fmtK(rothTotal) + '</strong>. No tax owed on qualified withdrawals. Best when you expect a higher tax rate in retirement than today, or want certainty.</div>'
+       +   '</div>'
+
+       + '</div>'
+       + '<div class="ret-vs-summary">' + summary + '</div>';
 }
 
 function calc(){
@@ -654,12 +855,17 @@ function calc(){
 
   // Sanity check
   if (x.retirementAge <= x.currentAge){
-    document.getElementById('calcResult').innerHTML =
+    document.getElementById('retEmptyState').style.display = 'none';
+    var resultEl = document.getElementById('calcResult');
+    resultEl.style.display = 'block';
+    resultEl.innerHTML =
       '<div class="ret-result-banner gap">'
+      + '<div class="ret-result-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16v.5"/></svg></div>'
+      + '<div class="ret-result-body">'
       + '<div class="ret-result-label">Invalid input</div>'
-      + '<div class="ret-result-value">—</div>'
-      + '<div class="ret-result-sub">Retirement age must be greater than current age.</div>'
-      + '</div>';
+      + '<div class="ret-result-value">&mdash;</div>'.replace('&mdash;','-')
+      + '<div class="ret-result-sub">Retirement age must be greater than current age. Update the values and try again.</div>'
+      + '</div></div>';
     return;
   }
 
@@ -667,11 +873,8 @@ function calc(){
   var trajectory = projectGrowth(x);
   var nestEgg = trajectory[trajectory.length - 1].value;
 
-  // Target nest egg: 25× desired annual income (nominal future dollars)
-  // Adjust target for inflation if user inputs desired income in today's dollars
+  // Target nest egg: 25x desired annual income (nominal future dollars)
   var nominalTarget = x.desiredIncome * 25 * Math.pow(1 + INFLATION_RATE, years);
-
-  // If SS toggle on, subtract SS contribution (today's $) grown to future $
   var ssOffset = x.includeSS ? SS_ANNUAL_BENEFIT * 25 * Math.pow(1 + INFLATION_RATE, years) : 0;
   var adjustedTarget = Math.max(0, nominalTarget - ssOffset);
 
@@ -681,8 +884,8 @@ function calc(){
   var gap = displayTarget - displayNestEgg;
   var pctOfTarget = adjustedTarget > 0 ? (nestEgg / adjustedTarget) * 100 : 100;
 
-  // Annual income the nest egg supports (4% rule)
-  var supportedIncome = (x.todayDollars ? nestEgg / Math.pow(1 + INFLATION_RATE, years) : nestEgg) * WITHDRAWAL_RATE;
+  // Annual income the nest egg supports (4% rule, pre-tax)
+  var supportedIncome = displayNestEgg * WITHDRAWAL_RATE;
   var displaySS = x.includeSS ? (x.todayDollars ? SS_ANNUAL_BENEFIT : SS_ANNUAL_BENEFIT * Math.pow(1 + INFLATION_RATE, years)) : 0;
   var totalAnnualIncome = supportedIncome + displaySS;
 
@@ -692,29 +895,34 @@ function calc(){
   var growthFromMarket = nestEgg - totalContributed;
 
   // Status
-  var status, bannerClass;
-  if (pctOfTarget >= 100){ status = 'ontrack'; bannerClass = 'ontrack'; }
-  else if (pctOfTarget >= 70){ status = 'behind'; bannerClass = 'behind'; }
-  else { status = 'gap'; bannerClass = 'gap'; }
+  var status, bannerClass, iconSvg;
+  if (pctOfTarget >= 100){
+    status = 'ontrack'; bannerClass = 'ontrack';
+    iconSvg = '<svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>';
+  } else if (pctOfTarget >= 70){
+    status = 'behind'; bannerClass = 'behind';
+    iconSvg = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 3"/></svg>';
+  } else {
+    status = 'gap'; bannerClass = 'gap';
+    iconSvg = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16v.5"/></svg>';
+  }
 
   var bannerLabel, bannerValue, bannerSub;
   if (status === 'ontrack'){
-    bannerLabel = 'You\'re on track 🎉';
+    bannerLabel = "You're on track";
     bannerValue = fmtK(displayNestEgg);
-    bannerSub = 'Projected nest egg at age ' + x.retirementAge + (x.todayDollars ? ' (in today\'s dollars)' : '') + '. That covers your $' + fmt(x.desiredIncome) + '/yr target plus a buffer.';
+    bannerSub = 'Projected nest egg at age ' + x.retirementAge + (x.todayDollars ? " (in today's dollars)" : '') + '. That covers your $' + fmt(x.desiredIncome) + '/yr target plus a buffer.';
   } else if (status === 'behind'){
     bannerLabel = 'Getting close, but a gap';
     bannerValue = fmtK(displayNestEgg);
-    bannerSub = 'You\'re at ' + Math.round(pctOfTarget) + '% of your $' + fmt(displayTarget) + ' target' + (x.todayDollars ? ' (today\'s $)' : '') + '. Gap: ' + fmtK(gap) + '. Adjust contributions or retirement age to close it.';
+    bannerSub = "You're at " + Math.round(pctOfTarget) + '% of your $' + fmt(displayTarget) + ' target' + (x.todayDollars ? " (today's $)" : '') + '. Gap: ' + fmtK(gap) + '. Adjust contributions or retirement age to close it.';
   } else {
     bannerLabel = 'Significant gap to target';
     bannerValue = fmtK(displayNestEgg);
-    bannerSub = 'You\'re at ' + Math.round(pctOfTarget) + '% of your $' + fmt(displayTarget) + ' target' + (x.todayDollars ? ' (today\'s $)' : '') + '. Gap: ' + fmtK(gap) + '. Use the scenarios below to find a realistic path.';
+    bannerSub = "You're at " + Math.round(pctOfTarget) + '% of your $' + fmt(displayTarget) + ' target' + (x.todayDollars ? " (today's $)" : '') + '. Gap: ' + fmtK(gap) + '. Use the scenarios below to find a realistic path.';
   }
 
   // ----- WHAT-IF SCENARIOS -----
-
-  // Scenario 1: Retirement Age slider
   var altRetAge = parseInt(document.getElementById('retAgeSlider') ? document.getElementById('retAgeSlider').value : 67, 10);
   var ageScenarioResult;
   if (altRetAge <= x.currentAge){
@@ -726,68 +934,80 @@ function calc(){
     var altNest = altTraj[altTraj.length - 1].value;
     var altDisplay = x.todayDollars ? altNest / Math.pow(1 + INFLATION_RATE, altYears) : altNest;
     var altIncome = altDisplay * WITHDRAWAL_RATE + displaySS;
-    ageScenarioResult = '<div class="ret-scenario-result">Retiring at <strong>' + altRetAge + '</strong> gives you <strong>' + fmtK(altDisplay) + '</strong>' + (x.todayDollars ? ' (today\'s $)' : '') + ', supporting about <strong>$' + fmt(altIncome) + '/yr</strong>' + (x.includeSS ? ' (including SS)' : '') + '.</div>';
+    ageScenarioResult = '<div class="ret-scenario-result">Retiring at <strong>' + altRetAge + '</strong> gives you <strong>' + fmtK(altDisplay) + '</strong>' + (x.todayDollars ? " (today's $)" : '') + ', supporting about <strong>$' + fmt(altIncome) + '/yr</strong>' + (x.includeSS ? ' (including SS)' : '') + '.</div>';
   }
 
-  // Scenario 2: Contribution booster
   var boostAmount = parseInt(document.getElementById('retBoostSlider') ? document.getElementById('retBoostSlider').value : 200, 10);
   var boostInputs = Object.assign({}, x, {monthlyContrib: x.monthlyContrib + boostAmount});
   var boostTraj = projectGrowth(boostInputs);
   var boostNest = boostTraj[boostTraj.length - 1].value;
   var boostDisplay = x.todayDollars ? boostNest / Math.pow(1 + INFLATION_RATE, years) : boostNest;
   var boostExtra = boostDisplay - displayNestEgg;
-  var catchUpNote = (x.currentAge >= 50) ? ' <em>You qualify for IRS catch-up contributions (~$7,500/yr extra in 401k).</em>' : '';
-  var boostResult = '<div class="ret-scenario-result">Adding <strong>$' + boostAmount + '/month</strong> grows your nest egg to <strong>' + fmtK(boostDisplay) + '</strong>' + (x.todayDollars ? ' (today\'s $)' : '') + ' — that\'s <strong>+' + fmtK(boostExtra) + '</strong> more.' + catchUpNote + '</div>';
+  var catchUpNote = (x.currentAge >= 50) ? ' <em>You qualify for IRS catch-up contributions (about $7,500/yr extra in 401k).</em>' : '';
+  var boostResult = '<div class="ret-scenario-result">Adding <strong>$' + boostAmount + '/month</strong> grows your nest egg to <strong>' + fmtK(boostDisplay) + '</strong>' + (x.todayDollars ? " (today's $)" : '') + ', that is <strong>+' + fmtK(boostExtra) + '</strong> more.' + catchUpNote + '</div>';
 
-  // Scenario 3: Market return stress test
   var altReturn = parseFloat(document.getElementById('retReturnSlider') ? document.getElementById('retReturnSlider').value : 6);
   var returnInputs = Object.assign({}, x, {annualReturn: altReturn});
   var returnTraj = projectGrowth(returnInputs);
   var returnNest = returnTraj[returnTraj.length - 1].value;
   var returnDisplay = x.todayDollars ? returnNest / Math.pow(1 + INFLATION_RATE, years) : returnNest;
   var returnDiff = returnDisplay - displayNestEgg;
-  var diffLabel = returnDiff >= 0 ? '+' + fmtK(returnDiff) : '−' + fmtK(Math.abs(returnDiff));
+  var diffLabel = returnDiff >= 0 ? '+' + fmtK(returnDiff) : '-' + fmtK(Math.abs(returnDiff));
   var returnContext = '';
-  if (altReturn <= 4) returnContext = 'Conservative — bond-heavy portfolio or pessimistic scenario.';
+  if (altReturn <= 4) returnContext = 'Conservative. Bond-heavy portfolio or pessimistic scenario.';
   else if (altReturn <= 6) returnContext = 'Realistic for a balanced portfolio after fees and inflation.';
   else if (altReturn <= 8) returnContext = 'Long-term historical S&P 500 average is around 7% after inflation.';
-  else returnContext = 'Optimistic — better than historical norms. Plan for less, hope for more.';
-  var returnResult = '<div class="ret-scenario-result">At <strong>' + altReturn + '%</strong> annual return, your nest egg becomes <strong>' + fmtK(returnDisplay) + '</strong>' + (x.todayDollars ? ' (today\'s $)' : '') + ' (' + diffLabel + ' vs your plan).<br><span style="font-size:.85rem;color:#6B7280">' + returnContext + '</span></div>';
+  else returnContext = 'Optimistic. Better than historical norms. Plan for less, hope for more.';
+  var returnResult = '<div class="ret-scenario-result">At <strong>' + altReturn + '%</strong> annual return, your nest egg becomes <strong>' + fmtK(returnDisplay) + '</strong>' + (x.todayDollars ? " (today's $)" : '') + ' (' + diffLabel + ' vs your plan).<br><span style="font-size:.85rem;color:#6B7280">' + returnContext + '</span></div>';
 
   // ----- BUILD HTML -----
-  document.getElementById('calcResult').innerHTML =
+  document.getElementById('retEmptyState').style.display = 'none';
+  var resultEl = document.getElementById('calcResult');
+  resultEl.style.display = 'block';
+
+  resultEl.innerHTML =
     '<div class="ret-result-banner ' + bannerClass + '">'
+    + '<div class="ret-result-icon">' + iconSvg + '</div>'
+    + '<div class="ret-result-body">'
     + '<div class="ret-result-label">' + bannerLabel + '</div>'
     + '<div class="ret-result-value">' + bannerValue + '</div>'
     + '<div class="ret-result-sub">' + bannerSub + '</div>'
-    + '</div>'
+    + '</div></div>'
 
     + '<div class="ret-stats-grid">'
     +   '<div class="ret-stat"><div class="ret-stat-label">Years to retire</div><div class="ret-stat-value">' + years + '</div></div>'
     +   '<div class="ret-stat"><div class="ret-stat-label">Annual income (4% rule)</div><div class="ret-stat-value">' + fmtK(totalAnnualIncome) + '</div></div>'
-    +   '<div class="ret-stat"><div class="ret-stat-label">Total you\'ll contribute</div><div class="ret-stat-value">' + fmtK(totalContributed) + '</div></div>'
+    +   '<div class="ret-stat"><div class="ret-stat-label">Total you will contribute</div><div class="ret-stat-value">' + fmtK(totalContributed) + '</div></div>'
     +   '<div class="ret-stat"><div class="ret-stat-label">Market growth</div><div class="ret-stat-value" style="color:#059669">' + fmtK(growthFromMarket) + '</div></div>'
     + '</div>'
 
     + '<div class="ret-chart-card">'
     +   '<div class="ret-chart-title">Projected growth vs benchmark</div>'
-    +   '<div class="ret-chart-sub">' + (x.todayDollars ? 'In today\'s dollars (inflation-adjusted)' : 'In future dollars (nominal)') + (x.includeSS ? ' · Social Security included' : '') + '</div>'
+    +   '<div class="ret-chart-sub">' + (x.todayDollars ? "In today's dollars (inflation-adjusted)" : 'In future dollars (nominal)') + (x.includeSS ? ' &middot; Social Security included' : '') + '</div>'
     +   renderGrowthChart(trajectory, adjustedTarget, x.todayDollars, years)
     +   '<div class="ret-chart-legend">'
     +     '<div class="ret-chart-legend-item"><div class="ret-chart-legend-dot" style="background:#059669"></div>Your projection</div>'
     +     '<div class="ret-chart-legend-item"><div class="ret-chart-legend-dot" style="background:#F59E0B;background-image:repeating-linear-gradient(90deg,#F59E0B 0,#F59E0B 3px,transparent 3px,transparent 6px)"></div>Benchmark (Fidelity multipliers)</div>'
-    +     '<div class="ret-chart-legend-item"><div class="ret-chart-legend-dot" style="background:#DC2626;background-image:repeating-linear-gradient(90deg,#DC2626 0,#DC2626 4px,transparent 4px,transparent 8px)"></div>25× target</div>'
+    +     '<div class="ret-chart-legend-item"><div class="ret-chart-legend-dot" style="background:#DC2626;background-image:repeating-linear-gradient(90deg,#DC2626 0,#DC2626 4px,transparent 4px,transparent 8px)"></div>25x target</div>'
     +   '</div>'
     + '</div>'
 
-    + '<div class="ret-section-title" style="margin-top:24px"><span class="dot"></span> Benchmark milestones</div>'
-    + '<div class="ret-benchmarks">' + renderBenchmarkRows(x, trajectory) + '</div>'
+    + '<div class="ret-section-title" style="margin-top:24px">'
+    +   '<span class="ret-icon"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span>'
+    +   'Benchmark milestones'
+    + '</div>'
+    + '<div class="ret-benchmarks">' + renderBenchmarkRows(x) + '</div>'
 
-    + '<div class="ret-section-title" style="margin-top:28px"><span class="dot"></span> What-if scenarios</div>'
+    + renderTradVsRoth(x, nestEgg, years)
+
+    + '<div class="ret-section-title" style="margin-top:28px">'
+    +   '<span class="ret-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M2 12h20"/></svg></span>'
+    +   'What-if scenarios'
+    + '</div>'
     + '<div class="ret-scenarios">'
 
     +   '<div class="ret-scenario-card">'
-    +     '<div class="ret-scenario-icon age">📅</div>'
+    +     '<div class="ret-scenario-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></div>'
     +     '<div class="ret-scenario-title">Retirement Age</div>'
     +     '<div class="ret-scenario-desc">How does your nest egg change if you retire earlier or later?</div>'
     +     '<div class="ret-slider-row">'
@@ -798,7 +1018,7 @@ function calc(){
     +   '</div>'
 
     +   '<div class="ret-scenario-card">'
-    +     '<div class="ret-scenario-icon boost">⚡</div>'
+    +     '<div class="ret-scenario-icon"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>'
     +     '<div class="ret-scenario-title">Contribution Booster</div>'
     +     '<div class="ret-scenario-desc">What if you bumped your monthly contribution?</div>'
     +     '<div class="ret-slider-row">'
@@ -809,7 +1029,7 @@ function calc(){
     +   '</div>'
 
     +   '<div class="ret-scenario-card">'
-    +     '<div class="ret-scenario-icon market">📈</div>'
+    +     '<div class="ret-scenario-icon"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>'
     +     '<div class="ret-scenario-title">Market Return Stress Test</div>'
     +     '<div class="ret-scenario-desc">What if returns are different than you expect?</div>'
     +     '<div class="ret-slider-row">'
@@ -820,13 +1040,40 @@ function calc(){
     +   '</div>'
 
     + '</div>';
+
+  // Scroll results into view smoothly
+  setTimeout(function(){
+    resultEl.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 60);
+}
+
+function resetCalc(){
+  document.getElementById('retAge').value = DEFAULTS.retAge;
+  document.getElementById('retTarget').value = DEFAULTS.retTarget;
+  document.getElementById('retIncome').value = DEFAULTS.retIncome;
+  document.getElementById('retSaved').value = DEFAULTS.retSaved;
+  document.getElementById('retMonthly').value = DEFAULTS.retMonthly;
+  document.getElementById('retReturn').value = DEFAULTS.retReturn;
+  document.getElementById('retAcct').value = DEFAULTS.retAcct;
+  document.getElementById('retMatch').value = DEFAULTS.retMatch;
+  document.getElementById('retDesiredIncome').value = DEFAULTS.retDesiredIncome;
+  document.getElementById('retTaxNow').value = DEFAULTS.retTaxNow;
+  document.getElementById('retTaxLater').value = DEFAULTS.retTaxLater;
+  document.getElementById('retSSToggle').checked = DEFAULTS.retSSToggle;
+  document.getElementById('retInflationToggle').checked = DEFAULTS.retInflationToggle;
+
+  // Hide results, show empty state
+  document.getElementById('calcResult').style.display = 'none';
+  document.getElementById('calcResult').innerHTML = '';
+  document.getElementById('retEmptyState').style.display = 'block';
+
+  // Scroll back to the calculator
+  document.getElementById('retAge').scrollIntoView({behavior:'smooth', block:'center'});
 }
 
 function toggleInfo(){
   document.getElementById('retInfoCard').classList.toggle('open');
 }
-
-document.addEventListener('DOMContentLoaded', function(){ calc(); });
 </script>
 
 <footer>
@@ -862,7 +1109,7 @@ document.addEventListener('DOMContentLoaded', function(){ calc(); });
 </div>
 <div class="footer-bottom">
 <p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
-<p>Educational content only not financial advice. SavingsClub is not a licensed financial advisor. Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+<p>Educational content only, not financial advice. SavingsClub is not a licensed financial advisor. Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
 </div>
 </div>
 </footer>
@@ -883,7 +1130,7 @@ b.id='cookieBanner';
 b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
 var acceptBtn=document.createElement('button');
 acceptBtn.textContent='Accept';
-acceptBtn.style.cssText='background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#059669,#10B981);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
 acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
 var declineBtn=document.createElement('button');
 declineBtn.textContent='Decline';
@@ -893,12 +1140,12 @@ localStorage.setItem('sc_cookies','decline');
 b.innerHTML='';
 var msg=document.createElement('span');
 msg.style.cssText='padding:12px 0;color:#10B981';
-msg.textContent='✓ No cookies stored. You can browse freely.';
+msg.textContent='No cookies stored. You can browse freely.';
 b.appendChild(msg);
 setTimeout(function(){b.remove();},2500);
 };
 var txt=document.createElement('span');
-txt.innerHTML='We use cookies to improve your experience. <a href="/cookie-policy/" style="color:#3B82F6">Cookie Policy</a>';
+txt.innerHTML='We use cookies to improve your experience. <a href="/cookie-policy/" style="color:#10B981">Cookie Policy</a>';
 var btnWrap=document.createElement('div');
 btnWrap.style.cssText='display:flex;gap:8px';
 btnWrap.appendChild(acceptBtn);
