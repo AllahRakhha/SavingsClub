@@ -2,206 +2,472 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Personal Finance Blog | SavingsClub</title>
-<meta name="description" content="Practical personal finance guides on saving, budgeting, credit, debt payoff, and investing. Free articles for Americans in every state.">
+<meta name="description" content="Practical personal finance guides covering budgeting, saving, credit, debt, retirement, and investing. New articles three times a week.">
+<meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://savingsclub.com/blog/">
-<meta property="og:title" content="Personal Finance Blog | SavingsClub">
-<meta property="og:description" content="Practical personal finance guides on saving, budgeting, credit, debt payoff, banking, mortgage, stocks, and investing. Free articles for Americans in every state.">
-<meta property="og:url" content="https://savingsclub.com/blog/">
+<link rel="icon" type="image/png" href="/img/sc-favicon.png">
+
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://savingsclub.com/blog/">
+<meta property="og:title" content="Personal Finance Blog | SavingsClub">
+<meta property="og:description" content="Practical personal finance guides covering budgeting, saving, credit, debt, retirement, and investing.">
+<meta property="og:image" content="https://savingsclub.com/img/sc-logo-full.png">
 <meta property="og:site_name" content="SavingsClub">
-<link rel="stylesheet" href="../css/style.css">
-<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-<meta property="og:image" content="https://savingsclub.com/img/savings-jar.jpg">
+
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Personal Finance Blog | SavingsClub">
+<meta name="twitter:description" content="Practical personal finance guides covering budgeting, saving, credit, debt, retirement, and investing.">
+<meta name="twitter:image" content="https://savingsclub.com/img/sc-logo-full.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "SavingsClub Blog",
+  "url": "https://savingsclub.com/blog/",
+  "description": "Practical personal finance guides covering budgeting, saving, credit, debt, retirement, and investing.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "SavingsClub",
+    "url": "https://savingsclub.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://savingsclub.com/img/sc-logo-full.png"
+    }
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://savingsclub.com/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"https://savingsclub.com/blog/"}
+  ]
+}
+</script>
+
+<style>
+.blog-page *{box-sizing:border-box}
+.blog-page{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;background:#F8FAFC;color:#0A1628;line-height:1.6;-webkit-font-smoothing:antialiased}
+.blog-page h1,.blog-page h2,.blog-page h3{font-family:'Plus Jakarta Sans',sans-serif;color:#0A1628;line-height:1.2;margin:0}
+
+.blog-hero{background:linear-gradient(135deg,#0A1628 0%,#1E293B 100%);color:#fff;padding:90px 24px 70px;text-align:center;position:relative;overflow:hidden}
+.blog-hero::before{content:'';position:absolute;top:-40%;right:-15%;width:60%;height:180%;background:radial-gradient(circle,rgba(16,185,129,0.18) 0%,transparent 60%);pointer-events:none}
+.blog-hero::after{content:'';position:absolute;bottom:-40%;left:-15%;width:50%;height:160%;background:radial-gradient(circle,rgba(52,211,153,0.1) 0%,transparent 60%);pointer-events:none}
+.blog-hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
+.blog-hero .badge{display:inline-block;background:rgba(16,185,129,0.18);color:#34D399;padding:8px 20px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px;border:1px solid rgba(16,185,129,0.35)}
+.blog-hero h1{font-size:clamp(36px,5vw,54px);color:#fff;font-weight:800;margin-bottom:20px;letter-spacing:-0.02em}
+.blog-hero h1 .accent{color:#34D399}
+.blog-hero p{font-size:clamp(16px,2vw,19px);color:rgba(255,255,255,0.78);max-width:680px;margin:0 auto;line-height:1.6}
+
+.filter-bar{max-width:1200px;margin:-32px auto 0;padding:0 24px;position:relative;z-index:3;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.filter-chip{background:#fff;border:1px solid #E2E8F0;color:#475569;padding:11px 20px;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s ease;box-shadow:0 2px 10px rgba(10,22,40,0.06);font-family:'DM Sans',sans-serif}
+.filter-chip:hover{border-color:#10B981;color:#059669;transform:translateY(-1px);box-shadow:0 4px 14px rgba(16,185,129,0.15)}
+.filter-chip.active{background:linear-gradient(135deg,#10B981,#059669);color:#fff;border-color:transparent;box-shadow:0 4px 14px rgba(16,185,129,0.35)}
+
+.posts-section{max-width:1200px;margin:0 auto;padding:56px 24px 90px}
+.posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:28px}
+.post-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 20px rgba(10,22,40,0.06);transition:transform 0.3s ease,box-shadow 0.3s ease,border-color 0.3s ease;display:flex;flex-direction:column;text-decoration:none;color:inherit;border:1px solid #F1F5F9;position:relative}
+.post-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#10B981,#34D399);opacity:0;transition:opacity 0.3s;z-index:2}
+.post-card:hover{transform:translateY(-6px);box-shadow:0 14px 36px rgba(10,22,40,0.14);border-color:#D1FAE5}
+.post-card:hover::before{opacity:1}
+.post-image-wrap{position:relative;width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#0A1628 0%,#1E293B 100%);overflow:hidden}
+.post-image{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease}
+.post-card:hover .post-image{transform:scale(1.04)}
+.img-fallback{position:absolute;inset:0;display:none;align-items:center;justify-content:center;color:#34D399;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,#0A1628,#1E293B)}
+.img-fallback::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(16,185,129,0.2),transparent 60%);pointer-events:none}
+.post-image-wrap.img-error .post-image{display:none}
+.post-image-wrap.img-error .img-fallback{display:flex}
+.post-content{padding:22px 22px 26px;flex:1;display:flex;flex-direction:column}
+.post-meta{display:flex;gap:12px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.post-category{background:rgba(16,185,129,0.1);color:#059669;padding:5px 12px;border-radius:999px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;font-size:11px}
+.post-date{color:#94A3B8;font-weight:500;font-size:12px}
+.post-card h2{font-size:20px;font-weight:700;line-height:1.3;margin-bottom:12px;color:#0A1628;font-family:'Plus Jakarta Sans',sans-serif}
+.post-excerpt{font-size:15px;color:#475569;line-height:1.6;margin-bottom:18px;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.read-more{display:inline-flex;align-items:center;gap:6px;color:#059669;font-weight:700;font-size:14px;margin-top:auto;letter-spacing:0.2px}
+.read-more::after{content:'→';transition:transform 0.2s ease;display:inline-block}
+.post-card:hover .read-more::after{transform:translateX(5px)}
+.post-card.hidden{display:none}
+
+.empty-state{grid-column:1/-1;text-align:center;padding:60px 20px;color:#64748B}
+.empty-state h3{font-size:20px;color:#0A1628;margin-bottom:8px}
+
+.bottom-cta{background:linear-gradient(135deg,#0A1628 0%,#1E293B 100%);color:#fff;text-align:center;padding:70px 24px;position:relative;overflow:hidden}
+.bottom-cta::before{content:'';position:absolute;top:-30%;right:-10%;width:50%;height:160%;background:radial-gradient(circle,rgba(16,185,129,0.15) 0%,transparent 60%);pointer-events:none}
+.bottom-cta-inner{max-width:720px;margin:0 auto;position:relative;z-index:1}
+.bottom-cta h2{color:#fff;font-size:clamp(26px,3.5vw,36px);margin-bottom:14px;font-weight:800}
+.bottom-cta p{color:rgba(255,255,255,0.72);font-size:17px;margin-bottom:30px;line-height:1.6}
+.cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta-btn{display:inline-block;padding:14px 30px;border-radius:999px;font-weight:700;text-decoration:none;font-size:15px;transition:all 0.2s ease;font-family:'Plus Jakarta Sans',sans-serif}
+.cta-btn-primary{background:linear-gradient(135deg,#10B981,#059669);color:#fff;box-shadow:0 6px 20px rgba(16,185,129,0.35)}
+.cta-btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(16,185,129,0.45)}
+.cta-btn-secondary{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.2)}
+.cta-btn-secondary:hover{background:rgba(255,255,255,0.14);transform:translateY(-2px)}
+
+@media (max-width:640px){
+  .blog-hero{padding:60px 20px 50px}
+  .posts-section{padding:40px 20px 60px}
+  .posts-grid{grid-template-columns:1fr;gap:22px}
+  .filter-bar{margin-top:-22px}
+  .filter-chip{padding:9px 16px;font-size:13px}
+  .bottom-cta{padding:54px 20px}
+}
+</style>
 </head>
-<body>
-<nav id="mainNav">
-<div class="nav-inner">
-<div class="logo" onclick="location.href='../'">
-<div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-SavingsClub
-</div>
-<div class="nav-links" id="navLinks">
-<a href="../">Home</a>
-<a href="../savings-calculator/">Calculators</a>
-<a href="../credit-cards/">Credit Cards</a>
-<a href="../blog/" class="active">Blog</a>
-<a href="../banking/">Banking</a>
-<a href="../about/">About</a>
-<a href="../faq/">FAQ</a>
-</div>
-<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
-</div>
+<body class="blog-page">
+
+<header class="blog-hero">
+  <div class="blog-hero-inner">
+    <span class="badge">SavingsClub Blog</span>
+    <h1>Personal Finance, <span class="accent">Made Simpler.</span></h1>
+    <p>Practical guides on budgeting, saving, credit, debt, and retirement. Fresh articles every Monday, Wednesday, and Friday.</p>
+  </div>
+</header>
+
+<nav class="filter-bar" aria-label="Filter blog posts by category">
+  <button class="filter-chip active" data-cat="all">All Posts</button>
+  <button class="filter-chip" data-cat="Savings">Savings</button>
+  <button class="filter-chip" data-cat="Credit">Credit</button>
+  <button class="filter-chip" data-cat="Debt">Debt</button>
+  <button class="filter-chip" data-cat="Credit Cards">Credit Cards</button>
+  <button class="filter-chip" data-cat="Budgeting">Budgeting</button>
+  <button class="filter-chip" data-cat="Retirement">Retirement</button>
+  <button class="filter-chip" data-cat="Money Tips">Money Tips</button>
+  <button class="filter-chip" data-cat="Housing">Housing</button>
+  <button class="filter-chip" data-cat="Income">Income</button>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-<a href="../">Home</a>
-<a href="../savings-calculator/">Savings</a>
-<a href="../budget-planner/">Budget</a>
-<a href="../mortgage-calculator/">Mortgage</a>
-<a href="../debt-payoff-calculator/">Debt Payoff</a>
-<a href="../credit-cards/">Credit Cards</a>
-<a href="../blog/">Blog</a>
-<a href="../banking/">Banking</a>
-<a href="../about/">About</a>
-<a href="../contact/">Contact</a>
-</div>
+<main class="posts-section">
+  <div class="posts-grid" id="postsGrid">
 
-<section style="padding:100px 0 60px">
-<div class="container">
-<div class="section-header">
-<h1>Personal Finance Blog</h1>
-<p>Practical guides on saving, investing, credit, and building wealth across all 50 states.</p>
-</div>
-<div id="blogGrid" class="grid-3"></div>
-<noscript><p style="text-align:center;color:var(--text-light)">Please enable JavaScript to view blog posts.</p></noscript>
-</div>
+    <a href="/blog/financial-planning-checklist-for-new-parents/" class="post-card" data-cat="Housing">
+      <div class="post-image-wrap">
+        <img class="post-image" src="https://images.unsplash.com/photo-1725271765568-ff737f0ab736?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="Financial planning checklist for new parents" loading="lazy" onerror="this.parentNode.classList.add('img-error')">
+        <div class="img-fallback">Housing</div>
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-category">Housing</span>
+          <span class="post-date">June 26, 2026</span>
+        </div>
+        <h2>Financial planning checklist for new parents</h2>
+        <p class="post-excerpt">You just brought home a tiny human who can't yet tell you what they want, but they've already completely rearranged your finances.</p>
+        <span class="read-more">Read article</span>
+      </div>
+    </a>
+
+    <a href="/blog/top-budgeting-strategies-for-families-in-connecticut/" class="post-card" data-cat="Budgeting">
+      <div class="post-image-wrap">
+        <img class="post-image" src="https://images.unsplash.com/photo-1627662056294-94fa1ac27a06?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="Top budgeting strategies for families in Connecticut" loading="lazy" onerror="this.parentNode.classList.add('img-error')">
+        <div class="img-fallback">Budgeting</div>
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-category">Budgeting</span>
+          <span class="post-date">June 24, 2026</span>
+        </div>
+        <h2>Top budgeting strategies for families in Connecticut</h2>
+        <p class="post-excerpt">Here's the thing about living in Connecticut. It's one of the most expensive states in the entire country, and the numbers prove it.</p>
+        <span class="read-more">Read article</span>
+      </div>
+    </a>
+
+    <a href="/blog/how-to-prepare-financially-for-a-recession/" class="post-card" data-cat="Money Tips">
+      <div class="post-image-wrap">
+        <img class="post-image" src="https://images.unsplash.com/photo-1586864030275-edd6e51dc880?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to prepare financially for a recession" loading="lazy" onerror="this.parentNode.classList.add('img-error')">
+        <div class="img-fallback">Money Tips</div>
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-category">Money Tips</span>
+          <span class="post-date">June 22, 2026</span>
+        </div>
+        <h2>How to prepare financially for a recession</h2>
+        <p class="post-excerpt">Picture this: your employer announces layoffs on a Tuesday morning. You weren't expecting it. Your emergency fund has $400 in it. Your credit cards are carrying balances.</p>
+        <span class="read-more">Read article</span>
+      </div>
+    </a>
+
+    <a href="/blog/best-high-yield-savings-accounts-for-oklahoma-residents/" class="post-card" data-cat="Savings">
+      <div class="post-image-wrap">
+        <img class="post-image" src="https://images.unsplash.com/photo-1777591066111-d49df53c29eb?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="Best high-yield savings accounts for Oklahoma residents" loading="lazy" onerror="this.parentNode.classList.add('img-error')">
+        <div class="img-fallback">Savings</div>
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-category">Savings</span>
+          <span class="post-date">June 19, 2026</span>
+        </div>
+        <h2>Best high-yield savings accounts for Oklahoma residents</h2>
+        <p class="post-excerpt">You're working hard, paying your bills on time, and doing everything right. But your savings account at your local Oklahoma City bank is still earning 0.40% APY.</p>
+        <span class="read-more">Read article</span>
+      </div>
+    </a>
+
+    <a href="/blog/how-to-plan-for-early-retirement-in-your-40s/" class="post-card" data-cat="Retirement">
+      <div class="post-image-wrap">
+        <img class="post-image" src="https://images.unsplash.com/photo-1770387210801-e6de72701aaa?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to plan for early retirement in your 40s" loading="lazy" onerror="this.parentNode.classList.add('img-error')">
+        <div class="img-fallback">Retirement</div>
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-category">Retirement</span>
+          <span class="post-date">June 17, 2026</span>
+        </div>
+        <h2>How to plan for early retirement in your 40s</h2>
+        <p class="post-excerpt">Imagine waking up on a Tuesday at 9 a.m. With nowhere to be. No commute, no boss, no performance review. For millions of Americans, that's the dream.</p>
+        <span class="read-more">Read article</span>
+      </div>
+    </a>
+
+    <a href="/blog/how-to-pay-off-student-loan-debt-faster/" class="post-card" data-cat="Debt">
+      <div class="post-image-wrap">
+        <img class="post-image" src="https://images.unsplash.com/photo-1665567031458-8f6889b3fdb1?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to pay off student loan debt faster" loading="lazy" onerror="this.parentNode.classList.add('img-error')">
+        <div class="img-fallback">Debt</div>
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-category">Debt</span>
+          <span class="post-date">June 16, 2026</span>
+        </div>
+        <h2>How to pay off student loan debt faster</h2>
+        <p class="post-excerpt">Imagine paying $350 every month for ten years and still owing nearly what you started with. That's the reality for millions of Americans carrying student loan debt.</p>
+        <span class="read-more">Read article</span>
+      </div>
+    </a>
+
+    <a href="/blog/how-to-set-financial-goals-you-will-actually-achieve/" class="post-card" data-cat="Money Tips">
+      <div class="post-image-wrap">
+        <img class="post-image" src="https://images.unsplash.com/photo-1728212018177-61a5c547fa23?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to set financial goals you will actually achieve" loading="lazy" onerror="this.parentNode.classList.add('img-error')">
+        <div class="img-fallback">Money Tips</div>
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-category">Money Tips</span>
+          <span class="post-date">June 12, 2026</span>
+        </div>
+        <h2>How to set financial goals you will actually achieve</h2>
+        <p class="post-excerpt">Your financial goals are sitting in a notes app on your phone, collecting digital dust. Maybe it's "save more money" from January 2024, or "pay off debt" from two years ago.</p>
+        <span class="read-more">Read article</span>
+      </div>
+    </a>
+
+    <a href="/blog/how-to-create-a-debt-payoff-plan-that-works/" class="post-card" data-cat="Debt">
+      <div class="post-image-wrap">
+        <img class="post-image" src="https://images.unsplash.com/photo-1772588627327-1eeddcf73c11?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to create a debt payoff plan that works" loading="lazy" onerror="this.parentNode.classList.add('img-error')">
+        <div class="img-fallback">Debt</div>
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-category">Debt</span>
+          <span class="post-date">June 10, 2026</span>
+        </div>
+        <h2>How to create a debt payoff plan that works</h2>
+        <p class="post-excerpt">Sarah stared at her kitchen table covered in credit card statements, student loan papers, and a car payment notice. The total? $47,000 in debt across seven different accounts.</p>
+        <span class="read-more">Read article</span>
+      </div>
+    </a>
+
+    <a href="/blog/best-cash-back-credit-cards-for-gas-and-groceries/" class="post-card" data-cat="Credit Cards">
+      <div class="post-image-wrap">
+        <img class="post-image" src="https://images.unsplash.com/photo-1650237093631-3d7ebd993c76?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="Best cash back credit cards for gas and groceries" loading="lazy" onerror="this.parentNode.classList.add('img-error')">
+        <div class="img-fallback">Credit Cards</div>
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-category">Credit Cards</span>
+          <span class="post-date">June 9, 2026</span>
+        </div>
+        <h2>Best cash back credit cards for gas and groceries</h2>
+        <p class="post-excerpt">Two of your biggest monthly expenses are gas and groceries. The right cash back card can put hundreds of dollars back in your pocket each year on spending you'd do anyway.</p>
+        <span class="read-more">Read article</span>
+      </div>
+    </a>
+
+    <a href="/blog/how-to-improve-your-credit-score-in-90-days/" class="post-card" data-cat="Credit">
+      <div class="post-image-wrap">
+        <img class="post-image" src="https://images.unsplash.com/photo-1584931423312-5d53d862446a?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to improve your credit score in 90 days" loading="lazy" onerror="this.parentNode.classList.add('img-error')">
+        <div class="img-fallback">Credit</div>
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-category">Credit</span>
+          <span class="post-date">June 8, 2026</span>
+        </div>
+        <h2>How to improve your credit score in 90 days</h2>
+        <p class="post-excerpt">A higher credit score saves you thousands on loans, mortgages, and insurance. Here's exactly what to do over the next 90 days to see real movement on your score.</p>
+        <span class="read-more">Read article</span>
+      </div>
+    </a>
+
+    <a href="/blog/how-to-save-money-on-utilities-in-iowa/" class="post-card" data-cat="Savings">
+      <div class="post-image-wrap">
+        <img class="post-image" src="https://images.unsplash.com/photo-1634757439914-23b8acb9d411?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to save money on utilities in Iowa" loading="lazy" onerror="this.parentNode.classList.add('img-error')">
+        <div class="img-fallback">Savings</div>
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-category">Savings</span>
+          <span class="post-date">June 5, 2026</span>
+        </div>
+        <h2>How to save money on utilities in Iowa</h2>
+        <p class="post-excerpt">Iowa winters are brutal and summers aren't getting cooler. Here's how Iowa households are cutting their utility bills with rebates, efficiency programs, and small habit changes.</p>
+        <span class="read-more">Read article</span>
+      </div>
+    </a>
+
+    <a href="/blog/understanding-your-credit-report-and-fixing-errors/" class="post-card" data-cat="Credit">
+      <div class="post-image-wrap">
+        <img class="post-image" src="https://images.unsplash.com/photo-1618044733300-9472054094ee?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="Understanding your credit report and fixing errors" loading="lazy" onerror="this.parentNode.classList.add('img-error')">
+        <div class="img-fallback">Credit</div>
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-category">Credit</span>
+          <span class="post-date">June 4, 2026</span>
+        </div>
+        <h2>Understanding your credit report and fixing errors</h2>
+        <p class="post-excerpt">One in five Americans has an error on their credit report. Here's how to read your report, spot mistakes, and dispute them with the credit bureaus to boost your score.</p>
+        <span class="read-more">Read article</span>
+      </div>
+    </a>
+
+    <a href="/blog/how-to-save-money-on-rent-in-florida/" class="post-card" data-cat="Savings">
+      <div class="post-image-wrap">
+        <img class="post-image" src="https://images.unsplash.com/photo-1768839721719-c5ed97c1fd58?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to save money on rent in Florida" loading="lazy" onerror="this.parentNode.classList.add('img-error')">
+        <div class="img-fallback">Savings</div>
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-category">Savings</span>
+          <span class="post-date">June 2, 2026</span>
+        </div>
+        <h2>How to save money on rent in Florida</h2>
+        <p class="post-excerpt">Florida rents have surged over the last few years, putting pressure on renters statewide. Here are practical strategies to lower your rent or get more value from your lease.</p>
+        <span class="read-more">Read article</span>
+      </div>
+    </a>
+
+    <a href="/blog/best-rewards-credit-cards-for-dining-out/" class="post-card" data-cat="Credit Cards">
+      <div class="post-image-wrap">
+        <img class="post-image" src="https://images.unsplash.com/photo-1726066012714-261f6d8c07bc?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="Best rewards credit cards for dining out" loading="lazy" onerror="this.parentNode.classList.add('img-error')">
+        <div class="img-fallback">Credit Cards</div>
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-category">Credit Cards</span>
+          <span class="post-date">June 1, 2026</span>
+        </div>
+        <h2>Best rewards credit cards for dining out</h2>
+        <p class="post-excerpt">If you eat out regularly, the right rewards card can turn restaurant spending into free travel, cash back, or points. Here's how to pick the card that fits your dining habits.</p>
+        <span class="read-more">Read article</span>
+      </div>
+    </a>
+
+    <a href="/blog/how-to-save-for-college-with-a-529-plan/" class="post-card" data-cat="Savings">
+      <div class="post-image-wrap">
+        <img class="post-image" src="https://images.unsplash.com/photo-1591331922516-beed9d388bc3?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to save for college with a 529 plan" loading="lazy" onerror="this.parentNode.classList.add('img-error')">
+        <div class="img-fallback">Savings</div>
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-category">Savings</span>
+          <span class="post-date">May 29, 2026</span>
+        </div>
+        <h2>How to save for college with a 529 plan</h2>
+        <p class="post-excerpt">A 529 plan offers serious tax advantages for college savings, but choosing the right one matters. Here's how 529 plans work and how to pick the best one for your family.</p>
+        <span class="read-more">Read article</span>
+      </div>
+    </a>
+
+    <a href="/blog/smart-money-moves-for-millennials-in-ohio/" class="post-card" data-cat="Money Tips">
+      <div class="post-image-wrap">
+        <img class="post-image" src="https://images.unsplash.com/photo-1515606378517-3451a4fa2e12?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="Smart money moves for millennials in Ohio" loading="lazy" onerror="this.parentNode.classList.add('img-error')">
+        <div class="img-fallback">Money Tips</div>
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-category">Money Tips</span>
+          <span class="post-date">May 28, 2026</span>
+        </div>
+        <h2>Smart money moves for millennials in Ohio</h2>
+        <p class="post-excerpt">Ohio's cost of living is lower than the coasts, but smart financial moves still matter. Here are the strategies Ohio millennials are using to build wealth in their 30s and 40s.</p>
+        <span class="read-more">Read article</span>
+      </div>
+    </a>
+
+    <a href="/blog/how-to-create-multiple-streams-of-income/" class="post-card" data-cat="Income">
+      <div class="post-image-wrap">
+        <img class="post-image" src="https://images.unsplash.com/photo-1579621970795-87facc2f976d?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to create multiple streams of income" loading="lazy" onerror="this.parentNode.classList.add('img-error')">
+        <div class="img-fallback">Income</div>
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-category">Income</span>
+          <span class="post-date">May 28, 2026</span>
+        </div>
+        <h2>How to create multiple streams of income</h2>
+        <p class="post-excerpt">Relying on a single paycheck is risky. Here's how to build additional income streams through side hustles, investments, and passive income, ranked by realistic time and effort.</p>
+        <span class="read-more">Read article</span>
+      </div>
+    </a>
+
+  </div>
+</main>
+
+<section class="bottom-cta">
+  <div class="bottom-cta-inner">
+    <h2>Run the Numbers Yourself</h2>
+    <p>Reading is one thing. Knowing exactly what to do with your money is another. Use our free calculators to plug in your real numbers and see what works for you.</p>
+    <div class="cta-buttons">
+      <a href="/" class="cta-btn cta-btn-primary">Browse Calculators</a>
+      <a href="/about/" class="cta-btn cta-btn-secondary">About SavingsClub</a>
+    </div>
+  </div>
 </section>
 
 <script>
-var BLOG_THEMES=[
-{color:'#2563EB',bg:'#EFF6FF',emoji:'💰',label:'Savings'},
-{color:'#059669',bg:'#ECFDF5',emoji:'📊',label:'Budgeting'},
-{color:'#D97706',bg:'#FFFBEB',emoji:'💳',label:'Credit'},
-{color:'#7C3AED',bg:'#F5F3FF',emoji:'🎯',label:'Goals'},
-{color:'#DC2626',bg:'#FEF2F2',emoji:'🔥',label:'Debt'},
-{color:'#0891B2',bg:'#ECFEFF',emoji:'🏦',label:'Banking'},
-{color:'#4F46E5',bg:'#EEF2FF',emoji:'📈',label:'Investing'},
-{color:'#BE185D',bg:'#FDF2F8',emoji:'🛡️',label:'Protection'},
-{color:'#0D9488',bg:'#F0FDFA',emoji:'🌱',label:'Growth'},
-{color:'#EA580C',bg:'#FFF7ED',emoji:'⚡',label:'Tips'},
-{color:'#1D4ED8',bg:'#EFF6FF',emoji:'🏠',label:'Housing'},
-{color:'#15803D',bg:'#F0FDF4',emoji:'💵',label:'Income'},
-{color:'#9333EA',bg:'#FAF5FF',emoji:'🔑',label:'Strategy'},
-{color:'#B91C1C',bg:'#FEF2F2',emoji:'📉',label:'Payoff'},
-{color:'#0E7490',bg:'#ECFEFF',emoji:'🌊',label:'Freedom'},
-{color:'#6D28D9',bg:'#F5F3FF',emoji:'✨',label:'Smart Money'},
-{color:'#C2410C',bg:'#FFF7ED',emoji:'🏆',label:'Winners'},
-{color:'#047857',bg:'#ECFDF5',emoji:'📋',label:'Planning'},
-{color:'#1E40AF',bg:'#EFF6FF',emoji:'🔍',label:'Research'},
-{color:'#A21CAF',bg:'#FDF4FF',emoji:'🚀',label:'Launch'}
-];
-
-function loadBlog(){
-fetch('../generated-posts.json')
-.then(function(r){return r.json()})
-.then(function(posts){
-var grid=document.getElementById('blogGrid');
-if(!posts.length){grid.innerHTML='<p style="text-align:center;color:var(--text-light);grid-column:1/-1">Blog posts are published weekly. Check back soon!</p>';return;}
-var html='';
-posts.forEach(function(p,i){
-var t=BLOG_THEMES[i%BLOG_THEMES.length];
-var imageHtml = p.image
-? '<div style="width:100%;height:200px;overflow:hidden;background:#f3f4f6;border-radius:20px 20px 0 0"><img src="'+p.image+'" alt="'+p.title+'" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease"></div>'
-: '';
-html+='<a href="'+p.slug+'/" class="card card-glow reveal" style="text-decoration:none;color:inherit;padding:0;overflow:hidden;display:flex;flex-direction:column">'
-+imageHtml
-+'<div style="padding:24px;display:flex;flex-direction:column;flex:1">'
-+'<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap">'
-+'<span style="background:'+t.bg+';color:'+t.color+';padding:4px 14px;border-radius:20px;font-size:.8rem;font-weight:600">'+t.emoji+' '+p.category+'</span>'
-+'<span style="color:var(--text-lighter);font-size:.85rem">'+p.date+'</span></div>'
-+'<h3 style="margin-bottom:8px;font-size:1.05rem;line-height:1.4">'+p.title+'</h3>'
-+'<span style="color:var(--text-light);font-size:.85rem">By '+p.author+'</span>'
-+'<div style="margin-top:auto;padding-top:12px"><span style="color:var(--blue);font-weight:600;font-size:.9rem">Read Article →</span></div>'
-+'</div></a>';
-});
-grid.innerHTML=html;
-document.querySelectorAll('.reveal').forEach(function(el){
-revealObs.observe(el);
-});
-})
-.catch(function(){
-document.getElementById('blogGrid').innerHTML='<p style="text-align:center;color:var(--text-light);grid-column:1/-1">Blog posts coming soon!</p>';
-});
-}
-
-document.addEventListener('DOMContentLoaded',loadBlog);
-</script>
-
-<footer>
-<div class="container">
-<div class="footer-grid">
-<div>
-<div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
-<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and educational guides for Americans in every state. Making money decisions simpler since 2026.</p>
-</div>
-<div>
-<h4>Calculators</h4>
-<a href="../savings-calculator/">Savings Calculator</a>
-<a href="../budget-planner/">Budget Planner</a>
-<a href="../mortgage-calculator/">Mortgage Calculator</a>
-<a href="../debt-payoff-calculator/">Debt Payoff</a>
-<a href="../auto-loan-calculator/">Auto Loan</a>
-<a href="../net-worth-calculator/">Net Worth</a>
-</div>
-<div>
-<h4>Resources</h4>
-<a href="../blog/">Blog</a>
-<a href="../credit-cards/">Credit Cards</a>
-<a href="../banking/">Banking</a>
-<a href="../contact/">Contact Us</a>
-</div>
-<div>
-<h4>Legal</h4>
-<a href="../privacy-policy/">Privacy Policy</a>
-<a href="../terms-of-service/">Terms of Service</a>
-<a href="../cookie-policy/">Cookie Policy</a>
-<a href="../disclaimer/">Disclaimer</a>
-</div>
-</div>
-<div class="footer-bottom">
-<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
-<p>Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
-</div>
-</div>
-</footer>
-
-<script>
-window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
-function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
-function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
-var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
-</script>
-
-<script>
 (function(){
-if(localStorage.getItem('sc_cookies'))return;
-var b=document.createElement('div');
-b.id='cookieBanner';
-b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#2563EB,#10B981,#F59E0B) 1;backdrop-filter:blur(20px)';
-var acceptBtn=document.createElement('button');
-acceptBtn.textContent='Accept';
-acceptBtn.style.cssText='background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
-acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
-var declineBtn=document.createElement('button');
-declineBtn.textContent='Decline';
-declineBtn.style.cssText='background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:8px;cursor:pointer';
-declineBtn.onclick=function(){
-localStorage.setItem('sc_cookies','decline');
-b.innerHTML='';
-var msg=document.createElement('span');
-msg.style.cssText='padding:12px 0;color:#10B981';
-msg.textContent='✓ No cookies stored. You can browse freely.';
-b.appendChild(msg);
-setTimeout(function(){b.remove();},2500);
-};
-var txt=document.createElement('span');
-txt.innerHTML='We use cookies to improve your experience. <a href="/cookie-policy/" style="color:#3B82F6">Cookie Policy</a>';
-var btnWrap=document.createElement('div');
-btnWrap.style.cssText='display:flex;gap:8px';
-btnWrap.appendChild(acceptBtn);
-btnWrap.appendChild(declineBtn);
-b.appendChild(txt);
-b.appendChild(btnWrap);
-document.body.appendChild(b);
+  var chips=document.querySelectorAll('.filter-chip');
+  var cards=document.querySelectorAll('.post-card');
+  var grid=document.getElementById('postsGrid');
+  chips.forEach(function(chip){
+    chip.addEventListener('click',function(){
+      chips.forEach(function(c){c.classList.remove('active')});
+      chip.classList.add('active');
+      var cat=chip.getAttribute('data-cat');
+      var visible=0;
+      cards.forEach(function(card){
+        if(cat==='all'||card.getAttribute('data-cat')===cat){
+          card.classList.remove('hidden');
+          visible++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+      var existingEmpty=grid.querySelector('.empty-state');
+      if(existingEmpty)existingEmpty.remove();
+      if(visible===0){
+        var empty=document.createElement('div');
+        empty.className='empty-state';
+        empty.innerHTML='<h3>No posts in this category yet</h3><p>Check back soon we publish three new articles every week.</p>';
+        grid.appendChild(empty);
+      }
+    });
+  });
 })();
 </script>
+
 </body>
 </html>
