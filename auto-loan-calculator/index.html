@@ -3,17 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Auto Loan Calculator With Sales Tax, Trade-In Equity & 20/4/10 Affordability Check | SavingsClub</title>
-<meta name="description" content="Free auto loan calculator with sales tax, doc fees, trade-in equity, and 20/4/10 affordability check. See if your car payment is actually within reach.">
+<title>Auto Loan Calculator with Sales Tax, Trade-In & Affordability Check | SavingsClub</title>
+<meta name="description" content="Free auto loan calculator with sales tax, doc fees, trade-in equity, 20/4/10 affordability check, and New Car vs Used Car comparison. Calculate your real monthly car payment.">
 <link rel="canonical" href="https://savingsclub.com/auto-loan-calculator/">
-<meta property="og:title" content="Auto Loan Calculator — With Sales Tax, Trade-In Equity & 20/4/10 Affordability Check | SavingsClub">
-<meta property="og:description" content="Free auto loan calculator with sales tax, doc fees, trade-in equity, and 20/4/10 affordability check. See if your car payment is actually within reach.">
+<meta property="og:title" content="Auto Loan Calculator with Sales Tax, Trade-In & Affordability Check | SavingsClub">
+<meta property="og:description" content="Free auto loan calculator with sales tax, doc fees, trade-in equity, 20/4/10 affordability check, and New Car vs Used Car comparison.">
 <meta property="og:url" content="https://savingsclub.com/auto-loan-calculator/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SavingsClub">
 <meta property="og:image" content="https://savingsclub.com/img/savings-jar.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="author" content="SavingsClub Research Team">
+<meta name="keywords" content="auto loan calculator, car loan calculator, car payment calculator, auto loan payment calculator, monthly car payment calculator, car finance calculator, auto finance calculator, calculate car payment, 20/4/10 rule, new vs used car">
 <link rel="stylesheet" href="../css/style.css">
 <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
@@ -30,60 +32,84 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"What is a good auto loan rate in 2026?","acceptedAnswer":{"@type":"Answer","text":"As of 2026, good rates for new car loans range from about 6% to 8% for borrowers with credit scores above 720, and 8% to 11% for scores in the 660 to 720 range. Used car rates are typically 1 to 2 percentage points higher. Credit unions often offer the lowest rates, sometimes 1 to 2 points below banks and noticeably below dealership financing."}},
-{"@type":"Question","name":"What is the 20/4/10 rule for car buying?","acceptedAnswer":{"@type":"Answer","text":"The 20/4/10 rule is a personal-finance guideline: put at least 20% down, finance for no longer than 4 years (48 months), and keep total monthly transportation costs (loan, insurance, fuel, maintenance) under 10% of your gross monthly income. Cars that fit this rule are usually genuinely affordable. Cars that don't may stretch your budget over time."}},
+{"@type":"Question","name":"What is the 20/4/10 rule for car buying?","acceptedAnswer":{"@type":"Answer","text":"The 20/4/10 rule is a personal-finance guideline: put at least 20% down, finance for no longer than 4 years (48 months), and keep total monthly transportation costs (loan, insurance, fuel, maintenance) under 10% of your gross monthly income. Cars that fit this rule are usually genuinely affordable."}},
+{"@type":"Question","name":"Should I buy a new or used car?","acceptedAnswer":{"@type":"Answer","text":"For most buyers on a budget, a 2 to 3 year old used car saves the most money. New cars lose about 20% of their value in the first year and roughly 50% by year 5. Buying used skips that steep early depreciation. The trade-offs are higher maintenance risk, no full warranty, and a slightly higher interest rate, typically 1 percentage point above new car loans."}},
 {"@type":"Question","name":"Should I trade in my car or sell it privately?","acceptedAnswer":{"@type":"Answer","text":"Selling privately usually gets you 10% to 20% more than a dealer trade-in. The trade-off is convenience and time. Trade-ins also reduce sales tax in many states because tax is only charged on the difference between new car price and trade-in value. Run the math both ways before deciding."}},
-{"@type":"Question","name":"What does it mean to be upside-down on a car loan?","acceptedAnswer":{"@type":"Answer","text":"You're upside-down (or underwater) when you owe more on your car loan than the car is currently worth. This often happens with long-term loans, low down payments, and rapid depreciation. The difference has to come out of your pocket or get rolled into your next car loan, making the next loan even harder to escape."}},
+{"@type":"Question","name":"What does it mean to be upside-down on a car loan?","acceptedAnswer":{"@type":"Answer","text":"You are upside-down (or underwater) when you owe more on your car loan than the car is currently worth. This often happens with long-term loans, low down payments, and rapid depreciation. The difference has to come out of your pocket or get rolled into your next car loan, making the next loan even harder to escape."}},
 {"@type":"Question","name":"Is it worth refinancing my auto loan?","acceptedAnswer":{"@type":"Answer","text":"Refinancing usually makes sense if you can drop your rate by at least 1 to 2 percentage points and you still have at least 2 to 3 years left on the loan. People who took dealer financing without shopping often qualify for noticeably better rates from credit unions or online lenders within a few months."}},
-{"@type":"Question","name":"How much car can I afford on my income?","acceptedAnswer":{"@type":"Answer","text":"A rough rule of thumb: total vehicle price under 35% of your annual gross income for a more conservative approach, or under 50% as an upper bound. For a $75,000 income, that's roughly a $26,000 to $37,500 vehicle. The 20/4/10 rule is more precise because it tests three separate factors."}}]}
+{"@type":"Question","name":"How much car can I afford on my income?","acceptedAnswer":{"@type":"Answer","text":"A rough rule of thumb: total vehicle price under 35% of your annual gross income for a more conservative approach, or under 50% as an upper bound. For a $75,000 income, that is roughly a $26,000 to $37,500 vehicle. The 20/4/10 rule is more precise because it tests three separate factors."}}]}
 </script>
 
 <style>
-/* ====== FLATTER LAYOUT — direct on page, no outer card wrapper ====== */
-.al-hero{background:linear-gradient(135deg,#0A1628 0%,#0F2942 50%,#134E4A 100%);border-radius:20px;padding:32px;color:#fff;margin:8px 0 36px;position:relative;overflow:hidden;display:grid;grid-template-columns:1.6fr 1fr;gap:24px}
-.al-hero::before{content:'';position:absolute;top:-30%;right:-15%;width:55%;height:160%;background:radial-gradient(circle,rgba(45,212,191,.18) 0%,transparent 62%);pointer-events:none}
-.al-hero::after{content:'';position:absolute;bottom:-40%;left:-10%;width:45%;height:140%;background:radial-gradient(circle,rgba(20,184,166,.14) 0%,transparent 60%);pointer-events:none}
+/* ====== Hero (navy to emerald) ====== */
+.al-hero{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;background:linear-gradient(135deg,#0A1628 0%,#0F2540 50%,#059669 100%);border-radius:20px;padding:32px;color:#fff;margin:8px 0 28px;position:relative;overflow:hidden}
+.al-hero::before{content:'';position:absolute;top:-30%;right:-15%;width:55%;height:160%;background:radial-gradient(circle,rgba(52,211,153,.18) 0%,transparent 62%);pointer-events:none}
+.al-hero::after{content:'';position:absolute;bottom:-40%;left:-10%;width:45%;height:140%;background:radial-gradient(circle,rgba(16,185,129,.12) 0%,transparent 60%);pointer-events:none}
 .al-hero-left{position:relative;z-index:1}
 .al-hero h1{color:#fff;font-size:2.1rem;margin:0 0 12px;line-height:1.15;font-weight:800}
-.al-hero-sub{color:rgba(255,255,255,.88);font-size:1.02rem;line-height:1.55;margin:0 0 14px}
+.al-hero-sub{color:rgba(255,255,255,.9);font-size:1.02rem;line-height:1.55;margin:0 0 14px}
 .al-hero-disclaimer{color:rgba(255,255,255,.55);font-size:.8rem;font-style:italic;margin:0 0 10px;line-height:1.45}
-.al-hero-meta{color:rgba(255,255,255,.4);font-size:.75rem;margin:0}
-.al-hero-stat{background:rgba(45,212,191,.13);border:1px solid rgba(45,212,191,.32);border-radius:16px;padding:24px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
-.al-hero-stat-number{font-size:3.2rem;font-weight:800;color:#2DD4BF;line-height:1;margin-bottom:10px;font-family:'Plus Jakarta Sans',sans-serif}
-.al-hero-stat-label{color:rgba(255,255,255,.92);font-size:.92rem;line-height:1.45}
-.al-hero-stat-source{color:rgba(255,255,255,.5);font-size:.72rem;margin-top:10px;font-style:italic}
+.al-hero-meta{color:rgba(255,255,255,.45);font-size:.75rem;margin:0}
+.al-hero-stat{background:rgba(16,185,129,.18);border:1px solid rgba(52,211,153,.4);border-radius:16px;padding:24px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1;backdrop-filter:blur(4px)}
+.al-hero-stat-number{font-size:3rem;font-weight:800;color:#34D399;line-height:1;margin-bottom:10px;font-family:'Plus Jakarta Sans',sans-serif}
+.al-hero-stat-label{color:rgba(255,255,255,.95);font-size:.92rem;line-height:1.45}
+.al-hero-stat-source{color:rgba(255,255,255,.55);font-size:.72rem;margin-top:10px;font-style:italic}
+
+/* ====== Byline ====== */
+.al-byline{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:14px 18px;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:12px;margin-bottom:24px;font-size:.85rem}
+.al-byline-author{font-weight:700;color:#0A1628}
+.al-byline-dates{display:flex;gap:14px;color:#6B7280;flex-wrap:wrap}
+.al-byline-ai{width:100%;font-size:.78rem;color:#6B7280;font-style:italic;line-height:1.5;padding-top:8px;border-top:1px solid #E5E7EB;margin-top:4px}
 
 /* ====== Section headers ====== */
-.al-section-title{font-size:1.05rem;font-weight:700;color:#0A1628;margin:36px 0 16px;display:flex;align-items:center;gap:10px}
-.al-section-title .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#059669,#10B981)}
-.al-section-hint{font-size:.85rem;color:#6B7280;margin:-6px 0 16px;line-height:1.5}
+.al-section-title{font-size:1.05rem;font-weight:700;color:#0A1628;margin:32px 0 14px;display:flex;align-items:center;gap:10px}
+.al-section-title .al-icon{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#059669,#10B981);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.al-section-title .al-icon svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.al-section-hint{font-size:.85rem;color:#6B7280;margin:-6px 0 14px;line-height:1.5}
 
 /* ====== Select styling ====== */
 .calc-grid select{width:100%;padding:14px 38px 14px 16px;border:1px solid #E5E7EB;border-radius:12px;font-family:inherit;font-size:1rem;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%236B7280' stroke-width='1.6'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 16px center;background-size:12px;color:#0A1628;cursor:pointer;appearance:none;-webkit-appearance:none;transition:border-color .15s,box-shadow .15s;box-sizing:border-box}
 .calc-grid select:focus{outline:none;border-color:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,.12)}
+
+/* ====== Buttons row ====== */
+.al-btn-row{display:flex;gap:12px;margin:24px 0 8px;flex-wrap:wrap}
+.al-btn-calc{background:linear-gradient(135deg,#059669,#10B981);color:#fff;border:none;padding:14px 32px;border-radius:999px;font-weight:700;font-size:1rem;cursor:pointer;box-shadow:0 4px 12px rgba(5,150,105,.3);transition:transform .15s,box-shadow .15s;font-family:inherit}
+.al-btn-calc:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(5,150,105,.4)}
+.al-btn-reset{background:#fff;color:#0A1628;border:1px solid #E5E7EB;padding:14px 28px;border-radius:999px;font-weight:600;font-size:1rem;cursor:pointer;transition:all .15s;font-family:inherit}
+.al-btn-reset:hover{background:#F9FAFB;border-color:#D1D5DB}
+
+/* ====== Empty state ====== */
+.al-empty{border:2px dashed #E5E7EB;border-radius:16px;padding:36px 24px;text-align:center;margin-top:20px;color:#6B7280}
+.al-empty-icon{width:48px;height:48px;border-radius:14px;background:#F3F4F6;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px}
+.al-empty-icon svg{width:24px;height:24px;stroke:#9CA3AF;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.al-empty-title{font-weight:700;color:#0A1628;font-size:1.05rem;margin-bottom:6px}
+.al-empty-text{font-size:.92rem;line-height:1.5}
 
 /* ====== Result banner ====== */
 .al-result-banner{border-radius:18px;padding:26px 28px;margin:24px 0 0;background:linear-gradient(135deg,#0A1628 0%,#0F2942 100%);color:#fff}
 .al-result-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.65);font-weight:700;margin-bottom:6px}
 .al-result-value{font-size:2.6rem;font-weight:800;line-height:1.1;color:#34D399;font-family:'Plus Jakarta Sans',sans-serif;margin-bottom:6px}
 .al-result-sub{font-size:.95rem;line-height:1.5;color:rgba(255,255,255,.85)}
+.al-result-sub strong{color:#fff;font-weight:700}
 
-/* ====== Stats grid — light, flatter look ====== */
-.al-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;margin-top:18px;border-top:1px solid #E5E7EB;border-bottom:1px solid #E5E7EB}
+/* ====== Stats grid ====== */
+.al-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;margin-top:18px;border-top:1px solid #E5E7EB;border-bottom:1px solid #E5E7EB;align-items:start}
 .al-stat{padding:18px 16px;text-align:left;border-right:1px solid #E5E7EB}
 .al-stat:last-child{border-right:none}
 .al-stat-label{font-size:.74rem;color:#6B7280;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
 .al-stat-value{font-size:1.25rem;font-weight:800;color:#0A1628;font-family:'Plus Jakarta Sans',sans-serif}
 
-/* ====== Affordability check — special callout card ====== */
+/* ====== Affordability card ====== */
 .al-afford-card{border-radius:18px;padding:24px;margin-top:26px;border:1.5px solid}
 .al-afford-card.pass{background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border-color:#A7F3D0}
 .al-afford-card.warn{background:linear-gradient(135deg,#FEF3C7,#FDE68A);border-color:#FCD34D}
 .al-afford-card.fail{background:linear-gradient(135deg,#FEE2E2,#FECACA);border-color:#FCA5A5}
 .al-afford-header{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-.al-afford-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;color:#fff;font-weight:800}
+.al-afford-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff}
 .al-afford-card.pass .al-afford-icon{background:linear-gradient(135deg,#059669,#10B981)}
 .al-afford-card.warn .al-afford-icon{background:linear-gradient(135deg,#D97706,#F59E0B)}
 .al-afford-card.fail .al-afford-icon{background:linear-gradient(135deg,#DC2626,#EF4444)}
+.al-afford-icon svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
 .al-afford-title{font-size:1.2rem;font-weight:800;line-height:1.2;font-family:'Plus Jakarta Sans',sans-serif}
 .al-afford-card.pass .al-afford-title{color:#064E3B}
 .al-afford-card.warn .al-afford-title{color:#78350F}
@@ -94,7 +120,10 @@
 .al-afford-card.fail .al-afford-sub{color:#991B1B}
 .al-rule-row{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:14px 0;border-top:1px solid rgba(0,0,0,.08)}
 .al-rule-row:first-of-type{border-top:none;padding-top:6px}
-.al-rule-check{font-size:1.3rem;line-height:1}
+.al-rule-check{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.al-rule-check.good{background:#059669}
+.al-rule-check.bad{background:#DC2626}
+.al-rule-check svg{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 .al-rule-text{font-weight:600;font-size:.95rem;color:#0A1628}
 .al-rule-detail{font-size:.78rem;color:#6B7280;margin-top:2px;font-weight:400;line-height:1.4}
 .al-rule-value{font-weight:700;font-size:.95rem;text-align:right}
@@ -104,11 +133,12 @@
 
 /* ====== Negative equity warning ====== */
 .al-equity-warn{background:#FEE2E2;border:1.5px solid #FCA5A5;border-radius:12px;padding:14px 18px;margin-top:18px;display:flex;gap:12px;align-items:start}
-.al-equity-warn-icon{font-size:1.3rem;flex-shrink:0}
+.al-equity-warn-icon{width:24px;height:24px;flex-shrink:0;color:#991B1B}
+.al-equity-warn-icon svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .al-equity-warn-body{font-size:.92rem;line-height:1.5;color:#7F1D1D}
 .al-equity-warn-body strong{color:#7F1D1D}
 
-/* ====== Cost breakdown bars (HTML, mobile-friendly) ====== */
+/* ====== Cost breakdown bars ====== */
 .al-breakdown{margin-top:26px}
 .al-breakdown-title{font-weight:700;color:#0A1628;font-size:1.05rem;margin-bottom:14px}
 .al-bar-row{display:grid;grid-template-columns:130px 1fr 110px;gap:14px;align-items:center;margin-bottom:12px}
@@ -118,13 +148,35 @@
 .al-bar{height:100%;border-radius:6px;display:flex;align-items:center;padding-left:12px;color:#fff;font-weight:700;font-size:.85rem;white-space:nowrap;transition:width .5s ease;min-width:32px}
 .al-bar-value{font-size:.88rem;color:#6B7280;font-weight:600;text-align:right}
 
+/* ====== New vs Used WINNER comparison ====== */
+.al-vs-note{font-size:.82rem;color:#6B7280;background:#F9FAFB;border-left:3px solid #10B981;padding:10px 14px;border-radius:8px;margin:12px 0 18px;line-height:1.55}
+.al-vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0 8px;align-items:start}
+.al-vs-card{background:#fff;border:1.5px solid #E5E7EB;border-radius:16px;padding:22px;position:relative;display:flex;flex-direction:column;gap:10px}
+.al-vs-card.winner{border-color:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,.12),0 8px 24px rgba(5,150,105,.12)}
+.al-vs-card.winner::before{content:'WINNER';position:absolute;top:-12px;left:18px;background:linear-gradient(135deg,#059669,#10B981);color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.1em;padding:5px 12px;border-radius:999px;box-shadow:0 4px 10px rgba(5,150,105,.3)}
+.al-vs-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#F3F4F6}
+.al-vs-icon svg{width:22px;height:22px;fill:none;stroke:#0A1628;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.al-vs-card.winner .al-vs-icon{background:linear-gradient(135deg,#ECFDF5,#D1FAE5)}
+.al-vs-card.winner .al-vs-icon svg{stroke:#047857}
+.al-vs-title{font-size:1.05rem;font-weight:800;color:#0A1628;font-family:'Plus Jakarta Sans',sans-serif}
+.al-vs-subtitle{font-size:.82rem;color:#6B7280;margin-top:-4px;line-height:1.4}
+.al-vs-metric-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:#6B7280;font-weight:700;margin-top:6px}
+.al-vs-metric{font-size:1.6rem;font-weight:800;color:#0A1628;line-height:1.1;font-family:'Plus Jakarta Sans',sans-serif}
+.al-vs-card.winner .al-vs-metric{color:#047857}
+.al-vs-detail{font-size:.85rem;color:#4B5563;line-height:1.5;margin-top:6px;padding-top:10px;border-top:1px solid #F3F4F6}
+.al-vs-detail-row{display:flex;justify-content:space-between;margin-bottom:4px}
+.al-vs-detail-row:last-child{margin-bottom:0}
+.al-vs-detail-row span:first-child{color:#6B7280}
+.al-vs-detail-row span:last-child{font-weight:600;color:#0A1628}
+.al-vs-summary{background:linear-gradient(135deg,#ECFDF5,#F0FDF4);border:1px solid #A7F3D0;border-radius:12px;padding:14px 16px;margin-top:12px;font-size:.92rem;color:#064E3B;line-height:1.55}
+.al-vs-summary strong{color:#047857}
+
 /* ====== What-if scenarios ====== */
-.al-scenarios{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;margin-top:18px;align-items:stretch}
+.al-scenarios{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;margin-top:18px;align-items:start}
 .al-scenario-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:22px;display:flex;flex-direction:column;transition:box-shadow .2s}
 .al-scenario-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.06)}
-.al-scenario-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:12px;color:#fff}
-.al-scenario-icon.refi{background:linear-gradient(135deg,#8B5CF6,#6D28D9)}
-.al-scenario-icon.boost{background:linear-gradient(135deg,#3B82F6,#1D4ED8)}
+.al-scenario-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;background:linear-gradient(135deg,#059669,#10B981)}
+.al-scenario-icon svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .al-scenario-title{font-size:1.1rem;font-weight:700;color:#0A1628;margin-bottom:6px}
 .al-scenario-desc{font-size:.85rem;color:#6B7280;margin-bottom:14px;line-height:1.5}
 .al-slider-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
@@ -135,20 +187,23 @@
 .al-scenario-result{background:#F9FAFB;border-radius:10px;padding:14px 16px;font-size:.92rem;color:#0A1628;line-height:1.55;margin-top:auto}
 .al-scenario-result strong{color:#059669;font-size:1.02rem}
 
-/* ====== Expandable info ====== */
+/* ====== TCO expandable ====== */
 .al-info-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;margin-top:24px;overflow:hidden}
-.al-info-header{padding:18px 22px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;background:#F9FAFB;border-bottom:1px solid transparent;transition:border-color .2s}
+.al-info-header{padding:18px 22px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;background:#F9FAFB;border-bottom:1px solid transparent;transition:border-color .2s;gap:10px}
 .al-info-header:hover{background:#F3F4F6}
 .al-info-card.open .al-info-header{border-bottom-color:#E5E7EB}
+.al-info-title-row{display:flex;align-items:center;gap:10px}
+.al-info-title-icon{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#059669,#10B981);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.al-info-title-icon svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 .al-info-title{font-weight:700;color:#0A1628;font-size:1rem}
-.al-info-toggle{font-size:1.2rem;color:#6B7280;transition:transform .2s}
+.al-info-toggle{font-size:1.2rem;color:#6B7280;transition:transform .2s;flex-shrink:0}
 .al-info-card.open .al-info-toggle{transform:rotate(180deg)}
 .al-info-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
 .al-info-card.open .al-info-body{max-height:1100px}
-.al-info-list{padding:16px 22px 14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.al-info-item{padding:12px 14px;background:#F9FAFB;border-radius:10px;border-left:3px solid #14B8A6}
+.al-info-list{padding:16px 22px 14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;align-items:start}
+.al-info-item{padding:12px 14px;background:#F9FAFB;border-radius:10px;border-left:3px solid #10B981}
 .al-info-item-name{font-weight:600;color:#0A1628;font-size:.92rem;margin-bottom:2px}
-.al-info-item-range{font-size:.85rem;color:#0F766E;font-weight:600}
+.al-info-item-range{font-size:.85rem;color:#047857;font-weight:600}
 .al-tco-total{padding:16px 22px;background:#F0FDF4;font-size:.95rem;color:#064E3B;border-top:1px solid #A7F3D0;line-height:1.6}
 .al-tco-total strong{color:#047857;font-size:1.05rem}
 .al-info-source{padding:0 22px 18px;font-size:.75rem;color:#9CA3AF;font-style:italic}
@@ -157,7 +212,8 @@
 .al-tips-card{background:linear-gradient(135deg,#ECFDF5 0%,#F0FDF4 100%);border:1px solid #A7F3D0;border-radius:18px;padding:24px;margin:32px 0;position:relative;overflow:hidden}
 .al-tips-card::before{content:'';position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(16,185,129,.12) 0%,transparent 70%);pointer-events:none}
 .al-tips-header{display:flex;align-items:center;gap:12px;margin-bottom:18px;position:relative;z-index:1}
-.al-tips-icon{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#059669,#10B981);display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 4px 12px rgba(5,150,105,.25)}
+.al-tips-icon{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#059669,#10B981);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(5,150,105,.25)}
+.al-tips-icon svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .al-tips-title{font-weight:800;color:#064E3B;font-size:1.15rem;font-family:'Plus Jakarta Sans',sans-serif}
 .al-tips-subtitle{font-size:.82rem;color:#047857;font-weight:500}
 .al-tips-list{display:flex;flex-direction:column;gap:14px;position:relative;z-index:1}
@@ -166,7 +222,7 @@
 .al-tip-body{font-size:.92rem;line-height:1.5;color:#064E3B}
 .al-tip-body strong{color:#047857;font-weight:700}
 
-/* ====== SEO — direct on page ====== */
+/* ====== SEO content ====== */
 .al-seo{margin-top:36px}
 .al-seo h2{font-size:1.5rem;color:#0A1628;margin:32px 0 14px;font-weight:800;font-family:'Plus Jakarta Sans',sans-serif}
 .al-seo h2:first-child{margin-top:0}
@@ -174,11 +230,16 @@
 .al-seo p{font-size:.97rem;line-height:1.7;color:#374151;margin-bottom:14px}
 .al-seo p strong{color:#0A1628;font-weight:700}
 
+/* ====== Related ====== */
+.al-related-heading{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:1.1rem;color:#0A1628;font-weight:700}
+.al-related-icon{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#059669,#10B981);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.al-related-icon svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+
 /* ====== Mobile ====== */
 @media(max-width:760px){
   .al-hero{grid-template-columns:1fr;padding:24px}
   .al-hero h1{font-size:1.7rem}
-  .al-hero-stat-number{font-size:2.6rem}
+  .al-hero-stat-number{font-size:2.4rem}
   .al-result-value{font-size:2rem}
   .al-stats{grid-template-columns:1fr 1fr;border:none}
   .al-stat{border:none;border-bottom:1px solid #E5E7EB;border-right:1px solid #E5E7EB;padding:14px 12px}
@@ -191,9 +252,12 @@
   .al-bar-row{grid-template-columns:1fr;gap:4px;margin-bottom:14px}
   .al-bar-value{text-align:left;font-size:.85rem}
   .al-bar-wrap{height:34px}
+  .al-vs-grid{grid-template-columns:1fr;gap:14px}
   .al-scenarios{grid-template-columns:1fr;gap:14px}
   .al-tips-card{padding:20px}
   .al-seo h2{font-size:1.3rem}
+  .al-btn-row{flex-direction:column}
+  .al-btn-calc,.al-btn-reset{width:100%}
 }
 </style>
 </head>
@@ -234,40 +298,57 @@ SavingsClub
 <section class="calc-page">
 <div class="container">
 
-<div style="margin-bottom:20px"><a href="../" style="color:var(--text-light);font-weight:500">← Home</a></div>
+<div style="margin-bottom:20px"><a href="../" style="color:var(--text-light);font-weight:500">&larr; Home</a></div>
 
-<!-- HERO -->
+<!-- ============ HERO ============ -->
 <div class="al-hero">
   <div class="al-hero-left">
     <h1>Auto Loan Calculator</h1>
-    <p class="al-hero-sub">With sales tax, doc fees, trade-in equity, refinance simulator, and the 20/4/10 affordability check so you know whether the payment is genuinely within reach, not just possible.</p>
-    <p class="al-hero-disclaimer">Educational tool — not financial advice. SavingsClub is not a licensed financial advisor.</p>
+    <p class="al-hero-sub">Free car loan calculator with sales tax, doc fees, trade-in equity, the 20/4/10 affordability check, and a New Car vs Used Car comparison. See your real monthly car payment and whether the car is genuinely within reach.</p>
+    <p class="al-hero-disclaimer">Educational tool, not financial advice. SavingsClub is not a licensed financial advisor.</p>
     <p class="al-hero-meta">Last updated June 2026</p>
   </div>
   <div class="al-hero-stat">
     <div class="al-hero-stat-number">68 mo</div>
-    <div class="al-hero-stat-label">Average new car loan term in the U.S. — far past the 4-year max most planners suggest</div>
-    <div class="al-hero-stat-source">Source: Federal Reserve / Edmunds</div>
+    <div class="al-hero-stat-label">Average new car loan term in the U.S., far past the 4-year max most planners suggest.</div>
+    <div class="al-hero-stat-source">Source: Federal Reserve and Edmunds</div>
   </div>
 </div>
 
-<!-- INPUTS -->
-<div class="al-section-title"><span class="dot"></span> Vehicle details</div>
-<div class="calc-grid">
-<div><label>Vehicle Price ($)</label><input type="number" id="alPrice" value="35000" min="0" oninput="calc()"></div>
-<div><label>Sales Tax (%)</label><input type="number" id="alTax" value="7" min="0" max="15" step="0.1" oninput="calc()"></div>
-<div><label>Doc / Dealer Fees ($)</label><input type="number" id="alFees" value="800" min="0" oninput="calc()"></div>
+<!-- ============ BYLINE ============ -->
+<div class="al-byline">
+  <div class="al-byline-author">By SavingsClub Research Team</div>
+  <div class="al-byline-dates">
+    <span>Published: June 2026</span>
+    <span>Last updated: June 2026</span>
+  </div>
+  <div class="al-byline-ai">This guide was created with AI assistance and reviewed by SavingsClub editors before publication. We follow the same disclosure approach used by major publishers such as Forbes and AP News. We are not licensed financial advisors. Always consult a qualified professional before making major car purchase or financing decisions.</div>
 </div>
-<p class="al-section-hint">U.S. average sales tax is around 7%. Doc fees vary by state commonly $200–$800 but can exceed $1,000.</p>
 
-<div class="al-section-title"><span class="dot"></span> Your loan</div>
+<!-- ============ INPUTS: VEHICLE ============ -->
+<div class="al-section-title">
+  <span class="al-icon"><svg viewBox="0 0 24 24"><path d="M5 17h14M3 14l2-6h14l2 6M5 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0M15 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0"/></svg></span>
+  Vehicle details
+</div>
 <div class="calc-grid">
-<div><label>Down Payment ($)</label><input type="number" id="alDown" value="5000" min="0" oninput="calc()"></div>
-<div><label>Trade-In Value ($)</label><input type="number" id="alTrade" value="0" min="0" oninput="calc()"></div>
-<div><label>Still Owed on Trade-In ($)</label><input type="number" id="alTradeOwed" value="0" min="0" oninput="calc()"></div>
-<div><label>Interest Rate / APR (%)</label><input type="number" id="alRate" value="7.5" min="0" max="30" step="0.1" oninput="calc()"></div>
+<div><label>Vehicle Price ($)</label><input type="number" id="alPrice" value="35000" min="0"></div>
+<div><label>Sales Tax (%)</label><input type="number" id="alTax" value="7" min="0" max="15" step="0.1"></div>
+<div><label>Doc / Dealer Fees ($)</label><input type="number" id="alFees" value="800" min="0"></div>
+</div>
+<p class="al-section-hint">U.S. average sales tax is around 7%. Doc fees vary by state, commonly $200 to $800 but can exceed $1,000.</p>
+
+<!-- ============ INPUTS: LOAN ============ -->
+<div class="al-section-title">
+  <span class="al-icon"><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+  Your loan
+</div>
+<div class="calc-grid">
+<div><label>Down Payment ($)</label><input type="number" id="alDown" value="5000" min="0"></div>
+<div><label>Trade-In Value ($)</label><input type="number" id="alTrade" value="0" min="0"></div>
+<div><label>Still Owed on Trade-In ($)</label><input type="number" id="alTradeOwed" value="0" min="0"></div>
+<div><label>Interest Rate / APR (%)</label><input type="number" id="alRate" value="7.5" min="0" max="30" step="0.1"></div>
 <div><label>Loan Term</label>
-<select id="alTerm" onchange="calc()">
+<select id="alTerm">
 <option value="24">24 months (2 yr)</option>
 <option value="36">36 months (3 yr)</option>
 <option value="48">48 months (4 yr)</option>
@@ -277,51 +358,68 @@ SavingsClub
 </select>
 </div>
 </div>
-<p class="al-section-hint">If you owe more on your trade-in than it's worth, that gets rolled into the new loan see warning below if applicable.</p>
+<p class="al-section-hint">If you owe more on your trade-in than it is worth, that difference gets rolled into the new loan. See warning below if applicable.</p>
 
-<div class="al-section-title"><span class="dot"></span> About you <span style="font-weight:400;color:#9CA3AF;font-size:.85rem;margin-left:6px">(for affordability check)</span></div>
+<!-- ============ INPUTS: ABOUT YOU ============ -->
+<div class="al-section-title">
+  <span class="al-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></span>
+  About you <span style="font-weight:400;color:#9CA3AF;font-size:.85rem;margin-left:6px">(for the affordability check)</span>
+</div>
 <div class="calc-grid">
-<div><label>Annual Gross Income ($)</label><input type="number" id="alIncome" value="75000" min="0" oninput="calc()"></div>
+<div><label>Annual Gross Income ($)</label><input type="number" id="alIncome" value="75000" min="0"></div>
 </div>
 
-<div class="accent-line" style="width:100%;margin:28px 0 18px;height:2px"></div>
-<button class="btn btn-primary" onclick="calc()">Recalculate</button>
+<div class="al-btn-row">
+  <button class="al-btn-calc" onclick="calc()">Calculate</button>
+  <button class="al-btn-reset" onclick="resetCalc()">Reset</button>
+</div>
 
-<div id="calcResult"></div>
+<!-- ============ EMPTY STATE ============ -->
+<div id="alEmptyState" class="al-empty">
+  <div class="al-empty-icon"><svg viewBox="0 0 24 24"><path d="M5 17h14M3 14l2-6h14l2 6M5 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0M15 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0"/></svg></div>
+  <div class="al-empty-title">Ready when you are</div>
+  <div class="al-empty-text">Fill in your vehicle and loan details above, then click Calculate to see your monthly car payment, 20/4/10 affordability check, New vs Used comparison, and what-if scenarios.</div>
+</div>
 
-<!-- TCO EXPANDABLE -->
+<!-- ============ RESULTS (hidden initially) ============ -->
+<div id="calcResult" style="display:none"></div>
+
+<!-- ============ TCO EXPANDABLE ============ -->
 <div class="al-info-card" id="alInfoCard">
   <div class="al-info-header" onclick="toggleInfo()">
-    <div class="al-info-title">💰 Total cost of ownership beyond the loan payment</div>
-    <div class="al-info-toggle">▼</div>
+    <div class="al-info-title-row">
+      <span class="al-info-title-icon"><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+      <div class="al-info-title">Total cost of ownership beyond the loan payment</div>
+    </div>
+    <div class="al-info-toggle">&#9662;</div>
   </div>
   <div class="al-info-body">
     <div class="al-info-list">
-      <div class="al-info-item"><div class="al-info-item-name">Auto Insurance</div><div class="al-info-item-range">~$1,800/yr average</div></div>
-      <div class="al-info-item"><div class="al-info-item-name">Fuel</div><div class="al-info-item-range">~$2,200/yr at 13K mi & $3.50/gal</div></div>
-      <div class="al-info-item"><div class="al-info-item-name">Maintenance & Repairs</div><div class="al-info-item-range">~$1,200/yr average</div></div>
-      <div class="al-info-item"><div class="al-info-item-name">Registration & Taxes</div><div class="al-info-item-range">~$200–$700/yr depending on state</div></div>
-      <div class="al-info-item"><div class="al-info-item-name">Depreciation (new car)</div><div class="al-info-item-range">~20% first year</div></div>
-      <div class="al-info-item"><div class="al-info-item-name">Parking / Tolls / Misc</div><div class="al-info-item-range">Highly location-dependent</div></div>
+      <div class="al-info-item"><div class="al-info-item-name">Auto Insurance</div><div class="al-info-item-range">About $1,800/yr average</div></div>
+      <div class="al-info-item"><div class="al-info-item-name">Fuel</div><div class="al-info-item-range">About $2,200/yr at 13K mi and $3.50/gal</div></div>
+      <div class="al-info-item"><div class="al-info-item-name">Maintenance and Repairs</div><div class="al-info-item-range">About $1,200/yr average</div></div>
+      <div class="al-info-item"><div class="al-info-item-name">Registration and Taxes</div><div class="al-info-item-range">About $200 to $700/yr by state</div></div>
+      <div class="al-info-item"><div class="al-info-item-name">Depreciation (new car)</div><div class="al-info-item-range">About 20% first year</div></div>
+      <div class="al-info-item"><div class="al-info-item-name">Parking, Tolls, Misc</div><div class="al-info-item-range">Highly location-dependent</div></div>
     </div>
-    <div class="al-tco-total" id="alTcoTotal">Enter your numbers above to see total annual cost of ownership.</div>
+    <div class="al-tco-total" id="alTcoTotal">Enter your numbers above and click Calculate to see total annual cost of ownership.</div>
     <div class="al-info-source">Ranges based on AAA's "Your Driving Costs" report and BLS Consumer Expenditure Survey. Your costs may differ.</div>
   </div>
 </div>
 
-<!-- TIPS -->
+<!-- ============ TIPS CARD ============ -->
 <div class="al-tips-card">
   <div class="al-tips-header">
-    <div class="al-tips-icon">👍</div>
+    <div class="al-tips-icon"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.8.7 1.3 1.6 1.5 2.3h5c.2-.7.7-1.6 1.5-2.3A7 7 0 0 0 12 2z"/></svg></div>
     <div>
       <div class="al-tips-title">SavingsClub Tips</div>
-      <div class="al-tips-subtitle">Three things most car buyers don't do — but should</div>
+      <div class="al-tips-subtitle">Three things most car buyers don't do but should</div>
     </div>
   </div>
   <div class="al-tips-list">
     <div class="al-tip">
       <div class="al-tip-number">1</div>
-      <div class="al-tip-body"><strong>Get pre-approved at a credit union BEFORE you visit the dealer.</strong> Walking in with a pre-approval letter means you have a real backup rate, and the dealer has to beat it to win your financing. Buyers who skip this step routinely accept dealer rates 1–3 percentage points higher than they could have qualified for elsewhere — often costing thousands over the loan term.</div>
+      <div class="al-tip-body"><strong>Get pre-approved at a credit union BEFORE you visit the dealer.</strong> Walking in with a pre-approval letter means you have a real backup rate, and the dealer has to beat it to win your financing. Buyers who skip this step routinely accept dealer rates 1 to 3 percentage points higher than they could have qualified for elsewhere, often costing thousands over the loan term.</div>
     </div>
     <div class="al-tip">
       <div class="al-tip-number">2</div>
@@ -329,56 +427,68 @@ SavingsClub
     </div>
     <div class="al-tip">
       <div class="al-tip-number">3</div>
-      <div class="al-tip-body"><strong>Refinance within 6–12 months if you took dealer financing.</strong> Dealer rates often have a markup the dealer keeps. Once you've made a few on-time payments and your loan is established, credit unions and online lenders frequently offer 1–2 points lower. Use the refinance scenario in this calculator to see the actual dollar savings.</div>
+      <div class="al-tip-body"><strong>Refinance within 6 to 12 months if you took dealer financing.</strong> Dealer rates often have a markup the dealer keeps. Once you have made a few on-time payments and your loan is established, credit unions and online lenders frequently offer 1 to 2 points lower. Use the refinance scenario in this calculator to see the actual dollar savings.</div>
     </div>
   </div>
 </div>
 
-<!-- SEO -->
+<!-- ============ SEO CONTENT ============ -->
 <div class="al-seo">
+
+<h2>Monthly car payment calculator: how the math works</h2>
+<p>This auto loan calculator uses the standard amortizing loan formula to compute your monthly car payment. The four inputs that drive the result are the amount you finance, the annual percentage rate (APR), the loan term in months, and any extra costs rolled into the loan. The math itself is simple, but most basic car loan calculators leave out the costs that actually drive your true monthly payment: sales tax, documentation fees, and negative trade-in equity. This calculator includes all three.</p>
+
+<p>If you are searching for an auto loan payment calculator, a car finance calculator, or a way to calculate car payment with taxes included, this tool answers all three questions in one pass. Enter your numbers and click Calculate to see the real out-the-door price, the financed amount, your monthly payment, total interest paid over the life of the loan, and the total amount you will hand to the lender.</p>
 
 <h2>The 20/4/10 rule: how to know if a car is actually affordable</h2>
 <p>Every car loan calculator will tell you the monthly payment. Very few will tell you whether that payment is a good idea for your specific income. The 20/4/10 rule is a widely-used personal-finance guideline that gives you a real answer.</p>
 
 <p><strong>20 percent down:</strong> Put at least 20% of the vehicle's price down at signing. This protects you against depreciation (most new cars lose 20% of their value in the first year) and keeps you from being upside-down on the loan.</p>
 
-<p><strong>4-year term maximum:</strong> Finance for no longer than 48 months. Longer terms mean lower payments but dramatically more interest, and a much higher chance of owing more than the car is worth at any given time. The average U.S. auto loan is now 68 months meaningfully outside the recommended range.</p>
+<p><strong>4-year term maximum:</strong> Finance for no longer than 48 months. Longer terms mean lower payments but dramatically more interest, and a much higher chance of owing more than the car is worth at any given time. The average U.S. auto loan is now 68 months, meaningfully outside the recommended range.</p>
 
-<p><strong>10 percent of gross income for total transportation:</strong> Total monthly transportation costs (loan, insurance, fuel, maintenance, registration) should stay under 10% of your gross monthly income. The loan payment alone is typically only 60% to 70% of total transport costs insurance and fuel often add another 30% to 50% on top of the payment.</p>
+<p><strong>10 percent of gross income for total transportation:</strong> Total monthly transportation costs (loan, insurance, fuel, maintenance, registration) should stay under 10% of your gross monthly income. The loan payment alone is typically 60% to 70% of total transport costs. Insurance and fuel often add another 30% to 50% on top of the payment.</p>
 
-<p>This calculator checks all three rules and tells you which ones your loan passes. It's not the only way to evaluate a car purchase, but it filters out the loans that have caused the most regret over the years.</p>
+<p>This calculator checks all three rules and tells you which ones your loan passes. It is not the only way to evaluate a car purchase, but it filters out the loans that have caused the most regret over the years.</p>
+
+<h2>New car vs used car: which is the better deal?</h2>
+<p>The biggest financial advantage of buying used is avoiding the steep early depreciation curve. A new car loses about 20% of its value in the first year and roughly 50% by year 5. A 2 to 3 year old used car has already absorbed that hit, which means the seller (not you) ate the depreciation. You buy in at a lower price, finance less, pay less interest, and the dollar amount of future depreciation is smaller.</p>
+
+<p>The trade-offs are real. Used cars typically carry a 1 percentage point higher APR than equivalent new car loans. Maintenance and repair costs rise as the vehicle ages. Warranty coverage is often expired or limited. Reliability statistics vary widely by make and model. For most budget-conscious buyers, the math still favors used. For buyers who plan to keep a car 10+ years, the difference shrinks because new car depreciation matters less over longer hold periods.</p>
+
+<p>This calculator runs the New vs Used comparison above using your specific numbers. The assumptions are conservative: used car priced at 75% of new (typical 2 to 3 year old equivalent), used APR is 1% higher than new, same down payment, same loan term, plus estimated insurance and end-of-term resale value for each.</p>
 
 <h2>Sales tax, doc fees, and the "out the door" trap</h2>
 <p>The biggest mistake in basic car loan calculators is treating the vehicle's sticker price as the loan amount. It isn't. The amount you actually borrow includes sales tax (typically 5% to 10% of the price, varying by state and county) and documentation fees ($200 to $1,000+ depending on the dealership and state).</p>
 
-<p>On a $35,000 vehicle with a 7% sales tax and a typical $800 doc fee, you're actually financing closer to $38,250 before any down payment — not $35,000. Most calculators ignore this gap. This one builds it in.</p>
+<p>On a $35,000 vehicle with a 7% sales tax and a typical $800 doc fee, you are actually financing closer to $38,250 before any down payment, not $35,000. Most calculators ignore this gap. This one builds it in.</p>
 
-<p>States vary widely on auto sales tax: Oregon, Montana, New Hampshire, Delaware, and Alaska have no state sales tax. California, Tennessee, and Indiana are at 7%+. Some states tax only the net price after trade-in, which makes a meaningful difference if you have a valuable trade.</p>
+<p>States vary widely on auto sales tax. Oregon, Montana, New Hampshire, Delaware, and Alaska have no state sales tax. California, Tennessee, and Indiana are at 7%+. Some states tax only the net price after trade-in, which makes a meaningful difference if you have a valuable trade.</p>
 
 <h2>The trade-in equity trap (and being upside-down)</h2>
-<p>If your current car is worth more than what you owe on it, you have positive equity, and that equity reduces your new loan. Good. If it's worth less than what you owe, you have negative equity also called being "upside-down" or "underwater."</p>
+<p>If your current car is worth more than what you owe on it, you have positive equity, and that equity reduces your new loan. Good. If it is worth less than what you owe, you have negative equity, also called being "upside-down" or "underwater."</p>
 
-<p>Here's the trap: dealers will offer to roll your negative equity into the new car loan. This makes the new monthly payment look manageable but creates a much larger and longer loan than the new car alone warrants. Now you're financing the new car plus some of the old car's debt, often at a higher rate than the original loan.</p>
+<p>Here is the trap: dealers will offer to roll your negative equity into the new car loan. This makes the new monthly payment look manageable but creates a much larger and longer loan than the new car alone warrants. Now you are financing the new car plus some of the old car's debt, often at a higher rate than the original loan.</p>
 
-<p>The math gets ugly fast. A buyer with $4,000 negative equity who rolls it into a new 72-month loan can easily end up upside-down on the new car within months guaranteeing the same problem will repeat at the next trade. The cleaner solution is usually to keep the old car longer, pay off the negative equity in cash before trading, or hold off on the upgrade entirely.</p>
+<p>The math gets ugly fast. A buyer with $4,000 negative equity who rolls it into a new 72-month loan can easily end up upside-down on the new car within months, guaranteeing the same problem will repeat at the next trade. The cleaner solution is usually to keep the old car longer, pay off the negative equity in cash before trading, or hold off on the upgrade entirely.</p>
 
 <h2>Why credit unions usually beat dealer financing</h2>
-<p>Dealers receive a commission on the financing they arrange. That commission comes from marking up the actual lender's rate. Even when a dealer offers you a "great" rate, it's often 1 to 3 percentage points above what you could have qualified for at a credit union or online lender.</p>
+<p>Dealers receive a commission on the financing they arrange. That commission comes from marking up the actual lender's rate. Even when a dealer offers you a "great" rate, it is often 1 to 3 percentage points above what you could have qualified for at a credit union or online lender.</p>
 
-<p>The fix is simple but underused: get pre-approved at a credit union before you visit any dealer. Bring the pre-approval letter with you. The dealer either has to beat it (sometimes they can they want the sale) or you use the pre-approval. Either way, you're not stuck taking whatever rate the finance manager hands you in the back office.</p>
+<p>The fix is simple but underused: get pre-approved at a credit union before you visit any dealer. Bring the pre-approval letter with you. The dealer either has to beat it (sometimes they can, they want the sale), or you use the pre-approval. Either way, you are not stuck taking whatever rate the finance manager hands you in the back office.</p>
 
-<p>Refinancing 3 to 12 months after the original loan is also common practice. Once you've made on-time payments and the loan is established, lenders will often offer better terms than what the dealer marked up.</p>
+<p>Refinancing 3 to 12 months after the original loan is also common practice. Once you have made on-time payments and the loan is established, lenders will often offer better terms than what the dealer marked up.</p>
 
 <h2>Common auto loan mistakes to avoid</h2>
 <p><strong>Negotiating the monthly payment instead of the total price.</strong> A salesperson who keeps asking "what payment can you afford" is shifting the conversation away from the actual price. Always negotiate total out-the-door price first.</p>
 
-<p><strong>Saying yes to the extras in the finance office.</strong> Extended warranties, GAP insurance, paint protection, fabric protection, VIN etching, tire and wheel protection most of these have huge markups in the finance office. If you want them, you can almost always get them later for less.</p>
+<p><strong>Saying yes to the extras in the finance office.</strong> Extended warranties, GAP insurance, paint protection, fabric protection, VIN etching, tire and wheel protection. Most of these have huge markups in the finance office. If you want them, you can almost always get them later for less.</p>
 
-<p><strong>Taking a longer loan term to "afford" a more expensive car.</strong> A 72 or 84-month loan turns a car you can't afford into a payment you can technically make. The total cost balloons and you spend years upside-down. If the 48-month payment doesn't work, the car is too expensive.</p>
+<p><strong>Taking a longer loan term to "afford" a more expensive car.</strong> A 72 or 84-month loan turns a car you cannot afford into a payment you can technically make. The total cost balloons and you spend years upside-down. If the 48-month payment does not work, the car is too expensive.</p>
 
-<p><strong>Ignoring insurance before you buy.</strong> Insurance varies wildly by vehicle. A sports car or luxury SUV can cost double or triple the insurance of a mid-range sedan. Get a real insurance quote before you commit not after.</p>
+<p><strong>Ignoring insurance before you buy.</strong> Insurance varies wildly by vehicle. A sports car or luxury SUV can cost double or triple the insurance of a mid-range sedan. Get a real insurance quote before you commit, not after.</p>
 
-<p><strong>Skipping the pre-purchase inspection on a used car.</strong> A $100–$200 independent inspection can save you from a $3,000 repair surprise. Sellers who refuse one are telling you something.</p>
+<p><strong>Skipping the pre-purchase inspection on a used car.</strong> A $100 to $200 independent inspection can save you from a $3,000 repair surprise. Sellers who refuse one are telling you something.</p>
 </div>
 
 <div class="al-seo">
@@ -390,44 +500,50 @@ SavingsClub
 <h3>What is the 20/4/10 rule for car buying?</h3>
 <p>The 20/4/10 rule is a personal-finance guideline: put at least 20% down, finance for no longer than 4 years (48 months), and keep total monthly transportation costs (loan, insurance, fuel, maintenance) under 10% of your gross monthly income. Cars that fit this rule are usually genuinely affordable.</p>
 
+<h3>Should I buy a new or used car?</h3>
+<p>For most buyers on a budget, a 2 to 3 year old used car saves the most money. New cars lose about 20% of their value in the first year and roughly 50% by year 5. Buying used skips that steep early depreciation. The trade-offs are higher maintenance risk, no full warranty, and a slightly higher interest rate, typically 1 percentage point above new car loans. Run the New vs Used comparison above with your specific numbers.</p>
+
 <h3>Should I trade in my car or sell it privately?</h3>
 <p>Selling privately usually gets you 10% to 20% more than a dealer trade-in. The trade-off is convenience and time. Trade-ins also reduce sales tax in many states because tax is only charged on the difference between new car price and trade-in value. Run the math both ways before deciding.</p>
 
-<h3>What does it mean to be "upside-down" on a car loan?</h3>
-<p>You're upside-down (or "underwater") when you owe more on your car loan than the car is currently worth. This often happens with long-term loans, low down payments, and rapid depreciation. The difference between what you owe and what it's worth has to come out of your pocket, or get rolled into your next car loan, making the next loan even harder to escape.</p>
+<h3>What does it mean to be upside-down on a car loan?</h3>
+<p>You are upside-down (or underwater) when you owe more on your car loan than the car is currently worth. This often happens with long-term loans, low down payments, and rapid depreciation. The difference between what you owe and what it is worth has to come out of your pocket, or get rolled into your next car loan, making the next loan even harder to escape.</p>
 
 <h3>Is it worth refinancing my auto loan?</h3>
 <p>Refinancing usually makes sense if you can drop your rate by at least 1 to 2 percentage points and you still have at least 2 to 3 years left on the loan. People who took dealer financing without shopping often qualify for noticeably better rates from credit unions or online lenders within a few months. Use the refinance scenario in this calculator to see the actual dollar savings before applying.</p>
 
 <h3>How much car can I afford on my income?</h3>
-<p>A rough rule of thumb: total vehicle price under 35% of your annual gross income for a more conservative approach, or under 50% as an upper bound. For a $75,000 income, that's roughly a $26,000 to $37,500 vehicle. The 20/4/10 rule is more precise because it tests three separate factors instead of one.</p>
+<p>A rough rule of thumb: total vehicle price under 35% of your annual gross income for a more conservative approach, or under 50% as an upper bound. For a $75,000 income, that is roughly a $26,000 to $37,500 vehicle. The 20/4/10 rule is more precise because it tests three separate factors instead of one.</p>
 </div>
 
 <div class="blog-recs reveal" style="margin-top:36px">
-<h3 style="margin-bottom:12px;font-size:1.1rem">📚 Related Guides</h3>
-<a href="../blog/understanding-apr-vs-apy-what-every-borrower-should-know/" class="related-blog-card">APR vs APY Explained →</a>
+<div class="al-related-heading">
+  <span class="al-related-icon"><svg viewBox="0 0 24 24"><path d="M4 4h12a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3z"/><path d="M4 17a3 3 0 0 1 3-3h12"/></svg></span>
+  Related Guides
+</div>
+<a href="../blog/understanding-apr-vs-apy-what-every-borrower-should-know/" class="related-blog-card">APR vs APY Explained &rarr;</a>
 </div>
 
 <div class="related-tools reveal">
 <h3>More Free Tools</h3>
-<a href="../savings-calculator/" class="related-tool-link">💰 Savings Calculator</a>
-<a href="../budget-planner/" class="related-tool-link">📊 Budget Planner</a>
-<a href="../debt-payoff-calculator/" class="related-tool-link">🔥 Debt Payoff</a>
-<a href="../compound-interest-calculator/" class="related-tool-link">📈 Compound Interest</a>
-<a href="../retirement-calculator/" class="related-tool-link">🏠 Retirement Planner</a>
-<a href="../investment-calculator/" class="related-tool-link">💎 Investment Growth</a>
-<a href="../mortgage-calculator/" class="related-tool-link">🏡 Mortgage Calculator</a>
-<a href="../net-worth-calculator/" class="related-tool-link">💳 Net Worth</a>
-<a href="../emergency-fund-calculator/" class="related-tool-link">🛟 Emergency Fund</a>
-<a href="../credit-card-payoff-calculator/" class="related-tool-link">💳 CC Payoff</a>
-<a href="../financial-health-score/" class="related-tool-link">❤️ Financial Health Score</a>
-<a href="../credit-card-quiz/" class="related-tool-link">🃏 Credit Card Quiz</a>
-<a href="../401k-calculator/" class="related-tool-link">🏦 401(k)</a>
-<a href="../roth-ira-calculator/" class="related-tool-link">📋 Roth IRA</a>
-<a href="../inflation-calculator/" class="related-tool-link">📉 Inflation</a>
-<a href="../loan-payoff-calculator/" class="related-tool-link">🎯 Loan Payoff</a>
-<a href="../paycheck-calculator/" class="related-tool-link">💵 Take-Home Pay</a>
-<a href="../cd-calculator/" class="related-tool-link">🔐 CD Calculator</a>
+<a href="../savings-calculator/" class="related-tool-link">Savings Calculator</a>
+<a href="../budget-planner/" class="related-tool-link">Budget Planner</a>
+<a href="../debt-payoff-calculator/" class="related-tool-link">Debt Payoff</a>
+<a href="../compound-interest-calculator/" class="related-tool-link">Compound Interest</a>
+<a href="../retirement-calculator/" class="related-tool-link">Retirement Planner</a>
+<a href="../investment-calculator/" class="related-tool-link">Investment Growth</a>
+<a href="../mortgage-calculator/" class="related-tool-link">Mortgage Calculator</a>
+<a href="../net-worth-calculator/" class="related-tool-link">Net Worth</a>
+<a href="../emergency-fund-calculator/" class="related-tool-link">Emergency Fund</a>
+<a href="../credit-card-payoff-calculator/" class="related-tool-link">Credit Card Payoff</a>
+<a href="../financial-health-score/" class="related-tool-link">Financial Health Score</a>
+<a href="../credit-card-quiz/" class="related-tool-link">Credit Card Quiz</a>
+<a href="../401k-calculator/" class="related-tool-link">401(k) Calculator</a>
+<a href="../roth-ira-calculator/" class="related-tool-link">Roth IRA Calculator</a>
+<a href="../inflation-calculator/" class="related-tool-link">Inflation Calculator</a>
+<a href="../loan-payoff-calculator/" class="related-tool-link">Loan Payoff</a>
+<a href="../paycheck-calculator/" class="related-tool-link">Take-Home Pay</a>
+<a href="../cd-calculator/" class="related-tool-link">CD Calculator</a>
 </div>
 
 </div>
@@ -435,13 +551,29 @@ SavingsClub
 
 <script>
 /* =========================================================
-   Auto Loan Calculator v2 — flatter layout
+   Auto Loan Calculator v3
+   Navy/emerald brand, Calculate+Reset pattern, empty state,
+   New Car vs Used Car WINNER comparison.
    ========================================================= */
 
 var TCO_INSURANCE = 1800;
 var TCO_FUEL = 2200;
 var TCO_MAINT = 1200;
 var TCO_REG = 400;
+
+// New vs Used comparison assumptions
+var USED_PRICE_FACTOR = 0.75;   // Used = 75% of new price (2 to 3 year old equivalent)
+var USED_APR_PREMIUM = 1.0;     // Used APR = new APR + 1 percentage point
+var INS_NEW = 1800;             // Annual insurance for new car
+var INS_USED = 1500;            // Annual insurance for used car
+
+// Defaults for Reset
+var DEFAULTS = {
+  alPrice: 35000, alTax: 7, alFees: 800,
+  alDown: 5000, alTrade: 0, alTradeOwed: 0,
+  alRate: 7.5, alTerm: '60',
+  alIncome: 75000
+};
 
 function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
 
@@ -460,7 +592,7 @@ function getInputs(){
 }
 
 function calcMonthlyPayment(loanAmt, annualRate, months){
-  if (loanAmt <= 0) return 0;
+  if (loanAmt <= 0 || months <= 0) return 0;
   var r = annualRate / 100 / 12;
   if (r === 0) return loanAmt / months;
   return loanAmt * (r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1);
@@ -475,7 +607,7 @@ function checkAffordability(downPct, term, monthlyPayment, income){
     detail: 'Protects against depreciation and being upside-down',
     pass: downPct >= 20,
     yourValue: downPct.toFixed(1) + '%',
-    target: 'Target: ≥ 20%'
+    target: 'Target: at least 20%'
   });
   if (downPct >= 20) passed++;
 
@@ -484,18 +616,18 @@ function checkAffordability(downPct, term, monthlyPayment, income){
     detail: 'Longer terms mean more interest and more time underwater',
     pass: term <= 48,
     yourValue: term + ' mo',
-    target: 'Target: ≤ 48 mo'
+    target: 'Target: 48 months or less'
   });
   if (term <= 48) passed++;
 
   var monthlyIncome = income / 12;
   var paymentPct = monthlyIncome > 0 ? (monthlyPayment / monthlyIncome) * 100 : 0;
   rules.push({
-    name: '≤6.5% of monthly income (loan only)',
+    name: 'Loan payment at 6.5% of monthly income or less',
     detail: 'Loan + insurance + fuel + maintenance should stay under 10% combined',
     pass: income > 0 && paymentPct <= 6.5,
     yourValue: income > 0 ? paymentPct.toFixed(1) + '%' : 'Enter income',
-    target: 'Target: ≤ 6.5% payment alone'
+    target: 'Target: 6.5% loan-only'
   });
   if (income > 0 && paymentPct <= 6.5) passed++;
 
@@ -518,6 +650,112 @@ function renderBreakdown(rows){
   return html;
 }
 
+/* ============== NEW vs USED retention curves ==============
+   Approximation of typical depreciation curves:
+   - New car: loses 20% year 1, then about 12% per year of remaining value
+   - Used car (2-3 yr old purchase): more linear, about 15% per year of remaining value
+   Returns retention rate (0 to 1) at month N.
+============================================================ */
+function newCarRetention(months){
+  var years = months / 12;
+  if (years <= 0) return 1;
+  if (years <= 1) return 1 - 0.20 * years;
+  return 0.80 * Math.pow(0.88, years - 1);
+}
+
+function usedCarRetention(months){
+  var years = months / 12;
+  if (years <= 0) return 1;
+  return Math.pow(0.85, years);
+}
+
+/* ============== NEW vs USED comparison ==============
+   Compare total ownership cost over the user's loan term.
+   total = down + (monthly payment * term months) + (insurance * term years) - resale value
+============================================================ */
+function buildNewVsUsedHtml(x, totalNewLoanCost, monthlyPayment){
+  // NEW CAR scenario (matches user inputs)
+  var newPrice = x.price;
+  var newOTD = newPrice + (newPrice * x.tax / 100) + x.fees;
+  var newDown = x.down;
+  var newTradeEquity = x.tradeValue - x.tradeOwed;
+  var newLoan = Math.max(0, newOTD - newDown - newTradeEquity);
+  var newMonthly = calcMonthlyPayment(newLoan, x.rate, x.term);
+  var termYears = x.term / 12;
+  var newPaymentsTotal = newMonthly * x.term;
+  var newInsTotal = INS_NEW * termYears;
+  var newResale = newPrice * newCarRetention(x.term);
+  var newOwnershipCost = newDown + newPaymentsTotal + newInsTotal - newResale;
+
+  // USED CAR scenario (same model, 2-3 yr old)
+  var usedPrice = newPrice * USED_PRICE_FACTOR;
+  var usedOTD = usedPrice + (usedPrice * x.tax / 100) + x.fees;
+  // Same down payment dollar amount but capped at used OTD
+  var usedDown = Math.min(x.down, usedOTD * 0.9);
+  // No trade-in math for simplicity in the comparison
+  var usedLoan = Math.max(0, usedOTD - usedDown);
+  var usedRate = x.rate + USED_APR_PREMIUM;
+  var usedMonthly = calcMonthlyPayment(usedLoan, usedRate, x.term);
+  var usedPaymentsTotal = usedMonthly * x.term;
+  var usedInsTotal = INS_USED * termYears;
+  var usedResale = usedPrice * usedCarRetention(x.term);
+  var usedOwnershipCost = usedDown + usedPaymentsTotal + usedInsTotal - usedResale;
+
+  var usedWins = usedOwnershipCost < newOwnershipCost;
+  var diff = Math.abs(newOwnershipCost - usedOwnershipCost);
+
+  var newClass = usedWins ? '' : 'winner';
+  var usedClass = usedWins ? 'winner' : '';
+
+  // Summary text
+  var summary;
+  if (usedWins && diff > 1000){
+    summary = '<strong>Used car saves you about $' + fmt(diff) + ' over ' + termYears.toFixed(0) + ' years</strong> in your scenario. Most of the savings come from avoiding the steep year-1 depreciation hit that new cars take, plus a smaller loan and lower insurance.';
+  } else if (!usedWins && diff > 1000){
+    summary = '<strong>New car comes out slightly ahead</strong> by about $' + fmt(diff) + ' over ' + termYears.toFixed(0) + ' years in this scenario. This happens occasionally with short loan terms, very low APRs, or unusually high depreciation assumptions on the used side. Most buyers still benefit from used. Re-check insurance and resale assumptions for your specific vehicle.';
+  } else {
+    summary = '<strong>It is roughly a tie</strong> over ' + termYears.toFixed(0) + ' years. Difference is under $1,000. Pick based on reliability, warranty needs, and whether you want the new-car experience.';
+  }
+
+  return '<div class="al-section-title" style="margin-top:28px">'
+       +   '<span class="al-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>'
+       +   'New Car vs Used Car'
+       + '</div>'
+       + '<div class="al-vs-note"><strong>How we compare:</strong> same model, 2 to 3 year old used vehicle priced at ' + (USED_PRICE_FACTOR * 100) + '% of new. Used APR is ' + USED_APR_PREMIUM + ' point higher (typical). Same loan term and down payment dollar amount. Estimated insurance: $' + INS_NEW + '/yr new, $' + INS_USED + '/yr used. End-of-term resale value subtracted from both. Total cost shown over your ' + termYears.toFixed(0) + '-year loan term.</div>'
+       + '<div class="al-vs-grid">'
+
+       +   '<div class="al-vs-card ' + newClass + '">'
+       +     '<div class="al-vs-icon"><svg viewBox="0 0 24 24"><path d="M5 17h14M3 14l2-6h14l2 6M5 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0M15 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0"/></svg></div>'
+       +     '<div class="al-vs-title">New Car</div>'
+       +     '<div class="al-vs-subtitle">Drive off the lot, full warranty, latest tech</div>'
+       +     '<div class="al-vs-metric-label">Total ' + termYears.toFixed(0) + '-year cost</div>'
+       +     '<div class="al-vs-metric">$' + fmt(newOwnershipCost) + '</div>'
+       +     '<div class="al-vs-detail">'
+       +       '<div class="al-vs-detail-row"><span>Vehicle price</span><span>$' + fmt(newPrice) + '</span></div>'
+       +       '<div class="al-vs-detail-row"><span>Monthly payment</span><span>$' + fmt(newMonthly) + '</span></div>'
+       +       '<div class="al-vs-detail-row"><span>Insurance (' + termYears.toFixed(0) + ' yr)</span><span>$' + fmt(newInsTotal) + '</span></div>'
+       +       '<div class="al-vs-detail-row"><span>Resale at end</span><span>$' + fmt(newResale) + '</span></div>'
+       +     '</div>'
+       +   '</div>'
+
+       +   '<div class="al-vs-card ' + usedClass + '">'
+       +     '<div class="al-vs-icon"><svg viewBox="0 0 24 24"><path d="M5 17h14M3 14l2-6h14l2 6M5 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0M15 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0M9 11l3-3 3 3"/></svg></div>'
+       +     '<div class="al-vs-title">Used Car (2-3 yr old)</div>'
+       +     '<div class="al-vs-subtitle">Skip the depreciation, smaller loan, lower insurance</div>'
+       +     '<div class="al-vs-metric-label">Total ' + termYears.toFixed(0) + '-year cost</div>'
+       +     '<div class="al-vs-metric">$' + fmt(usedOwnershipCost) + '</div>'
+       +     '<div class="al-vs-detail">'
+       +       '<div class="al-vs-detail-row"><span>Vehicle price</span><span>$' + fmt(usedPrice) + '</span></div>'
+       +       '<div class="al-vs-detail-row"><span>Monthly payment</span><span>$' + fmt(usedMonthly) + '</span></div>'
+       +       '<div class="al-vs-detail-row"><span>Insurance (' + termYears.toFixed(0) + ' yr)</span><span>$' + fmt(usedInsTotal) + '</span></div>'
+       +       '<div class="al-vs-detail-row"><span>Resale at end</span><span>$' + fmt(usedResale) + '</span></div>'
+       +     '</div>'
+       +   '</div>'
+
+       + '</div>'
+       + '<div class="al-vs-summary">' + summary + '</div>';
+}
+
 function calc(){
   var x = getInputs();
 
@@ -537,28 +775,37 @@ function calc(){
   var equityWarn = '';
   if (tradeEquity < 0){
     equityWarn = '<div class="al-equity-warn">'
-      + '<div class="al-equity-warn-icon">⚠️</div>'
+      + '<div class="al-equity-warn-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>'
       + '<div class="al-equity-warn-body"><strong>Upside-down on your trade-in.</strong> You owe $' + fmt(Math.abs(tradeEquity)) + ' more than the trade is worth. That $' + fmt(Math.abs(tradeEquity)) + ' gets rolled into your new loan, making it harder to escape on this car too. Consider paying it off in cash first, keeping the old car longer, or holding off on the upgrade.</div>'
       + '</div>';
   }
 
   // Affordability card
-  var afStatus, afIcon, afTitle, afSub;
+  var afStatus, afIconSvg, afTitle, afSub;
   if (afford.passed === 3){
-    afStatus = 'pass'; afIcon = '✓'; afTitle = 'Affordable';
-    afSub = 'This loan passes all three 20/4/10 rules — solid choice on the math.';
+    afStatus = 'pass';
+    afIconSvg = '<svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>';
+    afTitle = 'Affordable';
+    afSub = 'This loan passes all three 20/4/10 rules, a solid choice on the math.';
   } else if (afford.passed >= 1){
-    afStatus = 'warn'; afIcon = '⚠'; afTitle = 'Borderline';
+    afStatus = 'warn';
+    afIconSvg = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16v.5"/></svg>';
+    afTitle = 'Borderline';
     afSub = 'Passes ' + afford.passed + ' of 3 affordability rules. Adjust the inputs above to see what changes.';
   } else {
-    afStatus = 'fail'; afIcon = '✕'; afTitle = 'Stretched';
+    afStatus = 'fail';
+    afIconSvg = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/></svg>';
+    afTitle = 'Stretched';
     afSub = 'This loan fails all 20/4/10 rules. The car is likely too expensive for your current finances.';
   }
   var ruleRows = '';
   for (var i = 0; i < afford.rules.length; i++){
     var r = afford.rules[i];
+    var checkSvg = r.pass
+      ? '<svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>'
+      : '<svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>';
     ruleRows += '<div class="al-rule-row">'
-      + '<div class="al-rule-check">' + (r.pass ? '✅' : '❌') + '</div>'
+      + '<div class="al-rule-check ' + (r.pass ? 'good' : 'bad') + '">' + checkSvg + '</div>'
       + '<div><div class="al-rule-text">' + r.name + '</div><div class="al-rule-detail">' + r.detail + '</div></div>'
       + '<div class="al-rule-value ' + (r.pass ? 'good' : 'bad') + '">' + r.yourValue + '<div class="al-rule-target">' + r.target + '</div></div>'
       + '</div>';
@@ -574,7 +821,7 @@ function calc(){
   if (loanAmount <= 0){
     refiResult = '<div class="al-scenario-result">No loan to refinance.</div>';
   } else if (refiRate >= x.rate){
-    refiResult = '<div class="al-scenario-result">At <strong>' + refiRate.toFixed(1) + '%</strong>, you\'d pay more — drop the slider below your current rate.</div>';
+    refiResult = '<div class="al-scenario-result">At <strong>' + refiRate.toFixed(1) + '%</strong>, you would pay more. Drop the slider below your current rate.</div>';
   } else if (refiSaved < 10){
     refiResult = '<div class="al-scenario-result">No meaningful savings at this rate.</div>';
   } else {
@@ -605,7 +852,7 @@ function calc(){
     if (monthsSaved <= 0){
       boostResult = '<div class="al-scenario-result">Boost too small to round off a month.</div>';
     } else {
-      boostResult = '<div class="al-scenario-result">Adding <strong>$' + boostAmount + '/month</strong> pays off the loan in <strong>' + bMonths + ' months</strong> instead of ' + x.term + ' — saves <strong>$' + fmt(interestSaved) + '</strong> in interest.</div>';
+      boostResult = '<div class="al-scenario-result">Adding <strong>$' + boostAmount + '/month</strong> pays off the loan in <strong>' + bMonths + ' months</strong> instead of ' + x.term + ', saves <strong>$' + fmt(interestSaved) + '</strong> in interest.</div>';
     }
   }
 
@@ -615,14 +862,18 @@ function calc(){
   var tcoMonthlyAvg = tcoAnnual / 12;
   document.getElementById('alTcoTotal').innerHTML =
       'Your <strong>estimated total annual cost</strong>: $' + fmt(tcoAnnual) + ' (about $' + fmt(tcoMonthlyAvg) + '/month including loan + insurance + fuel + maintenance + registration). '
-    + (x.income > 0 ? '<span style="font-weight:600">That\'s ' + ((tcoAnnual / x.income) * 100).toFixed(1) + '% of your annual income.</span>' : 'Add your income above to see % of income.');
+    + (x.income > 0 ? '<span style="font-weight:600">That is ' + ((tcoAnnual / x.income) * 100).toFixed(1) + '% of your annual income.</span>' : 'Add your income above to see % of income.');
 
-  // Build result
-  document.getElementById('calcResult').innerHTML =
+  // ----- BUILD HTML -----
+  document.getElementById('alEmptyState').style.display = 'none';
+  var resultEl = document.getElementById('calcResult');
+  resultEl.style.display = 'block';
+
+  resultEl.innerHTML =
       '<div class="al-result-banner">'
     +   '<div class="al-result-label">Monthly payment</div>'
     +   '<div class="al-result-value">$' + fmt(monthlyPayment) + '/mo</div>'
-    +   '<div class="al-result-sub">' + x.term + '-month loan at ' + x.rate + '% APR on $' + fmt(loanAmount) + ' financed. Total cost over the life of the loan: <strong style="color:#fff">$' + fmt(totalPaid) + '</strong>.</div>'
+    +   '<div class="al-result-sub">' + x.term + '-month loan at ' + x.rate + '% APR on $' + fmt(loanAmount) + ' financed. Total cost over the life of the loan: <strong>$' + fmt(totalPaid) + '</strong>.</div>'
     + '</div>'
 
     + '<div class="al-stats">'
@@ -636,8 +887,8 @@ function calc(){
 
     + '<div class="al-afford-card ' + afStatus + '">'
     +   '<div class="al-afford-header">'
-    +     '<div class="al-afford-icon">' + afIcon + '</div>'
-    +     '<div><div class="al-afford-title">' + afTitle + ' — ' + afford.passed + ' of 3 rules met</div>'
+    +     '<div class="al-afford-icon">' + afIconSvg + '</div>'
+    +     '<div><div class="al-afford-title">' + afTitle + ': ' + afford.passed + ' of 3 rules met</div>'
     +     '<div class="al-afford-sub">' + afSub + '</div></div>'
     +   '</div>'
     +   ruleRows
@@ -647,17 +898,22 @@ function calc(){
     +   '<div class="al-breakdown-title">Cost breakdown</div>'
     +   renderBreakdown([
         {label: 'Vehicle Price', value: x.price, color1: '#3B82F6', color2: '#1D4ED8'},
-        {label: 'Loan Amount',   value: loanAmount, color1: '#8B5CF6', color2: '#6D28D9'},
+        {label: 'Loan Amount',   value: loanAmount, color1: '#10B981', color2: '#059669'},
         {label: 'Interest Paid', value: totalInterest, color1: '#EF4444', color2: '#DC2626'},
         {label: 'Total Paid',    value: totalPaid + x.down, color1: '#F59E0B', color2: '#D97706'}
       ])
     + '</div>'
 
-    + '<div class="al-section-title" style="margin-top:28px"><span class="dot"></span> What-if scenarios</div>'
+    + buildNewVsUsedHtml(x, totalPaid, monthlyPayment)
+
+    + '<div class="al-section-title" style="margin-top:28px">'
+    +   '<span class="al-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M2 12h20"/></svg></span>'
+    +   'What-if scenarios'
+    + '</div>'
     + '<div class="al-scenarios">'
 
     +   '<div class="al-scenario-card">'
-    +     '<div class="al-scenario-icon refi">🔄</div>'
+    +     '<div class="al-scenario-icon"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><polyline points="21 3 21 8 16 8"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><polyline points="8 16 3 16 3 21"/></svg></div>'
     +     '<div class="al-scenario-title">Refinance</div>'
     +     '<div class="al-scenario-desc">What if you refinanced at a credit union for a lower rate?</div>'
     +     '<div class="al-slider-row">'
@@ -668,7 +924,7 @@ function calc(){
     +   '</div>'
 
     +   '<div class="al-scenario-card">'
-    +     '<div class="al-scenario-icon boost">⚡</div>'
+    +     '<div class="al-scenario-icon"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>'
     +     '<div class="al-scenario-title">Extra Payment</div>'
     +     '<div class="al-scenario-desc">What if you paid extra each month? Faster payoff, less interest.</div>'
     +     '<div class="al-slider-row">'
@@ -679,13 +935,35 @@ function calc(){
     +   '</div>'
 
     + '</div>';
+
+  // Scroll results into view
+  setTimeout(function(){
+    resultEl.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 60);
+}
+
+function resetCalc(){
+  document.getElementById('alPrice').value = DEFAULTS.alPrice;
+  document.getElementById('alTax').value = DEFAULTS.alTax;
+  document.getElementById('alFees').value = DEFAULTS.alFees;
+  document.getElementById('alDown').value = DEFAULTS.alDown;
+  document.getElementById('alTrade').value = DEFAULTS.alTrade;
+  document.getElementById('alTradeOwed').value = DEFAULTS.alTradeOwed;
+  document.getElementById('alRate').value = DEFAULTS.alRate;
+  document.getElementById('alTerm').value = DEFAULTS.alTerm;
+  document.getElementById('alIncome').value = DEFAULTS.alIncome;
+
+  document.getElementById('calcResult').style.display = 'none';
+  document.getElementById('calcResult').innerHTML = '';
+  document.getElementById('alEmptyState').style.display = 'block';
+  document.getElementById('alTcoTotal').innerHTML = 'Enter your numbers above and click Calculate to see total annual cost of ownership.';
+
+  document.getElementById('alPrice').scrollIntoView({behavior:'smooth', block:'center'});
 }
 
 function toggleInfo(){
   document.getElementById('alInfoCard').classList.toggle('open');
 }
-
-document.addEventListener('DOMContentLoaded', function(){ calc(); });
 </script>
 
 <footer>
@@ -721,7 +999,7 @@ document.addEventListener('DOMContentLoaded', function(){ calc(); });
 </div>
 <div class="footer-bottom">
 <p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
-<p>Educational content only — not financial advice. SavingsClub is not a licensed financial advisor. Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+<p>Educational content only, not financial advice. SavingsClub is not a licensed financial advisor. Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
 </div>
 </div>
 </footer>
@@ -739,10 +1017,10 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
 if(localStorage.getItem('sc_cookies'))return;
 var b=document.createElement('div');
 b.id='cookieBanner';
-b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1';
+b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
 var acceptBtn=document.createElement('button');
 acceptBtn.textContent='Accept';
-acceptBtn.style.cssText='background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#059669,#10B981);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
 acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
 var declineBtn=document.createElement('button');
 declineBtn.textContent='Decline';
@@ -752,12 +1030,12 @@ localStorage.setItem('sc_cookies','decline');
 b.innerHTML='';
 var msg=document.createElement('span');
 msg.style.cssText='padding:12px 0;color:#10B981';
-msg.textContent='\u2713 No cookies stored. You can browse freely.';
+msg.textContent='No cookies stored. You can browse freely.';
 b.appendChild(msg);
 setTimeout(function(){b.remove();},2500);
 };
 var txt=document.createElement('span');
-txt.innerHTML='We use cookies to improve your experience. <a href="/cookie-policy/" style="color:#3B82F6">Cookie Policy</a>';
+txt.innerHTML='We use cookies to improve your experience. <a href="/cookie-policy/" style="color:#10B981">Cookie Policy</a>';
 var btnWrap=document.createElement('div');
 btnWrap.style.cssText='display:flex;gap:8px';
 btnWrap.appendChild(acceptBtn);
