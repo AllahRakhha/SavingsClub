@@ -58,47 +58,20 @@
 </script>
 
 <style>
-/* ====== NAV FIX: explicit nav styling to override .bi-page conflict ====== */
-/* This forces the nav to be a solid navy bar with white text, visible against any background. */
-body{margin:0;padding-top:64px}
-nav#mainNav{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;z-index:1000 !important;background:#0A1628 !important;padding:12px 0 !important;box-shadow:0 2px 14px rgba(10,22,40,.18) !important;display:block !important;visibility:visible !important}
-nav#mainNav.scrolled{background:#050D1A !important;box-shadow:0 4px 18px rgba(0,0,0,.25) !important}
-nav#mainNav .nav-inner{max-width:1200px;margin:0 auto;display:flex !important;justify-content:space-between;align-items:center;padding:0 24px;gap:20px}
-nav#mainNav .logo{display:flex;align-items:center;gap:10px;color:#fff !important;font-weight:700;font-size:1.1rem;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif}
-nav#mainNav .logo-mark{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#059669,#10B981);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-nav#mainNav .logo-mark svg{width:18px;height:18px}
-nav#mainNav .nav-links{display:flex !important;gap:24px;align-items:center}
-nav#mainNav .nav-links a{color:rgba(255,255,255,.85) !important;text-decoration:none;font-weight:500;font-size:.95rem;transition:color .15s;padding:6px 0}
-nav#mainNav .nav-links a:hover,nav#mainNav .nav-links a.active{color:#34D399 !important}
-nav#mainNav .hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:8px;background:transparent;border:none}
-nav#mainNav .hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .2s}
-@media(max-width:900px){
-  nav#mainNav .nav-links{display:none !important}
-  nav#mainNav .hamburger{display:flex !important}
-}
-
-/* ====== MOBILE MENU ====== */
-.mobile-menu{position:fixed;top:0;right:-100%;width:280px;height:100%;background:#fff;box-shadow:-4px 0 24px rgba(0,0,0,.18);transition:right .3s ease;z-index:9999;padding:80px 20px 24px;display:flex;flex-direction:column;gap:8px;overflow-y:auto}
-.mobile-menu.open{right:0}
-.mobile-menu a{color:#0A1628;text-decoration:none;font-weight:600;font-size:1rem;padding:14px 16px;border-radius:10px;transition:background .15s,color .15s;border-bottom:1px solid #F1F5F9}
-.mobile-menu a:last-child{border-bottom:none}
-.mobile-menu a:hover{background:#F0FDF4;color:#059669}
-
-/* ====== Blog index page styles ====== */
 .bi-page *{box-sizing:border-box}
 .bi-page{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;background:#F8FAFC;color:#0A1628;line-height:1.6;-webkit-font-smoothing:antialiased}
 .bi-page h1,.bi-page h2,.bi-page h3{font-family:'Plus Jakarta Sans',sans-serif;color:#0A1628;line-height:1.2;margin:0}
 
-.bi-hero{background:linear-gradient(135deg,#0A1628 0%,#0F2540 50%,#059669 100%);color:#fff;padding:80px 24px 90px;text-align:center;position:relative;overflow:hidden}
+.bi-hero{background:linear-gradient(135deg,#0A1628 0%,#0F2540 50%,#059669 100%);color:#fff;padding:100px 24px 100px;text-align:center;position:relative;overflow:hidden}
 .bi-hero::before{content:'';position:absolute;top:-40%;right:-15%;width:60%;height:180%;background:radial-gradient(circle,rgba(16,185,129,0.22) 0%,transparent 60%);pointer-events:none}
 .bi-hero::after{content:'';position:absolute;bottom:-40%;left:-15%;width:50%;height:160%;background:radial-gradient(circle,rgba(52,211,153,0.14) 0%,transparent 60%);pointer-events:none}
 .bi-hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
 .bi-badge{display:inline-block;background:rgba(16,185,129,0.18);color:#34D399;padding:8px 20px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:24px;border:1px solid rgba(16,185,129,0.35)}
-.bi-hero h1{font-size:clamp(36px,5vw,54px);color:#fff;font-weight:800;margin-bottom:18px;letter-spacing:-0.02em;line-height:1.1}
+.bi-hero h1{font-size:clamp(38px,5.5vw,58px);color:#fff;font-weight:800;margin-bottom:20px;letter-spacing:-0.02em;line-height:1.1}
 .bi-hero h1 .bi-accent{color:#34D399}
-.bi-hero p{font-size:clamp(16px,2vw,18px);color:rgba(255,255,255,0.82);max-width:680px;margin:0 auto;line-height:1.6}
+.bi-hero p{font-size:clamp(16px,2vw,19px);color:rgba(255,255,255,0.82);max-width:680px;margin:0 auto;line-height:1.6}
 
-.bi-filter-section{background:#fff;border-bottom:1px solid #E2E8F0;padding:24px;box-shadow:0 2px 12px rgba(10,22,40,0.04)}
+.bi-filter-section{background:#fff;border-bottom:1px solid #E2E8F0;padding:24px 24px 24px;box-shadow:0 2px 12px rgba(10,22,40,0.04)}
 .bi-filter-bar{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
 .bi-chip{background:#F1F5F9;border:1px solid transparent;color:#475569;padding:10px 18px;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s ease;font-family:'DM Sans',sans-serif;white-space:nowrap}
 .bi-chip:hover{background:#fff;border-color:#10B981;color:#059669;transform:translateY(-1px);box-shadow:0 4px 14px rgba(16,185,129,0.15)}
@@ -124,7 +97,7 @@ nav#mainNav .hamburger span{display:block;width:24px;height:2px;background:#fff;
 .bi-card h2{font-size:20px;font-weight:700;line-height:1.3;margin-bottom:12px;color:#0A1628;font-family:'Plus Jakarta Sans',sans-serif}
 .bi-excerpt{font-size:15px;color:#475569;line-height:1.6;margin-bottom:18px;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .bi-readmore{display:inline-flex;align-items:center;gap:6px;color:#059669;font-weight:700;font-size:14px;margin-top:auto;letter-spacing:0.2px}
-.bi-readmore::after{content:'\2192';transition:transform 0.2s ease;display:inline-block}
+.bi-readmore::after{content:'→';transition:transform 0.2s ease;display:inline-block}
 .bi-card:hover .bi-readmore::after{transform:translateX(5px)}
 .bi-card.bi-hidden{display:none}
 
@@ -144,7 +117,7 @@ nav#mainNav .hamburger span{display:block;width:24px;height:2px;background:#fff;
 .bi-cta-btn-secondary:hover{background:rgba(255,255,255,0.16);transform:translateY(-2px)}
 
 @media (max-width:900px){
-  .bi-hero{padding:60px 20px 70px}
+  .bi-hero{padding:70px 20px 70px}
   .bi-posts-section{padding:40px 20px 60px}
   .bi-posts-grid{grid-template-columns:1fr;gap:22px}
   .bi-filter-section{padding:16px 20px}
@@ -175,18 +148,16 @@ SavingsClub
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-<a href="/" onclick="closeMobile()">Home</a>
-<a href="/savings-calculator/" onclick="closeMobile()">Savings</a>
-<a href="/budget-planner/" onclick="closeMobile()">Budget</a>
-<a href="/mortgage-calculator/" onclick="closeMobile()">Mortgage</a>
-<a href="/401k-calculator/" onclick="closeMobile()">401(k)</a>
-<a href="/retirement-calculator/" onclick="closeMobile()">Retirement</a>
-<a href="/debt-payoff-calculator/" onclick="closeMobile()">Debt Payoff</a>
-<a href="/credit-cards/" onclick="closeMobile()">Credit Cards</a>
-<a href="/blog/" onclick="closeMobile()">Blog</a>
-<a href="/banking/" onclick="closeMobile()">Banking</a>
-<a href="/about/" onclick="closeMobile()">About</a>
-<a href="/contact/" onclick="closeMobile()">Contact</a>
+<a href="/">Home</a>
+<a href="/savings-calculator/">Savings</a>
+<a href="/budget-planner/">Budget</a>
+<a href="/mortgage-calculator/">Mortgage</a>
+<a href="/debt-payoff-calculator/">Debt Payoff</a>
+<a href="/credit-cards/">Credit Cards</a>
+<a href="/blog/">Blog</a>
+<a href="/banking/">Banking</a>
+<a href="/about/">About</a>
+<a href="/contact/">Contact</a>
 </div>
 
 <header class="bi-hero">
@@ -217,7 +188,7 @@ SavingsClub
 
     <a href="/blog/financial-planning-checklist-for-new-parents/" class="bi-card" data-cat="Housing">
       <div class="bi-image-wrap">
-        <img class="bi-image" src="https://images.unsplash.com/photo-1725271765568-ff737f0ab736?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="Financial planning checklist for new parents" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
+        <img class="bi-image" src="https://images.unsplash.com/photo-1725271765568-ff737f0ab736?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODI0ODcyOTB8&ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="Financial planning checklist for new parents" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
         <div class="bi-fallback">Housing</div>
       </div>
       <div class="bi-content">
@@ -226,14 +197,14 @@ SavingsClub
           <span class="bi-date">June 26, 2026</span>
         </div>
         <h2>Financial planning checklist for new parents</h2>
-        <p class="bi-excerpt">You just brought home a tiny human who can't yet tell you what they want, but they've already completely rearranged your finances.</p>
+        <p class="bi-excerpt">You just brought home a tiny human who can&#39;t yet tell you what they want, but they&#39;ve already completely rearranged your finances.</p>
         <span class="bi-readmore">Read article</span>
       </div>
     </a>
 
     <a href="/blog/top-budgeting-strategies-for-families-in-connecticut/" class="bi-card" data-cat="Budgeting">
       <div class="bi-image-wrap">
-        <img class="bi-image" src="https://images.unsplash.com/photo-1627662056294-94fa1ac27a06?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="Top budgeting strategies for families in Connecticut" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
+        <img class="bi-image" src="https://images.unsplash.com/photo-1627662056294-94fa1ac27a06?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODIzMTUwNjV8&ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="Top budgeting strategies for families in Connecticut" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
         <div class="bi-fallback">Budgeting</div>
       </div>
       <div class="bi-content">
@@ -242,14 +213,14 @@ SavingsClub
           <span class="bi-date">June 24, 2026</span>
         </div>
         <h2>Top budgeting strategies for families in Connecticut</h2>
-        <p class="bi-excerpt">Here's the thing about living in Connecticut. It's one of the most expensive states in the entire country, and the numbers prove it.</p>
+        <p class="bi-excerpt">Here&#39;s the thing about living in Connecticut. It&#39;s one of the most expensive states in the entire country, and the numbers prove it.</p>
         <span class="bi-readmore">Read article</span>
       </div>
     </a>
 
     <a href="/blog/how-to-prepare-financially-for-a-recession/" class="bi-card" data-cat="Money Tips">
       <div class="bi-image-wrap">
-        <img class="bi-image" src="https://images.unsplash.com/photo-1586864030275-edd6e51dc880?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to prepare financially for a recession" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
+        <img class="bi-image" src="https://images.unsplash.com/photo-1586864030275-edd6e51dc880?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODIxNDkyMzh8&ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to prepare financially for a recession" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
         <div class="bi-fallback">Money Tips</div>
       </div>
       <div class="bi-content">
@@ -258,14 +229,14 @@ SavingsClub
           <span class="bi-date">June 22, 2026</span>
         </div>
         <h2>How to prepare financially for a recession</h2>
-        <p class="bi-excerpt">Picture this: your employer announces layoffs on a Tuesday morning. You weren't expecting it. Your emergency fund has $400 in it. Your credit cards are carrying balances.</p>
+        <p class="bi-excerpt">Picture this: your employer announces layoffs on a Tuesday morning. You weren&#39;t expecting it. Your emergency fund has $400 in it. Your credit cards are carrying balances. And rent is due in two weeks.</p>
         <span class="bi-readmore">Read article</span>
       </div>
     </a>
 
     <a href="/blog/best-high-yield-savings-accounts-for-oklahoma-residents/" class="bi-card" data-cat="Savings">
       <div class="bi-image-wrap">
-        <img class="bi-image" src="https://images.unsplash.com/photo-1777591066111-d49df53c29eb?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="Best high-yield savings accounts for Oklahoma residents" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
+        <img class="bi-image" src="https://images.unsplash.com/photo-1777591066111-d49df53c29eb?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODE4ODQ2NTl8&ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="Best high-yield savings accounts for Oklahoma residents" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
         <div class="bi-fallback">Savings</div>
       </div>
       <div class="bi-content">
@@ -274,14 +245,14 @@ SavingsClub
           <span class="bi-date">June 19, 2026</span>
         </div>
         <h2>Best high-yield savings accounts for Oklahoma residents</h2>
-        <p class="bi-excerpt">You're working hard, paying your bills on time, and doing everything right. But your savings account at your local Oklahoma City bank is still earning 0.40% APY.</p>
+        <p class="bi-excerpt">You&#39;re working hard, paying your bills on time, and doing everything right. But your savings account at your local Oklahoma City bank is still earning 0.40% APY.</p>
         <span class="bi-readmore">Read article</span>
       </div>
     </a>
 
     <a href="/blog/how-to-plan-for-early-retirement-in-your-40s/" class="bi-card" data-cat="Retirement">
       <div class="bi-image-wrap">
-        <img class="bi-image" src="https://images.unsplash.com/photo-1770387210801-e6de72701aaa?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to plan for early retirement in your 40s" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
+        <img class="bi-image" src="https://images.unsplash.com/photo-1770387210801-e6de72701aaa?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODE3MTQwNTN8&ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to plan for early retirement in your 40s" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
         <div class="bi-fallback">Retirement</div>
       </div>
       <div class="bi-content">
@@ -290,14 +261,14 @@ SavingsClub
           <span class="bi-date">June 17, 2026</span>
         </div>
         <h2>How to plan for early retirement in your 40s</h2>
-        <p class="bi-excerpt">Imagine waking up on a Tuesday at 9 a.m. With nowhere to be. No commute, no boss, no performance review. For millions of Americans, that's the dream.</p>
+        <p class="bi-excerpt">Imagine waking up on a Tuesday at 9 a.m. With nowhere to be. No commute, no boss, no performance review. For millions of Americans, that&#39;s the dream.</p>
         <span class="bi-readmore">Read article</span>
       </div>
     </a>
 
     <a href="/blog/how-to-pay-off-student-loan-debt-faster/" class="bi-card" data-cat="Debt">
       <div class="bi-image-wrap">
-        <img class="bi-image" src="https://images.unsplash.com/photo-1665567031458-8f6889b3fdb1?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to pay off student loan debt faster" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
+        <img class="bi-image" src="https://images.unsplash.com/photo-1665567031458-8f6889b3fdb1?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODE1NzU4NTR8&ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to pay off student loan debt faster" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
         <div class="bi-fallback">Debt</div>
       </div>
       <div class="bi-content">
@@ -306,14 +277,14 @@ SavingsClub
           <span class="bi-date">June 16, 2026</span>
         </div>
         <h2>How to pay off student loan debt faster</h2>
-        <p class="bi-excerpt">Imagine paying $350 every month for ten years and still owing nearly what you started with. That's the reality for millions of Americans carrying student loan debt.</p>
+        <p class="bi-excerpt">Imagine paying $350 every month for ten years and still owing nearly what you started with. That&#39;s the reality for millions of Americans carrying student loan debt at mid-to-high interest rates.</p>
         <span class="bi-readmore">Read article</span>
       </div>
     </a>
 
     <a href="/blog/how-to-set-financial-goals-you-will-actually-achieve/" class="bi-card" data-cat="Money Tips">
       <div class="bi-image-wrap">
-        <img class="bi-image" src="https://images.unsplash.com/photo-1728212018177-61a5c547fa23?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to set financial goals you will actually achieve" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
+        <img class="bi-image" src="https://images.unsplash.com/photo-1728212018177-61a5c547fa23?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODEyODA4MzB8&ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to set financial goals you will actually achieve" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
         <div class="bi-fallback">Money Tips</div>
       </div>
       <div class="bi-content">
@@ -322,14 +293,14 @@ SavingsClub
           <span class="bi-date">June 12, 2026</span>
         </div>
         <h2>How to set financial goals you will actually achieve</h2>
-        <p class="bi-excerpt">Your financial goals are sitting in a notes app on your phone, collecting digital dust. Maybe it's "save more money" from January 2024, or "pay off debt" from two years ago.</p>
+        <p class="bi-excerpt">Your financial goals are sitting in a notes app on your phone, collecting digital dust. Maybe it&#39;s &quot;save more money&quot; from January 2024, or &quot;pay off debt&quot; from two years ago.</p>
         <span class="bi-readmore">Read article</span>
       </div>
     </a>
 
     <a href="/blog/how-to-create-a-debt-payoff-plan-that-works/" class="bi-card" data-cat="Debt">
       <div class="bi-image-wrap">
-        <img class="bi-image" src="https://images.unsplash.com/photo-1772588627327-1eeddcf73c11?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to create a debt payoff plan that works" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
+        <img class="bi-image" src="https://images.unsplash.com/photo-1772588627327-1eeddcf73c11?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODExMDkwNTd8&ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to create a debt payoff plan that works" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
         <div class="bi-fallback">Debt</div>
       </div>
       <div class="bi-content">
@@ -345,7 +316,7 @@ SavingsClub
 
     <a href="/blog/best-cash-back-credit-cards-for-gas-and-groceries/" class="bi-card" data-cat="Credit Cards">
       <div class="bi-image-wrap">
-        <img class="bi-image" src="https://images.unsplash.com/photo-1650237093631-3d7ebd993c76?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="Best cash back credit cards for gas and groceries" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
+        <img class="bi-image" src="https://images.unsplash.com/photo-1650237093631-3d7ebd993c76?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODEwMDY1NTF8&ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="Best cash back credit cards for gas and groceries" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
         <div class="bi-fallback">Credit Cards</div>
       </div>
       <div class="bi-content">
@@ -354,14 +325,14 @@ SavingsClub
           <span class="bi-date">June 9, 2026</span>
         </div>
         <h2>Best cash back credit cards for gas and groceries</h2>
-        <p class="bi-excerpt">Two of your biggest monthly expenses are gas and groceries. The right cash back card can put hundreds of dollars back in your pocket each year on spending you would do anyway.</p>
+        <p class="bi-excerpt">Best cash back credit cards for gas and groceries</p>
         <span class="bi-readmore">Read article</span>
       </div>
     </a>
 
     <a href="/blog/how-to-improve-your-credit-score-in-90-days/" class="bi-card" data-cat="Credit">
       <div class="bi-image-wrap">
-        <img class="bi-image" src="https://images.unsplash.com/photo-1584931423312-5d53d862446a?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to improve your credit score in 90 days" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
+        <img class="bi-image" src="https://images.unsplash.com/photo-1584931423312-5d53d862446a?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODA5MzcxMTZ8&ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to improve your credit score in 90 days" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
         <div class="bi-fallback">Credit</div>
       </div>
       <div class="bi-content">
@@ -370,14 +341,14 @@ SavingsClub
           <span class="bi-date">June 8, 2026</span>
         </div>
         <h2>How to improve your credit score in 90 days</h2>
-        <p class="bi-excerpt">A higher credit score saves you thousands on loans, mortgages, and insurance. Here is exactly what to do over the next 90 days to see real movement on your score.</p>
+        <p class="bi-excerpt">How to improve your credit score in 90 days</p>
         <span class="bi-readmore">Read article</span>
       </div>
     </a>
 
     <a href="/blog/how-to-save-money-on-utilities-in-iowa/" class="bi-card" data-cat="Savings">
       <div class="bi-image-wrap">
-        <img class="bi-image" src="https://images.unsplash.com/photo-1634757439914-23b8acb9d411?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to save money on utilities in Iowa" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
+        <img class="bi-image" src="https://images.unsplash.com/photo-1634757439914-23b8acb9d411?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODA2ODM1MjF8&ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to save money on utilities in Iowa" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
         <div class="bi-fallback">Savings</div>
       </div>
       <div class="bi-content">
@@ -386,14 +357,14 @@ SavingsClub
           <span class="bi-date">June 5, 2026</span>
         </div>
         <h2>How to save money on utilities in Iowa</h2>
-        <p class="bi-excerpt">Iowa winters are brutal and summers are not getting cooler. Here is how Iowa households are cutting utility bills with rebates, efficiency programs, and small habit changes.</p>
+        <p class="bi-excerpt">How to save money on utilities in Iowa</p>
         <span class="bi-readmore">Read article</span>
       </div>
     </a>
 
     <a href="/blog/understanding-your-credit-report-and-fixing-errors/" class="bi-card" data-cat="Credit">
       <div class="bi-image-wrap">
-        <img class="bi-image" src="https://images.unsplash.com/photo-1618044733300-9472054094ee?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="Understanding your credit report and fixing errors" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
+        <img class="bi-image" src="https://images.unsplash.com/photo-1618044733300-9472054094ee?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODA1NTExNDV8&ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="Understanding your credit report and fixing errors" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
         <div class="bi-fallback">Credit</div>
       </div>
       <div class="bi-content">
@@ -402,14 +373,14 @@ SavingsClub
           <span class="bi-date">June 4, 2026</span>
         </div>
         <h2>Understanding your credit report and fixing errors</h2>
-        <p class="bi-excerpt">One in five Americans has an error on their credit report. Here is how to read your report, spot mistakes, and dispute them with the credit bureaus to boost your score.</p>
+        <p class="bi-excerpt">Understanding your credit report and fixing errors</p>
         <span class="bi-readmore">Read article</span>
       </div>
     </a>
 
     <a href="/blog/how-to-save-money-on-rent-in-florida/" class="bi-card" data-cat="Savings">
       <div class="bi-image-wrap">
-        <img class="bi-image" src="https://images.unsplash.com/photo-1768839721719-c5ed97c1fd58?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to save money on rent in Florida" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
+        <img class="bi-image" src="https://images.unsplash.com/photo-1768839721719-c5ed97c1fd58?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODA0MDM3OTV8&ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to save money on rent in Florida" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
         <div class="bi-fallback">Savings</div>
       </div>
       <div class="bi-content">
@@ -418,14 +389,14 @@ SavingsClub
           <span class="bi-date">June 2, 2026</span>
         </div>
         <h2>How to save money on rent in Florida</h2>
-        <p class="bi-excerpt">Florida rents have surged over the last few years, putting pressure on renters statewide. Here are practical strategies to lower your rent or get more value from your lease.</p>
+        <p class="bi-excerpt">How to save money on rent in Florida</p>
         <span class="bi-readmore">Read article</span>
       </div>
     </a>
 
     <a href="/blog/best-rewards-credit-cards-for-dining-out/" class="bi-card" data-cat="Credit Cards">
       <div class="bi-image-wrap">
-        <img class="bi-image" src="https://images.unsplash.com/photo-1726066012714-261f6d8c07bc?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="Best rewards credit cards for dining out" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
+        <img class="bi-image" src="https://images.unsplash.com/photo-1726066012714-261f6d8c07bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODAzMzkxNTl8&ixlib=rb-4.1.0&q=80&w=1080" alt="Best rewards credit cards for dining out" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
         <div class="bi-fallback">Credit Cards</div>
       </div>
       <div class="bi-content">
@@ -434,14 +405,14 @@ SavingsClub
           <span class="bi-date">June 1, 2026</span>
         </div>
         <h2>Best rewards credit cards for dining out</h2>
-        <p class="bi-excerpt">If you eat out regularly, the right rewards card can turn restaurant spending into free travel, cash back, or points. Here is how to pick the card that fits your dining habits.</p>
+        <p class="bi-excerpt">Best rewards credit cards for dining out</p>
         <span class="bi-readmore">Read article</span>
       </div>
     </a>
 
     <a href="/blog/how-to-save-for-college-with-a-529-plan/" class="bi-card" data-cat="Savings">
       <div class="bi-image-wrap">
-        <img class="bi-image" src="https://images.unsplash.com/photo-1591331922516-beed9d388bc3?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="How to save for college with a 529 plan" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
+        <img class="bi-image" src="https://images.unsplash.com/photo-1591331922516-beed9d388bc3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODAwNzMwMjl8&ixlib=rb-4.1.0&q=80&w=1080" alt="How to save for college with a 529 plan" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
         <div class="bi-fallback">Savings</div>
       </div>
       <div class="bi-content">
@@ -450,14 +421,14 @@ SavingsClub
           <span class="bi-date">May 29, 2026</span>
         </div>
         <h2>How to save for college with a 529 plan</h2>
-        <p class="bi-excerpt">A 529 plan offers serious tax advantages for college savings, but choosing the right one matters. Here is how 529 plans work and how to pick the best one for your family.</p>
+        <p class="bi-excerpt">How to save for college with a 529 plan</p>
         <span class="bi-readmore">Read article</span>
       </div>
     </a>
 
     <a href="/blog/smart-money-moves-for-millennials-in-ohio/" class="bi-card" data-cat="Money Tips">
       <div class="bi-image-wrap">
-        <img class="bi-image" src="https://images.unsplash.com/photo-1515606378517-3451a4fa2e12?ixlib=rb-4.1.0&w=1200&q=75&auto=format" alt="Smart money moves for millennials in Ohio" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
+        <img class="bi-image" src="https://images.unsplash.com/photo-1515606378517-3451a4fa2e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Nzk5NzIzODV8&ixlib=rb-4.1.0&q=80&w=1080" alt="Smart money moves for millennials in Ohio" loading="lazy" onerror="this.parentNode.classList.add('bi-img-error')">
         <div class="bi-fallback">Money Tips</div>
       </div>
       <div class="bi-content">
@@ -466,7 +437,7 @@ SavingsClub
           <span class="bi-date">May 28, 2026</span>
         </div>
         <h2>Smart money moves for millennials in Ohio</h2>
-        <p class="bi-excerpt">Ohio's cost of living is lower than the coasts, but smart financial moves still matter. Here are the strategies Ohio millennials are using to build wealth in their 30s and 40s.</p>
+        <p class="bi-excerpt">Smart money moves for millennials in Ohio</p>
         <span class="bi-readmore">Read article</span>
       </div>
     </a>
@@ -482,7 +453,7 @@ SavingsClub
           <span class="bi-date">May 28, 2026</span>
         </div>
         <h2>How to create multiple streams of income</h2>
-        <p class="bi-excerpt">Relying on a single paycheck is risky. Here is how to build additional income streams through side hustles, investments, and passive income, ranked by realistic time and effort.</p>
+        <p class="bi-excerpt">How to create multiple streams of income</p>
         <span class="bi-readmore">Read article</span>
       </div>
     </a>
