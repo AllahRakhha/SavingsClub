@@ -1170,10 +1170,10 @@ SavingsClub
 </header>
 
 <div class="bi-filter-section">
-  <nav class="bi-filter-bar" aria-label="Filter blog posts by category">
+  <div class="bi-filter-bar" role="group" aria-label="Filter blog posts by category">
     <button class="bi-chip active" data-cat="all">All Posts</button>
 ${chipsHtml}
-  </nav>
+  </div>
 </div>
 
 <main class="bi-posts-section">
