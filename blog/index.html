@@ -58,20 +58,47 @@
 </script>
 
 <style>
+/* ====== NAV FIX: explicit nav styling to override .bi-page conflict ====== */
+/* This forces the nav to be a solid navy bar with white text, visible against any background. */
+body{margin:0;padding-top:64px}
+nav#mainNav{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;z-index:1000 !important;background:#0A1628 !important;padding:12px 0 !important;box-shadow:0 2px 14px rgba(10,22,40,.18) !important;display:block !important;visibility:visible !important}
+nav#mainNav.scrolled{background:#050D1A !important;box-shadow:0 4px 18px rgba(0,0,0,.25) !important}
+nav#mainNav .nav-inner{max-width:1200px;margin:0 auto;display:flex !important;justify-content:space-between;align-items:center;padding:0 24px;gap:20px}
+nav#mainNav .logo{display:flex;align-items:center;gap:10px;color:#fff !important;font-weight:700;font-size:1.1rem;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif}
+nav#mainNav .logo-mark{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#059669,#10B981);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+nav#mainNav .logo-mark svg{width:18px;height:18px}
+nav#mainNav .nav-links{display:flex !important;gap:24px;align-items:center}
+nav#mainNav .nav-links a{color:rgba(255,255,255,.85) !important;text-decoration:none;font-weight:500;font-size:.95rem;transition:color .15s;padding:6px 0}
+nav#mainNav .nav-links a:hover,nav#mainNav .nav-links a.active{color:#34D399 !important}
+nav#mainNav .hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:8px;background:transparent;border:none}
+nav#mainNav .hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .2s}
+@media(max-width:900px){
+  nav#mainNav .nav-links{display:none !important}
+  nav#mainNav .hamburger{display:flex !important}
+}
+
+/* ====== MOBILE MENU ====== */
+.mobile-menu{position:fixed;top:0;right:-100%;width:280px;height:100%;background:#fff;box-shadow:-4px 0 24px rgba(0,0,0,.18);transition:right .3s ease;z-index:9999;padding:80px 20px 24px;display:flex;flex-direction:column;gap:8px;overflow-y:auto}
+.mobile-menu.open{right:0}
+.mobile-menu a{color:#0A1628;text-decoration:none;font-weight:600;font-size:1rem;padding:14px 16px;border-radius:10px;transition:background .15s,color .15s;border-bottom:1px solid #F1F5F9}
+.mobile-menu a:last-child{border-bottom:none}
+.mobile-menu a:hover{background:#F0FDF4;color:#059669}
+
+/* ====== Blog index page styles ====== */
 .bi-page *{box-sizing:border-box}
 .bi-page{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;background:#F8FAFC;color:#0A1628;line-height:1.6;-webkit-font-smoothing:antialiased}
 .bi-page h1,.bi-page h2,.bi-page h3{font-family:'Plus Jakarta Sans',sans-serif;color:#0A1628;line-height:1.2;margin:0}
 
-.bi-hero{background:linear-gradient(135deg,#0A1628 0%,#0F2540 50%,#059669 100%);color:#fff;padding:100px 24px 100px;text-align:center;position:relative;overflow:hidden}
+.bi-hero{background:linear-gradient(135deg,#0A1628 0%,#0F2540 50%,#059669 100%);color:#fff;padding:80px 24px 90px;text-align:center;position:relative;overflow:hidden}
 .bi-hero::before{content:'';position:absolute;top:-40%;right:-15%;width:60%;height:180%;background:radial-gradient(circle,rgba(16,185,129,0.22) 0%,transparent 60%);pointer-events:none}
 .bi-hero::after{content:'';position:absolute;bottom:-40%;left:-15%;width:50%;height:160%;background:radial-gradient(circle,rgba(52,211,153,0.14) 0%,transparent 60%);pointer-events:none}
 .bi-hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
 .bi-badge{display:inline-block;background:rgba(16,185,129,0.18);color:#34D399;padding:8px 20px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:24px;border:1px solid rgba(16,185,129,0.35)}
-.bi-hero h1{font-size:clamp(38px,5.5vw,58px);color:#fff;font-weight:800;margin-bottom:20px;letter-spacing:-0.02em;line-height:1.1}
+.bi-hero h1{font-size:clamp(36px,5vw,54px);color:#fff;font-weight:800;margin-bottom:18px;letter-spacing:-0.02em;line-height:1.1}
 .bi-hero h1 .bi-accent{color:#34D399}
-.bi-hero p{font-size:clamp(16px,2vw,19px);color:rgba(255,255,255,0.82);max-width:680px;margin:0 auto;line-height:1.6}
+.bi-hero p{font-size:clamp(16px,2vw,18px);color:rgba(255,255,255,0.82);max-width:680px;margin:0 auto;line-height:1.6}
 
-.bi-filter-section{background:#fff;border-bottom:1px solid #E2E8F0;padding:24px 24px 24px;box-shadow:0 2px 12px rgba(10,22,40,0.04)}
+.bi-filter-section{background:#fff;border-bottom:1px solid #E2E8F0;padding:24px;box-shadow:0 2px 12px rgba(10,22,40,0.04)}
 .bi-filter-bar{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
 .bi-chip{background:#F1F5F9;border:1px solid transparent;color:#475569;padding:10px 18px;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s ease;font-family:'DM Sans',sans-serif;white-space:nowrap}
 .bi-chip:hover{background:#fff;border-color:#10B981;color:#059669;transform:translateY(-1px);box-shadow:0 4px 14px rgba(16,185,129,0.15)}
@@ -117,7 +144,7 @@
 .bi-cta-btn-secondary:hover{background:rgba(255,255,255,0.16);transform:translateY(-2px)}
 
 @media (max-width:900px){
-  .bi-hero{padding:70px 20px 70px}
+  .bi-hero{padding:60px 20px 70px}
   .bi-posts-section{padding:40px 20px 60px}
   .bi-posts-grid{grid-template-columns:1fr;gap:22px}
   .bi-filter-section{padding:16px 20px}
@@ -148,16 +175,18 @@ SavingsClub
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-<a href="/">Home</a>
-<a href="/savings-calculator/">Savings</a>
-<a href="/budget-planner/">Budget</a>
-<a href="/mortgage-calculator/">Mortgage</a>
-<a href="/debt-payoff-calculator/">Debt Payoff</a>
-<a href="/credit-cards/">Credit Cards</a>
-<a href="/blog/">Blog</a>
-<a href="/banking/">Banking</a>
-<a href="/about/">About</a>
-<a href="/contact/">Contact</a>
+<a href="/" onclick="closeMobile()">Home</a>
+<a href="/savings-calculator/" onclick="closeMobile()">Savings</a>
+<a href="/budget-planner/" onclick="closeMobile()">Budget</a>
+<a href="/mortgage-calculator/" onclick="closeMobile()">Mortgage</a>
+<a href="/401k-calculator/" onclick="closeMobile()">401(k)</a>
+<a href="/retirement-calculator/" onclick="closeMobile()">Retirement</a>
+<a href="/debt-payoff-calculator/" onclick="closeMobile()">Debt Payoff</a>
+<a href="/credit-cards/" onclick="closeMobile()">Credit Cards</a>
+<a href="/blog/" onclick="closeMobile()">Blog</a>
+<a href="/banking/" onclick="closeMobile()">Banking</a>
+<a href="/about/" onclick="closeMobile()">About</a>
+<a href="/contact/" onclick="closeMobile()">Contact</a>
 </div>
 
 <header class="bi-hero">
