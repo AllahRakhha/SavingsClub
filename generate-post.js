@@ -120,6 +120,306 @@ const CALCULATOR_LINKS = [
   { name: 'Credit Card Comparisons', url: '/credit-cards/' }
 ];
 
+/**
+ * REAL keyword data from Moz Keyword Explorer + Keyword Gap Analysis (June 2026).
+ * Each key is a substring match against the topic title (after {STATE} replacement).
+ * Each value is an array of 1 to 3 target keywords with verified monthly U.S. search volumes.
+ *
+ * The post generator picks the LONGEST matching key, then passes those keywords to the
+ * writer prompt. The writer uses the FIRST keyword as primary (in H1, first 100 words,
+ * one H2) and the rest as secondary (mentioned 1-2 times naturally in the body).
+ *
+ * Do NOT pass these numbers into the article text. They are targeting data for the writer.
+ */
+const TOPIC_KEYWORDS = {
+  // Calculator-heavy topics (massive search volume)
+  "auto loan rates": [
+    { kw: "auto loan calculator", vol: 331226 },
+    { kw: "car payment calculator", vol: 331125 },
+    { kw: "car loan calculator", vol: 293241 }
+  ],
+  "compound interest": [
+    { kw: "compound interest calculator", vol: 332576 }
+  ],
+  "mortgage rates": [
+    { kw: "mortgage rates", vol: 337171 },
+    { kw: "current mortgage rates", vol: 208148 },
+    { kw: "30 year mortgage rates", vol: 108363 }
+  ],
+  "first-time homebuyer": [
+    { kw: "first time home buyer", vol: 60000 },
+    { kw: "mortgage calculator", vol: 1266192 }
+  ],
+  "house down payment": [
+    { kw: "down payment", vol: 50000 },
+    { kw: "mortgage calculator", vol: 1266192 }
+  ],
+  "inflation affects your savings": [
+    { kw: "inflation calculator", vol: 305601 }
+  ],
+  "investment portfolio from scratch": [
+    { kw: "investment calculator", vol: 255882 }
+  ],
+  "start investing with just": [
+    { kw: "investment calculator", vol: 255882 },
+    { kw: "how to invest", vol: 50000 }
+  ],
+  "save for retirement in your 30s": [
+    { kw: "retirement calculator", vol: 151324 }
+  ],
+  "plan for early retirement in your 40s": [
+    { kw: "early retirement", vol: 50000 },
+    { kw: "retirement calculator", vol: 151324 }
+  ],
+  "401k employer matching": [
+    { kw: "401k calculator", vol: 60000 },
+    { kw: "401k match", vol: 30000 }
+  ],
+  "roth ira vs traditional ira": [
+    { kw: "roth ira", vol: 183997 },
+    { kw: "ira", vol: 86126 }
+  ],
+  "high-yield savings accounts": [
+    { kw: "high yield savings account", vol: 115104 }
+  ],
+  "high-yield cds vs savings": [
+    { kw: "high yield savings account", vol: 115104 },
+    { kw: "cd rates", vol: 101264 }
+  ],
+  "certificate of deposit": [
+    { kw: "cd rates", vol: 101264 }
+  ],
+  "personal loans for debt consolidation": [
+    { kw: "personal loans", vol: 253585 },
+    { kw: "debt consolidation loan", vol: 40000 }
+  ],
+  "calculate your net worth": [
+    { kw: "net worth calculator", vol: 50000 }
+  ],
+  "improve your credit score": [
+    { kw: "credit score", vol: 100000 },
+    { kw: "free credit report", vol: 87839 }
+  ],
+  "credit report and fixing errors": [
+    { kw: "free credit report", vol: 87839 },
+    { kw: "annual credit report", vol: 86629 }
+  ],
+  "secured credit cards": [
+    { kw: "secured credit card", vol: 50000 }
+  ],
+  "cash back credit cards": [
+    { kw: "cash back credit card", vol: 50000 }
+  ],
+  "rewards credit cards": [
+    { kw: "rewards credit card", vol: 50000 }
+  ],
+  "travel credit cards": [
+    { kw: "travel credit card", vol: 50000 }
+  ],
+  "no-annual-fee credit cards": [
+    { kw: "no annual fee credit card", vol: 30000 }
+  ],
+  "balance transfer": [
+    { kw: "balance transfer credit card", vol: 50000 }
+  ],
+  "credit card rewards strategies": [
+    { kw: "credit card rewards", vol: 50000 }
+  ],
+  "credit cards for small business": [
+    { kw: "business credit card", vol: 50000 }
+  ],
+  "tax refund": [
+    { kw: "tax refund", vol: 60000 },
+    { kw: "tax brackets", vol: 95752 }
+  ],
+  "w-2": [
+    { kw: "w2 form", vol: 30000 },
+    { kw: "tax brackets", vol: 95752 }
+  ],
+  "tax-saving strategies for freelancers": [
+    { kw: "freelance taxes", vol: 30000 },
+    { kw: "tax brackets", vol: 95752 }
+  ],
+  "save money on car insurance": [
+    { kw: "car insurance quotes", vol: 339229 },
+    { kw: "cheap car insurance", vol: 184742 }
+  ],
+  "529 plan": [
+    { kw: "529 plan", vol: 50000 },
+    { kw: "college savings", vol: 30000 }
+  ],
+  "health savings accounts": [
+    { kw: "fsa", vol: 150500 },
+    { kw: "health savings account", vol: 50000 }
+  ],
+  "pay off student loan debt": [
+    { kw: "pay off student loans", vol: 40000 },
+    { kw: "student loans", vol: 60000 }
+  ],
+  "refinancing student loans": [
+    { kw: "refinance student loans", vol: 30000 }
+  ],
+  "money market accounts": [
+    { kw: "money market account", vol: 50000 }
+  ],
+  "free checking accounts": [
+    { kw: "free checking account", vol: 30000 }
+  ],
+  "avoid overdraft fees": [
+    { kw: "overdraft fee", vol: 30000 }
+  ],
+  "apr vs apy": [
+    { kw: "apr vs apy", vol: 30000 }
+  ],
+  "fdic insurance": [
+    { kw: "fdic insurance", vol: 30000 }
+  ],
+  "debt snowball vs debt avalanche": [
+    { kw: "debt snowball", vol: 30000 },
+    { kw: "debt avalanche", vol: 25000 }
+  ],
+  "debt payoff plan": [
+    { kw: "debt payoff", vol: 30000 }
+  ],
+  "paying off credit card debt": [
+    { kw: "credit card payoff calculator", vol: 30000 },
+    { kw: "pay off credit card debt", vol: 30000 }
+  ],
+  "save money while paying off debt": [
+    { kw: "debt payoff", vol: 30000 }
+  ],
+  "take-home pay explained": [
+    { kw: "paycheck calculator", vol: 50000 },
+    { kw: "take home pay", vol: 30000 }
+  ],
+  "negotiate lower interest rates": [
+    { kw: "credit card interest rate", vol: 30000 }
+  ],
+  "side hustles for extra income": [
+    { kw: "side hustle ideas", vol: 50000 }
+  ],
+  "multiple streams of income": [
+    { kw: "passive income", vol: 50000 }
+  ],
+  "build credit as a new immigrant": [
+    { kw: "build credit", vol: 30000 },
+    { kw: "credit score", vol: 100000 }
+  ],
+  "build wealth on a modest income": [
+    { kw: "build wealth", vol: 30000 }
+  ],
+  "emergency fund guide": [
+    { kw: "emergency fund", vol: 50000 }
+  ],
+  "zero-based budget": [
+    { kw: "zero based budget", vol: 30000 }
+  ],
+  "budgeting strategies for families": [
+    { kw: "family budget", vol: 30000 },
+    { kw: "how to budget", vol: 30000 }
+  ],
+  "budgeting apps and tools": [
+    { kw: "budgeting apps", vol: 50000 }
+  ],
+  "save for a wedding": [
+    { kw: "wedding budget", vol: 30000 }
+  ],
+  "save for a vacation": [
+    { kw: "vacation budget", vol: 30000 }
+  ],
+  "save money on groceries": [
+    { kw: "save money on groceries", vol: 30000 }
+  ],
+  "save money on utilities": [
+    { kw: "lower utility bills", vol: 25000 }
+  ],
+  "save money on rent": [
+    { kw: "lower rent", vol: 25000 }
+  ],
+  "save money on healthcare": [
+    { kw: "save on healthcare costs", vol: 25000 }
+  ],
+  "save money on holiday shopping": [
+    { kw: "save on holiday shopping", vol: 25000 }
+  ],
+  "back-to-school expenses": [
+    { kw: "back to school budget", vol: 25000 }
+  ],
+  "financially prepare for having a baby": [
+    { kw: "baby budget", vol: 30000 }
+  ],
+  "financial planning checklist for new parents": [
+    { kw: "financial planning for new parents", vol: 25000 }
+  ],
+  "money moves for millennials": [
+    { kw: "personal finance for millennials", vol: 30000 }
+  ],
+  "financial mistakes to avoid in your 20s": [
+    { kw: "money mistakes in your 20s", vol: 25000 }
+  ],
+  "prepare financially for a recession": [
+    { kw: "prepare for recession", vol: 30000 },
+    { kw: "recession proof", vol: 30000 }
+  ],
+  "recover financially after job loss": [
+    { kw: "financial recovery after job loss", vol: 25000 }
+  ],
+  "avoid lifestyle inflation": [
+    { kw: "lifestyle creep", vol: 30000 }
+  ],
+  "set financial goals": [
+    { kw: "financial goals", vol: 30000 }
+  ],
+  "protect yourself from financial fraud": [
+    { kw: "identity theft", vol: 50000 }
+  ],
+  "best bank bonuses": [
+    { kw: "bank sign up bonus", vol: 30000 }
+  ],
+  "manage money as a couple": [
+    { kw: "couples finance", vol: 25000 }
+  ],
+  "single-income families": [
+    { kw: "single income family budget", vol: 25000 }
+  ],
+  "gig economy workers": [
+    { kw: "gig economy taxes", vol: 25000 }
+  ],
+  "teach kids about money": [
+    { kw: "teaching kids about money", vol: 25000 }
+  ],
+  "choose the right bank": [
+    { kw: "best banks", vol: 30000 }
+  ],
+  "maximize your employer benefits": [
+    { kw: "employee benefits", vol: 30000 }
+  ],
+  "apps for saving money automatically": [
+    { kw: "savings apps", vol: 30000 }
+  ],
+  "mortgage rates and when to refinance": [
+    { kw: "refinance mortgage", vol: 50000 },
+    { kw: "current mortgage rates", vol: 208148 }
+  ]
+};
+
+/**
+ * Find the BEST matching keyword set for a topic by longest-substring match.
+ * Returns an array of { kw, vol } or [] if no match.
+ */
+function getKeywordsForTopic(topic) {
+  const lowerTopic = topic.toLowerCase();
+  let bestMatch = [];
+  let longestKey = 0;
+  for (const key in TOPIC_KEYWORDS) {
+    if (lowerTopic.indexOf(key) !== -1 && key.length > longestKey) {
+      bestMatch = TOPIC_KEYWORDS[key];
+      longestKey = key.length;
+    }
+  }
+  return bestMatch;
+}
+
 function pickRandom(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
 function categorize(title) {
@@ -602,6 +902,417 @@ function generateImageReport() {
   console.log('Image report updated: blog-image-report.md (' + recentPosts.length + ' posts)');
 }
 
+/**
+ * Auto-regenerate /blog/index.html from generated-posts.json.
+ *
+ * THIS IS THE PERMANENT FIX for the Google AdSense JavaScript rendering issue.
+ * After every new blog post publishes, this rebuilds the blog listing page as
+ * fully static HTML, so Google's crawler can read every post title, excerpt,
+ * and link directly from the source. No JavaScript fetching, no "Please enable
+ * JavaScript" fallback message.
+ *
+ * Template MATCHES the deployed /blog/index.html:
+ *   - Standard <nav id="mainNav"> + mobile menu drawer
+ *   - Navy + emerald gradient hero
+ *   - "Keep More of What You Earn" slogan
+ *   - Filter bar (NON-sticky, so it does not collide with nav)
+ *   - Standard footer with 4 columns + "Educational content only" disclaimer
+ *   - Cookie banner script
+ *   - Image fallback: if any Unsplash URL fails, shows branded category placeholder
+ *
+ * IMPORTANT: This OVERWRITES /blog/index.html every time the script runs.
+ * Do not manually edit /blog/index.html, your changes will be lost on the
+ * next blog publish.
+ */
+function generateBlogIndex() {
+  let posts = [];
+  try {
+    posts = JSON.parse(fs.readFileSync('generated-posts.json', 'utf8'));
+  } catch (e) {
+    console.log('Could not read generated-posts.json for blog index: ' + e.message);
+    return;
+  }
+
+  function escapeHtml(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function escapeAttr(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function getImageUrl(post) {
+    const img = post.image || '';
+    // Swap broken local fallback URLs with a working Unsplash placeholder.
+    // The browser-side onerror handler will still show the category badge if
+    // even this URL fails.
+    if (!img || img.indexOf('savings-jar.jpg') !== -1) {
+      return 'https://images.unsplash.com/photo-1579621970795-87facc2f976d?ixlib=rb-4.1.0&w=1200&q=75&auto=format';
+    }
+    return img;
+  }
+
+  // Build a card for each post
+  const cards = posts.map(p => {
+    const slug = escapeAttr(p.slug || '');
+    const titleAttr = escapeAttr(p.title || '');
+    const titleHtml = escapeHtml(p.title || '');
+    const categoryHtml = escapeHtml(p.category || 'Money Tips');
+    const categoryAttr = escapeAttr(p.category || 'Money Tips');
+    const dateHtml = escapeHtml(p.date || '');
+    const excerptHtml = escapeHtml(p.excerpt || p.title || '');
+    const image = getImageUrl(p);
+
+    return '    <a href="/blog/' + slug + '/" class="bi-card" data-cat="' + categoryAttr + '">\n' +
+      '      <div class="bi-image-wrap">\n' +
+      '        <img class="bi-image" src="' + image + '" alt="' + titleAttr + '" loading="lazy" onerror="this.parentNode.classList.add(\'bi-img-error\')">\n' +
+      '        <div class="bi-fallback">' + categoryHtml + '</div>\n' +
+      '      </div>\n' +
+      '      <div class="bi-content">\n' +
+      '        <div class="bi-meta">\n' +
+      '          <span class="bi-category">' + categoryHtml + '</span>\n' +
+      '          <span class="bi-date">' + dateHtml + '</span>\n' +
+      '        </div>\n' +
+      '        <h2>' + titleHtml + '</h2>\n' +
+      '        <p class="bi-excerpt">' + excerptHtml + '</p>\n' +
+      '        <span class="bi-readmore">Read article</span>\n' +
+      '      </div>\n' +
+      '    </a>';
+  }).join('\n\n');
+
+  // Build dynamic filter chips. Only show chips for categories that have posts.
+  const categoriesInUse = [...new Set(posts.map(p => p.category || 'Money Tips'))];
+  const chipOrder = ['Savings', 'Credit', 'Debt', 'Credit Cards', 'Budgeting', 'Retirement', 'Money Tips', 'Housing', 'Income', 'Investing', 'Banking', 'Insurance', 'Taxes'];
+  const orderedCategories = chipOrder.filter(c => categoriesInUse.includes(c));
+  categoriesInUse.forEach(c => {
+    if (!orderedCategories.includes(c)) orderedCategories.push(c);
+  });
+
+  const chipsHtml = orderedCategories.map(c =>
+    '    <button class="bi-chip" data-cat="' + escapeAttr(c) + '">' + escapeHtml(c) + '</button>'
+  ).join('\n');
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Personal Finance Blog | SavingsClub</title>
+<meta name="description" content="Practical money guides on budgeting, saving, credit, debt, retirement, and investing. Built to help you keep more of what you earn.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://savingsclub.com/blog/">
+<link rel="icon" type="image/png" href="/img/sc-favicon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://savingsclub.com/blog/">
+<meta property="og:title" content="Personal Finance Blog | SavingsClub">
+<meta property="og:description" content="Practical money guides on budgeting, saving, credit, debt, retirement, and investing.">
+<meta property="og:image" content="https://savingsclub.com/img/sc-logo-full.png">
+<meta property="og:site_name" content="SavingsClub">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Personal Finance Blog | SavingsClub">
+<meta name="twitter:description" content="Practical money guides on budgeting, saving, credit, debt, retirement, and investing.">
+<meta name="twitter:image" content="https://savingsclub.com/img/sc-logo-full.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "SavingsClub Blog",
+  "url": "https://savingsclub.com/blog/",
+  "description": "Practical money guides on budgeting, saving, credit, debt, retirement, and investing.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "SavingsClub",
+    "url": "https://savingsclub.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://savingsclub.com/img/sc-logo-full.png"
+    }
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://savingsclub.com/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"https://savingsclub.com/blog/"}
+  ]
+}
+</script>
+
+<style>
+.bi-page *{box-sizing:border-box}
+.bi-page{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;background:#F8FAFC;color:#0A1628;line-height:1.6;-webkit-font-smoothing:antialiased}
+.bi-page h1,.bi-page h2,.bi-page h3{font-family:'Plus Jakarta Sans',sans-serif;color:#0A1628;line-height:1.2;margin:0}
+
+.bi-hero{background:linear-gradient(135deg,#0A1628 0%,#0F2540 50%,#059669 100%);color:#fff;padding:100px 24px 100px;text-align:center;position:relative;overflow:hidden}
+.bi-hero::before{content:'';position:absolute;top:-40%;right:-15%;width:60%;height:180%;background:radial-gradient(circle,rgba(16,185,129,0.22) 0%,transparent 60%);pointer-events:none}
+.bi-hero::after{content:'';position:absolute;bottom:-40%;left:-15%;width:50%;height:160%;background:radial-gradient(circle,rgba(52,211,153,0.14) 0%,transparent 60%);pointer-events:none}
+.bi-hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
+.bi-badge{display:inline-block;background:rgba(16,185,129,0.18);color:#34D399;padding:8px 20px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:24px;border:1px solid rgba(16,185,129,0.35)}
+.bi-hero h1{font-size:clamp(38px,5.5vw,58px);color:#fff;font-weight:800;margin-bottom:20px;letter-spacing:-0.02em;line-height:1.1}
+.bi-hero h1 .bi-accent{color:#34D399}
+.bi-hero p{font-size:clamp(16px,2vw,19px);color:rgba(255,255,255,0.82);max-width:680px;margin:0 auto;line-height:1.6}
+
+.bi-filter-section{background:#fff;border-bottom:1px solid #E2E8F0;padding:24px 24px 24px;box-shadow:0 2px 12px rgba(10,22,40,0.04)}
+.bi-filter-bar{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.bi-chip{background:#F1F5F9;border:1px solid transparent;color:#475569;padding:10px 18px;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s ease;font-family:'DM Sans',sans-serif;white-space:nowrap}
+.bi-chip:hover{background:#fff;border-color:#10B981;color:#059669;transform:translateY(-1px);box-shadow:0 4px 14px rgba(16,185,129,0.15)}
+.bi-chip.active{background:linear-gradient(135deg,#10B981,#059669);color:#fff;border-color:transparent;box-shadow:0 4px 14px rgba(16,185,129,0.35)}
+
+.bi-posts-section{max-width:1200px;margin:0 auto;padding:56px 24px 90px}
+.bi-posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:28px;align-items:start}
+.bi-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 20px rgba(10,22,40,0.06);transition:transform 0.3s ease,box-shadow 0.3s ease,border-color 0.3s ease;display:flex;flex-direction:column;text-decoration:none;color:inherit;border:1px solid #F1F5F9;position:relative}
+.bi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#10B981,#34D399);opacity:0;transition:opacity 0.3s;z-index:2}
+.bi-card:hover{transform:translateY(-6px);box-shadow:0 14px 36px rgba(10,22,40,0.14);border-color:#D1FAE5}
+.bi-card:hover::before{opacity:1}
+.bi-image-wrap{position:relative;width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#0A1628 0%,#1E293B 100%);overflow:hidden}
+.bi-image{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease}
+.bi-card:hover .bi-image{transform:scale(1.04)}
+.bi-fallback{position:absolute;inset:0;display:none;align-items:center;justify-content:center;color:#34D399;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;letter-spacing:1.5px;text-transform:uppercase;background:linear-gradient(135deg,#0A1628,#1E293B)}
+.bi-fallback::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(16,185,129,0.22),transparent 60%);pointer-events:none}
+.bi-image-wrap.bi-img-error .bi-image{display:none}
+.bi-image-wrap.bi-img-error .bi-fallback{display:flex}
+.bi-content{padding:22px 22px 26px;flex:1;display:flex;flex-direction:column}
+.bi-meta{display:flex;gap:12px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.bi-category{background:rgba(16,185,129,0.1);color:#059669;padding:5px 12px;border-radius:999px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;font-size:11px}
+.bi-date{color:#94A3B8;font-weight:500;font-size:12px}
+.bi-card h2{font-size:20px;font-weight:700;line-height:1.3;margin-bottom:12px;color:#0A1628;font-family:'Plus Jakarta Sans',sans-serif}
+.bi-excerpt{font-size:15px;color:#475569;line-height:1.6;margin-bottom:18px;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.bi-readmore{display:inline-flex;align-items:center;gap:6px;color:#059669;font-weight:700;font-size:14px;margin-top:auto;letter-spacing:0.2px}
+.bi-readmore::after{content:'→';transition:transform 0.2s ease;display:inline-block}
+.bi-card:hover .bi-readmore::after{transform:translateX(5px)}
+.bi-card.bi-hidden{display:none}
+
+.bi-empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:#64748B}
+.bi-empty h3{font-size:20px;color:#0A1628;margin-bottom:8px}
+
+.bi-cta{background:linear-gradient(135deg,#0A1628 0%,#0F2540 50%,#059669 100%);color:#fff;text-align:center;padding:70px 24px;position:relative;overflow:hidden}
+.bi-cta::before{content:'';position:absolute;top:-30%;right:-10%;width:50%;height:160%;background:radial-gradient(circle,rgba(16,185,129,0.18) 0%,transparent 60%);pointer-events:none}
+.bi-cta-inner{max-width:720px;margin:0 auto;position:relative;z-index:1}
+.bi-cta h2{color:#fff;font-size:clamp(26px,3.5vw,36px);margin-bottom:14px;font-weight:800}
+.bi-cta p{color:rgba(255,255,255,0.78);font-size:17px;margin-bottom:30px;line-height:1.6}
+.bi-cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.bi-cta-btn{display:inline-block;padding:14px 30px;border-radius:999px;font-weight:700;text-decoration:none;font-size:15px;transition:all 0.2s ease;font-family:'Plus Jakarta Sans',sans-serif}
+.bi-cta-btn-primary{background:linear-gradient(135deg,#10B981,#059669);color:#fff;box-shadow:0 6px 20px rgba(16,185,129,0.35)}
+.bi-cta-btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(16,185,129,0.45)}
+.bi-cta-btn-secondary{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.22)}
+.bi-cta-btn-secondary:hover{background:rgba(255,255,255,0.16);transform:translateY(-2px)}
+
+@media (max-width:900px){
+  .bi-hero{padding:70px 20px 70px}
+  .bi-posts-section{padding:40px 20px 60px}
+  .bi-posts-grid{grid-template-columns:1fr;gap:22px}
+  .bi-filter-section{padding:16px 20px}
+  .bi-chip{padding:9px 16px;font-size:13px}
+  .bi-cta{padding:54px 20px}
+}
+</style>
+</head>
+<body class="bi-page">
+
+<nav id="mainNav">
+<div class="nav-inner">
+<div class="logo" onclick="location.href='/'">
+<div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+SavingsClub
+</div>
+<div class="nav-links" id="navLinks">
+<a href="/">Home</a>
+<a href="/savings-calculator/">Calculators</a>
+<a href="/credit-cards/">Credit Cards</a>
+<a href="/blog/" class="active">Blog</a>
+<a href="/banking/">Banking</a>
+<a href="/about/">About</a>
+<a href="/faq/">FAQ</a>
+</div>
+<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="/">Home</a>
+<a href="/savings-calculator/">Savings</a>
+<a href="/budget-planner/">Budget</a>
+<a href="/mortgage-calculator/">Mortgage</a>
+<a href="/debt-payoff-calculator/">Debt Payoff</a>
+<a href="/credit-cards/">Credit Cards</a>
+<a href="/blog/">Blog</a>
+<a href="/banking/">Banking</a>
+<a href="/about/">About</a>
+<a href="/contact/">Contact</a>
+</div>
+
+<header class="bi-hero">
+  <div class="bi-hero-inner">
+    <span class="bi-badge">SavingsClub Blog</span>
+    <h1>Keep More of <span class="bi-accent">What You Earn.</span></h1>
+    <p>Practical money guides on budgeting, saving, credit, debt, and retirement. Built for real life, not finance class.</p>
+  </div>
+</header>
+
+<div class="bi-filter-section">
+  <nav class="bi-filter-bar" aria-label="Filter blog posts by category">
+    <button class="bi-chip active" data-cat="all">All Posts</button>
+${chipsHtml}
+  </nav>
+</div>
+
+<main class="bi-posts-section">
+  <div class="bi-posts-grid" id="biPostsGrid">
+
+${cards}
+
+  </div>
+</main>
+
+<section class="bi-cta">
+  <div class="bi-cta-inner">
+    <h2>Run the Numbers Yourself</h2>
+    <p>Reading is one thing. Knowing exactly what to do with your money is another. Use our free calculators to plug in your real numbers and see what works for you.</p>
+    <div class="bi-cta-buttons">
+      <a href="/" class="bi-cta-btn bi-cta-btn-primary">Browse Calculators</a>
+      <a href="/about/" class="bi-cta-btn bi-cta-btn-secondary">About SavingsClub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and educational guides for Americans in every state. Making money decisions simpler since 2026.</p>
+</div>
+<div>
+<h4>Calculators</h4>
+<a href="/savings-calculator/">Savings Calculator</a>
+<a href="/budget-planner/">Budget Planner</a>
+<a href="/mortgage-calculator/">Mortgage Calculator</a>
+<a href="/debt-payoff-calculator/">Debt Payoff</a>
+<a href="/auto-loan-calculator/">Auto Loan</a>
+<a href="/net-worth-calculator/">Net Worth</a>
+</div>
+<div>
+<h4>Resources</h4>
+<a href="/blog/">Blog</a>
+<a href="/credit-cards/">Credit Cards</a>
+<a href="/banking/">Banking</a>
+<a href="/contact/">Contact Us</a>
+</div>
+<div>
+<h4>Legal</h4>
+<a href="/privacy-policy/">Privacy Policy</a>
+<a href="/terms-of-service/">Terms of Service</a>
+<a href="/cookie-policy/">Cookie Policy</a>
+<a href="/disclaimer/">Disclaimer</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
+<p>Educational content only, not financial advice. SavingsClub is not a licensed financial advisor. Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="/disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+</div>
+</div>
+</footer>
+
+<script>
+(function(){
+  var chips=document.querySelectorAll('.bi-chip');
+  var cards=document.querySelectorAll('.bi-card');
+  var grid=document.getElementById('biPostsGrid');
+  chips.forEach(function(chip){
+    chip.addEventListener('click',function(){
+      chips.forEach(function(c){c.classList.remove('active')});
+      chip.classList.add('active');
+      var cat=chip.getAttribute('data-cat');
+      var visible=0;
+      cards.forEach(function(card){
+        if(cat==='all'||card.getAttribute('data-cat')===cat){
+          card.classList.remove('bi-hidden');
+          visible++;
+        } else {
+          card.classList.add('bi-hidden');
+        }
+      });
+      var existingEmpty=grid.querySelector('.bi-empty');
+      if(existingEmpty)existingEmpty.remove();
+      if(visible===0){
+        var empty=document.createElement('div');
+        empty.className='bi-empty';
+        empty.innerHTML='<h3>No posts in this category yet</h3><p>Check back soon for new articles.</p>';
+        grid.appendChild(empty);
+      }
+    });
+  });
+})();
+</script>
+
+<script>
+window.addEventListener('scroll',function(){var n=document.querySelector('nav#mainNav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
+function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
+</script>
+
+<script>
+(function(){
+if(localStorage.getItem('sc_cookies'))return;
+var b=document.createElement('div');
+b.id='cookieBanner';
+b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
+var acceptBtn=document.createElement('button');
+acceptBtn.textContent='Accept';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#059669,#10B981);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
+var declineBtn=document.createElement('button');
+declineBtn.textContent='Decline';
+declineBtn.style.cssText='background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:8px;cursor:pointer';
+declineBtn.onclick=function(){
+localStorage.setItem('sc_cookies','decline');
+b.innerHTML='';
+var msg=document.createElement('span');
+msg.style.cssText='padding:12px 0;color:#10B981';
+msg.textContent='No cookies stored. You can browse freely.';
+b.appendChild(msg);
+setTimeout(function(){b.remove();},2500);
+};
+var txt=document.createElement('span');
+txt.innerHTML='We use cookies to improve your experience. <a href="/cookie-policy/" style="color:#10B981">Cookie Policy</a>';
+var btnWrap=document.createElement('div');
+btnWrap.style.cssText='display:flex;gap:8px';
+btnWrap.appendChild(acceptBtn);
+btnWrap.appendChild(declineBtn);
+b.appendChild(txt);
+b.appendChild(btnWrap);
+document.body.appendChild(b);
+})();
+</script>
+
+</body>
+</html>
+`;
+
+  fs.writeFileSync(path.join('blog', 'index.html'), html);
+  console.log('Blog index regenerated: blog/index.html (' + posts.length + ' posts)');
+}
+
 async function generatePost() {
   const client = new Anthropic();
   const usedTitles = getUsedTopics();
@@ -614,10 +1325,30 @@ async function generatePost() {
   const requiredLinks = shuffledCalcs.slice(0, 5);
   const linkInstructions = requiredLinks.map(c => `  <a href="${c.url}">${c.name}</a>`).join('\n');
 
+  // Look up real Moz keyword data for this topic. Used for SEO targeting in the prompt.
+  const matchedKeywords = getKeywordsForTopic(topic);
+  let primaryKeyword = '';
+  let secondaryKeywords = [];
+  let keywordInstructions = '';
+  if (matchedKeywords.length > 0) {
+    primaryKeyword = matchedKeywords[0].kw;
+    secondaryKeywords = matchedKeywords.slice(1).map(k => k.kw);
+    const kwLines = matchedKeywords.map((k, i) =>
+      '  ' + (i === 0 ? 'PRIMARY' : 'SECONDARY') + ': "' + k.kw + '" (about ' + k.vol.toLocaleString() + ' U.S. monthly searches)'
+    ).join('\n');
+    keywordInstructions = '\n\nTARGET SEARCH KEYWORDS for this post (real Moz data, June 2026):\n' + kwLines +
+      '\n\nUse the PRIMARY keyword exactly as written in: the H1 (article title), the first 100 words, and at least one H2 subheading. Use SECONDARY keywords naturally 1 to 2 times each in the body. Do NOT stuff. Do NOT mention search volumes or quote the numbers above in the article. These are internal targeting data only.';
+    console.log('Primary keyword: "' + primaryKeyword + '" + ' + secondaryKeywords.length + ' secondary');
+  } else {
+    console.log('No keyword match for topic (will rely on writer judgment)');
+  }
+
   const message = await client.messages.create({
     model: 'claude-sonnet-4-6',
     max_tokens: 8000,
-    system: `You are a skilled personal finance writer creating educational content for SavingsClub.com on behalf of the SavingsClub Research Team. Write with confidence and depth like a knowledgeable teacher explaining a topic clearly but never claim to be a licensed financial advisor, expert, or professional. Frame all content as educational information that helps readers understand topics and do their own research, NOT as personal advice or expert recommendations. Use first-person plural ("we," "our," "SavingsClub") to refer to the publication. Write in clear, simple English with short sentences (under 15 words when possible) so non-native English speakers can easily understand. Avoid generic fluff phrases like "In today's fast-paced economic world." Use highly scannable Markdown formatting with clear H2 and H3 subheadings, bold key financial terms, and bulleted lists for complex data. Naturally mention SavingsClub's free interactive calculators and tools at least twice per article once near the introduction and once near the conclusion explaining why we built these tools (to help Americans bypass confusing bank jargon and instantly see their true monthly costs). Subtly weave in that all content is for educational and informational purposes only. Produce SEO-rich content by naturally incorporating target keywords such as "best home loan rates," "personal loan comparison," "credit card rewards," "low interest loans," "savings calculators," and "debt payoff strategies."
+    system: `You are a skilled personal finance writer AND a senior SEO content strategist creating educational content for SavingsClub.com on behalf of the SavingsClub Research Team. You understand how everyday Americans actually search Google for financial information. You write to match real search intent, not generic textbook prose. Every article you produce is built to rank for specific high-volume queries.${keywordInstructions}
+
+Write with confidence and depth like a knowledgeable teacher explaining a topic clearly but never claim to be a licensed financial advisor, expert, or professional. Frame all content as educational information that helps readers understand topics and do their own research, NOT as personal advice or expert recommendations. Use first-person plural ("we," "our," "SavingsClub") to refer to the publication. Write in clear, simple English with short sentences (under 15 words when possible) so non-native English speakers can easily understand. Avoid generic fluff phrases like "In today's fast-paced economic world." Use highly scannable HTML formatting with clear H2 and H3 subheadings, bold key financial terms, and bulleted lists for complex data. Naturally mention SavingsClub's free interactive calculators and tools at least twice per article, once near the introduction and once near the conclusion, explaining why we built these tools (to help Americans bypass confusing bank jargon and instantly see their true monthly costs). Subtly weave in that all content is for educational and informational purposes only.
 
 LANGUAGE RULES, NEVER claim expertise or give personal advice:
 - NEVER write: "As a financial expert...", "In my professional experience...", "I recommend...", "As your advisor...", "Trust me...", "I personally suggest...", "Our experts say...", "Our financial advisors recommend..."
@@ -683,6 +1414,42 @@ ${linkInstructions}
   <a href="/blog/">Read more guides on SavingsClub</a>
 
 Place links where they naturally fit the content. Example: "Use our <a href="/budget-planner/">Budget Planner</a> to see your 50/30/20 breakdown."
+
+SEO STRUCTURE RULES (CRITICAL FOR RANKING):
+You write to match how Americans search Google. Every article must include the following SEO elements:
+
+1. PRIMARY KEYWORD PLACEMENT: The primary keyword from the TARGET SEARCH KEYWORDS section (if provided above) MUST appear:
+   - Exactly as written in the H1 (article title)
+   - Exactly as written in the first 100 words of the article body
+   - In at least one H2 subheading
+
+2. QUESTION-FORMAT H2 SECTION: Include AT LEAST ONE H2 subheading written as a question that matches how people actually type into Google search. Match the topic naturally. Examples by topic type:
+   - For "how to" topics: "How much do I really need to start?", "How long will this take to work?"
+   - For "best of" topics: "Which option is best for most Americans?", "What should you look for first?"
+   - For comparison topics: "Is X actually better than Y in 2026?", "Which one wins for most people?"
+   - For "understanding" topics: "What does this mean for your money?", "How is this different from X?"
+
+3. LONG-TAIL VARIATIONS: Use natural long-tail variations of the primary keyword 2 to 4 times in the body. For example, if the primary keyword is "mortgage calculator", natural variations are "free mortgage calculator", "mortgage payment calculator with taxes", "how to use a mortgage calculator". Do not invent forced phrases. Only use variations that read naturally.
+
+4. PEOPLE OFTEN ASK SECTION: End every article with a section titled exactly "<h2>People Often Ask</h2>" (no period). Under it, include 3 to 4 H3 subheadings, each formatted as a real search-style question, followed by a short direct answer (2 to 3 sentences). Use the exact phrasing real people type into Google. Examples:
+   - "<h3>Is a Roth IRA worth it in 2026?</h3>" then a direct answer
+   - "<h3>How much should I have saved by age 40?</h3>" then a direct answer
+   - "<h3>What credit score do I need for a car loan?</h3>" then a direct answer
+
+5. MATCH SEARCH INTENT:
+   - Informational queries (how/what/why) want explanation. Lead with the answer, then the why.
+   - Commercial queries (best/top/vs) want comparison. Lead with clear winner conditions for different reader types.
+   - Transactional queries (apply/open/get) want action steps. Lead with the simplest path.
+
+6. OUTBOUND .GOV CITATIONS: When you cite specific government data, link the source phrase to the actual government site:
+   - Federal Reserve data: link to "https://www.federalreserve.gov"
+   - BLS data: link to "https://www.bls.gov"
+   - FDIC data: link to "https://www.fdic.gov"
+   - Consumer Financial Protection Bureau: link to "https://www.consumerfinance.gov"
+   - IRS data: link to "https://www.irs.gov"
+   - Healthcare.gov: link to "https://www.healthcare.gov"
+   - Department of Labor / FMLA: link to "https://www.dol.gov"
+   Use the format: <a href="https://www.bls.gov" rel="noopener" target="_blank">Bureau of Labor Statistics</a>. Include 1 to 3 such outbound links if the topic naturally references government data. Do not force links where the topic does not call for them.
 
 STRUCTURE:
 1. Opening paragraph that hooks the reader with a relatable scenario or surprising fact
@@ -866,6 +1633,7 @@ function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.class
 
   generateRSS();
   generateImageReport();
+  generateBlogIndex();
 
   console.log('Published: ' + title + ' [' + category + ']');
   console.log('Word count estimate: ' + cleanContent.replace(/<[^>]*>/g, '').split(/\s+/).length);
