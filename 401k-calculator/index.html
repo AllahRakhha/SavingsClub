@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>401(k) Calculator: Employer Match + Roth vs Traditional | SavingsClub</title>
-<meta name="description" content="Free 401k calculator with employer match, salary growth, contribution limits, and Roth vs Traditional 401(k) comparison. Project your retirement balance for 2026.">
+<meta name="description" content="Free 401k calculator with employer match, salary growth, 2026 contribution limits, and Roth vs Traditional 401(k) comparison. See how much your 401k will be worth.">
 <link rel="canonical" href="https://savingsclub.com/401k-calculator/">
 <meta property="og:title" content="401(k) Calculator: Employer Match + Roth vs Traditional | SavingsClub">
 <meta property="og:description" content="Free 401k calculator with employer match, salary growth, contribution limits, and Roth vs Traditional 401(k) comparison.">
@@ -15,7 +15,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="author" content="SavingsClub Research Team">
-<meta name="keywords" content="401k calculator, 401(k) calculator, roth 401k, roth ira vs 401k, 401k max contribution, what is a 401k, employer match calculator, retirement calculator">
+<meta name="keywords" content="401k calculator, 401(k) calculator, 401k how much, average 401k balance by age, 401k match calculator, 401k max contribution, what is a 401k, employer match calculator, retirement calculator">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
 <link rel="apple-touch-icon" sizes="180x180" href="/img/sc-favicon.png?v=2">
 <link rel="stylesheet" href="../css/style.css">
@@ -32,11 +32,12 @@
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"How much should I put in my 401k?","acceptedAnswer":{"@type":"Answer","text":"At minimum, contribute enough to capture your full employer match. That is free money. Beyond that, a common target is 15% of gross income (including employer contributions). The 2026 contribution limit is $23,500 ($31,000 if age 50 or older)."}},
+{"@type":"Question","name":"How much should I put in my 401k?","acceptedAnswer":{"@type":"Answer","text":"At minimum, contribute enough to capture your full employer match. That is free money. Beyond that, a common target is 15% of gross income (including employer contributions). The 2026 contribution limit is $24,500 ($32,500 if age 50 or older, $35,750 if age 60 to 63)."}},
+{"@type":"Question","name":"What is the average 401(k) balance by age?","acceptedAnswer":{"@type":"Answer","text":"According to Vanguard's How America Saves 2025 report (year-end 2024 data), average balances are roughly $6,899 under age 25, $42,640 for ages 25 to 34, $103,552 for ages 35 to 44, $188,643 for ages 45 to 54, $271,320 for ages 55 to 64, and $299,442 for 65 and older. Median balances are far lower in every group because a small number of large accounts pull the average up."}},
 {"@type":"Question","name":"What is the difference between a Roth 401(k) and a Traditional 401(k)?","acceptedAnswer":{"@type":"Answer","text":"A Traditional 401(k) reduces your taxable income now but withdrawals in retirement are taxed as ordinary income. A Roth 401(k) is funded with after-tax dollars but withdrawals in retirement are tax-free. Roth tends to win for younger workers who expect higher tax brackets later. Traditional tends to win for workers in high brackets now who expect lower retirement income."}},
 {"@type":"Question","name":"What is a good 401k balance by age?","acceptedAnswer":{"@type":"Answer","text":"Fidelity's commonly cited benchmarks: 1x salary by age 30, 3x by 40, 6x by 50, 8x by 60, 10x by 67. These are rough guidelines, not requirements. Your actual target depends on retirement age, expected lifestyle, and other income sources."}},
-{"@type":"Question","name":"Can I contribute to both a 401(k) and a Roth IRA?","acceptedAnswer":{"@type":"Answer","text":"Yes, in most cases. A 401(k) and a Roth IRA have separate annual limits and are not affected by each other. For 2026, you can contribute up to $23,500 to a 401(k) plus up to $7,000 to a Roth IRA ($8,000 if 50 or older), subject to Roth IRA income limits."}},
-{"@type":"Question","name":"What is the 401k max contribution for 2026?","acceptedAnswer":{"@type":"Answer","text":"The 2026 employee 401(k) contribution limit is $23,500. Workers age 50 and older can make an additional $7,500 catch-up contribution, for a total of $31,000. Employer matching contributions are separate from this limit. Always verify current limits with the IRS."}}]}
+{"@type":"Question","name":"Can I contribute to both a 401(k) and a Roth IRA?","acceptedAnswer":{"@type":"Answer","text":"Yes, in most cases. A 401(k) and a Roth IRA have separate annual limits and are not affected by each other. For 2026, you can contribute up to $24,500 to a 401(k) plus up to $7,500 to a Roth IRA ($8,600 if 50 or older), subject to Roth IRA income limits."}},
+{"@type":"Question","name":"What is the 401k max contribution for 2026?","acceptedAnswer":{"@type":"Answer","text":"The 2026 employee 401(k) contribution limit is $24,500. Workers age 50 and older can make an additional $8,000 catch-up contribution, for a total of $32,500. Workers age 60 to 63 get a higher catch-up of $11,250, for a total of $35,750. Employer matching contributions are separate from this limit. Always verify current limits with the IRS."}}]}
 </script>
 
 <style>
@@ -154,6 +155,15 @@
 .k401-table tbody tr:hover{background:#F9FAFB}
 .k401-table tbody tr:last-child td{border-bottom:none}
 
+/* ====== Data tables in SEO content ====== */
+.k401-data-table-wrap{overflow-x:auto;border:1px solid #E5E7EB;border-radius:12px;margin:16px 0 20px}
+.k401-data-table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:420px}
+.k401-data-table th,.k401-data-table td{padding:11px 14px;text-align:right;border-bottom:1px solid #F1F5F9}
+.k401-data-table th{background:#F9FAFB;font-weight:700;color:#374151;font-size:.74rem;text-transform:uppercase;letter-spacing:.04em}
+.k401-data-table th:first-child,.k401-data-table td:first-child{text-align:left;font-weight:600;color:#0A1628}
+.k401-data-table tbody tr:last-child td{border-bottom:none}
+.k401-table-source{font-size:.78rem;color:#6B7280;font-style:italic;margin:-12px 0 20px}
+
 /* ====== Tips card ====== */
 .k401-tips-card{background:linear-gradient(135deg,#ECFDF5 0%,#F0FDF4 100%);border:1px solid #A7F3D0;border-radius:18px;padding:24px;margin:32px 0;position:relative;overflow:hidden}
 .k401-tips-card::before{content:'';position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(16,185,129,.12) 0%,transparent 70%);pointer-events:none}
@@ -248,7 +258,7 @@ SavingsClub
     <h1>401(k) Calculator</h1>
     <p class="k401-hero-sub">Free 401k calculator with employer match, salary growth, 2026 contribution limits, and a built-in Roth vs Traditional 401(k) comparison. See what your retirement balance could actually look like.</p>
     <p class="k401-hero-disclaimer">Educational tool, not financial advice. SavingsClub is not a licensed financial advisor.</p>
-    <p class="k401-hero-meta">Last updated June 2026</p>
+    <p class="k401-hero-meta">Last updated July 2026</p>
   </div>
   <div class="k401-hero-stat">
     <div class="k401-hero-stat-number">$232K</div>
@@ -262,7 +272,7 @@ SavingsClub
   <div class="k401-byline-author">By SavingsClub Research Team</div>
   <div class="k401-byline-dates">
     <span>Published: June 2026</span>
-    <span>Last updated: June 2026</span>
+    <span>Last updated: July 2026</span>
   </div>
 </div>
 
@@ -379,7 +389,46 @@ SavingsClub
 
 <p>Beyond the match, a common target is 15% of gross income for retirement (combining your contributions and your employer's). If you started saving late, you may need 20% or more to catch up. Workers who maximize their 401(k) plus contribute to a Roth IRA on the side build wealth significantly faster than those who only do the match.</p>
 
-<p>The 2026 IRS 401k max contribution is <strong>$23,500</strong> for workers under age 50, with an additional $7,500 catch-up contribution allowed for workers 50 and older (total $31,000). Employer matching contributions are separate from this limit. You can verify current contribution limits directly at the <a href="https://www.irs.gov" rel="noopener" target="_blank">IRS website</a>.</p>
+<p>The 2026 IRS 401k max contribution is <strong>$24,500</strong> for workers under age 50. Workers 50 and older can add an $8,000 catch-up contribution (total $32,500), and workers age 60 to 63 get a higher catch-up of $11,250 (total $35,750) under the SECURE 2.0 rules. Employer matching contributions are separate from these limits. You can verify current contribution limits directly at the <a href="https://www.irs.gov" rel="noopener" target="_blank">IRS website</a>.</p>
+
+<h2>Average 401(k) balance by age: how do you compare?</h2>
+<p>If you are wondering how much is in the typical American's 401(k), the most authoritative data comes from Vanguard's How America Saves report, which tracks nearly 5 million retirement plan participants. The latest full breakdown (year-end 2024 data) shows both the average and the median balance for each age group:</p>
+
+<div class="k401-data-table-wrap">
+<table class="k401-data-table">
+<thead><tr><th>Age group</th><th>Average balance</th><th>Median balance</th></tr></thead>
+<tbody>
+<tr><td>Under 25</td><td>$6,899</td><td>$1,948</td></tr>
+<tr><td>25 to 34</td><td>$42,640</td><td>$16,255</td></tr>
+<tr><td>35 to 44</td><td>$103,552</td><td>$39,958</td></tr>
+<tr><td>45 to 54</td><td>$188,643</td><td>$67,796</td></tr>
+<tr><td>55 to 64</td><td>$271,320</td><td>$95,642</td></tr>
+<tr><td>65 and older</td><td>$299,442</td><td>$95,425</td></tr>
+</tbody>
+</table>
+</div>
+<p class="k401-table-source">Source: Vanguard, How America Saves 2025 (year-end 2024 data). Figures reflect balances held in Vanguard-administered plans only.</p>
+
+<p>Notice the gap between average and median in every age group. The average is pulled up by a small number of very large accounts, so the <strong>median is a better picture of the typical saver</strong>. Across all ages, the average balance was $148,153 while the median was just $38,176. If your balance is above the median for your age group, you are ahead of most of your peers, even if the average makes you feel behind.</p>
+
+<p>One more thing these numbers hide: they only count one account. Workers who change jobs often leave old 401(k)s behind, so total retirement savings for many households is higher than any single plan balance shows. Use our <a href="../net-worth-calculator/">Net Worth Calculator</a> to add up everything in one place.</p>
+
+<h2>How much do you need in your 401(k) to retire?</h2>
+<p>A quick way to estimate your target: take the annual income you want your savings to produce and multiply it by 25. This is the same math as the 4% rule, just run in reverse. Some rough targets:</p>
+
+<div class="k401-data-table-wrap">
+<table class="k401-data-table">
+<thead><tr><th>Desired annual income from savings</th><th>Approximate 401(k) target (25x)</th></tr></thead>
+<tbody>
+<tr><td>$30,000</td><td>$750,000</td></tr>
+<tr><td>$40,000</td><td>$1,000,000</td></tr>
+<tr><td>$60,000</td><td>$1,500,000</td></tr>
+<tr><td>$80,000</td><td>$2,000,000</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>These targets look intimidating, but two things soften them. First, Social Security replaces a meaningful slice of income for most retirees, so your savings usually do not need to fund everything. Second, time does most of the heavy lifting: run the calculator above and watch how much of the final balance comes from investment growth rather than your own contributions. That is why starting now beats starting bigger later. Our <a href="../retirement-calculator/">Retirement Calculator</a> models the full picture, including how long your money lasts after you stop working.</p>
 
 <h2>Roth 401(k) vs Traditional 401(k): which one wins?</h2>
 <p>The Roth vs Traditional 401(k) decision comes down to one question: <strong>do you expect to be in a higher or lower tax bracket in retirement?</strong></p>
@@ -393,12 +442,14 @@ SavingsClub
 <h2>Understanding employer match: the free money rule</h2>
 <p>Employer matching is the single highest-return investment most workers will ever make. A 100% match means every dollar you contribute is matched dollar-for-dollar by your employer, up to a cap. That is an immediate 100% return on the matched portion of your contribution. No investment in the world beats that.</p>
 
-<p>The most common match structures are: 100% match up to 3 to 6% of salary (full match), or 50% match up to 6 to 8% of salary (partial match). On a $65,000 salary with a 100% match up to 4%, your employer adds $2,600 per year to your account at no cost to you. Over 30 years at 7% return, that match alone grows to roughly $260,000.</p>
+<p>The tool above doubles as a <strong>401(k) match calculator</strong>: enter your employer's match cap and match type, and the results break out exactly how many employer dollars flow into your account each year and what they compound into by retirement. According to Vanguard, the average employer match is 4.6% of pay and the median is 4%, so if your plan matches less than that, you are below the national norm.</p>
+
+<p>The most common match structures are: 100% match up to 3 to 6% of salary (full match), or 50% match up to 6 to 8% of salary (partial match). On a $65,000 salary with a 100% match up to 4%, your employer adds $2,600 per year to your account at no cost to you. Over 30 years at 7% return, that match alone grows to roughly $250,000.</p>
 
 <p>If your contribution percentage is below your match cap, this calculator will warn you and show exactly how much money you are leaving on the table per year. Increasing your contribution to the cap is almost always the right financial move, with very few exceptions.</p>
 
 <h2>What is a good 401(k) balance by age?</h2>
-<p>Fidelity publishes commonly cited retirement savings benchmarks based on salary multiples by age:</p>
+<p>The averages above tell you what people actually have. Benchmarks tell you what you might aim for. Fidelity publishes commonly cited retirement savings targets based on salary multiples by age:</p>
 <ul>
 <li><strong>By age 30:</strong> 1x annual salary</li>
 <li><strong>By age 40:</strong> 3x annual salary</li>
@@ -406,7 +457,7 @@ SavingsClub
 <li><strong>By age 60:</strong> 8x annual salary</li>
 <li><strong>By age 67:</strong> 10x annual salary</li>
 </ul>
-<p>For a worker earning $75,000 per year, those benchmarks translate to $75K by 30, $225K by 40, $450K by 50, $600K by 60, and $750K by 67. These are rough guidelines, not requirements. Your actual target depends on retirement age, lifestyle, Social Security, and other income sources.</p>
+<p>For a worker earning $75,000 per year, those benchmarks translate to $75K by 30, $225K by 40, $450K by 50, $600K by 60, and $750K by 67. These are rough guidelines, not requirements. Your actual target depends on retirement age, lifestyle, Social Security, and other income sources. Compare the benchmark for your age against the median balances in the table above and you will see that most Americans are behind, which is exactly why capturing the full match and increasing contributions with every raise matter so much.</p>
 
 <h2>The 4% withdrawal rule explained</h2>
 <p>The 4% rule is a widely-used retirement income guideline: in your first year of retirement, you can withdraw 4% of your portfolio balance. In each following year, you adjust that dollar amount for inflation. The portfolio is designed to last about 30 years using this strategy with a balanced stock and bond mix.</p>
@@ -432,7 +483,10 @@ SavingsClub
 <h2>People Often Ask</h2>
 
 <h3>How much should I put in my 401k?</h3>
-<p>At minimum, contribute enough to capture your full employer match. That is free money. Beyond that, a common target is 15% of gross income (including employer contributions). The 2026 contribution limit is $23,500 ($31,000 if age 50 or older).</p>
+<p>At minimum, contribute enough to capture your full employer match. That is free money. Beyond that, a common target is 15% of gross income (including employer contributions). The 2026 contribution limit is $24,500 ($32,500 if age 50 or older, $35,750 if age 60 to 63).</p>
+
+<h3>What is the average 401(k) balance by age?</h3>
+<p>According to Vanguard's How America Saves 2025 report (year-end 2024 data), average balances are roughly $6,899 under age 25, $42,640 for ages 25 to 34, $103,552 for ages 35 to 44, $188,643 for ages 45 to 54, $271,320 for ages 55 to 64, and $299,442 for 65 and older. Median balances are far lower in every group because a small number of large accounts pull the average up.</p>
 
 <h3>What is the difference between a Roth 401(k) and a Traditional 401(k)?</h3>
 <p>A Traditional 401(k) reduces your taxable income now but withdrawals in retirement are taxed as ordinary income. A Roth 401(k) is funded with after-tax dollars but withdrawals in retirement are tax-free. Roth tends to win for younger workers who expect higher tax brackets later. Traditional tends to win for workers in high brackets now who expect lower retirement income.</p>
@@ -441,10 +495,10 @@ SavingsClub
 <p>Fidelity's commonly cited benchmarks: 1x salary by age 30, 3x by 40, 6x by 50, 8x by 60, 10x by 67. These are rough guidelines, not requirements. Your actual target depends on retirement age, expected lifestyle, and other income sources like Social Security.</p>
 
 <h3>Can I contribute to both a 401(k) and a Roth IRA?</h3>
-<p>Yes, in most cases. A 401(k) and a Roth IRA have separate annual limits and are not affected by each other. For 2026, you can contribute up to $23,500 to a 401(k) plus up to $7,000 to a Roth IRA ($8,000 if 50 or older), subject to Roth IRA income limits. Use our <a href="../roth-ira-calculator/">Roth IRA Calculator</a> to project the Roth side.</p>
+<p>Yes, in most cases. A 401(k) and a Roth IRA have separate annual limits and are not affected by each other. For 2026, you can contribute up to $24,500 to a 401(k) plus up to $7,500 to a Roth IRA ($8,600 if 50 or older), subject to Roth IRA income limits. Use our <a href="../roth-ira-calculator/">Roth IRA Calculator</a> to project the Roth side.</p>
 
 <h3>What is the 401k max contribution for 2026?</h3>
-<p>The 2026 employee 401(k) contribution limit is $23,500. Workers age 50 and older can make an additional $7,500 catch-up contribution, for a total of $31,000. Employer matching contributions are separate from this limit. Always verify current limits with the IRS.</p>
+<p>The 2026 employee 401(k) contribution limit is $24,500. Workers age 50 and older can make an additional $8,000 catch-up contribution, for a total of $32,500. Workers age 60 to 63 get a higher catch-up of $11,250, for a total of $35,750. Employer matching contributions are separate from this limit. Always verify current limits with the IRS.</p>
 </div>
 
 <!-- ============ RELATED ============ -->
@@ -453,7 +507,8 @@ SavingsClub
   <span class="k401-related-icon"><svg viewBox="0 0 24 24"><path d="M4 4h12a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3z"/><path d="M4 17a3 3 0 0 1 3-3h12"/></svg></span>
   Related Guides
 </div>
-<a href="../blog/the-complete-guide-to-401k-employer-matching/" class="related-blog-card">The Complete Guide to 401(k) Employer Matching &rarr;</a>
+<a href="../blog/how-to-plan-for-early-retirement-in-your-40s/" class="related-blog-card">How to Plan for Early Retirement in Your 40s &rarr;</a>
+<a href="../blog/how-to-set-financial-goals-you-will-actually-achieve/" class="related-blog-card">How to Set Financial Goals You Will Actually Achieve &rarr;</a>
 </div>
 
 <div class="related-tools reveal">
@@ -483,9 +538,10 @@ SavingsClub
 
 <script>
 /* =========================================================
-   401(k) Calculator v3
+   401(k) Calculator v3.1
    Navy/emerald brand, Calculate+Reset pattern, empty state,
    Traditional vs Roth 401(k) WINNER comparison.
+   v3.1: 2026 IRS limits corrected ($24,500 / $32,500).
    ========================================================= */
 
 var DEFAULTS = {
@@ -496,8 +552,8 @@ var DEFAULTS = {
   kCurrentTax: 22, kRetTax: 15, kInflation: 0
 };
 
-var IRS_LIMIT_UNDER_50 = 23500;
-var IRS_LIMIT_50_PLUS = 31000;
+var IRS_LIMIT_UNDER_50 = 24500;
+var IRS_LIMIT_50_PLUS = 32500;
 
 function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
 
@@ -715,7 +771,7 @@ function calc(){
     var excess = annualContribDollars - limit;
     warnings += '<div class="k401-warn alert">'
       + '<div class="k401-warn-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>'
-      + '<div><strong>Over the 2026 IRS limit.</strong> Your annual contribution of $' + fmt(annualContribDollars) + ' exceeds the $' + fmt(limit) + ' limit by $' + fmt(excess) + '. Your employer will cap this automatically.</div>'
+      + '<div><strong>Over the 2026 IRS limit.</strong> Your annual contribution of $' + fmt(annualContribDollars) + ' exceeds the $' + fmt(limit) + ' limit by $' + fmt(excess) + '. Your employer will cap this automatically. Workers age 60 to 63 get a higher limit of $35,750.</div>'
       + '</div>';
   }
   if (x.contribPct < x.matchCap){
@@ -801,7 +857,7 @@ function toggleAdvanced(){
 <div class="footer-grid">
 <div>
 <div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
-<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and educational guides for Americans in every state. Making money decisions simpler since 2026.</p>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and educational guides for Americans in every state. Helping you keep more of what you earn.</p>
 </div>
 <div>
 <h4>Calculators</h4>
@@ -860,12 +916,12 @@ localStorage.setItem('sc_cookies','decline');
 b.innerHTML='';
 var msg=document.createElement('span');
 msg.style.cssText='padding:12px 0;color:#10B981';
-msg.textContent='No cookies stored. You can browse freely.';
+msg.textContent='Preference saved.';
 b.appendChild(msg);
 setTimeout(function(){b.remove();},2500);
 };
 var txt=document.createElement('span');
-txt.innerHTML='We use cookies to improve your experience. <a href="/cookie-policy/" style="color:#10B981">Cookie Policy</a>';
+txt.innerHTML='We use basic analytics cookies to understand site traffic. <a href="/cookie-policy/" style="color:#34D399">Cookie Policy</a>';
 var btnWrap=document.createElement('div');
 btnWrap.style.cssText='display:flex;gap:8px';
 btnWrap.appendChild(acceptBtn);
@@ -876,6 +932,5 @@ document.body.appendChild(b);
 })();
 </script>
 
-<script src="/js/logo-fix.js"></script>
 </body>
 </html>
