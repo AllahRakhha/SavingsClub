@@ -2,6 +2,20 @@
 # Updated: Includes targeted blog redirects + legacy spam cleanup from previous domain owner
 
 # ============================================
+# DUPLICATE PAGE CONSOLIDATION
+# /emergency-fund/ folder still exists in the repo, so these
+# rules use 301! (forced) or Netlify would serve the old page
+# instead of redirecting. Safe to delete the folder later.
+# ============================================
+
+/emergency-fund /emergency-fund-calculator/ 301!
+/emergency-fund/* /emergency-fund-calculator/ 301!
+
+# Dead 401k post (never published, was linked from 401k calculator)
+/blog/the-complete-guide-to-401k-employer-matching /401k-calculator/ 301
+/blog/the-complete-guide-to-401k-employer-matching/* /401k-calculator/ 301
+
+# ============================================
 # BLOG POST REDIRECTS (Quality Content)
 # ============================================
 
@@ -68,8 +82,6 @@
 # General / weak match
 /blog/smart-money-moves-to-make-before-year-end-2026 /blog/ 301
 /blog/smart-money-moves-to-make-before-year-end-2026/* /blog/ 301
-/blog/financial-planning-checklist-for-new-parents /blog/ 301
-/blog/financial-planning-checklist-for-new-parents/* /blog/ 301
 
 # ============================================
 # LEGACY SPAM / OLD OWNER CONTENT CLEANUP
