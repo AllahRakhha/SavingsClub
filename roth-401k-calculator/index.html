@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roth 401(k) Calculator: Roth or Traditional 401(k)? | SavingsClub</title>
+<meta name="description" content="Free Roth 401k calculator. Compare Roth vs Traditional 401(k) with your real numbers: after-tax retirement value, 2026 contribution limits, employer match, and the 50/50 split option.">
+<link rel="canonical" href="https://savingsclub.com/roth-401k-calculator/">
+<meta property="og:title" content="Roth 401(k) Calculator: Roth or Traditional 401(k)? | SavingsClub">
+<meta property="og:description" content="Free Roth 401k calculator. Compare Roth vs Traditional 401(k) with your real numbers and see which one wins for your tax situation.">
+<meta property="og:url" content="https://savingsclub.com/roth-401k-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SavingsClub">
+<meta property="og:image" content="https://savingsclub.com/img/savings-jar.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="author" content="SavingsClub Research Team">
+<meta name="keywords" content="roth 401k calculator, roth or 401k calculator, roth vs traditional 401k calculator, roth 401k vs 401k, roth 401k contribution limit 2026, roth 401k income limit">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/sc-favicon.png?v=2">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Home","item":"https://savingsclub.com/"},
+{"@type":"ListItem","position":2,"name":"Calculators","item":"https://savingsclub.com/savings-calculator/"},
+{"@type":"ListItem","position":3,"name":"Roth 401(k) Calculator","item":"https://savingsclub.com/roth-401k-calculator/"}]}
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Should I choose a Roth 401(k) or a Traditional 401(k)?","acceptedAnswer":{"@type":"Answer","text":"It depends on one question: do you expect a higher or lower tax rate in retirement than today? If higher, Roth usually wins because you pay tax now at the lower rate. If lower, Traditional usually wins because you defer tax until the lower rate applies. If you genuinely do not know, many educators suggest splitting contributions between both for tax diversification."}},
+{"@type":"Question","name":"What is the Roth 401(k) contribution limit for 2026?","acceptedAnswer":{"@type":"Answer","text":"The 2026 limit is $24,500, shared between Roth and Traditional 401(k) contributions combined. Workers 50 and older can add an $8,000 catch-up (total $32,500), and workers age 60 to 63 get an $11,250 super catch-up (total $35,750). Employer matching contributions do not count against these limits."}},
+{"@type":"Question","name":"Does a Roth 401(k) have income limits?","acceptedAnswer":{"@type":"Answer","text":"No. Unlike a Roth IRA, which phases out at higher incomes, anyone can contribute to a Roth 401(k) regardless of how much they earn, as long as their employer's plan offers the Roth option. This makes the Roth 401(k) the main way high earners get Roth-style tax-free growth."}},
+{"@type":"Question","name":"Where does the employer match go if I choose Roth?","acceptedAnswer":{"@type":"Answer","text":"By default, employer matching contributions go into a pre-tax (Traditional) bucket even if your own contributions are Roth, so that portion is taxed at withdrawal. Under SECURE 2.0, plans may now offer a Roth employer match, but if you take it, the match counts as taxable income to you in the year it is made. Check what your specific plan offers."}},
+{"@type":"Question","name":"Do Roth 401(k)s have required minimum distributions?","acceptedAnswer":{"@type":"Answer","text":"No. Starting in 2024, SECURE 2.0 eliminated required minimum distributions from Roth 401(k) accounts during the owner's lifetime, matching the Roth IRA treatment. Traditional 401(k) balances still have RMDs, currently beginning at age 73."}},
+{"@type":"Question","name":"Can I split contributions between Roth and Traditional 401(k)?","acceptedAnswer":{"@type":"Answer","text":"Yes, if your plan offers both. Most large plans let you direct any percentage of your contribution to each side, and the two share one combined annual limit ($24,500 in 2026). A split hedges against future tax rates being different than you expect and gives you flexibility to manage your tax bracket in retirement."}}]}
+</script>
+
+<style>
+/* ====== Hero ====== */
+.r401-hero{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;background:linear-gradient(135deg,#0A1628 0%,#0F2540 50%,#059669 100%);border-radius:20px;padding:32px;color:#fff;margin:8px 0 28px;position:relative;overflow:hidden}
+.r401-hero::before{content:'';position:absolute;top:-30%;right:-15%;width:55%;height:160%;background:radial-gradient(circle,rgba(52,211,153,.18) 0%,transparent 62%);pointer-events:none}
+.r401-hero-left{position:relative;z-index:1}
+.r401-hero h1{color:#fff;font-size:2.1rem;margin:0 0 12px;line-height:1.15;font-weight:800}
+.r401-hero-sub{color:rgba(255,255,255,.9);font-size:1.02rem;line-height:1.55;margin:0 0 14px}
+.r401-hero-disclaimer{color:rgba(255,255,255,.55);font-size:.8rem;font-style:italic;margin:0 0 10px;line-height:1.45}
+.r401-hero-meta{color:rgba(255,255,255,.45);font-size:.75rem;margin:0}
+.r401-hero-stat{background:rgba(16,185,129,.18);border:1px solid rgba(52,211,153,.4);border-radius:16px;padding:24px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1;backdrop-filter:blur(4px)}
+.r401-hero-stat-number{font-size:3rem;font-weight:800;color:#34D399;line-height:1;margin-bottom:10px;font-family:'Plus Jakarta Sans',sans-serif}
+.r401-hero-stat-label{color:rgba(255,255,255,.95);font-size:.92rem;line-height:1.45}
+.r401-hero-stat-source{color:rgba(255,255,255,.55);font-size:.72rem;margin-top:10px;font-style:italic}
+
+/* ====== Byline ====== */
+.r401-byline{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:14px 18px;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:12px;margin-bottom:24px;font-size:.85rem}
+.r401-byline-author{font-weight:700;color:#0A1628}
+.r401-byline-dates{display:flex;gap:14px;color:#6B7280;flex-wrap:wrap}
+
+/* ====== Section titles ====== */
+.r401-section-title{font-size:1.05rem;font-weight:700;color:#0A1628;margin:32px 0 14px;display:flex;align-items:center;gap:10px}
+.r401-section-title .r401-icon{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#059669,#10B981);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.r401-section-title .r401-icon svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.r401-section-hint{font-size:.85rem;color:#6B7280;margin:-6px 0 14px;line-height:1.5}
+
+/* ====== Buttons ====== */
+.r401-btn-row{display:flex;gap:12px;margin:24px 0 8px;flex-wrap:wrap}
+.r401-btn-calc{background:linear-gradient(135deg,#059669,#10B981);color:#fff;border:none;padding:14px 32px;border-radius:999px;font-weight:700;font-size:1rem;cursor:pointer;box-shadow:0 4px 12px rgba(5,150,105,.3);transition:transform .15s,box-shadow .15s;font-family:inherit}
+.r401-btn-calc:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(5,150,105,.4)}
+.r401-btn-reset{background:#fff;color:#0A1628;border:1px solid #E5E7EB;padding:14px 28px;border-radius:999px;font-weight:600;font-size:1rem;cursor:pointer;transition:all .15s;font-family:inherit}
+.r401-btn-reset:hover{background:#F9FAFB;border-color:#D1D5DB}
+
+/* ====== Empty state ====== */
+.r401-empty{border:2px dashed #E5E7EB;border-radius:16px;padding:36px 24px;text-align:center;margin-top:20px;color:#6B7280}
+.r401-empty-icon{width:48px;height:48px;border-radius:14px;background:#F3F4F6;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px}
+.r401-empty-icon svg{width:24px;height:24px;stroke:#9CA3AF;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.r401-empty-title{font-weight:700;color:#0A1628;font-size:1.05rem;margin-bottom:6px}
+.r401-empty-text{font-size:.92rem;line-height:1.5}
+
+/* ====== Result banner ====== */
+.r401-result-banner{border-radius:18px;padding:26px 28px;margin:24px 0 0;background:linear-gradient(135deg,#0A1628 0%,#0F2942 100%);color:#fff}
+.r401-result-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.65);font-weight:700;margin-bottom:6px}
+.r401-result-value{font-size:2.6rem;font-weight:800;line-height:1.1;color:#34D399;font-family:'Plus Jakarta Sans',sans-serif;margin-bottom:6px}
+.r401-result-sub{font-size:.95rem;line-height:1.5;color:rgba(255,255,255,.85)}
+.r401-result-sub strong{color:#fff;font-weight:700}
+
+/* ====== Warnings ====== */
+.r401-warn{border-radius:12px;padding:14px 18px;margin-top:14px;display:flex;gap:12px;align-items:start;font-size:.92rem;line-height:1.5}
+.r401-warn.tip{background:#FEF3C7;border:1.5px solid #FCD34D;color:#78350F}
+.r401-warn.alert{background:#FEE2E2;border:1.5px solid #FCA5A5;color:#7F1D1D}
+.r401-warn-icon{width:24px;height:24px;flex-shrink:0}
+.r401-warn-icon svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.r401-warn strong{font-weight:700}
+
+/* ====== WINNER cards ====== */
+.r401-vs-note{font-size:.82rem;color:#6B7280;background:#F9FAFB;border-left:3px solid #10B981;padding:10px 14px;border-radius:8px;margin:12px 0 18px;line-height:1.55}
+.r401-vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0 8px;align-items:start}
+.r401-vs-card{background:#fff;border:1.5px solid #E5E7EB;border-radius:16px;padding:22px;position:relative;display:flex;flex-direction:column;gap:10px}
+.r401-vs-card.winner{border-color:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,.12),0 8px 24px rgba(5,150,105,.12)}
+.r401-vs-card.winner::before{content:'WINNER';position:absolute;top:-12px;left:18px;background:linear-gradient(135deg,#059669,#10B981);color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.1em;padding:5px 12px;border-radius:999px;box-shadow:0 4px 10px rgba(5,150,105,.3)}
+.r401-vs-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#F3F4F6}
+.r401-vs-icon svg{width:22px;height:22px;fill:none;stroke:#0A1628;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.r401-vs-card.winner .r401-vs-icon{background:linear-gradient(135deg,#ECFDF5,#D1FAE5)}
+.r401-vs-card.winner .r401-vs-icon svg{stroke:#047857}
+.r401-vs-title{font-size:1.05rem;font-weight:800;color:#0A1628;font-family:'Plus Jakarta Sans',sans-serif}
+.r401-vs-subtitle{font-size:.82rem;color:#6B7280;margin-top:-4px;line-height:1.4}
+.r401-vs-metric-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:#6B7280;font-weight:700;margin-top:6px}
+.r401-vs-metric{font-size:1.6rem;font-weight:800;color:#0A1628;line-height:1.1;font-family:'Plus Jakarta Sans',sans-serif}
+.r401-vs-card.winner .r401-vs-metric{color:#047857}
+.r401-vs-detail{font-size:.85rem;color:#4B5563;line-height:1.5;margin-top:6px;padding-top:10px;border-top:1px solid #F3F4F6}
+.r401-vs-detail-row{display:flex;justify-content:space-between;margin-bottom:4px}
+.r401-vs-detail-row:last-child{margin-bottom:0}
+.r401-vs-detail-row span:first-child{color:#6B7280}
+.r401-vs-detail-row span:last-child{font-weight:600;color:#0A1628}
+.r401-vs-summary{background:linear-gradient(135deg,#ECFDF5,#F0FDF4);border:1px solid #A7F3D0;border-radius:12px;padding:14px 16px;margin-top:12px;font-size:.92rem;color:#064E3B;line-height:1.55}
+.r401-vs-summary strong{color:#047857}
+.r401-split-card{background:#fff;border:1.5px dashed #10B981;border-radius:16px;padding:18px 22px;margin-top:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.r401-split-label{font-size:.95rem;color:#0A1628;font-weight:700}
+.r401-split-sub{font-size:.8rem;color:#6B7280;display:block;margin-top:2px;font-weight:400}
+.r401-split-value{font-size:1.5rem;font-weight:800;color:#059669;font-family:'Plus Jakarta Sans',sans-serif}
+
+/* ====== Data tables ====== */
+.r401-data-table-wrap{overflow-x:auto;border:1px solid #E5E7EB;border-radius:12px;margin:16px 0 20px}
+.r401-data-table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:520px}
+.r401-data-table th,.r401-data-table td{padding:11px 14px;text-align:left;border-bottom:1px solid #F1F5F9;vertical-align:top}
+.r401-data-table th{background:#F9FAFB;font-weight:700;color:#374151;font-size:.74rem;text-transform:uppercase;letter-spacing:.04em}
+.r401-data-table td:first-child{font-weight:600;color:#0A1628}
+.r401-data-table tbody tr:last-child td{border-bottom:none}
+.r401-table-source{font-size:.78rem;color:#6B7280;font-style:italic;margin:-12px 0 20px}
+
+/* ====== SEO content ====== */
+.r401-seo{margin-top:36px}
+.r401-seo h2{font-size:1.5rem;color:#0A1628;margin:32px 0 14px;font-weight:800;font-family:'Plus Jakarta Sans',sans-serif}
+.r401-seo h2:first-child{margin-top:0}
+.r401-seo h3{font-size:1.1rem;color:#0A1628;margin:24px 0 10px;font-weight:700}
+.r401-seo p{font-size:.97rem;line-height:1.7;color:#374151;margin-bottom:14px}
+.r401-seo p strong{color:#0A1628;font-weight:700}
+.r401-seo ul{font-size:.97rem;line-height:1.7;color:#374151;margin:0 0 14px;padding-left:22px}
+.r401-seo a{color:#047857;font-weight:600;text-decoration:none;border-bottom:1px dashed #10B981}
+.r401-seo a:hover{border-bottom-style:solid;color:#059669}
+
+/* ====== Related ====== */
+.r401-related-heading{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:1.1rem;color:#0A1628;font-weight:700}
+.r401-related-icon{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#059669,#10B981);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.r401-related-icon svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+
+/* ====== Mobile ====== */
+@media(max-width:760px){
+  .r401-hero{grid-template-columns:1fr;padding:24px}
+  .r401-hero h1{font-size:1.7rem}
+  .r401-hero-stat-number{font-size:2.4rem}
+  .r401-result-value{font-size:2rem}
+  .r401-vs-grid{grid-template-columns:1fr;gap:14px}
+  .r401-seo h2{font-size:1.3rem}
+  .r401-btn-row{flex-direction:column}
+  .r401-btn-calc,.r401-btn-reset{width:100%}
+}
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+<div class="nav-inner">
+<div class="logo" onclick="location.href='../'">
+<div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+SavingsClub
+</div>
+<div class="nav-links" id="navLinks">
+<a href="../">Home</a>
+<a href="../savings-calculator/" class="active">Calculators</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="../">Home</a>
+<a href="../savings-calculator/">Savings</a>
+<a href="../401k-calculator/">401(k)</a>
+<a href="../roth-ira-calculator/">Roth IRA</a>
+<a href="../retirement-calculator/">Retirement</a>
+<a href="../paycheck-calculator/">Paycheck</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../about/">About</a>
+<a href="../contact/">Contact</a>
+</div>
+
+<section class="calc-page">
+<div class="container">
+
+<div style="margin-bottom:20px"><a href="../" style="color:var(--text-light);font-weight:500">&larr; Home</a></div>
+
+<!-- ============ HERO ============ -->
+<div class="r401-hero">
+  <div class="r401-hero-left">
+    <h1>Roth 401(k) Calculator</h1>
+    <p class="r401-hero-sub">Roth or Traditional 401(k)? Enter your salary, contribution, and tax brackets, and this free Roth 401k calculator shows the after-tax retirement value of each choice, plus the 50/50 split option, using 2026 contribution limits.</p>
+    <p class="r401-hero-disclaimer">Educational tool, not financial advice. SavingsClub is not a licensed financial advisor.</p>
+    <p class="r401-hero-meta">Last updated July 2026</p>
+  </div>
+  <div class="r401-hero-stat">
+    <div class="r401-hero-stat-number">$0</div>
+    <div class="r401-hero-stat-label">Tax owed on qualified Roth 401(k) withdrawals in retirement. Every dollar of growth comes out tax-free, no matter how large the account gets.</div>
+    <div class="r401-hero-stat-source">Source: IRS rules for qualified Roth distributions</div>
+  </div>
+</div>
+
+<!-- ============ BYLINE ============ -->
+<div class="r401-byline">
+  <div class="r401-byline-author">By SavingsClub Research Team</div>
+  <div class="r401-byline-dates">
+    <span>Published: July 2026</span>
+    <span>Last updated: July 2026</span>
+  </div>
+</div>
+
+<!-- ============ INPUTS ============ -->
+<div class="r401-section-title">
+  <span class="r401-icon"><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+  Your details
+</div>
+<div class="calc-grid">
+<div><label>Current Age</label><input type="number" id="rAge" value="30" min="18" max="70"></div>
+<div><label>Retirement Age</label><input type="number" id="rRetAge" value="65" min="50" max="80"></div>
+<div><label>Annual Salary ($)</label><input type="number" id="rSalary" value="70000" min="0"></div>
+<div><label>Your Contribution (%)</label><input type="number" id="rContrib" value="8" step="0.5" min="0" max="100"></div>
+<div><label>Employer Match Cap (%)</label><input type="number" id="rMatch" value="4" step="0.5" min="0" max="20"></div>
+<div><label>Current 401(k) Balance ($)</label><input type="number" id="rBalance" value="15000" min="0"></div>
+<div><label>Expected Annual Return (%)</label><input type="number" id="rReturn" value="7" step="0.5" min="0" max="20"></div>
+<div><label>Current Tax Bracket (%)</label><input type="number" id="rCurrentTax" value="22" min="0" max="50" step="1"></div>
+<div><label>Retirement Tax Bracket (%)</label><input type="number" id="rRetTax" value="15" min="0" max="50" step="1"></div>
+</div>
+<p class="r401-section-hint">Your tax brackets drive the Roth vs Traditional answer. Most retirees land one bracket lower than their working years, but younger workers early in their careers often expect the opposite.</p>
+
+<div class="r401-btn-row">
+  <button class="r401-btn-calc" onclick="calc()">Calculate</button>
+  <button class="r401-btn-reset" onclick="resetCalc()">Reset</button>
+</div>
+
+<!-- ============ EMPTY STATE ============ -->
+<div id="r401EmptyState" class="r401-empty">
+  <div class="r401-empty-icon"><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+  <div class="r401-empty-title">Ready when you are</div>
+  <div class="r401-empty-text">Enter your salary, contribution percentage, and tax brackets above, then click Calculate to see whether the Roth 401(k) or the Traditional 401(k) wins for your situation, and what a 50/50 split would look like.</div>
+</div>
+
+<!-- ============ RESULTS ============ -->
+<div id="calcResult" style="display:none"></div>
+
+<!-- ============ SEO CONTENT ============ -->
+<div class="r401-seo">
+
+<h2>What is a Roth 401(k)?</h2>
+<p>A <strong>Roth 401(k)</strong> is a workplace retirement account funded with after-tax dollars. You pay income tax on the money before it goes in, and in exchange, qualified withdrawals in retirement come out completely tax-free, including every dollar of investment growth. It combines the high contribution limits of a 401(k) with the tax-free withdrawal treatment of a Roth IRA.</p>
+
+<p>This Roth 401k calculator answers the question most people actually have: <strong>should my contributions be Roth or Traditional?</strong> It projects your balance with monthly compounding, employer match, and 2026 contribution limits, then compares the after-tax retirement value of each choice using your current and expected retirement tax brackets. It also shows the 50/50 split option, since splitting is a legitimate strategy rather than indecision.</p>
+
+<h2>Roth or Traditional 401(k): how the math actually works</h2>
+<p>Both accounts grow identically. The only difference is when the tax bill arrives.</p>
+
+<p><strong>Traditional 401(k):</strong> contributions are pre-tax, which lowers your taxable income today. Every withdrawal in retirement is taxed as ordinary income at whatever your rate is then.</p>
+
+<p><strong>Roth 401(k):</strong> contributions are after-tax, so there is no deduction today. Qualified withdrawals in retirement are entirely tax-free.</p>
+
+<p>Because the growth is the same, the comparison reduces to one variable: <strong>your tax rate now versus your tax rate in retirement.</strong> Pay the tax at whichever rate is lower. If your current rate is higher, Traditional wins. If your retirement rate will be higher, Roth wins. If the two rates end up identical, the outcomes are mathematically equal, and the tiebreakers below decide it.</p>
+
+<h3>The tiebreakers when rates are close</h3>
+<ul>
+<li><strong>No RMDs on Roth:</strong> since 2024, Roth 401(k) accounts have no required minimum distributions during your lifetime. Traditional balances force taxable withdrawals starting at age 73 whether you need the money or not.</li>
+<li><strong>Certainty:</strong> Roth locks in today's known tax rate. Traditional bets on future tax law, which nobody controls.</li>
+<li><strong>Effective contribution size:</strong> maxing out $24,500 in Roth dollars is effectively a bigger contribution than $24,500 in pre-tax dollars, because the Roth version has the tax already paid.</li>
+</ul>
+
+<h2>2026 Roth 401(k) contribution limits</h2>
+<p>Roth and Traditional 401(k) contributions share one combined limit. For 2026, the employee limit is <strong>$24,500</strong>. Workers 50 and older can add an $8,000 catch-up (total $32,500), and workers age 60 to 63 get an $11,250 super catch-up (total $35,750) under SECURE 2.0. Employer matching contributions are separate and do not count against your employee limit. Verify current figures at the <a href="https://www.irs.gov" rel="noopener" target="_blank">IRS website</a>.</p>
+
+<p>One 2026 rule change matters for high earners: if your prior-year wages from your employer exceeded $150,000, any catch-up contributions you make must now go in as <strong>Roth</strong>, not pre-tax. If you are 50 or older and above that wage threshold, part of your contribution is going Roth whether you chose it or not, which makes understanding the Roth side of your plan less optional than it used to be.</p>
+
+<h2>Roth 401(k) vs Roth IRA: not the same account</h2>
+<p>People often conflate these two. They share the word Roth and the tax-free withdrawal treatment, but the practical differences are large:</p>
+
+<div class="r401-data-table-wrap">
+<table class="r401-data-table">
+<thead><tr><th>Feature</th><th>Roth 401(k)</th><th>Roth IRA</th></tr></thead>
+<tbody>
+<tr><td>2026 contribution limit</td><td>$24,500 ($32,500 if 50+)</td><td>$7,500 ($8,600 if 50+)</td></tr>
+<tr><td>Income limits</td><td>None, anyone can contribute</td><td>Phases out at higher incomes</td></tr>
+<tr><td>Employer match</td><td>Yes, if your employer offers one</td><td>No</td></tr>
+<tr><td>Investment choices</td><td>Limited to your plan's menu</td><td>Nearly unlimited</td></tr>
+<tr><td>RMDs in your lifetime</td><td>None (since 2024)</td><td>None</td></tr>
+<tr><td>Who runs it</td><td>Your employer's plan</td><td>You, at any brokerage</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>They are also not mutually exclusive. You can contribute to both in the same year, since they have separate limits. A common combination is contributing to the 401(k) at least up to the employer match, then funding a Roth IRA for its flexibility and investment choice. Check your Roth IRA eligibility and projection with our <a href="../roth-ira-calculator/">Roth IRA Calculator</a>.</p>
+
+<h2>Who tends to win with a Roth 401(k)?</h2>
+<p><strong>Early-career workers in low brackets.</strong> If you are in the 10%, 12%, or even 22% bracket now and expect your income to climb, paying tax at today's rate is cheap. Decades of tax-free compounding on top of that is the strongest Roth case there is.</p>
+
+<p><strong>High earners locked out of the Roth IRA.</strong> The Roth IRA phases out at higher incomes; the Roth 401(k) has no income limit at all. For a high earner, the Roth 401(k) is often the only direct path to a meaningful pile of tax-free retirement money.</p>
+
+<p><strong>People who expect higher tax rates later,</strong> whether from their own income trajectory or from a belief that tax law will get less generous. The Roth converts that uncertainty into a rate locked in today.</p>
+
+<p><strong>Who tends to win with Traditional instead:</strong> peak-earning workers in the 32% to 37% brackets who realistically expect to spend retirement in a much lower bracket. Deferring tax from 35% down to 22% or 12% is a large, fairly reliable win. Our <a href="../401k-calculator/">401(k) Calculator</a> models the full balance projection with salary growth if you want the deeper year-by-year view.</p>
+
+<h2>The employer match wrinkle most people miss</h2>
+<p>Even if you direct 100% of your own contributions to Roth, your employer's matching dollars traditionally land in a <strong>pre-tax bucket</strong>. That means most "Roth" 401(k) owners actually retire with two piles: their own tax-free Roth money and a taxable Traditional pile built from the match. Plan for withdrawals from both.</p>
+
+<p>SECURE 2.0 now lets plans offer a Roth employer match, but there is a catch: if you elect it, the match counts as taxable income to you in the year your employer makes it. Some people happily pay that tax for more tax-free growth; others prefer the default. Either way, capture the full match first, in whichever form your plan offers, because leaving match dollars unclaimed loses more than any Roth vs Traditional decision ever will. Your take-home pay also changes when you switch to Roth, since the tax comes out now; check the paycheck impact with our <a href="../paycheck-calculator/">Take-Home Pay Calculator</a>.</p>
+
+<h2>Common Roth 401(k) mistakes</h2>
+<p><strong>Switching to Roth without adjusting for the smaller paycheck.</strong> A 100% Roth contribution costs more take-home pay than the same percentage Traditional. If the tighter paycheck causes you to lower your contribution rate, the switch made you worse off.</p>
+
+<p><strong>Assuming retirement means a lower bracket.</strong> It usually does, but not always. Large Traditional balances plus Social Security plus RMDs can push retirees into surprisingly high brackets. Tax diversification exists precisely for this.</p>
+
+<p><strong>Forgetting the five-year rule.</strong> Tax-free Roth 401(k) withdrawals generally require the account to be at least five years old and you to be 59 and a half or older. Opening a Roth 401(k) shortly before retiring can start that clock later than people expect.</p>
+
+<p><strong>Treating the choice as permanent.</strong> It is not. You can change your Roth vs Traditional election for future contributions at any time in most plans, and revisit it whenever your bracket changes. The right answer at 25 is often the wrong one at 45. A yearly check with this calculator, or with our broader <a href="../retirement-calculator/">Retirement Calculator</a>, is enough.</p>
+</div>
+
+<!-- ============ PEOPLE OFTEN ASK ============ -->
+<div class="r401-seo">
+<h2>People Often Ask</h2>
+
+<h3>Should I choose a Roth 401(k) or a Traditional 401(k)?</h3>
+<p>It depends on one question: do you expect a higher or lower tax rate in retirement than today? If higher, Roth usually wins because you pay tax now at the lower rate. If lower, Traditional usually wins because you defer tax until the lower rate applies. If you genuinely do not know, many educators suggest splitting contributions between both for tax diversification.</p>
+
+<h3>What is the Roth 401(k) contribution limit for 2026?</h3>
+<p>The 2026 limit is $24,500, shared between Roth and Traditional 401(k) contributions combined. Workers 50 and older can add an $8,000 catch-up (total $32,500), and workers age 60 to 63 get an $11,250 super catch-up (total $35,750). Employer matching contributions do not count against these limits.</p>
+
+<h3>Does a Roth 401(k) have income limits?</h3>
+<p>No. Unlike a Roth IRA, which phases out at higher incomes, anyone can contribute to a Roth 401(k) regardless of how much they earn, as long as their employer's plan offers the Roth option. This makes the Roth 401(k) the main way high earners get Roth-style tax-free growth.</p>
+
+<h3>Where does the employer match go if I choose Roth?</h3>
+<p>By default, employer matching contributions go into a pre-tax (Traditional) bucket even if your own contributions are Roth, so that portion is taxed at withdrawal. Under SECURE 2.0, plans may now offer a Roth employer match, but if you take it, the match counts as taxable income to you in the year it is made. Check what your specific plan offers.</p>
+
+<h3>Do Roth 401(k)s have required minimum distributions?</h3>
+<p>No. Starting in 2024, SECURE 2.0 eliminated required minimum distributions from Roth 401(k) accounts during the owner's lifetime, matching the Roth IRA treatment. Traditional 401(k) balances still have RMDs, currently beginning at age 73.</p>
+
+<h3>Can I split contributions between Roth and Traditional 401(k)?</h3>
+<p>Yes, if your plan offers both. Most large plans let you direct any percentage of your contribution to each side, and the two share one combined annual limit ($24,500 in 2026). A split hedges against future tax rates being different than you expect and gives you flexibility to manage your tax bracket in retirement.</p>
+</div>
+
+<!-- ============ RELATED ============ -->
+<div class="blog-recs reveal" style="margin-top:36px">
+<div class="r401-related-heading">
+  <span class="r401-related-icon"><svg viewBox="0 0 24 24"><path d="M4 4h12a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3z"/><path d="M4 17a3 3 0 0 1 3-3h12"/></svg></span>
+  Related Guides
+</div>
+<a href="../blog/how-to-plan-for-early-retirement-in-your-40s/" class="related-blog-card">How to Plan for Early Retirement in Your 40s &rarr;</a>
+<a href="../blog/how-to-set-financial-goals-you-will-actually-achieve/" class="related-blog-card">How to Set Financial Goals You Will Actually Achieve &rarr;</a>
+</div>
+
+<div class="related-tools reveal">
+<h3>More Free Tools</h3>
+<a href="../401k-calculator/" class="related-tool-link">401(k) Calculator</a>
+<a href="../roth-ira-calculator/" class="related-tool-link">Roth IRA Calculator</a>
+<a href="../retirement-calculator/" class="related-tool-link">Retirement Calculator</a>
+<a href="../paycheck-calculator/" class="related-tool-link">Take-Home Pay</a>
+<a href="../compound-interest-calculator/" class="related-tool-link">Compound Interest</a>
+<a href="../investment-calculator/" class="related-tool-link">Investment Growth</a>
+<a href="../savings-calculator/" class="related-tool-link">Savings Calculator</a>
+<a href="../budget-planner/" class="related-tool-link">Budget Planner</a>
+<a href="../net-worth-calculator/" class="related-tool-link">Net Worth</a>
+<a href="../emergency-fund-calculator/" class="related-tool-link">Emergency Fund</a>
+<a href="../debt-payoff-calculator/" class="related-tool-link">Debt Payoff</a>
+<a href="../credit-card-payoff-calculator/" class="related-tool-link">Credit Card Payoff</a>
+<a href="../mortgage-calculator/" class="related-tool-link">Mortgage Calculator</a>
+<a href="../auto-loan-calculator/" class="related-tool-link">Auto Loan</a>
+<a href="../inflation-calculator/" class="related-tool-link">Inflation Calculator</a>
+<a href="../loan-payoff-calculator/" class="related-tool-link">Loan Payoff</a>
+<a href="../cd-calculator/" class="related-tool-link">CD Calculator</a>
+<a href="../financial-health-score/" class="related-tool-link">Financial Health Score</a>
+</div>
+
+</div>
+</section>
+
+<script>
+/* =========================================================
+   Roth 401(k) Calculator v1
+   Navy/emerald brand, Calculate+Reset pattern, empty state.
+   Roth vs Traditional WINNER comparison + 50/50 split.
+   Uses the same fair-comparison model as the 401(k) page:
+   same gross balance, difference is when tax is paid.
+   ========================================================= */
+
+var DEFAULTS = {
+  rAge: 30, rRetAge: 65,
+  rSalary: 70000, rContrib: 8, rMatch: 4,
+  rBalance: 15000, rReturn: 7,
+  rCurrentTax: 22, rRetTax: 15
+};
+
+var IRS_LIMIT_UNDER_50 = 24500;
+var IRS_LIMIT_50_PLUS = 32500;
+var ROTH_CATCHUP_WAGE_THRESHOLD = 150000;
+
+function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
+
+function getInputs(){
+  return {
+    age:          +document.getElementById('rAge').value || 0,
+    retAge:       +document.getElementById('rRetAge').value || 0,
+    salary:       +document.getElementById('rSalary').value || 0,
+    contribPct:   (+document.getElementById('rContrib').value || 0) / 100,
+    matchCap:     (+document.getElementById('rMatch').value || 0) / 100,
+    startBalance: +document.getElementById('rBalance').value || 0,
+    annualReturn: (+document.getElementById('rReturn').value || 0) / 100,
+    currentTax:   (+document.getElementById('rCurrentTax').value || 0) / 100,
+    retTax:       (+document.getElementById('rRetTax').value || 0) / 100
+  };
+}
+
+// Project balance with monthly compounding and employer match.
+function projectBalance(x, years){
+  var balance = x.startBalance;
+  var monthlyRate = x.annualReturn / 12;
+  var effectiveMatchPct = Math.min(x.matchCap, x.contribPct);
+  var monthlyUser  = (x.salary * x.contribPct) / 12;
+  var monthlyMatch = (x.salary * effectiveMatchPct) / 12;
+  var totalUser = 0, totalMatch = 0;
+
+  for (var m = 0; m < years * 12; m++){
+    balance = balance * (1 + monthlyRate) + monthlyUser + monthlyMatch;
+    totalUser += monthlyUser;
+    totalMatch += monthlyMatch;
+  }
+  return { final: balance, totalUser: totalUser, totalMatch: totalMatch };
+}
+
+function calc(){
+  var x = getInputs();
+  var years = Math.max(0, x.retAge - x.age);
+  var emptyEl = document.getElementById('r401EmptyState');
+  var resultEl = document.getElementById('calcResult');
+
+  if (years <= 0){
+    emptyEl.style.display = 'block';
+    resultEl.style.display = 'none';
+    emptyEl.querySelector('.r401-empty-text').textContent = 'Retirement age must be greater than your current age. Adjust the inputs above.';
+    return;
+  }
+
+  var proj = projectBalance(x, years);
+  var gross = proj.final;
+  var growth = gross - (x.startBalance + proj.totalUser + proj.totalMatch);
+
+  /* Fair comparison, same model as our 401(k) calculator:
+     same gross balance either way; the difference is when tax is paid.
+     Traditional after-tax = gross taxed at retirement bracket.
+     Roth after-tax = gross reduced by tax paid up front at current bracket.
+     Note: the employer match portion is pre-tax in both cases in real
+     plans; this simplified model applies the rate to the whole balance
+     to isolate the tax-timing decision on YOUR contributions. */
+  var tradAfterTax = gross * (1 - x.retTax);
+  var rothAfterTax = gross * (1 - x.currentTax);
+  var splitAfterTax = (tradAfterTax + rothAfterTax) / 2;
+
+  var tradAnnual = tradAfterTax * 0.04;
+  var rothAnnual = rothAfterTax * 0.04;
+
+  var rothWins = rothAfterTax > tradAfterTax;
+  var diff = Math.abs(tradAfterTax - rothAfterTax);
+  var tradClass = rothWins ? '' : 'winner';
+  var rothClass = rothWins ? 'winner' : '';
+
+  var summary;
+  if (Math.abs(x.currentTax - x.retTax) < 0.005){
+    summary = '<strong>Roth and Traditional come out equal</strong> at matching tax rates of ' + (x.currentTax * 100).toFixed(0) + '%. In a tie, Roth is usually the better pick: no required minimum distributions, no future tax-rate risk, and effectively more money working tax-free. A 50/50 split is also entirely reasonable.';
+  } else if (rothWins){
+    summary = '<strong>Roth 401(k) wins by about $' + fmt(diff) + '</strong> in after-tax retirement value, because your expected retirement bracket (' + (x.retTax * 100).toFixed(0) + '%) is higher than your current bracket (' + (x.currentTax * 100).toFixed(0) + '%). Paying tax now at the lower rate is the cheaper path.';
+  } else {
+    summary = '<strong>Traditional 401(k) wins by about $' + fmt(diff) + '</strong> in after-tax retirement value, because your expected retirement bracket (' + (x.retTax * 100).toFixed(0) + '%) is lower than your current bracket (' + (x.currentTax * 100).toFixed(0) + '%). Deferring tax until the lower rate applies is the cheaper path.';
+  }
+
+  // Warnings
+  var warnings = '';
+  var annualContribDollars = x.salary * x.contribPct;
+  var limit = x.age >= 50 ? IRS_LIMIT_50_PLUS : IRS_LIMIT_UNDER_50;
+  if (annualContribDollars > limit){
+    warnings += '<div class="r401-warn alert">'
+      + '<div class="r401-warn-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>'
+      + '<div><strong>Over the 2026 IRS limit.</strong> Your annual contribution of $' + fmt(annualContribDollars) + ' exceeds the $' + fmt(limit) + ' combined Roth plus Traditional limit. Your plan will cap this automatically. Workers age 60 to 63 get a higher limit of $35,750.</div>'
+      + '</div>';
+  }
+  if (x.contribPct < x.matchCap){
+    var missed = x.salary * (x.matchCap - x.contribPct);
+    warnings += '<div class="r401-warn tip">'
+      + '<div class="r401-warn-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-10 10 10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2zm0 5v6m0 4h.01"/></svg></div>'
+      + '<div><strong>Capture the match before optimizing Roth vs Traditional.</strong> You are contributing below your ' + (x.matchCap * 100).toFixed(1) + '% match cap and missing about $' + fmt(missed) + ' per year in employer money. That loss is bigger than the tax-timing decision.</div>'
+      + '</div>';
+  }
+  if (x.age >= 50 && x.salary > ROTH_CATCHUP_WAGE_THRESHOLD){
+    warnings += '<div class="r401-warn tip">'
+      + '<div class="r401-warn-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>'
+      + '<div><strong>Mandatory Roth catch-up applies to you.</strong> Because your wages exceed $' + fmt(ROTH_CATCHUP_WAGE_THRESHOLD) + ', 2026 rules require your catch-up contributions to be made as Roth, regardless of your election for regular contributions.</div>'
+      + '</div>';
+  }
+
+  emptyEl.style.display = 'none';
+  resultEl.style.display = 'block';
+
+  resultEl.innerHTML = ''
+    + '<div class="r401-result-banner">'
+    +   '<div class="r401-result-label">Projected 401(k) at age ' + x.retAge + ' (before tax treatment)</div>'
+    +   '<div class="r401-result-value">$' + fmt(gross) + '</div>'
+    +   '<div class="r401-result-sub">' + years + ' years at ' + (x.annualReturn * 100).toFixed(1) + '% annual return. Your contributions: <strong>$' + fmt(proj.totalUser) + '</strong>. Employer match: <strong>$' + fmt(proj.totalMatch) + '</strong>. Investment growth: <strong>$' + fmt(growth) + '</strong>. The cards below show what this balance is worth after tax under each choice.</div>'
+    + '</div>'
+
+    + warnings
+
+    + '<div class="r401-section-title" style="margin-top:28px">'
+    +   '<span class="r401-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>'
+    +   'Roth 401(k) vs Traditional 401(k)'
+    + '</div>'
+    + '<div class="r401-vs-note"><strong>How we compare:</strong> same gross balance of $' + fmt(gross) + ' at retirement. Traditional is taxed at withdrawal at your retirement bracket (' + (x.retTax * 100).toFixed(0) + '%). Roth is taxed up front at your current bracket (' + (x.currentTax * 100).toFixed(0) + '%). Adjust the tax inputs above to see how the answer flips.</div>'
+    + '<div class="r401-vs-grid">'
+
+    +   '<div class="r401-vs-card ' + rothClass + '">'
+    +     '<div class="r401-vs-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg></div>'
+    +     '<div class="r401-vs-title">Roth 401(k)</div>'
+    +     '<div class="r401-vs-subtitle">Taxed now, tax-free in retirement</div>'
+    +     '<div class="r401-vs-metric-label">After-tax retirement value</div>'
+    +     '<div class="r401-vs-metric">$' + fmt(rothAfterTax) + '</div>'
+    +     '<div class="r401-vs-detail">'
+    +       '<div class="r401-vs-detail-row"><span>Tax paid up front (' + (x.currentTax * 100).toFixed(0) + '%)</span><span>-$' + fmt(gross - rothAfterTax) + '</span></div>'
+    +       '<div class="r401-vs-detail-row"><span>Tax at withdrawal</span><span>$0</span></div>'
+    +       '<div class="r401-vs-detail-row"><span>Annual income (4% rule)</span><span>$' + fmt(rothAnnual) + '</span></div>'
+    +     '</div>'
+    +   '</div>'
+
+    +   '<div class="r401-vs-card ' + tradClass + '">'
+    +     '<div class="r401-vs-icon"><svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg></div>'
+    +     '<div class="r401-vs-title">Traditional 401(k)</div>'
+    +     '<div class="r401-vs-subtitle">Pre-tax now, taxed in retirement</div>'
+    +     '<div class="r401-vs-metric-label">After-tax retirement value</div>'
+    +     '<div class="r401-vs-metric">$' + fmt(tradAfterTax) + '</div>'
+    +     '<div class="r401-vs-detail">'
+    +       '<div class="r401-vs-detail-row"><span>Tax paid up front</span><span>$0</span></div>'
+    +       '<div class="r401-vs-detail-row"><span>Tax at withdrawal (' + (x.retTax * 100).toFixed(0) + '%)</span><span>-$' + fmt(gross - tradAfterTax) + '</span></div>'
+    +       '<div class="r401-vs-detail-row"><span>Annual income (4% rule)</span><span>$' + fmt(tradAnnual) + '</span></div>'
+    +     '</div>'
+    +   '</div>'
+
+    + '</div>'
+    + '<div class="r401-vs-summary">' + summary + '</div>'
+
+    + '<div class="r401-split-card">'
+    +   '<div><div class="r401-split-label">The 50/50 split option'
+    +   '<span class="r401-split-sub">Half Roth, half Traditional. Hedges your bet if future tax rates surprise you.</span></div></div>'
+    +   '<div class="r401-split-value">$' + fmt(splitAfterTax) + '</div>'
+    + '</div>';
+
+  setTimeout(function(){
+    resultEl.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 60);
+}
+
+function resetCalc(){
+  for (var k in DEFAULTS){
+    var el = document.getElementById(k);
+    if (el) el.value = DEFAULTS[k];
+  }
+  document.getElementById('calcResult').style.display = 'none';
+  document.getElementById('calcResult').innerHTML = '';
+  var emptyEl = document.getElementById('r401EmptyState');
+  emptyEl.style.display = 'block';
+  emptyEl.querySelector('.r401-empty-text').textContent =
+    'Enter your salary, contribution percentage, and tax brackets above, then click Calculate to see whether the Roth 401(k) or the Traditional 401(k) wins for your situation, and what a 50/50 split would look like.';
+  document.getElementById('rAge').scrollIntoView({behavior:'smooth', block:'center'});
+}
+</script>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and educational guides for Americans in every state. Helping you keep more of what you earn.</p>
+</div>
+<div>
+<h4>Calculators</h4>
+<a href="../401k-calculator/">401(k)</a>
+<a href="../roth-ira-calculator/">Roth IRA</a>
+<a href="../retirement-calculator/">Retirement</a>
+<a href="../savings-calculator/">Savings Calculator</a>
+<a href="../paycheck-calculator/">Take-Home Pay</a>
+<a href="../budget-planner/">Budget Planner</a>
+</div>
+<div>
+<h4>Resources</h4>
+<a href="../blog/">Blog</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../banking/">Banking</a>
+<a href="../contact/">Contact Us</a>
+</div>
+<div>
+<h4>Legal</h4>
+<a href="../privacy-policy/">Privacy Policy</a>
+<a href="../terms-of-service/">Terms of Service</a>
+<a href="../cookie-policy/">Cookie Policy</a>
+<a href="../disclaimer/">Disclaimer</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
+<p>Educational content only, not financial advice. SavingsClub is not a licensed financial advisor. Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+</div>
+</div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
+function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
+var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
+</script>
+
+<script>
+(function(){
+if(localStorage.getItem('sc_cookies'))return;
+var b=document.createElement('div');
+b.id='cookieBanner';
+b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
+var acceptBtn=document.createElement('button');
+acceptBtn.textContent='Accept';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#059669,#10B981);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
+var declineBtn=document.createElement('button');
+declineBtn.textContent='Decline';
+declineBtn.style.cssText='background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:8px;cursor:pointer';
+declineBtn.onclick=function(){
+localStorage.setItem('sc_cookies','decline');
+b.innerHTML='';
+var msg=document.createElement('span');
+msg.style.cssText='padding:12px 0;color:#10B981';
+msg.textContent='Preference saved.';
+b.appendChild(msg);
+setTimeout(function(){b.remove();},2500);
+};
+var txt=document.createElement('span');
+txt.innerHTML='We use basic analytics cookies to understand site traffic. <a href="/cookie-policy/" style="color:#34D399">Cookie Policy</a>';
+var btnWrap=document.createElement('div');
+btnWrap.style.cssText='display:flex;gap:8px';
+btnWrap.appendChild(acceptBtn);
+btnWrap.appendChild(declineBtn);
+b.appendChild(txt);
+b.appendChild(btnWrap);
+document.body.appendChild(b);
+})();
+</script>
+
+</body>
+</html>
