@@ -1083,7 +1083,7 @@ function generateBlogIndex() {
 <meta property="og:title" content="Personal Finance Blog | SavingsClub">
 <meta property="og:description" content="Practical money guides on budgeting, saving, credit, debt, retirement, and investing.">
 <meta property="og:image" content="https://savingsclub.com/img/sc-logo-full.png">
-
+<meta property="og:description" content="Latest money guides, credit tips, savings strategies and financial tools from SavingsClub.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Personal Finance Blog | SavingsClub">
 <meta name="twitter:description" content="Practical money guides on budgeting, saving, credit, debt, retirement, and investing.">
