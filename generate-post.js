@@ -86,6 +86,63 @@ const TOPICS = [
   "Complete guide to balance transfers and saving on interest"
 ];
 
+/**
+ * PRIORITY TOPIC QUEUE (July 2026, from Semrush export: informational intent,
+ * KD 40 or under, volume 150+, no calculator-intent terms).
+ * Consumed IN ORDER before any random template. Each entry carries its own
+ * keyword data so the SEO targeting block in the prompt is always populated.
+ */
+const PRIORITY_TOPICS = [
+  { topic: "Checking account vs savings account: Which one do you actually need",
+    keywords: [
+      { kw: "checking account vs savings account", vol: 5400 },
+      { kw: "difference between savings and checking account", vol: 1600 },
+      { kw: "checking or savings account", vol: 1900 },
+      { kw: "what account fees should you avoid with savings accounts", vol: 1300 }
+    ] },
+  { topic: "529 plan rules: What the money can and cannot be used for",
+    keywords: [
+      { kw: "529 plan rules", vol: 1900 },
+      { kw: "what can a 529 plan be used for", vol: 1000 },
+      { kw: "what can 529 money be used for", vol: 880 }
+    ] },
+  { topic: "Short term financial goals: Examples that actually work",
+    keywords: [
+      { kw: "short term financial goals", vol: 1600 }
+    ] },
+  { topic: "Debt payoff spreadsheet: How to build one in 20 minutes",
+    keywords: [
+      { kw: "debt payoff spreadsheet", vol: 1300 }
+    ] },
+  { topic: "Is a recession coming: Warning signs to watch in 2026",
+    keywords: [
+      { kw: "recession coming", vol: 1300 }
+    ] },
+  { topic: "What is the average 401k balance at age 65",
+    keywords: [
+      { kw: "what is the average 401k balance at age 65", vol: 1000 },
+      { kw: "annual 401k contribution in 2026 if you are 70", vol: 880 }
+    ] },
+  { topic: "Which credit report is most accurate",
+    keywords: [
+      { kw: "which credit report is most accurate", vol: 880 }
+    ] },
+  { topic: "Illinois state income tax rate: What you actually pay in 2026",
+    keywords: [
+      { kw: "illinois state income tax rate", vol: 3600 }
+    ] },
+  { topic: "Michigan property tax: How it works and what you will pay",
+    keywords: [
+      { kw: "michigan property tax", vol: 1900 },
+      { kw: "detroit property tax", vol: 1000 }
+    ] },
+  { topic: "529 plans California: Rules, tax benefits, and how to start",
+    keywords: [
+      { kw: "529 plans california", vol: 1300 }
+    ] }
+];
+
+
 const STATES = [
   "Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware",
   "Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas",
@@ -686,6 +743,17 @@ function getUsedTopics() {
 }
 
 function pickUnusedTopic(usedTitles) {
+  // 1) Priority queue first, in order. Each topic used once, then skipped forever.
+  for (const entry of PRIORITY_TOPICS) {
+    const coreWords = entry.topic.toLowerCase().replace(/[^a-z ]/g, '').trim().split(' ').filter(w => w.length > 3);
+    const isUsed = usedTitles.some(used => {
+      const matchCount = coreWords.filter(w => used.includes(w)).length;
+      return matchCount >= Math.min(4, coreWords.length);
+    });
+    if (!isUsed) return { topic: entry.topic, state: pickRandom(STATES), priorityKeywords: entry.keywords };
+  }
+
+  // 2) Fall back to the random template pool.
   const state = pickRandom(STATES);
   const shuffled = [...TOPICS].sort(() => Math.random() - 0.5);
 
@@ -697,12 +765,12 @@ function pickUnusedTopic(usedTitles) {
       const matchCount = coreWords.filter(w => used.includes(w)).length;
       return matchCount >= Math.min(4, coreWords.length);
     });
-    if (!isUsed) return { topic, state };
+    if (!isUsed) return { topic, state, priorityKeywords: null };
   }
 
   const fallbackState = pickRandom(STATES);
   const fallbackTopic = pickRandom(TOPICS).replace('{STATE}', fallbackState);
-  return { topic: fallbackTopic + ' (' + new Date().getFullYear() + ' update)', state: fallbackState };
+  return { topic: fallbackTopic + ' (' + new Date().getFullYear() + ' update)', state: fallbackState, priorityKeywords: null };
 }
 
 /**
@@ -1015,7 +1083,7 @@ function generateBlogIndex() {
 <meta property="og:title" content="Personal Finance Blog | SavingsClub">
 <meta property="og:description" content="Practical money guides on budgeting, saving, credit, debt, retirement, and investing.">
 <meta property="og:image" content="https://savingsclub.com/img/sc-logo-full.png">
-<meta property="og:site_name" content="SavingsClub">
+<meta property="og:site_name" content="SavingsClub">\n<meta property="og:description" content="${escapedMeta}">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Personal Finance Blog | SavingsClub">
@@ -1316,7 +1384,7 @@ document.body.appendChild(b);
 async function generatePost() {
   const client = new Anthropic();
   const usedTitles = getUsedTopics();
-  const { topic, state } = pickUnusedTopic(usedTitles);
+  const { topic, state, priorityKeywords } = pickUnusedTopic(usedTitles);
 
   console.log('Topic: ' + topic);
   console.log('Used posts so far: ' + usedTitles.length);
@@ -1326,7 +1394,7 @@ async function generatePost() {
   const linkInstructions = requiredLinks.map(c => `  <a href="${c.url}">${c.name}</a>`).join('\n');
 
   // Look up real Moz keyword data for this topic. Used for SEO targeting in the prompt.
-  const matchedKeywords = getKeywordsForTopic(topic);
+  const matchedKeywords = (priorityKeywords && priorityKeywords.length) ? priorityKeywords : getKeywordsForTopic(topic);
   let primaryKeyword = '';
   let secondaryKeywords = [];
   let keywordInstructions = '';
@@ -1354,6 +1422,13 @@ LANGUAGE RULES, NEVER claim expertise or give personal advice:
 - NEVER write: "As a financial expert...", "In my professional experience...", "I recommend...", "As your advisor...", "Trust me...", "I personally suggest...", "Our experts say...", "Our financial advisors recommend..."
 - INSTEAD write: "Many financial educators suggest...", "A common approach is...", "One way to think about this is...", "Educational best practice is...", "Consider this strategy...", "Some Americans choose to...", "The general principle is..."
 - The blog is EDUCATIONAL content, not advice. Frame every recommendation as information for the reader to evaluate, not as a directive.
+
+FABRICATION RULES, ABSOLUTE, ZERO EXCEPTIONS:
+- NEVER invent named people. No "Sarah, a teacher from Phoenix" or "Marcus Thompson, a software engineer in Austin". Not one named individual, ever, in any article.
+- NEVER attribute specific earnings, savings, balances, or results to a specific person, named or implied. Invented case studies are fabricated social proof and are prohibited on this site.
+- Scenarios must be openly hypothetical, written in second person or generic terms: "Imagine a teacher earning $52,000 a year...", "Suppose you save $300 a month...", "A freelancer charging $75 per hour would...".
+- NEVER invent quotes, testimonials, expert statements, survey results, or named organizations' findings.
+- Specific dollar examples are encouraged. Attaching them to invented humans is banned.
 
 HUMAN-VOICE RULES, CRITICAL TO AVOID AI-DETECTION PENALTIES:
 The goal is for your writing to sound like a real American wrote it, not like AI. Follow these rules strictly:
@@ -1397,6 +1472,7 @@ Use "because," "since," "the reason is," or "this works because" naturally throu
 CRITICAL REQUIREMENTS:
 - Write 1,900 to 2,300 words minimum. This is non-negotiable.
 - Use HTML formatting: h2/h3 for sections, p for paragraphs, ul/li for lists where appropriate
+- THE VERY FIRST LINE of your entire output must be exactly one HTML comment: <!--META: your meta description here--> where the description is 140 to 155 characters of plain text that summarizes the article, contains the primary keyword, and is written to earn the click. No quotation marks inside it. Then continue with the article.
 - Do NOT include h1 (the template adds it)
 - Start with: <p><em>SavingsClub provides educational financial content only and does not offer financial, legal, tax, or investment advice. This content was produced with the help of AI research tools and reviewed by our team before publication. Rates, terms, and product details may change. Always verify current information directly with the provider before making financial decisions.</em></p>
 - Use at least 6 subheadings (h2 or h3) spread throughout, one every 200 to 300 words
@@ -1461,7 +1537,21 @@ Write unique, original content. Explain the WHY behind every recommendation. Be 
     messages: [{ role: 'user', content: 'Write a comprehensive personal finance blog post about: ' + topic }]
   });
 
-  const content = message.content[0].text;
+  let content = message.content[0].text;
+
+  // Custom meta description from the model (first-line HTML comment), sanitized, with fallback later
+  let metaDesc = '';
+  const metaMatch = content.match(/<!--\s*META:\s*([\s\S]*?)-->/i);
+  if (metaMatch) {
+    metaDesc = metaMatch[1].replace(/\s+/g, ' ').trim();
+    metaDesc = metaDesc.replace(/&mdash;|&#8212;|&#x2014;/gi, '\u2014').replace(/&ndash;|&#8211;|&#x2013;/gi, '\u2013');
+    metaDesc = metaDesc.replace(/(\$?[\d,.]+)\s*[\u2014\u2013]\s*(\$?[\d,.]+)/g, '$1 to $2');
+    metaDesc = metaDesc.replace(/\s*[\u2014\u2013]\s*/g, ', ');
+    metaDesc = metaDesc.replace(/"/g, "'");
+    if (metaDesc.length > 160) metaDesc = metaDesc.slice(0, 157).replace(/\s+\S*$/, '') + '...';
+    content = content.replace(metaMatch[0], '');
+  }
+
   const titleMatch = content.match(/<h1>(.*?)<\/h1>/);
   let title = titleMatch ? titleMatch[1] : topic;
 
@@ -1478,6 +1568,8 @@ Write unique, original content. Explain the WHY behind every recommendation. Be 
   const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   const isoDate = new Date().toISOString().split('T')[0];
   const slug = makeSlug(title);
+  if (!metaDesc) metaDesc = title + '. Personal finance guide from SavingsClub.';
+  const escapedMeta = metaDesc.replace(/"/g, '&quot;');
   const wordCount = cleanContent.replace(/<[^>]*>/g, '').split(/\s+/).length;
   const readTime = Math.max(1, Math.round(wordCount / 200));
 
@@ -1530,6 +1622,23 @@ Write unique, original content. Explain the WHY behind every recommendation. Be 
     searchQuery: searchQuery
   };
 
+  // Related Guides block: 2-3 existing posts (same category first, newest first).
+  // Every new post now feeds internal links to older posts (fixes the one-inlink problem).
+  let relatedBlock = '';
+  try {
+    const allPosts = JSON.parse(fs.readFileSync('generated-posts.json', 'utf8'));
+    const pool = allPosts.filter(p => p && p.slug && p.slug !== slug && p.title);
+    const same = pool.filter(p => p.category === category).reverse();
+    const rest = pool.filter(p => p.category !== category).reverse();
+    const picks = same.concat(rest).slice(0, 3);
+    if (picks.length >= 2) {
+      relatedBlock = '<div style="margin-top:36px;padding:24px;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:16px">'
+        + '<p style="font-weight:700;color:#0A1628;margin:0 0 12px;font-size:1.05rem">Related Guides</p>'
+        + picks.map(p => '<a href="/blog/' + p.slug + '/" style="display:block;color:#047857;font-weight:600;text-decoration:none;padding:8px 0;border-bottom:1px solid #F1F5F9">' + String(p.title).replace(/</g, '&lt;') + ' &rarr;</a>').join('')
+        + '</div>';
+    }
+  } catch (e) { /* first post ever: no related block */ }
+
   const postDir = path.join('blog', slug);
   if (!fs.existsSync(postDir)) fs.mkdirSync(postDir, { recursive: true });
 
@@ -1541,14 +1650,14 @@ Write unique, original content. Explain the WHY behind every recommendation. Be 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title} | SavingsClub</title>
-<meta name="description" content="${title}. Personal finance guide from SavingsClub.">
+<meta name="description" content="${escapedMeta}">
 <link rel="canonical" href="https://savingsclub.com/blog/${slug}/">
 <meta property="og:title" content="${escapedTitle}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://savingsclub.com/blog/${slug}/">
 <meta property="og:site_name" content="SavingsClub">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"${escapedTitle}","author":{"@type":"Organization","name":"SavingsClub"},"publisher":{"@type":"Organization","name":"SavingsClub","url":"https://savingsclub.com"},"datePublished":"${isoDate}","description":"${escapedTitle}. Educational personal finance guide."}</script>
-<link rel="icon" type="image/svg+xml" href="../../img/favicon.svg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"${escapedTitle}","author":{"@type":"Organization","name":"SavingsClub"},"publisher":{"@type":"Organization","name":"SavingsClub","url":"https://savingsclub.com"},"datePublished":"${isoDate}","description":"${escapedMeta}"}</script>
+<link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
 <link rel="stylesheet" href="../../css/style.css">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
@@ -1591,7 +1700,7 @@ SavingsClub
 <div style="color:var(--text-light);margin-bottom:32px;font-size:.95rem">By SavingsClub Research Team · ${date} · ${readTime} min read</div>
 <img src="${blogImage}" alt="${title}" style="width:100%;height:300px;object-fit:cover;border-radius:0;margin:0 -24px 32px;width:calc(100% + 48px);max-width:none;box-shadow:none" loading="lazy">
 ${photoCredit}
-<div class="blog-content">${cleanContent}</div>
+<div class="blog-content">${cleanContent}</div>\n${relatedBlock}
 <div style="margin-top:40px;padding:32px;background:linear-gradient(135deg,#F0FDF4,#F8FAFC);border-radius:16px;border:1px solid rgba(5,150,105,.1);text-align:center"><p style="font-size:1.1rem;font-weight:600;color:#059669;margin-bottom:8px">Thank you for reading!</p><p style="color:var(--text-light);font-size:.95rem;margin-bottom:16px">If this guide helped you, explore our free calculators to put these ideas into action.</p><a href="../../savings-calculator/" style="background:linear-gradient(135deg,#059669,#10B981);color:#fff;padding:12px 24px;border-radius:50px;text-decoration:none;font-weight:600;font-size:.95rem;box-shadow:0 4px 15px rgba(5,150,105,.3)">Try Our Free Calculators →</a></div>
 </div></section>
 
