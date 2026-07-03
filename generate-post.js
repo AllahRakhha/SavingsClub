@@ -1083,7 +1083,8 @@ function generateBlogIndex() {
 <meta property="og:title" content="Personal Finance Blog | SavingsClub">
 <meta property="og:description" content="Practical money guides on budgeting, saving, credit, debt, retirement, and investing.">
 <meta property="og:image" content="https://savingsclub.com/img/sc-logo-full.png">
-<meta property="og:description" content="Latest money guides, credit tips, savings strategies and financial tools from SavingsClub.">
+<meta property="og:site_name" content="SavingsClub">
+
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Personal Finance Blog | SavingsClub">
 <meta name="twitter:description" content="Practical money guides on budgeting, saving, credit, debt, retirement, and investing.">
@@ -1649,7 +1650,7 @@ Write unique, original content. Explain the WHY behind every recommendation. Be 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title} | SavingsClub</title>
-<meta name="description" content="${escapedMeta}">
+<meta name="description" content="Practical money guides on budgeting, saving, credit, debt, retirement, and investing.">
 <link rel="canonical" href="https://savingsclub.com/blog/${slug}/">
 <meta property="og:title" content="${escapedTitle}">
 <meta property="og:type" content="article">
@@ -1739,9 +1740,13 @@ function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.class
     }
   } catch (e) { console.log('Could not update sitemap: ' + e.message); }
 
-  generateRSS();
-  generateImageReport();
-  generateBlogIndex();
+  try {
+    generateRSS();
+    generateImageReport();
+    generateBlogIndex();
+  } catch (e) {
+    console.warn('Non-critical post-processing error (workflow will still succeed):', e.message);
+  }
 
   console.log('Published: ' + title + ' [' + category + ']');
   console.log('Word count estimate: ' + cleanContent.replace(/<[^>]*>/g, '').split(/\s+/).length);
