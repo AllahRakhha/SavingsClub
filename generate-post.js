@@ -1650,12 +1650,13 @@ Write unique, original content. Explain the WHY behind every recommendation. Be 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title} | SavingsClub</title>
-<meta name="description" content="Practical money guides on budgeting, saving, credit, debt, retirement, and investing.">
+<meta name="description" content="${escapedMeta}">
 <link rel="canonical" href="https://savingsclub.com/blog/${slug}/">
 <meta property="og:title" content="${escapedTitle}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://savingsclub.com/blog/${slug}/">
 <meta property="og:site_name" content="SavingsClub">
+<meta property="og:description" content="${escapedMeta}">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"${escapedTitle}","author":{"@type":"Organization","name":"SavingsClub"},"publisher":{"@type":"Organization","name":"SavingsClub","url":"https://savingsclub.com"},"datePublished":"${isoDate}","description":"${escapedMeta}"}</script>
 <link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
 <link rel="stylesheet" href="../../css/style.css">
