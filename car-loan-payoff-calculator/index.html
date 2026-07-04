@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Car Loan Payoff Calculator: Pay Off Your Car Early | SavingsClub</title>
+<meta name="description" content="Free car loan payoff calculator with extra payments. See your early payoff date, interest saved, biweekly option, your equity position, and what to do if you owe more than the car is worth.">
+<link rel="canonical" href="https://savingsclub.com/car-loan-payoff-calculator/">
+<meta property="og:title" content="Car Loan Payoff Calculator: Pay Off Your Car Early | SavingsClub">
+<meta property="og:description" content="Free car loan payoff calculator with extra payments. See your early payoff date, interest saved, and your equity position.">
+<meta property="og:url" content="https://savingsclub.com/car-loan-payoff-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SavingsClub">
+<meta property="og:image" content="https://savingsclub.com/img/savings-jar.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="author" content="SavingsClub Research Team">
+<meta name="keywords" content="car loan payoff calculator, auto loan payment calculator with extra payments, car payment early payoff calculator, pay off early car loan calculator, car early payoff calculator, car loan calculator with extra payments">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/sc-favicon.png?v=2">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Home","item":"https://savingsclub.com/"},
+{"@type":"ListItem","position":2,"name":"Calculators","item":"https://savingsclub.com/savings-calculator/"},
+{"@type":"ListItem","position":3,"name":"Car Loan Payoff Calculator","item":"https://savingsclub.com/car-loan-payoff-calculator/"}]}
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I pay off my car loan early with extra payments?","acceptedAnswer":{"@type":"Answer","text":"Add any amount on top of your regular monthly payment and direct it to principal. Enter your balance, rate, current payment, and the extra amount above, and the calculator shows your new payoff date, months saved, and interest avoided. The key operational step: when you send the extra money, mark it as a principal-only payment in your lender's app or on the phone, and confirm on your next statement that the balance dropped by the full extra amount. Even $50 or $75 a month meaningfully shortens most car loans."}},
+{"@type":"Question","name":"Do extra car payments go to principal automatically?","acceptedAnswer":{"@type":"Answer","text":"Often not. Many auto lenders treat extra money as an early payment of your next installment, which advances your due date instead of shrinking your balance. That saves you nothing. Most car loans are simple-interest loans where interest accrues daily on the remaining principal, so a properly applied principal payment starts saving you interest the day it posts. Always select principal-only when paying extra, and verify the balance on your next statement."}},
+{"@type":"Question","name":"Is it bad to pay off a car loan early?","acceptedAnswer":{"@type":"Answer","text":"For most people, no. Most car loans today have no prepayment penalty, and the interest savings are real money. Two caveats: first, your credit score may dip slightly and temporarily when the installment account closes, because it affects your credit mix and account ages; the dip is usually minor and recovers within months. Second, a small share of loans (often subprime) use precomputed interest or the Rule of 78s, where interest is front-loaded and early payoff saves far less. Check your contract for those terms before making a large lump-sum payoff."}},
+{"@type":"Question","name":"What happens to GAP insurance when I pay off my car early?","acceptedAnswer":{"@type":"Answer","text":"You may be owed money. GAP coverage protects the lender against the gap between your loan balance and the car's value, so once the loan is gone the coverage is useless. If you paid for GAP up front (common when it is financed into the loan), you can typically request a refund of the unused portion after early payoff. Contact the dealer or GAP provider, ask for a GAP cancellation refund, and be persistent; refunds are rarely sent automatically."}},
+{"@type":"Question","name":"What if I owe more than the car is worth?","acceptedAnswer":{"@type":"Answer","text":"That is negative equity, or being upside down, and it is common in the first years of a loan because cars depreciate faster than early payments reduce principal. Enter your car's current value above and the calculator shows your exact equity position. If you are upside down: keep the car and keep paying if it runs fine, since equity improves every month; make extra principal payments to cross into positive equity sooner; keep GAP coverage until you are right side up; and avoid rolling the negative equity into a new car loan, which digs the hole deeper."}},
+{"@type":"Question","name":"Should I pay off my car loan or my credit card first?","acceptedAnswer":{"@type":"Answer","text":"Almost always the credit card. Interest rate order is what matters: a card at 22 to 28% costs far more per dollar of balance than a car loan at 6 to 9%. Pay minimums on the car, attack the card, then redirect the freed-up payment to the car. The exceptions are rare. Our Debt Payoff Calculator orders your entire debt list by the avalanche and snowball methods if you have several balances."}},
+{"@type":"Question","name":"How much does an extra $75 a month save on a car loan?","acceptedAnswer":{"@type":"Answer","text":"More than most people guess. On an $18,000 balance at 7.5% with a $400 payment, adding $75 a month pays the car off 10 months sooner and saves about $595 in interest. Larger balances and higher rates save more. Run your exact numbers above; the calculator compares your current plan against the extra-payment plan side by side."}}]}
+</script>
+
+<style>
+/* ====== Hero ====== */
+.clp-hero{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;background:linear-gradient(135deg,#0A1628 0%,#0F2540 50%,#059669 100%);border-radius:20px;padding:32px;color:#fff;margin:8px 0 28px;position:relative;overflow:hidden}
+.clp-hero::before{content:'';position:absolute;top:-30%;right:-15%;width:55%;height:160%;background:radial-gradient(circle,rgba(52,211,153,.18) 0%,transparent 62%);pointer-events:none}
+.clp-hero-left{position:relative;z-index:1}
+.clp-hero h1{color:#fff;font-size:2.1rem;margin:0 0 12px;line-height:1.15;font-weight:800}
+.clp-hero-sub{color:rgba(255,255,255,.9);font-size:1.02rem;line-height:1.55;margin:0 0 14px}
+.clp-hero-disclaimer{color:rgba(255,255,255,.55);font-size:.8rem;font-style:italic;margin:0 0 10px;line-height:1.45}
+.clp-hero-meta{color:rgba(255,255,255,.45);font-size:.75rem;margin:0}
+.clp-hero-stat{background:rgba(16,185,129,.18);border:1px solid rgba(52,211,153,.4);border-radius:16px;padding:24px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1;backdrop-filter:blur(4px)}
+.clp-hero-stat-number{font-size:3rem;font-weight:800;color:#34D399;line-height:1;margin-bottom:10px;font-family:'Plus Jakarta Sans',sans-serif}
+.clp-hero-stat-label{color:rgba(255,255,255,.95);font-size:.92rem;line-height:1.45}
+.clp-hero-stat-source{color:rgba(255,255,255,.55);font-size:.72rem;margin-top:10px;font-style:italic}
+
+/* ====== Byline ====== */
+.clp-byline{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:14px 18px;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:12px;margin-bottom:24px;font-size:.85rem}
+.clp-byline-author{font-weight:700;color:#0A1628}
+.clp-byline-dates{display:flex;gap:14px;color:#6B7280;flex-wrap:wrap}
+
+/* ====== Section titles ====== */
+.clp-section-title{font-size:1.05rem;font-weight:700;color:#0A1628;margin:32px 0 14px;display:flex;align-items:center;gap:10px}
+.clp-section-title .clp-icon{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#059669,#10B981);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.clp-section-title .clp-icon svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.clp-section-hint{font-size:.85rem;color:#6B7280;margin:-6px 0 14px;line-height:1.5}
+
+/* ====== Buttons ====== */
+.clp-btn-row{display:flex;gap:12px;margin:24px 0 8px;flex-wrap:wrap}
+.clp-btn-calc{background:linear-gradient(135deg,#059669,#10B981);color:#fff;border:none;padding:14px 32px;border-radius:999px;font-weight:700;font-size:1rem;cursor:pointer;box-shadow:0 4px 12px rgba(5,150,105,.3);transition:transform .15s,box-shadow .15s;font-family:inherit}
+.clp-btn-calc:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(5,150,105,.4)}
+.clp-btn-reset{background:#fff;color:#0A1628;border:1px solid #E5E7EB;padding:14px 28px;border-radius:999px;font-weight:600;font-size:1rem;cursor:pointer;transition:all .15s;font-family:inherit}
+.clp-btn-reset:hover{background:#F9FAFB;border-color:#D1D5DB}
+
+/* ====== Empty state ====== */
+.clp-empty{border:2px dashed #E5E7EB;border-radius:16px;padding:36px 24px;text-align:center;margin-top:20px;color:#6B7280}
+.clp-empty-icon{width:48px;height:48px;border-radius:14px;background:#F3F4F6;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px}
+.clp-empty-icon svg{width:24px;height:24px;stroke:#9CA3AF;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.clp-empty-title{font-weight:700;color:#0A1628;font-size:1.05rem;margin-bottom:6px}
+.clp-empty-text{font-size:.92rem;line-height:1.5}
+
+/* ====== Result banner ====== */
+.clp-result-banner{border-radius:18px;padding:26px 28px;margin:24px 0 0;background:linear-gradient(135deg,#0A1628 0%,#0F2942 100%);color:#fff}
+.clp-result-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.65);font-weight:700;margin-bottom:6px}
+.clp-result-value{font-size:2.6rem;font-weight:800;line-height:1.1;color:#34D399;font-family:'Plus Jakarta Sans',sans-serif;margin-bottom:6px}
+.clp-result-sub{font-size:.95rem;line-height:1.5;color:rgba(255,255,255,.85)}
+.clp-result-sub strong{color:#fff;font-weight:700}
+
+/* ====== Equity card ====== */
+.clp-equity{border-radius:14px;padding:18px 22px;margin-top:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;border:1.5px solid}
+.clp-equity.positive{background:linear-gradient(135deg,#ECFDF5,#F0FDF4);border-color:#A7F3D0}
+.clp-equity.negative{background:#FEF3C7;border-color:#FCD34D}
+.clp-equity-label{font-size:.95rem;font-weight:700;color:#0A1628}
+.clp-equity-sub{font-size:.8rem;color:#6B7280;display:block;margin-top:2px;font-weight:400;max-width:520px;line-height:1.5}
+.clp-equity-value{font-size:1.6rem;font-weight:800;font-family:'Plus Jakarta Sans',sans-serif}
+.clp-equity.positive .clp-equity-value{color:#047857}
+.clp-equity.negative .clp-equity-value{color:#B45309}
+
+/* ====== Warnings ====== */
+.clp-warn{border-radius:12px;padding:14px 18px;margin-top:14px;display:flex;gap:12px;align-items:start;font-size:.92rem;line-height:1.5}
+.clp-warn.tip{background:#FEF3C7;border:1.5px solid #FCD34D;color:#78350F}
+.clp-warn.alert{background:#FEE2E2;border:1.5px solid #FCA5A5;color:#7F1D1D}
+.clp-warn-icon{width:24px;height:24px;flex-shrink:0}
+.clp-warn-icon svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.clp-warn strong{font-weight:700}
+
+/* ====== WINNER comparison ====== */
+.clp-vs-note{font-size:.82rem;color:#6B7280;background:#F9FAFB;border-left:3px solid #10B981;padding:10px 14px;border-radius:8px;margin:12px 0 18px;line-height:1.55}
+.clp-vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0 8px;align-items:start}
+.clp-vs-card{background:#fff;border:1.5px solid #E5E7EB;border-radius:16px;padding:22px;position:relative;display:flex;flex-direction:column;gap:10px}
+.clp-vs-card.winner{border-color:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,.12),0 8px 24px rgba(5,150,105,.12)}
+.clp-vs-card.winner::before{content:'WINNER';position:absolute;top:-12px;left:18px;background:linear-gradient(135deg,#059669,#10B981);color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.1em;padding:5px 12px;border-radius:999px;box-shadow:0 4px 10px rgba(5,150,105,.3)}
+.clp-vs-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#F3F4F6}
+.clp-vs-icon svg{width:22px;height:22px;fill:none;stroke:#0A1628;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.clp-vs-card.winner .clp-vs-icon{background:linear-gradient(135deg,#ECFDF5,#D1FAE5)}
+.clp-vs-card.winner .clp-vs-icon svg{stroke:#047857}
+.clp-vs-title{font-size:1.05rem;font-weight:800;color:#0A1628;font-family:'Plus Jakarta Sans',sans-serif}
+.clp-vs-subtitle{font-size:.82rem;color:#6B7280;margin-top:-4px;line-height:1.4}
+.clp-vs-metric-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:#6B7280;font-weight:700;margin-top:6px}
+.clp-vs-metric{font-size:1.6rem;font-weight:800;color:#0A1628;line-height:1.1;font-family:'Plus Jakarta Sans',sans-serif}
+.clp-vs-card.winner .clp-vs-metric{color:#047857}
+.clp-vs-detail{font-size:.85rem;color:#4B5563;line-height:1.5;margin-top:6px;padding-top:10px;border-top:1px solid #F3F4F6}
+.clp-vs-detail-row{display:flex;justify-content:space-between;margin-bottom:4px}
+.clp-vs-detail-row:last-child{margin-bottom:0}
+.clp-vs-detail-row span:first-child{color:#6B7280}
+.clp-vs-detail-row span:last-child{font-weight:600;color:#0A1628}
+.clp-vs-summary{background:linear-gradient(135deg,#ECFDF5,#F0FDF4);border:1px solid #A7F3D0;border-radius:12px;padding:14px 16px;margin-top:12px;font-size:.92rem;color:#064E3B;line-height:1.55}
+.clp-vs-summary strong{color:#047857}
+
+/* ====== Biweekly strip ====== */
+.clp-biweekly{background:#fff;border:1.5px dashed #10B981;border-radius:16px;padding:18px 22px;margin-top:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.clp-biweekly-label{font-size:.95rem;color:#0A1628;font-weight:700}
+.clp-biweekly-sub{font-size:.8rem;color:#6B7280;display:block;margin-top:2px;font-weight:400}
+.clp-biweekly-value{font-size:1.35rem;font-weight:800;color:#059669;font-family:'Plus Jakarta Sans',sans-serif;text-align:right}
+.clp-biweekly-value small{display:block;font-size:.75rem;color:#6B7280;font-weight:600}
+
+/* ====== What-if slider ====== */
+.clp-scenario-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:22px;margin-top:24px}
+.clp-scenario-title{font-size:1.1rem;font-weight:700;color:#0A1628;margin-bottom:6px}
+.clp-scenario-desc{font-size:.85rem;color:#6B7280;margin-bottom:14px;line-height:1.5}
+.clp-slider-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.clp-slider-row input[type=range]{flex:1 1 0;min-width:0;height:6px;-webkit-appearance:none;appearance:none;background:#E5E7EB;border-radius:3px;outline:none}
+.clp-slider-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:#10B981;cursor:pointer;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.clp-slider-row input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#10B981;cursor:pointer;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.clp-slider-value{flex-shrink:0;font-weight:700;color:#059669;font-size:1.05rem;white-space:nowrap}
+.clp-scenario-result{background:#F9FAFB;border-radius:10px;padding:14px 16px;font-size:.92rem;color:#0A1628;line-height:1.55}
+.clp-scenario-result strong{color:#059669}
+
+/* ====== Amortization table ====== */
+.clp-table-wrap{margin-top:24px;background:#fff;border:1px solid #E5E7EB;border-radius:18px;padding:22px}
+.clp-table-wrap h2{font-size:1.2rem;margin:0 0 14px;color:#0A1628;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800}
+.clp-table-scroll{overflow-x:auto;border-radius:10px;border:1px solid #F1F5F9;max-height:440px;overflow-y:auto}
+.clp-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:560px}
+.clp-table th,.clp-table td{padding:10px 12px;text-align:right;border-bottom:1px solid #F1F5F9}
+.clp-table th{background:#F9FAFB;font-weight:700;color:#374151;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;position:sticky;top:0;z-index:1}
+.clp-table th:first-child,.clp-table td:first-child{text-align:left;font-weight:600}
+.clp-table tbody tr:hover{background:#F9FAFB}
+.clp-table tbody tr:last-child td{border-bottom:none}
+
+/* ====== SEO content ====== */
+.clp-seo{margin-top:36px}
+.clp-seo h2{font-size:1.5rem;color:#0A1628;margin:32px 0 14px;font-weight:800;font-family:'Plus Jakarta Sans',sans-serif}
+.clp-seo h2:first-child{margin-top:0}
+.clp-seo h3{font-size:1.1rem;color:#0A1628;margin:24px 0 10px;font-weight:700}
+.clp-seo p{font-size:.97rem;line-height:1.7;color:#374151;margin-bottom:14px}
+.clp-seo p strong{color:#0A1628;font-weight:700}
+.clp-seo ul{font-size:.97rem;line-height:1.7;color:#374151;margin:0 0 14px;padding-left:22px}
+.clp-seo a{color:#047857;font-weight:600;text-decoration:none;border-bottom:1px dashed #10B981}
+.clp-seo a:hover{border-bottom-style:solid;color:#059669}
+
+/* ====== Related ====== */
+.clp-related-heading{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:1.1rem;color:#0A1628;font-weight:700}
+.clp-related-icon{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#059669,#10B981);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.clp-related-icon svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+
+/* ====== Mobile ====== */
+@media(max-width:760px){
+  .clp-hero{grid-template-columns:1fr;padding:24px}
+  .clp-hero h1{font-size:1.7rem}
+  .clp-hero-stat-number{font-size:2.4rem}
+  .clp-result-value{font-size:2rem}
+  .clp-vs-grid{grid-template-columns:1fr;gap:14px}
+  .clp-seo h2{font-size:1.3rem}
+  .clp-btn-row{flex-direction:column}
+  .clp-btn-calc,.clp-btn-reset{width:100%}
+  .clp-biweekly,.clp-equity{flex-direction:column;align-items:flex-start}
+  .clp-biweekly-value{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+<div class="nav-inner">
+<div class="logo" onclick="location.href='../'">
+<div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+SavingsClub
+</div>
+<div class="nav-links" id="navLinks">
+<a href="../">Home</a>
+<a href="../savings-calculator/" class="active">Calculators</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="../">Home</a>
+<a href="../auto-loan-calculator/">Auto Loan</a>
+<a href="../car-loan-payoff-calculator/">Car Payoff</a>
+<a href="../loan-payoff-calculator/">Loan Payoff</a>
+<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../budget-planner/">Budget</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../about/">About</a>
+<a href="../contact/">Contact</a>
+</div>
+
+<section class="calc-page">
+<div class="container">
+
+<div style="margin-bottom:20px"><a href="../" style="color:var(--text-light);font-weight:500">&larr; Home</a></div>
+
+<!-- ============ HERO ============ -->
+<div class="clp-hero">
+  <div class="clp-hero-left">
+    <h1>Car Loan Payoff Calculator</h1>
+    <p class="clp-hero-sub">A car loan calculator with extra payments built in. See your early payoff date, the interest you avoid, the biweekly option, and, if you enter your car's value, exactly where you stand on equity, including whether you are upside down on the loan.</p>
+    <p class="clp-hero-disclaimer">Educational tool, not financial advice. SavingsClub is not a licensed financial advisor.</p>
+    <p class="clp-hero-meta">Last updated July 2026</p>
+  </div>
+  <div class="clp-hero-stat">
+    <div class="clp-hero-stat-number">10</div>
+    <div class="clp-hero-stat-label">Days a car loan payoff quote typically stays valid. Your payoff amount is not your current balance: interest accrues daily until the lender receives the money.</div>
+    <div class="clp-hero-stat-source">Source: standard auto lending practice (per diem interest)</div>
+  </div>
+</div>
+
+<!-- ============ BYLINE ============ -->
+<div class="clp-byline">
+  <div class="clp-byline-author">By SavingsClub Research Team</div>
+  <div class="clp-byline-dates">
+    <span>Published: July 2026</span>
+    <span>Last updated: July 2026</span>
+  </div>
+</div>
+
+<!-- ============ INPUTS ============ -->
+<div class="clp-section-title">
+  <span class="clp-icon"><svg viewBox="0 0 24 24"><path d="M5 17H3v-4l2-5h12l3 5v4h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><line x1="9" y1="17" x2="15" y2="17"/></svg></span>
+  Your car loan
+</div>
+<div class="calc-grid">
+<div><label>Current Loan Balance ($)</label><input type="number" id="clpBalance" value="18000" min="0"></div>
+<div><label>Interest Rate / APR (%)</label><input type="number" id="clpApr" value="7.5" step="0.1" min="0" max="35"></div>
+<div><label>Current Monthly Payment ($)</label><input type="number" id="clpPayment" value="400" min="0"></div>
+</div>
+
+<div class="clp-section-title">
+  <span class="clp-icon"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg></span>
+  Pay it off faster
+</div>
+<div class="calc-grid">
+<div><label>Extra Monthly Payment ($)</label><input type="number" id="clpExtra" value="75" min="0"></div>
+<div><label>One-Time Lump Sum ($)</label><input type="number" id="clpLump" value="0" min="0"></div>
+<div><label>Car's Current Value ($, optional)</label><input type="number" id="clpValue" value="0" min="0"></div>
+</div>
+<p class="clp-section-hint">Enter your car's value (Kelley Blue Book or Edmunds private-party estimate) to see your equity position and whether you are upside down on the loan.</p>
+
+<div class="clp-btn-row">
+  <button class="clp-btn-calc" onclick="calc()">Calculate</button>
+  <button class="clp-btn-reset" onclick="resetCalc()">Reset</button>
+</div>
+
+<!-- ============ EMPTY STATE ============ -->
+<div id="clpEmptyState" class="clp-empty">
+  <div class="clp-empty-icon"><svg viewBox="0 0 24 24"><path d="M5 17H3v-4l2-5h12l3 5v4h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><line x1="9" y1="17" x2="15" y2="17"/></svg></div>
+  <div class="clp-empty-title">Ready when you are</div>
+  <div class="clp-empty-text">Enter your car loan balance, rate, and monthly payment above, then click Calculate to see your early payoff date, the interest extra payments save, the biweekly option, and your equity position.</div>
+</div>
+
+<!-- ============ RESULTS ============ -->
+<div id="calcResult" style="display:none"></div>
+
+<!-- ============ AMORTIZATION TABLE ============ -->
+<div id="clpTableWrap" class="clp-table-wrap" style="display:none">
+  <h2>Year by year payoff schedule (with your extra payments)</h2>
+  <div class="clp-table-scroll">
+    <table class="clp-table">
+      <thead>
+        <tr><th>Year</th><th>Starting Balance</th><th>Principal Paid</th><th>Interest Paid</th><th>Ending Balance</th></tr>
+      </thead>
+      <tbody id="clpTableBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============ SEO CONTENT ============ -->
+<div class="clp-seo">
+
+<h2>How this car payment early payoff calculator works</h2>
+<p>Enter your current balance, APR, and monthly payment, and the calculator runs your loan month by month the same way your lender does: interest accrues on the remaining principal, your payment covers that interest first, and the rest reduces the balance. Then it runs the loan a second time with your extra monthly payment and any lump sum included, and shows both plans side by side: payoff date vs payoff date, total interest vs total interest.</p>
+
+<p>This is an auto loan payment calculator with extra payments at its core, but it adds the piece most tools skip: your <strong>equity position</strong>. Enter what the car is currently worth and it tells you whether you own more of the car than you owe, or whether you are upside down, which changes what your best next move is.</p>
+
+<p>Shopping for a car instead of paying one off? Our <a href="../auto-loan-calculator/">Auto Loan Calculator</a> estimates a new payment with tax and fees. Juggling several debts at once? The <a href="../debt-payoff-calculator/">Debt Payoff Calculator</a> orders your whole list. This page is for one job: killing an existing car loan faster.</p>
+
+<h2>Why extra payments work so well on car loans</h2>
+<p>Most car loans in the United States are <strong>simple-interest loans</strong>, meaning interest accrues daily on your remaining principal. That structure is exactly why extra principal payments are powerful: the day your extra payment posts, your principal drops, and every single day of interest after that is calculated on the smaller number. There is no waiting period and no compounding trick required. The savings start immediately.</p>
+
+<p>The size of the effect surprises people. On an $18,000 balance at 7.5% with a $400 payment, the loan runs about 54 months and costs roughly $3,200 in interest. Add $75 a month and it is gone in about 44 months with roughly $595 less interest paid. Push the extra to $200 and you are done more than a year and a half early. Run your numbers above; the comparison cards show your exact figures.</p>
+
+<p>A lump sum works even harder when it lands early. The same $1,500 applied in month two saves several times the interest it would save in year four, because it spends dozens more months shrinking the balance that daily interest is charged on. Tax refund season is when a lot of car loans quietly die a year early.</p>
+
+<h2>Your payoff amount is not your balance</h2>
+<p>When you are ready to pay the loan off completely, do not just send the balance from your app. Call the lender or use their payoff-quote tool and get an official <strong>payoff quote</strong>. Because interest accrues daily, the quote includes per-diem interest through a specific date and is typically valid for about 10 days. Pay the quoted amount by the quoted date, then confirm in writing that the loan is closed and the title release is in motion. Sending the app balance instead usually leaves a few dollars of accrued interest behind, and a technically open loan.</p>
+
+<h2>Upside down on the car? Read this before paying extra</h2>
+<p>Being upside down (negative equity) means you owe more than the car is worth. It is extremely common in the first two to three years of a loan, especially with small down payments and long terms, because cars depreciate faster than early payments reduce principal.</p>
+
+<p>If the calculator shows you upside down, the playbook is: <strong>keep the car and keep driving it</strong> if it is reliable, because your equity improves every month you pay; <strong>make extra principal payments</strong> to reach positive equity sooner, which is exactly what this page helps you plan; <strong>keep GAP coverage in place</strong> until you cross into positive territory, since a totaled upside-down car without GAP means paying a loan on a car you no longer have; and <strong>do not roll negative equity into a new car loan</strong>. Rolling $4,000 of old debt into a new loan means starting the next car even deeper underwater, and it is one of the most expensive habits in car ownership.</p>
+
+<h2>The GAP insurance refund almost nobody claims</h2>
+<p>If GAP coverage was financed into your loan and you pay the loan off early, the coverage becomes worthless the day the loan closes, and you are typically entitled to a <strong>refund of the unused premium</strong>. Refunds are rarely automatic. After payoff, contact the dealership or GAP administrator, request a GAP cancellation refund in writing, and follow up. On a policy that cost $800 with half the term remaining, that can be several hundred dollars back, which is a nice bonus on top of the interest you already saved.</p>
+
+<h2>The biweekly payment option, honestly</h2>
+<p>Paying half your car payment every two weeks creates 26 half payments a year, which is 13 full payments instead of 12: one extra payment annually, automated. On most car loans that shaves months off the term and a few hundred dollars of interest. The math is shown in your results above. The one rule: never pay a fee for a biweekly program. If your lender does not offer free biweekly scheduling, make one extra principal payment per year yourself and get the identical result.</p>
+
+<h2>Pay off the car, or put the money elsewhere?</h2>
+<p>Order of operations matters more than enthusiasm. Before adding big money to a car loan: cover any <strong>credit card balances first</strong> (a 24% card outranks a 7% car loan by more than three to one per dollar), capture your full <a href="../401k-calculator/">401(k) employer match</a> (an instant 50 to 100% return that no loan payoff can match), and keep a basic <a href="../emergency-fund-calculator/">emergency fund</a>, because extra loan payments cannot be un-sent when the water heater dies.</p>
+
+<p>After those, the rate decides. Paying down a car loan at 8 or 9% is a guaranteed return most portfolios cannot promise, so extra payments are an easy call. At 3 or 4%, investing the difference has historically come out ahead over long periods, and paying the loan on schedule is defensible. In between, the guaranteed savings, your risk tolerance, and how much you value dropping a monthly obligation all count. Both answers are legitimate; the mistake is doing neither.</p>
+</div>
+
+<!-- ============ PEOPLE OFTEN ASK ============ -->
+<div class="clp-seo">
+<h2>People Often Ask</h2>
+
+<h3>How do I pay off my car loan early with extra payments?</h3>
+<p>Add any amount on top of your regular monthly payment and direct it to principal. Enter your balance, rate, current payment, and the extra amount above, and the calculator shows your new payoff date, months saved, and interest avoided. The key operational step: when you send the extra money, mark it as a principal-only payment in your lender's app or on the phone, and confirm on your next statement that the balance dropped by the full extra amount. Even $50 or $75 a month meaningfully shortens most car loans.</p>
+
+<h3>Do extra car payments go to principal automatically?</h3>
+<p>Often not. Many auto lenders treat extra money as an early payment of your next installment, which advances your due date instead of shrinking your balance. That saves you nothing. Most car loans are simple-interest loans where interest accrues daily on the remaining principal, so a properly applied principal payment starts saving you interest the day it posts. Always select principal-only when paying extra, and verify the balance on your next statement.</p>
+
+<h3>Is it bad to pay off a car loan early?</h3>
+<p>For most people, no. Most car loans today have no prepayment penalty, and the interest savings are real money. Two caveats: first, your credit score may dip slightly and temporarily when the installment account closes, because it affects your credit mix and account ages; the dip is usually minor and recovers within months. Second, a small share of loans (often subprime) use precomputed interest or the Rule of 78s, where interest is front-loaded and early payoff saves far less. Check your contract for those terms before making a large lump-sum payoff.</p>
+
+<h3>What happens to GAP insurance when I pay off my car early?</h3>
+<p>You may be owed money. GAP coverage protects the lender against the gap between your loan balance and the car's value, so once the loan is gone the coverage is useless. If you paid for GAP up front (common when it is financed into the loan), you can typically request a refund of the unused portion after early payoff. Contact the dealer or GAP provider, ask for a GAP cancellation refund, and be persistent; refunds are rarely sent automatically.</p>
+
+<h3>What if I owe more than the car is worth?</h3>
+<p>That is negative equity, or being upside down, and it is common in the first years of a loan because cars depreciate faster than early payments reduce principal. Enter your car's current value above and the calculator shows your exact equity position. If you are upside down: keep the car and keep paying if it runs fine, since equity improves every month; make extra principal payments to cross into positive equity sooner; keep GAP coverage until you are right side up; and avoid rolling the negative equity into a new car loan, which digs the hole deeper.</p>
+
+<h3>Should I pay off my car loan or my credit card first?</h3>
+<p>Almost always the credit card. Interest rate order is what matters: a card at 22 to 28% costs far more per dollar of balance than a car loan at 6 to 9%. Pay minimums on the car, attack the card, then redirect the freed-up payment to the car. The exceptions are rare. Our <a href="../debt-payoff-calculator/">Debt Payoff Calculator</a> orders your entire debt list by the avalanche and snowball methods if you have several balances.</p>
+
+<h3>How much does an extra $75 a month save on a car loan?</h3>
+<p>More than most people guess. On an $18,000 balance at 7.5% with a $400 payment, adding $75 a month pays the car off 10 months sooner and saves about $595 in interest. Larger balances and higher rates save more. Run your exact numbers above; the calculator compares your current plan against the extra-payment plan side by side.</p>
+</div>
+
+<!-- ============ RELATED ============ -->
+<div class="blog-recs reveal" style="margin-top:36px">
+<div class="clp-related-heading">
+  <span class="clp-related-icon"><svg viewBox="0 0 24 24"><path d="M4 4h12a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3z"/><path d="M4 17a3 3 0 0 1 3-3h12"/></svg></span>
+  Related Guides
+</div>
+<a href="../blog/how-to-create-a-debt-payoff-plan-that-works/" class="related-blog-card">How to Create a Debt Payoff Plan That Works &rarr;</a>
+<a href="../blog/how-to-set-financial-goals-you-will-actually-achieve/" class="related-blog-card">How to Set Financial Goals You Will Actually Achieve &rarr;</a>
+</div>
+
+<div class="related-tools reveal">
+<h3>More Free Tools</h3>
+<a href="../auto-loan-calculator/" class="related-tool-link">Auto Loan Calculator</a>
+<a href="../loan-payoff-calculator/" class="related-tool-link">Loan Payoff Calculator</a>
+<a href="../debt-payoff-calculator/" class="related-tool-link">Debt Payoff Calculator</a>
+<a href="../credit-card-payoff-calculator/" class="related-tool-link">Credit Card Payoff</a>
+<a href="../budget-planner/" class="related-tool-link">Budget Planner</a>
+<a href="../emergency-fund-calculator/" class="related-tool-link">Emergency Fund</a>
+<a href="../savings-calculator/" class="related-tool-link">Savings Calculator</a>
+<a href="../net-worth-calculator/" class="related-tool-link">Net Worth</a>
+<a href="../investment-calculator/" class="related-tool-link">Investment Growth</a>
+<a href="../compound-interest-calculator/" class="related-tool-link">Compound Interest</a>
+<a href="../401k-calculator/" class="related-tool-link">401(k) Calculator</a>
+<a href="../roth-401k-calculator/" class="related-tool-link">Roth 401(k) Calculator</a>
+<a href="../roth-ira-calculator/" class="related-tool-link">Roth IRA Calculator</a>
+<a href="../retirement-calculator/" class="related-tool-link">Retirement Calculator</a>
+<a href="../paycheck-calculator/" class="related-tool-link">Take-Home Pay</a>
+<a href="../mortgage-calculator/" class="related-tool-link">Mortgage Calculator</a>
+<a href="../inflation-calculator/" class="related-tool-link">Inflation Calculator</a>
+<a href="../cd-calculator/" class="related-tool-link">CD Calculator</a>
+</div>
+
+</div>
+</section>
+
+<script>
+/* =========================================================
+   Car Loan Payoff Calculator v1
+   Navy/emerald brand, Calculate+Reset pattern, empty state.
+   Current plan vs extra payments WINNER comparison, lump sum,
+   equity / negative equity check, biweekly scenario,
+   extra-payment what-if slider (clpState), amortization table.
+   ========================================================= */
+
+var DEFAULTS = { clpBalance: 18000, clpApr: 7.5, clpPayment: 400, clpExtra: 75, clpLump: 0, clpValue: 0 };
+var MAX_MONTHS = 720;
+
+window.clpState = { extraSlider: 75, lastInputs: null, baseline: null };
+
+function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
+function fmtMonths(m){
+  var y = Math.floor(m / 12), r = m % 12;
+  if (y === 0) return r + (r === 1 ? ' month' : ' months');
+  if (r === 0) return y + (y === 1 ? ' year' : ' years');
+  return y + (y === 1 ? ' year ' : ' years ') + r + ' mo';
+}
+function payoffDate(months){
+  var d = new Date();
+  d.setMonth(d.getMonth() + months);
+  return d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+}
+
+function getInputs(){
+  return {
+    balance: +document.getElementById('clpBalance').value || 0,
+    apr:     +document.getElementById('clpApr').value || 0,
+    payment: +document.getElementById('clpPayment').value || 0,
+    extra:   +document.getElementById('clpExtra').value || 0,
+    lump:    +document.getElementById('clpLump').value || 0,
+    value:   +document.getElementById('clpValue').value || 0
+  };
+}
+
+function simulate(balance, apr, monthlyPay, lump){
+  var bal = Math.max(0, balance - (lump || 0));
+  if (bal <= 0) return { months: 0, interest: 0, totalPaid: lump || 0, years: [] };
+  var rate = apr / 100 / 12;
+  if (rate > 0 && monthlyPay <= bal * rate) return null;
+  if (monthlyPay <= 0) return null;
+
+  var months = 0, totalInterest = 0, totalPaid = lump || 0;
+  var years = [];
+  var yStart = bal, yPrincipal = 0, yInterest = 0;
+
+  while (bal > 0 && months < MAX_MONTHS){
+    var interest = bal * rate;
+    bal += interest;
+    var pay = Math.min(monthlyPay, bal);
+    bal -= pay;
+    totalInterest += interest;
+    totalPaid += pay;
+    yInterest += interest;
+    yPrincipal += (pay - interest);
+    months++;
+    if (months % 12 === 0 || bal <= 0){
+      years.push({ year: Math.ceil(months / 12), start: yStart, principal: yPrincipal, interest: yInterest, end: Math.max(0, bal) });
+      yStart = bal; yPrincipal = 0; yInterest = 0;
+    }
+  }
+  if (months >= MAX_MONTHS && bal > 0) return null;
+  return { months: months, interest: totalInterest, totalPaid: totalPaid, years: years };
+}
+
+function simulateBiweekly(balance, apr, monthlyPay){
+  var bal = balance;
+  if (bal <= 0) return { months: 0, interest: 0 };
+  var periodRate = apr / 100 / 26;
+  var pay = monthlyPay / 2;
+  if (periodRate > 0 && pay <= bal * periodRate) return null;
+  if (pay <= 0) return null;
+  var periods = 0, totalInterest = 0;
+  while (bal > 0 && periods < MAX_MONTHS * 3){
+    var interest = bal * periodRate;
+    bal += interest;
+    var p = Math.min(pay, bal);
+    bal -= p;
+    totalInterest += interest;
+    periods++;
+  }
+  if (bal > 0) return null;
+  return { months: Math.round(periods / 26 * 12), interest: totalInterest };
+}
+
+function renderTable(years){
+  var html = '';
+  for (var i = 0; i < years.length; i++){
+    var r = years[i];
+    html += '<tr>'
+      + '<td>Year ' + r.year + '</td>'
+      + '<td>$' + fmt(r.start) + '</td>'
+      + '<td>$' + fmt(r.principal) + '</td>'
+      + '<td>$' + fmt(r.interest) + '</td>'
+      + '<td>' + (r.end <= 0 ? '<strong style="color:#047857">PAID OFF</strong>' : '$' + fmt(r.end)) + '</td>'
+      + '</tr>';
+  }
+  document.getElementById('clpTableBody').innerHTML = html;
+}
+
+function buildSliderResult(){
+  var s = window.clpState;
+  var x = s.lastInputs;
+  if (!x || !s.baseline) return '';
+  var alt = simulate(x.balance, x.apr, x.payment + s.extraSlider, x.lump);
+  if (!alt) return 'That payment cannot retire the loan. Increase it.';
+  var saved = s.baseline.interest - alt.interest;
+  var monthsSaved = s.baseline.months - alt.months;
+  return 'At <strong>+$' + s.extraSlider + '/month</strong>, the car is paid off in <strong>' + fmtMonths(alt.months) + '</strong> (' + payoffDate(alt.months) + '), saving <strong>$' + fmt(saved) + '</strong> in interest and <strong>' + fmtMonths(Math.max(0, monthsSaved)) + '</strong> vs your current plan.';
+}
+
+function onClpSlider(val){
+  var s = window.clpState;
+  if (!s.lastInputs) return;
+  s.extraSlider = parseInt(val, 10);
+  var lbl = document.getElementById('clpSliderVal');
+  if (lbl) lbl.textContent = '+$' + s.extraSlider + '/mo';
+  var res = document.getElementById('clpSliderResult');
+  if (res) res.innerHTML = buildSliderResult();
+}
+
+function calc(){
+  var x = getInputs();
+  var emptyEl = document.getElementById('clpEmptyState');
+  var resultEl = document.getElementById('calcResult');
+  var tableWrap = document.getElementById('clpTableWrap');
+
+  var baseline = simulate(x.balance, x.apr, x.payment, 0);
+  if (!baseline){
+    emptyEl.style.display = 'none';
+    tableWrap.style.display = 'none';
+    resultEl.style.display = 'block';
+    var minPay = x.balance * (x.apr / 100 / 12);
+    resultEl.innerHTML = '<div class="clp-warn alert">'
+      + '<div class="clp-warn-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>'
+      + '<div><strong>This payment never pays off the loan.</strong> Your monthly payment of $' + fmt(x.payment) + ' does not cover the roughly $' + fmt(minPay) + ' of monthly interest on this balance. Increase the payment above the monthly interest and recalculate.</div>'
+      + '</div>';
+    return;
+  }
+
+  var hasExtra = (x.extra > 0 || x.lump > 0);
+  var improved = hasExtra ? simulate(x.balance, x.apr, x.payment + x.extra, x.lump) : null;
+  var biweekly = simulateBiweekly(x.balance, x.apr, x.payment);
+
+  window.clpState.lastInputs = x;
+  window.clpState.baseline = baseline;
+  window.clpState.extraSlider = Math.max(25, x.extra || 75);
+
+  emptyEl.style.display = 'none';
+  resultEl.style.display = 'block';
+
+  var main = hasExtra && improved ? improved : baseline;
+  var html = ''
+    + '<div class="clp-result-banner">'
+    +   '<div class="clp-result-label">Car paid off ' + (hasExtra ? 'with your extra payments' : 'on your current plan') + '</div>'
+    +   '<div class="clp-result-value">' + fmtMonths(main.months) + '</div>'
+    +   '<div class="clp-result-sub">Paid off by <strong>' + payoffDate(main.months) + '</strong>. Total interest: <strong>$' + fmt(main.interest) + '</strong>. Total paid: <strong>$' + fmt(main.totalPaid) + '</strong>.</div>'
+    + '</div>';
+
+  // Equity position
+  if (x.value > 0){
+    var equity = x.value - x.balance;
+    if (equity >= 0){
+      html += '<div class="clp-equity positive">'
+        + '<div><div class="clp-equity-label">Your equity position: right side up'
+        + '<span class="clp-equity-sub">The car is worth about $' + fmt(equity) + ' more than you owe. Every payment from here builds equity you keep when you sell or trade.</span></div></div>'
+        + '<div class="clp-equity-value">+$' + fmt(equity) + '</div>'
+        + '</div>';
+    } else {
+      html += '<div class="clp-equity negative">'
+        + '<div><div class="clp-equity-label">Your equity position: upside down'
+        + '<span class="clp-equity-sub">You owe about $' + fmt(Math.abs(equity)) + ' more than the car is worth. Keep GAP coverage until this flips positive, avoid rolling this into a new car loan, and use extra principal payments to cross into positive equity sooner. See the upside down section below.</span></div></div>'
+        + '<div class="clp-equity-value">-$' + fmt(Math.abs(equity)) + '</div>'
+        + '</div>';
+    }
+  }
+
+  if (hasExtra && improved){
+    var saved = baseline.interest - improved.interest;
+    var monthsSaved = baseline.months - improved.months;
+    html += '<div class="clp-section-title" style="margin-top:28px">'
+      +   '<span class="clp-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>'
+      +   'Current plan vs extra payments'
+      + '</div>'
+      + '<div class="clp-vs-note"><strong>How we compare:</strong> the same loan run month by month twice, once at your current $' + fmt(x.payment) + ' payment, once with your extra $' + fmt(x.extra) + '/month' + (x.lump > 0 ? ' plus the $' + fmt(x.lump) + ' lump sum' : '') + ' applied to principal.</div>'
+      + '<div class="clp-vs-grid">'
+
+      +   '<div class="clp-vs-card">'
+      +     '<div class="clp-vs-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 3"/></svg></div>'
+      +     '<div class="clp-vs-title">Current Plan</div>'
+      +     '<div class="clp-vs-subtitle">$' + fmt(x.payment) + '/month, no extras</div>'
+      +     '<div class="clp-vs-metric-label">Time to payoff</div>'
+      +     '<div class="clp-vs-metric">' + fmtMonths(baseline.months) + '</div>'
+      +     '<div class="clp-vs-detail">'
+      +       '<div class="clp-vs-detail-row"><span>Payoff date</span><span>' + payoffDate(baseline.months) + '</span></div>'
+      +       '<div class="clp-vs-detail-row"><span>Total interest</span><span>$' + fmt(baseline.interest) + '</span></div>'
+      +       '<div class="clp-vs-detail-row"><span>Total paid</span><span>$' + fmt(baseline.totalPaid) + '</span></div>'
+      +     '</div>'
+      +   '</div>'
+
+      +   '<div class="clp-vs-card winner">'
+      +     '<div class="clp-vs-icon"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>'
+      +     '<div class="clp-vs-title">With Extra Payments</div>'
+      +     '<div class="clp-vs-subtitle">$' + fmt(x.payment + x.extra) + '/month' + (x.lump > 0 ? ' + $' + fmt(x.lump) + ' up front' : '') + '</div>'
+      +     '<div class="clp-vs-metric-label">Time to payoff</div>'
+      +     '<div class="clp-vs-metric">' + fmtMonths(improved.months) + '</div>'
+      +     '<div class="clp-vs-detail">'
+      +       '<div class="clp-vs-detail-row"><span>Payoff date</span><span>' + payoffDate(improved.months) + '</span></div>'
+      +       '<div class="clp-vs-detail-row"><span>Total interest</span><span>$' + fmt(improved.interest) + '</span></div>'
+      +       '<div class="clp-vs-detail-row"><span>Interest saved</span><span style="color:#047857">$' + fmt(saved) + '</span></div>'
+      +       '<div class="clp-vs-detail-row"><span>Time saved</span><span style="color:#047857">' + fmtMonths(Math.max(0, monthsSaved)) + '</span></div>'
+      +     '</div>'
+      +   '</div>'
+
+      + '</div>'
+      + '<div class="clp-vs-summary"><strong>Extra payments win by $' + fmt(saved) + '</strong> in avoided interest and ' + fmtMonths(Math.max(0, monthsSaved)) + ' off the loan. Because most car loans accrue interest daily on the remaining principal, properly applied extra payments start saving you money the day they post. Mark them principal-only and verify on your next statement.</div>';
+  } else {
+    html += '<div class="clp-warn tip">'
+      + '<div class="clp-warn-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-10 10 10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2zm0 5v6m0 4h.01"/></svg></div>'
+      + '<div><strong>Add an extra payment above to see the comparison.</strong> Even $50 a month meaningfully shortens most car loans. Enter an extra monthly amount or a lump sum and recalculate.</div>'
+      + '</div>';
+  }
+
+  if (biweekly){
+    var biSaved = baseline.interest - biweekly.interest;
+    var biMonths = baseline.months - biweekly.months;
+    html += '<div class="clp-biweekly">'
+      + '<div><div class="clp-biweekly-label">The biweekly option on your loan'
+      + '<span class="clp-biweekly-sub">Half your payment ($' + fmt(x.payment / 2) + ') every two weeks = 13 full payments a year instead of 12.</span></div></div>'
+      + '<div class="clp-biweekly-value">' + fmtMonths(biweekly.months) + '<small>saves about $' + fmt(Math.max(0, biSaved)) + ' interest and ' + fmtMonths(Math.max(0, biMonths)) + ' vs monthly</small></div>'
+      + '</div>';
+  }
+
+  html += '<div class="clp-scenario-card">'
+    + '<div class="clp-scenario-title">What if you paid a little more?</div>'
+    + '<div class="clp-scenario-desc">Drag to test different extra monthly amounts against your current plan.</div>'
+    + '<div class="clp-slider-row">'
+    +   '<input type="range" id="clpSlider" min="25" max="800" step="25" value="' + window.clpState.extraSlider + '" oninput="onClpSlider(this.value)">'
+    +   '<div class="clp-slider-value" id="clpSliderVal">+$' + window.clpState.extraSlider + '/mo</div>'
+    + '</div>'
+    + '<div class="clp-scenario-result" id="clpSliderResult">' + buildSliderResult() + '</div>'
+    + '</div>';
+
+  resultEl.innerHTML = html;
+  renderTable(main.years);
+  tableWrap.style.display = 'block';
+
+  setTimeout(function(){ resultEl.scrollIntoView({behavior:'smooth', block:'start'}); }, 60);
+}
+
+function resetCalc(){
+  for (var k in DEFAULTS){
+    var el = document.getElementById(k);
+    if (el) el.value = DEFAULTS[k];
+  }
+  window.clpState.extraSlider = 75;
+  window.clpState.lastInputs = null;
+  window.clpState.baseline = null;
+  document.getElementById('calcResult').style.display = 'none';
+  document.getElementById('calcResult').innerHTML = '';
+  document.getElementById('clpTableWrap').style.display = 'none';
+  document.getElementById('clpEmptyState').style.display = 'block';
+  document.getElementById('clpBalance').scrollIntoView({behavior:'smooth', block:'center'});
+}
+</script>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and educational guides for Americans in every state. Helping you keep more of what you earn.</p>
+</div>
+<div>
+<h4>Calculators</h4>
+<a href="../auto-loan-calculator/">Auto Loan</a>
+<a href="../car-loan-payoff-calculator/">Car Loan Payoff</a>
+<a href="../loan-payoff-calculator/">Loan Payoff</a>
+<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../credit-card-payoff-calculator/">Credit Card Payoff</a>
+<a href="../budget-planner/">Budget Planner</a>
+</div>
+<div>
+<h4>Resources</h4>
+<a href="../blog/">Blog</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../banking/">Banking</a>
+<a href="../contact/">Contact Us</a>
+</div>
+<div>
+<h4>Legal</h4>
+<a href="../privacy-policy/">Privacy Policy</a>
+<a href="../terms-of-service/">Terms of Service</a>
+<a href="../cookie-policy/">Cookie Policy</a>
+<a href="../disclaimer/">Disclaimer</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
+<p>Educational content only, not financial advice. SavingsClub is not a licensed financial advisor. Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+</div>
+</div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
+function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
+var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
+</script>
+
+<script>
+(function(){
+if(localStorage.getItem('sc_cookies'))return;
+var b=document.createElement('div');
+b.id='cookieBanner';
+b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
+var acceptBtn=document.createElement('button');
+acceptBtn.textContent='Accept';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#059669,#10B981);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
+var declineBtn=document.createElement('button');
+declineBtn.textContent='Decline';
+declineBtn.style.cssText='background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:8px;cursor:pointer';
+declineBtn.onclick=function(){
+localStorage.setItem('sc_cookies','decline');
+b.innerHTML='';
+var msg=document.createElement('span');
+msg.style.cssText='padding:12px 0;color:#10B981';
+msg.textContent='Preference saved.';
+b.appendChild(msg);
+setTimeout(function(){b.remove();},2500);
+};
+var txt=document.createElement('span');
+txt.innerHTML='We use basic analytics cookies to understand site traffic. <a href="/cookie-policy/" style="color:#34D399">Cookie Policy</a>';
+var btnWrap=document.createElement('div');
+btnWrap.style.cssText='display:flex;gap:8px';
+btnWrap.appendChild(acceptBtn);
+btnWrap.appendChild(declineBtn);
+b.appendChild(txt);
+b.appendChild(btnWrap);
+document.body.appendChild(b);
+})();
+</script>
+
+</body>
+</html>
