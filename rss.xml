@@ -6,12 +6,22 @@
 <atom:link href="https://savingsclub.com/rss.xml" rel="self" type="application/rss+xml" />
 <description>Free personal finance education, calculators, and money guides for Americans in every state.</description>
 <language>en-us</language>
-<lastBuildDate>Fri, 03 Jul 2026 19:18:18 GMT</lastBuildDate>
+<lastBuildDate>Mon, 06 Jul 2026 16:16:45 GMT</lastBuildDate>
 <image>
 <url>https://savingsclub.com/img/sc-logo-full.png</url>
 <title>SavingsClub Blog</title>
 <link>https://savingsclub.com/blog/</link>
 </image>
+  <item>
+    <title>529 plan rules: What the money can and cannot be used for</title>
+    <link>https://savingsclub.com/blog/529-plan-rules-what-the-money-can-and-cannot-be-used-for/</link>
+    <guid isPermaLink="true">https://savingsclub.com/blog/529-plan-rules-what-the-money-can-and-cannot-be-used-for/</guid>
+    <pubDate>Mon, 06 Jul 2026 16:16:45 GMT</pubDate>
+    <category>Money Tips</category>
+    <description><![CDATA[You've been saving in a 529 account for years. Tuition day arrives. Then someone tells you that a specific expense you planned to pay for might not qualify. That's a gut-punch moment.]]></description>
+    <enclosure url="https://images.unsplash.com/photo-1652573379656-4ce53f9cbd2d?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODMzNTQ2MDV8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" type="image/jpeg" />
+    <media:content url="https://images.unsplash.com/photo-1652573379656-4ce53f9cbd2d?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODMzNTQ2MDV8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" medium="image" />
+  </item>
   <item>
     <title>Checking account vs savings account: Which one do you actually need</title>
     <link>https://savingsclub.com/blog/checking-account-vs-savings-account-which-one-do-you-actually-need/</link>
