@@ -223,14 +223,33 @@ SavingsClub
 <div id="cdEmpty" class="cd-empty">
   <div class="cd-empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
   <h3>Your results will appear here</h3>
-  <p>Enter your deposit, rate, compounding, and term above, then click Calculate to see your maturity value, APY, a balance growth chart, a term comparison, and the early withdrawal estimate.</p>
+  <p>Enter your deposit, rate, compounding, and term above, then click Calculate to see your maturity value, APY, an interest growth chart, a term comparison, and the early withdrawal estimate.</p>
 </div>
 
 <div id="cdResults" style="display:none"></div>
 
 </div>
 
-<div style="margin:28px 0"><img src="../img/savings-jar.jpg" alt="Certificate of deposit savings" class="premium-img" style="width:100%;height:220px;object-fit:cover;border-radius:16px" loading="lazy"></div>
+<div style="margin:28px 0">
+<svg viewBox="0 0 800 220" width="100%" style="border-radius:16px;display:block" role="img" aria-label="A certificate of deposit growing in value">
+<defs><linearGradient id="cdBanner" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0A1628"/><stop offset="50%" stop-color="#0F2540"/><stop offset="100%" stop-color="#059669"/></linearGradient></defs>
+<rect width="800" height="220" fill="url(#cdBanner)"/>
+<circle cx="690" cy="30" r="150" fill="#10B981" opacity="0.12"/>
+<g transform="translate(72,52)" stroke="#fff" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="0" y="0" width="150" height="112" rx="10" fill="rgba(255,255,255,0.06)"/>
+<line x1="22" y1="30" x2="128" y2="30"/><line x1="22" y1="52" x2="104" y2="52"/><line x1="22" y1="74" x2="116" y2="74"/>
+<circle cx="118" cy="90" r="17" stroke="#34D399"/>
+</g>
+<text x="190" y="149" text-anchor="middle" style="font-size:20px;font-weight:800;fill:#34D399;font-family:Plus Jakarta Sans,sans-serif">$</text>
+<g transform="translate(300,58)" fill="none" stroke="#34D399" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="0,100 60,82 120,90 180,52 240,60 300,20"/>
+<circle cx="300" cy="20" r="5" fill="#34D399" stroke="none"/>
+</g>
+<g transform="translate(648,120)" stroke="#fff" fill="rgba(255,255,255,0.08)" stroke-width="2.5">
+<ellipse cx="0" cy="40" rx="46" ry="14"/><ellipse cx="0" cy="26" rx="46" ry="14"/><ellipse cx="0" cy="12" rx="46" ry="14"/>
+</g>
+</svg>
+</div>
 
 <div class="seo-content">
 <h2>How CD interest is calculated</h2>
@@ -253,6 +272,37 @@ SavingsClub
 
 <h2>CD laddering, in one paragraph</h2>
 <p>Instead of locking everything into one CD, a ladder splits your money across several CDs that mature at staggered dates, for example 3, 6, 12, and 24 months. As each one matures you roll it into a new longer-term CD. You get regular access to a slice of your money while still capturing higher long-term rates, and you are never fully locked in. Compare a ladder against flexible growth with our <a href="../savings-calculator/">Savings Calculator</a>, or see how the same money would grow long-term in our <a href="../investment-calculator/">Investment Calculator</a>.</p>
+
+<h2>Types of CDs, and when each one makes sense</h2>
+<p>Not every CD is the plain vanilla kind. Knowing the variations helps you avoid locking into the wrong one.</p>
+<p><strong>No-penalty CD.</strong> Lets you withdraw early without forfeiting interest, in exchange for a slightly lower rate. Good for money you probably will not touch but might.</p>
+<p><strong>Bump-up CD.</strong> Lets you raise your rate once during the term if the bank increases its rates. Useful when rates look likely to climb, though it usually starts a little lower.</p>
+<p><strong>Jumbo CD.</strong> Requires a large deposit, often 100,000 dollars or more, sometimes for a small rate bump. The extra yield is usually thin, so compare it against a standard CD before assuming bigger is better.</p>
+<p><strong>Brokered CD.</strong> Bought through a brokerage rather than a bank. It can offer higher rates and can be sold before maturity, but selling early can lose value if rates have risen, and it behaves differently from a bank CD.</p>
+<p><strong>IRA CD.</strong> A CD held inside a retirement account, so the interest grows tax-deferred or tax-free. Suited to conservative retirement money, not cash you might need soon. Our <a href="../roth-ira-calculator/">Roth IRA calculator</a> shows how tax-advantaged growth compounds over time.</p>
+
+<h2>How to open a CD, step by step</h2>
+<ol>
+<li>Compare APYs across several online banks and credit unions, not just your current bank. Online banks usually pay far more than big national branches.</li>
+<li>Pick a term that matches when you will actually need the money, not simply the highest rate on the board.</li>
+<li>Read the early withdrawal penalty before you sign, and note whether it is a no-penalty CD.</li>
+<li>Fund the CD, usually by transfer from a linked checking or savings account.</li>
+<li>Write down the maturity date and set a reminder, because most CDs auto-renew if you do nothing.</li>
+<li>At maturity, decide whether to withdraw or let it roll into a new term at the current rate.</li>
+</ol>
+
+<h2>10,000 dollars across four safe options</h2>
+<p>A CD is one of several safe homes for cash. Here is roughly what 10,000 dollars earns in a year in each, and what you trade off. Rates are approximate for 2026 and change over time.</p>
+<table class="cd-table">
+<thead><tr><th>Option</th><th>About 1-year interest</th><th>Access</th><th>Safety</th></tr></thead>
+<tbody>
+<tr><td>This CD (4.5% APY)</td><td>$459</td><td>Locked for the term</td><td>FDIC insured</td></tr>
+<tr><td>High-yield savings (4.0% APY)</td><td>$400</td><td>Anytime</td><td>FDIC insured, rate can change</td></tr>
+<tr><td>Regular savings (0.40% APY)</td><td>$40</td><td>Anytime</td><td>FDIC insured</td></tr>
+<tr><td>1-year Treasury bill (about 4.2%)</td><td>$420</td><td>Sell on the secondary market</td><td>US Treasury, state-tax-free</td></tr>
+</tbody>
+</table>
+<p>The pattern is simple: a CD trades access for a locked, guaranteed rate, a <a href="../banking/">high-yield savings account</a> keeps access but can cut its rate at any time, and a Treasury bill adds a state-tax advantage. Match the tool to how soon you will need the money.</p>
 </div>
 
 <div class="cd-tips-card">
@@ -334,33 +384,36 @@ SavingsClub
 <script>
 function cdFmt(n){ if(n===undefined||isNaN(n))return '$0'; return '$'+Math.round(n).toLocaleString('en-US'); }
 
-function cdGrowthChart(P, r, n, months){
-  var W=720,H=300,mL=58,mR=16,mT=22,mB=42;
+function cdInterestChart(P, r, n, months){
+  var W=720,H=300,mL=64,mR=16,mT=22,mB=42;
   var plotW=W-mL-mR, plotH=H-mT-mB;
-  var maturity=P*Math.pow(1+r/n, n*(months/12));
-  var yMax=maturity*1.06;
+  function cdInt(k){ return P*Math.pow(1+r/n, n*(k/12)) - P; }
+  function savInt(k){ return P*Math.pow(1.004, k/12) - P; }
+  var maxI=Math.max(cdInt(months), 1);
+  var yMax=maxI*1.12;
   function X(k){ return mL + (k/months)*plotW; }
   function Y(v){ return mT + plotH - (v/yMax)*plotH; }
-  var pts=[]; var stepN=Math.max(1, Math.round(months/48));
-  for(var k=0;k<=months;k+=stepN){ pts.push([k, P*Math.pow(1+r/n, n*(k/12))]); }
-  if(pts[pts.length-1][0]!==months) pts.push([months, maturity]);
-  var line='M '+X(0).toFixed(1)+' '+Y(pts[0][1]).toFixed(1);
-  pts.forEach(function(p){ line+=' L '+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1); });
-  var interestArea=line+' L '+X(months).toFixed(1)+' '+Y(P).toFixed(1)+' L '+X(0).toFixed(1)+' '+Y(P).toFixed(1)+' Z';
-  var baseY=Y(0), depY=Y(P);
-  var svg='<svg viewBox="0 0 '+W+' '+H+'" width="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="CD balance growth over the term">';
-  svg+='<defs><linearGradient id="cdIntG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#10B981" stop-opacity="0.85"/><stop offset="100%" stop-color="#34D399" stop-opacity="0.45"/></linearGradient></defs>';
-  [0,P,maturity].forEach(function(v){
+  var stepN=Math.max(1, Math.round(months/48));
+  var cdPts=[], savPts=[];
+  for(var k=0;k<=months;k+=stepN){ cdPts.push([k,cdInt(k)]); savPts.push([k,savInt(k)]); }
+  if(cdPts[cdPts.length-1][0]!==months){ cdPts.push([months,cdInt(months)]); savPts.push([months,savInt(months)]); }
+  function toLine(pts){ var d='M '+X(pts[0][0]).toFixed(1)+' '+Y(pts[0][1]).toFixed(1); pts.forEach(function(p){ d+=' L '+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1); }); return d; }
+  var cdLine=toLine(cdPts);
+  var cdArea=cdLine+' L '+X(months).toFixed(1)+' '+Y(0).toFixed(1)+' L '+X(0).toFixed(1)+' '+Y(0).toFixed(1)+' Z';
+  var savLine=toLine(savPts);
+  var svg='<svg viewBox="0 0 '+W+' '+H+'" width="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Interest earned over time compared with a savings account">';
+  svg+='<defs><linearGradient id="cdIntG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#10B981" stop-opacity="0.75"/><stop offset="100%" stop-color="#34D399" stop-opacity="0.10"/></linearGradient></defs>';
+  [0, maxI/2, maxI].forEach(function(v){
     var y=Y(v);
     svg+='<line x1="'+mL+'" y1="'+y.toFixed(1)+'" x2="'+(W-mR)+'" y2="'+y.toFixed(1)+'" stroke="#EEF2F6" stroke-width="1"/>';
     svg+='<text x="'+(mL-8)+'" y="'+(y+4).toFixed(1)+'" text-anchor="end" style="font-size:11px;fill:#94A3B8;font-family:DM Sans,sans-serif">'+cdFmt(v)+'</text>';
   });
-  svg+='<rect x="'+mL+'" y="'+depY.toFixed(1)+'" width="'+plotW.toFixed(1)+'" height="'+(baseY-depY).toFixed(1)+'" fill="#0F2540" opacity="0.06"/>';
-  svg+='<path d="'+interestArea+'" fill="url(#cdIntG)"/>';
-  svg+='<path d="'+line+'" fill="none" stroke="#059669" stroke-width="2.5" stroke-linejoin="round"/>';
-  svg+='<line x1="'+mL+'" y1="'+depY.toFixed(1)+'" x2="'+(W-mR)+'" y2="'+depY.toFixed(1)+'" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="5 4"/>';
-  svg+='<circle cx="'+X(months).toFixed(1)+'" cy="'+Y(maturity).toFixed(1)+'" r="4.5" fill="#059669" stroke="#fff" stroke-width="2"/>';
-  svg+='<text x="'+(X(months)-6).toFixed(1)+'" y="'+(Y(maturity)-10).toFixed(1)+'" text-anchor="end" style="font-size:12px;font-weight:700;fill:#064E3B;font-family:Plus Jakarta Sans,sans-serif">'+cdFmt(maturity)+'</text>';
+  svg+='<path d="'+cdArea+'" fill="url(#cdIntG)"/>';
+  svg+='<path d="'+savLine+'" fill="none" stroke="#64748B" stroke-width="2" stroke-dasharray="5 4" stroke-linejoin="round"/>';
+  svg+='<path d="'+cdLine+'" fill="none" stroke="#059669" stroke-width="2.75" stroke-linejoin="round"/>';
+  svg+='<circle cx="'+X(months).toFixed(1)+'" cy="'+Y(cdInt(months)).toFixed(1)+'" r="4.5" fill="#059669" stroke="#fff" stroke-width="2"/>';
+  svg+='<text x="'+(X(months)-6).toFixed(1)+'" y="'+(Y(cdInt(months))-10).toFixed(1)+'" text-anchor="end" style="font-size:12px;font-weight:700;fill:#064E3B;font-family:Plus Jakarta Sans,sans-serif">'+cdFmt(cdInt(months))+'</text>';
+  svg+='<circle cx="'+X(months).toFixed(1)+'" cy="'+Y(savInt(months)).toFixed(1)+'" r="4" fill="#64748B" stroke="#fff" stroke-width="2"/>';
   svg+='<text x="'+mL+'" y="'+(H-14)+'" style="font-size:11px;fill:#94A3B8;font-family:DM Sans,sans-serif">0 mo</text>';
   svg+='<text x="'+(W-mR)+'" y="'+(H-14)+'" text-anchor="end" style="font-size:11px;fill:#94A3B8;font-family:DM Sans,sans-serif">'+months+' mo</text>';
   svg+='</svg>';
@@ -418,12 +471,12 @@ function cdCalc(){
     + '<div class="cd-compound-note">Compounded <strong>'+compLabel+'</strong>, your '+rate+'% stated rate becomes a <strong>'+(apy*100).toFixed(2)+'% APY</strong>. Remember: two CDs with the same APY pay the same, no matter how often they compound.</div>'
     + penaltyHtml
     + '<div class="cd-chart-wrap">'
-    +   '<div class="cd-section-title"><span class="dot"></span> How your balance grows</div>'
-    +   cdGrowthChart(P,r,n,months)
-    +   '<div class="cd-legend"><span><i style="background:#0F2540;opacity:.45"></i>Your deposit</span><span><i style="background:#10B981"></i>Interest earned</span></div>'
+    +   '<div class="cd-section-title"><span class="dot"></span> Interest earned over time vs a savings account</div>'
+    +   cdInterestChart(P,r,n,months)
+    +   '<div class="cd-legend"><span><i style="background:#10B981"></i>This CD ('+rate+'%)</span><span><i style="background:#64748B"></i>Regular savings (0.40%)</span></div>'
     +   '<div class="cd-section-title" style="margin-top:22px"><span class="dot"></span> Compare CD terms at '+rate+'% ('+compLabel+')</div>'
     +   cdTermTable(P,r,n)
-    +   '<p class="cd-chart-caption">A regular savings account at 0.40% APY would earn only '+cdFmt(P*Math.pow(1.004,t)-P)+' over your '+months+'-month term.</p>'
+    +   '<p class="cd-chart-caption">Over your '+months+'-month term, this CD earns '+cdFmt(P*Math.pow(1+r/n,n*t)-P)+' versus about '+cdFmt(P*Math.pow(1.004,t)-P)+' in a typical 0.40% savings account.</p>'
     + '</div>';
 
   var res=document.getElementById('cdResults');
