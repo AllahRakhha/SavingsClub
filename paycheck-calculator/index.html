@@ -106,9 +106,9 @@
 
 /* Smart Insight panel */
 .pc-insight{background:linear-gradient(135deg,#FEF3C7 0%,#FDE68A 100%);border:1px solid #F59E0B;border-radius:20px;padding:24px;margin-bottom:24px;position:relative;overflow:hidden}
-.pc-insight::before{content:'💡';position:absolute;top:-15px;right:-15px;font-size:120px;opacity:.08;transform:rotate(15deg)}
+.pc-insight::before{content:'';position:absolute;top:-15px;right:-15px;font-size:120px;opacity:.08;transform:rotate(15deg)}
 .pc-insight-label{font-size:.75rem;color:#92400E;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;display:flex;align-items:center;gap:8px;position:relative}
-.pc-insight-label::before{content:'💡';font-size:1.1rem}
+.pc-insight-label::before{content:'';font-size:1.1rem}
 .pc-insight-title{font-size:1.2rem;font-weight:700;color:#78350F;margin-bottom:6px;position:relative}
 .pc-insight-text{font-size:.95rem;color:#92400E;line-height:1.6;position:relative;margin:0}
 .pc-insight-text strong{color:#78350F}
@@ -221,6 +221,7 @@ SavingsClub
 <!-- HERO -->
 <div class="pc-hero reveal">
 <h1>Paycheck Calculator <span class="accent">2026</span></h1>
+<p style="color:#64748B;font-size:.85rem;margin:8px 0 0;font-weight:500">By SavingsClub Research Team</p>
 <p class="subtitle">Calculate your true take-home pay in all 50 states</p>
 <div class="badges">
 <span class="badge">All 50 States + DC</span>
@@ -367,7 +368,7 @@ SavingsClub
 <!-- RAISE CALCULATOR -->
 <div class="pc-raise reveal">
 <div class="pc-raise-header">
-<div class="pc-raise-icon">📈</div>
+<div class="pc-raise-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
 <div class="pc-raise-titlewrap">
 <h3>Raise Impact Calculator</h3>
 <p>See how much of a raise you'd actually keep after taxes</p>
@@ -433,7 +434,7 @@ SavingsClub
 </select>
 </div>
 <div class="pc-compare-grid" id="compareGrid"></div>
-<div class="pc-note">All comparisons use your current income and deductions. Cost of living varies significantly between states — take-home alone doesn't tell the full story.</div>
+<div class="pc-note">All comparisons use your current income and deductions. Cost of living varies significantly between states, take-home alone doesn't tell the full story.</div>
 </div>
 
 <!-- SEO CONTENT -->
@@ -442,16 +443,16 @@ SavingsClub
 <p>Your gross salary is rarely what you take home. Between federal income tax, state income tax, FICA (Social Security and Medicare), retirement contributions, and benefit deductions, the typical American keeps only <strong>65-78%</strong> of their gross pay. This calculator breaks down exactly where every dollar goes.</p>
 
 <h3>1. Federal Income Tax (Largest Single Deduction for Most Workers)</h3>
-<p>The U.S. uses a <strong>progressive tax system</strong> with seven brackets ranging from 10% to 37% in 2026. Your tax isn't a flat percentage — different portions of your income are taxed at different rates. For a single filer earning $65,000, the first $12,400 is taxed at 10%, the next $38,000 at 12%, and the remaining amount at 22%. Your <strong>effective rate</strong> ends up around 12-14%, even though your top bracket is 22%.</p>
+<p>The U.S. uses a <strong>progressive tax system</strong> with seven brackets ranging from 10% to 37% in 2026. Your tax isn't a flat percentage, different portions of your income are taxed at different rates. For a single filer earning $65,000, the first $12,400 is taxed at 10%, the next $38,000 at 12%, and the remaining amount at 22%. Your <strong>effective rate</strong> ends up around 12-14%, even though your top bracket is 22%.</p>
 
 <h3>2. State Income Tax (Varies Wildly by Location)</h3>
 <p>State income tax can swing your take-home pay by thousands of dollars per year. Nine states have no income tax on wages: <strong>Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming</strong>. On the opposite end, California's top rate is 13.3%, and Hawaii reaches 11%. Use our state comparison tool above to see exactly how a move would affect your paycheck.</p>
 
 <h3>3. FICA Taxes: Social Security + Medicare</h3>
-<p>Every W-2 employee pays <strong>7.65% in FICA taxes</strong> — split as 6.2% for Social Security and 1.45% for Medicare. Social Security tax applies only to the first $184,500 of wages in 2026 (the "wage base"), so high earners get a partial break. Medicare has no cap, and earners above $200,000 (single) or $250,000 (married) pay an additional 0.9% Medicare surtax.</p>
+<p>Every W-2 employee pays <strong>7.65% in FICA taxes</strong>, split as 6.2% for Social Security and 1.45% for Medicare. Social Security tax applies only to the first $184,500 of wages in 2026 (the "wage base"), so high earners get a partial break. Medicare has no cap, and earners above $200,000 (single) or $250,000 (married) pay an additional 0.9% Medicare surtax.</p>
 
 <h3>4. Pre-Tax Deductions Reduce Your Taxable Income</h3>
-<p>Pre-tax deductions like Traditional 401(k), HSA, FSA, and many health insurance premiums lower your federal and state taxable income. If you earn $65,000 in California and contribute 10% to your Traditional 401(k), you reduce your taxable income by $6,500 — saving roughly $1,430 in federal tax and about $600 in California state tax. That's <strong>$2,030 in tax savings</strong> while building retirement wealth. Our <a href="../401k-calculator/">401(k) Calculator</a> shows the long-term growth impact.</p>
+<p>Pre-tax deductions like Traditional 401(k), HSA, FSA, and many health insurance premiums lower your federal and state taxable income. If you earn $65,000 in California and contribute 10% to your Traditional 401(k), you reduce your taxable income by $6,500, saving roughly $1,430 in federal tax and about $600 in California state tax. That's <strong>$2,030 in tax savings</strong> while building retirement wealth. Our <a href="../401k-calculator/">401(k) Calculator</a> shows the long-term growth impact.</p>
 
 <h3>5. Why Identical Salaries Produce Different Paychecks</h3>
 <p>Two people earning $80,000 can take home vastly different amounts depending on: state of residence, filing status (single vs. married), pre-tax retirement contributions, HSA/FSA elections, health insurance premium share, and whether they have children or other tax credits. This calculator captures the major variables; your real paycheck may also be affected by local/city taxes (NYC charges 3-3.876%, San Francisco has a payroll tax), supplemental wages, and your W-4 withholding selections.</p>
@@ -470,10 +471,10 @@ SavingsClub
 <p>Gross pay is your total salary before any deductions. Net pay (take-home pay) is what hits your bank account after federal income tax, state income tax, Social Security (6.2%), Medicare (1.45%), 401(k) contributions, health insurance, and other deductions are subtracted.</p>
 
 <h3>Which states have no income tax?</h3>
-<p>Nine states have <strong>no state income tax on wages</strong>: Alaska, Florida, Nevada, New Hampshire (no wage tax — only on interest/dividends), South Dakota, Tennessee, Texas, Washington, and Wyoming. Moving to one of these states can increase your take-home pay by 3-13% depending on your salary and current state.</p>
+<p>Nine states have <strong>no state income tax on wages</strong>: Alaska, Florida, Nevada, New Hampshire (no wage tax, only on interest/dividends), South Dakota, Tennessee, Texas, Washington, and Wyoming. Moving to one of these states can increase your take-home pay by 3-13% depending on your salary and current state.</p>
 
 <h3>How do 401(k) contributions affect my take-home pay?</h3>
-<p><strong>Traditional 401(k)</strong> contributions are pre-tax — they reduce your taxable income, lowering both federal and state tax. <strong>Roth 401(k)</strong> contributions are after-tax — they don't reduce your current tax but grow tax-free for retirement. Both reduce your current paycheck by the contribution amount, but Traditional gives you immediate tax savings.</p>
+<p><strong>Traditional 401(k)</strong> contributions are pre-tax, they reduce your taxable income, lowering both federal and state tax. <strong>Roth 401(k)</strong> contributions are after-tax, they don't reduce your current tax but grow tax-free for retirement. Both reduce your current paycheck by the contribution amount, but Traditional gives you immediate tax savings.</p>
 
 <h3>What is the Social Security wage base for 2026?</h3>
 <p>The Social Security wage base for 2026 is <strong>$184,500</strong> (confirmed by the SSA). You pay 6.2% Social Security tax only on income up to this limit. Income above this amount is exempt from Social Security tax but still subject to the 1.45% Medicare tax (plus an additional 0.9% above $200,000 for single filers).</p>
@@ -485,13 +486,13 @@ SavingsClub
 <p>Common reasons: your W-4 withholding settings, local/city income taxes, employer-specific benefit deductions, supplemental income (bonuses, RSUs), additional dependents claimed, or year-to-date adjustments. This calculator estimates standard withholding for most W-2 employees in a typical pay period.</p>
 
 <h3>Should I increase my 401(k) contribution to lower my taxes?</h3>
-<p>For most workers, contributing at least enough to get your full employer match is essential — it's effectively free money. Beyond that, increasing Traditional 401(k) contributions reduces current taxes and builds long-term wealth. Use the Smart Optimization Tip above to see exactly how much you'd save by bumping your contribution. Also see our <a href="../401k-calculator/">401(k) Calculator</a> and <a href="../roth-ira-calculator/">Roth IRA Calculator</a> to compare retirement strategies.</p>
+<p>For most workers, contributing at least enough to get your full employer match is essential, it's effectively free money. Beyond that, increasing Traditional 401(k) contributions reduces current taxes and builds long-term wealth. Use the Smart Optimization Tip above to see exactly how much you'd save by bumping your contribution. Also see our <a href="../401k-calculator/">401(k) Calculator</a> and <a href="../roth-ira-calculator/">Roth IRA Calculator</a> to compare retirement strategies.</p>
 </div>
 
 <!-- RELATED CALCULATORS -->
 <div class="related-tools reveal">
 <h3>All Calculators</h3>
-<a href="../savings-calculator/" class="related-tool-link">💰 Savings</a><a href="../budget-planner/" class="related-tool-link">📊 Budget</a><a href="../debt-payoff-calculator/" class="related-tool-link">🔥 Debt Payoff</a><a href="../compound-interest-calculator/" class="related-tool-link">📈 Compound Interest</a><a href="../retirement-calculator/" class="related-tool-link">🏠 Retirement</a><a href="../investment-calculator/" class="related-tool-link">💎 Investment</a><a href="../mortgage-calculator/" class="related-tool-link">🏡 Mortgage</a><a href="../auto-loan-calculator/" class="related-tool-link">🚗 Auto Loan</a><a href="../net-worth-calculator/" class="related-tool-link">💳 Net Worth</a><a href="../emergency-fund-calculator/" class="related-tool-link">🛡️ Emergency Fund</a><a href="../credit-card-payoff-calculator/" class="related-tool-link">💳 CC Payoff</a><a href="../401k-calculator/" class="related-tool-link">🏦 401(k)</a><a href="../roth-ira-calculator/" class="related-tool-link">📋 Roth IRA</a><a href="../inflation-calculator/" class="related-tool-link">📉 Inflation</a><a href="../loan-payoff-calculator/" class="related-tool-link">🎯 Loan Payoff</a><a href="../cd-calculator/" class="related-tool-link">🔐 CD Calculator</a>
+<a href="../federal-income-tax-calculator/" class="related-tool-link">Federal Income Tax</a><a href="texas/" class="related-tool-link">Texas Paycheck</a><a href="../savings-calculator/" class="related-tool-link">Savings Calculator</a><a href="../budget-planner/" class="related-tool-link">Budget Planner</a><a href="../debt-payoff-calculator/" class="related-tool-link">Debt Payoff</a><a href="../compound-interest-calculator/" class="related-tool-link">Compound Interest</a><a href="../retirement-calculator/" class="related-tool-link">Retirement Planner</a><a href="../investment-calculator/" class="related-tool-link">Investment Growth</a><a href="../mortgage-calculator/" class="related-tool-link">Mortgage Calculator</a><a href="../auto-loan-calculator/" class="related-tool-link">Auto Loan</a><a href="../net-worth-calculator/" class="related-tool-link">Net Worth</a><a href="../emergency-fund-calculator/" class="related-tool-link">Emergency Fund</a><a href="../credit-card-payoff-calculator/" class="related-tool-link">Credit Card Payoff</a><a href="../401k-calculator/" class="related-tool-link">401(k) Calculator</a><a href="../roth-ira-calculator/" class="related-tool-link">Roth IRA</a><a href="../inflation-calculator/" class="related-tool-link">Inflation</a><a href="../loan-payoff-calculator/" class="related-tool-link">Loan Payoff</a><a href="../cd-calculator/" class="related-tool-link">CD Calculator</a>
 </div>
 
 </div>
@@ -902,7 +903,7 @@ var extraRetirement=bumped.trad401k-current.trad401k;
 if(taxSaved>50){
 tips.push({
 priority:taxSaved,
-title:'Bump your 401(k) to '+bumpPct+'% — save '+fmt(taxSaved)+' in taxes',
+title:'Bump your 401(k) to '+bumpPct+'%, save '+fmt(taxSaved)+' in taxes',
 text:'Increasing your Traditional 401(k) from <strong>'+inp.trad401kPct+'% to '+bumpPct+'%</strong> would save you <strong>'+fmt(taxSaved)+'/year in taxes</strong> and add <strong>'+fmt(extraRetirement)+'/year to your retirement</strong>. Over 30 years at 7% returns, that\u2019s '+fmt(extraRetirement*94.46)+' in extra retirement wealth.'
 });
 }
@@ -916,7 +917,7 @@ var hsaSavings=(r.fedTax+r.stateTax+r.fica)-(withHSA.fedTax+withHSA.stateTax+wit
 if(hsaSavings>200){
 tips.push({
 priority:hsaSavings,
-title:'Open an HSA — save '+fmt(hsaSavings)+' in taxes',
+title:'Open an HSA, save '+fmt(hsaSavings)+' in taxes',
 text:'If your employer offers an HSA-eligible health plan, contributing the max (<strong>'+fmt(hsaTarget)+'/year</strong> for '+inp.filing+') would save <strong>'+fmt(hsaSavings)+'/year</strong> in combined federal, state, and FICA taxes. It\u2019s the only account that\u2019s triple-tax-advantaged.'
 });
 }
@@ -929,7 +930,7 @@ var txCalc=calcPaycheck({gross:inp.gross,filing:inp.filing,state:'TX',trad401kPc
 var taxSavingsByMoving=r.stateTax;
 tips.push({
 priority:taxSavingsByMoving*.5, /* lower priority - not always realistic */
-title:'You pay '+fmt(r.stateTax)+' in state tax — Texas would be $0',
+title:'You pay '+fmt(r.stateTax)+' in state tax, Texas would be $0',
 text:'If you moved to Texas, Florida, or another no-income-tax state, you\u2019d keep an extra <strong>'+fmt(taxSavingsByMoving)+'/year</strong>. Cost of living varies, but remote workers and retirees often save significantly. See the state comparison below.'
 });
 }
@@ -938,7 +939,7 @@ text:'If you moved to Texas, Florida, or another no-income-tax state, you\u2019d
 if(r.effectiveRate>30&&!tips.length){
 tips.push({
 priority:1000,
-title:'You\u2019re in a high tax bracket — maximize pre-tax accounts',
+title:'You\u2019re in a high tax bracket, maximize pre-tax accounts',
 text:'Your effective tax rate is <strong>'+fmtPct(r.effectiveRate)+'</strong>. Maxing out Traditional 401(k) ($23,500), HSA ($4,300 single / $8,550 family), and Traditional IRA ($7,000) could save you <strong>'+fmt((23500+4300+7000)*.32)+'+ /year</strong> in taxes.'
 });
 }
