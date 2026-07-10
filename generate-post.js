@@ -1357,12 +1357,12 @@ localStorage.setItem('sc_cookies','decline');
 b.innerHTML='';
 var msg=document.createElement('span');
 msg.style.cssText='padding:12px 0;color:#10B981';
-msg.textContent='No cookies stored. You can browse freely.';
+msg.textContent='Preference saved.';
 b.appendChild(msg);
-setTimeout(function(){b.remove();},2500);
+setTimeout(function(){b.remove();},2000);
 };
 var txt=document.createElement('span');
-txt.innerHTML='We use cookies to improve your experience. <a href="/cookie-policy/" style="color:#10B981">Cookie Policy</a>';
+txt.innerHTML='We use basic analytics cookies to understand site traffic. <a href="/cookie-policy/" style="color:#10B981">Cookie Policy</a>';
 var btnWrap=document.createElement('div');
 btnWrap.style.cssText='display:flex;gap:8px';
 btnWrap.appendChild(acceptBtn);
@@ -1381,7 +1381,64 @@ document.body.appendChild(b);
   console.log('Blog index regenerated: blog/index.html (' + posts.length + ' posts)');
 }
 
+/**
+ * ONE POST PER WEEK, ON A RANDOM DAY.
+ *
+ * The workflow can run every day (cron: 0 12 * * * in weekly-blog.yml), but this
+ * gate self-limits actual publishing to roughly once every 7 days, and randomizes
+ * WHICH day it lands on so the pattern is not a fixed Mon/Wed/Fri footprint.
+ *
+ * Logic:
+ *   - If fewer than MIN_DAYS_BETWEEN_POSTS days have passed since the last post,
+ *     do nothing today.
+ *   - Once eligible, roll a dice each run (DAILY_PUBLISH_CHANCE) so the exact
+ *     publish day varies week to week.
+ *   - Safety valve: if it has been HARD_MAX_DAYS or more, publish for sure so the
+ *     blog never stalls out completely.
+ */
+var MIN_DAYS_BETWEEN_POSTS = 6;    // never post more often than about once a week
+var DAILY_PUBLISH_CHANCE = 0.35;   // once eligible, ~1-in-3 chance per daily run
+var HARD_MAX_DAYS = 10;            // if it has been this long, publish no matter what
+
+function daysSinceLastPost() {
+  try {
+    var posts = JSON.parse(fs.readFileSync('generated-posts.json', 'utf8'));
+    if (!posts || !posts.length) return 9999;
+    var newest = posts[0]; // posts.unshift() keeps newest first
+    var d = new Date(newest.isoDate || newest.pubDate || newest.date);
+    if (isNaN(d.getTime())) return 9999;
+    return (Date.now() - d.getTime()) / (1000 * 60 * 60 * 24);
+  } catch (e) {
+    return 9999; // no file yet, or unreadable: treat as "due"
+  }
+}
+
+function shouldPublishToday() {
+  var gap = daysSinceLastPost();
+  if (gap < MIN_DAYS_BETWEEN_POSTS) {
+    console.log('Skip: only ' + gap.toFixed(1) + ' days since last post (min ' + MIN_DAYS_BETWEEN_POSTS + '). No post today.');
+    return false;
+  }
+  if (gap >= HARD_MAX_DAYS) {
+    console.log('It has been ' + gap.toFixed(1) + ' days (>= ' + HARD_MAX_DAYS + '). Publishing to keep the blog active.');
+    return true;
+  }
+  var roll = Math.random();
+  if (roll > DAILY_PUBLISH_CHANCE) {
+    console.log('Eligible (' + gap.toFixed(1) + ' days) but rolled ' + roll.toFixed(2) + ' > ' + DAILY_PUBLISH_CHANCE + '. Randomly skipping today.');
+    return false;
+  }
+  console.log('Eligible (' + gap.toFixed(1) + ' days) and rolled ' + roll.toFixed(2) + ' <= ' + DAILY_PUBLISH_CHANCE + '. Publishing today.');
+  return true;
+}
+
 async function generatePost() {
+  // Random-day, once-a-week gate. Exit cleanly (green build) on skip days.
+  if (!shouldPublishToday()) {
+    console.log('No post generated today. Exiting cleanly.');
+    return;
+  }
+
   const client = new Anthropic();
   const usedTitles = getUsedTopics();
   const { topic, state, priorityKeywords } = pickUnusedTopic(usedTitles);
@@ -1548,6 +1605,8 @@ Write unique, original content. Explain the WHY behind every recommendation. Be 
     metaDesc = metaDesc.replace(/(\$?[\d,.]+)\s*[\u2014\u2013]\s*(\$?[\d,.]+)/g, '$1 to $2');
     metaDesc = metaDesc.replace(/\s*[\u2014\u2013]\s*/g, ', ');
     metaDesc = metaDesc.replace(/"/g, "'");
+    // Honest-language rule: never claim expertise in the meta description.
+    metaDesc = metaDesc.replace(/\bexperts?\b/gi, '').replace(/\s{2,}/g, ' ').replace(/\s+([,.])/g, '$1').trim();
     if (metaDesc.length > 160) metaDesc = metaDesc.slice(0, 157).replace(/\s+\S*$/, '') + '...';
     content = content.replace(metaMatch[0], '');
   }
@@ -1720,7 +1779,7 @@ ${photoCredit}
 window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
 function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
 </script>
-<script src="../../js/logo-fix.js"></script></body>
+</body>
 </html>`;
 
   fs.writeFileSync(path.join(postDir, 'index.html'), postHtml);
