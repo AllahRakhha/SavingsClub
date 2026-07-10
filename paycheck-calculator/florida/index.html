@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Florida Paycheck Calculator: 2026 Take-Home Pay</title>
+<meta name="description" content="Free Florida paycheck calculator for 2026. See your real take-home pay after federal tax, Social Security, and Medicare. Florida has no state income tax.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://savingsclub.com/paycheck-calculator/florida/">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://savingsclub.com/paycheck-calculator/florida/">
+<meta property="og:title" content="Florida Paycheck Calculator: 2026 Take-Home Pay">
+<meta property="og:description" content="See your real Florida take-home pay for 2026. No state income tax, so you keep more of what you earn.">
+<meta property="og:site_name" content="SavingsClub">
+<meta property="og:image" content="https://savingsclub.com/img/sc-logo-full.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Florida Paycheck Calculator: 2026 Take-Home Pay">
+<meta name="twitter:description" content="See your real Florida take-home pay for 2026. No state income tax.">
+<meta name="twitter:image" content="https://savingsclub.com/img/sc-logo-full.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../../css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://savingsclub.com/"},
+    {"@type":"ListItem","position":2,"name":"Paycheck Calculator","item":"https://savingsclub.com/paycheck-calculator/"},
+    {"@type":"ListItem","position":3,"name":"Florida","item":"https://savingsclub.com/paycheck-calculator/florida/"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Florida have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Florida is one of only nine states with no state income tax, and its constitution bans one. There is also no county or city income tax anywhere in Florida. That means the only taxes withheld from a Florida paycheck are federal income tax, Social Security, and Medicare."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a Florida paycheck?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most workers, the deductions are federal income tax, Social Security at 6.2 percent up to the 184,500 dollar wage base, and Medicare at 1.45 percent. On a 75,000 dollar salary in 2026, a single filer keeps about 61,592 dollars per year after those deductions, which works out to roughly 2,369 dollars every two weeks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate my Florida take-home pay?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with your gross pay, subtract any pre-tax retirement or benefit contributions, then subtract federal income tax, Social Security, and Medicare. Because Florida has no state income tax, there is nothing more to subtract at the state level. The calculator on this page does all of that math for you using the 2026 federal brackets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Florida a good state for take-home pay?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For the same salary, a Florida worker keeps more than a worker in almost every other state, because there is no state income tax to pay. On 75,000 dollars, a Florida resident keeps about 3,568 dollars more than an Illinois resident and about 2,484 dollars more than a North Carolina resident. Housing and insurance costs still vary, so a higher take-home does not always mean lower total living costs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Florida tax overtime or bonuses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Florida does not tax overtime, bonuses, or commissions at the state level, because it has no income tax at all. Federal rules still apply. Bonuses are usually subject to federal withholding as supplemental wages, and overtime is still counted as federal taxable income."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Florida payroll tax for employees?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Florida employees pay only the federal payroll taxes, Social Security and Medicare, together known as FICA. Florida charges employers a reemployment tax that funds unemployment benefits, but that is paid by the employer, not deducted from your paycheck."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+.fl-page *{box-sizing:border-box}
+.fl-page{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;background:#F8FAFC;color:#0A1628;line-height:1.65;-webkit-font-smoothing:antialiased}
+.fl-page h1,.fl-page h2,.fl-page h3,.fl-page h4{font-family:'Plus Jakarta Sans',sans-serif;color:#0A1628;line-height:1.2;margin:0}
+.fl-wrap{max-width:860px;margin:0 auto;padding:0 24px}
+
+/* Hero */
+.fl-hero{background:linear-gradient(135deg,#0A1628 0%,#0F2540 50%,#059669 100%);color:#fff;padding:104px 24px 72px;text-align:center;position:relative;overflow:hidden}
+.fl-hero::before{content:'';position:absolute;top:-45%;right:-12%;width:60%;height:190%;background:radial-gradient(circle,rgba(16,185,129,0.28) 0%,transparent 62%);pointer-events:none;animation:flGlowA 7s ease-in-out infinite}
+.fl-hero::after{content:'';position:absolute;bottom:-45%;left:-14%;width:52%;height:170%;background:radial-gradient(circle,rgba(52,211,153,0.18) 0%,transparent 62%);pointer-events:none;animation:flGlowB 9s ease-in-out infinite}
+@keyframes flGlowA{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:1;transform:scale(1.12)}}
+@keyframes flGlowB{0%,100%{opacity:.5;transform:scale(1.08)}50%{opacity:.9;transform:scale(1)}}
+.fl-hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:1}
+.fl-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,0.16);color:#34D399;padding:8px 18px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:22px;border:1px solid rgba(16,185,129,0.35)}
+.fl-badge svg{width:14px;height:14px}
+.fl-hero h1{font-size:clamp(34px,5.2vw,52px);color:#fff;font-weight:800;margin-bottom:16px;letter-spacing:-0.02em;line-height:1.08}
+.fl-hero h1 .fl-accent{color:#34D399}
+.fl-hero p{font-size:clamp(16px,2vw,19px);color:rgba(255,255,255,0.84);max-width:600px;margin:0 auto}
+
+/* Calculator card */
+.fl-calc{background:#fff;border-radius:22px;box-shadow:0 18px 50px rgba(10,22,40,0.14);border:1px solid #EEF2F6;padding:34px 30px;margin:-46px auto 0;position:relative;z-index:5}
+.fl-calc h2{font-size:22px;margin-bottom:4px}
+.fl-calc-sub{color:#64748B;font-size:14px;margin-bottom:24px}
+.fl-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fl-field{display:flex;flex-direction:column;gap:7px}
+.fl-field.fl-full{grid-column:1/-1}
+.fl-field label{font-size:13px;font-weight:600;color:#334155}
+.fl-input,.fl-select{width:100%;padding:13px 14px;border:1.5px solid #E2E8F0;border-radius:11px;font-size:15px;font-family:'DM Sans',sans-serif;color:#0A1628;background:#fff;transition:border-color .18s ease,box-shadow .18s ease}
+.fl-input:focus,.fl-select:focus{outline:none;border-color:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,0.15)}
+.fl-money{position:relative}
+.fl-money span{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#94A3B8;font-weight:600;font-size:15px}
+.fl-money .fl-input{padding-left:28px}
+.fl-toggle{display:inline-flex;background:#F1F5F9;border-radius:11px;padding:4px;gap:4px}
+.fl-toggle button{border:none;background:transparent;padding:9px 16px;border-radius:8px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;color:#475569;cursor:pointer;transition:all .18s ease}
+.fl-toggle button.on{background:#fff;color:#059669;box-shadow:0 2px 8px rgba(10,22,40,0.08)}
+.fl-btns{display:flex;gap:12px;margin-top:26px}
+.fl-btn{flex:1;padding:15px;border-radius:12px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;cursor:pointer;border:none;transition:transform .15s ease,box-shadow .15s ease}
+.fl-btn-go{background:linear-gradient(135deg,#059669,#10B981);color:#fff;box-shadow:0 8px 22px rgba(5,150,105,0.32)}
+.fl-btn-go:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(5,150,105,0.4)}
+.fl-btn-reset{background:#F1F5F9;color:#475569;flex:0 0 120px}
+.fl-btn-reset:hover{background:#E2E8F0}
+
+/* Empty + results */
+.fl-empty{margin:26px auto 0;max-width:860px;text-align:center;color:#64748B;background:#fff;border:1px dashed #CBD5E1;border-radius:18px;padding:40px 24px}
+.fl-empty svg{width:40px;height:40px;color:#10B981;margin-bottom:12px}
+.fl-empty p{font-size:15px;margin:0}
+.fl-results{margin:26px auto 0;max-width:860px;display:none}
+.fl-results.show{display:block;animation:flFade .5s ease}
+@keyframes flFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.fl-headline{background:linear-gradient(135deg,#0A1628 0%,#0F2540 55%,#065F46 100%);color:#fff;border-radius:20px;padding:30px;text-align:center;position:relative;overflow:hidden}
+.fl-headline .fl-lbl{font-size:13px;letter-spacing:1px;text-transform:uppercase;color:#34D399;font-weight:700;margin-bottom:6px}
+.fl-headline .fl-big{font-size:clamp(36px,7vw,52px);font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;line-height:1}
+.fl-headline .fl-per{color:rgba(255,255,255,0.82);margin-top:10px;font-size:15px}
+.fl-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
+.fl-chip{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:999px;padding:8px 14px;font-size:13px;color:#fff}
+.fl-chip b{color:#34D399}
+
+/* Animated SVG breakdown bar */
+.fl-barcard{background:#fff;border:1px solid #EEF2F6;border-radius:18px;padding:26px;margin-top:18px;box-shadow:0 6px 20px rgba(10,22,40,0.05)}
+.fl-barcard h3{font-size:17px;margin-bottom:16px}
+.fl-svgbar{width:100%;height:52px;display:block}
+.flbar-fill{transform:scaleX(0);transform-box:fill-box;transform-origin:left center;transition:transform 1.05s cubic-bezier(.16,1,.3,1)}
+.flbar-fill.grow{transform:scaleX(1)}
+.fl-legend{list-style:none;padding:0;margin:20px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:12px 24px}
+.fl-legend li{display:flex;align-items:center;gap:10px;font-size:14px;color:#334155}
+.fl-legend .sw{width:14px;height:14px;border-radius:4px;flex:0 0 14px}
+.fl-legend .amt{margin-left:auto;font-weight:700;color:#0A1628;font-variant-numeric:tabular-nums}
+
+/* What-if slider */
+.fl-whatif{background:#F0FDF4;border:1px solid #D1FAE5;border-radius:16px;padding:22px 24px;margin-top:18px}
+.fl-whatif h3{font-size:16px;margin-bottom:4px}
+.fl-whatif p{font-size:13.5px;color:#475569;margin:0 0 16px}
+.fl-slider-row{display:flex;align-items:center;gap:16px}
+.fl-slider-row input[type=range]{flex:1;-webkit-appearance:none;appearance:none;height:7px;border-radius:99px;background:#D1FAE5;outline:none}
+.fl-slider-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:#059669;cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(5,150,105,0.4)}
+.fl-slider-row input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#059669;cursor:pointer;border:3px solid #fff}
+.fl-slider-val{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:#059669;min-width:56px;text-align:right}
+.fl-whatif-out{margin-top:14px;font-size:14px;color:#334155}
+.fl-whatif-out b{color:#059669}
+
+/* Content */
+.fl-content{padding:60px 0 20px}
+.fl-content h2{font-size:clamp(24px,3.6vw,30px);margin:0 0 14px;letter-spacing:-0.01em}
+.fl-content h3{font-size:20px;margin:34px 0 10px}
+.fl-content p{color:#334155;margin:0 0 16px;font-size:16.5px}
+.fl-content ul{color:#334155;margin:0 0 16px;padding-left:22px}
+.fl-content li{margin-bottom:8px}
+.fl-content a{color:#059669;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(5,150,105,0.28)}
+.fl-content a:hover{border-bottom-color:#059669}
+.fl-byline{color:#64748B;font-size:14px;margin-bottom:30px;display:flex;align-items:center;gap:8px}
+.fl-byline svg{width:15px;height:15px;color:#10B981}
+
+.fl-table{width:100%;border-collapse:collapse;margin:8px 0 20px;font-size:15px}
+.fl-table th,.fl-table td{padding:13px 14px;text-align:left;border-bottom:1px solid #E2E8F0}
+.fl-table th{background:#F1F5F9;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:#0A1628;font-size:13.5px}
+.fl-table td{color:#334155;font-variant-numeric:tabular-nums}
+.fl-table tr.fl-hl td{background:#F0FDF4;font-weight:700;color:#0A1628}
+.fl-note{background:#F8FAFC;border-left:3px solid #10B981;border-radius:0 12px 12px 0;padding:16px 20px;margin:0 0 20px;font-size:15px;color:#334155}
+
+/* FAQ */
+.fl-faq{padding:20px 0 10px}
+.fl-faq h2{font-size:clamp(24px,3.6vw,30px);margin-bottom:20px}
+.fl-faq details{background:#fff;border:1px solid #EEF2F6;border-radius:14px;margin-bottom:12px;overflow:hidden}
+.fl-faq summary{padding:18px 22px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:16px;color:#0A1628;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.fl-faq summary::-webkit-details-marker{display:none}
+.fl-faq summary::after{content:'';width:11px;height:11px;border-right:2px solid #10B981;border-bottom:2px solid #10B981;transform:rotate(45deg);transition:transform .2s ease;flex:0 0 11px}
+.fl-faq details[open] summary::after{transform:rotate(-135deg)}
+.fl-faq .fl-ans{padding:0 22px 20px;color:#334155;font-size:15.5px;line-height:1.65}
+
+/* Related */
+.fl-related{padding:40px 0 70px}
+.fl-related h2{font-size:22px;margin-bottom:18px}
+.fl-related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.fl-related a{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #EEF2F6;border-radius:14px;padding:16px 18px;text-decoration:none;color:#0A1628;font-weight:600;font-size:15px;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.fl-related a:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(10,22,40,0.1);border-color:#D1FAE5}
+.fl-related a .ic{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#059669,#10B981);display:flex;align-items:center;justify-content:center;flex:0 0 34px}
+.fl-related a .ic svg{width:18px;height:18px;color:#fff}
+
+@media (max-width:720px){
+  .fl-hero{padding:88px 20px 64px}
+  .fl-calc{padding:26px 20px;border-radius:18px}
+  .fl-grid{grid-template-columns:1fr}
+  .fl-legend{grid-template-columns:1fr}
+  .fl-btn-reset{flex:0 0 104px}
+  .fl-content{padding:44px 0 16px}
+}
+@media (prefers-reduced-motion:reduce){
+  .fl-hero::before,.fl-hero::after{animation:none}
+  .flbar-fill{transition:none;transform:scaleX(1)}
+  .fl-results.show{animation:none}
+}
+</style>
+</head>
+<body class="fl-page">
+
+<nav id="mainNav">
+<div class="nav-inner">
+<div class="logo" onclick="location.href='../../'">
+<div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+SavingsClub
+</div>
+<div class="nav-links" id="navLinks">
+<a href="../../">Home</a>
+<a href="../../savings-calculator/">Calculators</a>
+<a href="../../credit-cards/">Credit Cards</a>
+<a href="../../blog/">Blog</a>
+<a href="../../banking/">Banking</a>
+<a href="../../about/">About</a>
+<a href="../../faq/">FAQ</a>
+</div>
+<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+<a href="../../">Home</a>
+<a href="../../savings-calculator/">Calculators</a>
+<a href="../../budget-planner/">Budget</a>
+<a href="../../paycheck-calculator/">Paycheck</a>
+<a href="../../credit-cards/">Credit Cards</a>
+<a href="../../blog/">Blog</a>
+<a href="../../banking/">Banking</a>
+<a href="../../about/">About</a>
+<a href="../../faq/">FAQ</a>
+</div>
+
+<header class="fl-hero">
+  <div class="fl-hero-inner">
+    <span class="fl-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      Florida 2026
+    </span>
+    <h1>Florida Paycheck Calculator</h1>
+    <p>See your real take-home pay in Florida. No state income tax means you keep more of what you earn.</p>
+  </div>
+</header>
+
+<div class="fl-wrap">
+  <div class="fl-calc">
+    <h2>Estimate your Florida take-home pay</h2>
+    <p class="fl-calc-sub">Enter your pay details, then press Calculate. Nothing updates until you do.</p>
+
+    <div class="fl-field fl-full" style="margin-bottom:18px">
+      <label>Pay type</label>
+      <div class="fl-toggle" id="flPayToggle">
+        <button type="button" class="on" data-mode="salary" onclick="flSetMode('salary')">Annual salary</button>
+        <button type="button" data-mode="hourly" onclick="flSetMode('hourly')">Hourly</button>
+      </div>
+    </div>
+
+    <div class="fl-grid">
+      <div class="fl-field fl-full" id="flSalaryField">
+        <label for="flSalary">Gross annual salary</label>
+        <div class="fl-money"><span>$</span><input class="fl-input" id="flSalary" type="text" inputmode="decimal" placeholder="75,000"></div>
+      </div>
+
+      <div class="fl-field" id="flHourlyRateField" style="display:none">
+        <label for="flRate">Hourly rate</label>
+        <div class="fl-money"><span>$</span><input class="fl-input" id="flRate" type="text" inputmode="decimal" placeholder="28.00"></div>
+      </div>
+      <div class="fl-field" id="flHoursField" style="display:none">
+        <label for="flHours">Hours per week</label>
+        <input class="fl-input" id="flHours" type="text" inputmode="decimal" placeholder="40">
+      </div>
+
+      <div class="fl-field">
+        <label for="flFiling">Filing status</label>
+        <select class="fl-select" id="flFiling">
+          <option value="single">Single</option>
+          <option value="mfj">Married filing jointly</option>
+          <option value="mfs">Married filing separately</option>
+          <option value="hoh">Head of household</option>
+        </select>
+      </div>
+
+      <div class="fl-field">
+        <label for="flFreq">Pay frequency</label>
+        <select class="fl-select" id="flFreq">
+          <option value="52">Weekly</option>
+          <option value="26" selected>Every two weeks</option>
+          <option value="24">Twice a month</option>
+          <option value="12">Monthly</option>
+        </select>
+      </div>
+
+      <div class="fl-field">
+        <label for="flK401">401(k) contribution (percent)</label>
+        <input class="fl-input" id="flK401" type="text" inputmode="decimal" placeholder="0">
+      </div>
+
+      <div class="fl-field">
+        <label for="flOther">Other pre-tax per year (health, HSA)</label>
+        <div class="fl-money"><span>$</span><input class="fl-input" id="flOther" type="text" inputmode="decimal" placeholder="0"></div>
+      </div>
+    </div>
+
+    <div class="fl-btns">
+      <button class="fl-btn fl-btn-go" onclick="flCalculate()">Calculate take-home pay</button>
+      <button class="fl-btn fl-btn-reset" onclick="flReset()">Reset</button>
+    </div>
+  </div>
+
+  <div class="fl-empty" id="flEmpty">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h4"/></svg>
+    <p>Your Florida take-home breakdown will appear here once you press Calculate.</p>
+  </div>
+
+  <div class="fl-results" id="flResults">
+    <div class="fl-headline">
+      <div class="fl-lbl">Your estimated take-home pay</div>
+      <div class="fl-big" id="flTakeAnnual">$0</div>
+      <div class="fl-per" id="flTakePer">per year</div>
+      <div class="fl-chips">
+        <span class="fl-chip">Effective tax rate <b id="flEffRate">0%</b></span>
+        <span class="fl-chip">State income tax <b>$0</b></span>
+      </div>
+    </div>
+
+    <div class="fl-barcard">
+      <h3>Where every dollar of your pay goes</h3>
+      <svg class="fl-svgbar" id="flSvgBar" viewBox="0 0 1000 52" preserveAspectRatio="none" role="img" aria-label="Breakdown of your paycheck">
+        <g class="flbar-fill" id="flBarFill"></g>
+      </svg>
+      <ul class="fl-legend" id="flLegend"></ul>
+    </div>
+
+    <div class="fl-whatif">
+      <h3>What if you saved more in your 401(k)?</h3>
+      <p>Drag to see how pre-tax retirement savings change your take-home pay. Your money moves from taxable income into your own retirement account.</p>
+      <div class="fl-slider-row">
+        <input type="range" id="flWhatSlider" min="0" max="20" step="1" value="0" oninput="flWhatIf(this.value)">
+        <span class="fl-slider-val" id="flWhatVal">0%</span>
+      </div>
+      <div class="fl-whatif-out" id="flWhatOut"></div>
+    </div>
+  </div>
+</div>
+
+<main class="fl-wrap fl-content">
+  <div class="fl-byline">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+    By SavingsClub Research Team
+  </div>
+
+  <h2>How Florida paycheck taxes work in 2026</h2>
+  <p>The Florida paycheck calculator above skips a step that most states force on you, and that step is the whole story. Florida has no state income tax. Its constitution actually bans one, so this is not a temporary break that a future legislature can quietly remove. That single fact is why a Florida worker keeps more of the same salary than a worker in almost any other state.</p>
+  <p>Our SavingsClub Research Team built this Florida paycheck calculator to help everyday workers see their true take-home pay without wading through confusing payroll jargon. When you run the numbers, only three deductions show up: federal income tax, Social Security, and Medicare. There is no line for state tax, because there is nothing to put there.</p>
+
+  <h3>What actually gets taken out of a Florida paycheck</h3>
+  <p>Because Florida sits out the state income tax game, your deductions come down to federal rules that apply everywhere:</p>
+  <ul>
+    <li><b>Federal income tax.</b> This is based on the 2026 federal brackets and your standard deduction, which is 16,100 dollars for a single filer and 32,200 dollars for a married couple filing jointly. Only the income above your deduction gets taxed, and only the portion inside each bracket is taxed at that bracket rate.</li>
+    <li><b>Social Security.</b> You pay 6.2 percent of your wages, up to a wage base of 184,500 dollars in 2026. Earnings above that base are not charged Social Security, which is why very high earners see this line stop growing.</li>
+    <li><b>Medicare.</b> You pay 1.45 percent of all wages with no cap. High earners pay an extra 0.9 percent on income above 200,000 dollars for single filers, or 250,000 dollars for joint filers.</li>
+  </ul>
+  <p>That is the full list. No county income tax, no city income tax, no state disability deduction. This matters because the fewer mandatory subtractions your paycheck has, the more of your gross pay lands in your bank account. If you want to see the federal side broken out on its own, our <a href="../../paycheck-calculator/">national paycheck calculator</a> shows the same math without any state assumptions.</p>
+
+  <h2>A worked example: 75,000 dollars in Florida</h2>
+  <p>Numbers make this concrete. Take a single filer earning 75,000 dollars in 2026 with no 401(k) contributions. Here is exactly how the paycheck breaks down.</p>
+  <table class="fl-table">
+    <thead><tr><th>Line</th><th>Amount</th></tr></thead>
+    <tbody>
+      <tr><td>Gross pay</td><td>$75,000</td></tr>
+      <tr><td>Federal income tax</td><td>$7,670</td></tr>
+      <tr><td>Social Security (6.2%)</td><td>$4,650</td></tr>
+      <tr><td>Medicare (1.45%)</td><td>$1,088</td></tr>
+      <tr><td>Florida state income tax</td><td>$0</td></tr>
+      <tr class="fl-hl"><td>Take-home pay</td><td>$61,592</td></tr>
+    </tbody>
+  </table>
+  <p>That works out to roughly 2,369 dollars every two weeks. The reason this take-home is high is not a trick or a loophole. It is simply that the state line reads zero. The same paycheck in a state with an income tax would have one more subtraction, and that subtraction is real money.</p>
+
+  <h2>Florida versus states that do tax income</h2>
+  <p>The clearest way to understand Florida take-home pay is to compare it against states with a flat income tax, since the difference is easy to see. On a 75,000 dollar salary in 2026, here is what the same single filer keeps in each state.</p>
+  <table class="fl-table">
+    <thead><tr><th>State</th><th>State income tax</th><th>Annual take-home</th></tr></thead>
+    <tbody>
+      <tr class="fl-hl"><td>Florida</td><td>$0</td><td>$61,592</td></tr>
+      <tr><td>North Carolina</td><td>$2,484</td><td>$59,109</td></tr>
+      <tr><td>Michigan</td><td>$2,937</td><td>$58,656</td></tr>
+      <tr><td>Illinois</td><td>$3,568</td><td>$58,024</td></tr>
+    </tbody>
+  </table>
+  <p>A Florida resident keeps about 2,484 dollars more per year than a North Carolina resident and about 3,568 dollars more than an Illinois resident, on the exact same salary. Over a decade, that Illinois gap alone adds up to more than 35,000 dollars. You can check each of these yourself with our <a href="../../paycheck-calculator/north-carolina/">North Carolina paycheck calculator</a>, <a href="../../paycheck-calculator/michigan/">Michigan paycheck calculator</a>, and <a href="../../paycheck-calculator/illinois/">Illinois paycheck calculator</a>.</p>
+
+  <div class="fl-note"><b>An honest caveat.</b> A bigger paycheck does not automatically mean a cheaper life. Florida makes up some of its budget through property taxes, sales tax, and notably high home insurance costs. So while your take-home pay is higher, your total cost of living depends on where in Florida you settle and how you spend. Higher income kept is a real advantage, but it is one piece of the picture, not the whole thing.</p>
+
+  <h2>How to lower your Florida tax and keep even more</h2>
+  <p>Since there is no state tax lever to pull in Florida, the way to reduce what you owe is on the federal side. The most direct tool is pre-tax retirement savings.</p>
+  <p>When you contribute to a traditional 401(k), that money comes out before federal income tax is calculated, so it lowers your taxable income right now. The 2026 employee contribution limit is 24,500 dollars. On a 75,000 dollar salary, contributing 10 percent means 7,500 dollars moves out of taxable income and into your own retirement account, which trims your federal tax and builds your future at the same time. Use the what-if slider above to watch this happen, then dig deeper with our <a href="../../401k-calculator/">401(k) calculator</a> and <a href="../../retirement-calculator/">retirement calculator</a>.</p>
+  <p>A few other federal moves that help Florida workers keep more:</p>
+  <ul>
+    <li><b>Contribute to an HSA</b> if you have a high-deductible health plan. Those dollars are pre-tax and grow tax-free for medical costs.</li>
+    <li><b>Adjust your W-4 withholding</b> so you are not lending the government an interest-free loan through a giant refund. A refund feels good, but it means too much was withheld all year.</li>
+    <li><b>Track your effective tax rate</b>, not just your bracket. Your bracket is the rate on your last dollar. Your effective rate, shown in your results above, is what you actually pay across all your income.</li>
+  </ul>
+  <p>Once you know your take-home number, put it to work. Our <a href="../../budget-planner/">budget planner</a> turns that figure into a simple monthly plan so the extra money Florida lets you keep does not just disappear.</p>
+</main>
+
+<section class="fl-wrap fl-faq">
+  <h2>Florida paycheck questions people ask</h2>
+
+  <details>
+    <summary>Does Florida have a state income tax?</summary>
+    <div class="fl-ans">No. Florida is one of only nine states with no state income tax, and its constitution bans one. There is also no county or city income tax anywhere in Florida. That means the only taxes withheld from a Florida paycheck are federal income tax, Social Security, and Medicare.</div>
+  </details>
+
+  <details>
+    <summary>How much is taken out of a Florida paycheck?</summary>
+    <div class="fl-ans">For most workers, the deductions are federal income tax, Social Security at 6.2 percent up to the 184,500 dollar wage base, and Medicare at 1.45 percent. On a 75,000 dollar salary in 2026, a single filer keeps about 61,592 dollars per year after those deductions, which works out to roughly 2,369 dollars every two weeks.</div>
+  </details>
+
+  <details>
+    <summary>How do I calculate my Florida take-home pay?</summary>
+    <div class="fl-ans">Start with your gross pay, subtract any pre-tax retirement or benefit contributions, then subtract federal income tax, Social Security, and Medicare. Because Florida has no state income tax, there is nothing more to subtract at the state level. The calculator on this page does all of that math for you using the 2026 federal brackets.</div>
+  </details>
+
+  <details>
+    <summary>Is Florida a good state for take-home pay?</summary>
+    <div class="fl-ans">For the same salary, a Florida worker keeps more than a worker in almost every other state, because there is no state income tax to pay. On 75,000 dollars, a Florida resident keeps about 3,568 dollars more than an Illinois resident and about 2,484 dollars more than a North Carolina resident. Housing and insurance costs still vary, so a higher take-home does not always mean lower total living costs.</div>
+  </details>
+
+  <details>
+    <summary>Does Florida tax overtime or bonuses?</summary>
+    <div class="fl-ans">Florida does not tax overtime, bonuses, or commissions at the state level, because it has no income tax at all. Federal rules still apply. Bonuses are usually subject to federal withholding as supplemental wages, and overtime is still counted as federal taxable income.</div>
+  </details>
+
+  <details>
+    <summary>What is the Florida payroll tax for employees?</summary>
+    <div class="fl-ans">Florida employees pay only the federal payroll taxes, Social Security and Medicare, together known as FICA. Florida charges employers a reemployment tax that funds unemployment benefits, but that is paid by the employer, not deducted from your paycheck.</div>
+  </details>
+</section>
+
+<section class="fl-wrap fl-related">
+  <h2>More free take-home pay tools</h2>
+  <div class="fl-related-grid">
+    <a href="../../paycheck-calculator/texas/"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></span>Texas Paycheck Calculator</a>
+    <a href="../../paycheck-calculator/illinois/"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></span>Illinois Paycheck Calculator</a>
+    <a href="../../paycheck-calculator/michigan/"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></span>Michigan Paycheck Calculator</a>
+    <a href="../../paycheck-calculator/north-carolina/"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></span>North Carolina Paycheck Calculator</a>
+    <a href="../../paycheck-calculator/"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v4H4zM6 12h12M6 16h8"/></svg></span>National Paycheck Calculator</a>
+    <a href="../../401k-calculator/"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg></span>401(k) Calculator</a>
+  </div>
+</section>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div><div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div><p style="font-size:.9rem;max-width:280px;line-height:1.6">Helping you keep more of what you earn. Free financial calculators and educational guides for Americans in every state.</p></div>
+<div><h4>Calculators</h4><a href="../../savings-calculator/">Savings</a><a href="../../budget-planner/">Budget</a><a href="../../paycheck-calculator/">Paycheck</a><a href="../../401k-calculator/">401(k)</a><a href="../../mortgage-calculator/">Mortgage</a></div>
+<div><h4>Resources</h4><a href="../../blog/">Blog</a><a href="../../credit-cards/">Credit Cards</a><a href="../../banking/">Banking</a><a href="../../faq/">FAQ</a><a href="../../contact/">Contact</a></div>
+<div><h4>Legal</h4><a href="../../privacy-policy/">Privacy Policy</a><a href="../../terms-of-service/">Terms</a><a href="../../cookie-policy/">Cookies</a><a href="../../disclaimer/">Disclaimer</a></div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 SavingsClub. All rights reserved. Helping you keep more of what you earn.</p><p>Educational content only, not financial advice. Figures use 2026 federal tax rules and are estimates. Verify your exact withholding with a tax professional. Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p></div>
+</div>
+</footer>
+
+<script>
+/* ---- 2026 federal tax data (verified) ---- */
+var FED_2026={
+  single:{std:16100,brackets:[[12400,.10],[50400,.12],[105700,.22],[201775,.24],[256225,.32],[640600,.35],[Infinity,.37]],surtax:200000},
+  mfj:{std:32200,brackets:[[24800,.10],[100800,.12],[211400,.22],[403550,.24],[512450,.32],[768700,.35],[Infinity,.37]],surtax:250000},
+  mfs:{std:16100,brackets:[[12400,.10],[50400,.12],[105700,.22],[201775,.24],[256225,.32],[384350,.35],[Infinity,.37]],surtax:125000},
+  hoh:{std:24150,brackets:[[17700,.10],[67450,.12],[105700,.22],[201775,.24],[256200,.32],[640600,.35],[Infinity,.37]],surtax:200000}
+};
+var SS_RATE=0.062,SS_BASE=184500,MED_RATE=0.0145,SURTAX_RATE=0.009,K401_CAP=24500;
+
+function flNum(id){var v=(document.getElementById(id).value||'').replace(/[^0-9.]/g,'');v=parseFloat(v);return isNaN(v)?0:v;}
+function flMoney(n){return '$'+Math.round(n).toLocaleString('en-US');}
+
+function flFedTax(taxable,filing){
+  var b=FED_2026[filing].brackets,tax=0,lower=0;
+  if(taxable<=0)return 0;
+  for(var i=0;i<b.length;i++){
+    var upper=b[i][0],rate=b[i][1];
+    if(taxable>upper){tax+=(upper-lower)*rate;lower=upper;}
+    else{tax+=(taxable-lower)*rate;break;}
+  }
+  return Math.max(0,tax);
+}
+
+/* Core calculation. Returns every line. */
+function flCompute(gross,filing,k401pct,other){
+  gross=Math.round(gross);
+  var cfg=FED_2026[filing];
+  var pre401=Math.round(Math.min(gross*k401pct/100,K401_CAP,gross));
+  var otherPre=Math.round(Math.min(other||0,gross));
+  var fedTaxable=Math.max(0,gross-cfg.std-pre401-otherPre);
+  var ficaWages=Math.max(0,gross-otherPre); /* 401k is still FICA taxed; Section 125 benefits are not */
+  var federal=Math.round(flFedTax(fedTaxable,filing));
+  var ss=Math.round(SS_RATE*Math.min(ficaWages,SS_BASE));
+  var medicare=Math.round(MED_RATE*ficaWages+SURTAX_RATE*Math.max(0,ficaWages-cfg.surtax));
+  var fica=ss+medicare;
+  var take=gross-federal-fica-pre401-otherPre;
+  var effRate=gross>0?((federal+fica)/gross*100):0;
+  return {gross:gross,federal:federal,ss:ss,medicare:medicare,fica:fica,pre401:pre401,otherPre:otherPre,take:take,effRate:effRate};
+}
+
+var FL_MODE='salary';
+function flSetMode(mode){
+  FL_MODE=mode;
+  document.querySelectorAll('#flPayToggle button').forEach(function(b){b.classList.toggle('on',b.dataset.mode===mode);});
+  document.getElementById('flSalaryField').style.display=(mode==='salary')?'flex':'none';
+  document.getElementById('flHourlyRateField').style.display=(mode==='hourly')?'flex':'none';
+  document.getElementById('flHoursField').style.display=(mode==='hourly')?'flex':'none';
+}
+
+function flGrossFromInputs(){
+  if(FL_MODE==='hourly'){
+    var rate=flNum('flRate'),hours=flNum('flHours');
+    if(hours<=0)hours=40;
+    return rate*hours*52;
+  }
+  return flNum('flSalary');
+}
+
+/* Segment palette (locked design, no blue) */
+var FL_SEG=[
+  {key:'take',label:'Take-home pay',color:'#10B981'},
+  {key:'pre401',label:'Your 401(k) savings',color:'#34D399'},
+  {key:'otherPre',label:'Other pre-tax',color:'#065F46'},
+  {key:'federal',label:'Federal income tax',color:'#0F2540'},
+  {key:'fica',label:'Social Security + Medicare',color:'#94A3B8'}
+];
+
+function flRenderBar(r){
+  var W=1000,fill=document.getElementById('flBarFill'),legend=document.getElementById('flLegend');
+  fill.innerHTML='';legend.innerHTML='';
+  var total=r.gross>0?r.gross:1,x=0;
+  FL_SEG.forEach(function(seg){
+    var val=r[seg.key];
+    if(val<=0)return;
+    var w=val/total*W;
+    var rect=document.createElementNS('http://www.w3.org/2000/svg','rect');
+    rect.setAttribute('x',x.toFixed(2));rect.setAttribute('y','0');
+    rect.setAttribute('width',Math.max(0,w).toFixed(2));rect.setAttribute('height','52');
+    rect.setAttribute('fill',seg.color);
+    fill.appendChild(rect);
+    x+=w;
+    var li=document.createElement('li');
+    li.innerHTML='<span class="sw" style="background:'+seg.color+'"></span>'+seg.label+'<span class="amt">'+flMoney(val)+'</span>';
+    legend.appendChild(li);
+  });
+  /* animate: start collapsed, grow after a frame */
+  fill.classList.remove('grow');
+  void fill.getBoundingClientRect();
+  requestAnimationFrame(function(){fill.classList.add('grow');});
+}
+
+function flRenderHeadline(r,periods){
+  document.getElementById('flTakeAnnual').textContent=flMoney(r.take);
+  var per=r.take/periods;
+  var perLabel={52:'per week',26:'every two weeks',24:'twice a month',12:'per month'}[periods]||'per period';
+  document.getElementById('flTakePer').textContent=flMoney(per)+' '+perLabel;
+  document.getElementById('flEffRate').textContent=r.effRate.toFixed(1)+'%';
+}
+
+function flCalculate(){
+  var gross=flGrossFromInputs();
+  if(gross<=0){
+    alert('Enter a salary or hourly rate above 0 to see your Florida take-home pay.');
+    return;
+  }
+  var filing=document.getElementById('flFiling').value;
+  var k401=flNum('flK401'),other=flNum('flOther');
+  var periods=parseInt(document.getElementById('flFreq').value,10)||26;
+
+  /* store base state so the what-if slider never rebuilds itself */
+  window.flState={gross:gross,filing:filing,other:other,periods:periods,baseK401:k401};
+
+  var r=flCompute(gross,filing,k401,other);
+  flRenderHeadline(r,periods);
+  flRenderBar(r);
+
+  /* sync the what-if slider to the entered 401k without rebuilding it */
+  var slider=document.getElementById('flWhatSlider');
+  slider.value=Math.min(20,Math.round(k401));
+  flWhatIf(slider.value);
+
+  document.getElementById('flEmpty').style.display='none';
+  var res=document.getElementById('flResults');
+  res.classList.add('show');
+  res.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* What-if: only recomputes numbers, never rebuilds the slider element */
+function flWhatIf(pct){
+  var s=window.flState;
+  document.getElementById('flWhatVal').textContent=pct+'%';
+  if(!s)return;
+  var r=flCompute(s.gross,s.filing,parseFloat(pct),s.other);
+  flRenderHeadline(r,s.periods);
+  flRenderBar(r);
+  var contrib=Math.min(s.gross*pct/100,K401_CAP);
+  var out=document.getElementById('flWhatOut');
+  if(pct>0){
+    out.innerHTML='At <b>'+pct+'%</b> you move <b>'+flMoney(contrib)+'</b> per year into your 401(k). Your take-home is <b>'+flMoney(r.take)+'</b>, and that retirement money is still yours.';
+  }else{
+    out.innerHTML='Move the slider to send pre-tax dollars into retirement savings and watch your taxable income drop.';
+  }
+}
+
+function flReset(){
+  ['flSalary','flRate','flHours','flK401','flOther'].forEach(function(id){document.getElementById(id).value='';});
+  document.getElementById('flFiling').value='single';
+  document.getElementById('flFreq').value='26';
+  flSetMode('salary');
+  window.flState=null;
+  var slider=document.getElementById('flWhatSlider');slider.value=0;document.getElementById('flWhatVal').textContent='0%';
+  document.getElementById('flResults').classList.remove('show');
+  document.getElementById('flEmpty').style.display='block';
+  document.getElementById('flEmpty').scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+/* nav (also handled sitewide, kept for standalone safety) */
+window.addEventListener('scroll',function(){var n=document.querySelector('nav#mainNav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
+</script>
+</body>
+</html>
