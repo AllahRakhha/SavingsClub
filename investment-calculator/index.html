@@ -3,26 +3,176 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Investment Calculator: Free Portfolio Growth Tool | SavingsClub</title>
-<meta name="description" content="Free investment calculator. Model how your portfolio grows with regular contributions and compound returns over time.">
+<title>Investment Calculator: Growth, Fees, and Drawdown</title>
+<meta name="description" content="Free investment calculator. See your future value, what fees quietly cost you, what your money is worth in today's dollars, and how long it lasts in retirement.">
 <link rel="canonical" href="https://savingsclub.com/investment-calculator/">
-<meta property="og:title" content="Investment Calculator: Free Portfolio Growth Tool | SavingsClub">
-<meta property="og:description" content="Free investment calculator. Model how your portfolio grows with regular contributions and compound returns over time.">
+<meta property="og:title" content="Investment Calculator: Growth, Fees, and Drawdown">
+<meta property="og:description" content="Model portfolio growth, see the real cost of fund fees, and find out how many years your money would last once you start withdrawing.">
 <meta property="og:url" content="https://savingsclub.com/investment-calculator/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SavingsClub">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a good rate of return?","acceptedAnswer":{"@type":"Answer","text":"The S&P 500 has historically returned about 10% annually before inflation, or roughly 7% after inflation. Use 7-8% for long-term projections as a reasonable estimate."}}]}</script>
+<meta property="og:image" content="https://savingsclub.com/img/sc-logo-full.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Investment Calculator: Growth, Fees, and Drawdown">
+<meta name="twitter:description" content="See your future value, what fees really cost, and how long your money lasts.">
+<meta name="twitter:image" content="https://savingsclub.com/img/sc-logo-full.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="stylesheet" href="../css/style.css">
-<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/sc-favicon.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/sc-favicon.png?v=2">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-<meta property="og:image" content="https://savingsclub.com/img/savings-jar.jpg">
-<meta name="twitter:card" content="summary_large_image">
+
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://savingsclub.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://savingsclub.com/savings-calculator/"},{"@type":"ListItem","position":3,"name":"Investment Calculator","item":"https://savingsclub.com/investment-calculator/"}]}</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"What is a realistic rate of return to use?","acceptedAnswer":{"@type":"Answer","text":"The S&P 500 has historically returned about 10 percent per year before inflation, which is roughly 7 percent after inflation. Using 7 to 8 percent for a long-term projection is a reasonable planning assumption. Past performance never guarantees future results, so treat any single number as an estimate rather than a promise."}},
+    {"@type":"Question","name":"How do I calculate the future value of an investment?","acceptedAnswer":{"@type":"Answer","text":"Take your starting balance, apply the monthly rate of return, then add your monthly contribution, and repeat for every month of the term. In formula terms, future value equals the starting balance grown at the periodic rate plus the future value of the stream of contributions. The calculator on this page runs that month by month so you do not have to."}},
+    {"@type":"Question","name":"How much do investment fees really cost me?","acceptedAnswer":{"@type":"Answer","text":"Far more than the percentage suggests, because the fee is charged every year on a growing balance. On 10,000 dollars plus 500 dollars a month at an 8 percent return over 30 years, a 1 percent expense ratio costs about 152,797 dollars, which is roughly 18 percent of the final balance. The same money in a fund charging 0.058 percent keeps almost all of that."}},
+    {"@type":"Question","name":"What is a good expense ratio?","acceptedAnswer":{"@type":"Answer","text":"According to Morningstar data through the end of 2025, passive index mutual funds averaged 0.058 percent and passive ETFs averaged 0.135 percent, while actively managed mutual funds averaged 0.57 percent. If an index fund charges more than about 0.20 percent, you are paying above the going rate for the same exposure."}},
+    {"@type":"Question","name":"Why is my projected balance worth less in today's dollars?","acceptedAnswer":{"@type":"Answer","text":"Because inflation reduces what each dollar buys. At 3 percent inflation, a portfolio projected to reach 843,947 dollars in 30 years has the purchasing power of about 347,695 dollars today. That is not a flaw in the math, it is the reality that large future numbers are partly an illusion, which is why this calculator shows both figures."}},
+    {"@type":"Question","name":"How long will my investments last once I start withdrawing?","acceptedAnswer":{"@type":"Answer","text":"It depends on your withdrawal rate and the returns you earn while withdrawing. The drawdown tool on this page models it year by year. As a reference point, Morningstar research put the safe starting withdrawal rate for a 30-year retirement at 3.9 percent in 2026, while William Bengen, who created the original 4 percent rule, has since revised his worst-case safe maximum up to 4.7 percent."}},
+    {"@type":"Question","name":"Is the 4 percent rule still reliable?","acceptedAnswer":{"@type":"Answer","text":"It is a useful starting point rather than a plan. It assumes a fixed inflation-adjusted withdrawal over 30 years and does not account for your taxes, your other income, or your actual spending pattern. Retirees willing to adjust spending when markets fall can often sustain a higher rate, while a rigid withdrawal in a bad early market is what tends to break plans."}},
+    {"@type":"Question","name":"Do actively managed funds beat index funds?","acceptedAnswer":{"@type":"Answer","text":"Usually not, once fees are counted. Morningstar found that 38 percent of active funds beat their passive peers in 2025, and over the 10 years through 2025 only about 21 percent of active funds both survived and outperformed. That is the main argument for keeping costs low rather than trying to pick a winning manager."}},
+    {"@type":"Question","name":"What is sequence of returns risk?","acceptedAnswer":{"@type":"Answer","text":"It is the risk that the order of your returns hurts you, not just the average. An average of 8 percent does not mean 8 percent every year. While you are still contributing, a bad early market is actually helpful because you buy cheaply. Once you are withdrawing, a bad early market is dangerous, because you sell assets at low prices and the portfolio may never recover."}},
+    {"@type":"Question","name":"How much should I invest each month?","acceptedAnswer":{"@type":"Answer","text":"Enough that it continues through a bad month, which usually means a figure you can automate and forget. Consistency matters more than the amount early on. Use the calculator above to see how a small increase compounds, then check that the money is not needed for an emergency fund or high-interest debt first, because both should generally come before investing."}}
+  ]
+}
+</script>
+
+<style>
+.iv-hero{background:linear-gradient(120deg,#0A1628 0%,#0F2540 42%,#065F46 76%,#059669 100%);color:#fff;padding:clamp(96px,8vw,124px) 24px clamp(50px,5vw,66px);position:relative;overflow:hidden}
+.iv-hero::before{content:'';position:absolute;top:-35%;right:-8%;width:50%;height:180%;background:radial-gradient(circle,rgba(16,185,129,.20) 0%,transparent 62%);pointer-events:none}
+.iv-hero-inner{max-width:960px;margin:0 auto;position:relative;z-index:1}
+.iv-badge{display:inline-block;background:rgba(16,185,129,.18);color:#34D399;padding:7px 16px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;margin-bottom:16px;border:1px solid rgba(16,185,129,.35)}
+.iv-hero h1{color:#fff;font-size:clamp(30px,4.4vw,46px);font-weight:800;line-height:1.1;margin:0 0 14px;letter-spacing:-.025em;font-family:'Plus Jakarta Sans',sans-serif}
+.iv-hero-sub{color:rgba(255,255,255,.85);font-size:1.04rem;line-height:1.62;margin:0 0 16px;max-width:700px}
+.iv-byline{color:rgba(255,255,255,.6);font-size:.82rem;margin:0 0 8px}
+.iv-disc{color:rgba(255,255,255,.5);font-size:.78rem;font-style:italic;margin:0;max-width:640px;line-height:1.5}
+
+.iv-body{padding:40px 0 70px}
+.iv-section-title{font-size:1.05rem;font-weight:700;color:#0A1628;margin:26px 0 14px;display:flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans',sans-serif}
+.iv-section-title .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#059669,#10B981);flex-shrink:0}
+.iv-help{font-size:.8rem;color:#64748B;margin:6px 0 0;line-height:1.5}
+
+.iv-btn-row{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0 8px}
+.iv-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:999px;font-weight:700;font-size:1rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;border:none;transition:transform .15s,box-shadow .2s}
+.iv-btn-primary{background:linear-gradient(135deg,#059669,#10B981);color:#fff;box-shadow:0 6px 18px rgba(5,150,105,.32)}
+.iv-btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(5,150,105,.42)}
+.iv-btn-reset{background:#fff;color:#475569;border:1.5px solid #E2E8F0}
+.iv-btn-reset:hover{border-color:#10B981;color:#059669}
+.iv-btn svg{width:18px;height:18px}
+
+.iv-empty{background:#F8FAFC;border:1.5px dashed #CBD5E1;border-radius:18px;padding:48px 24px;text-align:center;margin-top:20px}
+.iv-empty-icon{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#ECFDF5,#D1FAE5);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.iv-empty-icon svg{width:28px;height:28px;color:#059669}
+.iv-empty h3{font-size:1.15rem;color:#0A1628;margin:0 0 6px;font-family:'Plus Jakarta Sans',sans-serif}
+.iv-empty p{color:#64748B;font-size:.95rem;margin:0 auto;max-width:460px}
+
+.iv-headline{background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border:1px solid #A7F3D0;border-radius:16px;padding:22px 24px;margin:8px 0 18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.iv-headline-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:#047857;font-weight:700;margin-bottom:3px}
+.iv-headline-value{font-size:2.2rem;font-weight:800;color:#064E3B;line-height:1;font-family:'Plus Jakarta Sans',sans-serif}
+.iv-headline-real{text-align:right}
+.iv-headline-real .v{font-size:1.35rem;font-weight:800;color:#047857;font-family:'Plus Jakarta Sans',sans-serif}
+.iv-headline-note{font-size:.8rem;color:#047857;max-width:260px;line-height:1.5;margin-top:4px}
+
+.iv-split{background:#fff;border:1px solid #EEF2F6;border-radius:16px;padding:20px;margin-top:16px}
+.iv-split-bar{height:34px;border-radius:10px;overflow:hidden;display:flex;margin:12px 0 10px}
+.iv-split-seg{height:100%;transition:width .9s cubic-bezier(.16,1,.3,1);width:0}
+.iv-split-seg.contrib{background:#0F2540}
+.iv-split-seg.growth{background:linear-gradient(90deg,#059669,#34D399)}
+.iv-split-legend{display:flex;gap:20px;flex-wrap:wrap;font-size:.86rem;color:#334155}
+.iv-split-legend span{display:inline-flex;align-items:center;gap:7px}
+.iv-split-legend i{width:12px;height:12px;border-radius:3px}
+.iv-split-legend b{color:#0A1628}
+
+.iv-chart-wrap{margin-top:18px;background:#fff;border:1px solid #EEF2F6;border-radius:16px;padding:18px}
+.iv-chart-caption{font-size:.82rem;color:#64748B;margin:10px 0 0;line-height:1.55}
+
+/* Fee drag */
+.iv-fees{background:linear-gradient(135deg,#0A1628,#0F2540);border-radius:20px;padding:26px;margin-top:22px;color:#fff;position:relative;overflow:hidden}
+.iv-fees::before{content:'';position:absolute;top:-30%;right:-8%;width:45%;height:170%;background:radial-gradient(circle,rgba(16,185,129,.16) 0%,transparent 62%);pointer-events:none}
+.iv-fees-inner{position:relative;z-index:1}
+.iv-panel-head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.iv-panel-icon{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,#059669,#10B981);display:flex;align-items:center;justify-content:center;flex:0 0 40px}
+.iv-panel-icon svg{width:21px;height:21px;color:#fff}
+.iv-panel-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.12rem}
+.iv-fees .iv-panel-sub{color:rgba(255,255,255,.72);font-size:.89rem;margin:0 0 18px;line-height:1.55;max-width:640px}
+.iv-fee-slider{margin-bottom:16px}
+.iv-fee-slider label{display:block;font-size:.82rem;font-weight:600;color:rgba(255,255,255,.8);margin-bottom:8px}
+.iv-fee-slider input[type=range]{width:100%;height:6px;-webkit-appearance:none;appearance:none;background:rgba(255,255,255,.18);border-radius:3px;outline:none}
+.iv-fee-slider input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:#10B981;cursor:pointer;border:3px solid #fff}
+.iv-fee-slider input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#10B981;cursor:pointer;border:3px solid #fff}
+.iv-fee-val{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#34D399;margin-top:7px;font-size:1rem}
+.iv-fee-presets{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.iv-fee-preset{padding:6px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:rgba(255,255,255,.85);font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit}
+.iv-fee-preset:hover{background:rgba(255,255,255,.14)}
+.iv-fee-preset.active{background:linear-gradient(135deg,#059669,#10B981);border-color:transparent;color:#fff}
+.iv-fee-verdict{background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.3);border-radius:12px;padding:15px 17px;font-size:.93rem;color:#D1FAE5;line-height:1.62}
+.iv-fee-verdict strong{color:#34D399}
+.iv-fee-verdict.bad{background:rgba(220,38,38,.12);border-color:rgba(220,38,38,.32);color:#FECACA}
+.iv-fee-verdict.bad strong{color:#FCA5A5}
+.iv-fee-note{color:rgba(255,255,255,.45);font-size:.76rem;margin-top:12px;line-height:1.55}
+.iv-fee-note a{color:rgba(255,255,255,.72);text-decoration:underline}
+
+/* Drawdown */
+.iv-draw{background:#fff;border:1px solid #E5E7EB;border-radius:20px;padding:26px;margin-top:22px}
+.iv-draw .iv-panel-icon{background:linear-gradient(135deg,#047857,#0F766E)}
+.iv-draw .iv-panel-title{color:#0A1628}
+.iv-draw .iv-panel-sub{color:#64748B;font-size:.89rem;margin:0 0 18px;line-height:1.55}
+.iv-draw-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:16px}
+.iv-draw-ctrl label{display:block;font-size:.82rem;font-weight:600;color:#334155;margin-bottom:8px}
+.iv-draw-ctrl input[type=range]{width:100%;height:6px;-webkit-appearance:none;appearance:none;background:#E5E7EB;border-radius:3px;outline:none}
+.iv-draw-ctrl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:#10B981;cursor:pointer;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.18)}
+.iv-draw-ctrl input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#10B981;cursor:pointer;border:3px solid #fff}
+.iv-draw-val{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#059669;margin-top:7px;font-size:1rem}
+.iv-draw-result{background:#F0FDF4;border-left:3px solid #10B981;border-radius:0 12px 12px 0;padding:16px 18px;font-size:.95rem;color:#334155;line-height:1.65}
+.iv-draw-result strong{color:#047857}
+.iv-draw-result.warn{background:#FEF3C7;border-left-color:#D97706;color:#78350F}
+.iv-draw-result.warn strong{color:#B45309}
+.iv-draw-result.bad{background:#FEF2F2;border-left-color:#DC2626;color:#7F1D1D}
+.iv-draw-result.bad strong{color:#DC2626}
+
+.iv-tips{background:linear-gradient(135deg,#ECFDF5 0%,#F0FDF4 100%);border:1px solid #A7F3D0;border-radius:18px;padding:24px;margin:30px 0}
+.iv-tips-head{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.iv-tips-icon{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#059669,#10B981);display:flex;align-items:center;justify-content:center}
+.iv-tips-icon svg{width:22px;height:22px;color:#fff}
+.iv-tips-title{font-weight:800;color:#064E3B;font-size:1.12rem;font-family:'Plus Jakarta Sans',sans-serif}
+.iv-tip{background:rgba(255,255,255,.7);border-radius:12px;padding:14px 16px;display:grid;grid-template-columns:auto 1fr;gap:13px;align-items:start;margin-bottom:11px}
+.iv-tip:last-child{margin-bottom:0}
+.iv-tip-num{width:27px;height:27px;border-radius:50%;background:linear-gradient(135deg,#059669,#10B981);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;flex-shrink:0}
+.iv-tip-body{font-size:.91rem;line-height:1.55;color:#064E3B}
+.iv-tip-body strong{color:#047857}
+
+.iv-table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:.9rem}
+.iv-table th{text-align:left;padding:10px 12px;background:#ECFDF5;color:#065F46;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+.iv-table th:not(:first-child),.iv-table td:not(:first-child){text-align:right}
+.iv-table td{padding:10px 12px;border-bottom:1px solid #F1F5F9;color:#0A1628}
+.iv-table tr:last-child td{border-bottom:none}
+.iv-table tr.iv-hl td{background:#F0FDF4;font-weight:700}
+
+.iv-related h3{font-size:1.1rem;margin:0 0 12px;color:#0A1628;font-family:'Plus Jakarta Sans',sans-serif;display:flex;align-items:center;gap:8px}
+.iv-related h3 svg{width:20px;height:20px;color:#059669}
+
+@media(max-width:760px){
+  .iv-hero{padding:96px 20px 44px}
+  .iv-headline{flex-direction:column;align-items:flex-start}
+  .iv-headline-real{text-align:left}
+  .iv-draw-row{grid-template-columns:1fr}
+  .iv-fees,.iv-draw{padding:20px}
+}
+@media (prefers-reduced-motion:reduce){ .iv-split-seg{transition:none} }
+</style>
 </head>
-<body><nav id="mainNav">
+<body>
+
+<nav id="mainNav">
 <div class="nav-inner">
 <div class="logo" onclick="location.href='../'">
 <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
@@ -44,92 +194,420 @@ SavingsClub
 <a href="../">Home</a>
 <a href="../savings-calculator/">Savings</a>
 <a href="../budget-planner/">Budget</a>
-<a href="../mortgage-calculator/">Mortgage</a>
-<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../compound-interest-calculator/">Compound Interest</a>
+<a href="../retirement-calculator/">Retirement</a>
 <a href="../credit-cards/">Credit Cards</a>
 <a href="../blog/">Blog</a>
 <a href="../banking/">Banking</a>
 <a href="../about/">About</a>
 <a href="../contact/">Contact</a>
 </div>
-<section class="calc-page">
+
+<header class="iv-hero">
+  <div class="iv-hero-inner">
+    <span class="iv-badge">Free Tool</span>
+    <h1>Investment Calculator</h1>
+    <p class="iv-hero-sub">Model how your portfolio grows with regular contributions, then see the three things most investment calculators hide from you: what fund fees quietly cost, what that future number is really worth in today's money, and how many years it lasts once you start withdrawing.</p>
+    <p class="iv-byline">By SavingsClub Research Team &middot; Updated July 2026</p>
+    <p class="iv-disc">Educational tool, not financial advice. SavingsClub is not a licensed financial advisor. Projections are estimates and investment returns are never guaranteed.</p>
+  </div>
+</header>
+
+<section class="iv-body">
 <div class="container">
-<div style="margin-bottom:24px"><a href="../" style="color:var(--text-light);font-weight:500">← Home</a></div>
-<div class="calc-section reveal" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
-<h1><div class="calc-icon" style="background:linear-gradient(135deg,#0891B2,#06B6D4)">💲</div> Investment Growth Calculator</h1>
-<p class="calc-desc">Model how your portfolio could grow with regular contributions.</p>
-<p style="font-size:.8rem;color:var(--text-lighter);margin-top:4px">Last updated: May 2026</p>
+
+<div class="iv-section-title"><span class="dot"></span> Your investment plan</div>
 <div class="calc-grid">
-<div><label>Initial Investment ($)</label><input type="number" id="invInit" value="5000" oninput="calc()"></div>
-<div><label>Monthly Contribution ($)</label><input type="number" id="invMonthly" value="300" oninput="calc()"></div>
-<div><label>Expected Return (%)</label><input type="number" id="invRate" value="8" step="0.1" oninput="calc()"></div>
-<div><label>Years</label><input type="number" id="invYears" value="15" oninput="calc()"></div>
+<div><label>Initial Investment ($)</label><input type="number" id="ivInit" value="10000" min="0"></div>
+<div><label>Monthly Contribution ($)</label><input type="number" id="ivMonthly" value="500" min="0"></div>
+<div><label>Expected Annual Return (%)</label><input type="number" id="ivRate" value="8" step="0.1" min="0"></div>
+<div><label>Years Invested</label><input type="number" id="ivYears" value="30" min="1" max="60"></div>
+<div><label>Expected Inflation (%)</label><input type="number" id="ivInflation" value="3" step="0.1" min="0"></div>
 </div>
-<div class="accent-line" style="width:100%;margin:0 0 20px;height:2px"></div>
-<button class="btn btn-primary" onclick="calc()">Calculate</button>
-<div id="calcResult" class="calc-result"></div>
+<p class="iv-help">A 7 to 8 percent return is a common long-run planning assumption for a stock-heavy portfolio. The S&amp;P 500 has averaged roughly 10 percent before inflation, closer to 7 percent after it.</p>
+
+<div class="iv-btn-row">
+<button class="iv-btn iv-btn-primary" onclick="ivCalc()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>Calculate</button>
+<button class="iv-btn iv-btn-reset" onclick="ivReset()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 109-9 9 9 0 00-6.4 2.6L3 8"/><path d="M3 3v5h5"/></svg>Reset</button>
 </div>
 
-<div class="seo-content reveal">
-<h2>How to Start Investing</h2><p>You don't need thousands to begin. Fractional shares and zero-commission brokerages mean anyone can start with $100. Buy a total market index fund for instant diversification across hundreds of companies. Set up automatic weekly contributions and let compound growth do the work.</p>
+<div id="ivEmpty" class="iv-empty">
+  <div class="iv-empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg></div>
+  <h3>Your projection will appear here</h3>
+  <p>Enter your starting amount, monthly contribution, expected return, and time horizon, then click Calculate.</p>
 </div>
-<div class="seo-content reveal" style="margin-top:24px"><h2>Frequently Asked Questions</h2><h3>What is a good rate of return?</h3><p>The S&P 500 has historically returned about 10% annually before inflation, or roughly 7% after inflation. Use 7-8% for long-term projections as a reasonable estimate.</p></div><div class="blog-recs reveal" style="margin-top:24px">
-<h3 style="margin-bottom:12px;font-size:1.1rem">📚 Related Guides</h3>
-<a href="../blog/how-compound-interest-works-and-why-it-matters/" class="related-blog-card">How Compound Interest Works →</a><a href="../blog/how-to-start-investing-with-just-100/" class="related-blog-card">Start Investing with $100 →</a>
+
+<div id="ivResults" style="display:none"></div>
+
+<div class="iv-tips">
+  <div class="iv-tips-head">
+    <div class="iv-tips-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0012 2z"/></svg></div>
+    <div class="iv-tips-title">SavingsClub Tips</div>
+  </div>
+  <div class="iv-tip"><div class="iv-tip-num">1</div><div class="iv-tip-body"><strong>The fee is the only variable you fully control.</strong> You cannot choose your returns and you cannot choose the market. You can choose to pay 0.058 percent instead of 0.57 percent, and over thirty years that choice is worth more than most people's raises.</div></div>
+  <div class="iv-tip"><div class="iv-tip-num">2</div><div class="iv-tip-body"><strong>Clear the ground before you invest.</strong> Credit card debt at 22 percent is a guaranteed 22 percent loss, and no portfolio reliably beats that. An <a href="../emergency-fund-calculator/" style="color:#047857;font-weight:700">emergency fund</a> and a <a href="../debt-payoff-calculator/" style="color:#047857;font-weight:700">debt payoff plan</a> come first, in that order.</div></div>
+  <div class="iv-tip"><div class="iv-tip-num">3</div><div class="iv-tip-body"><strong>Automate it, then stop watching.</strong> The investors who do best are usually the ones who set a monthly transfer and leave it alone. Checking the balance daily changes nothing about the outcome and makes it much harder to sit still through a bad year.</div></div>
 </div>
-<div class="related-tools reveal">
+
+<div class="seo-content">
+<h2>How to calculate the future value of an investment</h2>
+<p>The investment future value calculator above runs the same loop your portfolio does in real life. Each month it grows your balance by the monthly rate of return, then adds your contribution, and repeats. Do that for every month of your time horizon and you have your future value.</p>
+<p>Written out, the monthly rate is your annual return divided by twelve. So an 8 percent expected return becomes about 0.667 percent per month. Start with your initial balance, multiply by one plus that rate, add your monthly contribution, and carry the result into the next month. After 360 iterations you have a 30-year projection.</p>
+<p>The reason this compounds so hard is that your contributions start earning returns of their own. On 10,000 dollars plus 500 dollars a month at 8 percent for 30 years, you would personally put in 190,000 dollars. The projected balance is roughly 843,947 dollars. The difference, about 653,947 dollars, is money the market made on money the market had already made.</p>
+
+<h2>The number nobody puts on the front page: what fees cost you</h2>
+<p>An expense ratio of 1 percent sounds like nothing. It is presented as nothing. It is not nothing, because it is charged every single year against a balance that is growing, so the fee compounds against you exactly the way your returns compound for you.</p>
+<p>Take that same portfolio: 10,000 dollars, 500 dollars a month, 8 percent, 30 years.</p>
+<table class="iv-table">
+<thead><tr><th>Expense ratio</th><th>Final balance</th><th>Lost to fees</th></tr></thead>
+<tbody>
+<tr class="iv-hl"><td>0.058% (average index mutual fund)</td><td>$843,947</td><td>Baseline</td></tr>
+<tr><td>0.57% (average active mutual fund)</td><td>$756,625</td><td>$87,322</td></tr>
+<tr><td>1.00%</td><td>$691,150</td><td>$152,797</td></tr>
+</tbody>
+</table>
+<p>A 1 percent fee costs about <b>152,797 dollars</b>, which is roughly 18 percent of the final balance. You did the saving. You took the market risk. Nearly a fifth of the result went somewhere else. Move the fee slider in the calculator above and watch it happen to your own numbers.</p>
+<p>The figures are not invented. According to Morningstar data through the end of 2025, passive index mutual funds averaged an expense ratio of <b>0.058 percent</b> and passive ETFs averaged 0.135 percent, while actively managed mutual funds averaged <b>0.57 percent</b>. If an index fund you own charges more than about 0.20 percent, you are paying above the going rate for identical exposure.</p>
+
+<h3>But do the expensive funds earn their fee?</h3>
+<p>Mostly they do not. Morningstar's Active/Passive Barometer found that 38 percent of active funds beat their comparable passive peers in 2025, down from 42 percent the year before. Over the ten years through 2025, only about 21 percent of active funds both survived and outperformed. That is the entire case for keeping costs low: you are not betting against a manager's skill, you are declining to pay a guaranteed cost for an unlikely benefit.</p>
+
+<h2>Why your projected balance is worth less than it looks</h2>
+<p>This is where most investment calculators quietly mislead people. They show you 843,947 dollars in thirty years and let you feel wealthy. But a dollar in 2056 does not buy what a dollar buys today.</p>
+<p>At 3 percent inflation, that 843,947 dollar portfolio has the purchasing power of about <b>347,695 dollars</b> in today's money. In other words, roughly 59 percent of the headline number is inflation rather than wealth. That is not a flaw in the projection, it is the truth about long-horizon numbers, and it is why the calculator above shows both figures side by side. Our <a href="../inflation-calculator/">inflation calculator</a> goes deeper on this if you want to see it in isolation.</p>
+<p>Knowing the real figure changes decisions. If your goal is a 500,000 dollar retirement in today's money, targeting a 500,000 dollar nominal balance in thirty years will leave you dramatically short.</p>
+
+<h2>The drawdown phase: how long does the money last?</h2>
+<p>Almost every free investment calculator stops at the finish line. It hands you a big number and walks away. But the number is not the goal, the income it produces is the goal, and that is a completely different calculation. The investment drawdown calculator built into this page continues past retirement day and asks the only question that really matters: how many years does this last?</p>
+<p>The mechanics are straightforward. Each year your remaining balance earns a return, and each year you withdraw an amount, adjusted for inflation. If your withdrawal is smaller than your growth, the balance can last indefinitely. If it is larger, the money runs down, and the speed accelerates as the balance shrinks.</p>
+
+<h3>What withdrawal rate is actually safe?</h3>
+<p>The famous 4 percent rule came from William Bengen's 1994 research, and it has been treated as gospel ever since. The honest picture in 2026 is more nuanced. Morningstar's latest research puts the safe starting withdrawal rate for a 30-year retirement at <b>3.9 percent</b> for someone taking a fixed, inflation-adjusted income. Bengen himself has since revised his own worst-case safe maximum <b>upward to 4.7 percent</b>. And Morningstar found that retirees willing to flex their spending when markets fall can often sustain considerably more.</p>
+<p>The gap between those numbers is the point. There is no single correct withdrawal rate, because the answer depends on how rigid you are willing to be. A retiree who cuts spending in a bad year can safely start higher than one who cannot. Model a few rates in the drawdown tool above rather than trusting any single rule.</p>
+
+<h2>Sequence of returns: why the average lies</h2>
+<p>An 8 percent average return does not mean 8 percent every year. It means some years are up 25 percent and others are down 20 percent, and the order they arrive in matters enormously.</p>
+<p>While you are still contributing, a crash early on is genuinely good news. Your monthly contributions buy more shares at lower prices, and you are rewarded when the market recovers. This is why young investors should hope for a bad decade, not fear one.</p>
+<p>Once you are withdrawing, the same crash is dangerous. You are selling assets at depressed prices to fund your living costs, which permanently removes shares that would have participated in the recovery. Two retirees with identical average returns can end up in completely different places based purely on whether the bad years arrived first or last. This is why the drawdown estimate above should be treated as a planning guide, not a promise, and why holding some cash or bonds near retirement matters more than it does at 30.</p>
+
+<h2>What to do before you invest anything</h2>
+<p>Investing is the third step, not the first. Two things come before it.</p>
+<p><strong>An emergency fund.</strong> If a car repair forces you to sell investments in a down market, your portfolio has become your emergency fund, and that is exactly the wrong job for it. Size yours with the <a href="../emergency-fund-calculator/">emergency fund calculator</a>.</p>
+<p><strong>High-interest debt.</strong> Paying off a credit card charging 22 percent is a guaranteed 22 percent return. No investment offers that with certainty. Clear it first, and use the <a href="../credit-card-payoff-calculator/">credit card payoff calculator</a> to see what the balance is really costing you.</p>
+<p>After that, the order most people follow is: capture any employer 401(k) match, since that is an instant return you cannot get anywhere else, then fund tax-advantaged accounts, then invest in a taxable brokerage. Our <a href="../401k-calculator/">401(k) calculator</a> and <a href="../roth-ira-calculator/">Roth IRA calculator</a> handle the first two, and the <a href="../compound-interest-calculator/">compound interest calculator</a> shows the underlying engine in its simplest form.</p>
+</div>
+
+<div class="seo-content" style="margin-top:24px">
+<h2>Frequently Asked Questions</h2>
+
+<h3>What is a realistic rate of return to use?</h3>
+<p>The S&amp;P 500 has historically returned about 10 percent per year before inflation, which is roughly 7 percent after inflation. Using 7 to 8 percent for a long-term projection is a reasonable planning assumption. Past performance never guarantees future results, so treat any single number as an estimate rather than a promise.</p>
+
+<h3>How do I calculate the future value of an investment?</h3>
+<p>Take your starting balance, apply the monthly rate of return, then add your monthly contribution, and repeat for every month of the term. In formula terms, future value equals the starting balance grown at the periodic rate plus the future value of the stream of contributions. The calculator on this page runs that month by month so you do not have to.</p>
+
+<h3>How much do investment fees really cost me?</h3>
+<p>Far more than the percentage suggests, because the fee is charged every year on a growing balance. On 10,000 dollars plus 500 dollars a month at an 8 percent return over 30 years, a 1 percent expense ratio costs about 152,797 dollars, which is roughly 18 percent of the final balance. The same money in a fund charging 0.058 percent keeps almost all of that.</p>
+
+<h3>What is a good expense ratio?</h3>
+<p>According to Morningstar data through the end of 2025, passive index mutual funds averaged 0.058 percent and passive ETFs averaged 0.135 percent, while actively managed mutual funds averaged 0.57 percent. If an index fund charges more than about 0.20 percent, you are paying above the going rate for the same exposure.</p>
+
+<h3>Why is my projected balance worth less in today's dollars?</h3>
+<p>Because inflation reduces what each dollar buys. At 3 percent inflation, a portfolio projected to reach 843,947 dollars in 30 years has the purchasing power of about 347,695 dollars today. That is not a flaw in the math, it is the reality that large future numbers are partly an illusion, which is why this calculator shows both figures.</p>
+
+<h3>How long will my investments last once I start withdrawing?</h3>
+<p>It depends on your withdrawal rate and the returns you earn while withdrawing. The drawdown tool on this page models it year by year. As a reference point, Morningstar research put the safe starting withdrawal rate for a 30-year retirement at 3.9 percent in 2026, while William Bengen, who created the original 4 percent rule, has since revised his worst-case safe maximum up to 4.7 percent.</p>
+
+<h3>Is the 4 percent rule still reliable?</h3>
+<p>It is a useful starting point rather than a plan. It assumes a fixed inflation-adjusted withdrawal over 30 years and does not account for your taxes, your other income, or your actual spending pattern. Retirees willing to adjust spending when markets fall can often sustain a higher rate, while a rigid withdrawal in a bad early market is what tends to break plans.</p>
+
+<h3>Do actively managed funds beat index funds?</h3>
+<p>Usually not, once fees are counted. Morningstar found that 38 percent of active funds beat their passive peers in 2025, and over the 10 years through 2025 only about 21 percent of active funds both survived and outperformed. That is the main argument for keeping costs low rather than trying to pick a winning manager.</p>
+
+<h3>What is sequence of returns risk?</h3>
+<p>It is the risk that the order of your returns hurts you, not just the average. An average of 8 percent does not mean 8 percent every year. While you are still contributing, a bad early market is actually helpful because you buy cheaply. Once you are withdrawing, a bad early market is dangerous, because you sell assets at low prices and the portfolio may never recover.</p>
+
+<h3>How much should I invest each month?</h3>
+<p>Enough that it continues through a bad month, which usually means a figure you can automate and forget. Consistency matters more than the amount early on. Use the calculator above to see how a small increase compounds, then check that the money is not needed for an emergency fund or high-interest debt first, because both should generally come before investing.</p>
+</div>
+
+<div class="iv-related" style="margin-top:24px">
+<h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg> Related Guides</h3>
+<a href="../blog/how-to-plan-for-early-retirement-in-your-40s/" class="related-blog-card">How to Plan for Early Retirement in Your 40s</a>
+<a href="../blog/how-to-prepare-financially-for-a-recession/" class="related-blog-card">How to Prepare Financially for a Recession</a>
+</div>
+
+<div class="related-tools">
 <h3>More Free Tools</h3>
-<a href="../savings-calculator/" class="related-tool-link">💰 Savings Calculator</a>
-<a href="../budget-planner/" class="related-tool-link">📊 Budget Planner</a>
-<a href="../debt-payoff-calculator/" class="related-tool-link">🔥 Debt Payoff</a>
-<a href="../compound-interest-calculator/" class="related-tool-link">📈 Compound Interest</a>
-<a href="../retirement-calculator/" class="related-tool-link">🏠 Retirement Planner</a>
-<a href="../mortgage-calculator/" class="related-tool-link">🏡 Mortgage Calculator</a>
-<a href="../auto-loan-calculator/" class="related-tool-link">🚗 Auto Loan</a>
-<a href="../net-worth-calculator/" class="related-tool-link">💳 Net Worth</a>
-<a href="../emergency-fund-calculator/" class="related-tool-link">🛡️ Emergency Fund</a>
-<a href="../credit-card-payoff-calculator/" class="related-tool-link">💳 CC Payoff</a>
-<a href="../financial-health-score/" class="related-tool-link">❤️ Financial Health Score</a>
-<a href="../credit-card-quiz/" class="related-tool-link">🃏 Credit Card Quiz</a>
-
-<a href="../401k-calculator/" class="related-tool-link">🏦 401(k)</a>
-<a href="../roth-ira-calculator/" class="related-tool-link">📋 Roth IRA</a>
-<a href="../inflation-calculator/" class="related-tool-link">📉 Inflation</a>
-<a href="../loan-payoff-calculator/" class="related-tool-link">🎯 Loan Payoff</a>
-<a href="../paycheck-calculator/" class="related-tool-link">💵 Take-Home Pay</a>
-<a href="../cd-calculator/" class="related-tool-link">🔐 CD Calculator</a>
+<a href="../compound-interest-calculator/" class="related-tool-link">Compound Interest</a>
+<a href="../savings-calculator/" class="related-tool-link">Savings Calculator</a>
+<a href="../retirement-calculator/" class="related-tool-link">Retirement Planner</a>
+<a href="../401k-calculator/" class="related-tool-link">401(k) Calculator</a>
+<a href="../roth-ira-calculator/" class="related-tool-link">Roth IRA</a>
+<a href="../inflation-calculator/" class="related-tool-link">Inflation Calculator</a>
+<a href="../emergency-fund-calculator/" class="related-tool-link">Emergency Fund</a>
+<a href="../budget-planner/" class="related-tool-link">Budget Planner</a>
+<a href="../debt-payoff-calculator/" class="related-tool-link">Debt Payoff</a>
+<a href="../cd-calculator/" class="related-tool-link">CD Interest Calculator</a>
+<a href="../net-worth-calculator/" class="related-tool-link">Net Worth</a>
+<a href="../paycheck-calculator/" class="related-tool-link">Take-Home Pay</a>
 </div>
+
 </div>
 </section>
-<script src="../js/charts.js"></script>
+
 <script>
-function fmt(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
-function calc(){
-var i=+(document.getElementById('invInit').value||0),m=+(document.getElementById('invMonthly').value||0),r=+(document.getElementById('invRate').value||0)/100/12,y=+(document.getElementById('invYears').value||0);
-var n=y*12;var b=i;var pts=[{x:'Now',y:i}];
-for(var x=0;x<n;x++){b=b*(1+r)+m;if((x+1)%(Math.max(1,Math.floor(n/8)))===0||x===n-1){pts.push({x:'Y'+((x+1)/12).toFixed(0),y:b});}}
-var c=i+m*n,g=b-c;
-var el=document.getElementById('calcResult');
-el.innerHTML='<div class="result-grid"><div class="result-item"><span class="result-label">Portfolio Value</span><span class="result-value" style="color:var(--green)">$'+fmt(b)+'</span></div><div class="result-item"><span class="result-label">Invested</span><span class="result-value">$'+fmt(c)+'</span></div><div class="result-item"><span class="result-label">Gains</span><span class="result-value" style="color:var(--blue)">$'+fmt(g)+'</span></div><div class="result-item"><span class="result-label">ROI</span><span class="result-value" style="color:var(--gold)">'+(g/c*100).toFixed(1)+'%</span></div></div><div id="chart"></div>';
-if(y>0)drawLineChart('#chart',pts,{title:'Investment Portfolio Growth',colors:['#06B6D4']});
+var IV_INDEX_FEE = 0.058; /* Morningstar: avg passive index mutual fund, end of 2025 */
+window.ivState = null;
+
+function ivMoney(n){ if(isNaN(n)) return '$0'; return '$'+Math.round(n).toLocaleString('en-US'); }
+function ivNum(id){ var v=parseFloat(document.getElementById(id).value); return isNaN(v)||v<0?0:v; }
+
+/* Grow month by month, net of the expense ratio */
+function ivGrow(initial, monthly, annualPct, years, feePct){
+  var r=((annualPct-feePct)/100)/12, n=Math.round(years*12), b=initial, series=[{m:0,v:initial}];
+  for(var i=0;i<n;i++){
+    b=b*(1+r)+monthly;
+    if((i+1)%12===0) series.push({m:i+1,v:b});
+  }
+  return {final:b, series:series};
 }
-document.addEventListener('DOMContentLoaded',function(){calc();});
+
+/* Years until depletion, real terms */
+function ivDrawdown(balance, annualWithdrawal, realReturnPct){
+  var r=realReturnPct/100, b=balance, y=0;
+  if(annualWithdrawal<=0) return 99;
+  while(y<99){
+    b=b*(1+r)-annualWithdrawal;
+    y++;
+    if(b<=0) return y;
+  }
+  return 99;
+}
+
+function ivChart(series, years){
+  var W=720,H=280,mL=70,mR=16,mT=18,mB=38;
+  var pw=W-mL-mR, ph=H-mT-mB;
+  var max=series[series.length-1].v||1;
+  var X=function(m){ return mL + (m/(years*12))*pw; };
+  var Y=function(v){ return mT + ph - (v/(max*1.08))*ph; };
+  var d='M '+X(series[0].m).toFixed(1)+' '+Y(series[0].v).toFixed(1);
+  for(var i=1;i<series.length;i++){ d+=' L '+X(series[i].m).toFixed(1)+' '+Y(series[i].v).toFixed(1); }
+  var area=d+' L '+X(series[series.length-1].m).toFixed(1)+' '+Y(0).toFixed(1)+' L '+X(0).toFixed(1)+' '+Y(0).toFixed(1)+' Z';
+  var svg='<svg viewBox="0 0 '+W+' '+H+'" width="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Projected portfolio growth over time">';
+  svg+='<defs><linearGradient id="ivG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#10B981" stop-opacity="0.72"/><stop offset="100%" stop-color="#34D399" stop-opacity="0.08"/></linearGradient></defs>';
+  [0,max/2,max].forEach(function(v){
+    var y=Y(v);
+    svg+='<line x1="'+mL+'" y1="'+y.toFixed(1)+'" x2="'+(W-mR)+'" y2="'+y.toFixed(1)+'" stroke="#EEF2F6" stroke-width="1"/>';
+    svg+='<text x="'+(mL-8)+'" y="'+(y+4).toFixed(1)+'" text-anchor="end" style="font-size:11px;fill:#94A3B8;font-family:DM Sans,sans-serif">'+ivMoney(v)+'</text>';
+  });
+  svg+='<path d="'+area+'" fill="url(#ivG)"/>';
+  svg+='<path d="'+d+'" fill="none" stroke="#059669" stroke-width="2.75" stroke-linejoin="round"/>';
+  var last=series[series.length-1];
+  svg+='<circle cx="'+X(last.m).toFixed(1)+'" cy="'+Y(last.v).toFixed(1)+'" r="4.5" fill="#059669" stroke="#fff" stroke-width="2"/>';
+  svg+='<text x="'+mL+'" y="'+(H-12)+'" style="font-size:11px;fill:#94A3B8;font-family:DM Sans,sans-serif">Today</text>';
+  svg+='<text x="'+(W-mR)+'" y="'+(H-12)+'" text-anchor="end" style="font-size:11px;fill:#94A3B8;font-family:DM Sans,sans-serif">Year '+years+'</text>';
+  svg+='</svg>';
+  return svg;
+}
+
+function ivCalc(){
+  var init=ivNum('ivInit'), monthly=ivNum('ivMonthly'), rate=ivNum('ivRate');
+  var years=Math.max(1,Math.min(60,ivNum('ivYears')));
+  var infl=ivNum('ivInflation');
+
+  if(init<=0 && monthly<=0){ alert('Enter an initial investment or a monthly contribution to run a projection.'); return; }
+
+  window.ivState={init:init, monthly:monthly, rate:rate, years:years, infl:infl};
+
+  var base=ivGrow(init, monthly, rate, years, IV_INDEX_FEE);
+  var contributed=init + monthly*years*12;
+  var growth=base.final-contributed;
+  var real=base.final/Math.pow(1+infl/100, years);
+  var inflShare=base.final>0 ? (1-real/base.final)*100 : 0;
+  var cPct=base.final>0 ? (contributed/base.final)*100 : 0;
+  var gPct=100-cPct;
+
+  var html=
+      '<div class="iv-headline">'
+    +   '<div><div class="iv-headline-label">Projected value in '+years+' years</div><div class="iv-headline-value">'+ivMoney(base.final)+'</div></div>'
+    +   '<div class="iv-headline-real"><div class="iv-headline-label">In today\'s dollars</div><div class="v">'+ivMoney(real)+'</div>'
+    +     '<div class="iv-headline-note">About '+inflShare.toFixed(0)+' percent of the headline number is inflation, not wealth.</div></div>'
+    + '</div>'
+    + '<div class="result-grid">'
+    +   '<div class="result-item"><span class="result-label">You Contribute</span><span class="result-value">'+ivMoney(contributed)+'</span></div>'
+    +   '<div class="result-item"><span class="result-label">Market Growth</span><span class="result-value" style="color:#059669">'+ivMoney(growth)+'</span></div>'
+    +   '<div class="result-item"><span class="result-label">Total Return</span><span class="result-value" style="color:#059669">'+(contributed>0?(growth/contributed*100).toFixed(0):0)+'%</span></div>'
+    +   '<div class="result-item"><span class="result-label">Time Horizon</span><span class="result-value">'+years+' yrs</span></div>'
+    + '</div>'
+
+    + '<div class="iv-split">'
+    +   '<div class="iv-section-title" style="margin:0 0 4px"><span class="dot"></span> Your money vs the market\'s money</div>'
+    +   '<div class="iv-split-bar"><div class="iv-split-seg contrib" id="ivSegC"></div><div class="iv-split-seg growth" id="ivSegG"></div></div>'
+    +   '<div class="iv-split-legend">'
+    +     '<span><i style="background:#0F2540"></i>You contributed <b>'+ivMoney(contributed)+'</b> ('+cPct.toFixed(0)+'%)</span>'
+    +     '<span><i style="background:#10B981"></i>The market added <b>'+ivMoney(growth)+'</b> ('+gPct.toFixed(0)+'%)</span>'
+    +   '</div>'
+    + '</div>'
+
+    + '<div class="iv-chart-wrap">'
+    +   '<div class="iv-section-title" style="margin:0 0 6px"><span class="dot"></span> Projected growth</div>'
+    +   ivChart(base.series, years)
+    +   '<p class="iv-chart-caption">Assumes a '+rate+' percent annual return net of a '+IV_INDEX_FEE+' percent expense ratio, the Morningstar average for an index mutual fund. Returns are not guaranteed and will not arrive evenly.</p>'
+    + '</div>'
+
+    /* ===== FEE DRAG ===== */
+    + '<div class="iv-fees"><div class="iv-fees-inner">'
+    +   '<div class="iv-panel-head">'
+    +     '<span class="iv-panel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>'
+    +     '<span class="iv-panel-title">What your fund fee actually costs</span>'
+    +   '</div>'
+    +   '<p class="iv-panel-sub">An expense ratio is charged every year against a growing balance, so it compounds against you exactly the way returns compound for you. Drag the slider and watch it take a bite out of your own number.</p>'
+    +   '<div class="iv-fee-slider">'
+    +     '<label for="ivFee">Your fund\'s expense ratio</label>'
+    +     '<input type="range" id="ivFee" min="0" max="2" step="0.01" value="0.57" oninput="ivUpdateFee(true)">'
+    +     '<div class="iv-fee-val" id="ivFeeVal">0.57%</div>'
+    +     '<div class="iv-fee-presets">'
+    +       '<button type="button" class="iv-fee-preset" onclick="ivSetFee(0.03)">0.03% ultra low</button>'
+    +       '<button type="button" class="iv-fee-preset" onclick="ivSetFee(0.058)">0.058% index fund</button>'
+    +       '<button type="button" class="iv-fee-preset active" onclick="ivSetFee(0.57)">0.57% active fund</button>'
+    +       '<button type="button" class="iv-fee-preset" onclick="ivSetFee(1)">1.00%</button>'
+    +     '</div>'
+    +   '</div>'
+    +   '<div class="iv-fee-verdict" id="ivFeeVerdict"></div>'
+    +   '<p class="iv-fee-note">Averages from Morningstar fund fee data through the end of 2025: 0.058 percent for passive index mutual funds, 0.135 percent for passive ETFs, 0.42 percent for active ETFs, and 0.57 percent for active mutual funds. Fee comparisons here hold your return assumption constant.</p>'
+    + '</div></div>'
+
+    /* ===== DRAWDOWN ===== */
+    + '<div class="iv-draw">'
+    +   '<div class="iv-panel-head">'
+    +     '<span class="iv-panel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 9l4 4 3-3 5 6"/></svg></span>'
+    +     '<span class="iv-panel-title">Drawdown: how long does it last?</span>'
+    +   '</div>'
+    +   '<p class="iv-panel-sub">Most calculators stop at the finish line. This one keeps going. Once you retire and start withdrawing, how many years does '+ivMoney(base.final)+' actually support you?</p>'
+    +   '<div class="iv-draw-row">'
+    +     '<div class="iv-draw-ctrl">'
+    +       '<label for="ivWithdraw">Annual withdrawal rate</label>'
+    +       '<input type="range" id="ivWithdraw" min="2" max="10" step="0.1" value="4" oninput="ivUpdateDraw()">'
+    +       '<div class="iv-draw-val" id="ivWithdrawVal">4.0% per year</div>'
+    +     '</div>'
+    +     '<div class="iv-draw-ctrl">'
+    +       '<label for="ivRealRet">Real return during retirement (after inflation)</label>'
+    +       '<input type="range" id="ivRealRet" min="0" max="7" step="0.1" value="4" oninput="ivUpdateDraw()">'
+    +       '<div class="iv-draw-val" id="ivRealRetVal">4.0% per year</div>'
+    +     '</div>'
+    +   '</div>'
+    +   '<div class="iv-draw-result" id="ivDrawResult"></div>'
+    + '</div>';
+
+  var el=document.getElementById('ivResults');
+  el.innerHTML=html;
+  el.style.display='block';
+  document.getElementById('ivEmpty').style.display='none';
+
+  requestAnimationFrame(function(){
+    document.getElementById('ivSegC').style.width=cPct+'%';
+    document.getElementById('ivSegG').style.width=gPct+'%';
+  });
+
+  ivUpdateFee(false);
+  ivUpdateDraw();
+  el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function ivSetFee(v){
+  document.getElementById('ivFee').value=v;
+  var btns=document.querySelectorAll('.iv-fee-preset');
+  for(var i=0;i<btns.length;i++){ btns[i].classList.remove('active'); }
+  for(var j=0;j<btns.length;j++){
+    var t=btns[j].textContent;
+    if((v===0.03&&t.indexOf('0.03')===0)||(v===0.058&&t.indexOf('0.058')===0)||(v===0.57&&t.indexOf('0.57')===0)||(v===1&&t.indexOf('1.00')===0)){ btns[j].classList.add('active'); }
+  }
+  ivUpdateFee(false);
+}
+
+function ivUpdateFee(clearPresets){
+  var s=window.ivState; if(!s) return;
+  var fee=parseFloat(document.getElementById('ivFee').value);
+  document.getElementById('ivFeeVal').textContent=fee.toFixed(fee<0.1?3:2).replace(/0+$/,'').replace(/\.$/,'')+'%';
+  if(clearPresets){
+    var btns=document.querySelectorAll('.iv-fee-preset');
+    for(var i=0;i<btns.length;i++){ btns[i].classList.remove('active'); }
+  }
+  var atIndex=ivGrow(s.init,s.monthly,s.rate,s.years,IV_INDEX_FEE).final;
+  var atFee=ivGrow(s.init,s.monthly,s.rate,s.years,fee).final;
+  var cost=atIndex-atFee;
+  var pct=atIndex>0 ? (cost/atIndex*100) : 0;
+  var v=document.getElementById('ivFeeVerdict');
+
+  if(fee<=IV_INDEX_FEE+0.001){
+    v.className='iv-fee-verdict';
+    v.innerHTML='At <strong>'+fee+' percent</strong> you are paying at or below the average index fund. Over '+s.years+' years your projected balance is <strong>'+ivMoney(atFee)+'</strong>. This is the cheapest seat in the house, and it is available to anyone.';
+    return;
+  }
+  v.className = pct>=10 ? 'iv-fee-verdict bad' : 'iv-fee-verdict';
+  v.innerHTML='A <strong>'+fee+' percent</strong> fee leaves you with '+ivMoney(atFee)+' instead of '+ivMoney(atIndex)+'. That fee quietly costs you <strong>'+ivMoney(cost)+'</strong> over '+s.years+' years, which is <strong>'+pct.toFixed(1)+' percent of your final balance</strong>. You took the risk. You made the contributions. That slice went to the fund company.';
+}
+
+function ivUpdateDraw(){
+  var s=window.ivState; if(!s) return;
+  var rate=parseFloat(document.getElementById('ivWithdraw').value);
+  var realRet=parseFloat(document.getElementById('ivRealRet').value);
+  document.getElementById('ivWithdrawVal').textContent=rate.toFixed(1)+'% per year';
+  document.getElementById('ivRealRetVal').textContent=realRet.toFixed(1)+'% per year';
+
+  var bal=ivGrow(s.init,s.monthly,s.rate,s.years,IV_INDEX_FEE).final;
+  var annual=bal*rate/100;
+  var yrs=ivDrawdown(bal, annual, realRet);
+  var d=document.getElementById('ivDrawResult');
+
+  if(yrs>=99){
+    d.className='iv-draw-result';
+    d.innerHTML='Withdrawing <strong>'+ivMoney(annual)+' a year</strong> ('+rate.toFixed(1)+' percent) while earning '+realRet.toFixed(1)+' percent after inflation, your balance <strong>never runs out</strong>. You are taking less than the portfolio grows, so it sustains itself indefinitely. That is a comfortable place to be, though it may mean you are living below what you could safely afford.';
+    return;
+  }
+  var msg='Withdrawing <strong>'+ivMoney(annual)+' a year</strong> ('+rate.toFixed(1)+' percent of '+ivMoney(bal)+') while earning '+realRet.toFixed(1)+' percent after inflation, the money lasts about <strong>'+yrs+' years</strong>.';
+  if(yrs<25){
+    d.className='iv-draw-result bad';
+    msg+=' A 30-year retirement is a common planning horizon, so this rate would leave you short. Morningstar put the safe starting rate at 3.9 percent in 2026 for a fixed withdrawal.';
+  } else if(yrs<35){
+    d.className='iv-draw-result warn';
+    msg+=' That covers a standard 30-year retirement, but with little margin. If you retire early or live long, it gets tight.';
+  } else {
+    d.className='iv-draw-result';
+    msg+=' That comfortably clears a 30-year retirement horizon.';
+  }
+  d.innerHTML=msg;
+}
+
+function ivReset(){
+  var d={ivInit:10000, ivMonthly:500, ivRate:8, ivYears:30, ivInflation:3};
+  for(var id in d){ document.getElementById(id).value=d[id]; }
+  window.ivState=null;
+  document.getElementById('ivResults').style.display='none';
+  document.getElementById('ivResults').innerHTML='';
+  document.getElementById('ivEmpty').style.display='block';
+  document.getElementById('ivEmpty').scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+window.addEventListener('scroll',function(){var n=document.querySelector('nav#mainNav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
 </script>
+
 <footer>
 <div class="container">
 <div class="footer-grid">
 <div>
 <div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
-<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and expert guides for Americans in every state. Making money decisions simpler since 2026.</p>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Helping you keep more of what you earn. Free financial tools and educational guides for Americans in every state.</p>
 </div>
 <div>
 <h4>Calculators</h4>
 <a href="../savings-calculator/">Savings Calculator</a>
+<a href="../investment-calculator/">Investment Calculator</a>
+<a href="../compound-interest-calculator/">Compound Interest</a>
+<a href="../retirement-calculator/">Retirement</a>
 <a href="../budget-planner/">Budget Planner</a>
-<a href="../mortgage-calculator/">Mortgage Calculator</a>
-<a href="../debt-payoff-calculator/">Debt Payoff</a>
-<a href="../auto-loan-calculator/">Auto Loan</a>
-<a href="../net-worth-calculator/">Net Worth</a>
 </div>
 <div>
 <h4>Resources</h4>
@@ -147,28 +625,21 @@ document.addEventListener('DOMContentLoaded',function(){calc();});
 </div>
 </div>
 <div class="footer-bottom">
-<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
-<p>Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+<p>&copy; 2026 SavingsClub. All rights reserved. Helping you keep more of what you earn. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
+<p>Educational content only, not financial advice. SavingsClub is not a licensed financial advisor. Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
 </div>
 </div>
 </footer>
 
 <script>
-window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
-function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
-function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
-var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
-</script>
-<script>
 (function(){
 if(localStorage.getItem('sc_cookies'))return;
 var b=document.createElement('div');
 b.id='cookieBanner';
-b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
+b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1';
 var acceptBtn=document.createElement('button');
 acceptBtn.textContent='Accept';
-acceptBtn.style.cssText='background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#059669,#10B981);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
 acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
 var declineBtn=document.createElement('button');
 declineBtn.textContent='Decline';
@@ -178,12 +649,12 @@ localStorage.setItem('sc_cookies','decline');
 b.innerHTML='';
 var msg=document.createElement('span');
 msg.style.cssText='padding:12px 0;color:#10B981';
-msg.textContent='\u2713 No cookies stored. You can browse freely.';
+msg.textContent='Preference saved.';
 b.appendChild(msg);
-setTimeout(function(){b.remove();},2500);
+setTimeout(function(){b.remove();},2000);
 };
 var txt=document.createElement('span');
-txt.innerHTML='We use cookies to improve your experience. <a href="/cookie-policy/" style="color:#3B82F6">Cookie Policy</a>';
+txt.innerHTML='We use basic analytics cookies to understand site traffic. <a href="/cookie-policy/" style="color:#10B981">Cookie Policy</a>';
 var btnWrap=document.createElement('div');
 btnWrap.style.cssText='display:flex;gap:8px';
 btnWrap.appendChild(acceptBtn);
@@ -193,5 +664,6 @@ b.appendChild(btnWrap);
 document.body.appendChild(b);
 })();
 </script>
+
 </body>
 </html>
