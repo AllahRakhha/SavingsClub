@@ -44,17 +44,23 @@
 
 <style>
 /* ===== Budget planner (bp-) ===== */
-.bp-hero{background:linear-gradient(135deg,#0A1628 0%,#0F2540 50%,#059669 100%);color:#fff;padding:clamp(44px,5vw,72px) 28px;border-radius:20px;margin-bottom:24px;text-align:center;box-shadow:0 8px 24px rgba(10,22,40,.15);position:relative;overflow:hidden}
-.bp-hero::before{content:'';position:absolute;top:-45%;right:-12%;width:55%;height:190%;background:radial-gradient(circle,rgba(16,185,129,.22) 0%,transparent 62%);pointer-events:none}
-.bp-hero-inner{position:relative;z-index:1}
-.bp-hero h1{color:#fff;font-size:clamp(2rem,4.6vw,3.5rem);margin:0 0 14px;letter-spacing:-.025em;line-height:1.08;font-weight:800}
-.bp-tagline{color:rgba(255,255,255,.85);font-size:clamp(1rem,1.35vw,1.2rem);max-width:660px;margin:0 auto;line-height:1.6}
-.bp-byline{color:rgba(255,255,255,.6);font-size:.82rem;margin-top:12px;display:flex;align-items:center;justify-content:center;gap:6px}
-.bp-byline svg{width:13px;height:13px;color:#34D399}
-.bp-framework-toggle{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
-.bp-framework-btn{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.25);padding:8px 16px;border-radius:50px;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit}
-.bp-framework-btn:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.5)}
-.bp-framework-btn.active{background:#10B981;border-color:#10B981;box-shadow:0 4px 12px rgba(16,185,129,.3)}
+/* ===== Full-bleed hero (matches CD calculator pattern) ===== */
+.bp-hero-full{background:linear-gradient(120deg,#0A1628 0%,#0F2540 40%,#065F46 74%,#059669 100%);color:#fff;padding:clamp(56px,6.5vw,104px) 24px clamp(52px,6vw,92px);position:relative;overflow:hidden}
+.bp-hero-full::before{content:'';position:absolute;top:-40%;right:-6%;width:48%;height:180%;background:radial-gradient(circle,rgba(16,185,129,.20) 0%,transparent 62%);pointer-events:none}
+.bp-hero-inner{max-width:1160px;margin:0 auto;position:relative;z-index:1}
+.bp-badge{display:inline-block;background:rgba(16,185,129,.16);color:#34D399;padding:8px 20px;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:22px;border:1px solid rgba(16,185,129,.35)}
+.bp-hero-full h1{color:#fff;font-size:clamp(2.2rem,5vw,4rem);margin:0 0 20px;letter-spacing:-.03em;line-height:1.04;font-weight:800}
+.bp-tagline{color:rgba(255,255,255,.82);font-size:clamp(1rem,1.35vw,1.28rem);max-width:720px;margin:0 0 24px;line-height:1.62}
+.bp-hero-meta{color:rgba(255,255,255,.62);font-size:.92rem;margin:0 0 8px}
+.bp-hero-note{color:rgba(255,255,255,.45);font-size:.85rem;font-style:italic;margin:0;max-width:660px}
+
+/* Framework toggle now sits on a light card */
+.bp-fw-wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-bottom:20px;margin-bottom:22px;border-bottom:1px solid #E2E8F0}
+.bp-fw-label{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.9rem;color:#0A1628}
+.bp-framework-toggle{display:flex;gap:8px;flex-wrap:wrap}
+.bp-framework-btn{background:#F1F5F9;color:#475569;border:1.5px solid #E2E8F0;padding:8px 16px;border-radius:50px;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif}
+.bp-framework-btn:hover{border-color:#10B981;color:#059669}
+.bp-framework-btn.active{background:linear-gradient(135deg,#059669,#10B981);border-color:transparent;color:#fff;box-shadow:0 4px 12px rgba(16,185,129,.3)}
 
 /* Always-visible template bar */
 .bp-template-bar{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,#0A1628,#0F2540);border-radius:16px;padding:20px 24px;margin-bottom:24px;flex-wrap:wrap}
@@ -168,10 +174,6 @@
 #bp-kit-form .formkit-submit span{color:#fff!important}
 #bp-kit-form .formkit-guarantee,#bp-kit-form .formkit-powered-by-convertkit-container{display:none!important}
 #bp-kit-form .formkit-alert{background:rgba(220,38,38,.15)!important;color:#FCA5A5!important;border-radius:8px!important;font-size:.82rem!important}
-.bp-form-fallback{display:flex;flex-direction:column;gap:10px}
-.bp-form-fallback input{width:100%;padding:13px 14px;border:1.5px solid rgba(255,255,255,.18);border-radius:10px;font-size:.95rem;font-family:inherit;background:rgba(255,255,255,.07);color:#fff}
-.bp-form-fallback input::placeholder{color:rgba(255,255,255,.45)}
-.bp-form-fallback button{padding:13px;border:none;border-radius:10px;background:linear-gradient(135deg,#059669,#10B981);color:#fff;font-weight:700;font-size:.95rem;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif}
 .bp-form-note{color:rgba(255,255,255,.5);font-size:.75rem;margin-top:12px;line-height:1.5}
 
 .bp-howto-wrap,.bp-info-wrap,.bp-related-wrap,.bp-faq-wrap{margin-top:32px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
@@ -255,25 +257,18 @@ SavingsClub
 <a href="../contact/">Contact</a>
 </div>
 
+<header class="bp-hero-full">
+<div class="bp-hero-inner">
+<span class="bp-badge">Free Tool</span>
+<h1>Budget Planner</h1>
+<p class="bp-tagline">Use this free 50/30/20 budget planner to compare your real spending against target, see exactly which categories are over budget, and download a free budget template to keep it going. Enter your numbers, then click Calculate.</p>
+<p class="bp-hero-meta">By SavingsClub Research Team · Updated July 2026</p>
+<p class="bp-hero-note">Educational tool, not financial advice. SavingsClub is not a licensed financial advisor.</p>
+</div>
+</header>
+
 <section class="calc-page">
 <div class="container">
-<div style="margin-bottom:24px"><a href="../" style="color:#64748B;font-weight:500">Back to Home</a></div>
-
-<div class="bp-hero">
-<div class="bp-hero-inner">
-<h1>Budget Planner</h1>
-<p class="bp-tagline">Compare your real spending to the 50/30/20 rule. See exactly which categories are over budget, then download a free budget template to keep it going.</p>
-<div class="bp-framework-toggle">
-<button type="button" class="bp-framework-btn active" data-framework="50-30-20" onclick="setFramework('50-30-20')">50/30/20</button>
-<button type="button" class="bp-framework-btn" data-framework="70-20-10" onclick="setFramework('70-20-10')">70/20/10</button>
-<button type="button" class="bp-framework-btn" data-framework="60-20-20" onclick="setFramework('60-20-20')">60/20/20</button>
-</div>
-<div class="bp-byline">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-By SavingsClub Research Team
-</div>
-</div>
-</div>
 
 <!-- ALWAYS VISIBLE download bar -->
 <div class="bp-template-bar">
@@ -288,7 +283,17 @@ Get the template
 </a>
 </div>
 
-<div class="calc-section" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
+<div class="calc-section" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04);margin-top:24px">
+
+<div class="bp-fw-wrap">
+<span class="bp-fw-label">Budget framework</span>
+<div class="bp-framework-toggle">
+<button type="button" class="bp-framework-btn active" data-framework="50-30-20" onclick="setFramework('50-30-20')">50/30/20</button>
+<button type="button" class="bp-framework-btn" data-framework="70-20-10" onclick="setFramework('70-20-10')">70/20/10</button>
+<button type="button" class="bp-framework-btn" data-framework="60-20-20" onclick="setFramework('60-20-20')">60/20/20</button>
+</div>
+</div>
+
 <div class="bp-layout">
 
 <!-- INPUTS -->
@@ -376,15 +381,9 @@ Free download
 <h3>Send me the template</h3>
 <p>Enter your email and we will send all three files right away.</p>
 
-<!-- ============================================================
-     PASTE YOUR KIT (ConvertKit) FORM EMBED CODE INSIDE THIS DIV.
-     Delete the .bp-form-fallback block below once Kit is in.
-     ============================================================ -->
+<!-- Kit (ConvertKit) email capture form -->
 <div id="bp-kit-form">
-  <div class="bp-form-fallback">
-    <input type="email" placeholder="you@example.com" aria-label="Email address">
-    <button type="button" onclick="alert('Email signup is being connected. Please check back shortly.')">Send me the budget template</button>
-  </div>
+  <script async data-uid="d188d6b17a" src="https://savingsclub.kit.com/d188d6b17a/index.js"></script>
 </div>
 
 <p class="bp-form-note">Free forever. Unsubscribe any time. We send occasional money guides and never share your address.</p>
