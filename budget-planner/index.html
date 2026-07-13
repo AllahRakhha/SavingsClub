@@ -37,7 +37,7 @@
 {"@type":"Question","name":"What if my needs are more than 50 percent of my income?","acceptedAnswer":{"@type":"Answer","text":"Many Americans, especially in high cost cities, spend more than 50 percent on needs. Start by tracking your actual spending, then look at the biggest category, which is usually housing or transportation. You can also switch the framework toggle to 70/20/10, which accepts a larger housing share and still protects your savings."}},
 {"@type":"Question","name":"Should I budget with gross or net income?","acceptedAnswer":{"@type":"Answer","text":"Use net income, meaning what actually lands in your bank account after taxes. Gross income is misleading because you never see that money. If you are not sure of your net pay, our paycheck calculator works it out from your salary."}},
 {"@type":"Question","name":"What if my income changes every month?","acceptedAnswer":{"@type":"Answer","text":"If you are a freelancer, gig worker, or earn commission, use your lowest monthly income from the past six months and budget tightly against that number. Any surplus from a stronger month goes straight to savings or debt payoff, which turns an unpredictable income into a stable plan."}},
-{"@type":"Question","name":"Is the personal budget template Excel file really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The budget template is completely free and there is no payment or trial. You give an email address and we send you the download links. The workbook does the math for you, turning categories red when you go over budget and green when you stay under."}},
+{"@type":"Question","name":"Is the personal budget template Excel file really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The budget template is completely free and there is no payment, no signup, and no email required. Click the download button and the file is yours. The workbook does the math for you, turning categories red when you go over budget and green when you stay under."}},
 {"@type":"Question","name":"Can I use the budget template in Google Sheets?","acceptedAnswer":{"@type":"Answer","text":"Yes. The download includes a Google Sheets version alongside the Excel file and a printable PDF. The Google Sheets version opens straight in your browser and makes its own copy in your Drive, so you can edit it without changing anyone else copy."}}
 ]}
 </script>
@@ -145,7 +145,7 @@
 .bp-result-cta a{background:linear-gradient(135deg,#059669,#10B981);color:#fff;padding:11px 22px;border-radius:50px;text-decoration:none;font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;box-shadow:0 6px 18px rgba(5,150,105,.35)}
 .bp-result-cta a svg{width:15px;height:15px}
 
-/* Download / email capture section */
+/* Download section */
 .bp-download{margin-top:32px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:34px;box-shadow:0 1px 3px rgba(0,0,0,.04);scroll-margin-top:90px}
 .bp-dl-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:34px;align-items:center}
 .bp-dl-badge{display:inline-flex;align-items:center;gap:7px;background:#ECFDF5;color:#047857;padding:6px 14px;border-radius:999px;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
@@ -162,18 +162,15 @@
 .bp-form-card{background:linear-gradient(135deg,#0A1628,#0F2540);border-radius:18px;padding:28px;text-align:center}
 .bp-form-card h3{color:#fff;font-size:1.15rem;margin:0 0 6px;font-family:'Plus Jakarta Sans',sans-serif}
 .bp-form-card p{color:rgba(255,255,255,.7);font-size:.87rem;margin:0 0 18px;line-height:1.55}
-/* ===== PASTE YOUR KIT (ConvertKit) EMBED CODE INSIDE #bp-kit-form BELOW ===== */
-#bp-kit-form{min-height:60px}
-/* Brand styling for the Kit embed once it is pasted in */
-#bp-kit-form .formkit-form{background:transparent!important;border:none!important;box-shadow:none!important;padding:0!important;margin:0!important}
-#bp-kit-form .formkit-fields{display:flex;flex-direction:column;gap:10px}
-#bp-kit-form .formkit-field{margin:0!important;width:100%}
-#bp-kit-form .formkit-input{width:100%!important;padding:13px 14px!important;border:1.5px solid rgba(255,255,255,.18)!important;border-radius:10px!important;font-size:.95rem!important;font-family:'DM Sans',sans-serif!important;background:rgba(255,255,255,.07)!important;color:#fff!important}
-#bp-kit-form .formkit-input::placeholder{color:rgba(255,255,255,.45)!important}
-#bp-kit-form .formkit-submit{width:100%!important;padding:13px!important;border:none!important;border-radius:10px!important;background:linear-gradient(135deg,#059669,#10B981)!important;color:#fff!important;font-weight:700!important;font-size:.95rem!important;font-family:'Plus Jakarta Sans',sans-serif!important;cursor:pointer!important}
-#bp-kit-form .formkit-submit span{color:#fff!important}
-#bp-kit-form .formkit-guarantee,#bp-kit-form .formkit-powered-by-convertkit-container{display:none!important}
-#bp-kit-form .formkit-alert{background:rgba(220,38,38,.15)!important;color:#FCA5A5!important;border-radius:8px!important;font-size:.82rem!important}
+/* Direct download buttons (no email required) */
+.bp-dl-buttons{display:flex;flex-direction:column;gap:10px}
+.bp-dl-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:14px 16px;border-radius:12px;background:linear-gradient(135deg,#059669,#10B981);color:#fff;text-decoration:none;font-weight:700;font-size:.95rem;font-family:'Plus Jakarta Sans',sans-serif;box-shadow:0 6px 18px rgba(5,150,105,.28);transition:transform .16s ease,box-shadow .16s ease}
+.bp-dl-btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(5,150,105,.4)}
+.bp-dl-btn svg{width:17px;height:17px;flex:0 0 17px}
+.bp-dl-btn:nth-child(2){background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.22);box-shadow:none}
+.bp-dl-btn:nth-child(2):hover{background:rgba(255,255,255,.16);box-shadow:none}
+.bp-dl-btn:nth-child(3){background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.22);box-shadow:none}
+.bp-dl-btn:nth-child(3):hover{background:rgba(255,255,255,.16);box-shadow:none}
 .bp-form-note{color:rgba(255,255,255,.5);font-size:.75rem;margin-top:12px;line-height:1.5}
 
 .bp-howto-wrap,.bp-info-wrap,.bp-related-wrap,.bp-faq-wrap{margin-top:32px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
@@ -275,7 +272,7 @@ SavingsClub
 <span class="bp-tb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M4 19h16"/></svg></span>
 <div class="bp-tb-text">
 <strong>Free budget template, no payment needed</strong>
-<span>Excel, Google Sheets, and a printable PDF. The math is built in.</span>
+<span>Excel, Google Sheets, and a printable PDF. No email needed.</span>
 </div>
 <a href="#get-template" class="bp-tb-btn">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M4 19h16"/></svg>
@@ -378,15 +375,26 @@ Free download
 </div>
 
 <div class="bp-form-card">
-<h3>Send me the template</h3>
-<p>Enter your email and we will send all three files right away.</p>
+<h3>Download it now</h3>
+<p>No email, no signup, no payment. Pick your format and it is yours.</p>
 
-<!-- Kit (ConvertKit) email capture form -->
-<div id="bp-kit-form">
-  <script async data-uid="d188d6b17a" src="https://savingsclub.kit.com/d188d6b17a/index.js"></script>
+<div class="bp-dl-buttons">
+<a class="bp-dl-btn" href="/downloads/SavingsClub-Budget-Planner-2026.xlsx" download>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+Excel workbook
+</a>
+<!-- REPLACE THE HREF BELOW WITH YOUR GOOGLE SHEETS /copy LINK -->
+<a class="bp-dl-btn" href="https://docs.google.com/spreadsheets/d/1Vi3VT8v0fzFgo-MHXQR_ylhiWEzdE-RZOKxH8nsgzkc/copy" target="_blank" rel="noopener">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+Google Sheets copy
+</a>
+<a class="bp-dl-btn" href="/downloads/SavingsClub-Budget-Planner-2026-Printable.pdf" download>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
+Printable PDF
+</a>
 </div>
 
-<p class="bp-form-note">Free forever. Unsubscribe any time. We send occasional money guides and never share your address.</p>
+<p class="bp-form-note">Free forever. Yours to keep and to share with anyone who needs it.</p>
 </div>
 </div>
 </div>
@@ -456,7 +464,7 @@ Free download
 
 <details>
 <summary>Is the personal budget template Excel file really free?</summary>
-<div class="bp-faq-answer">Yes. The budget template is completely free and there is no payment or trial. You give an email address and we send you the download links. The workbook does the math for you, turning categories red when you go over budget and green when you stay under.</div>
+<div class="bp-faq-answer">Yes. The budget template is completely free and there is no payment, no signup, and no email required. Click the download button and the file is yours. The workbook does the math for you, turning categories red when you go over budget and green when you stay under.</div>
 </details>
 
 <details>
@@ -623,7 +631,7 @@ function bpRender(income){
 
   html+='<div class="bp-result-cta">'
     +'<h4>Keep this going every month</h4>'
-    +'<p>Download the free budget template and track these same numbers in Excel, Google Sheets, or on paper.</p>'
+    +'<p>Download the free budget template and track these same numbers in Excel, Google Sheets, or on paper. No email required.</p>'
     +'<a href="#get-template"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M4 19h16"/></svg>Get the free template</a>'
     +'</div>';
 
