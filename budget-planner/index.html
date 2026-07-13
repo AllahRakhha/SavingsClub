@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Budget Planner: 50/30/20 Calculator + Free Template</title>
+<title>Budget Planner: 50/30/20 Calculator + Free Template 2026</title>
 <meta name="description" content="Free budget planner. Compare your actual spending to the 50/30/20 rule, see which categories are over budget, and download a free personal budget template.">
 <link rel="canonical" href="https://savingsclub.com/budget-planner/">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
@@ -44,11 +44,11 @@
 
 <style>
 /* ===== Budget planner (bp-) ===== */
-.bp-hero{background:linear-gradient(135deg,#0A1628 0%,#0F2540 50%,#059669 100%);color:#fff;padding:44px 28px;border-radius:20px;margin-bottom:24px;text-align:center;box-shadow:0 8px 24px rgba(10,22,40,.15);position:relative;overflow:hidden}
+.bp-hero{background:linear-gradient(135deg,#0A1628 0%,#0F2540 50%,#059669 100%);color:#fff;padding:clamp(44px,5vw,72px) 28px;border-radius:20px;margin-bottom:24px;text-align:center;box-shadow:0 8px 24px rgba(10,22,40,.15);position:relative;overflow:hidden}
 .bp-hero::before{content:'';position:absolute;top:-45%;right:-12%;width:55%;height:190%;background:radial-gradient(circle,rgba(16,185,129,.22) 0%,transparent 62%);pointer-events:none}
 .bp-hero-inner{position:relative;z-index:1}
-.bp-hero h1{color:#fff;font-size:2.2rem;margin:0 0 10px;letter-spacing:-.02em}
-.bp-tagline{color:rgba(255,255,255,.85);font-size:1.05rem;max-width:620px;margin:0 auto}
+.bp-hero h1{color:#fff;font-size:clamp(2rem,4.6vw,3.5rem);margin:0 0 14px;letter-spacing:-.025em;line-height:1.08;font-weight:800}
+.bp-tagline{color:rgba(255,255,255,.85);font-size:clamp(1rem,1.35vw,1.2rem);max-width:660px;margin:0 auto;line-height:1.6}
 .bp-byline{color:rgba(255,255,255,.6);font-size:.82rem;margin-top:12px;display:flex;align-items:center;justify-content:center;gap:6px}
 .bp-byline svg{width:13px;height:13px;color:#34D399}
 .bp-framework-toggle{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
@@ -158,6 +158,16 @@
 .bp-form-card p{color:rgba(255,255,255,.7);font-size:.87rem;margin:0 0 18px;line-height:1.55}
 /* ===== PASTE YOUR KIT (ConvertKit) EMBED CODE INSIDE #bp-kit-form BELOW ===== */
 #bp-kit-form{min-height:60px}
+/* Brand styling for the Kit embed once it is pasted in */
+#bp-kit-form .formkit-form{background:transparent!important;border:none!important;box-shadow:none!important;padding:0!important;margin:0!important}
+#bp-kit-form .formkit-fields{display:flex;flex-direction:column;gap:10px}
+#bp-kit-form .formkit-field{margin:0!important;width:100%}
+#bp-kit-form .formkit-input{width:100%!important;padding:13px 14px!important;border:1.5px solid rgba(255,255,255,.18)!important;border-radius:10px!important;font-size:.95rem!important;font-family:'DM Sans',sans-serif!important;background:rgba(255,255,255,.07)!important;color:#fff!important}
+#bp-kit-form .formkit-input::placeholder{color:rgba(255,255,255,.45)!important}
+#bp-kit-form .formkit-submit{width:100%!important;padding:13px!important;border:none!important;border-radius:10px!important;background:linear-gradient(135deg,#059669,#10B981)!important;color:#fff!important;font-weight:700!important;font-size:.95rem!important;font-family:'Plus Jakarta Sans',sans-serif!important;cursor:pointer!important}
+#bp-kit-form .formkit-submit span{color:#fff!important}
+#bp-kit-form .formkit-guarantee,#bp-kit-form .formkit-powered-by-convertkit-container{display:none!important}
+#bp-kit-form .formkit-alert{background:rgba(220,38,38,.15)!important;color:#FCA5A5!important;border-radius:8px!important;font-size:.82rem!important}
 .bp-form-fallback{display:flex;flex-direction:column;gap:10px}
 .bp-form-fallback input{width:100%;padding:13px 14px;border:1.5px solid rgba(255,255,255,.18);border-radius:10px;font-size:.95rem;font-family:inherit;background:rgba(255,255,255,.07);color:#fff}
 .bp-form-fallback input::placeholder{color:rgba(255,255,255,.45)}
@@ -201,8 +211,7 @@
 @media (max-width:900px){
   .bp-layout{grid-template-columns:1fr;gap:20px}
   .bp-results-col{min-height:auto;padding:20px}
-  .bp-hero{padding:32px 20px}
-  .bp-hero h1{font-size:1.7rem}
+  .bp-hero{padding:38px 20px}
   .bp-dl-grid{grid-template-columns:1fr;gap:24px}
   .bp-download,.bp-howto-wrap,.bp-info-wrap,.bp-related-wrap,.bp-faq-wrap{padding:22px}
   .bp-related-grid{grid-template-columns:1fr}
