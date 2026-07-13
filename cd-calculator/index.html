@@ -3,16 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CD Rates Calculator: Certificate of Deposit APY | SavingsClub</title>
-<meta name="description" content="Free CD rates calculator. See how much a certificate of deposit account earns at maturity, compare CD terms and APY, estimate early withdrawal penalties, and learn how CD interest is calculated.">
+<title>CD Interest Calculator: APY and Maturity Value</title>
+<meta name="description" content="Free CD interest calculator. See how much interest your certificate of deposit earns, your true APY, and what an early withdrawal would cost.">
 <link rel="canonical" href="https://savingsclub.com/cd-calculator/">
-<meta property="og:title" content="CD Rates Calculator: Certificate of Deposit APY | SavingsClub">
-<meta property="og:description" content="Free CD rates calculator. See how much a certificate of deposit account earns at maturity, compare CD terms and APY, estimate early withdrawal penalties, and learn how CD interest is calculated.">
+<meta property="og:title" content="CD Interest Calculator: APY and Maturity Value">
+<meta property="og:description" content="Calculate how much interest a certificate of deposit earns, compare terms and APY, and see what an early withdrawal would cost.">
 <meta property="og:url" content="https://savingsclub.com/cd-calculator/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SavingsClub">
-<meta property="og:image" content="https://savingsclub.com/img/savings-jar.jpg">
+<meta property="og:image" content="https://savingsclub.com/img/sc-logo-full.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CD Interest Calculator: APY and Maturity Value">
+<meta name="twitter:description" content="Calculate how much interest a certificate of deposit earns, plus your true APY.">
+<meta name="twitter:image" content="https://savingsclub.com/img/sc-logo-full.png">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="stylesheet" href="../css/style.css">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
@@ -23,25 +26,27 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://savingsclub.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://savingsclub.com/savings-calculator/"},{"@type":"ListItem","position":3,"name":"CD Calculator","item":"https://savingsclub.com/cd-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://savingsclub.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://savingsclub.com/savings-calculator/"},{"@type":"ListItem","position":3,"name":"CD Interest Calculator","item":"https://savingsclub.com/cd-calculator/"}]}</script>
 
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"FAQPage",
   "mainEntity":[
-    {"@type":"Question","name":"How is CD interest calculated?","acceptedAnswer":{"@type":"Answer","text":"CD interest uses compound interest. The maturity value is your deposit times (1 plus r divided by n) raised to the power of n times t, where r is the annual interest rate, n is how many times per year interest compounds, and t is the term in years. For example, 10,000 dollars at a 4.5 percent rate compounded monthly for 12 months grows to about 10,459 dollars, or 459 dollars of interest."}},
-    {"@type":"Question","name":"What is the difference between APR and APY on a CD?","acceptedAnswer":{"@type":"Answer","text":"APR is the stated annual rate before compounding. APY is the effective yield after compounding is applied, so APY is what you actually earn in a year. Banks advertise the APY. A 4.5 percent rate compounded monthly produces an APY of about 4.59 percent."}},
-    {"@type":"Question","name":"Does more frequent compounding earn more on a CD?","acceptedAnswer":{"@type":"Answer","text":"For the same stated rate, yes, but only slightly. Monthly compounding earns a little more than annual because interest starts earning interest sooner. However, if two CDs advertise the same APY, they pay exactly the same regardless of how often they compound, because the APY already includes the compounding."}},
-    {"@type":"Question","name":"How much does a 10,000 dollar CD earn?","acceptedAnswer":{"@type":"Answer","text":"It depends on the rate and term. At a 4.5 percent rate compounded monthly, a 10,000 dollar CD earns about 459 dollars in one year, which is a 4.59 percent APY. Over 3 years at the same rate it earns about 1,442 dollars. Enter your own rate and term in the calculator above for the exact figure."}},
+    {"@type":"Question","name":"How is CD interest calculated?","acceptedAnswer":{"@type":"Answer","text":"CD interest is compound interest. The maturity value is your deposit times (1 plus r divided by n) raised to the power of n times t, where r is the annual rate as a decimal, n is how many times per year interest compounds, and t is the term in years. For example, 10,000 dollars at a 4.5 percent rate compounded monthly for 12 months grows to 10,459.40 dollars, so you earn 459.40 dollars in interest."}},
+    {"@type":"Question","name":"How do you calculate interest earned on a CD?","acceptedAnswer":{"@type":"Answer","text":"Work out the maturity value first, then subtract your original deposit. The difference is the interest earned. On a 10,000 dollar CD at 4.5 percent compounded monthly for one year, the maturity value is 10,459.40 dollars, so the interest earned is 459.40 dollars. The calculator above does both steps for you."}},
+    {"@type":"Question","name":"How much interest does a 10,000 dollar CD earn?","acceptedAnswer":{"@type":"Answer","text":"At a 4.5 percent rate compounded monthly, a 10,000 dollar CD earns 459.40 dollars in one year, which is a 4.59 percent APY. Over three years at the same rate it earns 1,442.48 dollars, and over five years it earns 2,517.96 dollars. The exact figure depends on your rate, term, and compounding."}},
+    {"@type":"Question","name":"Is CD interest compounded monthly or daily?","acceptedAnswer":{"@type":"Answer","text":"It varies by bank. Both are common, and the difference is far smaller than most people expect. On a 10,000 dollar CD at 4.5 percent for one year, monthly compounding earns 459.40 dollars and daily compounding earns 460.25 dollars. That is a difference of 85 cents. Compare CDs by APY, not by how often they compound."}},
+    {"@type":"Question","name":"Does a CD pay interest monthly?","acceptedAnswer":{"@type":"Answer","text":"Interest is usually credited to the CD on a set schedule, often monthly or quarterly, but on most CDs it stays inside the account and compounds until maturity rather than being paid out to you. Some banks let you take the interest as a monthly payout instead, though that stops it compounding and lowers your total return."}},
+    {"@type":"Question","name":"What is the difference between APR and APY on a CD?","acceptedAnswer":{"@type":"Answer","text":"APR is the stated annual rate before compounding. APY is the effective yield after compounding is applied, so APY is what you actually earn in a year. Banks advertise the APY. A 4.5 percent rate compounded monthly produces an APY of 4.59 percent."}},
+    {"@type":"Question","name":"Can I use this as an IRA CD interest calculator?","acceptedAnswer":{"@type":"Answer","text":"Yes. The interest math is identical for a CD held inside an IRA. The difference is tax treatment, not calculation. Interest on a regular CD is taxed as ordinary income each year, while a CD held inside an IRA grows tax-deferred, or tax-free in a Roth IRA."}},
     {"@type":"Question","name":"Are CDs worth it in 2026?","acceptedAnswer":{"@type":"Answer","text":"With competitive CD rates around 4 to 4.75 percent APY, a CD is worth it for money you will not need until the term ends and want a guaranteed, fixed return. If you might need the cash sooner, a high-yield savings account is usually the better fit because it stays liquid."}},
     {"@type":"Question","name":"What happens if I withdraw from a CD early?","acceptedAnswer":{"@type":"Answer","text":"Most banks charge an early withdrawal penalty, commonly 3 to 12 months of interest depending on the term. The penalty can reduce or even erase your earnings, and in some cases eat into your principal. No-penalty CDs exist but usually pay a slightly lower rate."}},
-    {"@type":"Question","name":"Can I lose money in a CD?","acceptedAnswer":{"@type":"Answer","text":"Not if you hold it to maturity at an FDIC-insured bank, where deposits are protected up to 250,000 dollars per depositor per bank. The common way to lose money is an early withdrawal penalty that is larger than the interest you earned, which can dip into your principal. Brokered CDs sold before maturity can also lose value if rates have risen."}},
+    {"@type":"Question","name":"Can I lose money in a CD?","acceptedAnswer":{"@type":"Answer","text":"Not if you hold it to maturity at an FDIC-insured bank, where deposits are protected up to 250,000 dollars per depositor per bank. The common way to lose money is an early withdrawal penalty larger than the interest you earned, which can dip into your principal. Brokered CDs sold before maturity can also lose value if rates have risen."}},
     {"@type":"Question","name":"Is CD interest taxed?","acceptedAnswer":{"@type":"Answer","text":"Yes. CD interest is taxed as ordinary income in the year it is credited, even if the CD has not matured yet. Your bank sends a Form 1099-INT if you earn 10 dollars or more in interest. CDs held inside an IRA are tax-advantaged."}},
     {"@type":"Question","name":"Should I put my emergency fund in a CD?","acceptedAnswer":{"@type":"Answer","text":"Usually not. An emergency fund needs to be available the day you need it, and a CD locks your money for the full term with a penalty for early access. A high-yield savings account is the standard home for an emergency fund. Size yours with our emergency fund calculator first, then consider a CD only for money beyond that cushion."}},
     {"@type":"Question","name":"CD versus high-yield savings account, which is better?","acceptedAnswer":{"@type":"Answer","text":"A CD locks a guaranteed rate for a fixed term but restricts access to your money. A high-yield savings account keeps your money liquid but its rate can change at any time. Choose a CD for money you can set aside for the full term, and a high-yield savings account for money you may need sooner. Both are FDIC insured up to 250,000 dollars per depositor per bank."}},
-    {"@type":"Question","name":"What is the best CD term for me?","acceptedAnswer":{"@type":"Answer","text":"Match the term to when you will need the money, not to the highest rate. A short term of 3 to 12 months keeps you flexible if rates rise or you need the cash. A longer term of 2 to 5 years locks in today's rate, which is valuable when rates are expected to fall. If you are unsure, a CD ladder splits the difference."}},
-    {"@type":"Question","name":"What is a CD ladder?","acceptedAnswer":{"@type":"Answer","text":"A CD ladder splits your money across several CDs with staggered maturity dates, such as 3, 6, 12, and 24 months. As each CD matures you reinvest it into a new longer-term CD. This gives you regular access to a portion of your money while capturing higher long-term rates."}}
+    {"@type":"Question","name":"What is a CD ladder?","acceptedAnswer":{"@type":"Answer","text":"A CD ladder splits your money across several CDs with staggered maturity dates, such as 3, 6, 12, and 24 months. As each CD matures you reinvest it into a new longer-term CD. This gives you regular access to a portion of your money while still capturing higher long-term rates."}}
   ]
 }
 </script>
@@ -87,7 +92,7 @@ SavingsClub
 .cd-hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
 .cd-badge{display:inline-block;background:rgba(16,185,129,.18);color:#34D399;padding:7px 16px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;margin-bottom:14px;border:1px solid rgba(16,185,129,.35)}
 .cd-hero h1{color:#fff;font-size:clamp(28px,4.2vw,42px);font-weight:800;line-height:1.12;margin:0 0 12px;letter-spacing:-.02em;font-family:'Plus Jakarta Sans',sans-serif}
-.cd-hero-sub{color:rgba(255,255,255,.86);font-size:1.02rem;line-height:1.6;margin:0 0 14px;max-width:660px}
+.cd-hero-sub{color:rgba(255,255,255,.86);font-size:1.02rem;line-height:1.6;margin:0 0 14px;max-width:680px}
 .cd-byline{color:rgba(255,255,255,.6);font-size:.82rem;margin:0 0 8px}
 .cd-hero-disc{color:rgba(255,255,255,.5);font-size:.78rem;font-style:italic;margin:0}
 
@@ -136,6 +141,13 @@ SavingsClub
 .cd-table td{padding:10px 12px;border-bottom:1px solid #F1F5F9;color:#0A1628}
 .cd-table tr:last-child td{border-bottom:none}
 .cd-table td:first-child{font-weight:600}
+.cd-table tr.cd-hl td{background:#F0FDF4;font-weight:700}
+
+.cd-formula{background:#F8FAFC;border-left:3px solid #10B981;padding:14px 18px;border-radius:8px;font-family:monospace;font-size:.92rem;color:#0A1628;margin:0 0 14px;overflow-x:auto}
+
+.cd-steps{list-style:none;counter-reset:cs;padding:0;margin:0 0 16px}
+.cd-steps li{counter-increment:cs;position:relative;padding:13px 16px 13px 52px;background:#F8FAFC;border:1px solid #F1F5F9;border-radius:12px;margin-bottom:9px;color:#334155;font-size:.95rem;line-height:1.6}
+.cd-steps li::before{content:counter(cs);position:absolute;left:14px;top:12px;width:26px;height:26px;background:linear-gradient(135deg,#059669,#10B981);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.82rem;font-family:'Plus Jakarta Sans',sans-serif}
 
 .cd-tips-card{background:linear-gradient(135deg,#ECFDF5 0%,#F0FDF4 100%);border:1px solid #A7F3D0;border-radius:16px;padding:22px;margin:28px 0}
 .cd-tips-header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
@@ -163,8 +175,8 @@ SavingsClub
 <header class="cd-hero">
   <div class="cd-hero-inner">
     <span class="cd-badge">Free Tool</span>
-    <h1>CD Calculator</h1>
-    <p class="cd-hero-sub">Use this free CD rates calculator to see how much a certificate of deposit account earns at maturity, compare terms and APY side by side, and check what an early withdrawal would cost. Enter your numbers, then click Calculate.</p>
+    <h1>CD Interest Calculator</h1>
+    <p class="cd-hero-sub">Use this free CD interest calculator to see exactly how much interest a certificate of deposit earns, what your real APY works out to once compounding is applied, how the total changes across terms, and what breaking the CD early would cost. Enter your numbers, then click Calculate.</p>
     <p class="cd-byline">By SavingsClub Research Team &middot; Updated July 2026</p>
     <p class="cd-hero-disc">Educational tool, not financial advice. SavingsClub is not a licensed financial advisor.</p>
   </div>
@@ -223,7 +235,7 @@ SavingsClub
 <div id="cdEmpty" class="cd-empty">
   <div class="cd-empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
   <h3>Your results will appear here</h3>
-  <p>Enter your deposit, rate, compounding, and term above, then click Calculate to see your maturity value, APY, an interest growth chart, a term comparison, and the early withdrawal estimate.</p>
+  <p>Enter your deposit, rate, compounding, and term above, then click Calculate to see your interest earned, your APY, a growth chart, a term comparison, and the early withdrawal estimate.</p>
 </div>
 
 <div id="cdResults" style="display:none"></div>
@@ -252,26 +264,67 @@ SavingsClub
 </div>
 
 <div class="seo-content">
-<h2>How CD interest is calculated</h2>
-<p>A certificate of deposit earns <a href="../compound-interest-calculator/">compound interest</a>. The stated annual rate is divided into smaller pieces, and each piece earns interest on top of the previous ones. The maturity value follows this formula:</p>
-<p style="background:#F8FAFC;border-left:3px solid #10B981;padding:14px 18px;border-radius:8px;font-family:monospace;font-size:.92rem;color:#0A1628">Maturity = Deposit &times; (1 + r / n) ^ (n &times; t)</p>
-<p>Here r is the annual interest rate as a decimal, n is how many times per year interest compounds, and t is the term in years. The APY, or annual percentage yield, is the effective yearly return after compounding: APY = (1 + r / n) ^ n minus 1.</p>
-<p><strong>Worked example.</strong> Put 10,000 dollars in a 12-month CD at a 4.5 percent rate compounded monthly. Then r is 0.045, n is 12, and t is 1. The APY works out to about 4.59 percent, and the maturity value is about 10,459 dollars, so you earn roughly 459 dollars in interest. Enter those same numbers in the CD rates calculator above and it confirms it.</p>
+<h2>How to calculate CD interest</h2>
+<p>A certificate of deposit earns <a href="../compound-interest-calculator/">compound interest</a>, which means the interest you earn starts earning interest of its own. The stated annual rate gets split into smaller periods, and each one builds on the last. The formula behind the CD interest calculator above is this:</p>
+<p class="cd-formula">Maturity = Deposit &times; (1 + r / n) ^ (n &times; t)</p>
+<p>Here <b>r</b> is the annual rate written as a decimal, <b>n</b> is how many times per year interest compounds, and <b>t</b> is the term in years. To get the interest earned on its own, subtract your original deposit from the maturity value.</p>
+
+<h3>A worked example, step by step</h3>
+<p>Say you put 10,000 dollars into a 12-month CD at a 4.5 percent rate, compounded monthly.</p>
+<ol class="cd-steps">
+<li>Convert the rate to a decimal. 4.5 percent becomes 0.045, so <b>r = 0.045</b>.</li>
+<li>Set the compounding. Monthly means twelve times a year, so <b>n = 12</b>.</li>
+<li>Set the term in years. Twelve months is one year, so <b>t = 1</b>.</li>
+<li>Apply the formula. 10,000 times (1 + 0.045 / 12) raised to the power of 12 equals <b>10,459.40 dollars</b> at maturity.</li>
+<li>Subtract the deposit. 10,459.40 minus 10,000 leaves <b>459.40 dollars of interest earned</b>.</li>
+</ol>
+<p>That 459.40 dollars is a 4.59 percent APY, not 4.5 percent, because compounding lifted the effective yield slightly above the stated rate. Enter those same numbers in the calculator above and it lands on the identical figure.</p>
+
+<h2>How much interest will you earn on a CD</h2>
+<p>Two things drive the answer more than anything else: how much you deposit and what rate you get. Here is what one year at 4.5 percent compounded monthly actually pays across common deposit sizes.</p>
+<table class="cd-table">
+<thead><tr><th>Deposit</th><th>Interest after 1 year</th><th>Value at maturity</th></tr></thead>
+<tbody>
+<tr><td>$1,000</td><td>$45.94</td><td>$1,045.94</td></tr>
+<tr><td>$5,000</td><td>$229.70</td><td>$5,229.70</td></tr>
+<tr class="cd-hl"><td>$10,000</td><td>$459.40</td><td>$10,459.40</td></tr>
+<tr><td>$25,000</td><td>$1,148.50</td><td>$26,148.50</td></tr>
+<tr><td>$50,000</td><td>$2,296.99</td><td>$52,296.99</td></tr>
+</tbody>
+</table>
+<p>The relationship is linear with the deposit, so doubling your money doubles your interest. The rate is where the leverage really sits. On the same 10,000 dollars for one year, a 4 percent CD pays 407.42 dollars while a 5 percent CD pays 511.62 dollars. That is roughly 104 dollars for doing nothing more than shopping around, which is why comparing banks matters more than most people assume.</p>
+
+<h2>CD interest compounded monthly versus daily</h2>
+<p>This is the question that trips people up, and the honest answer will save you some worry. Take the same 10,000 dollar CD at 4.5 percent for one year:</p>
+<table class="cd-table">
+<thead><tr><th>Compounding</th><th>Interest earned</th><th>Effective APY</th></tr></thead>
+<tbody>
+<tr><td>Annually</td><td>$450.00</td><td>4.50%</td></tr>
+<tr class="cd-hl"><td>Monthly</td><td>$459.40</td><td>4.59%</td></tr>
+<tr><td>Daily</td><td>$460.25</td><td>4.60%</td></tr>
+</tbody>
+</table>
+<p>Daily compounding beats monthly by <b>85 cents</b> over a full year on 10,000 dollars. That is the entire prize. Banks advertise daily compounding as though it were a meaningful advantage, and mathematically it does earn more, but the gap is a rounding error next to the rate itself. A CD paying 4.75 percent compounded annually will crush a CD paying 4.5 percent compounded daily every single time.</p>
+<p>Here is the rule that follows from that, and it is the single most useful thing on this page: <b>compare CDs by APY, never by compounding frequency.</b> The APY already includes the compounding. If two CDs advertise the same APY, they pay exactly the same amount regardless of how often they compound.</p>
+
+<h2>How CD interest is paid out</h2>
+<p>On most CDs the interest is credited to the account on a schedule, often monthly or quarterly, but it stays inside the CD and compounds until the term ends. You do not receive money in your checking account each month. That is exactly what makes the compounding work.</p>
+<p>Some banks do offer a monthly interest payout option, where the interest is transferred to you as it is earned. It sounds appealing if you want income, but understand the trade: money paid out cannot compound, so your total return over the term is lower. Take the payout only if you actually need the cash flow.</p>
+
+<h2>CD interest inside an IRA</h2>
+<p>The interest math on an IRA CD is identical to a regular CD, so the calculator above works for both. What changes is tax. Interest on a regular CD is taxed as ordinary income in the year it is credited, even though you cannot touch the money yet. Interest on a CD held inside a traditional IRA grows tax-deferred, and inside a <a href="../roth-ira-calculator/">Roth IRA</a> it can grow tax-free. For conservative retirement money, that difference compounds into real value over time.</p>
 
 <h2>What CD rate to expect in 2026</h2>
-<p>As of 2026, competitive CD rates run roughly 4 to 4.75 percent APY, and online banks and credit unions usually beat the big national banks by a wide margin. CD rates track the <a href="https://www.federalreserve.gov" rel="noopener" target="_blank">Federal Reserve</a> benchmark rate: when the Fed cuts, newly issued CD rates fall, and when it holds or raises, they stay high. Because a CD locks its rate at purchase, opening one while rates are high keeps that yield for the full term even if rates drop later. That is the main reason to use a CD instead of a savings account whose rate can fall at any time. Run a few different rates through this CD account calculator to see how even a half-point difference changes your payout.</p>
-
-<h2>APR versus APY, and why compounding barely matters once you know the APY</h2>
-<p>APR is the plain stated rate before compounding. APY is what you actually earn after compounding, which is why banks advertise the APY. For the same stated rate, compounding more often earns slightly more, because your interest starts earning interest sooner. But here is the part most calculators hide: if two CDs both advertise the same APY, they pay exactly the same amount no matter how often they compound, because the APY already bakes the compounding in. So compare CDs by APY, not by compounding frequency.</p>
-
-<h2>CD versus high-yield savings account</h2>
-<p>A CD locks in a guaranteed rate for a fixed term, but you cannot touch the money without a penalty. A <a href="../banking/">high-yield savings account</a> keeps your money available at any time, but the rate can change whenever the bank decides. If you can set the money aside for the full term, a CD often pays a little more and removes the risk of falling rates. If you might need the cash, keep it in a high-yield savings account instead. Both are insured by the <a href="https://www.fdic.gov" rel="noopener" target="_blank">FDIC</a> up to 250,000 dollars per depositor per bank.</p>
+<p>As of 2026, competitive CD rates run roughly 4 to 4.75 percent APY, and online banks and credit unions usually beat the big national banks by a wide margin. CD rates track the <a href="https://www.federalreserve.gov" rel="noopener" target="_blank">Federal Reserve</a> benchmark rate: when the Fed cuts, newly issued CD rates fall, and when it holds or raises, they stay high. Because a CD locks its rate at purchase, opening one while rates are high keeps that yield for the full term even if rates drop later. That is the main reason to choose a CD over a savings account whose rate can fall at any time.</p>
 
 <h2>What an early withdrawal really costs</h2>
-<p>If you break a CD before it matures, most banks charge a penalty equal to a set number of months of interest, commonly 3 to 12 months depending on the term. On a short CD or one you cash out early, that penalty can wipe out most of your earnings, and in some cases dip into your original deposit. The estimate above shows the typical penalty for your inputs. No-penalty CDs avoid this but usually pay a slightly lower rate, so they suit money you think you might need. This is also why your <a href="../emergency-fund-calculator/">emergency fund</a> belongs in savings, not a CD.</p>
+<p>If you break a CD before it matures, most banks charge a penalty equal to a set number of months of interest, commonly 3 to 12 months depending on the term. On a short CD, or one you cash out early in the term, that penalty can wipe out most of your earnings and in some cases dip into your original deposit. The calculator above estimates this for your inputs. No-penalty CDs avoid the problem but usually pay a slightly lower rate, so they suit money you think you might need. This is also why your <a href="../emergency-fund-calculator/">emergency fund</a> belongs in savings, not in a CD.</p>
+
+<h2>CD versus high-yield savings account</h2>
+<p>A CD locks in a guaranteed rate for a fixed term, but you cannot touch the money without a penalty. A <a href="../banking/">high-yield savings account</a> keeps your money available at any time, but the rate can change whenever the bank decides. If you can set the money aside for the full term, a CD often pays a little more and removes the risk of falling rates. If you might need the cash, keep it in high-yield savings instead. Both are insured by the <a href="https://www.fdic.gov" rel="noopener" target="_blank">FDIC</a> up to 250,000 dollars per depositor per bank.</p>
 
 <h2>CD laddering, in one paragraph</h2>
-<p>Instead of locking everything into one CD, a ladder splits your money across several CDs that mature at staggered dates, for example 3, 6, 12, and 24 months. As each one matures you roll it into a new longer-term CD. You get regular access to a slice of your money while still capturing higher long-term rates, and you are never fully locked in. Compare a ladder against flexible growth with our <a href="../savings-calculator/">Savings Calculator</a>, or see how the same money would grow long-term in our <a href="../investment-calculator/">Investment Calculator</a>.</p>
+<p>Instead of locking everything into one CD, a ladder splits your money across several CDs that mature at staggered dates, for example 3, 6, 12, and 24 months. As each one matures you roll it into a new longer-term CD. You get regular access to a slice of your money while still capturing higher long-term rates, and you are never fully locked in. Compare a ladder against flexible growth with our <a href="../savings-calculator/">savings calculator</a>, or see how the same money would grow long-term in our <a href="../investment-calculator/">investment calculator</a>.</p>
 
 <h2>Types of CDs, and when each one makes sense</h2>
 <p>Not every CD is the plain vanilla kind. Knowing the variations helps you avoid locking into the wrong one.</p>
@@ -279,10 +332,10 @@ SavingsClub
 <p><strong>Bump-up CD.</strong> Lets you raise your rate once during the term if the bank increases its rates. Useful when rates look likely to climb, though it usually starts a little lower.</p>
 <p><strong>Jumbo CD.</strong> Requires a large deposit, often 100,000 dollars or more, sometimes for a small rate bump. The extra yield is usually thin, so compare it against a standard CD before assuming bigger is better.</p>
 <p><strong>Brokered CD.</strong> Bought through a brokerage rather than a bank. It can offer higher rates and can be sold before maturity, but selling early can lose value if rates have risen, and it behaves differently from a bank CD.</p>
-<p><strong>IRA CD.</strong> A CD held inside a retirement account, so the interest grows tax-deferred or tax-free. Suited to conservative retirement money, not cash you might need soon. Our <a href="../roth-ira-calculator/">Roth IRA calculator</a> shows how tax-advantaged growth compounds over time.</p>
+<p><strong>IRA CD.</strong> A CD held inside a retirement account, so the interest grows tax-deferred or tax-free. Suited to conservative retirement money, not cash you might need soon.</p>
 
 <h2>How to open a CD, step by step</h2>
-<ol>
+<ol class="cd-steps">
 <li>Compare APYs across several online banks and credit unions, not just your current bank. Online banks usually pay far more than big national branches.</li>
 <li>Pick a term that matches when you will actually need the money, not simply the highest rate on the board.</li>
 <li>Read the early withdrawal penalty before you sign, and note whether it is a no-penalty CD.</li>
@@ -296,13 +349,13 @@ SavingsClub
 <table class="cd-table">
 <thead><tr><th>Option</th><th>About 1-year interest</th><th>Access</th><th>Safety</th></tr></thead>
 <tbody>
-<tr><td>This CD (4.5% APY)</td><td>$459</td><td>Locked for the term</td><td>FDIC insured</td></tr>
+<tr class="cd-hl"><td>This CD (4.5% rate)</td><td>$459</td><td>Locked for the term</td><td>FDIC insured</td></tr>
 <tr><td>High-yield savings (4.0% APY)</td><td>$400</td><td>Anytime</td><td>FDIC insured, rate can change</td></tr>
 <tr><td>Regular savings (0.40% APY)</td><td>$40</td><td>Anytime</td><td>FDIC insured</td></tr>
 <tr><td>1-year Treasury bill (about 4.2%)</td><td>$420</td><td>Sell on the secondary market</td><td>US Treasury, state-tax-free</td></tr>
 </tbody>
 </table>
-<p>The pattern is simple: a CD trades access for a locked, guaranteed rate, a <a href="../banking/">high-yield savings account</a> keeps access but can cut its rate at any time, and a Treasury bill adds a state-tax advantage. Match the tool to how soon you will need the money.</p>
+<p>The pattern is simple: a CD trades access for a locked, guaranteed rate, a high-yield savings account keeps access but can cut its rate at any time, and a Treasury bill adds a state-tax advantage. Match the tool to how soon you will need the money.</p>
 </div>
 
 <div class="cd-tips-card">
@@ -311,25 +364,35 @@ SavingsClub
     <div class="cd-tips-title">SavingsClub Tips</div>
   </div>
   <div class="cd-tips-list">
-    <div class="cd-tip"><div class="cd-tip-num">1</div><div class="cd-tip-body"><strong>Compare CDs by APY, never by the stated rate.</strong> The APY is the only number that already includes compounding, so it is the true apples-to-apples comparison between two offers.</div></div>
-    <div class="cd-tip"><div class="cd-tip-num">2</div><div class="cd-tip-body"><strong>Match the term to when you actually need the money.</strong> A slightly higher rate is not worth it if you have to break the CD and forfeit months of interest to get your cash back early.</div></div>
+    <div class="cd-tip"><div class="cd-tip-num">1</div><div class="cd-tip-body"><strong>Compare CDs by APY, never by the stated rate or the compounding.</strong> The APY is the only number that already includes compounding, so it is the true apples-to-apples comparison between two offers.</div></div>
+    <div class="cd-tip"><div class="cd-tip-num">2</div><div class="cd-tip-body"><strong>Chase the rate, not the compounding frequency.</strong> Daily compounding earns 85 cents more than monthly on a 10,000 dollar one-year CD. A quarter point of extra rate earns about 26 dollars. The rate is where the money is.</div></div>
     <div class="cd-tip"><div class="cd-tip-num">3</div><div class="cd-tip-body"><strong>Check the early withdrawal penalty before you sign.</strong> A long penalty on a short CD can erase your entire return. If there is any chance you will need the money, a no-penalty CD or a high-yield savings account is safer.</div></div>
   </div>
 </div>
 
 <div class="seo-content" style="margin-top:8px">
 <h2>Frequently Asked Questions</h2>
+
 <h3>How is CD interest calculated?</h3>
-<p>CD interest uses compound interest. The maturity value is your deposit times (1 plus r divided by n) raised to the power of n times t, where r is the annual interest rate, n is how many times per year interest compounds, and t is the term in years. For example, 10,000 dollars at a 4.5 percent rate compounded monthly for 12 months grows to about 10,459 dollars, or 459 dollars of interest.</p>
+<p>CD interest is compound interest. The maturity value is your deposit times (1 plus r divided by n) raised to the power of n times t, where r is the annual rate as a decimal, n is how many times per year interest compounds, and t is the term in years. For example, 10,000 dollars at a 4.5 percent rate compounded monthly for 12 months grows to 10,459.40 dollars, so you earn 459.40 dollars in interest.</p>
+
+<h3>How do you calculate interest earned on a CD?</h3>
+<p>Work out the maturity value first, then subtract your original deposit. The difference is the interest earned. On a 10,000 dollar CD at 4.5 percent compounded monthly for one year, the maturity value is 10,459.40 dollars, so the interest earned is 459.40 dollars. The calculator above does both steps for you.</p>
+
+<h3>How much interest does a 10,000 dollar CD earn?</h3>
+<p>At a 4.5 percent rate compounded monthly, a 10,000 dollar CD earns 459.40 dollars in one year, which is a 4.59 percent APY. Over three years at the same rate it earns 1,442.48 dollars, and over five years it earns 2,517.96 dollars. The exact figure depends on your rate, term, and compounding.</p>
+
+<h3>Is CD interest compounded monthly or daily?</h3>
+<p>It varies by bank. Both are common, and the difference is far smaller than most people expect. On a 10,000 dollar CD at 4.5 percent for one year, monthly compounding earns 459.40 dollars and daily compounding earns 460.25 dollars. That is a difference of 85 cents. Compare CDs by APY, not by how often they compound.</p>
+
+<h3>Does a CD pay interest monthly?</h3>
+<p>Interest is usually credited to the CD on a set schedule, often monthly or quarterly, but on most CDs it stays inside the account and compounds until maturity rather than being paid out to you. Some banks let you take the interest as a monthly payout instead, though that stops it compounding and lowers your total return.</p>
 
 <h3>What is the difference between APR and APY on a CD?</h3>
-<p>APR is the stated annual rate before compounding. APY is the effective yield after compounding is applied, so APY is what you actually earn in a year. Banks advertise the APY. A 4.5 percent rate compounded monthly produces an APY of about 4.59 percent.</p>
+<p>APR is the stated annual rate before compounding. APY is the effective yield after compounding is applied, so APY is what you actually earn in a year. Banks advertise the APY. A 4.5 percent rate compounded monthly produces an APY of 4.59 percent.</p>
 
-<h3>Does more frequent compounding earn more on a CD?</h3>
-<p>For the same stated rate, yes, but only slightly. Monthly compounding earns a little more than annual because interest starts earning interest sooner. However, if two CDs advertise the same APY, they pay exactly the same regardless of how often they compound, because the APY already includes the compounding.</p>
-
-<h3>How much does a 10,000 dollar CD earn?</h3>
-<p>It depends on the rate and term. At a 4.5 percent rate compounded monthly, a 10,000 dollar CD earns about 459 dollars in one year, which is a 4.59 percent APY. Over 3 years at the same rate it earns about 1,442 dollars. Enter your own rate and term in the calculator above for the exact figure.</p>
+<h3>Can I use this as an IRA CD interest calculator?</h3>
+<p>Yes. The interest math is identical for a CD held inside an IRA. The difference is tax treatment, not calculation. Interest on a regular CD is taxed as ordinary income each year, while a CD held inside an IRA grows tax-deferred, or tax-free in a Roth IRA.</p>
 
 <h3>Are CDs worth it in 2026?</h3>
 <p>With competitive CD rates around 4 to 4.75 percent APY, a CD is worth it for money you will not need until the term ends and want a guaranteed, fixed return. If you might need the cash sooner, a high-yield savings account is usually the better fit because it stays liquid.</p>
@@ -338,22 +401,19 @@ SavingsClub
 <p>Most banks charge an early withdrawal penalty, commonly 3 to 12 months of interest depending on the term. The penalty can reduce or even erase your earnings, and in some cases eat into your principal. No-penalty CDs exist but usually pay a slightly lower rate.</p>
 
 <h3>Can I lose money in a CD?</h3>
-<p>Not if you hold it to maturity at an FDIC-insured bank, where deposits are protected up to 250,000 dollars per depositor per bank. The common way to lose money is an early withdrawal penalty that is larger than the interest you earned, which can dip into your principal. Brokered CDs sold before maturity can also lose value if rates have risen.</p>
+<p>Not if you hold it to maturity at an FDIC-insured bank, where deposits are protected up to 250,000 dollars per depositor per bank. The common way to lose money is an early withdrawal penalty larger than the interest you earned, which can dip into your principal. Brokered CDs sold before maturity can also lose value if rates have risen.</p>
 
 <h3>Is CD interest taxed?</h3>
-<p>Yes. CD interest is taxed as ordinary income in the year it is credited, even if the CD has not matured yet. Your bank sends a Form 1099-INT if you earn 10 dollars or more in interest. CDs held inside an <a href="../roth-ira-calculator/">IRA</a> are tax-advantaged.</p>
+<p>Yes. CD interest is taxed as ordinary income in the year it is credited, even if the CD has not matured yet. Your bank sends a Form 1099-INT if you earn 10 dollars or more in interest. CDs held inside an IRA are tax-advantaged.</p>
 
 <h3>Should I put my emergency fund in a CD?</h3>
-<p>Usually not. An emergency fund needs to be available the day you need it, and a CD locks your money for the full term with a penalty for early access. A high-yield savings account is the standard home for an emergency fund. Size yours with our <a href="../emergency-fund-calculator/">emergency fund calculator</a> first, then consider a CD only for money beyond that cushion.</p>
+<p>Usually not. An emergency fund needs to be available the day you need it, and a CD locks your money for the full term with a penalty for early access. A high-yield savings account is the standard home for an emergency fund. Size yours with our emergency fund calculator first, then consider a CD only for money beyond that cushion.</p>
 
 <h3>CD versus high-yield savings account, which is better?</h3>
 <p>A CD locks a guaranteed rate for a fixed term but restricts access to your money. A high-yield savings account keeps your money liquid but its rate can change at any time. Choose a CD for money you can set aside for the full term, and a high-yield savings account for money you may need sooner. Both are FDIC insured up to 250,000 dollars per depositor per bank.</p>
 
-<h3>What is the best CD term for me?</h3>
-<p>Match the term to when you will need the money, not to the highest rate. A short term of 3 to 12 months keeps you flexible if rates rise or you need the cash. A longer term of 2 to 5 years locks in today's rate, which is valuable when rates are expected to fall. If you are unsure, a CD ladder splits the difference.</p>
-
 <h3>What is a CD ladder?</h3>
-<p>A CD ladder splits your money across several CDs with staggered maturity dates, such as 3, 6, 12, and 24 months. As each CD matures you reinvest it into a new longer-term CD. This gives you regular access to a portion of your money while capturing higher long-term rates.</p>
+<p>A CD ladder splits your money across several CDs with staggered maturity dates, such as 3, 6, 12, and 24 months. As each CD matures you reinvest it into a new longer-term CD. This gives you regular access to a portion of your money while still capturing higher long-term rates.</p>
 </div>
 
 <div class="cd-related" style="margin-top:24px">
@@ -383,6 +443,7 @@ SavingsClub
 
 <script>
 function cdFmt(n){ if(n===undefined||isNaN(n))return '$0'; return '$'+Math.round(n).toLocaleString('en-US'); }
+function cdFmt2(n){ if(n===undefined||isNaN(n))return '$0.00'; return '$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}); }
 
 function cdInterestChart(P, r, n, months){
   var W=720,H=300,mL=64,mR=16,mT=22,mB=42;
@@ -425,7 +486,7 @@ function cdTermTable(P, r, n){
   var rows='';
   terms.forEach(function(m){
     var t=m/12; var mat=P*Math.pow(1+r/n, n*t);
-    rows+='<tr><td>'+m+' months</td><td>'+cdFmt(mat-P)+'</td><td>'+cdFmt(mat)+'</td></tr>';
+    rows+='<tr><td>'+m+' months</td><td>'+cdFmt2(mat-P)+'</td><td>'+cdFmt2(mat)+'</td></tr>';
   });
   return '<table class="cd-table"><thead><tr><th>Term</th><th>Interest earned</th><th>At maturity</th></tr></thead><tbody>'+rows+'</tbody></table>';
 }
@@ -436,6 +497,9 @@ function cdCalc(){
   var n=+(document.getElementById('cdCompound').value);
   var months=+(document.getElementById('cdTerm').value);
   var penMonths=+(document.getElementById('cdPenalty').value);
+
+  if(P<=0){ alert('Enter a deposit amount above 0 to calculate your CD interest.'); return; }
+
   var r=rate/100;
   var t=months/12;
 
@@ -449,8 +513,8 @@ function cdCalc(){
   if(penMonths>0){
     var net=maturity-penalty;
     penaltyHtml='<div class="cd-penalty-box"><strong>Early withdrawal estimate:</strong> breaking this CD early would cost about '
-      + '<strong>'+cdFmt(penalty)+'</strong> ('+penMonths+' months of interest). If you withdrew after paying that penalty, you would keep about '
-      + '<strong>'+cdFmt(net)+'</strong>'
+      + '<strong>'+cdFmt2(penalty)+'</strong> ('+penMonths+' months of interest). If you withdrew after paying that penalty, you would keep about '
+      + '<strong>'+cdFmt2(net)+'</strong>'
       + (penalty>interest ? '. That penalty is larger than the interest you would have earned, so an early withdrawal here would dip into your deposit.' : '.')
       + ' This is a typical estimate; your bank sets the exact penalty.</div>';
   } else {
@@ -459,11 +523,11 @@ function cdCalc(){
 
   var html=''
     + '<div class="cd-apy-banner">'
-    +   '<div><div class="cd-apy-label">Value at maturity</div><div class="cd-apy-value">'+cdFmt(maturity)+'</div></div>'
-    +   '<div class="cd-apy-note">After '+months+' months you earn <strong>'+cdFmt(interest)+'</strong> in interest at a <strong>'+(apy*100).toFixed(2)+'% APY</strong>.</div>'
+    +   '<div><div class="cd-apy-label">Interest earned</div><div class="cd-apy-value">'+cdFmt2(interest)+'</div></div>'
+    +   '<div class="cd-apy-note">Your CD is worth <strong>'+cdFmt2(maturity)+'</strong> after '+months+' months, an effective <strong>'+(apy*100).toFixed(2)+'% APY</strong>.</div>'
     + '</div>'
     + '<div class="result-grid">'
-    +   '<div class="result-item"><span class="result-label">Interest Earned</span><span class="result-value" style="color:#059669">'+cdFmt(interest)+'</span></div>'
+    +   '<div class="result-item"><span class="result-label">Value at Maturity</span><span class="result-value" style="color:#059669">'+cdFmt(maturity)+'</span></div>'
     +   '<div class="result-item"><span class="result-label">APY (effective)</span><span class="result-value" style="color:#059669">'+(apy*100).toFixed(2)+'%</span></div>'
     +   '<div class="result-item"><span class="result-label">Your Deposit</span><span class="result-value">'+cdFmt(P)+'</span></div>'
     +   '<div class="result-item"><span class="result-label">Term</span><span class="result-value">'+months+' mo</span></div>'
@@ -476,7 +540,7 @@ function cdCalc(){
     +   '<div class="cd-legend"><span><i style="background:#10B981"></i>This CD ('+rate+'%)</span><span><i style="background:#64748B"></i>Regular savings (0.40%)</span></div>'
     +   '<div class="cd-section-title" style="margin-top:22px"><span class="dot"></span> Compare CD terms at '+rate+'% ('+compLabel+')</div>'
     +   cdTermTable(P,r,n)
-    +   '<p class="cd-chart-caption">Over your '+months+'-month term, this CD earns '+cdFmt(P*Math.pow(1+r/n,n*t)-P)+' versus about '+cdFmt(P*Math.pow(1.004,t)-P)+' in a typical 0.40% savings account.</p>'
+    +   '<p class="cd-chart-caption">Over your '+months+'-month term, this CD earns '+cdFmt2(interest)+' versus about '+cdFmt2(P*Math.pow(1.004,t)-P)+' in a typical 0.40% savings account.</p>'
     + '</div>';
 
   var res=document.getElementById('cdResults');
@@ -535,7 +599,7 @@ function cdReset(){
 </div>
 </div>
 <div class="footer-bottom">
-<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
+<p>&copy; 2026 SavingsClub. All rights reserved. Helping you keep more of what you earn. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
 <p>Educational content only, not financial advice. SavingsClub is not a licensed financial advisor. Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
 </div>
 </div>
