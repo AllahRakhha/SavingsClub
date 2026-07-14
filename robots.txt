@@ -1,18 +1,4 @@
 User-agent: *
 Allow: /
 
-# Block legacy spam / junk paths from previous domain owner
-Disallow: /__media__/
-Disallow: /category/
-Disallow: /cpanel
-Disallow: /moderation
-Disallow: /my-account/
-Disallow: /all-store/
-Disallow: /blog-list
-Disallow: /free.html
-Disallow: /truth/
-Disallow: /wns/
-Disallow: /comments/
-Disallow: /feed/
-
 Sitemap: https://savingsclub.com/sitemap.xml
