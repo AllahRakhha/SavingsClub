@@ -1,0 +1,49 @@
+# SavingsClub
+
+> Free personal finance calculators and educational money guides for Americans in every state. Helping you keep more of what you earn.
+
+SavingsClub publishes free, ad-light financial calculators and plain-English guides. Every calculator shows its working, uses verified current-year tax and rate data, and states its assumptions. Content is educational only and is not financial advice. SavingsClub is not a licensed financial advisor.
+
+## Calculators
+
+- [Budget Planner](https://savingsclub.com/budget-planner/): 50/30/20 budget calculator that compares your real spending against target and flags categories that run over.
+- [Emergency Fund Calculator](https://savingsclub.com/emergency-fund-calculator/): Personalized target based on household and job risk, plus a job-loss runway model that accounts for state unemployment benefits.
+- [Investment Calculator](https://savingsclub.com/investment-calculator/): Portfolio growth with contributions, the true cost of fund fees, value in today's dollars, and a retirement drawdown model.
+- [CD Interest Calculator](https://savingsclub.com/cd-calculator/): Certificate of deposit interest, effective APY, term comparison, and early withdrawal cost.
+- [Paycheck Calculator](https://savingsclub.com/paycheck-calculator/): Federal take-home pay, with state-specific versions for Texas, Florida, Illinois, Michigan, and North Carolina.
+- [401(k) Calculator](https://savingsclub.com/401k-calculator/): Employer match, contribution limits, and balance by age.
+- [Roth IRA Calculator](https://savingsclub.com/roth-ira-calculator/): Tax-free growth projection and contribution limits.
+- [Retirement Calculator](https://savingsclub.com/retirement-calculator/): Retirement readiness and income projection.
+- [Savings Calculator](https://savingsclub.com/savings-calculator/): Compound growth on regular savings.
+- [Compound Interest Calculator](https://savingsclub.com/compound-interest-calculator/): The underlying compounding engine, shown simply.
+- [Debt Payoff Calculator](https://savingsclub.com/debt-payoff-calculator/): Debt-free date and interest saved from extra payments.
+- [Credit Card Payoff Calculator](https://savingsclub.com/credit-card-payoff-calculator/): True cost of carrying a balance.
+- [Mortgage Calculator](https://savingsclub.com/mortgage-calculator/): Monthly payment, with state-specific versions.
+- [Auto Loan Calculator](https://savingsclub.com/auto-loan-calculator/): Car payment and total interest.
+- [Net Worth Calculator](https://savingsclub.com/net-worth-calculator/): Assets minus liabilities.
+- [Inflation Calculator](https://savingsclub.com/inflation-calculator/): Purchasing power over time.
+- [Loan Payoff Calculator](https://savingsclub.com/loan-payoff-calculator/): Any fixed-rate loan.
+
+## Free downloads
+
+- [Free Personal Budget Template](https://savingsclub.com/free-budget-template/): Budget planner in Excel, Google Sheets, and printable PDF. No email or payment required.
+
+## Guides
+
+- [Emergency Fund Guide](https://savingsclub.com/emergency-fund/): How much you need, where to keep it, and how to build it.
+- [Blog](https://savingsclub.com/blog/): Practical money guides on budgeting, saving, credit, debt, and retirement.
+- [Banking](https://savingsclub.com/banking/): High-yield savings and account comparisons.
+- [Credit Cards](https://savingsclub.com/credit-cards/): Card comparisons and guidance.
+
+## About
+
+- [About SavingsClub](https://savingsclub.com/about/)
+- [Editorial Standards](https://savingsclub.com/editorial-standards/)
+- [Methodology](https://savingsclub.com/methodology/)
+- [Contact](https://savingsclub.com/contact/)
+
+## Optional
+
+- [Privacy Policy](https://savingsclub.com/privacy-policy/)
+- [Terms of Service](https://savingsclub.com/terms-of-service/)
+- [Disclaimer](https://savingsclub.com/disclaimer/)
