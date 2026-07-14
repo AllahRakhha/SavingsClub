@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>South Carolina Paycheck Calculator: 2026 Take-Home</title>
+<meta name="description" content="Free South Carolina paycheck calculator with the new 2026 tax law. See your real take-home pay, the SCIAD deduction, and your true marginal rate.">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="canonical" href="https://savingsclub.com/paycheck-calculator/south-carolina/">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/sc-favicon.png?v=2">
+
+<meta property="og:title" content="South Carolina Paycheck Calculator: 2026 Take-Home">
+<meta property="og:description" content="South Carolina rewrote its income tax for 2026. See your real take-home pay under the new two-bracket system and SCIAD deduction.">
+<meta property="og:url" content="https://savingsclub.com/paycheck-calculator/south-carolina/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SavingsClub">
+<meta property="og:image" content="https://savingsclub.com/img/sc-logo-full.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="South Carolina Paycheck Calculator: 2026 Take-Home">
+<meta name="twitter:description" content="Your real SC take-home pay under the new 2026 tax law.">
+<meta name="twitter:image" content="https://savingsclub.com/img/sc-logo-full.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Home","item":"https://savingsclub.com/"},
+{"@type":"ListItem","position":2,"name":"Paycheck Calculator","item":"https://savingsclub.com/paycheck-calculator/"},
+{"@type":"ListItem","position":3,"name":"South Carolina","item":"https://savingsclub.com/paycheck-calculator/south-carolina/"}]}
+</script>
+
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity":[
+{"@type":"Question","name":"What is the South Carolina income tax rate for 2026?","acceptedAnswer":{"@type":"Answer","text":"South Carolina replaced its old three-bracket system with two brackets under Act 110, signed on March 30, 2026. The rate is 1.99 percent on South Carolina taxable income below 30,000 dollars, and 5.21 percent minus 966 dollars on income of 30,000 dollars or more. The old rates of 0, 3, and 6 percent no longer apply for the 2026 tax year."}},
+{"@type":"Question","name":"What is the SCIAD deduction?","acceptedAnswer":{"@type":"Answer","text":"The South Carolina Income Adjusted Deduction replaced the federal standard deduction for state purposes in 2026. It is 15,000 dollars for single and married filing separately, 22,500 dollars for head of household, and 30,000 dollars for married filing jointly. It shrinks as your federal adjusted gross income rises and disappears completely at 95,000 dollars for a single filer."}},
+{"@type":"Question","name":"Why is my real South Carolina marginal tax rate higher than 5.21 percent?","acceptedAnswer":{"@type":"Answer","text":"Because the SCIAD deduction phases out as you earn more. For a single filer between 40,000 and 95,000 dollars of income, every extra dollar earned also shrinks the deduction by about 27 cents, so your taxable income rises by roughly 1.27 dollars for every 1 dollar you earn. That pushes the true marginal rate to about 6.63 percent, higher than the headline top rate of 5.21 percent."}},
+{"@type":"Question","name":"How much is taken out of a South Carolina paycheck?","acceptedAnswer":{"@type":"Answer","text":"Federal income tax, South Carolina state income tax, Social Security at 6.2 percent up to the 184,500 dollar wage base, and Medicare at 1.45 percent. On a 75,000 dollar salary in 2026, a single filer keeps about 58,935 dollars per year, which is roughly 2,267 dollars every two weeks. There is no local or city income tax anywhere in South Carolina."}},
+{"@type":"Question","name":"Does South Carolina have local or city income taxes?","acceptedAnswer":{"@type":"Answer","text":"No. South Carolina has no county or city income tax. Residents pay only the single state income tax on their earnings, which makes the calculation simpler than in states like Michigan or Pennsylvania where local taxes apply on top."}},
+{"@type":"Question","name":"Is South Carolina cheaper than North Carolina for taxes?","acceptedAnswer":{"@type":"Answer","text":"Not at a typical salary, which surprises most people. On 75,000 dollars, a single filer pays about 2,657 dollars in South Carolina against about 2,484 dollars in North Carolina, so South Carolina costs roughly 173 dollars more. South Carolina does have advantages elsewhere, including lower property taxes and a capital gains exclusion, but on ordinary wage income North Carolina is slightly cheaper at this level."}},
+{"@type":"Question","name":"Will South Carolina income tax go down in the future?","acceptedAnswer":{"@type":"Answer","text":"It may. Act 110 includes revenue triggers starting in 2027. If individual income tax collections are projected to grow by at least 5 percent, the top rate must be reduced. The law says these cuts continue until the top rate falls to 1.99 percent, and then the 1.99 percent rate itself begins falling toward zero. None of that is guaranteed, because it depends on state revenue growth."}},
+{"@type":"Question","name":"Does South Carolina tax Social Security or retirement income?","acceptedAnswer":{"@type":"Answer","text":"South Carolina does not tax Social Security benefits. It does tax other retirement income such as pensions and 401k withdrawals, though the state offers a retirement income deduction that reduces the amount subject to tax. Military retirement also receives favorable treatment. This calculator covers wage income, not retirement distributions."}}
+]}
+</script>
+
+<style>
+.sc-hero{background:linear-gradient(120deg,#0A1628 0%,#0F2540 42%,#065F46 76%,#059669 100%);color:#fff;padding:clamp(94px,7.5vw,118px) 24px clamp(52px,5vw,70px);position:relative;overflow:hidden}
+.sc-hero::before{content:'';position:absolute;top:-35%;right:-8%;width:50%;height:180%;background:radial-gradient(circle,rgba(16,185,129,.20) 0%,transparent 62%);pointer-events:none}
+.sc-hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1}
+.sc-crumb{font-size:.85rem;color:rgba(255,255,255,.6);margin-bottom:18px}
+.sc-crumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.sc-badge{display:inline-block;background:rgba(16,185,129,.18);color:#34D399;padding:7px 16px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;margin-bottom:16px;border:1px solid rgba(16,185,129,.35)}
+.sc-hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(30px,4.4vw,46px);font-weight:800;line-height:1.1;margin:0 0 14px;letter-spacing:-.025em;color:#fff}
+.sc-hero h1 .ac{color:#34D399}
+.sc-lead{color:rgba(255,255,255,.85);font-size:1.04rem;line-height:1.66;margin:0 0 16px;max-width:720px}
+.sc-byline{color:rgba(255,255,255,.6);font-size:.82rem;margin:0 0 8px}
+.sc-disc{color:rgba(255,255,255,.5);font-size:.78rem;font-style:italic;margin:0;max-width:660px;line-height:1.5}
+
+.sc-wrap{max-width:900px;margin:0 auto;padding:0 20px}
+.sc-stats{max-width:1000px;margin:-44px auto 36px;padding:0 20px;position:relative;z-index:3}
+.sc-sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px}
+.sc-stat{background:#fff;border-radius:18px;padding:20px;box-shadow:0 8px 24px rgba(10,22,40,.08);border-top:4px solid #10B981}
+.sc-stat:nth-child(2){border-top-color:#059669}
+.sc-stat:nth-child(3){border-top-color:#34D399}
+.sc-stat:nth-child(4){border-top-color:#047857}
+.sc-stat-l{font-size:.71rem;font-weight:700;color:#94A3B8;letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
+.sc-stat-v{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.8rem;font-weight:800;color:#0A1628;line-height:1}
+.sc-stat-v span{font-size:1.05rem;color:#10B981}
+.sc-stat-n{font-size:.8rem;color:#64748B;margin-top:5px}
+
+.sc-card{background:#fff;border:1px solid #E5E7EB;border-radius:20px;padding:28px;box-shadow:0 1px 3px rgba(0,0,0,.04);margin-bottom:26px}
+.sc-title{font-size:1.02rem;font-weight:700;color:#0A1628;margin:0 0 14px;display:flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans',sans-serif}
+.sc-title .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#059669,#10B981);flex-shrink:0}
+.sc-toggle{display:inline-flex;background:#F1F5F9;border-radius:11px;padding:4px;gap:4px;margin-bottom:16px}
+.sc-toggle button{border:none;background:transparent;padding:9px 16px;border-radius:8px;font-family:inherit;font-weight:600;font-size:.9rem;color:#475569;cursor:pointer}
+.sc-toggle button.on{background:#fff;color:#059669;box-shadow:0 2px 8px rgba(10,22,40,.08)}
+.sc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.sc-f label{display:block;font-size:.82rem;font-weight:600;color:#334155;margin-bottom:5px}
+.sc-f input,.sc-f select{width:100%;padding:12px 14px;border:1.5px solid #E5E7EB;border-radius:11px;font-size:.98rem;font-family:inherit;color:#0A1628;background:#fff}
+.sc-f input:focus,.sc-f select:focus{outline:none;border-color:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,.12)}
+.sc-btns{display:flex;gap:11px;margin-top:20px}
+.sc-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:999px;font-weight:700;font-size:.97rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;border:none;transition:transform .15s,box-shadow .2s}
+.sc-go{flex:1;background:linear-gradient(135deg,#059669,#10B981);color:#fff;box-shadow:0 6px 18px rgba(5,150,105,.32)}
+.sc-go:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(5,150,105,.42)}
+.sc-rs{flex:0 0 106px;background:#fff;color:#475569;border:1.5px solid #E2E8F0}
+.sc-rs:hover{border-color:#10B981;color:#059669}
+.sc-btn svg{width:16px;height:16px}
+
+.sc-empty{background:#F8FAFC;border:1.5px dashed #CBD5E1;border-radius:16px;padding:40px 22px;text-align:center;margin-top:20px}
+.sc-empty svg{width:44px;height:44px;color:#10B981;margin-bottom:12px}
+.sc-empty p{color:#64748B;font-size:.94rem;margin:0 auto;max-width:420px;line-height:1.6}
+
+.sc-head{background:linear-gradient(135deg,#0A1628,#0F2540);color:#fff;border-radius:18px;padding:26px;text-align:center;margin-bottom:16px}
+.sc-head .lb{font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;color:#34D399;font-weight:700;margin-bottom:5px}
+.sc-head .vl{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2rem,5vw,2.8rem);font-weight:800;line-height:1}
+.sc-head .pr{color:rgba(255,255,255,.8);margin-top:9px;font-size:.98rem}
+.sc-chips{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:15px}
+.sc-chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:7px 13px;font-size:.82rem}
+.sc-chip b{color:#34D399}
+
+.sc-bar{width:100%;height:46px;display:block;margin-top:6px}
+.scb{transform:scaleX(0);transform-box:fill-box;transform-origin:left center;transition:transform 1s cubic-bezier(.16,1,.3,1)}
+.scb.go{transform:scaleX(1)}
+.sc-leg{list-style:none;padding:0;margin:16px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:10px 20px}
+.sc-leg li{display:flex;align-items:center;gap:9px;font-size:.9rem;color:#334155}
+.sc-leg .sw{width:13px;height:13px;border-radius:4px;flex:0 0 13px}
+.sc-leg .am{margin-left:auto;font-weight:700;color:#0A1628;font-variant-numeric:tabular-nums}
+
+/* SCIAD panel */
+.sc-sciad{background:linear-gradient(135deg,#0A1628,#0F2540);border-radius:20px;padding:26px;margin-top:20px;color:#fff;position:relative;overflow:hidden}
+.sc-sciad::before{content:'';position:absolute;top:-30%;right:-8%;width:45%;height:170%;background:radial-gradient(circle,rgba(16,185,129,.16) 0%,transparent 62%);pointer-events:none}
+.sc-si{position:relative;z-index:1}
+.sc-ph{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.sc-pi{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#059669,#10B981);display:flex;align-items:center;justify-content:center;flex:0 0 42px}
+.sc-pi svg{width:21px;height:21px;color:#fff}
+.sc-pt{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.14rem}
+.sc-ps{color:rgba(255,255,255,.72);font-size:.89rem;line-height:1.58;margin:0 0 18px;max-width:640px}
+.sc-pcards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:15px}
+.sc-pc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:13px;padding:15px}
+.sc-pc.hot{background:rgba(220,38,38,.12);border-color:rgba(248,113,113,.32)}
+.sc-pc .l{font-size:.73rem;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.55);font-weight:700;margin-bottom:5px}
+.sc-pc .v{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.5rem;font-weight:800;line-height:1;color:#34D399}
+.sc-pc.hot .v{color:#FCA5A5}
+.sc-pc .n{font-size:.79rem;color:rgba(255,255,255,.6);margin-top:5px;line-height:1.5}
+.sc-vd{background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.3);border-radius:12px;padding:14px 16px;font-size:.92rem;color:#D1FAE5;line-height:1.65}
+.sc-vd strong{color:#34D399}
+.sc-vd.warn{background:rgba(220,38,38,.12);border-color:rgba(248,113,113,.3);color:#FECACA}
+.sc-vd.warn strong{color:#FCA5A5}
+.sc-pn{color:rgba(255,255,255,.45);font-size:.75rem;margin-top:11px;line-height:1.55}
+.sc-pn a{color:rgba(255,255,255,.72);text-decoration:underline}
+
+.sc-content{padding:14px 0 10px}
+.sc-content h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.45rem,2.8vw,1.8rem);font-weight:800;color:#0A1628;margin:38px 0 13px;letter-spacing:-.02em}
+.sc-content h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.1rem;font-weight:700;color:#0A1628;margin:24px 0 8px}
+.sc-content p{font-size:1.02rem;line-height:1.78;color:#334155;margin:0 0 15px}
+.sc-content a{color:#059669;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(5,150,105,.3)}
+.sc-content ul{color:#334155;padding-left:22px;margin:0 0 15px}
+.sc-content li{margin-bottom:8px;line-height:1.7}
+.sc-tbl{width:100%;border-collapse:collapse;margin:12px 0 20px;font-size:.93rem}
+.sc-tbl th{text-align:left;padding:11px 13px;background:#ECFDF5;color:#065F46;font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em}
+.sc-tbl th:not(:first-child),.sc-tbl td:not(:first-child){text-align:right}
+.sc-tbl td{padding:11px 13px;border-bottom:1px solid #F1F5F9;color:#0A1628}
+.sc-tbl tr:last-child td{border-bottom:none}
+.sc-tbl tr.hl td{background:#F0FDF4;font-weight:700}
+.sc-call{background:#F0FDF4;border-left:3px solid #10B981;border-radius:0 12px 12px 0;padding:18px 22px;margin:20px 0;color:#334155;font-size:.98rem;line-height:1.7}
+.sc-call b{color:#047857}
+.sc-warn{background:#FEF3C7;border-left:3px solid #D97706;border-radius:0 12px 12px 0;padding:18px 22px;margin:20px 0;color:#78350F;font-size:.98rem;line-height:1.7}
+.sc-warn b{color:#B45309}
+
+.sc-faq details{background:#fff;border:1px solid #E2E8F0;border-radius:13px;margin-bottom:10px;overflow:hidden}
+.sc-faq summary{padding:17px 21px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:#0A1628;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.sc-faq summary::-webkit-details-marker{display:none}
+.sc-faq summary::after{content:'';width:10px;height:10px;border-right:2px solid #10B981;border-bottom:2px solid #10B981;transform:rotate(45deg);transition:transform .2s;flex:0 0 10px}
+.sc-faq details[open] summary::after{transform:rotate(-135deg)}
+.sc-faq .ans{padding:0 21px 18px;color:#475569;line-height:1.72;font-size:.96rem}
+
+.sc-tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:13px;margin:20px 0 50px}
+.sc-tool{display:flex;align-items:center;gap:11px;background:#fff;border:1px solid #E2E8F0;border-radius:15px;padding:16px;text-decoration:none;color:#0A1628;transition:transform .18s,box-shadow .18s,border-color .18s}
+.sc-tool:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(10,22,40,.1);border-color:#D1FAE5}
+.sc-tool .ic{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#059669,#10B981);display:flex;align-items:center;justify-content:center;flex:0 0 34px}
+.sc-tool .ic svg{width:17px;height:17px;color:#fff}
+.sc-tool b{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:.95rem;margin-bottom:2px}
+.sc-tool span{font-size:.8rem;color:#64748B;line-height:1.45}
+
+@media(max-width:760px){
+  .sc-card{padding:20px}
+  .sc-leg{grid-template-columns:1fr}
+  .sc-pcards{grid-template-columns:1fr}
+  .sc-sciad{padding:20px}
+}
+@media (prefers-reduced-motion:reduce){ .scb{transition:none;transform:scaleX(1)} }
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+<div class="nav-inner">
+<div class="logo" onclick="location.href='../../'">
+<div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+SavingsClub
+</div>
+<div class="nav-links" id="navLinks">
+<a href="../../">Home</a>
+<a href="../../savings-calculator/">Calculators</a>
+<a href="../../credit-cards/">Credit Cards</a>
+<a href="../../blog/">Blog</a>
+<a href="../../banking/">Banking</a>
+<a href="../../about/">About</a>
+<a href="../../faq/">FAQ</a>
+</div>
+<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+<a href="../../">Home</a>
+<a href="../../paycheck-calculator/">Paycheck Calculator</a>
+<a href="../../budget-planner/">Budget</a>
+<a href="../../savings-calculator/">Savings</a>
+<a href="../../emergency-fund-calculator/">Emergency Fund</a>
+<a href="../../blog/">Blog</a>
+<a href="../../banking/">Banking</a>
+<a href="../../about/">About</a>
+<a href="../../contact/">Contact</a>
+</div>
+
+<header class="sc-hero">
+<div class="sc-hero-inner">
+<div class="sc-crumb"><a href="../../">Home</a> &rsaquo; <a href="../../paycheck-calculator/">Paycheck Calculator</a> &rsaquo; <span style="color:#34D399">South Carolina</span></div>
+<span class="sc-badge">New 2026 Tax Law</span>
+<h1>South Carolina Paycheck Calculator<br><span class="ac">Updated for Act 110</span></h1>
+<p class="sc-lead">South Carolina rewrote its income tax on March 30, 2026. The old brackets are gone, the federal standard deduction no longer applies to your state return, and a new deduction called the SCIAD took its place. This calculator uses the new law, and it shows you the hidden marginal rate that catches most middle earners by surprise.</p>
+<p class="sc-byline">By SavingsClub Research Team &middot; Updated July 2026</p>
+<p class="sc-disc">Educational tool, not financial advice. SavingsClub is not a licensed financial advisor or tax preparer. Estimates only. Verify with the SCDOR or a tax professional.</p>
+</div>
+</header>
+
+<section class="sc-stats">
+<div class="sc-sgrid">
+<div class="sc-stat"><div class="sc-stat-l">Lower Bracket</div><div class="sc-stat-v">1.99<span>%</span></div><div class="sc-stat-n">On taxable income under $30,000</div></div>
+<div class="sc-stat"><div class="sc-stat-l">Upper Bracket</div><div class="sc-stat-v">5.21<span>%</span></div><div class="sc-stat-n">Minus $966, above $30,000</div></div>
+<div class="sc-stat"><div class="sc-stat-l">SCIAD (single)</div><div class="sc-stat-v">$15,000</div><div class="sc-stat-n">Phases out from $40K to $95K</div></div>
+<div class="sc-stat"><div class="sc-stat-l">Local Income Tax</div><div class="sc-stat-v">0<span>%</span></div><div class="sc-stat-n">No city or county tax in SC</div></div>
+</div>
+</section>
+
+<div class="sc-wrap">
+
+<div class="sc-card">
+<div class="sc-title"><span class="dot"></span> Your South Carolina paycheck</div>
+
+<div class="sc-toggle" id="scMode">
+<button type="button" class="on" data-m="salary" onclick="scSetMode('salary')">Annual salary</button>
+<button type="button" data-m="hourly" onclick="scSetMode('hourly')">Hourly</button>
+</div>
+
+<div class="sc-grid">
+<div class="sc-f" id="scSalaryF"><label for="scSalary">Gross annual salary ($)</label><input type="number" id="scSalary" value="75000" min="0"></div>
+<div class="sc-f" id="scRateF" style="display:none"><label for="scRate">Hourly rate ($)</label><input type="number" id="scRate" value="28" step="0.01" min="0"></div>
+<div class="sc-f" id="scHoursF" style="display:none"><label for="scHours">Hours per week</label><input type="number" id="scHours" value="40" min="0"></div>
+<div class="sc-f"><label for="scFiling">Filing status</label>
+<select id="scFiling">
+<option value="single" selected>Single</option>
+<option value="mfj">Married filing jointly</option>
+<option value="mfs">Married filing separately</option>
+<option value="hoh">Head of household</option>
+</select>
+</div>
+<div class="sc-f"><label for="scFreq">Pay frequency</label>
+<select id="scFreq">
+<option value="52">Weekly</option>
+<option value="26" selected>Every two weeks</option>
+<option value="24">Twice a month</option>
+<option value="12">Monthly</option>
+</select>
+</div>
+<div class="sc-f"><label for="scK401">401(k) contribution (%)</label><input type="number" id="scK401" value="0" step="0.5" min="0" max="100"></div>
+<div class="sc-f"><label for="scOther">Other pre-tax per year ($)</label><input type="number" id="scOther" value="0" min="0"></div>
+</div>
+
+<div class="sc-btns">
+<button class="sc-btn sc-go" onclick="scCalc()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>Calculate take-home pay</button>
+<button class="sc-btn sc-rs" onclick="scReset()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 109-9 9 9 0 00-6.4 2.6L3 8"/><path d="M3 3v5h5"/></svg>Reset</button>
+</div>
+
+<div id="scEmpty" class="sc-empty">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h4"/></svg>
+<p>Enter your pay details, then press Calculate. Your South Carolina take-home pay and SCIAD breakdown will appear here.</p>
+</div>
+
+<div id="scResults" style="display:none"></div>
+</div>
+
+<main class="sc-content">
+
+<h2>South Carolina rewrote its income tax in 2026</h2>
+<p>If you are using a paycheck calculator that still shows South Carolina rates of 0, 3, and 6 percent, it is out of date and your numbers are wrong. On <b>March 30, 2026, Governor McMaster signed H.4216 into law as Act 110</b>, and it changed three things at once.</p>
+<ul>
+<li><b>Two brackets replaced three.</b> The rate is now 1.99 percent on South Carolina taxable income under 30,000 dollars, and 5.21 percent minus 966 dollars on income of 30,000 dollars or more.</li>
+<li><b>The federal standard deduction no longer applies</b> to your state return. South Carolina formally decoupled from it. Federal adjusted gross income is now the starting point.</li>
+<li><b>A new deduction, the SCIAD,</b> replaced it: 15,000 dollars for single filers, 22,500 dollars for head of household, and 30,000 dollars for married filing jointly.</li>
+</ul>
+<p>That last one is where the trap is, and almost nobody is talking about it.</p>
+
+<h2>The hidden marginal rate that catches middle earners</h2>
+<p>South Carolina's headline top rate is 5.21 percent. That number is technically true and practically misleading, because the SCIAD does not stay at 15,000 dollars. It <b>shrinks as you earn more</b>.</p>
+<p>For a single filer, the deduction starts shrinking once your federal adjusted gross income passes 40,000 dollars, and it hits zero at 95,000 dollars. The statute reduces it by a fraction: the amount your income exceeds 40,000 dollars, divided by 55,000.</p>
+<p>Work through what that means. Every extra dollar you earn in that band does two things: it gets taxed, <b>and</b> it shrinks your deduction by about 27 cents, which exposes another 27 cents to tax. So your taxable income actually rises by about <b>1.27 dollars for every 1 dollar you earn</b>.</p>
+
+<div class="sc-warn">
+<b>The real number.</b> Multiply it out and your true marginal rate between 40,000 and 95,000 dollars is roughly <b>6.63 percent</b>, not 5.21 percent. We checked it empirically: a single filer earning 75,000 dollars who takes a 1,000 dollar raise pays <b>66.17 dollars</b> more in South Carolina tax on it. That is 6.62 percent. The headline rate is not the rate you actually face.
+</div>
+
+<h3>How the SCIAD shrinks, in dollars</h3>
+<p>Here is the deduction and the resulting state tax for a single filer at different incomes.</p>
+<table class="sc-tbl">
+<thead><tr><th>Your income</th><th>SCIAD you keep</th><th>South Carolina tax</th></tr></thead>
+<tbody>
+<tr><td>$30,000</td><td>$15,000</td><td>$298.50</td></tr>
+<tr><td>$40,000</td><td>$15,000</td><td>$497.50</td></tr>
+<tr><td>$50,000</td><td>$12,280</td><td>$999.21</td></tr>
+<tr><td>$60,000</td><td>$9,550</td><td>$1,662.45</td></tr>
+<tr class="hl"><td>$75,000</td><td>$5,460</td><td>$2,657.03</td></tr>
+<tr><td>$85,000</td><td>$2,730</td><td>$3,320.27</td></tr>
+<tr><td>$95,000</td><td>$0</td><td>$3,983.50</td></tr>
+</tbody>
+</table>
+<p>Notice the shape. Between 40,000 and 95,000 dollars your tax bill grows much faster than your income does. That is the phase-out doing its work quietly in the background. Above 95,000 dollars the deduction is gone entirely and your marginal rate settles back to the plain 5.21 percent.</p>
+
+<h2>A worked example: 75,000 dollars in South Carolina</h2>
+<p>Take a single filer earning 75,000 dollars in 2026 with no 401(k) contributions.</p>
+<table class="sc-tbl">
+<thead><tr><th>Line</th><th>Amount</th></tr></thead>
+<tbody>
+<tr><td>Gross pay</td><td>$75,000.00</td></tr>
+<tr><td>Federal income tax</td><td>$7,670.00</td></tr>
+<tr><td>South Carolina tax (after $5,460 SCIAD)</td><td>$2,657.03</td></tr>
+<tr><td>Social Security (6.2%)</td><td>$4,650.00</td></tr>
+<tr><td>Medicare (1.45%)</td><td>$1,087.50</td></tr>
+<tr class="hl"><td>Take-home pay</td><td>$58,935.47</td></tr>
+</tbody>
+</table>
+<p>That is about <b>2,267 dollars every two weeks</b>, and an effective total tax rate of 21.4 percent across federal, state, and payroll taxes.</p>
+
+<h2>Is South Carolina actually cheaper than North Carolina?</h2>
+<p>People move across that border for tax reasons all the time. On ordinary wages at a typical salary, the answer may surprise you.</p>
+<table class="sc-tbl">
+<thead><tr><th>State</th><th>State tax on $75,000</th><th>Annual take-home</th></tr></thead>
+<tbody>
+<tr><td>Florida</td><td>$0</td><td>$61,592.50</td></tr>
+<tr><td>Texas</td><td>$0</td><td>$61,592.50</td></tr>
+<tr><td>North Carolina (3.99% flat)</td><td>$2,483.78</td><td>$59,108.73</td></tr>
+<tr class="hl"><td>South Carolina (Act 110)</td><td>$2,657.03</td><td>$58,935.47</td></tr>
+</tbody>
+</table>
+<p>At 75,000 dollars, South Carolina costs about <b>173 dollars a year more</b> than North Carolina on wage income. Not a fortune, but the opposite of what most people assume, and it is entirely down to the SCIAD phase-out biting at this income level.</p>
+<p>South Carolina does win elsewhere. Property taxes are among the lowest in the country, it does not tax Social Security, and it offers a capital gains exclusion that makes it genuinely attractive to investors and retirees. But on a straightforward paycheck, at a middle income, it is not the bargain it is often sold as. Compare for yourself with our <a href="../../paycheck-calculator/florida/">Florida paycheck calculator</a> or <a href="../../paycheck-calculator/texas/">Texas paycheck calculator</a>, both no-income-tax states.</p>
+
+<h2>What South Carolina does not tax</h2>
+<ul>
+<li><b>No local or city income tax.</b> Unlike Michigan or Pennsylvania, no South Carolina city takes a bite. Your state tax is the whole state story.</li>
+<li><b>No tax on Social Security benefits.</b></li>
+<li><b>Favorable retirement treatment,</b> including a retirement income deduction and preferential handling of military retirement.</li>
+</ul>
+
+<div class="sc-call">
+<b>Rates may keep falling.</b> Act 110 built in revenue triggers starting in 2027. If income tax collections are projected to grow by at least 5 percent, the top rate must come down. The law says those cuts continue until the top rate reaches 1.99 percent, and then the 1.99 percent itself begins falling toward zero. None of it is guaranteed, because it all depends on the state hitting revenue targets. Track it at the <a href="https://dor.sc.gov" rel="noopener" target="_blank">South Carolina Department of Revenue</a>.
+</div>
+
+<h2>How to lower your South Carolina tax</h2>
+<p>Because of the phase-out, pre-tax contributions are unusually powerful for South Carolina earners in the 40,000 to 95,000 dollar band. A dollar into a traditional 401(k) reduces your federal adjusted gross income, which reduces your state taxable income <b>and</b> claws back part of your SCIAD at the same time. You are getting relief at that 6.63 percent effective rate, not the 5.21 percent headline.</p>
+<p>The 2026 employee 401(k) limit is 24,500 dollars. Use our <a href="../../401k-calculator/">401(k) calculator</a> to see the effect, and the <a href="../../budget-planner/">budget planner</a> to check the contribution actually fits your month.</p>
+</main>
+
+<section class="sc-faq">
+<h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.45rem,2.8vw,1.8rem);font-weight:800;color:#0A1628;margin:34px 0 18px;letter-spacing:-.02em">South Carolina paycheck questions</h2>
+
+<details>
+<summary>What is the South Carolina income tax rate for 2026?</summary>
+<div class="ans">South Carolina replaced its old three-bracket system with two brackets under Act 110, signed on March 30, 2026. The rate is 1.99 percent on South Carolina taxable income below 30,000 dollars, and 5.21 percent minus 966 dollars on income of 30,000 dollars or more. The old rates of 0, 3, and 6 percent no longer apply for the 2026 tax year.</div>
+</details>
+
+<details>
+<summary>What is the SCIAD deduction?</summary>
+<div class="ans">The South Carolina Income Adjusted Deduction replaced the federal standard deduction for state purposes in 2026. It is 15,000 dollars for single and married filing separately, 22,500 dollars for head of household, and 30,000 dollars for married filing jointly. It shrinks as your federal adjusted gross income rises and disappears completely at 95,000 dollars for a single filer.</div>
+</details>
+
+<details>
+<summary>Why is my real South Carolina marginal tax rate higher than 5.21 percent?</summary>
+<div class="ans">Because the SCIAD deduction phases out as you earn more. For a single filer between 40,000 and 95,000 dollars of income, every extra dollar earned also shrinks the deduction by about 27 cents, so your taxable income rises by roughly 1.27 dollars for every 1 dollar you earn. That pushes the true marginal rate to about 6.63 percent, higher than the headline top rate of 5.21 percent.</div>
+</details>
+
+<details>
+<summary>How much is taken out of a South Carolina paycheck?</summary>
+<div class="ans">Federal income tax, South Carolina state income tax, Social Security at 6.2 percent up to the 184,500 dollar wage base, and Medicare at 1.45 percent. On a 75,000 dollar salary in 2026, a single filer keeps about 58,935 dollars per year, which is roughly 2,267 dollars every two weeks. There is no local or city income tax anywhere in South Carolina.</div>
+</details>
+
+<details>
+<summary>Does South Carolina have local or city income taxes?</summary>
+<div class="ans">No. South Carolina has no county or city income tax. Residents pay only the single state income tax on their earnings, which makes the calculation simpler than in states like Michigan or Pennsylvania where local taxes apply on top.</div>
+</details>
+
+<details>
+<summary>Is South Carolina cheaper than North Carolina for taxes?</summary>
+<div class="ans">Not at a typical salary, which surprises most people. On 75,000 dollars, a single filer pays about 2,657 dollars in South Carolina against about 2,484 dollars in North Carolina, so South Carolina costs roughly 173 dollars more. South Carolina does have advantages elsewhere, including lower property taxes and a capital gains exclusion, but on ordinary wage income North Carolina is slightly cheaper at this level.</div>
+</details>
+
+<details>
+<summary>Will South Carolina income tax go down in the future?</summary>
+<div class="ans">It may. Act 110 includes revenue triggers starting in 2027. If individual income tax collections are projected to grow by at least 5 percent, the top rate must be reduced. The law says these cuts continue until the top rate falls to 1.99 percent, and then the 1.99 percent rate itself begins falling toward zero. None of that is guaranteed, because it depends on state revenue growth.</div>
+</details>
+
+<details>
+<summary>Does South Carolina tax Social Security or retirement income?</summary>
+<div class="ans">South Carolina does not tax Social Security benefits. It does tax other retirement income such as pensions and 401k withdrawals, though the state offers a retirement income deduction that reduces the amount subject to tax. Military retirement also receives favorable treatment. This calculator covers wage income, not retirement distributions.</div>
+</details>
+</section>
+
+<h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.45rem;font-weight:800;color:#0A1628;margin:36px 0 16px;letter-spacing:-.02em">Other paycheck calculators</h2>
+<div class="sc-tools">
+<a class="sc-tool" href="../../paycheck-calculator/"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v4H4zM6 12h12M6 16h8"/></svg></span><span><b>Federal Paycheck</b><span>Any state, federal taxes only.</span></span></a>
+<a class="sc-tool" href="../../paycheck-calculator/florida/"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span><span><b>Florida Paycheck</b><span>No state income tax at all.</span></span></a>
+<a class="sc-tool" href="../../paycheck-calculator/texas/"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span><span><b>Texas Paycheck</b><span>No state income tax at all.</span></span></a>
+<a class="sc-tool" href="../../401k-calculator/"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg></span><span><b>401(k) Calculator</b><span>Cut your SCIAD phase-out.</span></span></a>
+</div>
+
+</div>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Helping you keep more of what you earn. Free financial calculators and educational guides for Americans in every state.</p>
+</div>
+<div>
+<h4>Calculators</h4>
+<a href="../../paycheck-calculator/">Paycheck Calculator</a>
+<a href="../../budget-planner/">Budget Planner</a>
+<a href="../../mortgage-calculator/">Mortgage</a>
+<a href="../../401k-calculator/">401(k)</a>
+<a href="../../emergency-fund-calculator/">Emergency Fund</a>
+</div>
+<div>
+<h4>Resources</h4>
+<a href="../../blog/">Blog</a>
+<a href="../../credit-cards/">Credit Cards</a>
+<a href="../../banking/">Banking</a>
+<a href="../../about/">About Us</a>
+<a href="../../contact/">Contact Us</a>
+</div>
+<div>
+<h4>Legal</h4>
+<a href="../../privacy-policy/">Privacy Policy</a>
+<a href="../../terms-of-service/">Terms of Service</a>
+<a href="../../cookie-policy/">Cookie Policy</a>
+<a href="../../disclaimer/">Disclaimer</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 SavingsClub. All rights reserved. Helping you keep more of what you earn. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
+<p>Educational content only, not financial advice. SavingsClub is not a licensed financial advisor. Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+</div>
+</div>
+</footer>
+
+<script>
+/* ===== Verified 2026 federal data ===== */
+var FED={
+ single:{std:16100,b:[[12400,.10],[50400,.12],[105700,.22],[201775,.24],[256225,.32],[640600,.35],[Infinity,.37]],sur:200000},
+ mfj:{std:32200,b:[[24800,.10],[100800,.12],[211400,.22],[403550,.24],[512450,.32],[768700,.35],[Infinity,.37]],sur:250000},
+ mfs:{std:16100,b:[[12400,.10],[50400,.12],[105700,.22],[201775,.24],[256225,.32],[384350,.35],[Infinity,.37]],sur:125000},
+ hoh:{std:24150,b:[[17700,.10],[67450,.12],[105700,.22],[201775,.24],[256200,.32],[640600,.35],[Infinity,.37]],sur:200000}
+};
+var SS_RATE=.062, SS_BASE=184500, MED=.0145, SUR=.009, K401_CAP=24500;
+
+/* ===== SC Act 110 (H.4216), effective tax year 2026 ===== */
+var SCIAD={
+ single:{amt:15000,thr:40000,den:55000},
+ mfs:{amt:15000,thr:40000,den:55000},
+ hoh:{amt:22500,thr:60000,den:82500},
+ mfj:{amt:30000,thr:80000,den:110000}
+};
+function scSciad(agi,f){
+  var c=SCIAD[f];
+  var frac=(agi-c.thr)/c.den;
+  if(frac<=0) return c.amt;
+  if(frac>=1) return 0;
+  var red=Math.floor((c.amt*frac)/10)*10;   /* statute: round reduction down to nearest $10 */
+  return Math.max(0, c.amt-red);
+}
+function scStateTax(taxable){
+  if(taxable<=0) return 0;
+  if(taxable<30000) return taxable*0.0199;
+  return Math.max(0, taxable*0.0521 - 966);
+}
+function fedTax(t,f){
+  var b=FED[f].b, tax=0, lo=0;
+  if(t<=0) return 0;
+  for(var i=0;i<b.length;i++){
+    var hi=b[i][0], r=b[i][1];
+    if(t>hi){ tax+=(hi-lo)*r; lo=hi; } else { tax+=(t-lo)*r; break; }
+  }
+  return Math.max(0,tax);
+}
+
+function scM(n){ return '$'+Math.round(n).toLocaleString('en-US'); }
+function scM2(n){ return '$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function scN(id){ var v=parseFloat(document.getElementById(id).value); return isNaN(v)||v<0?0:v; }
+
+var SC_MODE='salary';
+function scSetMode(m){
+  SC_MODE=m;
+  var btns=document.querySelectorAll('#scMode button');
+  for(var i=0;i<btns.length;i++){ btns[i].classList.toggle('on', btns[i].dataset.m===m); }
+  document.getElementById('scSalaryF').style.display = m==='salary'?'block':'none';
+  document.getElementById('scRateF').style.display  = m==='hourly'?'block':'none';
+  document.getElementById('scHoursF').style.display = m==='hourly'?'block':'none';
+}
+function scGross(){
+  if(SC_MODE==='hourly'){
+    var h=scN('scHours'); if(h<=0) h=40;
+    return scN('scRate')*h*52;
+  }
+  return scN('scSalary');
+}
+
+function scCompute(gross,f,k401pct,other){
+  var pre401=Math.min(gross*k401pct/100, K401_CAP, gross);
+  var otherPre=Math.min(other,gross);
+  var agi=Math.max(0, gross-pre401-otherPre);            /* federal AGI */
+  var fedTaxable=Math.max(0, agi-FED[f].std);
+  var federal=fedTax(fedTaxable,f);
+  var sciad=scSciad(agi,f);
+  var scTaxable=Math.max(0, agi-sciad);
+  var state=scStateTax(scTaxable);
+  var ficaWages=Math.max(0, gross-otherPre);             /* 401k is still FICA-taxed */
+  var ss=SS_RATE*Math.min(ficaWages,SS_BASE);
+  var med=MED*ficaWages + SUR*Math.max(0, ficaWages-FED[f].sur);
+  var fica=ss+med;
+  var take=gross-federal-state-fica-pre401-otherPre;
+  return {gross:gross,agi:agi,pre401:pre401,otherPre:otherPre,federal:federal,sciad:sciad,scTaxable:scTaxable,
+          state:state,ss:ss,med:med,fica:fica,take:take,
+          eff:gross>0?((federal+state+fica)/gross*100):0};
+}
+
+var SEG=[
+ {k:'take',l:'Take-home pay',c:'#10B981'},
+ {k:'pre401',l:'Your 401(k)',c:'#34D399'},
+ {k:'otherPre',l:'Other pre-tax',c:'#065F46'},
+ {k:'federal',l:'Federal income tax',c:'#0F2540'},
+ {k:'state',l:'South Carolina tax',c:'#047857'},
+ {k:'fica',l:'Social Security + Medicare',c:'#94A3B8'}
+];
+
+function scCalc(){
+  var gross=scGross();
+  if(gross<=0){ alert('Enter a salary or hourly rate above 0 to calculate your South Carolina take-home pay.'); return; }
+  var f=document.getElementById('scFiling').value;
+  var k=scN('scK401'), o=scN('scOther');
+  var periods=parseInt(document.getElementById('scFreq').value,10)||26;
+  var r=scCompute(gross,f,k,o);
+
+  /* marginal rate: what the NEXT $1,000 actually costs in state tax */
+  var r2=scCompute(gross+1000,f,k,o);
+  var marg=(r2.state-r.state)/1000*100;
+  var full=SCIAD[f].amt;
+  var lost=full-r.sciad;
+  var phaseEnd=SCIAD[f].thr+SCIAD[f].den;
+
+  var perLabel={52:'per week',26:'every two weeks',24:'twice a month',12:'per month'}[periods]||'per period';
+
+  var bars='', legend='', x=0, W=1000;
+  for(var i=0;i<SEG.length;i++){
+    var v=r[SEG[i].k];
+    if(v<=0) continue;
+    var w=v/gross*W;
+    bars+='<rect x="'+x.toFixed(2)+'" y="0" width="'+Math.max(0,w).toFixed(2)+'" height="46" fill="'+SEG[i].c+'"></rect>';
+    x+=w;
+    legend+='<li><span class="sw" style="background:'+SEG[i].c+'"></span>'+SEG[i].l+'<span class="am">'+scM(v)+'</span></li>';
+  }
+
+  var sciadCard = r.sciad>0
+    ? '<div class="sc-pc"><div class="l">SCIAD you keep</div><div class="v">'+scM(r.sciad)+'</div><div class="n">Full amount is '+scM(full)+'. You have lost '+scM(lost)+' to the phase-out.</div></div>'
+    : '<div class="sc-pc hot"><div class="l">SCIAD you keep</div><div class="v">$0</div><div class="n">Fully phased out. Your income is above '+scM(phaseEnd)+'.</div></div>';
+
+  var vd;
+  if(marg>5.25){
+    vd='<div class="sc-vd warn">Your real marginal rate is <strong>'+marg.toFixed(2)+' percent</strong>, not the 5.21 percent headline. The next 1,000 dollars you earn will cost you <strong>'+scM2(r2.state-r.state)+'</strong> in South Carolina tax, because that raise also shrinks your SCIAD deduction. This is the part no other calculator shows you.</div>';
+  } else if(r.sciad===0){
+    vd='<div class="sc-vd">Your SCIAD is fully phased out, so your marginal rate has settled back to the plain <strong>5.21 percent</strong>. The next 1,000 dollars costs <strong>'+scM2(r2.state-r.state)+'</strong> in state tax.</div>';
+  } else {
+    vd='<div class="sc-vd">You are below the phase-out threshold, so you keep the full SCIAD of <strong>'+scM(full)+'</strong> and your marginal rate is <strong>'+marg.toFixed(2)+' percent</strong>. Earning past '+scM(SCIAD[f].thr)+' starts eroding the deduction.</div>';
+  }
+
+  var html=''
+   + '<div class="sc-head">'
+   +   '<div class="lb">Your South Carolina take-home pay</div>'
+   +   '<div class="vl">'+scM(r.take)+'</div>'
+   +   '<div class="pr">'+scM(r.take/periods)+' '+perLabel+'</div>'
+   +   '<div class="sc-chips">'
+   +     '<span class="sc-chip">Effective tax rate <b>'+r.eff.toFixed(1)+'%</b></span>'
+   +     '<span class="sc-chip">SC state tax <b>'+scM(r.state)+'</b></span>'
+   +     '<span class="sc-chip">Local tax <b>$0</b></span>'
+   +   '</div>'
+   + '</div>'
+   + '<svg class="sc-bar" viewBox="0 0 1000 46" preserveAspectRatio="none" role="img" aria-label="Where your pay goes"><g class="scb" id="scBar">'+bars+'</g></svg>'
+   + '<ul class="sc-leg">'+legend+'</ul>'
+   + '<div class="sc-sciad"><div class="sc-si">'
+   +   '<div class="sc-ph"><span class="sc-pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9L2.4 17a2 2 0 001.7 3h15.8a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg></span><span class="sc-pt">Your SCIAD and your real marginal rate</span></div>'
+   +   '<p class="sc-ps">South Carolina replaced the federal standard deduction with the SCIAD, and it shrinks as you earn more. That makes your true marginal rate different from the advertised one.</p>'
+   +   '<div class="sc-pcards">'
+   +     sciadCard
+   +     '<div class="sc-pc'+(marg>5.25?' hot':'')+'"><div class="l">Your real marginal rate</div><div class="v">'+marg.toFixed(2)+'%</div><div class="n">The headline top rate is 5.21%.</div></div>'
+   +   '</div>'
+   +   vd
+   +   '<p class="sc-pn">Based on Act 110 (H.4216), signed March 30, 2026, effective for tax year 2026. SCIAD: '+scM(SCIAD[f].amt)+' for your filing status, reduced by (AGI minus '+scM(SCIAD[f].thr)+') divided by '+scM(SCIAD[f].den)+'. Source: <a href="https://dor.sc.gov" rel="noopener" target="_blank">South Carolina Department of Revenue</a>.</p>'
+   + '</div></div>';
+
+  document.getElementById('scResults').innerHTML=html;
+  document.getElementById('scResults').style.display='block';
+  document.getElementById('scEmpty').style.display='none';
+  requestAnimationFrame(function(){
+    var b=document.getElementById('scBar');
+    if(b) b.classList.add('go');
+  });
+  document.getElementById('scResults').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function scReset(){
+  document.getElementById('scSalary').value=75000;
+  document.getElementById('scRate').value=28;
+  document.getElementById('scHours').value=40;
+  document.getElementById('scFiling').value='single';
+  document.getElementById('scFreq').value='26';
+  document.getElementById('scK401').value=0;
+  document.getElementById('scOther').value=0;
+  scSetMode('salary');
+  document.getElementById('scResults').style.display='none';
+  document.getElementById('scResults').innerHTML='';
+  document.getElementById('scEmpty').style.display='block';
+}
+
+window.addEventListener('scroll',function(){var n=document.querySelector('nav#mainNav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
+</script>
+
+<script>
+(function(){
+if(localStorage.getItem('sc_cookies'))return;
+var b=document.createElement('div');
+b.id='cookieBanner';
+b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1';
+var acceptBtn=document.createElement('button');
+acceptBtn.textContent='Accept';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#059669,#10B981);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
+var declineBtn=document.createElement('button');
+declineBtn.textContent='Decline';
+declineBtn.style.cssText='background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:8px;cursor:pointer';
+declineBtn.onclick=function(){
+localStorage.setItem('sc_cookies','decline');
+b.innerHTML='';
+var msg=document.createElement('span');
+msg.style.cssText='padding:12px 0;color:#10B981';
+msg.textContent='Preference saved.';
+b.appendChild(msg);
+setTimeout(function(){b.remove();},2000);
+};
+var txt=document.createElement('span');
+txt.innerHTML='We use basic analytics cookies to understand site traffic. <a href="/cookie-policy/" style="color:#10B981">Cookie Policy</a>';
+var btnWrap=document.createElement('div');
+btnWrap.style.cssText='display:flex;gap:8px';
+btnWrap.appendChild(acceptBtn);
+btnWrap.appendChild(declineBtn);
+b.appendChild(txt);
+b.appendChild(btnWrap);
+document.body.appendChild(b);
+})();
+</script>
+
+</body>
+</html>
