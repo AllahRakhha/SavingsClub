@@ -3,119 +3,199 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mortgage Calculator  Estimate Monthly Payments with PMI | SavingsClub</title>
-<meta name="description" content="Free mortgage calculator with taxes, insurance, PMI, HOA fees, and full amortization schedule. See your complete monthly payment breakdown.">
+<title>Mortgage Calculator: Payment, PMI, Amortization</title>
+<meta name="description" content="Free mortgage calculator with taxes, insurance, PMI, and HOA. See exactly when your mortgage insurance drops off, and what extra payments would save you.">
 <link rel="canonical" href="https://savingsclub.com/mortgage-calculator/">
-<meta property="og:title" content="Mortgage Calculator — Estimate Monthly Payments with PMI | SavingsClub">
-<meta property="og:description" content="Free mortgage calculator with taxes, insurance, PMI, HOA fees, and full amortization schedule.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/sc-favicon.png?v=2">
+
+<meta property="og:title" content="Mortgage Calculator: Payment, PMI, Amortization">
+<meta property="og:description" content="See your full monthly payment, exactly when PMI drops off, and what extra payments would save you.">
 <meta property="og:url" content="https://savingsclub.com/mortgage-calculator/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SavingsClub">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much house can I afford?","acceptedAnswer":{"@type":"Answer","text":"A common guideline is that your total housing payment (including taxes and insurance) should be no more than 28% of your gross monthly income. On a $6,000/month income, that's $1,680 for housing."}}]}</script>
+<meta property="og:image" content="https://savingsclub.com/img/sc-logo-full.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mortgage Calculator: Payment, PMI, Amortization">
+<meta name="twitter:description" content="See your full payment and exactly when mortgage insurance drops off.">
+<meta name="twitter:image" content="https://savingsclub.com/img/sc-logo-full.png">
+
 <link rel="stylesheet" href="../css/style.css">
-<link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
-<link rel="icon" type="image/png" sizes="192x192" href="/img/sc-favicon.png?v=2">
-<link rel="apple-touch-icon" sizes="180x180" href="/img/sc-favicon.png?v=2">
-<link rel="shortcut icon" href="/img/sc-favicon.png?v=2">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-<meta property="og:image" content="https://savingsclub.com/img/savings-jar.jpg">
-<meta name="twitter:card" content="summary_large_image">
+
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://savingsclub.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://savingsclub.com/savings-calculator/"},{"@type":"ListItem","position":3,"name":"Mortgage Calculator","item":"https://savingsclub.com/mortgage-calculator/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Calculate Your Mortgage Payment","step":[{"@type":"HowToStep","position":1,"text":"Enter the home purchase price"},{"@type":"HowToStep","position":2,"text":"Input your down payment amount"},{"@type":"HowToStep","position":3,"text":"Set the mortgage interest rate"},{"@type":"HowToStep","position":4,"text":"Choose the loan term (15 or 30 years)"},{"@type":"HowToStep","position":5,"text":"View your monthly payment including principal and interest"}]}</script>
+
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity":[
+{"@type":"Question","name":"When does PMI go away?","acceptedAnswer":{"@type":"Answer","text":"Under the federal Homeowners Protection Act, you can request cancellation in writing once your balance reaches 80 percent of the home's original value, and your servicer must terminate it automatically at 78 percent. There is also a final backstop: PMI must end at the midpoint of the loan term, which is year 15 of a 30-year mortgage, even if you have not reached 78 percent. You must be current on payments."}},
+{"@type":"Question","name":"How much does PMI cost?","acceptedAnswer":{"@type":"Answer","text":"Typical annual PMI rates run from about 0.3 percent to 1.5 percent of the loan amount, depending on your credit score and how much you put down. On a 315,000 dollar loan at 0.5 percent, that is about 131 dollars a month. A lower credit score and a smaller down payment both push the rate higher."}},
+{"@type":"Question","name":"Should I request PMI cancellation or wait for it to drop automatically?","acceptedAnswer":{"@type":"Answer","text":"Request it. Waiting is the expensive option. On a 350,000 dollar home with 10 percent down at 6.5 percent, you reach the 80 percent request threshold at about year 7 years 11 months, but automatic termination at 78 percent does not arrive until 9 years 1 month. Those 14 extra months cost roughly 1,838 dollars in premiums you did not have to pay."}},
+{"@type":"Question","name":"How do I get rid of PMI faster?","acceptedAnswer":{"@type":"Answer","text":"Pay extra toward principal. On that same 350,000 dollar home, adding 200 dollars a month brings the 80 percent threshold forward by about 33 months, saving roughly 4,331 dollars in PMI premiums on top of the interest you save. You can also request cancellation based on a new appraisal if your home has appreciated, though the appraisal typically costs 300 to 600 dollars."}},
+{"@type":"Question","name":"Is FHA mortgage insurance the same as PMI?","acceptedAnswer":{"@type":"Answer","text":"No, and the difference matters. PMI is for conventional loans and can be cancelled under the Homeowners Protection Act. FHA charges a mortgage insurance premium instead, with an upfront charge plus an annual premium, and on most FHA loans that premium stays for the life of the loan. The only way off is usually to refinance into a conventional mortgage. VA loans have no monthly mortgage insurance at all."}},
+{"@type":"Question","name":"How much house can I afford?","acceptedAnswer":{"@type":"Answer","text":"A common guideline is the 28/36 rule: your total housing payment should stay under 28 percent of your gross monthly income, and all your debt payments together under 36 percent. On 6,000 dollars a month of gross income, that is roughly 1,680 dollars for housing. Treat it as a ceiling rather than a target, because a payment you can technically qualify for is not always one you can comfortably live with."}},
+{"@type":"Question","name":"Is it worth paying extra on my mortgage?","acceptedAnswer":{"@type":"Answer","text":"Usually yes, if you have no higher-interest debt and a funded emergency fund. On a 315,000 dollar loan at 6.5 percent, adding 200 dollars a month saves about 104,950 dollars in interest and pays the loan off roughly 6.7 years early. But if you are carrying credit card debt at 22 percent, paying that down first returns far more than prepaying a 6.5 percent mortgage."}},
+{"@type":"Question","name":"Should I choose a 15-year or 30-year mortgage?","acceptedAnswer":{"@type":"Answer","text":"A 15-year loan costs more each month but far less overall. On a 315,000 dollar loan, a 15-year at 6 percent runs about 667 dollars a month more than a 30-year at 6.5 percent, but saves roughly 238,298 dollars in total interest. Choose the 15-year only if the higher payment still leaves room for retirement contributions and an emergency fund, because the 30-year with voluntary extra payments gives you most of the benefit with an escape hatch."}},
+{"@type":"Question","name":"What is included in a monthly mortgage payment?","acceptedAnswer":{"@type":"Answer","text":"Four things, often called PITI: principal, interest, taxes, and insurance. Add PMI if you put down less than 20 percent, and HOA fees if the property has an association. Lenders quote principal and interest, which is why the real payment usually comes as a shock. Property tax and insurance alone can add several hundred dollars a month."}},
+{"@type":"Question","name":"Why is most of my early payment going to interest?","acceptedAnswer":{"@type":"Answer","text":"Because interest is charged on the outstanding balance, and early on the balance is nearly the whole loan. On a 315,000 dollar loan at 6.5 percent, the first payment is roughly 1,706 dollars of interest and only about 285 dollars of principal. This flips slowly over the years, which is exactly why extra principal payments made early are worth so much more than the same payments made late."}}
+]}
+</script>
+
 <style>
-.mc-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:32px;align-items:start}
-.mc-inputs-col{display:flex;flex-direction:column;gap:16px}
-.mc-inputs-col label{display:block;font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:6px}
-.mc-inputs-col input,.mc-inputs-col select{width:100%;padding:12px 14px;border:1.5px solid #e5e7eb;border-radius:10px;font-size:1rem;font-family:inherit;transition:border-color .2s,box-shadow .2s}
-.mc-inputs-col input:focus,.mc-inputs-col select:focus{outline:none;border-color:#059669;box-shadow:0 0 0 3px rgba(5,150,105,.1)}
-.mc-results-col{background:linear-gradient(135deg,#F0FDF4,#F8FAFC);border-radius:16px;padding:28px;border:1px solid rgba(5,150,105,.1);min-height:500px}
-.mc-section-title{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:18px;letter-spacing:-.01em}
-.mc-calc-btn{width:100%;margin-top:8px;padding:14px 24px;font-size:1rem;font-weight:700}
-#chart{min-height:280px;width:100%;margin-top:20px}
+.mg-hero{background:linear-gradient(120deg,#0A1628 0%,#0F2540 42%,#065F46 76%,#059669 100%);color:#fff;padding:clamp(96px,7.5vw,120px) 24px clamp(52px,5vw,70px);position:relative;overflow:hidden}
+.mg-hero::before{content:'';position:absolute;top:-35%;right:-8%;width:50%;height:180%;background:radial-gradient(circle,rgba(16,185,129,.20) 0%,transparent 62%);pointer-events:none}
+.mg-hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1}
+.mg-badge{display:inline-block;background:rgba(16,185,129,.18);color:#34D399;padding:7px 16px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;margin-bottom:16px;border:1px solid rgba(16,185,129,.35)}
+.mg-hero h1{color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(30px,4.4vw,46px);font-weight:800;line-height:1.1;margin:0 0 14px;letter-spacing:-.025em}
+.mg-hero-sub{color:rgba(255,255,255,.85);font-size:1.04rem;line-height:1.65;margin:0 0 16px;max-width:700px}
+.mg-byline{color:rgba(255,255,255,.6);font-size:.82rem;margin:0 0 8px}
+.mg-disc{color:rgba(255,255,255,.5);font-size:.78rem;font-style:italic;margin:0;max-width:640px;line-height:1.5}
+
+.mg-body{padding:38px 0 70px}
+.mg-card{background:#fff;border:1px solid #E5E7EB;border-radius:20px;padding:30px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.mg-layout{display:grid;grid-template-columns:1fr 1.25fr;gap:30px;align-items:start}
+.mg-sec-title{font-size:1.02rem;font-weight:700;color:#0A1628;margin:0 0 14px;display:flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans',sans-serif}
+.mg-sec-title .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#059669,#10B981);flex-shrink:0}
+.mg-inputs{display:flex;flex-direction:column;gap:14px}
+.mg-inputs label{display:block;font-size:.83rem;font-weight:600;color:#334155;margin-bottom:5px}
+.mg-inputs input,.mg-inputs select{width:100%;padding:12px 14px;border:1.5px solid #E5E7EB;border-radius:11px;font-size:.98rem;font-family:inherit;color:#0A1628;background:#fff}
+.mg-inputs input:focus,.mg-inputs select:focus{outline:none;border-color:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,.12)}
+.mg-dp{display:grid;grid-template-columns:2fr 1fr;gap:10px}
+.mg-adv-btn{background:transparent;color:#059669;border:1.5px solid #059669;padding:11px 18px;border-radius:11px;font-weight:600;font-size:.9rem;cursor:pointer;width:100%;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px}
+.mg-adv-btn:hover{background:#059669;color:#fff}
+.mg-adv-btn svg{width:14px;height:14px;transition:transform .2s}
+.mg-adv-btn.open svg{transform:rotate(180deg)}
+.mg-adv{display:none;flex-direction:column;gap:14px;padding-top:14px;border-top:1.5px dashed #E5E7EB;margin-top:4px}
+.mg-adv.open{display:flex}
+.mg-btns{display:flex;gap:10px;margin-top:18px}
+.mg-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:700;font-size:.98rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;border:none;transition:transform .15s,box-shadow .2s}
+.mg-btn-go{flex:1;background:linear-gradient(135deg,#059669,#10B981);color:#fff;box-shadow:0 6px 18px rgba(5,150,105,.32)}
+.mg-btn-go:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(5,150,105,.42)}
+.mg-btn-reset{flex:0 0 108px;background:#fff;color:#475569;border:1.5px solid #E2E8F0}
+.mg-btn-reset:hover{border-color:#10B981;color:#059669}
+.mg-btn svg{width:16px;height:16px}
+
+.mg-results{background:linear-gradient(135deg,#F0FDF4,#F8FAFC);border-radius:16px;padding:26px;border:1px solid rgba(5,150,105,.12);min-height:480px}
+.mg-empty{text-align:center;padding:52px 18px;color:#64748B}
+.mg-empty svg{width:46px;height:46px;color:#10B981;margin-bottom:14px}
+.mg-empty p{font-size:.95rem;margin:0 auto;max-width:340px;line-height:1.6}
+.mg-total{background:linear-gradient(135deg,#059669,#10B981);color:#fff;padding:22px;border-radius:14px;text-align:center;margin-bottom:16px;box-shadow:0 6px 18px rgba(5,150,105,.28)}
+.mg-total-label{font-size:.78rem;opacity:.92;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:4px;font-weight:600}
+.mg-total-value{font-family:'Plus Jakarta Sans',sans-serif;font-size:2.3rem;font-weight:800;letter-spacing:-.02em;display:block;line-height:1}
+.mg-rgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mg-ritem{background:rgba(255,255,255,.75);padding:13px 15px;border-radius:11px;border:1px solid rgba(0,0,0,.04)}
+.mg-rlabel{font-size:.76rem;color:#64748B;display:block;margin-bottom:3px;font-weight:600}
+.mg-rvalue{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.12rem;font-weight:700;color:#0A1628;display:block}
+#chart{min-height:250px;width:100%;margin-top:16px}
 #chart svg{max-width:100%;height:auto;display:block;margin:0 auto}
-.mc-result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
-.mc-result-item{background:rgba(255,255,255,.7);padding:14px 16px;border-radius:10px;border:1px solid rgba(0,0,0,.05)}
-.mc-result-label{font-size:.8rem;color:var(--text-light);display:block;margin-bottom:4px;font-weight:500}
-.mc-result-value{font-size:1.2rem;font-weight:700;color:var(--navy);display:block}
-.mc-monthly-total{background:linear-gradient(135deg,#059669,#10B981);color:#fff;padding:20px;border-radius:14px;text-align:center;margin-bottom:18px;box-shadow:0 4px 15px rgba(5,150,105,.25)}
-.mc-monthly-total-label{font-size:.85rem;opacity:.9;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;display:block}
-.mc-monthly-total-value{font-size:2.4rem;font-weight:800;letter-spacing:-.02em;display:block}
-.mc-dp-row{display:grid;grid-template-columns:2fr 1fr;gap:10px}
-.mc-advanced-toggle{background:transparent;color:#059669;border:1.5px solid #059669;padding:10px 18px;border-radius:10px;font-weight:600;font-size:.9rem;cursor:pointer;width:100%;margin-top:4px;transition:all .2s;font-family:inherit}
-.mc-advanced-toggle:hover{background:#059669;color:#fff}
-.mc-advanced-panel{display:none;flex-direction:column;gap:16px;padding-top:16px;border-top:1.5px dashed #e5e7eb;margin-top:8px}
-.mc-advanced-panel.open{display:flex}
-.mc-amort-wrap{margin-top:32px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.mc-amort-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:20px}
-.mc-amort-header h2{font-size:1.4rem;margin:0;color:var(--navy)}
-.mc-amort-toggle{display:inline-flex;background:#f3f4f6;border-radius:10px;padding:4px;gap:4px}
-.mc-amort-toggle button{padding:8px 16px;border:none;background:transparent;border-radius:8px;cursor:pointer;font-weight:600;font-size:.85rem;color:var(--text-light);font-family:inherit;transition:all .2s}
-.mc-amort-toggle button.active{background:#059669;color:#fff;box-shadow:0 2px 8px rgba(5,150,105,.25)}
-.mc-amort-table-wrap{overflow-x:auto;border-radius:12px;border:1px solid #f1f5f9;max-height:600px;overflow-y:auto}
-.mc-amort-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:520px}
-.mc-amort-table th,.mc-amort-table td{padding:12px 16px;text-align:right;border-bottom:1px solid #f1f5f9}
-.mc-amort-table th{background:#f8fafc;font-weight:700;color:var(--text);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;position:sticky;top:0;z-index:1}
-.mc-amort-table th:first-child,.mc-amort-table td:first-child{text-align:left;font-weight:600}
-.mc-amort-table tbody tr:hover{background:#f8fafc}
-.mc-amort-table tbody tr:last-child td{border-bottom:none}
-.mc-amort-note{font-size:.8rem;color:var(--text-lighter);margin-top:12px;text-align:center}
 
-/* ============ LENDER GUIDANCE SECTION (REPLACES PLACEHOLDER CARDS) ============ */
-.mc-lender-guide{margin-top:32px;background:linear-gradient(135deg,#050D1A,#0A1628);border-radius:20px;padding:40px 32px;box-shadow:0 4px 20px rgba(0,0,0,.08);color:#fff}
-.mc-lender-guide-header{text-align:center;margin-bottom:28px;position:relative}
-.mc-lender-guide-header h2{font-size:1.7rem;margin:0 0 10px;color:#fff;letter-spacing:-.02em;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800}
-.mc-lender-guide-header p{color:rgba(255,255,255,.78);font-size:1.02rem;max-width:680px;margin:0 auto;line-height:1.65}
-.mc-lender-guide-honest{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.22);border-radius:14px;padding:18px 22px;margin:0 0 22px;font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.92)}
-.mc-lender-guide-honest strong{color:#34D399;font-weight:700}
-.mc-lender-guide-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
-.mc-lender-guide-col{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:22px}
-.mc-lender-guide-col h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.05rem;font-weight:700;color:#34D399;margin:0 0 12px;display:flex;align-items:center;gap:8px}
-.mc-lender-guide-col ul{list-style:none;padding:0;margin:0}
-.mc-lender-guide-col li{font-size:.92rem;color:rgba(255,255,255,.88);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);line-height:1.55}
-.mc-lender-guide-col li:last-child{border-bottom:none}
-.mc-lender-guide-col li strong{color:#fff;font-weight:600}
-.mc-lender-guide-cta{text-align:center;margin-top:8px}
-.mc-lender-guide-cta a{display:inline-block;background:linear-gradient(135deg,#059669,#10B981);color:#fff;padding:14px 32px;border-radius:50px;text-decoration:none;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.98rem;box-shadow:0 4px 14px rgba(5,150,105,.3);transition:transform .15s,box-shadow .2s}
-.mc-lender-guide-cta a:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(5,150,105,.4)}
-.mc-state-pages{margin-top:24px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:22px}
-.mc-state-pages-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.05rem;font-weight:700;color:#34D399;margin:0 0 14px;display:flex;align-items:center;gap:8px}
-.mc-state-pages-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
-.mc-state-page-link{display:block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:11px 14px;text-decoration:none;color:#fff;font-size:.88rem;font-weight:600;transition:all .2s}
-.mc-state-page-link:hover{background:rgba(52,211,153,.12);border-color:rgba(52,211,153,.4)}
-.mc-state-page-link .rate{display:block;font-size:.74rem;color:rgba(255,255,255,.55);font-weight:400;margin-top:2px}
+/* PMI TIMELINE (differentiator) */
+.mg-pmi{background:linear-gradient(135deg,#0A1628,#0F2540);border-radius:20px;padding:28px;margin-top:26px;color:#fff;position:relative;overflow:hidden}
+.mg-pmi::before{content:'';position:absolute;top:-30%;right:-8%;width:45%;height:170%;background:radial-gradient(circle,rgba(16,185,129,.18) 0%,transparent 62%);pointer-events:none}
+.mg-pmi-in{position:relative;z-index:1}
+.mg-phead{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.mg-picon{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#059669,#10B981);display:flex;align-items:center;justify-content:center;flex:0 0 42px}
+.mg-picon svg{width:22px;height:22px;color:#fff}
+.mg-ptitle{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.18rem}
+.mg-pmi .mg-psub{color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.6;margin:0 0 20px;max-width:660px}
+.mg-track{position:relative;height:8px;background:rgba(255,255,255,.12);border-radius:99px;margin:34px 0 46px}
+.mg-track-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#059669,#34D399);width:0;transition:width .9s cubic-bezier(.16,1,.3,1)}
+.mg-marker{position:absolute;top:-6px;transform:translateX(-50%);text-align:center}
+.mg-marker i{display:block;width:20px;height:20px;border-radius:50%;border:3px solid #0F2540;margin:0 auto}
+.mg-marker.req i{background:#34D399}
+.mg-marker.auto i{background:#94A3B8}
+.mg-marker b{position:absolute;top:24px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:'Plus Jakarta Sans',sans-serif;font-size:.82rem;font-weight:700}
+.mg-marker.req b{color:#34D399}
+.mg-marker.auto b{color:#94A3B8}
+.mg-marker span{position:absolute;top:42px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:.72rem;color:rgba(255,255,255,.5)}
+.mg-pcards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.mg-pcard{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:13px;padding:16px}
+.mg-pcard.good{background:rgba(16,185,129,.12);border-color:rgba(52,211,153,.32)}
+.mg-pcard .lb{font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.55);font-weight:700;margin-bottom:5px}
+.mg-pcard .vl{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.5rem;font-weight:800;line-height:1}
+.mg-pcard.good .vl{color:#34D399}
+.mg-pcard .nt{font-size:.8rem;color:rgba(255,255,255,.6);margin-top:5px;line-height:1.5}
+.mg-verdict{background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.3);border-radius:12px;padding:15px 17px;font-size:.93rem;color:#D1FAE5;line-height:1.65}
+.mg-verdict strong{color:#34D399}
+.mg-pnote{color:rgba(255,255,255,.45);font-size:.76rem;margin-top:12px;line-height:1.55}
+.mg-pnote a{color:rgba(255,255,255,.72);text-decoration:underline}
 
-.mc-related-wrap{margin-top:32px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.mc-related-wrap h2{font-size:1.5rem;margin:0 0 6px;color:var(--navy);letter-spacing:-.01em}
-.mc-related-wrap>p{color:var(--text-light);margin:0 0 24px;font-size:1rem}
-.mc-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.mc-related-card{display:block;text-decoration:none;background:#F8FAFC;border:1.5px solid #e5e7eb;border-radius:14px;padding:24px;transition:transform .2s,box-shadow .2s,border-color .2s}
-.mc-related-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.08);border-color:#059669;background:#fff}
-.mc-related-icon{font-size:32px;margin-bottom:12px;display:block}
-.mc-related-card h3{font-size:1.15rem;margin:0 0 8px;color:var(--navy);font-weight:700}
-.mc-related-card p{color:var(--text-light);font-size:.9rem;margin:0 0 14px;line-height:1.5}
-.mc-related-link{color:#059669;font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:4px}
-@media (max-width: 900px){
-  .mc-layout{grid-template-columns:1fr;gap:20px}
-  .mc-results-col{min-height:auto;padding:20px}
-  .mc-monthly-total-value{font-size:2rem}
-  .mc-result-grid{grid-template-columns:1fr 1fr}
-  .mc-amort-wrap{padding:20px}
-  .mc-amort-header h2{font-size:1.2rem}
-  .mc-lender-guide{padding:28px 20px}
-  .mc-lender-guide-header h2{font-size:1.35rem}
-  .mc-lender-guide-cols{grid-template-columns:1fr;gap:14px}
-  .mc-related-wrap{padding:24px 20px}
-  .mc-related-grid{grid-template-columns:1fr;gap:14px}
+/* Panels */
+.mg-panel{background:#fff;border:1px solid #E5E7EB;border-radius:18px;padding:24px;margin-top:20px}
+.mg-panel-head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.mg-panel-ic{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,#047857,#0F766E);display:flex;align-items:center;justify-content:center;flex:0 0 40px}
+.mg-panel-ic svg{width:20px;height:20px;color:#fff}
+.mg-panel-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:1.08rem;color:#0A1628}
+.mg-panel-sub{color:#64748B;font-size:.88rem;margin:0 0 16px;line-height:1.55}
+.mg-out{background:#F0FDF4;border-left:3px solid #10B981;border-radius:0 12px 12px 0;padding:15px 17px;font-size:.94rem;color:#334155;line-height:1.65}
+.mg-out strong{color:#047857}
+.mg-out.warn{background:#FEF3C7;border-left-color:#D97706;color:#78350F}
+.mg-out.warn strong{color:#B45309}
+.mg-out.bad{background:#FEF2F2;border-left-color:#DC2626;color:#7F1D1D}
+.mg-out.bad strong{color:#DC2626}
+.mg-cmp{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:6px}
+.mg-cmp th{text-align:left;padding:10px 12px;background:#ECFDF5;color:#065F46;font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em}
+.mg-cmp th:not(:first-child),.mg-cmp td:not(:first-child){text-align:right}
+.mg-cmp td{padding:10px 12px;border-bottom:1px solid #F1F5F9;color:#0A1628}
+.mg-cmp tr:last-child td{border-bottom:none}
+.mg-cmp tr.hl td{background:#F0FDF4;font-weight:700}
+
+.mg-amort{margin-top:26px;background:#fff;border:1px solid #E5E7EB;border-radius:20px;padding:26px}
+.mg-amort-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:16px}
+.mg-amort-head h2{font-size:1.3rem;margin:0;color:#0A1628;font-family:'Plus Jakarta Sans',sans-serif}
+.mg-atog{display:inline-flex;background:#F1F5F9;border-radius:10px;padding:4px;gap:4px}
+.mg-atog button{padding:8px 16px;border:none;background:transparent;border-radius:8px;cursor:pointer;font-weight:600;font-size:.85rem;color:#64748B;font-family:inherit}
+.mg-atog button.active{background:linear-gradient(135deg,#059669,#10B981);color:#fff}
+.mg-atable-wrap{overflow-x:auto;border-radius:12px;border:1px solid #F1F5F9;max-height:520px;overflow-y:auto}
+.mg-atable{width:100%;border-collapse:collapse;font-size:.9rem;min-width:520px}
+.mg-atable th,.mg-atable td{padding:11px 15px;text-align:right;border-bottom:1px solid #F1F5F9}
+.mg-atable th{background:#F8FAFC;font-weight:700;color:#334155;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;position:sticky;top:0;z-index:1}
+.mg-atable th:first-child,.mg-atable td:first-child{text-align:left;font-weight:600}
+.mg-atable tbody tr:hover{background:#F8FAFC}
+
+.mg-states{margin-top:26px;background:linear-gradient(135deg,#0A1628,#0F2540);border-radius:20px;padding:26px;color:#fff}
+.mg-states h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.15rem;color:#34D399;margin:0 0 6px}
+.mg-states p{color:rgba(255,255,255,.68);font-size:.88rem;margin:0 0 16px}
+.mg-sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:9px}
+.mg-slink{display:block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:11px 14px;text-decoration:none;color:#fff;font-size:.88rem;font-weight:600;transition:all .2s}
+.mg-slink:hover{background:rgba(52,211,153,.12);border-color:rgba(52,211,153,.4)}
+.mg-slink span{display:block;font-size:.73rem;color:rgba(255,255,255,.52);font-weight:400;margin-top:2px}
+
+.mg-content{margin-top:30px}
+.mg-content h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.45rem,2.8vw,1.8rem);font-weight:800;color:#0A1628;margin:40px 0 14px;letter-spacing:-.02em}
+.mg-content h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.1rem;font-weight:700;color:#0A1628;margin:26px 0 8px}
+.mg-content p{font-size:1.02rem;line-height:1.78;color:#334155;margin:0 0 15px}
+.mg-content a{color:#059669;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(5,150,105,.3)}
+.mg-content ul{color:#334155;padding-left:22px;margin:0 0 15px}
+.mg-content li{margin-bottom:8px;line-height:1.7}
+.mg-callout{background:#F0FDF4;border-left:3px solid #10B981;border-radius:0 12px 12px 0;padding:18px 22px;margin:20px 0;color:#334155;font-size:.98rem;line-height:1.7}
+.mg-callout b{color:#047857}
+
+.mg-faq details{background:#fff;border:1px solid #E2E8F0;border-radius:13px;margin-bottom:10px;overflow:hidden}
+.mg-faq summary{padding:17px 21px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:#0A1628;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.mg-faq summary::-webkit-details-marker{display:none}
+.mg-faq summary::after{content:'';width:10px;height:10px;border-right:2px solid #10B981;border-bottom:2px solid #10B981;transform:rotate(45deg);transition:transform .2s;flex:0 0 10px}
+.mg-faq details[open] summary::after{transform:rotate(-135deg)}
+.mg-faq .ans{padding:0 21px 18px;color:#475569;line-height:1.72;font-size:.96rem}
+
+@media(max-width:900px){
+  .mg-layout{grid-template-columns:1fr;gap:20px}
+  .mg-results{min-height:auto;padding:20px}
+  .mg-pcards{grid-template-columns:1fr}
+  .mg-card{padding:20px}
+  .mg-total-value{font-size:1.9rem}
 }
-@media (max-width: 480px){
-  .mc-result-grid{grid-template-columns:1fr}
-}
+@media (prefers-reduced-motion:reduce){ .mg-track-fill{transition:none} }
 </style>
 </head>
-<body><nav id="mainNav">
+<body>
+
+<nav id="mainNav">
 <div class="nav-inner">
 <div class="logo" onclick="location.href='../'">
 <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
@@ -135,332 +215,525 @@ SavingsClub
 </nav>
 <div class="mobile-menu" id="mobileMenu">
 <a href="../">Home</a>
-<a href="../savings-calculator/">Savings</a>
-<a href="../budget-planner/">Budget</a>
 <a href="../mortgage-calculator/">Mortgage</a>
-<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../budget-planner/">Budget</a>
+<a href="../savings-calculator/">Savings</a>
+<a href="../emergency-fund-calculator/">Emergency Fund</a>
 <a href="../credit-cards/">Credit Cards</a>
 <a href="../blog/">Blog</a>
 <a href="../banking/">Banking</a>
 <a href="../about/">About</a>
 <a href="../contact/">Contact</a>
 </div>
-<section class="calc-page">
+
+<header class="mg-hero">
+<div class="mg-hero-inner">
+<span class="mg-badge">Free Tool</span>
+<h1>Mortgage Calculator</h1>
+<p class="mg-hero-sub">Your full monthly payment with taxes, insurance, PMI, and HOA. Then the part almost no calculator shows you: the exact month your mortgage insurance can be cancelled, what it costs you to wait, and how much sooner it ends if you pay a little extra.</p>
+<p class="mg-byline">By SavingsClub Research Team &middot; Updated July 2026</p>
+<p class="mg-disc">Educational tool, not financial advice. SavingsClub is not a licensed financial advisor or mortgage lender. Estimates only, confirm all figures with your lender.</p>
+</div>
+</header>
+
+<section class="mg-body">
 <div class="container">
-<div style="margin-bottom:24px"><a href="../" style="color:var(--text-light);font-weight:500">← Home</a></div>
 
-<div style="text-align:center;margin-bottom:32px">
-<h1 style="font-size:2.2rem;margin-bottom:8px;letter-spacing:-.02em">Mortgage Calculator</h1>
-<p style="color:var(--text-light);max-width:600px;margin:0 auto;font-size:1.05rem">Estimate monthly payments including taxes, insurance, PMI, and HOA fees. See your complete amortization schedule.</p>
-<p style="font-size:.8rem;color:var(--text-lighter);margin-top:8px">Last updated: June 2026</p>
-</div>
-
-<div class="calc-section reveal" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
-
-<div class="mc-layout">
-
-<!-- LEFT COLUMN: INPUTS -->
-<div>
-<h3 class="mc-section-title">Loan Details</h3>
-<div class="mc-inputs-col">
-
-<div><label>Home Price ($)</label><input type="number" id="mortPrice" value="350000" oninput="updateFromPrice()"></div>
+<div class="mg-card">
+<div class="mg-layout">
 
 <div>
-<label>Down Payment</label>
-<div class="mc-dp-row">
-<input type="number" id="mortDown" value="70000" oninput="updateFromDownDollar()" placeholder="Amount ($)">
-<input type="number" id="mortDownPct" value="20" step="0.5" oninput="updateFromDownPct()" placeholder="%">
+<div class="mg-sec-title"><span class="dot"></span> Loan details</div>
+<div class="mg-inputs">
+<div><label for="mgPrice">Home Price ($)</label><input type="number" id="mgPrice" value="350000" min="0"></div>
+<div>
+<label for="mgDown">Down Payment</label>
+<div class="mg-dp">
+<input type="number" id="mgDown" value="35000" min="0" placeholder="Amount ($)" oninput="mgSyncPct()">
+<input type="number" id="mgDownPct" value="10" step="0.5" min="0" max="100" placeholder="%" oninput="mgSyncDollar()">
+</div>
+</div>
+<div><label for="mgTerm">Loan Term</label>
+<select id="mgTerm"><option value="30" selected>30 years</option><option value="20">20 years</option><option value="15">15 years</option></select>
+</div>
+<div><label for="mgRate">Interest Rate (%)</label><input type="number" id="mgRate" value="6.5" step="0.01" min="0"></div>
+<div><label for="mgTax">Property Tax per Year ($)</label><input type="number" id="mgTax" value="4200" min="0"></div>
+<div><label for="mgIns">Home Insurance per Year ($)</label><input type="number" id="mgIns" value="1800" min="0"></div>
+
+<button type="button" class="mg-adv-btn" id="mgAdvBtn" onclick="mgToggleAdv()">
+Show advanced options
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+
+<div class="mg-adv" id="mgAdv">
+<div><label for="mgPmiRate">PMI Rate (% per year)</label><input type="number" id="mgPmiRate" value="0.5" step="0.05" min="0" max="3"></div>
+<div><label for="mgExtra">Extra Principal per Month ($)</label><input type="number" id="mgExtra" value="0" min="0"></div>
+<div><label for="mgHoa">HOA Fees per Month ($)</label><input type="number" id="mgHoa" value="0" min="0"></div>
+<div><label for="mgIncome">Gross Monthly Income ($, optional)</label><input type="number" id="mgIncome" value="0" min="0"></div>
 </div>
 </div>
 
-<div><label>Loan Term</label><select id="mortTerm" onchange="calc()"><option value="30">30 years</option><option value="20">20 years</option><option value="15">15 years</option></select></div>
-
-<div><label>Interest Rate (%)</label><input type="number" id="mortRate" value="6.5" step="0.1" oninput="calc()"></div>
-
-<div><label>Property Tax / Year ($)</label><input type="number" id="mortTax" value="4200" oninput="calc()"></div>
-
-<div><label>Home Insurance / Year ($)</label><input type="number" id="mortInsure" value="1500" oninput="calc()"></div>
-
-<button type="button" class="mc-advanced-toggle" id="mc-advanced-btn" onclick="toggleAdvanced()">Show Advanced ▼</button>
-
-<div class="mc-advanced-panel" id="mc-advanced">
-<div><label>HOA Fees / Month ($)</label><input type="number" id="mortHoa" value="0" oninput="calc()" placeholder="0"></div>
-<div><label>Start Date</label><input type="month" id="mortStart" value="2026-06" onchange="calc()"></div>
+<div class="mg-btns">
+<button class="mg-btn mg-btn-go" onclick="mgCalc()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>Calculate</button>
+<button class="mg-btn mg-btn-reset" onclick="mgReset()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 109-9 9 9 0 00-6.4 2.6L3 8"/><path d="M3 3v5h5"/></svg>Reset</button>
+</div>
 </div>
 
+<div class="mg-results">
+<div class="mg-sec-title"><span class="dot"></span> Your monthly payment</div>
+<div id="mgResult">
+<div class="mg-empty">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg>
+<p>Enter your loan details and press Calculate. Your full payment breakdown will appear here.</p>
 </div>
-<button class="btn btn-primary mc-calc-btn" onclick="calc()">Calculate</button>
 </div>
-
-<!-- RIGHT COLUMN: RESULTS + CHART -->
-<div class="mc-results-col">
-<h3 class="mc-section-title">Your Monthly Payment</h3>
-<div id="calcResult"></div>
 </div>
 
 </div>
 </div>
 
-<!-- AMORTIZATION SCHEDULE -->
-<div class="mc-amort-wrap reveal">
-<div class="mc-amort-header">
-<h2>Amortization Schedule</h2>
-<div class="mc-amort-toggle">
-<button class="active" id="amortYearlyBtn" onclick="setAmortView('yearly')">Yearly</button>
-<button id="amortMonthlyBtn" onclick="setAmortView('monthly')">Monthly</button>
+<div id="mgExtras"></div>
+
+<div class="mg-states">
+<h2>Compare state-specific mortgage data</h2>
+<p>Property tax and insurance vary enormously by state. These pages use real local figures.</p>
+<div class="mg-sgrid">
+<a class="mg-slink" href="texas/">Texas<span>1.60% tax &middot; $341.8K</span></a>
+<a class="mg-slink" href="california/">California<span>0.71% tax &middot; $785K</span></a>
+<a class="mg-slink" href="florida/">Florida<span>0.91% tax &middot; $410K</span></a>
+<a class="mg-slink" href="new-york/">New York<span>1.40% tax &middot; $475K</span></a>
+<a class="mg-slink" href="north-carolina/">North Carolina<span>0.82% tax &middot; $345K</span></a>
+<a class="mg-slink" href="georgia/">Georgia<span>0.92% tax &middot; $335K</span></a>
+<a class="mg-slink" href="illinois/">Illinois<span>2.08% tax &middot; $275K</span></a>
+<a class="mg-slink" href="pennsylvania/">Pennsylvania<span>1.43% tax &middot; $265K</span></a>
+<a class="mg-slink" href="michigan/">Michigan<span>1.55% tax &middot; $245K</span></a>
+<a class="mg-slink" href="ohio/">Ohio<span>1.36% tax &middot; $235K</span></a>
+<a class="mg-slink" href="virginia/">Virginia<span>0.82% tax &middot; $385K</span></a>
+<a class="mg-slink" href="washington/">Washington<span>0.93% tax &middot; $605K</span></a>
 </div>
 </div>
-<div class="mc-amort-table-wrap">
-<table class="mc-amort-table">
-<thead>
-<tr>
-<th id="amortDateHeader">Year</th>
-<th>Principal</th>
-<th>Interest</th>
-<th>Total Paid</th>
-<th>Remaining Balance</th>
-</tr>
-</thead>
-<tbody id="amortTableBody"></tbody>
+
+<div class="mg-amort">
+<div class="mg-amort-head">
+<h2>Amortization schedule</h2>
+<div class="mg-atog">
+<button class="active" id="mgYearBtn" onclick="mgSetView('yearly')">Yearly</button>
+<button id="mgMonthBtn" onclick="mgSetView('monthly')">Monthly</button>
+</div>
+</div>
+<div class="mg-atable-wrap">
+<table class="mg-atable">
+<thead><tr><th id="mgDateHead">Year</th><th>Principal</th><th>Interest</th><th>Total Paid</th><th>Balance</th></tr></thead>
+<tbody id="mgAmortBody"><tr><td colspan="5" style="text-align:center;padding:24px;color:#64748B">Press Calculate to build your schedule</td></tr></tbody>
 </table>
 </div>
-<p class="mc-amort-note">This schedule shows how each payment splits between principal and interest. Early payments are mostly interest; later payments are mostly principal.</p>
 </div>
 
-<!-- ============ LENDER GUIDANCE SECTION (REPLACES PLACEHOLDER CARDS) ============ -->
-<div class="mc-lender-guide reveal">
-  <div class="mc-lender-guide-header">
-    <h2>Looking for a Mortgage Lender?</h2>
-    <p>SavingsClub doesn't currently partner with mortgage lenders  we'd rather give you honest education than push you toward whoever pays us the most. Here's how to actually find the right mortgage for your situation.</p>
-  </div>
+<main class="mg-content">
 
-  <div class="mc-lender-guide-honest">
-    <strong>The shopping rule that saves the most money:</strong> Get pre-approval quotes from at least 3 lenders within a 14-day window. Multiple mortgage credit pulls within 14 days count as ONE inquiry on your credit score (per FICO and VantageScore rules) — so there's no penalty for shopping aggressively. A 0.25% rate difference on a $350,000 loan is $18,000 over 30 years. Don't take the first quote.
-  </div>
+<h2>Mortgage insurance calculator: what PMI actually costs you</h2>
+<p>Private mortgage insurance is the most misunderstood line on an American mortgage. It protects the lender, not you, and you pay for it. If you put down less than 20 percent on a conventional loan, it is added to your payment automatically and it quietly stays there for years.</p>
+<p>Typical annual PMI rates run from about <b>0.3 percent to 1.5 percent</b> of the loan amount, driven mostly by your credit score and how little you put down. On a 315,000 dollar loan at 0.5 percent, that is roughly <b>131 dollars a month</b>. It is not a fee you pay once. It is a subscription to your own lack of a down payment.</p>
+<p>The good news, and the part most calculators never tell you, is that federal law puts an expiry date on it.</p>
 
-  <div class="mc-lender-guide-cols">
-    <div class="mc-lender-guide-col">
-      <h3>✓ Where to start your search</h3>
-      <ul>
-        <li><strong>Your existing bank or credit union</strong> — often best rates for current customers; relationship discounts of 0.10–0.25% common</li>
-        <li><strong>Local credit unions</strong>  typically 0.10–0.25% below national lenders for well qualified buyers</li>
-        <li><strong>Online lenders</strong>  Rocket Mortgage, Better.com, Zillow Home Loans; fast pre-approvals, often competitive rates</li>
-        <li><strong>HUD-approved housing counselors</strong> FREE, unbiased mortgage advice; find one at hud.gov/findcounselor</li>
-        <li><strong>Mortgage brokers</strong>  work with multiple lenders on your behalf; useful if you have unique circumstances</li>
-      </ul>
-    </div>
-    <div class="mc-lender-guide-col">
-      <h3>⚠ Watch out for these traps</h3>
-      <ul>
-        <li><strong>Rate quotes that aren't APR</strong>  always compare APR (which includes fees), not the "interest rate" alone</li>
-        <li><strong>Discount points pitched as savings</strong>  paying points only makes sense if you'll hold the loan 5+ years; run the breakeven math</li>
-        <li><strong>"Lender credits"</strong>  they raise your rate to reduce closing costs; useful for short holds, costly for long holds</li>
-        <li><strong>Aggressive prequalification timelines</strong>  pressure to lock TODAY usually means the rate isn't actually competitive</li>
-        <li><strong>Higher than quoted closing costs at table</strong>  your Loan Estimate (3 days after applying) locks in most fees; compare the Closing Disclosure carefully</li>
-      </ul>
-    </div>
-  </div>
+<h2>When does PMI drop off? The two dates that matter</h2>
+<p>The <b>Homeowners Protection Act of 1998</b> gives you specific rights, and they are worth knowing precisely, because the difference between them is real money.</p>
+<ul>
+<li><b>80 percent LTV: you can request cancellation.</b> Once your balance is scheduled to reach 80 percent of the home's original value, you have the legal right to ask your servicer in writing to cancel PMI. They must consider it. You need to be current on payments, and they may require an appraisal.</li>
+<li><b>78 percent LTV: automatic termination.</b> Your servicer is legally required to cancel PMI on its own once the balance is scheduled to reach 78 percent of the original value. No request, no paperwork.</li>
+<li><b>The midpoint backstop.</b> If you somehow have not reached 78 percent, PMI must end at the midpoint of the loan term regardless, which is year 15 of a 30-year mortgage.</li>
+</ul>
 
-  <div class="mc-state-pages">
-    <div class="mc-state-pages-title">📍 Compare state-specific mortgage data</div>
-    <div class="mc-state-pages-grid">
-      <a href="../mortgage-calculator/california/" class="mc-state-page-link">California<span class="rate">0.71% tax · $785K</span></a>
-      <a href="../mortgage-calculator/florida/" class="mc-state-page-link">Florida<span class="rate">0.91% tax · $410K</span></a>
-      <a href="../mortgage-calculator/texas/" class="mc-state-page-link">Texas<span class="rate">1.58% tax · $310K</span></a>
-      <a href="../mortgage-calculator/georgia/" class="mc-state-page-link">Georgia<span class="rate">0.92% tax · $335K</span></a>
-      <a href="../mortgage-calculator/new-york/" class="mc-state-page-link">New York<span class="rate">1.40% tax · $475K</span></a>
-      <a href="../mortgage-calculator/north-carolina/" class="mc-state-page-link">North Carolina<span class="rate">0.82% tax · $345K</span></a>
-      <a href="../mortgage-calculator/illinois/" class="mc-state-page-link">Illinois<span class="rate">2.08% tax · $275K</span></a>
-      <a href="../mortgage-calculator/pennsylvania/" class="mc-state-page-link">Pennsylvania<span class="rate">1.43% tax · $265K</span></a>
-      <a href="../mortgage-calculator/michigan/" class="mc-state-page-link">Michigan<span class="rate">1.55% tax · $245K</span></a>
-      <a href="../mortgage-calculator/ohio/" class="mc-state-page-link">Ohio<span class="rate">1.36% tax · $235K</span></a>
-    </div>
-  </div>
-
-  <div class="mc-lender-guide-cta">
-    <a href="../blog/">Read Our Mortgage Guides →</a>
-  </div>
+<div class="mg-callout">
+<b>Here is the money.</b> On a 350,000 dollar home with 10 percent down at 6.5 percent, you hit the 80 percent request threshold at <b>7 years 11 months</b>, but automatic termination at 78 percent does not arrive until <b>9 years 1 month</b>. Those 14 extra months of waiting cost you roughly <b>1,838 dollars</b> in premiums you had every legal right to stop paying. The calculator above gives you both dates for your own numbers.
 </div>
 
-<div class="seo-content reveal" style="margin-top:32px">
-<h2>Understanding Mortgage Payments</h2><p>Your monthly mortgage payment includes more than just principal and interest. Property taxes, homeowners insurance, PMI (if your down payment is less than 20%), and HOA fees all add to the total. This calculator gives you the complete picture so there are no surprises.</p><h3>PMI Explained</h3><p>Private Mortgage Insurance is required when your down payment is less than 20% of the home price. It typically costs 0.5-1% of the loan amount annually. On a $280,000 loan, that's $1,400-$2,800 per year added to your payment. PMI is removed once you reach 20% equity.</p><h3>HOA Fees</h3><p>If your home is in a homeowners association (common in condos, townhomes, and planned communities), monthly HOA fees can add $100-$700+ to your housing cost. These fees pay for shared amenities, maintenance, and reserves.</p><h3>Amortization Explained</h3><p>Amortization is the process of paying off a loan with regular payments. In the early years of a mortgage, most of your payment goes to interest. As the balance decreases, more goes to principal. By the final years, you're paying mostly principal.</p>
+<h3>Important detail people get wrong</h3>
+<p>Both thresholds are based on the home's <b>original value</b>, meaning your purchase price or the original appraisal, not what the house is worth today. Rising home prices do not automatically move your termination date. However, appreciation can support a separate request for early cancellation based on a current appraisal, which typically costs 300 to 600 dollars. If your home has jumped in value, that appraisal can pay for itself many times over.</p>
+
+<h3>FHA is a different animal</h3>
+<p>None of the above applies to FHA loans. FHA charges a mortgage insurance premium rather than PMI, with an upfront charge plus an annual premium, and on most FHA loans <b>that premium lasts the life of the loan</b>. The usual way out is refinancing into a conventional mortgage once you have 20 percent equity. VA loans, by contrast, have no monthly mortgage insurance at all. If you are eligible for a VA loan, that alone can be worth tens of thousands of dollars.</p>
+
+<h2>Paying extra: the single highest-return move available to you</h2>
+<p>Extra principal does two things at once, and most people only count the first.</p>
+<p>The obvious benefit is interest. On that 315,000 dollar loan at 6.5 percent, adding <b>200 dollars a month</b> saves about <b>104,950 dollars</b> in interest and pays the mortgage off roughly <b>6.7 years early</b>.</p>
+<p>The hidden benefit is PMI. The same 200 dollars a month brings the 80 percent threshold forward by about <b>33 months</b>, saving another <b>4,331 dollars</b> in premiums. That is a second, invisible return on the same money, and it is why extra payments made in the early years are worth so much more than the same payments made later.</p>
+<p>One caveat, stated plainly. Do not prepay a 6.5 percent mortgage while carrying credit card debt at 22 percent. Clear the expensive debt first with our <a href="../credit-card-payoff-calculator/">credit card payoff calculator</a>, and make sure your <a href="../emergency-fund-calculator/">emergency fund</a> is funded before you lock money into a house you cannot easily withdraw it from.</p>
+
+<h2>How much house can you actually afford?</h2>
+<p>Lenders will approve you for more than you should spend. That is not cynicism, it is how the incentives work.</p>
+<p>The common guideline is the <b>28/36 rule</b>: your total housing payment should stay under 28 percent of gross monthly income, and all your debt payments together under 36 percent. On 6,000 dollars a month of gross income, that puts housing at roughly 1,680 dollars.</p>
+<p>Treat that as a ceiling, not a target. A payment you can technically qualify for and a payment you can comfortably live with are different numbers, and the gap between them is where financial stress lives. Enter your income in the advanced options above and the calculator will check your payment against both ratios.</p>
+
+<h2>15-year versus 30-year: the honest comparison</h2>
+<p>A 15-year mortgage costs dramatically more per month and dramatically less overall. On a 315,000 dollar loan, a 15-year at 6 percent runs about <b>667 dollars a month more</b> than a 30-year at 6.5 percent, and saves roughly <b>238,298 dollars</b> in total interest.</p>
+<p>That comparison makes the 15-year look obvious. It is not, for one reason: the 30-year gives you an escape hatch. If you take the 30-year and voluntarily pay extra, you capture most of the benefit while keeping the option to drop back to the lower required payment if you lose your job. The 15-year locks you into the higher payment permanently. Choose it only if the payment still leaves room for retirement contributions and an emergency fund.</p>
+
+<h2>What is actually in your monthly payment</h2>
+<p>Lenders quote principal and interest. Your actual payment has four or five parts, commonly called PITI:</p>
+<ul>
+<li><b>Principal.</b> The part that pays down what you borrowed.</li>
+<li><b>Interest.</b> The rent you pay on the money. Early on, this is almost the whole payment.</li>
+<li><b>Taxes.</b> Property tax, usually collected monthly into escrow. This varies wildly by state, from under 0.5 percent to over 2 percent of home value.</li>
+<li><b>Insurance.</b> Homeowners insurance, also escrowed. Rising fast in hail and hurricane states.</li>
+<li><b>PMI and HOA.</b> Mortgage insurance if you put down under 20 percent, and association fees if the property has them.</li>
+</ul>
+<p>On a 315,000 dollar loan at 6.5 percent, the very first payment is roughly <b>1,706 dollars of interest and only 285 dollars of principal</b>. That ratio slowly reverses over thirty years, and the amortization schedule above shows exactly how.</p>
+<p>Before you commit to any of it, put the full payment into our <a href="../budget-planner/">budget planner</a> and see whether it genuinely fits your month, not just your loan application.</p>
+</main>
+
+<section class="mg-faq">
+<h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.45rem,2.8vw,1.8rem);font-weight:800;color:#0A1628;margin:36px 0 18px;letter-spacing:-.02em">Mortgage questions people ask</h2>
+
+<details>
+<summary>When does PMI go away?</summary>
+<div class="ans">Under the federal Homeowners Protection Act, you can request cancellation in writing once your balance reaches 80 percent of the home's original value, and your servicer must terminate it automatically at 78 percent. There is also a final backstop: PMI must end at the midpoint of the loan term, which is year 15 of a 30-year mortgage, even if you have not reached 78 percent. You must be current on payments.</div>
+</details>
+
+<details>
+<summary>How much does PMI cost?</summary>
+<div class="ans">Typical annual PMI rates run from about 0.3 percent to 1.5 percent of the loan amount, depending on your credit score and how much you put down. On a 315,000 dollar loan at 0.5 percent, that is about 131 dollars a month. A lower credit score and a smaller down payment both push the rate higher.</div>
+</details>
+
+<details>
+<summary>Should I request PMI cancellation or wait for it to drop automatically?</summary>
+<div class="ans">Request it. Waiting is the expensive option. On a 350,000 dollar home with 10 percent down at 6.5 percent, you reach the 80 percent request threshold at about year 7 years 11 months, but automatic termination at 78 percent does not arrive until 9 years 1 month. Those 14 extra months cost roughly 1,838 dollars in premiums you did not have to pay.</div>
+</details>
+
+<details>
+<summary>How do I get rid of PMI faster?</summary>
+<div class="ans">Pay extra toward principal. On that same 350,000 dollar home, adding 200 dollars a month brings the 80 percent threshold forward by about 33 months, saving roughly 4,331 dollars in PMI premiums on top of the interest you save. You can also request cancellation based on a new appraisal if your home has appreciated, though the appraisal typically costs 300 to 600 dollars.</div>
+</details>
+
+<details>
+<summary>Is FHA mortgage insurance the same as PMI?</summary>
+<div class="ans">No, and the difference matters. PMI is for conventional loans and can be cancelled under the Homeowners Protection Act. FHA charges a mortgage insurance premium instead, with an upfront charge plus an annual premium, and on most FHA loans that premium stays for the life of the loan. The only way off is usually to refinance into a conventional mortgage. VA loans have no monthly mortgage insurance at all.</div>
+</details>
+
+<details>
+<summary>How much house can I afford?</summary>
+<div class="ans">A common guideline is the 28/36 rule: your total housing payment should stay under 28 percent of your gross monthly income, and all your debt payments together under 36 percent. On 6,000 dollars a month of gross income, that is roughly 1,680 dollars for housing. Treat it as a ceiling rather than a target, because a payment you can technically qualify for is not always one you can comfortably live with.</div>
+</details>
+
+<details>
+<summary>Is it worth paying extra on my mortgage?</summary>
+<div class="ans">Usually yes, if you have no higher-interest debt and a funded emergency fund. On a 315,000 dollar loan at 6.5 percent, adding 200 dollars a month saves about 104,950 dollars in interest and pays the loan off roughly 6.7 years early. But if you are carrying credit card debt at 22 percent, paying that down first returns far more than prepaying a 6.5 percent mortgage.</div>
+</details>
+
+<details>
+<summary>Should I choose a 15-year or 30-year mortgage?</summary>
+<div class="ans">A 15-year loan costs more each month but far less overall. On a 315,000 dollar loan, a 15-year at 6 percent runs about 667 dollars a month more than a 30-year at 6.5 percent, but saves roughly 238,298 dollars in total interest. Choose the 15-year only if the higher payment still leaves room for retirement contributions and an emergency fund, because the 30-year with voluntary extra payments gives you most of the benefit with an escape hatch.</div>
+</details>
+
+<details>
+<summary>What is included in a monthly mortgage payment?</summary>
+<div class="ans">Four things, often called PITI: principal, interest, taxes, and insurance. Add PMI if you put down less than 20 percent, and HOA fees if the property has an association. Lenders quote principal and interest, which is why the real payment usually comes as a shock. Property tax and insurance alone can add several hundred dollars a month.</div>
+</details>
+
+<details>
+<summary>Why is most of my early payment going to interest?</summary>
+<div class="ans">Because interest is charged on the outstanding balance, and early on the balance is nearly the whole loan. On a 315,000 dollar loan at 6.5 percent, the first payment is roughly 1,706 dollars of interest and only about 285 dollars of principal. This flips slowly over the years, which is exactly why extra principal payments made early are worth so much more than the same payments made late.</div>
+</details>
+</section>
+
+<div class="related-tools" style="margin-top:26px">
+<h3>More Free Tools</h3>
+<a href="../budget-planner/" class="related-tool-link">Budget Planner</a>
+<a href="../emergency-fund-calculator/" class="related-tool-link">Emergency Fund</a>
+<a href="../credit-card-payoff-calculator/" class="related-tool-link">Credit Card Payoff</a>
+<a href="../debt-payoff-calculator/" class="related-tool-link">Debt Payoff</a>
+<a href="../savings-calculator/" class="related-tool-link">Savings Calculator</a>
+<a href="../investment-calculator/" class="related-tool-link">Investment Calculator</a>
+<a href="../net-worth-calculator/" class="related-tool-link">Net Worth</a>
+<a href="../auto-loan-calculator/" class="related-tool-link">Auto Loan</a>
+<a href="../paycheck-calculator/" class="related-tool-link">Take-Home Pay</a>
+<a href="../cd-calculator/" class="related-tool-link">CD Interest Calculator</a>
 </div>
-<div class="seo-content reveal" style="margin-top:24px"><h2>Frequently Asked Questions</h2><h3>How much house can I afford?</h3><p>A common guideline is that your total housing payment (including taxes and insurance) should be no more than 28% of your gross monthly income. On a $6,000/month income, that's $1,680 for housing.</p></div><div class="blog-recs reveal" style="margin-top:24px">
-<h3 style="margin-bottom:12px;font-size:1.1rem">📚 Related Guides</h3>
-<a href="../blog/understanding-mortgage-options-fixed-vs-adjustable-rate/" class="related-blog-card">Fixed vs Adjustable Mortgages →</a><a href="../blog/how-to-save-for-a-house-down-payment-a-practical-timeline/" class="related-blog-card">Down Payment Timeline →</a>
-</div>
-<div class="mc-related-wrap reveal">
-<h2>Related Calculators</h2>
-<p>Continue planning your financial future with these helpful tools.</p>
-<div class="mc-related-grid">
-<a href="../auto-loan-calculator/" class="mc-related-card">
-<span class="mc-related-icon">🚗</span>
-<h3>Auto Loan Calculator</h3>
-<p>Calculate monthly car payments, total interest, and compare loan terms just like a mortgage.</p>
-<span class="mc-related-link">Calculate Auto Loan →</span>
-</a>
-<a href="../budget-planner/" class="mc-related-card">
-<span class="mc-related-icon">📊</span>
-<h3>Budget Planner</h3>
-<p>See if your monthly mortgage payment fits comfortably within your budget using the 50/30/20 rule.</p>
-<span class="mc-related-link">Plan Your Budget →</span>
-</a>
-<a href="../net-worth-calculator/" class="mc-related-card">
-<span class="mc-related-icon">💳</span>
-<h3>Net Worth Calculator</h3>
-<p>Track how your home equity grows your overall net worth as you pay down your mortgage.</p>
-<span class="mc-related-link">Calculate Net Worth →</span>
-</a>
-</div>
-</div>
+
 </div>
 </section>
+
 <script src="../js/charts.js"></script>
 <script>
-var amortView='yearly';
-var amortSchedule=[];
+var mgView='yearly';
+var mgSchedule=[];
 
-function fmt(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
-function fmtI(n){return Math.round(n).toLocaleString('en-US');}
-function fmtMoney(n){return '$'+Math.round(n).toLocaleString('en-US');}
+function mgMoney(n){ if(isNaN(n)) return '$0'; return '$'+Math.round(n).toLocaleString('en-US'); }
+function mgNum(id){ var v=parseFloat(document.getElementById(id).value); return isNaN(v)||v<0?0:v; }
+function mgYM(m){ var y=Math.floor(m/12), mo=m%12; var s=''; if(y>0) s+=y+' year'+(y>1?'s':''); if(mo>0) s+=(y>0?' ':'')+mo+' month'+(mo>1?'s':''); return s||'0 months'; }
 
-function updateFromPrice(){
-  var price=+(document.getElementById('mortPrice').value||0);
-  var down=+(document.getElementById('mortDown').value||0);
-  var pct=price>0?(down/price*100):0;
-  document.getElementById('mortDownPct').value=pct.toFixed(2);
-  calc();
+function mgSyncPct(){
+  var p=mgNum('mgPrice'), d=mgNum('mgDown');
+  document.getElementById('mgDownPct').value = p>0 ? (d/p*100).toFixed(1) : 0;
+}
+function mgSyncDollar(){
+  var p=mgNum('mgPrice'), pct=mgNum('mgDownPct');
+  document.getElementById('mgDown').value = Math.round(p*pct/100);
+}
+function mgToggleAdv(){
+  var a=document.getElementById('mgAdv'), b=document.getElementById('mgAdvBtn');
+  a.classList.toggle('open'); b.classList.toggle('open');
+  b.childNodes[0].nodeValue = a.classList.contains('open') ? 'Hide advanced options ' : 'Show advanced options ';
 }
 
-function updateFromDownDollar(){
-  var price=+(document.getElementById('mortPrice').value||0);
-  var down=+(document.getElementById('mortDown').value||0);
-  var pct=price>0?(down/price*100):0;
-  document.getElementById('mortDownPct').value=pct.toFixed(2);
-  calc();
+function mgPmt(loan,ratePct,years){
+  var r=ratePct/100/12, n=years*12;
+  if(loan<=0) return 0;
+  if(r===0) return loan/n;
+  return loan*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
 }
 
-function updateFromDownPct(){
-  var price=+(document.getElementById('mortPrice').value||0);
-  var pct=+(document.getElementById('mortDownPct').value||0);
-  var down=Math.round(price*pct/100);
-  document.getElementById('mortDown').value=down;
-  calc();
-}
-
-function toggleAdvanced(){
-  var adv=document.getElementById('mc-advanced');
-  var btn=document.getElementById('mc-advanced-btn');
-  if(adv.classList.contains('open')){
-    adv.classList.remove('open');
-    btn.innerHTML='Show Advanced ▼';
-  }else{
-    adv.classList.add('open');
-    btn.innerHTML='Hide Advanced ▲';
+/* Month the balance first reaches a target, with optional extra principal */
+function mgMonthAt(loan,ratePct,years,target,extra){
+  var r=ratePct/100/12, n=years*12, b=loan, p=mgPmt(loan,ratePct,years);
+  for(var i=1;i<=n;i++){
+    b=b*(1+r)-(p+(extra||0));
+    if(b<=0) return i;
+    if(b<=target) return i;
   }
+  return n;
 }
 
-function setAmortView(view){
-  amortView=view;
-  document.getElementById('amortYearlyBtn').classList.toggle('active',view==='yearly');
-  document.getElementById('amortMonthlyBtn').classList.toggle('active',view==='monthly');
-  document.getElementById('amortDateHeader').textContent=view==='yearly'?'Year':'Date';
-  renderAmortization();
+function mgTotals(loan,ratePct,years,extra){
+  var r=ratePct/100/12, n=years*12, b=loan, p=mgPmt(loan,ratePct,years), ti=0, m=0;
+  for(var i=1;i<=n;i++){
+    var interest=b*r;
+    ti+=interest;
+    b=b+interest-(p+(extra||0));
+    m=i;
+    if(b<=0){ b=0; break; }
+  }
+  return {interest:ti, months:m};
 }
 
-function buildSchedule(loanAmount,monthlyRate,totalMonths,startDate){
-  var schedule=[];
-  var balance=loanAmount;
-  var payment=monthlyRate>0?loanAmount*(monthlyRate*Math.pow(1+monthlyRate,totalMonths))/(Math.pow(1+monthlyRate,totalMonths)-1):loanAmount/totalMonths;
-  var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  for(var i=0;i<totalMonths;i++){
-    var interest=balance*monthlyRate;
-    var principal=payment-interest;
-    balance-=principal;
-    if(balance<0)balance=0;
-    var d=new Date(startDate.getFullYear(),startDate.getMonth()+i+1,1);
-    schedule.push({
-      label:months[d.getMonth()]+' '+d.getFullYear(),
-      year:d.getFullYear(),
-      principal:principal,
-      interest:interest,
-      payment:payment,
-      balance:balance
+function mgBuildSchedule(loan,ratePct,years,extra){
+  var r=ratePct/100/12, n=years*12, b=loan, p=mgPmt(loan,ratePct,years), out=[];
+  var now=new Date(), months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  for(var i=0;i<n;i++){
+    var interest=b*r;
+    var pay=p+(extra||0);
+    var principal=pay-interest;
+    if(principal>b){ principal=b; pay=principal+interest; }
+    b-=principal;
+    if(b<0) b=0;
+    var d=new Date(now.getFullYear(), now.getMonth()+i+1, 1);
+    out.push({label:months[d.getMonth()]+' '+d.getFullYear(), year:d.getFullYear(), principal:principal, interest:interest, payment:pay, balance:b});
+    if(b<=0) break;
+  }
+  return out;
+}
+
+function mgSetView(v){
+  mgView=v;
+  document.getElementById('mgYearBtn').classList.toggle('active',v==='yearly');
+  document.getElementById('mgMonthBtn').classList.toggle('active',v==='monthly');
+  document.getElementById('mgDateHead').textContent = v==='yearly'?'Year':'Date';
+  mgRenderAmort();
+}
+
+function mgRenderAmort(){
+  var tb=document.getElementById('mgAmortBody');
+  if(!mgSchedule.length){ tb.innerHTML='<tr><td colspan="5" style="text-align:center;padding:24px;color:#64748B">Press Calculate to build your schedule</td></tr>'; return; }
+  var html='';
+  if(mgView==='yearly'){
+    var agg={}, order=[];
+    for(var i=0;i<mgSchedule.length;i++){
+      var y=mgSchedule[i].year;
+      if(!agg[y]){ agg[y]={year:y,principal:0,interest:0,payment:0,balance:0}; order.push(y); }
+      agg[y].principal+=mgSchedule[i].principal;
+      agg[y].interest+=mgSchedule[i].interest;
+      agg[y].payment+=mgSchedule[i].payment;
+      agg[y].balance=mgSchedule[i].balance;
+    }
+    for(var j=0;j<order.length;j++){
+      var r=agg[order[j]];
+      html+='<tr><td>'+r.year+'</td><td>'+mgMoney(r.principal)+'</td><td>'+mgMoney(r.interest)+'</td><td>'+mgMoney(r.payment)+'</td><td>'+mgMoney(r.balance)+'</td></tr>';
+    }
+  } else {
+    for(var k=0;k<mgSchedule.length;k++){
+      var s=mgSchedule[k];
+      html+='<tr><td>'+s.label+'</td><td>'+mgMoney(s.principal)+'</td><td>'+mgMoney(s.interest)+'</td><td>'+mgMoney(s.payment)+'</td><td>'+mgMoney(s.balance)+'</td></tr>';
+    }
+  }
+  tb.innerHTML=html;
+}
+
+function mgCalc(){
+  var price=mgNum('mgPrice');
+  if(price<=0){ alert('Enter a home price to calculate your mortgage payment.'); return; }
+  var down=mgNum('mgDown');
+  if(down>price){ alert('Your down payment cannot be larger than the home price.'); return; }
+  var years=parseInt(document.getElementById('mgTerm').value,10);
+  var rate=mgNum('mgRate');
+  var taxY=mgNum('mgTax'), insY=mgNum('mgIns');
+  var pmiRate=mgNum('mgPmiRate'), extra=mgNum('mgExtra'), hoa=mgNum('mgHoa'), income=mgNum('mgIncome');
+
+  var loan=price-down;
+  var downPct=price>0?(down/price*100):0;
+  var pi=mgPmt(loan,rate,years);
+  var taxM=taxY/12, insM=insY/12;
+  var pmiM = downPct<20 ? loan*(pmiRate/100)/12 : 0;
+  var total = pi+taxM+insM+pmiM+hoa;
+  var t=mgTotals(loan,rate,years,extra);
+
+  /* ---- results panel ---- */
+  var html=''
+   + '<div class="mg-total"><span class="mg-total-label">Total monthly payment</span><span class="mg-total-value">'+mgMoney(total)+'</span></div>'
+   + '<div class="mg-rgrid">'
+   +   '<div class="mg-ritem"><span class="mg-rlabel">Principal and interest</span><span class="mg-rvalue">'+mgMoney(pi)+'</span></div>'
+   +   '<div class="mg-ritem"><span class="mg-rlabel">Property tax</span><span class="mg-rvalue">'+mgMoney(taxM)+'</span></div>'
+   +   '<div class="mg-ritem"><span class="mg-rlabel">Home insurance</span><span class="mg-rvalue">'+mgMoney(insM)+'</span></div>'
+   +   '<div class="mg-ritem"><span class="mg-rlabel">PMI</span><span class="mg-rvalue" style="'+(pmiM>0?'color:#B45309':'color:#64748B')+'">'+(pmiM>0?mgMoney(pmiM):'None')+'</span></div>'
+   +   (hoa>0?'<div class="mg-ritem"><span class="mg-rlabel">HOA fees</span><span class="mg-rvalue">'+mgMoney(hoa)+'</span></div>':'')
+   +   '<div class="mg-ritem" style="grid-column:1/-1"><span class="mg-rlabel">Total interest over the loan</span><span class="mg-rvalue" style="color:#B45309">'+mgMoney(t.interest)+'</span></div>'
+   + '</div>'
+   + '<div id="chart"></div>';
+  document.getElementById('mgResult').innerHTML=html;
+
+  var segs=[
+    {value:pi, color:'#0F2540', label:'Principal and interest'},
+    {value:taxM, color:'#059669', label:'Property tax'},
+    {value:insM, color:'#34D399', label:'Insurance'}
+  ];
+  if(pmiM>0) segs.push({value:pmiM, color:'#94A3B8', label:'PMI'});
+  if(hoa>0) segs.push({value:hoa, color:'#065F46', label:'HOA'});
+  if(typeof drawDonutChart==='function'){
+    drawDonutChart('#chart',segs,{title:'Monthly payment breakdown',centerTop:mgMoney(total),centerBot:'per month'});
+  }
+
+  /* ---- extras: PMI timeline, extra payment, affordability, 15 vs 30 ---- */
+  var ex='';
+
+  if(pmiM>0){
+    var lv80=price*0.80, lv78=price*0.78;
+    var m80=mgMonthAt(loan,rate,years,lv80,0);
+    var m78=mgMonthAt(loan,rate,years,lv78,0);
+    var costWait=pmiM*m78, costReq=pmiM*m80, saveReq=costWait-costReq;
+    var pctPos=(m80/m78)*100;
+
+    var extraLine='';
+    if(extra>0){
+      var e80=mgMonthAt(loan,rate,years,lv80,extra);
+      var sooner=m80-e80;
+      if(sooner>0){
+        extraLine='<div class="mg-verdict" style="margin-top:12px">Your extra <strong>'+mgMoney(extra)+' a month</strong> brings the 80 percent request date forward by <strong>'+sooner+' month'+(sooner>1?'s':'')+'</strong>, saving a further <strong>'+mgMoney(pmiM*sooner)+'</strong> in PMI premiums on top of the interest you save.</div>';
+      }
+    }
+
+    ex += '<div class="mg-pmi"><div class="mg-pmi-in">'
+      + '<div class="mg-phead"><span class="mg-picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span class="mg-ptitle">When your PMI drops off</span></div>'
+      + '<p class="mg-psub">You put '+downPct.toFixed(1)+' percent down, so you are paying '+mgMoney(pmiM)+' a month in mortgage insurance. Federal law says it has to end. Here are your two dates.</p>'
+      + '<div class="mg-track">'
+      +   '<div class="mg-track-fill" id="mgTrackFill"></div>'
+      +   '<div class="mg-marker req" style="left:'+pctPos.toFixed(1)+'%"><i></i><b>'+mgYM(m80)+'</b><span>80%: you can request</span></div>'
+      +   '<div class="mg-marker auto" style="left:100%"><i></i><b>'+mgYM(m78)+'</b><span>78%: automatic</span></div>'
+      + '</div>'
+      + '<div class="mg-pcards">'
+      +   '<div class="mg-pcard"><div class="lb">If you wait for automatic</div><div class="vl">'+mgMoney(costWait)+'</div><div class="nt">Total PMI paid over '+m78+' months</div></div>'
+      +   '<div class="mg-pcard good"><div class="lb">If you request at 80%</div><div class="vl">'+mgMoney(costReq)+'</div><div class="nt">Total PMI paid over '+m80+' months</div></div>'
+      + '</div>'
+      + '<div class="mg-verdict">Requesting cancellation the moment you hit 80 percent saves you <strong>'+mgMoney(saveReq)+'</strong>. It costs one written letter. Most people never send it, and pay for '+(m78-m80)+' extra months of insurance they had every legal right to stop.</div>'
+      + extraLine
+      + '<p class="mg-pnote">Based on the Homeowners Protection Act of 1998. Both thresholds use the home\'s original value, not its current value, and you must be current on payments. A separate request based on a new appraisal may be possible if your home has appreciated. Guidance from the <a href="https://www.consumerfinance.gov" rel="noopener" target="_blank">Consumer Financial Protection Bureau</a>.</p>'
+      + '</div></div>';
+  }
+
+  /* extra payment panel */
+  var base=mgTotals(loan,rate,years,0);
+  ex += '<div class="mg-panel">'
+    + '<div class="mg-panel-head"><span class="mg-panel-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="mg-panel-title">Extra payments</span></div>'
+    + '<p class="mg-panel-sub">Every extra dollar goes straight to principal, which cuts both the interest and the years.</p>';
+  if(extra>0){
+    var savedI=base.interest-t.interest;
+    var savedM=base.months-t.months;
+    ex += '<div class="mg-out">Paying <strong>'+mgMoney(extra)+' extra a month</strong> saves you <strong>'+mgMoney(savedI)+'</strong> in interest and clears the mortgage <strong>'+mgYM(savedM)+'</strong> early. You would be debt free in '+mgYM(t.months)+' instead of '+mgYM(base.months)+'.</div>';
+  } else {
+    var trial=mgTotals(loan,rate,years,200);
+    ex += '<div class="mg-out warn">You are not paying anything extra. Adding just <strong>200 dollars a month</strong> would save <strong>'+mgMoney(base.interest-trial.interest)+'</strong> in interest and finish the loan <strong>'+mgYM(base.months-trial.months)+'</strong> early. Enter an amount in the advanced options above to model your own.</div>';
+  }
+  ex += '</div>';
+
+  /* affordability */
+  if(income>0){
+    var frontRatio=(total/income)*100;
+    var cls = frontRatio<=28 ? 'mg-out' : (frontRatio<=33 ? 'mg-out warn' : 'mg-out bad');
+    var msg;
+    if(frontRatio<=28){
+      msg='This payment is <strong>'+frontRatio.toFixed(0)+' percent</strong> of your gross monthly income, comfortably inside the 28 percent guideline. You have room to breathe.';
+    } else if(frontRatio<=33){
+      msg='This payment is <strong>'+frontRatio.toFixed(0)+' percent</strong> of your gross monthly income, above the 28 percent guideline. It is doable, but it will feel tight, and it leaves less room for retirement saving.';
+    } else {
+      msg='This payment is <strong>'+frontRatio.toFixed(0)+' percent</strong> of your gross monthly income, well above the 28 percent guideline. A lender may still approve it. That does not make it affordable, and it is the most common way people end up house poor.';
+    }
+    ex += '<div class="mg-panel">'
+      + '<div class="mg-panel-head"><span class="mg-panel-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span class="mg-panel-title">Can you afford this?</span></div>'
+      + '<p class="mg-panel-sub">The 28/36 rule: housing under 28 percent of gross income, all debts under 36 percent.</p>'
+      + '<div class="'+cls+'">'+msg+' The 28 percent ceiling on your income is '+mgMoney(income*0.28)+' a month.</div>'
+      + '</div>';
+  }
+
+  /* 15 vs 30 */
+  if(years===30){
+    var p15=mgPmt(loan,Math.max(0,rate-0.5),15);
+    var i15=mgTotals(loan,Math.max(0,rate-0.5),15,0).interest;
+    ex += '<div class="mg-panel">'
+      + '<div class="mg-panel-head"><span class="mg-panel-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg></span><span class="mg-panel-title">15-year versus 30-year</span></div>'
+      + '<p class="mg-panel-sub">15-year loans usually price about half a point below 30-year loans. This assumes '+(Math.max(0,rate-0.5)).toFixed(2)+' percent.</p>'
+      + '<table class="mg-cmp"><thead><tr><th>Term</th><th>Monthly (P and I)</th><th>Total interest</th></tr></thead><tbody>'
+      + '<tr><td>30-year at '+rate+'%</td><td>'+mgMoney(pi)+'</td><td>'+mgMoney(base.interest)+'</td></tr>'
+      + '<tr class="hl"><td>15-year at '+(Math.max(0,rate-0.5)).toFixed(2)+'%</td><td>'+mgMoney(p15)+'</td><td>'+mgMoney(i15)+'</td></tr>'
+      + '</tbody></table>'
+      + '<div class="mg-out" style="margin-top:10px">The 15-year costs <strong>'+mgMoney(p15-pi)+' more a month</strong> but saves <strong>'+mgMoney(base.interest-i15)+'</strong> in interest. Take it only if the higher payment still leaves room for retirement and an emergency fund, because a 30-year with voluntary extra payments gives you most of the benefit and an escape hatch.</div>'
+      + '</div>';
+  }
+
+  document.getElementById('mgExtras').innerHTML=ex;
+  if(pmiM>0){
+    requestAnimationFrame(function(){
+      var f=document.getElementById('mgTrackFill');
+      if(f) f.style.width='100%';
     });
   }
-  return schedule;
+
+  mgSchedule=mgBuildSchedule(loan,rate,years,extra);
+  mgRenderAmort();
 }
 
-function renderAmortization(){
-  var tbody=document.getElementById('amortTableBody');
-  if(!amortSchedule.length){tbody.innerHTML='<tr><td colspan="5" style="text-align:center;padding:24px;color:var(--text-light)">Enter loan details above</td></tr>';return;}
-  var html='';
-  if(amortView==='yearly'){
-    var yearly={};
-    var yearOrder=[];
-    for(var i=0;i<amortSchedule.length;i++){
-      var y=amortSchedule[i].year;
-      if(!yearly[y]){yearly[y]={year:y,principal:0,interest:0,payment:0,balance:0};yearOrder.push(y);}
-      yearly[y].principal+=amortSchedule[i].principal;
-      yearly[y].interest+=amortSchedule[i].interest;
-      yearly[y].payment+=amortSchedule[i].payment;
-      yearly[y].balance=amortSchedule[i].balance;
-    }
-    for(var j=0;j<yearOrder.length;j++){
-      var row=yearly[yearOrder[j]];
-      html+='<tr><td>'+row.year+'</td><td>'+fmtMoney(row.principal)+'</td><td>'+fmtMoney(row.interest)+'</td><td>'+fmtMoney(row.payment)+'</td><td>'+fmtMoney(row.balance)+'</td></tr>';
-    }
-  }else{
-    for(var k=0;k<amortSchedule.length;k++){
-      var r=amortSchedule[k];
-      html+='<tr><td>'+r.label+'</td><td>'+fmtMoney(r.principal)+'</td><td>'+fmtMoney(r.interest)+'</td><td>'+fmtMoney(r.payment)+'</td><td>'+fmtMoney(r.balance)+'</td></tr>';
-    }
-  }
-  tbody.innerHTML=html;
+function mgReset(){
+  var d={mgPrice:350000,mgDown:35000,mgDownPct:10,mgRate:6.5,mgTax:4200,mgIns:1800,mgPmiRate:0.5,mgExtra:0,mgHoa:0,mgIncome:0};
+  for(var id in d){ document.getElementById(id).value=d[id]; }
+  document.getElementById('mgTerm').value='30';
+  mgSchedule=[];
+  document.getElementById('mgExtras').innerHTML='';
+  document.getElementById('mgResult').innerHTML='<div class="mg-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg><p>Enter your loan details and press Calculate. Your full payment breakdown will appear here.</p></div>';
+  mgRenderAmort();
 }
 
-function calc(){
-var price=+(document.getElementById('mortPrice').value||0),down=+(document.getElementById('mortDown').value||0),term=+(document.getElementById('mortTerm').value||30),rate=+(document.getElementById('mortRate').value||0)/100/12,tax=+(document.getElementById('mortTax').value||0),ins=+(document.getElementById('mortInsure').value||0),hoa=+(document.getElementById('mortHoa').value||0);
-var startVal=document.getElementById('mortStart').value||'2026-06';
-var startParts=startVal.split('-');
-var startDate=new Date(+startParts[0],+startParts[1]-1,1);
-var loan=price-down,n=term*12;
-var mp=rate>0?loan*(rate*Math.pow(1+rate,n))/(Math.pow(1+rate,n)-1):loan/n;
-var mt=tax/12,mi=ins/12;var dp=price>0?(down/price*100):0;
-var pmi=dp<20?(loan*0.005)/12:0;var total=mp+mt+mi+pmi+hoa;var ti=mp*n-loan;
-var el=document.getElementById('calcResult');
-el.innerHTML='<div class="mc-monthly-total"><span class="mc-monthly-total-label">Total Monthly Payment</span><span class="mc-monthly-total-value">$'+fmt(total)+'</span></div><div class="mc-result-grid"><div class="mc-result-item"><span class="mc-result-label">Principal &amp; Interest</span><span class="mc-result-value">$'+fmt(mp)+'</span></div><div class="mc-result-item"><span class="mc-result-label">Property Tax</span><span class="mc-result-value">$'+fmt(mt)+'</span></div><div class="mc-result-item"><span class="mc-result-label">Insurance</span><span class="mc-result-value">$'+fmt(mi)+'</span></div>'+(pmi>0?'<div class="mc-result-item"><span class="mc-result-label" style="color:#DC2626">PMI</span><span class="mc-result-value" style="color:#DC2626">$'+fmt(pmi)+'</span></div>':'<div class="mc-result-item"><span class="mc-result-label">PMI</span><span class="mc-result-value" style="color:var(--text-light)">$0.00</span></div>')+(hoa>0?'<div class="mc-result-item"><span class="mc-result-label">HOA Fees</span><span class="mc-result-value">$'+fmt(hoa)+'</span></div>':'')+'<div class="mc-result-item" style="grid-column:1/-1"><span class="mc-result-label">Total Interest Over '+term+' Years</span><span class="mc-result-value" style="color:#D97706">$'+fmtI(ti)+'</span></div></div><div id="chart"></div>';
-var segs=[{value:mp,color:'#3B82F6',label:'Principal & Interest'},{value:mt,color:'#10B981',label:'Property Tax'},{value:mi,color:'#F59E0B',label:'Insurance'}];
-if(pmi>0)segs.push({value:pmi,color:'#EF4444',label:'PMI'});
-if(hoa>0)segs.push({value:hoa,color:'#8B5CF6',label:'HOA'});
-drawDonutChart('#chart',segs,{title:'Monthly Payment Breakdown',centerTop:'$'+fmtI(total),centerBot:'/month'});
-amortSchedule=loan>0?buildSchedule(loan,rate,n,startDate):[];
-renderAmortization();
-}
-document.addEventListener('DOMContentLoaded',function(){calc();});
+window.addEventListener('scroll',function(){var n=document.querySelector('nav#mainNav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
 </script>
+
 <footer>
 <div class="container">
 <div class="footer-grid">
 <div>
 <div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
-<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and expert guides for Americans in every state. Making money decisions simpler since 2026.</p>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Helping you keep more of what you earn. Free financial tools and educational guides for Americans in every state.</p>
 </div>
 <div>
 <h4>Calculators</h4>
-<a href="../savings-calculator/">Savings Calculator</a>
-<a href="../budget-planner/">Budget Planner</a>
 <a href="../mortgage-calculator/">Mortgage Calculator</a>
+<a href="../budget-planner/">Budget Planner</a>
+<a href="../savings-calculator/">Savings</a>
 <a href="../debt-payoff-calculator/">Debt Payoff</a>
-<a href="../auto-loan-calculator/">Auto Loan</a>
-<a href="../net-worth-calculator/">Net Worth</a>
+<a href="../emergency-fund-calculator/">Emergency Fund</a>
 </div>
 <div>
 <h4>Resources</h4>
 <a href="../blog/">Blog</a>
 <a href="../credit-cards/">Credit Cards</a>
 <a href="../banking/">Banking</a>
+<a href="../about/">About Us</a>
 <a href="../contact/">Contact Us</a>
 </div>
 <div>
@@ -472,28 +745,21 @@ document.addEventListener('DOMContentLoaded',function(){calc();});
 </div>
 </div>
 <div class="footer-bottom">
-<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
-<p>Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+<p>&copy; 2026 SavingsClub. All rights reserved. Helping you keep more of what you earn. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
+<p>Educational content only, not financial advice. SavingsClub is not a licensed financial advisor. Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
 </div>
 </div>
 </footer>
 
 <script>
-window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
-function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
-function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
-var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
-</script>
-<script>
 (function(){
 if(localStorage.getItem('sc_cookies'))return;
 var b=document.createElement('div');
 b.id='cookieBanner';
-b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
+b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1';
 var acceptBtn=document.createElement('button');
 acceptBtn.textContent='Accept';
-acceptBtn.style.cssText='background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#059669,#10B981);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
 acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
 var declineBtn=document.createElement('button');
 declineBtn.textContent='Decline';
@@ -503,12 +769,12 @@ localStorage.setItem('sc_cookies','decline');
 b.innerHTML='';
 var msg=document.createElement('span');
 msg.style.cssText='padding:12px 0;color:#10B981';
-msg.textContent='\u2713 No cookies stored. You can browse freely.';
+msg.textContent='Preference saved.';
 b.appendChild(msg);
-setTimeout(function(){b.remove();},2500);
+setTimeout(function(){b.remove();},2000);
 };
 var txt=document.createElement('span');
-txt.innerHTML='We use cookies to improve your experience. <a href="/cookie-policy/" style="color:#3B82F6">Cookie Policy</a>';
+txt.innerHTML='We use basic analytics cookies to understand site traffic. <a href="/cookie-policy/" style="color:#10B981">Cookie Policy</a>';
 var btnWrap=document.createElement('div');
 btnWrap.style.cssText='display:flex;gap:8px';
 btnWrap.appendChild(acceptBtn);
@@ -518,5 +784,6 @@ b.appendChild(btnWrap);
 document.body.appendChild(b);
 })();
 </script>
+
 </body>
 </html>
