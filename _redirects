@@ -1,15 +1,14 @@
 # _redirects - SavingsClub.com
-# Updated: Includes targeted blog redirects + legacy spam cleanup from previous domain owner
+# Updated: July 2026
+# Includes targeted blog redirects + legacy spam cleanup from previous domain owner
 
 # ============================================
-# DUPLICATE PAGE CONSOLIDATION
-# /emergency-fund/ folder still exists in the repo, so these
-# rules use 301! (forced) or Netlify would serve the old page
-# instead of redirecting. Safe to delete the folder later.
+# NOTE (July 2026): The /emergency-fund/ redirect has been REMOVED.
+# /emergency-fund/ is now a standalone pillar guide (informational intent)
+# and /emergency-fund-calculator/ is the tool (transactional intent).
+# They target different searches and link to each other.
+# Do NOT re-add a redirect between them.
 # ============================================
-
-/emergency-fund /emergency-fund-calculator/ 301!
-/emergency-fund/* /emergency-fund-calculator/ 301!
 
 # Dead 401k post (never published, was linked from 401k calculator)
 /blog/the-complete-guide-to-401k-employer-matching /401k-calculator/ 301
@@ -41,7 +40,7 @@
 /blog/retirement-planning-in-your-30s-the-decade-that-matters-most /retirement-calculator/ 301
 /blog/retirement-planning-in-your-30s-the-decade-that-matters-most/* /retirement-calculator/ 301
 
-# Emergency fund related
+# Emergency fund related (old deleted blog posts, still point at the calculator)
 /blog/how-to-build-an-emergency-fund-a-step-by-step-guide-for-every-american /emergency-fund-calculator/ 301
 /blog/how-to-build-an-emergency-fund-a-step-by-step-guide-for-every-american/* /emergency-fund-calculator/ 301
 /blog/emergency-fund-101-how-much-you-really-need /emergency-fund-calculator/ 301
