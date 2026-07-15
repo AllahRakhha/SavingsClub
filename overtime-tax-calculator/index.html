@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overtime Tax Calculator: No Tax on Overtime | SavingsClub</title>
+<meta name="description" content="Free overtime tax calculator for the 2026 No Tax on Overtime deduction. See your deductible overtime premium, the cap, MAGI phase-out, and estimated federal tax saved.">
+<link rel="canonical" href="https://savingsclub.com/overtime-tax-calculator/">
+<meta property="og:title" content="Overtime Tax Calculator: No Tax on Overtime (2026)">
+<meta property="og:description" content="Estimate your federal tax savings from the No Tax on Overtime deduction. Only the FLSA half-premium qualifies, and this calculator handles the cap and phase-out.">
+<meta property="og:url" content="https://savingsclub.com/overtime-tax-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SavingsClub">
+<meta property="og:image" content="https://savingsclub.com/img/savings-jar.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="author" content="SavingsClub Research Team">
+<meta name="keywords" content="overtime tax calculator, no tax on overtime calculator, overtime deduction 2026, qualified overtime compensation, how much overtime can i deduct, overtime pay tax">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Overtime Tax Calculator","url":"https://savingsclub.com/overtime-tax-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free overtime tax calculator that estimates the federal No Tax on Overtime deduction, including the FLSA half-premium rule, the annual cap, and the MAGI phase-out for tax years 2025 through 2028.","publisher":{"@type":"Organization","name":"SavingsClub","url":"https://savingsclub.com"}}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://savingsclub.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://savingsclub.com/savings-calculator/"},{"@type":"ListItem","position":3,"name":"Overtime Tax Calculator","item":"https://savingsclub.com/overtime-tax-calculator/"}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is overtime really not taxed in 2026?","acceptedAnswer":{"@type":"Answer","text":"Not exactly. The No Tax on Overtime provision is a federal income tax deduction, not a full exemption. For tax years 2025 through 2028, eligible workers can deduct the FLSA-required overtime premium (the extra half of time-and-a-half pay) from their federal taxable income, up to a yearly cap. Your overtime is still subject to Social Security and Medicare taxes, and often state income tax."}},{"@type":"Question","name":"How much overtime can I deduct?","acceptedAnswer":{"@type":"Answer","text":"You can deduct your qualified overtime premium up to $12,500 if you are single or head of household, or up to $25,000 if you are married filing jointly. Only the half-time premium counts, not your full overtime pay. The deduction also phases out once your modified adjusted gross income passes $150,000 (single) or $300,000 (joint)."}},{"@type":"Question","name":"What counts as qualified overtime for the deduction?","acceptedAnswer":{"@type":"Answer","text":"Only the premium portion required by the Fair Labor Standards Act qualifies, which is the extra 0.5 times your regular rate on hours over 40 in a week. If your regular rate is $20 and overtime pays $30, only the $10 premium per hour is deductible, not the full $30. If you are paid double time, only the FLSA half-premium qualifies, not the extra amount above time-and-a-half."}},{"@type":"Question","name":"Does the No Tax on Overtime deduction remove Social Security and Medicare taxes?","acceptedAnswer":{"@type":"Answer","text":"No. The deduction only reduces federal income tax. Social Security tax of 6.2 percent (up to the annual wage base) and Medicare tax of 1.45 percent still apply to your full overtime pay, including the premium portion. Many states also continue to tax overtime in full, because not every state has adopted the federal change."}},{"@type":"Question","name":"Who does not qualify for the overtime deduction?","acceptedAnswer":{"@type":"Answer","text":"Married people who file separately are not eligible. Salaried employees who are exempt from FLSA overtime generally do not qualify, and neither does extra pay that comes only from state law or a union agreement rather than the FLSA. Workers whose modified adjusted gross income is above $275,000 (single) or $550,000 (joint) are fully phased out."}},{"@type":"Question","name":"How do I claim the No Tax on Overtime deduction?","acceptedAnswer":{"@type":"Answer","text":"You claim it on Schedule 1-A, which attaches to Form 1040, and you can take it whether you itemize or use the standard deduction. For the 2025 tax year, your qualified overtime may appear in Box 14 of your W-2 or on a separate employer statement, or you may need to calculate it from pay stubs. For 2026 and later, employers report it on your W-2 in Box 12 using code TT."}}]}</script>
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/sc-favicon.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/sc-favicon.png?v=2">
+<link rel="shortcut icon" href="/img/sc-favicon.png?v=2">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
+
+<style>
+/* ===== Full-width hero band (matches mortgage page) ===== */
+.ot-hero-band{background:linear-gradient(135deg,#0A1628 0%,#0F2540 50%,#059669 100%);color:#fff;padding:60px 0 68px}
+.ot-hero-band .container{max-width:1180px;margin:0 auto;padding:0 24px}
+.ot-pill{display:inline-block;border:1.5px solid #34D399;color:#34D399;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:8px 18px;border-radius:999px;margin-bottom:22px}
+.ot-hero-band h1{font-size:3.4rem;line-height:1.04;font-weight:800;letter-spacing:-.03em;margin:0 0 18px;color:#fff}
+.ot-lede{font-size:1.18rem;line-height:1.6;color:rgba(255,255,255,.9);max-width:830px;margin:0 0 22px}
+.ot-byline-line{font-size:.9rem;color:rgba(255,255,255,.72);margin:0 0 14px}
+.ot-hero-disclaimer{font-size:.85rem;font-style:italic;color:rgba(255,255,255,.55);line-height:1.6;margin:0;max-width:780px}
+
+/* ===== Two-column calculator (inputs left / results right) ===== */
+.ot-shell{max-width:1180px;margin:0 auto;padding:36px 24px 8px}
+.ot-two-col{display:grid;grid-template-columns:1fr 1.08fr;gap:26px;align-items:start;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:30px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.ot-dot-head{display:flex;align-items:center;gap:11px;font-size:1.18rem;font-weight:800;color:var(--navy);margin:0 0 20px;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-.01em}
+.ot-dot-head::before{content:'';width:11px;height:11px;border-radius:50%;background:#10B981;flex-shrink:0;box-shadow:0 0 0 4px rgba(16,185,129,.15)}
+
+.ot-input-stack{display:flex;flex-direction:column;gap:16px}
+.ot-field label{display:block;text-transform:uppercase;font-size:.72rem;letter-spacing:.05em;color:var(--text-light);font-weight:700;margin-bottom:8px}
+.ot-field input,.ot-field select{width:100%;padding:13px 16px;border:1.5px solid #e5e7eb;border-radius:10px;font-family:inherit;font-size:1rem;background:#fff;color:#0A1628;box-sizing:border-box;font-weight:500;transition:border-color .15s,box-shadow .15s}
+.ot-field input:focus,.ot-field select:focus{outline:none;border-color:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,.12)}
+.ot-field select{appearance:none;-webkit-appearance:none;padding-right:38px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%236B7280' stroke-width='1.8'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-size:12px;cursor:pointer}
+.ot-field .ot-hint{font-size:.76rem;color:var(--text-light);margin-top:6px;line-height:1.5}
+.ot-subhead{font-size:.78rem;font-weight:700;color:#047857;text-transform:uppercase;letter-spacing:.06em;margin:6px 0 -4px}
+
+.ot-btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.ot-calculate-btn{flex:1;min-width:180px;background:linear-gradient(135deg,#059669,#10B981);color:#fff;border:none;padding:15px 24px;border-radius:12px;font-family:inherit;font-size:1.02rem;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(16,185,129,.3);transition:transform .15s,box-shadow .2s;display:inline-flex;align-items:center;justify-content:center;gap:9px}
+.ot-calculate-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(16,185,129,.4)}
+.ot-calculate-btn:active{transform:translateY(0)}
+.ot-calculate-btn svg{width:19px;height:19px}
+.ot-reset-btn{background:#fff;color:var(--text);border:1.5px solid #e5e7eb;padding:14px 22px;border-radius:12px;font-family:inherit;font-size:.92rem;font-weight:600;cursor:pointer;transition:all .15s}
+.ot-reset-btn:hover{border-color:#94A3B8;color:var(--navy)}
+
+/* ===== Results panel ===== */
+.ot-results-panel{background:linear-gradient(135deg,#ECFDF5,#F8FAFC);border:1px solid rgba(16,185,129,.15);border-radius:16px;padding:26px;min-height:440px}
+.ot-panel-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 20px;min-height:360px}
+.ot-panel-empty svg{width:52px;height:52px;color:#10B981;margin-bottom:16px}
+.ot-panel-empty p{font-size:.95rem;color:var(--text-light);line-height:1.6;max-width:300px;margin:0}
+
+.ot-panel-hero{margin-bottom:18px}
+.ot-panel-hero.warn .ot-ph-val{color:#78350F}
+.ot-ph-label{font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;color:#047857;font-weight:700;margin-bottom:4px}
+.ot-panel-hero.warn .ot-ph-label{color:#92400E}
+.ot-ph-val{font-size:2.6rem;font-weight:800;color:#064E3B;line-height:1.05;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-.02em}
+.ot-ph-sub{font-size:.9rem;color:#047857;margin-top:6px;line-height:1.5}
+.ot-panel-hero.warn .ot-ph-sub{color:#78350F}
+.ot-ph-sub strong{font-weight:800}
+
+.ot-rows{background:#fff;border:1px solid rgba(0,0,0,.05);border-radius:12px;padding:6px 16px;margin-bottom:16px}
+.ot-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px solid #f1f5f9;font-size:.93rem}
+.ot-row:last-child{border-bottom:none}
+.ot-row .k{color:var(--text);line-height:1.4}
+.ot-row .k small{display:block;color:var(--text-light);font-size:.76rem;margin-top:2px}
+.ot-row .v{font-weight:800;color:var(--navy);font-family:'Plus Jakarta Sans',sans-serif;white-space:nowrap}
+.ot-row .v.green{color:#059669}
+.ot-row .v.red{color:#DC2626}
+
+.ot-flags{display:flex;flex-direction:column;gap:9px;margin-bottom:16px}
+.ot-flag{display:flex;gap:9px;align-items:flex-start;border-radius:10px;padding:11px 14px;font-size:.86rem;line-height:1.5;color:var(--text)}
+.ot-flag svg{width:17px;height:17px;flex-shrink:0;margin-top:2px}
+.ot-flag.good{background:#ECFDF5}
+.ot-flag.good svg{color:#059669}
+.ot-flag.warn{background:#FEF3C7;color:#78350F}
+.ot-flag.warn svg{color:#B45309}
+.ot-flag strong{font-weight:700;color:var(--navy)}
+.ot-flag.warn strong{color:#92400E}
+
+.ot-mistake{background:#fff;border:1px solid #FECACA;border-radius:12px;padding:16px 18px}
+.ot-mistake-title{font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;font-weight:800;color:#B91C1C;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.ot-mistake-title svg{width:15px;height:15px}
+.ot-mistake-row{display:flex;justify-content:space-between;gap:12px;padding:7px 0;font-size:.88rem;color:var(--text);border-bottom:1px dashed #f1d5d5}
+.ot-mistake-row:last-child{border-bottom:none}
+.ot-mistake-row strong{font-weight:800;font-family:'Plus Jakarta Sans',sans-serif}
+.ot-mistake-row .wrong{color:#DC2626}
+.ot-mistake-row .right{color:#059669}
+
+/* ===== Info sections ===== */
+.ot-body-shell{max-width:1180px;margin:0 auto;padding:8px 24px 40px}
+.ot-info-wrap{margin-top:24px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.ot-info-wrap h2{font-size:1.45rem;margin:0 0 16px;color:var(--navy);letter-spacing:-.01em;scroll-margin-top:80px}
+.ot-info-wrap h3{font-size:1.1rem;margin:20px 0 8px;color:var(--navy);font-weight:700}
+.ot-info-wrap p{color:var(--text);font-size:.95rem;line-height:1.7;margin:0 0 12px}
+.ot-info-wrap p:last-child{margin-bottom:0}
+.ot-info-wrap ul,.ot-info-wrap ol{color:var(--text);font-size:.95rem;line-height:1.7;margin:0 0 14px;padding-left:22px}
+.ot-info-wrap li{margin-bottom:6px}
+.ot-info-wrap a{color:#059669;font-weight:600;text-decoration:none;border-bottom:1px dashed #059669}
+.ot-info-wrap a:hover{color:#10B981;border-bottom-style:solid}
+.ot-info-wrap strong{color:var(--navy);font-weight:700}
+.ot-callout{background:linear-gradient(135deg,#ECFDF5,#F8FAFC);border-left:3px solid #10B981;padding:16px 20px;border-radius:8px;margin:18px 0;font-size:.95rem;color:var(--text);line-height:1.65}
+.ot-callout strong{color:#047857}
+.ot-example{background:#F8FAFC;border:1px solid #e5e7eb;border-radius:12px;padding:18px 20px;margin:14px 0}
+.ot-example h4{font-size:1rem;color:var(--navy);margin:0 0 6px;font-weight:700}
+.ot-example p{font-size:.92rem;color:var(--text);line-height:1.65;margin:0}
+.ot-example strong{color:#047857}
+.ot-faq-item{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid #f1f5f9}
+.ot-faq-item:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+.ot-faq-item h3{font-size:1.05rem;color:var(--navy);margin:0 0 8px;font-weight:700}
+.ot-faq-item p{font-size:.93rem;color:var(--text);line-height:1.65;margin:0}
+.ot-disclaimer-mini{margin-top:24px;background:#F8FAFC;border-left:3px solid #94A3B8;padding:12px 18px;border-radius:8px;font-size:.82rem;color:var(--text-light);line-height:1.6}
+.ot-disclaimer-mini p{margin:0}
+.ot-disclaimer-mini a{color:var(--text);font-weight:600;text-decoration:underline}
+.ot-related-wrap{margin-top:24px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.ot-related-wrap h2{font-size:1.5rem;margin:0 0 6px;color:var(--navy)}
+.ot-related-wrap>p{color:var(--text-light);margin:0 0 24px;font-size:1rem}
+.ot-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ot-related-card{display:flex;flex-direction:column;text-decoration:none;background:#F8FAFC;border:1.5px solid #e5e7eb;border-radius:14px;padding:22px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.ot-related-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.08);border-color:#10B981;background:#fff}
+.ot-related-icon{width:42px;height:42px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px;background:#ECFDF5;color:#059669}
+.ot-related-icon svg{width:22px;height:22px}
+.ot-related-card h3{font-size:1.05rem;margin:0 0 6px;color:var(--navy);font-weight:700}
+.ot-related-card p{color:var(--text-light);font-size:.85rem;margin:0 0 12px;line-height:1.5;flex:1}
+.ot-related-link{color:#059669;font-weight:700;font-size:.88rem;margin-top:auto}
+
+@media (max-width: 900px){
+  .ot-hero-band{padding:44px 0 48px}
+  .ot-hero-band h1{font-size:2.1rem}
+  .ot-lede{font-size:1.02rem}
+  .ot-two-col{grid-template-columns:1fr;gap:22px;padding:22px}
+  .ot-results-panel{min-height:auto;padding:22px}
+  .ot-panel-empty{padding:36px 16px;min-height:auto}
+  .ot-ph-val{font-size:2.1rem}
+  .ot-info-wrap,.ot-related-wrap{padding:22px}
+  .ot-info-wrap h2{font-size:1.2rem}
+  .ot-related-grid{grid-template-columns:1fr}
+  .ot-btn-row{flex-direction:column}
+  .ot-mistake-row{flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+<div class="nav-inner">
+<div class="logo" onclick="location.href='../'">
+<div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+SavingsClub
+</div>
+<div class="nav-links" id="navLinks">
+<a href="../">Home</a>
+<a href="../savings-calculator/" class="active">Calculators</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="../">Home</a>
+<a href="../paycheck-calculator/">Paycheck</a>
+<a href="../federal-income-tax-calculator/">Federal Tax</a>
+<a href="../savings-calculator/">Savings</a>
+<a href="../budget-planner/">Budget</a>
+<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../contact/">Contact</a>
+</div>
+
+<section class="ot-hero-band">
+<div class="container">
+<span class="ot-pill">Free Tool</span>
+<h1>Overtime Tax Calculator</h1>
+<p class="ot-lede">Your real federal savings from the 2026 No Tax on Overtime deduction. This tool counts only the part that actually qualifies, the FLSA half-premium, then applies the cap and the income phase-out, so your number is honest instead of inflated.</p>
+<p class="ot-byline-line">By SavingsClub Research Team &middot; Updated July 2026</p>
+<p class="ot-hero-disclaimer">Educational tool, not tax advice. SavingsClub is not a licensed tax advisor. Estimates only, based on IRS Notice 2025-69 rules for tax years 2025 to 2028. Confirm your figures with a tax professional.</p>
+</div>
+</section>
+
+<div class="ot-shell">
+<div class="ot-two-col reveal">
+
+<!-- LEFT: INPUTS -->
+<div class="ot-col-inputs">
+<div class="ot-dot-head">Your overtime</div>
+<div class="ot-input-stack">
+
+<div class="ot-field">
+<label>Regular Hourly Rate ($)</label>
+<input type="number" id="otRate" value="22" min="0" step="0.01">
+<div class="ot-hint">Your normal pay rate, before the overtime bump.</div>
+</div>
+
+<div class="ot-field">
+<label>Overtime Rate</label>
+<select id="otMult">
+<option value="1.5" selected>Time and a half (1.5x)</option>
+<option value="2">Double time (2x)</option>
+</select>
+<div class="ot-hint">Only the FLSA half-premium is deductible, even at 2x.</div>
+</div>
+
+<div class="ot-field">
+<label>Overtime Hours per Week</label>
+<input type="number" id="otHoursWeek" value="8" min="0" step="0.5">
+<div class="ot-hint">Average FLSA overtime hours (over 40 in a week).</div>
+</div>
+
+<div class="ot-field">
+<label>Weeks of Overtime per Year</label>
+<input type="number" id="otWeeks" value="50" min="0" max="52">
+<div class="ot-hint">How many weeks you actually work overtime.</div>
+</div>
+
+<div class="ot-subhead">Your tax details</div>
+
+<div class="ot-field">
+<label>Filing Status</label>
+<select id="otFiling">
+<option value="single" selected>Single</option>
+<option value="hoh">Head of Household</option>
+<option value="mfj">Married Filing Jointly</option>
+<option value="mfs">Married Filing Separately</option>
+</select>
+<div class="ot-hint">Married filing separately is not eligible.</div>
+</div>
+
+<div class="ot-field">
+<label>Estimated Annual Income / MAGI ($)</label>
+<input type="number" id="otMagi" value="60000" min="0">
+<div class="ot-hint">Used only to apply the phase-out above $150k / $300k.</div>
+</div>
+
+<div class="ot-field">
+<label>Federal Tax Bracket</label>
+<select id="otBracket">
+<option value="0.10">10%</option>
+<option value="0.12" selected>12%</option>
+<option value="0.22">22%</option>
+<option value="0.24">24%</option>
+<option value="0.32">32%</option>
+<option value="0.35">35%</option>
+<option value="0.37">37%</option>
+</select>
+<div class="ot-hint">Most hourly overtime earners fall in the 12% or 22% bracket.</div>
+</div>
+
+</div>
+
+<div class="ot-btn-row">
+<button class="ot-calculate-btn" onclick="calculateOvertime()">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><line x1="12" y1="14" x2="12" y2="18"/><line x1="8" y1="14" x2="8" y2="18"/><line x1="8" y1="10" x2="16" y2="10"/></svg>
+Calculate
+</button>
+<button class="ot-reset-btn" onclick="resetOvertime()">Reset</button>
+</div>
+</div>
+
+<!-- RIGHT: RESULTS PANEL -->
+<div class="ot-col-results">
+<div class="ot-dot-head">Your tax savings</div>
+<div class="ot-results-panel">
+<div class="ot-panel-empty" id="otEmpty">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+<p>Enter your details and press Calculate. Your overtime deduction breakdown will appear here.</p>
+</div>
+<div id="otOut"></div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="ot-body-shell">
+
+<div class="ot-info-wrap reveal">
+<h2>What "No Tax on Overtime" Actually Means in 2026</h2>
+<p>The phrase makes it sound like overtime pay became tax-free. It did not. What the law created is a federal income tax <strong>deduction</strong> for qualified overtime, added by the 2025 tax act and in effect for the 2025 through 2028 tax years. It is retroactive to January 1, 2025, and it is scheduled to expire after 2028 unless Congress extends it.</p>
+<p>A deduction lowers the income you are taxed on. It does not hand you your overtime back tax-free. If you deduct $5,000 of overtime premium and you are in the 22 percent bracket, you save about $1,100 in federal income tax, not $5,000. That is the single biggest misunderstanding about this rule, and the calculator above is built to show you the real number.</p>
+</div>
+
+<div class="ot-info-wrap reveal">
+<h2>Only the Half-Premium Qualifies (Not Your Whole Overtime Check)</h2>
+<p>This is where most people, and most calculators, get it wrong. The deduction applies only to the <strong>premium portion required by the Fair Labor Standards Act</strong>, which is the extra half of time-and-a-half pay. It is not your full overtime paycheck.</p>
+<div class="ot-callout">
+<strong>The formula:</strong> Deductible premium = your regular rate &times; 0.5 &times; overtime hours. If your regular rate is $20 and overtime pays $30 an hour, only the extra $10 per hour is deductible, not the full $30.</div>
+<p>If you are paid <strong>double time</strong> (2x), it does not help you here. Only the FLSA-required half-premium qualifies. The extra amount above time-and-a-half is not deductible under current IRS guidance, so your total pay goes up but your deductible amount stays the same. The calculator handles this automatically: pick double time and it still deducts only the qualifying half.</p>
+</div>
+
+<div class="ot-info-wrap reveal">
+<h2>The Cap and the Income Phase-Out</h2>
+<p>Two limits decide how much of your premium you can actually deduct.</p>
+<h3>The annual cap</h3>
+<p>You can deduct at most <strong>$12,500</strong> if you file single or head of household, and up to <strong>$25,000</strong> if you are married filing jointly. For a married couple, the $25,000 is the combined limit for both spouses, not $25,000 each.</p>
+<h3>The MAGI phase-out</h3>
+<p>The deduction shrinks once your modified adjusted gross income (MAGI) passes <strong>$150,000</strong> for single and head of household filers, or <strong>$300,000</strong> for joint filers. For every $1,000 of MAGI above the threshold, your maximum deduction drops by $100. It reaches zero at about $275,000 (single) or $550,000 (joint). For most workers, MAGI is simply the income on your Form 1040.</p>
+<div class="ot-callout">
+<strong>Worked example:</strong> Elena is single with $10,000 of qualified overtime premium and a MAGI of $170,000. That is $20,000 over the threshold, so her deduction is reduced by $20,000 &divide; $1,000 &times; $100 = $2,000. She can deduct $8,000 instead of the full $10,000.</div>
+</div>
+
+<div class="ot-info-wrap reveal">
+<h2>What the Deduction Does Not Remove</h2>
+<p>Even when you qualify for the full deduction, your overtime is not free of every tax.</p>
+<ul>
+<li><strong>Social Security and Medicare (FICA) still apply.</strong> Your employer still withholds 6.2 percent for Social Security (up to the annual wage base) and 1.45 percent for Medicare on your full overtime pay, including the premium. The deduction only touches federal income tax.</li>
+<li><strong>Many states still tax overtime in full.</strong> This is a federal deduction. Whether your state follows it depends on state conformity rules. As of early 2026, several states with their own income tax codes, including California and New York, had not adopted it, so your state may still tax the whole amount.</li>
+<li><strong>Your paycheck may not change during the year.</strong> Employers generally keep withholding federal income tax on overtime as usual. The benefit typically shows up when you file, as a smaller tax bill or a larger refund, not as a bigger weekly check.</li>
+</ul>
+</div>
+
+<div class="ot-info-wrap reveal">
+<h2>Who Qualifies, and Who Does Not</h2>
+<p>The rule is narrower than the headlines suggest.</p>
+<p><strong>You generally qualify</strong> if you are an hourly or other non-exempt employee who is covered by the FLSA and receives time-and-a-half for hours over 40 in a workweek.</p>
+<p><strong>You generally do not qualify</strong> if any of these apply: you are married and file separately; you are a salaried employee who is exempt from FLSA overtime; your extra pay comes only from a state law or union agreement rather than the FLSA; or your MAGI is above the phase-out ceiling. Most true independent contractors do not qualify either, because the overtime must be FLSA-required.</p>
+</div>
+
+<div class="ot-info-wrap reveal">
+<h2>How to Find and Claim Your Qualified Overtime</h2>
+<p>You claim the deduction on <strong>Schedule 1-A</strong>, a form that attaches to Form 1040, and you can take it whether you itemize or use the standard deduction.</p>
+<h3>For the 2025 tax year (filed in 2026)</h3>
+<p>Employers were not required to break out overtime separately, so your qualified amount may appear in Box 14 of your W-2, on a separate employer statement, or not at all. If it is not provided, you calculate it from your pay stubs: total your FLSA overtime hours and multiply by your regular rate times 0.5.</p>
+<h3>For the 2026 tax year and later</h3>
+<p>Employers must report your qualified overtime compensation on your W-2 in <strong>Box 12 using code TT</strong>, so you can transfer that figure straight to Schedule 1-A. Always check the number against your own records to be sure it captures your full benefit.</p>
+</div>
+
+<div class="ot-info-wrap reveal">
+<h2>Real Examples</h2>
+<div class="ot-example">
+<h4>Warehouse worker, single</h4>
+<p>Earns $22 an hour, works about 8 overtime hours a week for 50 weeks. The deductible premium is $22 &times; 0.5 &times; 400 hours = <strong>$4,400</strong>. With a MAGI well under $150,000 and a 12 percent bracket, that is roughly <strong>$528</strong> in federal tax saved. The full overtime pay stays on the W-2 and still owes FICA.</p>
+</div>
+<div class="ot-example">
+<h4>Nurse paid double time, single</h4>
+<p>Earns $40 an hour and picks up double-time shifts. Even though she is paid 2x, only the FLSA half-premium counts, so her deductible amount is $40 &times; 0.5 &times; her overtime hours, not the full double-time pay. Choosing "double time" in the calculator shows this gap clearly.</p>
+</div>
+<div class="ot-example">
+<h4>Couple near the phase-out, married filing jointly</h4>
+<p>Combined MAGI of $340,000 with $25,000 of overtime premium between them. They are $40,000 over the $300,000 threshold, so the cap drops by $40,000 &divide; $1,000 &times; $100 = $4,000. Their deduction is $21,000 rather than the full $25,000.</p>
+</div>
+</div>
+
+<div class="ot-info-wrap reveal">
+<h2>Frequently Asked Questions</h2>
+
+<div class="ot-faq-item">
+<h3>Is overtime really not taxed in 2026?</h3>
+<p>Not exactly. The No Tax on Overtime provision is a federal income tax deduction, not a full exemption. For tax years 2025 through 2028, eligible workers can deduct the FLSA-required overtime premium (the extra half of time-and-a-half pay) from their federal taxable income, up to a yearly cap. Your overtime is still subject to Social Security and Medicare taxes, and often state income tax.</p>
+</div>
+
+<div class="ot-faq-item">
+<h3>How much overtime can I deduct?</h3>
+<p>You can deduct your qualified overtime premium up to $12,500 if you are single or head of household, or up to $25,000 if you are married filing jointly. Only the half-time premium counts, not your full overtime pay. The deduction also phases out once your modified adjusted gross income passes $150,000 (single) or $300,000 (joint).</p>
+</div>
+
+<div class="ot-faq-item">
+<h3>What counts as qualified overtime for the deduction?</h3>
+<p>Only the premium portion required by the Fair Labor Standards Act qualifies, which is the extra 0.5 times your regular rate on hours over 40 in a week. If your regular rate is $20 and overtime pays $30, only the $10 premium per hour is deductible, not the full $30. If you are paid double time, only the FLSA half-premium qualifies, not the extra amount above time-and-a-half.</p>
+</div>
+
+<div class="ot-faq-item">
+<h3>Does the No Tax on Overtime deduction remove Social Security and Medicare taxes?</h3>
+<p>No. The deduction only reduces federal income tax. Social Security tax of 6.2 percent (up to the annual wage base) and Medicare tax of 1.45 percent still apply to your full overtime pay, including the premium portion. Many states also continue to tax overtime in full, because not every state has adopted the federal change.</p>
+</div>
+
+<div class="ot-faq-item">
+<h3>Who does not qualify for the overtime deduction?</h3>
+<p>Married people who file separately are not eligible. Salaried employees who are exempt from FLSA overtime generally do not qualify, and neither does extra pay that comes only from state law or a union agreement rather than the FLSA. Workers whose modified adjusted gross income is above $275,000 (single) or $550,000 (joint) are fully phased out.</p>
+</div>
+
+<div class="ot-faq-item">
+<h3>How do I claim the No Tax on Overtime deduction?</h3>
+<p>You claim it on Schedule 1-A, which attaches to Form 1040, and you can take it whether you itemize or use the standard deduction. For the 2025 tax year, your qualified overtime may appear in Box 14 of your W-2 or on a separate employer statement, or you may need to calculate it from pay stubs. For 2026 and later, employers report it on your W-2 in Box 12 using code TT.</p>
+</div>
+</div>
+
+<div class="ot-related-wrap reveal">
+<h2>Related Tools and Guides</h2>
+<p>More free calculators for understanding your pay and taxes.</p>
+<div class="ot-related-grid">
+<a href="../paycheck-calculator/" class="ot-related-card">
+<span class="ot-related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>
+<h3>Paycheck Calculator</h3>
+<p>See your take-home pay after federal tax, FICA, and state withholding.</p>
+<span class="ot-related-link">Estimate Take-Home →</span>
+</a>
+<a href="../federal-income-tax-calculator/" class="ot-related-card">
+<span class="ot-related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+<h3>Federal Income Tax Calculator</h3>
+<p>Estimate your federal income tax and see which bracket your income falls in.</p>
+<span class="ot-related-link">Estimate Your Tax →</span>
+</a>
+<a href="../budget-planner/" class="ot-related-card">
+<span class="ot-related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></span>
+<h3>Budget Planner</h3>
+<p>Put your overtime and any tax savings to work with a simple monthly budget.</p>
+<span class="ot-related-link">Plan Budget →</span>
+</a>
+</div>
+</div>
+
+<div class="ot-disclaimer-mini reveal">
+<p>This overtime tax calculator provides estimates for educational purposes based on the No Tax on Overtime deduction rules for tax years 2025 to 2028, including IRS Notice 2025-69. It is not tax advice, and your actual deduction depends on your full return, your state, and future IRS guidance. Content is researched and drafted using AI tools with human review before publication. SavingsClub is not a licensed tax advisor. For your specific situation, consult a CPA, enrolled agent, or tax attorney. <a href="../disclaimer/">Read full disclaimer</a>.</p>
+</div>
+
+</div>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and educational guides for Americans in every state. Helping you keep more of what you earn since 2026.</p>
+</div>
+<div>
+<h4>Calculators</h4>
+<a href="../savings-calculator/">Savings Calculator</a>
+<a href="../budget-planner/">Budget Planner</a>
+<a href="../paycheck-calculator/">Paycheck Calculator</a>
+<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../auto-loan-calculator/">Auto Loan</a>
+<a href="../net-worth-calculator/">Net Worth</a>
+</div>
+<div>
+<h4>Resources</h4>
+<a href="../blog/">Blog</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../contact/">Contact Us</a>
+</div>
+<div>
+<h4>Legal</h4>
+<a href="../privacy-policy/">Privacy Policy</a>
+<a href="../terms-of-service/">Terms of Service</a>
+<a href="../cookie-policy/">Cookie Policy</a>
+<a href="../disclaimer/">Disclaimer</a>
+<a href="../editorial-standards/">Editorial Standards</a>
+<a href="../methodology/">Methodology</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
+<p>Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+</div>
+</div>
+</footer>
+
+<script>
+function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
+
+function calculateOvertime(){
+  var rate = +document.getElementById('otRate').value || 0;
+  var mult = +document.getElementById('otMult').value || 1.5;
+  var hoursWeek = +document.getElementById('otHoursWeek').value || 0;
+  var weeks = +document.getElementById('otWeeks').value || 0;
+  var filing = document.getElementById('otFiling').value;
+  var magi = +document.getElementById('otMagi').value || 0;
+  var bracket = +document.getElementById('otBracket').value || 0.12;
+
+  document.getElementById('otEmpty').style.display = 'none';
+  var out = document.getElementById('otOut');
+
+  if (rate <= 0 || hoursWeek <= 0 || weeks <= 0){
+    out.innerHTML = '<div class="ot-panel-hero warn"><div class="ot-ph-label">Add your overtime</div><div class="ot-ph-val">Enter rate and hours</div><div class="ot-ph-sub">Enter your regular hourly rate, overtime hours per week, and weeks per year to estimate your deduction.</div></div>';
+    return;
+  }
+
+  var config = {
+    single: { cap: 12500, threshold: 150000, eligible: true, label: 'single' },
+    hoh:    { cap: 12500, threshold: 150000, eligible: true, label: 'head of household' },
+    mfj:    { cap: 25000, threshold: 300000, eligible: true, label: 'married filing jointly' },
+    mfs:    { cap: 0, threshold: 0, eligible: false, label: 'married filing separately' }
+  }[filing];
+
+  var otHoursYear = hoursWeek * weeks;
+  var totalOtPay = rate * mult * otHoursYear;
+  var premium = rate * 0.5 * otHoursYear; // FLSA qualified premium, regardless of multiplier
+  var fica = totalOtPay * 0.0765;
+
+  if (!config.eligible){
+    out.innerHTML = '<div class="ot-panel-hero warn"><div class="ot-ph-label">Not eligible</div><div class="ot-ph-val">$0 deduction</div>'
+      + '<div class="ot-ph-sub">The No Tax on Overtime deduction is not available to taxpayers who are <strong>married filing separately</strong>. Married couples must file jointly to claim it. Your overtime would still owe about <strong>$' + fmt(fica) + '</strong> in FICA either way.</div></div>'
+      + '<div class="ot-flags"><div class="ot-flag warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><span>If you are married, switching to <strong>married filing jointly</strong> would make you eligible for a combined deduction of up to $25,000. Weigh that against any reason you file separately.</span></div></div>';
+    return;
+  }
+
+  var cappedPremium = Math.min(premium, config.cap);
+  var reduction = 0;
+  if (magi > config.threshold){
+    reduction = Math.floor((magi - config.threshold) / 1000) * 100;
+  }
+  var deduction = Math.max(0, cappedPremium - reduction);
+  var taxSaved = deduction * bracket;
+
+  var capApplied = premium > config.cap;
+  var phaseoutApplied = reduction > 0;
+  var fullyPhasedOut = deduction === 0 && premium > 0;
+  var doubleTime = mult > 1.5;
+
+  var heroHtml;
+  if (fullyPhasedOut){
+    heroHtml = '<div class="ot-panel-hero warn"><div class="ot-ph-label">Phased out at your income</div><div class="ot-ph-val">$0 deduction</div>'
+      + '<div class="ot-ph-sub">Your MAGI of $' + fmt(magi) + ' is high enough that the deduction fully phases out for a ' + config.label + ' filer. Your overtime is still earned in full, it just does not qualify for this deduction at your income.</div></div>';
+  } else {
+    heroHtml = '<div class="ot-panel-hero"><div class="ot-ph-label">Estimated federal income tax you could save</div><div class="ot-ph-val">$' + fmt(taxSaved) + '</div>'
+      + '<div class="ot-ph-sub">By deducting <strong>$' + fmt(deduction) + '</strong> of qualified premium at your ' + Math.round(bracket*100) + '% bracket. A deduction lowers taxable income, it does not refund your overtime dollar for dollar.</div></div>';
+  }
+
+  var rowsHtml = '<div class="ot-rows">'
+    + '<div class="ot-row"><span class="k">Total overtime pay<small>' + fmt(otHoursYear) + ' hours at ' + mult + 'x</small></span><span class="v">$' + fmt(totalOtPay) + '</span></div>'
+    + '<div class="ot-row"><span class="k">Deductible premium<small>the FLSA half only</small></span><span class="v green">$' + fmt(premium) + '</span></div>'
+    + '<div class="ot-row"><span class="k">Deduction after limits<small>' + (capApplied || phaseoutApplied ? 'cap / phase-out applied' : 'under cap, no phase-out') + '</small></span><span class="v green">$' + fmt(deduction) + '</span></div>'
+    + '<div class="ot-row"><span class="k">Federal tax saved<small>deduction &times; ' + Math.round(bracket*100) + '% bracket</small></span><span class="v green">$' + fmt(taxSaved) + '</span></div>'
+    + '<div class="ot-row"><span class="k">FICA still owed<small>7.65% Social Security + Medicare</small></span><span class="v red">$' + fmt(fica) + '</span></div>'
+    + '</div>';
+
+  var flags = '';
+  if (capApplied){
+    flags += '<div class="ot-flag warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><span>Your premium of <strong>$' + fmt(premium) + '</strong> is above the <strong>$' + fmt(config.cap) + '</strong> cap for a ' + config.label + ' filer, so it is limited to the cap.</span></div>';
+  }
+  if (phaseoutApplied && !fullyPhasedOut){
+    flags += '<div class="ot-flag warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><span>Your MAGI is over the $' + fmt(config.threshold) + ' threshold, which cut your deduction by <strong>$' + fmt(reduction) + '</strong> ($100 per $1,000 above the line).</span></div>';
+  }
+  if (doubleTime){
+    flags += '<div class="ot-flag warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span>You are paid double time, but only the FLSA half-premium qualifies. The extra pay above 1.5x is not deductible.</span></div>';
+  }
+  if (!capApplied && !phaseoutApplied && !doubleTime){
+    flags += '<div class="ot-flag good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Your full premium is deductible: under the cap and below the phase-out. Claim it on Schedule 1-A when you file.</span></div>';
+  }
+  var flagsHtml = flags ? '<div class="ot-flags">' + flags + '</div>' : '';
+
+  var wrongFull = Math.min(totalOtPay, config.cap);
+  var mistakeHtml = '<div class="ot-mistake">'
+    + '<div class="ot-mistake-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>The mistake most people make</div>'
+    + '<div class="ot-mistake-row"><span>Deducting your <strong>full</strong> overtime (wrong)</span><span class="wrong">$' + fmt(wrongFull) + '</span></div>'
+    + '<div class="ot-mistake-row"><span>Deducting only the <strong>premium</strong> (correct)</span><span class="right">$' + fmt(deduction) + '</span></div>'
+    + '</div>';
+
+  out.innerHTML = heroHtml + rowsHtml + flagsHtml + mistakeHtml;
+}
+
+function resetOvertime(){
+  document.getElementById('otRate').value = 22;
+  document.getElementById('otMult').value = '1.5';
+  document.getElementById('otHoursWeek').value = 8;
+  document.getElementById('otWeeks').value = 50;
+  document.getElementById('otFiling').value = 'single';
+  document.getElementById('otMagi').value = 60000;
+  document.getElementById('otBracket').value = '0.12';
+  document.getElementById('otOut').innerHTML = '';
+  document.getElementById('otEmpty').style.display = 'flex';
+}
+</script>
+
+<script>
+window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
+function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
+var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
+</script>
+
+<script>
+(function(){
+if(localStorage.getItem('sc_cookies'))return;
+var b=document.createElement('div');
+b.id='cookieBanner';
+b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
+var acceptBtn=document.createElement('button');
+acceptBtn.textContent='Accept';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#059669,#10B981);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
+var declineBtn=document.createElement('button');
+declineBtn.textContent='Decline';
+declineBtn.style.cssText='background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:8px;cursor:pointer';
+declineBtn.onclick=function(){
+localStorage.setItem('sc_cookies','decline');
+b.innerHTML='';
+var msg=document.createElement('span');
+msg.style.cssText='padding:12px 0;color:#34D399';
+msg.textContent='\u2713 Preference saved.';
+b.appendChild(msg);
+setTimeout(function(){b.remove();},2500);
+};
+var txt=document.createElement('span');
+txt.innerHTML='We use basic analytics cookies to understand site traffic. <a href="../cookie-policy/" style="color:#34D399">Cookie Policy</a>';
+var btnWrap=document.createElement('div');
+btnWrap.style.cssText='display:flex;gap:8px';
+btnWrap.appendChild(acceptBtn);
+btnWrap.appendChild(declineBtn);
+b.appendChild(txt);
+b.appendChild(btnWrap);
+document.body.appendChild(b);
+})();
+</script>
+
+</body>
+</html>
