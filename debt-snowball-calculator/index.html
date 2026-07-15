@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debt Snowball Calculator: Payoff Order + Rollover | SavingsClub</title>
+<meta name="description" content="Free debt snowball calculator. List every debt, see the smallest-first payoff order, watch the rollover snowball grow, and compare snowball vs avalanche side by side.">
+<link rel="canonical" href="https://savingsclub.com/debt-snowball-calculator/">
+<meta property="og:title" content="Debt Snowball Calculator: Payoff Order + Rollover (2026)">
+<meta property="og:description" content="Free debt snowball calculator with smallest-first payoff order, rollover cascade, and snowball vs avalanche comparison.">
+<meta property="og:url" content="https://savingsclub.com/debt-snowball-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SavingsClub">
+<meta property="og:image" content="https://savingsclub.com/img/savings-jar.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="author" content="SavingsClub Research Team">
+<meta name="keywords" content="debt snowball calculator, snowball method calculator, debt snowball vs avalanche, debt payoff order, rollover debt calculator, how to get out of debt">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Debt Snowball Calculator","url":"https://savingsclub.com/debt-snowball-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free debt snowball calculator that orders debts smallest balance first, shows the rollover payoff cascade, and compares the snowball method against the avalanche method.","publisher":{"@type":"Organization","name":"SavingsClub","url":"https://savingsclub.com"}}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://savingsclub.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://savingsclub.com/savings-calculator/"},{"@type":"ListItem","position":3,"name":"Debt Snowball Calculator","item":"https://savingsclub.com/debt-snowball-calculator/"}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the debt snowball method?","acceptedAnswer":{"@type":"Answer","text":"The debt snowball method is a payoff strategy where you list your debts from smallest balance to largest, pay the minimum on everything, and throw every extra dollar at the smallest balance first. When that debt is cleared, you roll its payment into the next smallest debt. The order ignores interest rate on purpose, because the goal is fast, visible wins that keep you motivated."}},{"@type":"Question","name":"Does the debt snowball or avalanche method save more money?","acceptedAnswer":{"@type":"Answer","text":"The avalanche method almost always saves more interest, because it targets your highest APR debt first. The snowball method usually costs slightly more in total interest but clears your first debt faster, which research shows makes people more likely to finish. This calculator shows you both numbers side by side so you can see exactly what the motivation is costing you."}},{"@type":"Question","name":"How does the rollover work in the snowball method?","acceptedAnswer":{"@type":"Answer","text":"Rollover is the engine of the snowball. When your smallest debt is paid off, the payment you were making on it does not disappear. You add it on top of the minimum for the next smallest debt. As each debt clears, the payment aimed at the next one grows larger, so the snowball rolls faster and faster toward the end."}},{"@type":"Question","name":"Is the debt snowball method worth it if it costs more interest?","acceptedAnswer":{"@type":"Answer","text":"For many people, yes. A 2012 study from Northwestern University's Kellogg School of Management found that people who paid off their smallest balances first were more likely to eliminate their entire debt than those using the mathematically optimal approach. A plan you actually finish beats a cheaper plan you quit. If you are highly disciplined and want to minimize interest, avalanche is the better fit."}},{"@type":"Question","name":"Should I include my mortgage in the debt snowball?","acceptedAnswer":{"@type":"Answer","text":"Most people leave the mortgage out of the debt snowball and focus on unsecured and consumer debt like credit cards, personal loans, medical bills, and auto loans. A mortgage is usually a large, lower-rate debt that would sit at the bottom of the list for years. Clear your consumer debt first, then decide separately whether to accelerate the mortgage."}},{"@type":"Question","name":"What if my minimum payments do not cover the interest?","acceptedAnswer":{"@type":"Answer","text":"If your total monthly payment is not larger than the interest building up each month, the balances will grow instead of shrink and no payoff order can fix that. You need to either raise your monthly payment, lower your rates through a balance transfer or hardship program, or seek help from an NFCC accredited non-profit credit counselor. The calculator will warn you if your payment is too low."}}]}</script>
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/sc-favicon.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/sc-favicon.png?v=2">
+<link rel="shortcut icon" href="/img/sc-favicon.png?v=2">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
+
+<style>
+.ds-hero{background:linear-gradient(135deg,#0A1628 0%,#0F2540 50%,#059669 100%);color:#fff;padding:40px 28px;border-radius:20px;margin-bottom:24px;text-align:center;box-shadow:0 8px 24px rgba(10,22,40,.15)}
+.ds-hero h1{color:#fff !important;font-size:2.2rem;margin:0 0 12px;letter-spacing:-.02em;line-height:1.2;font-weight:800}
+.ds-hero .ds-tagline{color:rgba(255,255,255,.9);font-size:1.05rem;max-width:760px;margin:0 auto;line-height:1.6}
+.ds-hero .ds-meta-row{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:16px;font-size:.85rem;color:rgba(255,255,255,.78)}
+.ds-hero .ds-meta-row span{display:inline-flex;align-items:center;gap:6px}
+.ds-hero .ds-meta-row svg{width:16px;height:16px;color:#34D399}
+
+.ds-byline{background:#F8FAFC;border-left:3px solid #10B981;padding:14px 20px;border-radius:8px;margin-bottom:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:.85rem;color:var(--text-light)}
+.ds-byline-author{font-weight:700;color:var(--navy)}
+.ds-byline-dates{display:flex;flex-direction:column;text-align:right;line-height:1.5;font-size:.8rem}
+
+.ds-calc-wrap{background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;margin-bottom:24px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.ds-calc-wrap h2{font-size:1.45rem;margin:0 0 8px;color:var(--navy);letter-spacing:-.01em}
+.ds-calc-wrap>p{color:var(--text-light);margin:0 0 20px;font-size:.95rem;line-height:1.6}
+
+.ds-section-header{font-size:.85rem;font-weight:700;color:#047857;text-transform:uppercase;letter-spacing:.06em;margin:24px 0 14px;display:flex;align-items:center;gap:10px}
+.ds-section-header svg{width:18px;height:18px;color:#10B981}
+
+.ds-debts{display:flex;flex-direction:column;gap:12px;margin-bottom:14px}
+.ds-debt-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;padding:16px;background:#F8FAFC;border:1.5px solid #e5e7eb;border-radius:14px;transition:border-color .15s}
+.ds-debt-row:hover{border-color:#cbd5e1}
+.ds-debt-badge{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#059669,#10B981);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;flex-shrink:0}
+.ds-debt-fields{display:grid;grid-template-columns:1.4fr 1fr .8fr 1fr;gap:12px}
+.ds-debt-fields label{display:block;text-transform:uppercase;font-size:.68rem;letter-spacing:.05em;color:var(--text-light);font-weight:700;margin-bottom:6px}
+.ds-debt-fields input{width:100%;padding:11px 13px;border:1.5px solid #e5e7eb;border-radius:9px;font-family:inherit;font-size:.95rem;background:#fff;color:#0A1628;box-sizing:border-box;font-weight:500;transition:border-color .15s,box-shadow .15s}
+.ds-debt-fields input:focus{outline:none;border-color:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,.12)}
+.ds-remove{background:#fff;border:1.5px solid #FCA5A5;color:#DC2626;width:34px;height:34px;border-radius:50%;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;font-family:inherit;flex-shrink:0}
+.ds-remove:hover{background:#DC2626;color:#fff;border-color:#DC2626}
+.ds-remove svg{width:16px;height:16px}
+.ds-add-btn{background:#fff;border:2px dashed #10B981;color:#059669;padding:14px;border-radius:14px;width:100%;cursor:pointer;font-weight:700;font-family:inherit;font-size:.95rem;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:8px}
+.ds-add-btn:hover{background:#ECFDF5;border-style:solid}
+.ds-add-btn:disabled{opacity:.45;cursor:not-allowed}
+.ds-add-btn svg{width:18px;height:18px}
+
+.ds-plan-grid{display:grid;grid-template-columns:1fr;gap:18px;align-items:start;margin-top:8px;max-width:340px}
+.ds-input-group label{display:block;text-transform:uppercase;font-size:.78rem;letter-spacing:.06em;color:var(--text-light);font-weight:700;margin-bottom:8px}
+.ds-input-group input[type=number]{width:100%;padding:13px 16px;border:1.5px solid #e5e7eb;border-radius:10px;font-family:inherit;font-size:1rem;background:#fff;color:#0A1628;box-sizing:border-box;font-weight:500;transition:border-color .15s,box-shadow .15s}
+.ds-input-group input[type=number]:focus{outline:none;border-color:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,.12)}
+.ds-input-hint{font-size:.78rem;color:var(--text-light);margin-top:6px;line-height:1.5}
+
+.ds-calculate-row{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.ds-calculate-btn{background:linear-gradient(135deg,#059669,#10B981);color:#fff;border:none;padding:16px 38px;border-radius:12px;font-family:inherit;font-size:1.05rem;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(16,185,129,.3);transition:transform .15s,box-shadow .2s;letter-spacing:.02em;display:inline-flex;align-items:center;gap:10px}
+.ds-calculate-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(16,185,129,.4)}
+.ds-calculate-btn:active{transform:translateY(0)}
+.ds-calculate-btn svg{width:20px;height:20px}
+.ds-reset-btn{background:#fff;color:var(--text);border:1.5px solid #e5e7eb;padding:14px 22px;border-radius:10px;font-family:inherit;font-size:.92rem;font-weight:600;cursor:pointer;transition:all .15s}
+.ds-reset-btn:hover{border-color:#94A3B8;color:var(--navy)}
+
+.ds-empty-state{background:#F8FAFC;border:2px dashed #cbd5e1;border-radius:14px;padding:40px 24px;text-align:center;margin-top:24px}
+.ds-empty-state svg{width:48px;height:48px;color:#94A3B8;margin-bottom:12px}
+.ds-empty-state h3{font-size:1.05rem;color:var(--navy);margin:0 0 6px}
+.ds-empty-state p{font-size:.9rem;color:var(--text-light);margin:0;line-height:1.6}
+
+.ds-results-wrap{display:none;margin-top:8px;scroll-margin-top:80px}
+.ds-results-wrap.visible{display:block}
+
+.ds-result-banner{background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border:1px solid #A7F3D0;border-radius:16px;padding:24px 28px;margin:24px 0}
+.ds-result-banner.warn{background:linear-gradient(135deg,#FEF3C7,#FDE68A);border-color:#FCD34D}
+.ds-result-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:#047857;font-weight:700;margin-bottom:4px}
+.ds-result-banner.warn .ds-result-label{color:#92400E}
+.ds-result-value{font-size:2.4rem;font-weight:800;color:#064E3B;line-height:1.1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-.02em}
+.ds-result-banner.warn .ds-result-value{color:#78350F}
+.ds-result-sub{font-size:.95rem;color:#047857;margin-top:6px;line-height:1.5}
+.ds-result-banner.warn .ds-result-sub{color:#78350F}
+.ds-result-banner strong{font-weight:800}
+
+.ds-cascade{margin:8px 0 4px}
+.ds-cascade-step{position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;background:#fff;border:1.5px solid #e5e7eb;border-radius:14px;padding:16px 18px;margin-bottom:0}
+.ds-cascade-step.cleared{border-color:#A7F3D0;background:linear-gradient(135deg,#ECFDF5 0%,#fff 60%)}
+.ds-cascade-connector{width:2px;height:18px;background:#A7F3D0;margin:0 auto;margin-left:34px}
+.ds-cascade-num{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#059669,#10B981);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.05rem;flex-shrink:0;font-family:'Plus Jakarta Sans',sans-serif}
+.ds-cascade-mid{min-width:0}
+.ds-cascade-name{font-weight:800;color:var(--navy);font-size:1.02rem;font-family:'Plus Jakarta Sans',sans-serif;margin-bottom:2px}
+.ds-cascade-detail{font-size:.82rem;color:var(--text-light);line-height:1.5}
+.ds-cascade-detail strong{color:#047857;font-weight:700}
+.ds-cascade-right{text-align:right;flex-shrink:0}
+.ds-cascade-when{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-light);font-weight:700;margin-bottom:2px}
+.ds-cascade-date{font-size:1rem;font-weight:800;color:var(--navy);font-family:'Plus Jakarta Sans',sans-serif;white-space:nowrap}
+
+.ds-vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+.ds-vs-card{background:#fff;border:2px solid #e5e7eb;border-radius:16px;padding:24px;position:relative;transition:transform .2s,box-shadow .2s,border-color .2s}
+.ds-vs-card.picked{border-color:#10B981;background:linear-gradient(135deg,#ECFDF5 0%,#fff 100%);box-shadow:0 8px 24px rgba(16,185,129,.15)}
+.ds-vs-badge{position:absolute;top:-12px;right:16px;color:#fff;padding:5px 14px;border-radius:20px;font-size:.68rem;font-weight:800;letter-spacing:.08em;box-shadow:0 2px 8px rgba(16,185,129,.3)}
+.ds-vs-badge.wins{background:linear-gradient(135deg,#059669,#10B981)}
+.ds-vs-badge.math{background:linear-gradient(135deg,#0A1628,#0F2540)}
+.ds-vs-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;color:#fff}
+.ds-vs-icon.snowball{background:linear-gradient(135deg,#059669,#10B981)}
+.ds-vs-icon.avalanche{background:linear-gradient(135deg,#0A1628,#0F2540)}
+.ds-vs-icon svg{width:24px;height:24px}
+.ds-vs-title{font-size:1.2rem;font-weight:800;color:var(--navy);margin-bottom:4px;font-family:'Plus Jakarta Sans',sans-serif}
+.ds-vs-subtitle{font-size:.85rem;color:var(--text-light);margin-bottom:18px;line-height:1.4}
+.ds-vs-metric{margin-bottom:14px}
+.ds-vs-metric:last-child{margin-bottom:0}
+.ds-vs-metric-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);font-weight:700;margin-bottom:3px}
+.ds-vs-metric-value{font-size:1.6rem;font-weight:800;color:var(--navy);font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-.01em;line-height:1}
+.ds-vs-metric-value.success{color:#059669}
+.ds-vs-best-for{margin-top:18px;padding-top:16px;border-top:1px solid #f1f5f9;font-size:.85rem;color:var(--text);line-height:1.5}
+.ds-vs-best-for strong{color:#047857;font-weight:700;display:block;margin-bottom:4px;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
+
+.ds-vs-summary{background:#ECFDF5;border:1px solid #A7F3D0;border-radius:12px;padding:16px 20px;margin:18px 0 0;font-size:.93rem;color:#065F46;line-height:1.65}
+.ds-vs-summary strong{color:#064E3B;font-weight:700}
+
+.ds-summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:24px 0}
+.ds-summary-card{background:#F8FAFC;border:1px solid #e5e7eb;border-radius:12px;padding:18px 20px}
+.ds-summary-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);font-weight:700;margin-bottom:6px}
+.ds-summary-value{font-size:1.35rem;font-weight:800;color:var(--navy);font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-.01em}
+.ds-summary-card.accent .ds-summary-value{color:#059669}
+
+.ds-scenario{margin-top:24px}
+.ds-scenario-card{background:#fff;border:1.5px solid #e5e7eb;border-radius:16px;padding:22px;transition:box-shadow .2s,border-color .2s}
+.ds-scenario-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.05);border-color:#cbd5e1}
+.ds-scenario-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;color:#fff;background:linear-gradient(135deg,#059669,#10B981)}
+.ds-scenario-icon svg{width:22px;height:22px}
+.ds-scenario-title{font-size:1.1rem;font-weight:800;color:var(--navy);margin-bottom:6px;font-family:'Plus Jakarta Sans',sans-serif}
+.ds-scenario-desc{font-size:.85rem;color:var(--text-light);margin-bottom:16px;line-height:1.5}
+.ds-slider-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.ds-slider-row input[type=range]{flex:1;min-width:0;height:6px;-webkit-appearance:none;appearance:none;background:#e5e7eb;border-radius:3px;outline:none}
+.ds-slider-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:#10B981;cursor:pointer;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.ds-slider-row input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#10B981;cursor:pointer;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.ds-slider-value{flex-shrink:0;font-weight:800;color:#059669;font-size:1.1rem;text-align:right;white-space:nowrap;font-family:'Plus Jakarta Sans',sans-serif}
+.ds-scenario-result{background:#F8FAFC;border-radius:10px;padding:14px 16px;font-size:.92rem;color:var(--text);line-height:1.6;margin-top:14px}
+.ds-scenario-result strong{color:#059669;font-weight:700}
+
+.ds-info-wrap{margin-bottom:24px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.ds-info-wrap h2{font-size:1.45rem;margin:0 0 16px;color:var(--navy);letter-spacing:-.01em;scroll-margin-top:80px}
+.ds-info-wrap h3{font-size:1.1rem;margin:20px 0 8px;color:var(--navy);font-weight:700}
+.ds-info-wrap p{color:var(--text);font-size:.95rem;line-height:1.7;margin:0 0 12px}
+.ds-info-wrap p:last-child{margin-bottom:0}
+.ds-info-wrap ul,.ds-info-wrap ol{color:var(--text);font-size:.95rem;line-height:1.7;margin:0 0 14px;padding-left:22px}
+.ds-info-wrap li{margin-bottom:6px}
+.ds-info-wrap a{color:#059669;font-weight:600;text-decoration:none;border-bottom:1px dashed #059669}
+.ds-info-wrap a:hover{color:#10B981;border-bottom-style:solid}
+.ds-info-wrap strong{color:var(--navy);font-weight:700}
+
+.ds-callout{background:linear-gradient(135deg,#ECFDF5,#F8FAFC);border-left:3px solid #10B981;padding:16px 20px;border-radius:8px;margin:18px 0;font-size:.95rem;color:var(--text);line-height:1.65}
+.ds-callout strong{color:#047857}
+
+.ds-tips-list{counter-reset:tip-counter;list-style:none;padding:0;margin:0}
+.ds-tips-list li{counter-increment:tip-counter;position:relative;padding:16px 18px 16px 60px;background:#F8FAFC;border-radius:12px;margin-bottom:12px;border:1px solid #f1f5f9}
+.ds-tips-list li::before{content:counter(tip-counter);position:absolute;left:14px;top:14px;width:34px;height:34px;background:linear-gradient(135deg,#059669,#10B981);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;box-shadow:0 2px 6px rgba(16,185,129,.25)}
+.ds-tips-list li strong{display:block;color:var(--navy);font-size:1.02rem;margin-bottom:6px;font-weight:700}
+.ds-tips-list li p{color:var(--text);font-size:.92rem;line-height:1.6;margin:0}
+
+.ds-faq-item{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid #f1f5f9}
+.ds-faq-item:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+.ds-faq-item h3{font-size:1.05rem;color:var(--navy);margin:0 0 8px;font-weight:700}
+.ds-faq-item p{font-size:.93rem;color:var(--text);line-height:1.65;margin:0}
+
+.ds-disclaimer-mini{margin-top:24px;background:#F8FAFC;border-left:3px solid #94A3B8;padding:12px 18px;border-radius:8px;font-size:.82rem;color:var(--text-light);line-height:1.6}
+.ds-disclaimer-mini p{margin:0}
+.ds-disclaimer-mini a{color:var(--text);font-weight:600;text-decoration:underline}
+
+.ds-related-wrap{margin-top:32px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.ds-related-wrap h2{font-size:1.5rem;margin:0 0 6px;color:var(--navy)}
+.ds-related-wrap>p{color:var(--text-light);margin:0 0 24px;font-size:1rem}
+.ds-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ds-related-card{display:flex;flex-direction:column;text-decoration:none;background:#F8FAFC;border:1.5px solid #e5e7eb;border-radius:14px;padding:22px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.ds-related-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.08);border-color:#10B981;background:#fff}
+.ds-related-icon{width:42px;height:42px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px;background:#ECFDF5;color:#059669}
+.ds-related-icon svg{width:22px;height:22px}
+.ds-related-card h3{font-size:1.05rem;margin:0 0 6px;color:var(--navy);font-weight:700}
+.ds-related-card p{color:var(--text-light);font-size:.85rem;margin:0 0 12px;line-height:1.5;flex:1}
+.ds-related-link{color:#059669;font-weight:700;font-size:.88rem;margin-top:auto}
+
+@media (max-width: 900px){
+  .ds-hero{padding:32px 22px}
+  .ds-hero h1{font-size:1.6rem}
+  .ds-hero .ds-tagline{font-size:.95rem}
+  .ds-calc-wrap,.ds-info-wrap,.ds-related-wrap{padding:22px}
+  .ds-calc-wrap h2,.ds-info-wrap h2{font-size:1.2rem}
+  .ds-debt-row{grid-template-columns:auto 1fr auto;gap:10px;padding:14px}
+  .ds-debt-fields{grid-template-columns:1fr 1fr;gap:10px}
+  .ds-vs-grid{grid-template-columns:1fr;gap:14px}
+  .ds-summary-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .ds-summary-value{font-size:1.15rem}
+  .ds-result-value{font-size:1.8rem}
+  .ds-related-grid{grid-template-columns:1fr}
+  .ds-byline{flex-direction:column;align-items:flex-start;text-align:left}
+  .ds-byline-dates{text-align:left;flex-direction:row;gap:10px;flex-wrap:wrap}
+  .ds-hero .ds-meta-row{font-size:.78rem;gap:12px}
+  .ds-calculate-row{flex-direction:column;align-items:stretch}
+  .ds-calculate-btn{justify-content:center}
+  .ds-cascade-step{grid-template-columns:auto 1fr;gap:12px}
+  .ds-cascade-right{grid-column:2;text-align:left;margin-top:4px}
+  .ds-cascade-connector{margin-left:30px}
+}
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+<div class="nav-inner">
+<div class="logo" onclick="location.href='../'">
+<div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+SavingsClub
+</div>
+<div class="nav-links" id="navLinks">
+<a href="../">Home</a>
+<a href="../savings-calculator/" class="active">Calculators</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="../">Home</a>
+<a href="../savings-calculator/">Savings</a>
+<a href="../budget-planner/">Budget</a>
+<a href="../mortgage-calculator/">Mortgage</a>
+<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../credit-card-payoff-calculator/">Credit Card Payoff</a>
+<a href="../emergency-fund-calculator/">Emergency Fund</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../contact/">Contact</a>
+</div>
+
+<section class="calc-page">
+<div class="container">
+
+<div style="margin-bottom:24px"><a href="../" style="color:var(--text-light);font-weight:500">← Home</a></div>
+
+<div class="ds-hero reveal">
+<h1>Debt Snowball Calculator</h1>
+<p class="ds-tagline">This free debt snowball calculator lists your debts smallest balance first, shows the exact payoff order, and rolls each cleared payment into the next debt so you can watch the snowball grow. Then it compares snowball vs avalanche side by side.</p>
+<div class="ds-meta-row">
+<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>Up to 12 debts</span>
+<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><polyline points="19 9 12 16 8 12 3 17"/></svg>Rollover cascade</span>
+<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>Snowball vs Avalanche</span>
+</div>
+</div>
+
+<div class="ds-byline reveal">
+<div class="ds-byline-author">By SavingsClub Research Team</div>
+<div class="ds-byline-dates">
+<span>Published: July 2026</span>
+<span>Last updated: July 2026</span>
+</div>
+</div>
+
+<div class="ds-calc-wrap reveal">
+<h2>Debt Snowball Calculator</h2>
+<p>Enter each debt with its balance, APR, and minimum payment. Add the extra amount you can put toward debt each month. Click Calculate to see your snowball payoff order, the rollover cascade, and how snowball compares to avalanche.</p>
+
+<div class="ds-section-header">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+Your Debts
+</div>
+
+<div id="dsDebts" class="ds-debts"></div>
+<button id="dsAddBtn" type="button" class="ds-add-btn" onclick="addDebt()">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+Add Another Debt (up to 12)
+</button>
+
+<div class="ds-section-header" style="margin-top:28px">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+Your Extra Payment
+</div>
+
+<div class="ds-plan-grid">
+<div class="ds-input-group">
+<label>Extra Monthly Payment ($)</label>
+<input type="number" id="dsExtra" value="200" min="0">
+<div class="ds-input-hint">This is the amount above your minimum payments that powers the snowball. Even $50 changes the timeline.</div>
+</div>
+</div>
+
+<div class="ds-calculate-row">
+<button class="ds-calculate-btn" onclick="calculateSnowball()">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><line x1="12" y1="14" x2="12" y2="18"/><line x1="8" y1="14" x2="8" y2="18"/><line x1="8" y1="10" x2="16" y2="10"/></svg>
+Calculate My Snowball
+</button>
+<button class="ds-reset-btn" onclick="resetSnowball()">Reset</button>
+</div>
+
+<div class="ds-empty-state" id="dsEmptyState">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><polyline points="19 9 12 16 8 12 3 17"/></svg>
+<h3>Click Calculate to build your snowball</h3>
+<p>Enter your debts and your extra monthly payment, then click Calculate. You will see the smallest-first payoff order, the rollover cascade, your debt-free date, and snowball vs avalanche side by side.</p>
+</div>
+
+<div class="ds-results-wrap" id="dsResults">
+<div id="dsResultsContent"></div>
+</div>
+</div>
+
+<div class="ds-info-wrap reveal">
+<h2>What Is the Debt Snowball Method?</h2>
+<p>The debt snowball method is a payoff strategy that orders your debts from the smallest balance to the largest and attacks the smallest one first, regardless of interest rate. You pay the minimum on every debt, then throw every extra dollar you have at the debt with the smallest balance. When that debt hits zero, its payment does not disappear. You roll it into the next smallest debt, then the next, and the amount aimed at each debt grows as you go.</p>
+<p>It was popularized by Dave Ramsey, and the logic is behavioral rather than mathematical. Paying off a whole account gives you a visible, complete win early, and those wins are what keep most people going long enough to actually finish. The calculator above builds this order for you automatically and shows exactly when each debt disappears.</p>
+</div>
+
+<div class="ds-info-wrap reveal">
+<h2>How the Rollover Cascade Works</h2>
+<p>Rollover is the engine that makes the snowball roll. Here is the sequence, and it is worth understanding because it is where the acceleration comes from.</p>
+<ol>
+<li>You pay the minimum on every debt so nothing goes delinquent.</li>
+<li>Every extra dollar goes to the smallest balance until it is gone.</li>
+<li>Once that debt is cleared, you take the entire payment you were making on it and add it to the minimum of the next smallest debt.</li>
+<li>You repeat, and each debt you clear frees up more money for the next one.</li>
+</ol>
+<p>By the time you reach your largest debt, the payment hitting it is much bigger than it was at the start, because it now includes the freed-up payments from every debt you have already knocked out. The cascade view in the results shows this growing payment for each debt in your list.</p>
+
+<div class="ds-callout">
+<strong>Why the order matters:</strong> Because you keep your total monthly payment constant, the only thing that changes between snowball and avalanche is which debt you target first. That single choice is what the comparison in the calculator measures.
+</div>
+</div>
+
+<div class="ds-info-wrap reveal">
+<h2>Debt Snowball vs Avalanche: The Honest Trade-Off</h2>
+<p>These are the two main payoff orders, and the calculator shows you both so you are not guessing.</p>
+
+<h3>Snowball: smallest balance first (motivation)</h3>
+<p>You clear whole debts fastest, which builds momentum. This is the better fit if you have felt stuck before, if you have several small balances you could wipe out quickly, or if seeing progress is what keeps you on track.</p>
+
+<h3>Avalanche: highest APR first (math)</h3>
+<p>You pay the least total interest because you attack your most expensive debt first. This is the better fit if you are disciplined, your highest-rate debt is not also your smallest, and you want to squeeze out every dollar of savings.</p>
+
+<p>Neither is wrong. A 2012 study from Northwestern University's Kellogg School of Management (Gal and McShane, published in the Journal of Marketing Research) found that people who paid off their smallest balances first were more likely to eliminate their entire debt than those who followed the mathematically optimal high-interest-first order. The plan you finish beats the cheaper plan you abandon. The calculator puts a dollar figure on exactly what the snowball's motivation costs you in extra interest, so you can decide with real numbers.</p>
+</div>
+
+<div class="ds-info-wrap reveal">
+<h2>Worked Example</h2>
+<p>Say you have three debts: a $800 store card at 27 percent, a $3,500 credit card at 22 percent, and a $9,000 car loan at 7 percent, and you can put an extra $200 a month toward debt on top of your minimums.</p>
+<p>The snowball attacks the $800 store card first. It disappears in the first couple of months, and that whole payment rolls into the $3,500 credit card. Once the credit card clears, both freed-up payments plus your extra roll onto the car loan, which gets crushed far faster than it would on its own. You feel two complete wins early, which is the point.</p>
+<p>The avalanche would attack the 27 percent store card first too in this case, because it happens to be both the smallest and the highest rate, so here the two methods start the same. That is not always true. When your highest-rate debt is a large balance, the two orders diverge and the calculator will show a real interest gap between them.</p>
+</div>
+
+<div class="ds-info-wrap reveal">
+<h2>Tips to Make the Snowball Roll Faster</h2>
+<p>These stack on top of the method itself and can pull your debt-free date forward by months.</p>
+<ol class="ds-tips-list">
+<li>
+<strong>Snowflake every windfall</strong>
+<p>Tax refunds, bonuses, side income, and gift cash go straight onto your current target debt. A few hundred dollars dropped on the smallest balance can clear it a month or two early and start the next rollover sooner.</p>
+</li>
+<li>
+<strong>Lower your rates while you snowball</strong>
+<p>Call your card issuers and ask for a lower APR, or move high-rate balances to a 0 percent transfer card. The snowball orders by balance, but a lower rate means more of every payment hits principal.</p>
+</li>
+<li>
+<strong>Do not add new debt</strong>
+<p>The fastest way to stall a snowball is to keep charging while you pay it down. Freeze the cards you are paying off and switch to cash or debit until the plan is finished.</p>
+</li>
+<li>
+<strong>Keep your total payment constant</strong>
+<p>When a debt clears, resist the urge to pocket that freed-up payment. Rolling it forward is the entire mechanism. Spend it and the snowball melts.</p>
+</li>
+</ol>
+</div>
+
+<div class="ds-info-wrap reveal">
+<h2>Frequently Asked Questions</h2>
+
+<div class="ds-faq-item">
+<h3>What is the debt snowball method?</h3>
+<p>The debt snowball method is a payoff strategy where you list your debts from smallest balance to largest, pay the minimum on everything, and throw every extra dollar at the smallest balance first. When that debt is cleared, you roll its payment into the next smallest debt. The order ignores interest rate on purpose, because the goal is fast, visible wins that keep you motivated.</p>
+</div>
+
+<div class="ds-faq-item">
+<h3>Does the debt snowball or avalanche method save more money?</h3>
+<p>The avalanche method almost always saves more interest, because it targets your highest APR debt first. The snowball method usually costs slightly more in total interest but clears your first debt faster, which research shows makes people more likely to finish. This calculator shows you both numbers side by side so you can see exactly what the motivation is costing you.</p>
+</div>
+
+<div class="ds-faq-item">
+<h3>How does the rollover work in the snowball method?</h3>
+<p>Rollover is the engine of the snowball. When your smallest debt is paid off, the payment you were making on it does not disappear. You add it on top of the minimum for the next smallest debt. As each debt clears, the payment aimed at the next one grows larger, so the snowball rolls faster and faster toward the end.</p>
+</div>
+
+<div class="ds-faq-item">
+<h3>Is the debt snowball method worth it if it costs more interest?</h3>
+<p>For many people, yes. A 2012 study from Northwestern University's Kellogg School of Management found that people who paid off their smallest balances first were more likely to eliminate their entire debt than those using the mathematically optimal approach. A plan you actually finish beats a cheaper plan you quit. If you are highly disciplined and want to minimize interest, avalanche is the better fit.</p>
+</div>
+
+<div class="ds-faq-item">
+<h3>Should I include my mortgage in the debt snowball?</h3>
+<p>Most people leave the mortgage out of the debt snowball and focus on unsecured and consumer debt like credit cards, personal loans, medical bills, and auto loans. A mortgage is usually a large, lower-rate debt that would sit at the bottom of the list for years. Clear your consumer debt first, then decide separately whether to accelerate the mortgage.</p>
+</div>
+
+<div class="ds-faq-item">
+<h3>What if my minimum payments do not cover the interest?</h3>
+<p>If your total monthly payment is not larger than the interest building up each month, the balances will grow instead of shrink and no payoff order can fix that. You need to either raise your monthly payment, lower your rates through a balance transfer or hardship program, or seek help from an NFCC accredited non-profit credit counselor. The calculator will warn you if your payment is too low.</p>
+</div>
+</div>
+
+<div class="ds-related-wrap reveal">
+<h2>Related Tools and Guides</h2>
+<p>More free calculators for paying off debt and taking control of your money.</p>
+<div class="ds-related-grid">
+<a href="../credit-card-payoff-calculator/" class="ds-related-card">
+<span class="ds-related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>
+<h3>Credit Card Payoff Calculator</h3>
+<p>Focused on credit cards, with minimum payment warnings and a balance transfer simulator.</p>
+<span class="ds-related-link">Pay Off Cards →</span>
+</a>
+<a href="../debt-payoff-calculator/" class="ds-related-card">
+<span class="ds-related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 6-6"/></svg></span>
+<h3>Debt Payoff Calculator</h3>
+<p>See your debt-free date for a single balance, with extra-payment and lump-sum savings.</p>
+<span class="ds-related-link">Find Your Date →</span>
+</a>
+<a href="../budget-planner/" class="ds-related-card">
+<span class="ds-related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></span>
+<h3>Budget Planner</h3>
+<p>Find the extra dollars in your monthly budget to feed the snowball faster.</p>
+<span class="ds-related-link">Plan Budget →</span>
+</a>
+</div>
+</div>
+
+<div class="ds-disclaimer-mini reveal">
+<p>Calculator results are estimates based on standard financial formulas and the inputs you provide. Actual outcomes depend on your specific debt terms, payment timing, and any rate changes by your lenders. SavingsClub is not a licensed financial advisor. Content is researched and drafted using AI tools with human review before publication. For decisions involving your specific situation, consult a licensed financial advisor or NFCC accredited credit counselor. <a href="../disclaimer/">Read full disclaimer</a>.</p>
+</div>
+
+</div>
+</section>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and educational guides for Americans in every state. Helping you keep more of what you earn since 2026.</p>
+</div>
+<div>
+<h4>Calculators</h4>
+<a href="../savings-calculator/">Savings Calculator</a>
+<a href="../budget-planner/">Budget Planner</a>
+<a href="../mortgage-calculator/">Mortgage Calculator</a>
+<a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../auto-loan-calculator/">Auto Loan</a>
+<a href="../net-worth-calculator/">Net Worth</a>
+</div>
+<div>
+<h4>Resources</h4>
+<a href="../blog/">Blog</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../contact/">Contact Us</a>
+</div>
+<div>
+<h4>Legal</h4>
+<a href="../privacy-policy/">Privacy Policy</a>
+<a href="../terms-of-service/">Terms of Service</a>
+<a href="../cookie-policy/">Cookie Policy</a>
+<a href="../disclaimer/">Disclaimer</a>
+<a href="../editorial-standards/">Editorial Standards</a>
+<a href="../methodology/">Methodology</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
+<p>Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+</div>
+</div>
+</footer>
+
+<script>
+var debts = [
+  { name: 'Store Card', balance: 800, apr: 27, min: 25 },
+  { name: 'Credit Card', balance: 3500, apr: 22, min: 70 },
+  { name: 'Car Loan', balance: 9000, apr: 7, min: 250 }
+];
+
+function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
+
+function monthName(i){ return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][i]; }
+
+function dateFromMonths(m){
+  var today = new Date();
+  var d = new Date(today.getFullYear(), today.getMonth() + m, 1);
+  return monthName(d.getMonth()) + ' ' + d.getFullYear();
+}
+
+function formatMonths(m){
+  if (m >= 600) return '20+ years';
+  var y = Math.floor(m / 12);
+  var mn = m % 12;
+  var s = '';
+  if (y > 0) s += y + 'y';
+  if (mn > 0) s += (y > 0 ? ' ' : '') + mn + 'mo';
+  if (s === '') s = '0 months';
+  return s;
+}
+
+function renderDebts(){
+  var html = '';
+  for (var i = 0; i < debts.length; i++){
+    var d = debts[i];
+    var removeBtn = debts.length > 1
+      ? '<button type="button" class="ds-remove" onclick="removeDebt(' + i + ')" aria-label="Remove debt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>'
+      : '<div style="width:34px"></div>';
+    html += '<div class="ds-debt-row">'
+         +   '<div class="ds-debt-badge">' + (i + 1) + '</div>'
+         +   '<div class="ds-debt-fields">'
+         +     '<div><label>Debt Name</label><input type="text" id="ds-name-' + i + '" value="' + d.name + '"></div>'
+         +     '<div><label>Balance ($)</label><input type="number" id="ds-bal-' + i + '" min="0" value="' + d.balance + '"></div>'
+         +     '<div><label>APR (%)</label><input type="number" id="ds-apr-' + i + '" min="0" step="0.1" value="' + d.apr + '"></div>'
+         +     '<div><label>Min Pmt ($)</label><input type="number" id="ds-min-' + i + '" min="0" value="' + d.min + '"></div>'
+         +   '</div>'
+         +   removeBtn
+         + '</div>';
+  }
+  document.getElementById('dsDebts').innerHTML = html;
+  document.getElementById('dsAddBtn').disabled = (debts.length >= 12);
+  if (debts.length >= 12){
+    document.getElementById('dsAddBtn').innerHTML = 'Maximum 12 debts reached';
+  }
+}
+
+function getDebts(){
+  var result = [];
+  for (var i = 0; i < debts.length; i++){
+    var nameEl = document.getElementById('ds-name-' + i);
+    var balEl = document.getElementById('ds-bal-' + i);
+    var aprEl = document.getElementById('ds-apr-' + i);
+    var minEl = document.getElementById('ds-min-' + i);
+    if (balEl && aprEl && minEl){
+      result.push({
+        name: (nameEl && nameEl.value.trim()) ? nameEl.value.trim() : ('Debt ' + (i + 1)),
+        balance: +balEl.value || 0,
+        apr: +aprEl.value || 0,
+        min: +minEl.value || 0
+      });
+    }
+  }
+  return result;
+}
+
+function syncDebtsFromDOM(){
+  debts = getDebts();
+}
+
+function addDebt(){
+  if (debts.length >= 12) return;
+  syncDebtsFromDOM();
+  debts.push({ name: 'Debt ' + (debts.length + 1), balance: 1000, apr: 20, min: 30 });
+  renderDebts();
+}
+
+function removeDebt(index){
+  if (debts.length <= 1) return;
+  syncDebtsFromDOM();
+  debts.splice(index, 1);
+  renderDebts();
+}
+
+/* Core simulation. Total monthly pool stays constant (sum of minimums + extra),
+   so freed-up payments automatically roll into the next target. */
+function simulateDebts(debtData, extra, strategy){
+  var sim = debtData.map(function(d){
+    return { name: d.name, apr: d.apr, min: d.min, balance: d.balance, origBalance: d.balance, payoffMonth: null };
+  });
+  var monthlyPool = extra;
+  for (var i = 0; i < debtData.length; i++){ monthlyPool += debtData[i].min; }
+
+  var months = 0;
+  var totalInterest = 0;
+  var payoffOrder = [];
+
+  while (months < 600){
+    var active = sim.filter(function(d){ return d.balance > 0.01; });
+    if (active.length === 0) break;
+    months++;
+
+    var pool = monthlyPool;
+
+    for (var a = 0; a < active.length; a++){
+      var interest = active[a].balance * (active[a].apr / 100 / 12);
+      active[a].balance += interest;
+      totalInterest += interest;
+    }
+
+    for (var b = 0; b < active.length; b++){
+      var pay = Math.min(active[b].min, active[b].balance);
+      active[b].balance -= pay;
+      pool -= pay;
+      if (active[b].balance < 0.01) active[b].balance = 0;
+    }
+
+    var guard = 0;
+    while (pool > 0.01 && guard < 60){
+      guard++;
+      var act = sim.filter(function(d){ return d.balance > 0.01; });
+      if (act.length === 0) break;
+      var target = act[0];
+      for (var k = 1; k < act.length; k++){
+        if (strategy === 'snowball'){
+          if (act[k].balance < target.balance) target = act[k];
+        } else {
+          if (act[k].apr > target.apr) target = act[k];
+        }
+      }
+      var extraPay = Math.min(pool, target.balance);
+      target.balance -= extraPay;
+      pool -= extraPay;
+      if (target.balance < 0.01) target.balance = 0;
+    }
+
+    for (var c = 0; c < sim.length; c++){
+      if (sim[c].payoffMonth === null && sim[c].balance === 0){
+        sim[c].payoffMonth = months;
+        payoffOrder.push(sim[c]);
+      }
+    }
+  }
+
+  return {
+    months: months,
+    totalInterest: totalInterest,
+    payoffOrder: payoffOrder,
+    didConverge: months < 600
+  };
+}
+
+function computeBoosterResult(boostAmount){
+  var st = window.dsState;
+  if (!st) return '';
+  var boosted = simulateDebts(st.debtData, st.extra + boostAmount, 'snowball');
+  if (!boosted.didConverge){
+    return '<div class="ds-scenario-result">Even with the boost, these payments do not clear the debt within the model window. Raise your base payment first.</div>';
+  }
+  var monthsSaved = st.snowball.months - boosted.months;
+  var interestSaved = st.snowball.totalInterest - boosted.totalInterest;
+  if (monthsSaved <= 0 && interestSaved < 10){
+    return '<div class="ds-scenario-result">This boost is too small to change your timeline. Try a larger amount.</div>';
+  }
+  return '<div class="ds-scenario-result">Adding <strong>$' + boostAmount + '/month</strong> makes you debt free in <strong>' + formatMonths(boosted.months) + '</strong> instead of ' + formatMonths(st.snowball.months) + ', and saves <strong>$' + fmt(interestSaved) + '</strong> in interest.</div>';
+}
+
+function updateBooster(){
+  var slider = document.getElementById('dsBoostSlider');
+  if (!slider) return;
+  var boostAmount = parseInt(slider.value, 10);
+  var valEl = document.getElementById('dsBoostVal');
+  if (valEl) valEl.textContent = '+$' + boostAmount;
+  var resEl = document.getElementById('dsBoostResult');
+  if (resEl) resEl.innerHTML = computeBoosterResult(boostAmount);
+}
+
+function calculateSnowball(){
+  var debtData = getDebts();
+
+  var totalBalance = 0, sumMins = 0, firstMonthInterest = 0;
+  for (var i = 0; i < debtData.length; i++){
+    totalBalance += debtData[i].balance;
+    sumMins += debtData[i].min;
+    firstMonthInterest += debtData[i].balance * (debtData[i].apr / 100 / 12);
+  }
+
+  var extra = +document.getElementById('dsExtra').value || 0;
+  var monthlyPool = sumMins + extra;
+
+  if (totalBalance <= 0){
+    alert('Please enter at least one debt balance to build your snowball.');
+    return;
+  }
+
+  document.getElementById('dsEmptyState').style.display = 'none';
+  document.getElementById('dsResults').classList.add('visible');
+
+  if (monthlyPool <= firstMonthInterest){
+    var needed = Math.ceil(firstMonthInterest - sumMins) + 1;
+    document.getElementById('dsResultsContent').innerHTML = '<div class="ds-result-banner warn">'
+      + '<div class="ds-result-label">Payment too low</div>'
+      + '<div class="ds-result-value">Add about $' + fmt(needed > 0 ? needed : 1) + '+ /mo</div>'
+      + '<div class="ds-result-sub">Your minimum payments plus $' + fmt(extra) + ' extra ($' + fmt(monthlyPool) + ' total) do not cover the roughly $' + fmt(firstMonthInterest) + ' of interest building up each month, so the balances will grow. Increase your extra payment, or lower your rates through a balance transfer or hardship program, then try again.</div>'
+      + '</div>';
+    setTimeout(function(){ document.getElementById('dsResults').scrollIntoView({behavior:'smooth', block:'start'}); }, 100);
+    return;
+  }
+
+  var snowball = simulateDebts(debtData, extra, 'snowball');
+  var avalanche = simulateDebts(debtData, extra, 'avalanche');
+
+  window.dsState = {
+    debtData: debtData,
+    extra: extra,
+    snowball: snowball,
+    avalanche: avalanche,
+    totalBalance: totalBalance
+  };
+
+  var totalPaidSnow = totalBalance + snowball.totalInterest;
+  var firstWinSnow = snowball.payoffOrder.length ? snowball.payoffOrder[0].payoffMonth : 0;
+  var firstWinAval = avalanche.payoffOrder.length ? avalanche.payoffOrder[0].payoffMonth : 0;
+  var interestDiff = snowball.totalInterest - avalanche.totalInterest;
+
+  var bannerHtml = '<div class="ds-result-banner">'
+    + '<div class="ds-result-label">With the snowball method you will be debt free in</div>'
+    + '<div class="ds-result-value">' + formatMonths(snowball.months) + '</div>'
+    + '<div class="ds-result-sub">Target date <strong>' + dateFromMonths(snowball.months) + '</strong>. You will pay <strong>$' + fmt(snowball.totalInterest) + '</strong> in interest on top of your <strong>$' + fmt(totalBalance) + '</strong> in balances, putting <strong>$' + fmt(totalPaidSnow) + '</strong> toward this debt in total.</div>'
+    + '</div>';
+
+  /* Rollover cascade in snowball payoff order */
+  var cascadeHtml = '<div class="ds-section-header">'
+    + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><polyline points="19 9 12 16 8 12 3 17"/></svg>'
+    + 'Your Snowball Payoff Order'
+    + '</div>'
+    + '<div class="ds-cascade">';
+
+  var rolledPayment = extra;
+  for (var p = 0; p < snowball.payoffOrder.length; p++){
+    var d = snowball.payoffOrder[p];
+    rolledPayment += d.min;
+    if (p > 0){
+      cascadeHtml += '<div class="ds-cascade-connector"></div>';
+    }
+    cascadeHtml += '<div class="ds-cascade-step cleared">'
+      + '<div class="ds-cascade-num">' + (p + 1) + '</div>'
+      + '<div class="ds-cascade-mid">'
+      +   '<div class="ds-cascade-name">' + d.name + '</div>'
+      +   '<div class="ds-cascade-detail">$' + fmt(d.origBalance) + ' at ' + d.apr + '% APR &middot; snowball payment by this point <strong>$' + fmt(rolledPayment) + '/mo</strong></div>'
+      + '</div>'
+      + '<div class="ds-cascade-right">'
+      +   '<div class="ds-cascade-when">Paid off</div>'
+      +   '<div class="ds-cascade-date">' + dateFromMonths(d.payoffMonth) + '</div>'
+      + '</div>'
+      + '</div>';
+  }
+  cascadeHtml += '</div>';
+
+  /* Snowball vs avalanche */
+  var vsHtml = '<div class="ds-section-header" style="margin-top:28px">'
+    + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>'
+    + 'Snowball vs Avalanche'
+    + '</div>'
+    + '<div class="ds-vs-grid">'
+
+    + '<div class="ds-vs-card picked">'
+    +   '<span class="ds-vs-badge wins">QUICKEST WINS</span>'
+    +   '<div class="ds-vs-icon snowball"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></div>'
+    +   '<div class="ds-vs-title">Snowball Method</div>'
+    +   '<div class="ds-vs-subtitle">Smallest balance first. This is the plan shown above.</div>'
+    +   '<div class="ds-vs-metric"><div class="ds-vs-metric-label">Debt Free In</div><div class="ds-vs-metric-value">' + formatMonths(snowball.months) + '</div></div>'
+    +   '<div class="ds-vs-metric"><div class="ds-vs-metric-label">Total Interest</div><div class="ds-vs-metric-value">$' + fmt(snowball.totalInterest) + '</div></div>'
+    +   '<div class="ds-vs-best-for"><strong>First win</strong>First debt cleared in ' + formatMonths(firstWinSnow) + '. Best if you need visible progress to stay motivated.</div>'
+    + '</div>'
+
+    + '<div class="ds-vs-card">'
+    +   '<span class="ds-vs-badge math">SAVES MOST</span>'
+    +   '<div class="ds-vs-icon avalanche"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg></div>'
+    +   '<div class="ds-vs-title">Avalanche Method</div>'
+    +   '<div class="ds-vs-subtitle">Highest APR first. Same debts, different order.</div>'
+    +   '<div class="ds-vs-metric"><div class="ds-vs-metric-label">Debt Free In</div><div class="ds-vs-metric-value">' + formatMonths(avalanche.months) + '</div></div>'
+    +   '<div class="ds-vs-metric"><div class="ds-vs-metric-label">Total Interest</div><div class="ds-vs-metric-value success">$' + fmt(avalanche.totalInterest) + '</div></div>'
+    +   '<div class="ds-vs-best-for"><strong>First win</strong>First debt cleared in ' + formatMonths(firstWinAval) + '. Best if you are disciplined and want the lowest cost.</div>'
+    + '</div>'
+
+    + '</div>';
+
+  var summaryText;
+  if (interestDiff > 25){
+    summaryText = '<strong>Avalanche would save you $' + fmt(interestDiff) + ' in interest here.</strong> That is the exact price of the snowball\u2019s motivation. Snowball clears your first debt in ' + formatMonths(firstWinSnow) + ', which is what keeps most people going. If you know you will finish either way, avalanche keeps more money in your pocket.';
+  } else {
+    summaryText = '<strong>Snowball and avalanche are nearly identical for your debts</strong> (within $' + fmt(Math.abs(interestDiff)) + ' of interest). This usually means your smallest balance is also one of your highest-rate debts, so you get the motivation of snowball at almost no extra cost. Go with snowball.';
+  }
+  var summaryHtml = '<div class="ds-vs-summary">' + summaryText + '</div>';
+
+  var summaryGridHtml = '<div class="ds-section-header" style="margin-top:28px">'
+    + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>'
+    + 'Snowball Plan Summary'
+    + '</div>'
+    + '<div class="ds-summary-grid">'
+    +   '<div class="ds-summary-card"><div class="ds-summary-label">Total Balance</div><div class="ds-summary-value">$' + fmt(totalBalance) + '</div></div>'
+    +   '<div class="ds-summary-card"><div class="ds-summary-label">Total Interest</div><div class="ds-summary-value">$' + fmt(snowball.totalInterest) + '</div></div>'
+    +   '<div class="ds-summary-card accent"><div class="ds-summary-label">Debts Cleared</div><div class="ds-summary-value">' + snowball.payoffOrder.length + '</div></div>'
+    +   '<div class="ds-summary-card accent"><div class="ds-summary-label">First Win</div><div class="ds-summary-value">' + formatMonths(firstWinSnow) + '</div></div>'
+    + '</div>';
+
+  var defaultBoost = 100;
+  var scenarioHtml = '<div class="ds-section-header" style="margin-top:28px">'
+    + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>'
+    + 'What If You Added More?'
+    + '</div>'
+    + '<div class="ds-scenario">'
+    + '<div class="ds-scenario-card">'
+    +   '<div class="ds-scenario-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>'
+    +   '<div class="ds-scenario-title">Snowball Booster</div>'
+    +   '<div class="ds-scenario-desc">Drag to see how much sooner you finish if you found a little more each month on top of your $' + fmt(extra) + ' extra.</div>'
+    +   '<div class="ds-slider-row">'
+    +     '<input type="range" id="dsBoostSlider" min="10" max="1000" step="10" value="' + defaultBoost + '" oninput="updateBooster()">'
+    +     '<div class="ds-slider-value" id="dsBoostVal">+$' + defaultBoost + '</div>'
+    +   '</div>'
+    +   '<div id="dsBoostResult">' + computeBoosterResult(defaultBoost) + '</div>'
+    + '</div>'
+    + '</div>';
+
+  document.getElementById('dsResultsContent').innerHTML =
+      bannerHtml
+    + cascadeHtml
+    + vsHtml
+    + summaryHtml
+    + summaryGridHtml
+    + scenarioHtml;
+
+  setTimeout(function(){
+    document.getElementById('dsResults').scrollIntoView({behavior:'smooth', block:'start'});
+  }, 100);
+}
+
+function resetSnowball(){
+  debts = [
+    { name: 'Store Card', balance: 800, apr: 27, min: 25 },
+    { name: 'Credit Card', balance: 3500, apr: 22, min: 70 },
+    { name: 'Car Loan', balance: 9000, apr: 7, min: 250 }
+  ];
+  renderDebts();
+  document.getElementById('dsExtra').value = 200;
+  window.dsState = null;
+  document.getElementById('dsResults').classList.remove('visible');
+  document.getElementById('dsEmptyState').style.display = 'block';
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  renderDebts();
+});
+</script>
+
+<script>
+window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
+function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
+var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
+</script>
+
+<script>
+(function(){
+if(localStorage.getItem('sc_cookies'))return;
+var b=document.createElement('div');
+b.id='cookieBanner';
+b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
+var acceptBtn=document.createElement('button');
+acceptBtn.textContent='Accept';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#059669,#10B981);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
+var declineBtn=document.createElement('button');
+declineBtn.textContent='Decline';
+declineBtn.style.cssText='background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:8px;cursor:pointer';
+declineBtn.onclick=function(){
+localStorage.setItem('sc_cookies','decline');
+b.innerHTML='';
+var msg=document.createElement('span');
+msg.style.cssText='padding:12px 0;color:#34D399';
+msg.textContent='\u2713 Preference saved.';
+b.appendChild(msg);
+setTimeout(function(){b.remove();},2500);
+};
+var txt=document.createElement('span');
+txt.innerHTML='We use basic analytics cookies to understand site traffic. <a href="../cookie-policy/" style="color:#34D399">Cookie Policy</a>';
+var btnWrap=document.createElement('div');
+btnWrap.style.cssText='display:flex;gap:8px';
+btnWrap.appendChild(acceptBtn);
+btnWrap.appendChild(declineBtn);
+b.appendChild(txt);
+b.appendChild(btnWrap);
+document.body.appendChild(b);
+})();
+</script>
+
+</body>
+</html>
