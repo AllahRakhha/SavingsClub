@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Debt Payoff Calculator: When Will I Be Debt Free? | SavingsClub</title>
-<meta name="description" content="Free debt payoff calculator with extra payment savings, year-by-year breakdown, and 4-line visual showing principal vs interest. Find your debt-free date.">
+<meta name="description" content="Free debt payoff calculator with extra payment savings, year-by-year breakdown, and a visual showing principal vs interest. Find your debt-free date.">
 <link rel="canonical" href="https://savingsclub.com/debt-payoff-calculator/">
 <meta property="og:title" content="Debt Payoff Calculator: When Will I Be Debt Free? | SavingsClub">
 <meta property="og:description" content="Free debt payoff calculator. Find your payoff date, total interest cost, and see exactly where your money goes.">
 <meta property="og:url" content="https://savingsclub.com/debt-payoff-calculator/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SavingsClub">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long does it take to pay off $10,000 in credit card debt?","acceptedAnswer":{"@type":"Answer","text":"At 22% APR with $300 monthly payments, it takes about 4 years and costs roughly $4,400 in interest. Increasing to $500/month cuts it to about 2 years and saves over $2,000 in interest."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long does it take to pay off $10,000 in credit card debt?","acceptedAnswer":{"@type":"Answer","text":"At 22% APR with $300 monthly payments, it takes about 4 years and costs roughly $4,400 in interest. Increasing to $500/month cuts it to about 2 years and saves over $2,000 in interest. Use this calculator with your exact numbers to find your debt-free date."}},{"@type":"Question","name":"Is it better to save or pay off debt first?","acceptedAnswer":{"@type":"Answer","text":"Save a small emergency fund ($1,000) first, then aggressively pay off high-interest debt (anything above 7% APR), then build a full 3 to 6 month emergency fund. Credit card debt at 20%+ APR almost always beats saving. You'd need investments to earn 20%+ to come out ahead, which is unrealistic."}},{"@type":"Question","name":"Should I pay off debt with my savings?","acceptedAnswer":{"@type":"Answer","text":"If your savings earn less interest than your debt charges (almost always true with credit cards), then yes, use savings beyond your emergency fund to pay down debt. But never empty your emergency fund completely. Keep at least $1,000 untouched."}}]}</script>
 <link rel="stylesheet" href="../css/style.css">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
 <link rel="icon" type="image/png" sizes="192x192" href="/img/sc-favicon.png?v=2">
@@ -23,35 +23,45 @@
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta property="og:image" content="https://savingsclub.com/img/savings-jar.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="SavingsClub Research Team">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://savingsclub.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://savingsclub.com/savings-calculator/"},{"@type":"ListItem","position":3,"name":"Debt Payoff Calculator","item":"https://savingsclub.com/debt-payoff-calculator/"}]}</script>
 <style>
 .dc-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:32px;align-items:start}
 .dc-inputs-col{display:flex;flex-direction:column;gap:16px}
 .dc-inputs-col label{display:block;font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:6px}
 .dc-inputs-col input,.dc-inputs-col select{width:100%;padding:12px 14px;border:1.5px solid #e5e7eb;border-radius:10px;font-size:1rem;font-family:inherit;transition:border-color .2s,box-shadow .2s}
-.dc-inputs-col input:focus,.dc-inputs-col select:focus{outline:none;border-color:#DC2626;box-shadow:0 0 0 3px rgba(220,38,38,.1)}
-.dc-results-col{background:linear-gradient(135deg,#FEF2F2,#F8FAFC);border-radius:16px;padding:28px;border:1px solid rgba(220,38,38,.1);min-height:500px}
+.dc-inputs-col input:focus,.dc-inputs-col select:focus{outline:none;border-color:#059669;box-shadow:0 0 0 3px rgba(16,185,129,.12)}
+.dc-results-col{background:linear-gradient(135deg,#ECFDF5,#F8FAFC);border-radius:16px;padding:28px;border:1px solid rgba(16,185,129,.15);min-height:500px}
 .dc-section-title{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:18px;letter-spacing:-.01em}
-.dc-calc-btn{width:100%;margin-top:8px;padding:14px 24px;font-size:1rem;font-weight:700}
+.dc-calc-row{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap}
+.dc-calc-btn{flex:1;min-width:160px;padding:14px 24px;font-size:1rem;font-weight:700}
+.dc-reset-btn{background:#fff;color:var(--text);border:1.5px solid #e5e7eb;padding:14px 22px;border-radius:10px;font-family:inherit;font-size:.92rem;font-weight:600;cursor:pointer;transition:all .15s}
+.dc-reset-btn:hover{border-color:#94A3B8;color:var(--navy)}
 #chart{min-height:280px;width:100%;margin-top:20px}
 #chart svg{max-width:100%;height:auto;display:block;margin:0 auto}
+.dc-empty-state{background:rgba(255,255,255,.7);border:2px dashed #cbd5e1;border-radius:14px;padding:44px 24px;text-align:center}
+.dc-empty-state svg{width:44px;height:44px;color:#94A3B8;margin-bottom:12px}
+.dc-empty-state h4{font-size:1.02rem;color:var(--navy);margin:0 0 6px;font-weight:700}
+.dc-empty-state p{font-size:.88rem;color:var(--text-light);margin:0;line-height:1.6}
 .dc-result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
 .dc-result-item{background:rgba(255,255,255,.7);padding:14px 16px;border-radius:10px;border:1px solid rgba(0,0,0,.05)}
 .dc-result-label{font-size:.8rem;color:var(--text-light);display:block;margin-bottom:4px;font-weight:500}
 .dc-result-value{font-size:1.2rem;font-weight:700;color:var(--navy);display:block}
-.dc-final-total{background:linear-gradient(135deg,#DC2626,#EF4444);color:#fff;padding:20px;border-radius:14px;text-align:center;margin-bottom:18px;box-shadow:0 4px 15px rgba(220,38,38,.25)}
+.dc-final-total{background:linear-gradient(135deg,#059669,#10B981);color:#fff;padding:20px;border-radius:14px;text-align:center;margin-bottom:18px;box-shadow:0 4px 15px rgba(16,185,129,.25)}
 .dc-final-total-label{font-size:.85rem;opacity:.9;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;display:block}
 .dc-final-total-value{font-size:2.4rem;font-weight:800;letter-spacing:-.02em;display:block}
 .dc-final-date{font-size:.95rem;opacity:.95;margin-top:6px;display:block;font-weight:500}
 .dc-savings-card{background:linear-gradient(135deg,#ECFDF5,#F0FDF4);border:1.5px solid #10B981;border-radius:14px;padding:18px;margin-bottom:16px}
-.dc-savings-title{font-size:.85rem;font-weight:700;color:#047857;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;display:block}
+.dc-savings-title{font-size:.85rem;font-weight:700;color:#047857;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.dc-savings-title svg{width:16px;height:16px}
 .dc-savings-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .dc-savings-item{background:#fff;padding:10px 14px;border-radius:8px}
 .dc-savings-label{font-size:.75rem;color:var(--text-light);display:block;margin-bottom:2px}
 .dc-savings-value{font-size:1.15rem;font-weight:800;color:#059669;display:block}
 .dc-warning-inline{background:#FEE2E2;border-left:4px solid #DC2626;padding:10px 14px;border-radius:8px;margin-top:12px;font-size:.85rem;color:#7F1D1D;line-height:1.5}
-.dc-advanced-toggle{background:transparent;color:#DC2626;border:1.5px solid #DC2626;padding:10px 18px;border-radius:10px;font-weight:600;font-size:.9rem;cursor:pointer;width:100%;margin-top:4px;transition:all .2s;font-family:inherit}
-.dc-advanced-toggle:hover{background:#DC2626;color:#fff}
+.dc-inline-check{width:14px;height:14px;vertical-align:-2px;margin-left:4px}
+.dc-advanced-toggle{background:transparent;color:#059669;border:1.5px solid #059669;padding:10px 18px;border-radius:10px;font-weight:600;font-size:.9rem;cursor:pointer;width:100%;margin-top:4px;transition:all .2s;font-family:inherit}
+.dc-advanced-toggle:hover{background:#059669;color:#fff}
 .dc-advanced-panel{display:none;flex-direction:column;gap:16px;padding-top:16px;border-top:1.5px dashed #e5e7eb;margin-top:8px}
 .dc-advanced-panel.open{display:flex}
 .dc-table-wrap{margin-top:32px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
@@ -70,7 +80,7 @@
 .dc-howto-wrap>p{color:var(--text-light);margin:0 0 20px}
 .dc-howto-list{counter-reset:step-counter;list-style:none;padding:0;margin:0}
 .dc-howto-list li{counter-increment:step-counter;position:relative;padding:14px 16px 14px 56px;background:#F8FAFC;border-radius:12px;margin-bottom:10px;border:1px solid #f1f5f9}
-.dc-howto-list li::before{content:counter(step-counter);position:absolute;left:14px;top:12px;width:30px;height:30px;background:linear-gradient(135deg,#DC2626,#EF4444);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;box-shadow:0 2px 6px rgba(220,38,38,.25)}
+.dc-howto-list li::before{content:counter(step-counter);position:absolute;left:14px;top:12px;width:30px;height:30px;background:linear-gradient(135deg,#059669,#10B981);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;box-shadow:0 2px 6px rgba(16,185,129,.25)}
 .dc-howto-list li strong{display:block;color:var(--navy);font-size:1rem;margin-bottom:3px;font-weight:700}
 .dc-howto-list li span{color:var(--text-light);font-size:.92rem;line-height:1.5}
 .dc-disclaimer-mini{margin-top:24px;background:#F8FAFC;border-left:3px solid #94A3B8;padding:12px 18px;border-radius:8px;font-size:.82rem;color:var(--text-light);line-height:1.6}
@@ -81,18 +91,24 @@
 .dc-info-wrap h3{font-size:1.1rem;margin:20px 0 8px;color:var(--navy);font-weight:700}
 .dc-info-wrap p{color:var(--text);font-size:.95rem;line-height:1.7;margin:0 0 12px}
 .dc-info-wrap p:last-child{margin-bottom:0}
-.dc-info-wrap a{color:#DC2626;font-weight:600;text-decoration:none;border-bottom:1px dashed #DC2626}
-.dc-info-wrap a:hover{color:#EF4444;border-bottom-style:solid}
+.dc-info-wrap ul,.dc-info-wrap ol{color:var(--text);font-size:.95rem;line-height:1.7;margin:0 0 14px;padding-left:22px}
+.dc-info-wrap li{margin-bottom:6px}
+.dc-info-wrap a{color:#059669;font-weight:600;text-decoration:none;border-bottom:1px dashed #059669}
+.dc-info-wrap a:hover{color:#10B981;border-bottom-style:solid}
+.dc-info-wrap strong{color:var(--navy);font-weight:700}
+.dc-callout{background:linear-gradient(135deg,#ECFDF5,#F8FAFC);border-left:3px solid #10B981;padding:16px 20px;border-radius:8px;margin:18px 0;font-size:.95rem;color:var(--text);line-height:1.65}
+.dc-callout strong{color:#047857}
 .dc-related-wrap{margin-top:32px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .dc-related-wrap h2{font-size:1.5rem;margin:0 0 6px;color:var(--navy);letter-spacing:-.01em}
 .dc-related-wrap>p{color:var(--text-light);margin:0 0 24px;font-size:1rem}
 .dc-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
 .dc-related-card{display:flex;flex-direction:column;text-decoration:none;background:#F8FAFC;border:1.5px solid #e5e7eb;border-radius:14px;padding:24px;transition:transform .2s,box-shadow .2s,border-color .2s;height:100%}
-.dc-related-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.08);border-color:#DC2626;background:#fff}
-.dc-related-icon{font-size:32px;margin-bottom:12px;display:block}
+.dc-related-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.08);border-color:#10B981;background:#fff}
+.dc-related-icon{width:42px;height:42px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px;background:#ECFDF5;color:#059669}
+.dc-related-icon svg{width:22px;height:22px}
 .dc-related-card h3{font-size:1.15rem;margin:0 0 8px;color:var(--navy);font-weight:700;min-height:28px}
 .dc-related-card p{color:var(--text-light);font-size:.9rem;margin:0 0 14px;line-height:1.5;flex:1;min-height:60px}
-.dc-related-link{color:#DC2626;font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:4px;margin-top:auto}
+.dc-related-link{color:#059669;font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:4px;margin-top:auto}
 @media (max-width: 900px){
   .dc-layout{grid-template-columns:1fr;gap:20px}
   .dc-results-col{min-height:auto;padding:20px}
@@ -134,6 +150,8 @@ SavingsClub
 <a href="../budget-planner/">Budget</a>
 <a href="../mortgage-calculator/">Mortgage</a>
 <a href="../debt-payoff-calculator/">Debt Payoff</a>
+<a href="../debt-snowball-calculator/">Debt Snowball</a>
+<a href="../credit-card-payoff-calculator/">Credit Card Payoff</a>
 <a href="../credit-cards/">Credit Cards</a>
 <a href="../blog/">Blog</a>
 <a href="../banking/">Banking</a>
@@ -146,8 +164,8 @@ SavingsClub
 
 <div style="text-align:center;margin-bottom:32px">
 <h1 style="font-size:2.2rem;margin-bottom:8px;letter-spacing:-.02em">Debt Payoff Calculator</h1>
-<p style="color:var(--text-light);max-width:600px;margin:0 auto;font-size:1.05rem">Find out exactly when you'll be debt-free and how much interest you'll pay. See the impact of extra payments instantly.</p>
-<p style="font-size:.8rem;color:var(--text-lighter);margin-top:8px">Last updated: June 2026</p>
+<p style="color:var(--text-light);max-width:600px;margin:0 auto;font-size:1.05rem">Find out exactly when you'll be debt-free and how much interest you'll pay. See the impact of extra payments and one-time lump sums.</p>
+<p style="font-size:.8rem;color:var(--text-lighter);margin-top:8px">By SavingsClub Research Team &middot; Last updated: July 2026</p>
 </div>
 
 <div class="calc-section reveal" style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
@@ -159,27 +177,35 @@ SavingsClub
 <h3 class="dc-section-title">Your Debt Details</h3>
 <div class="dc-inputs-col">
 
-<div><label>Total Debt Balance ($)</label><input type="number" id="debtTotal" value="15000" oninput="calc()"></div>
+<div><label>Total Debt Balance ($)</label><input type="number" id="debtTotal" value="15000"></div>
 
-<div><label>Annual Interest Rate / APR (%)</label><input type="number" id="debtRate" value="22" step="0.1" oninput="calc()"></div>
+<div><label>Annual Interest Rate / APR (%)</label><input type="number" id="debtRate" value="22" step="0.1"></div>
 
-<div><label>Monthly Payment ($)</label><input type="number" id="debtPay" value="500" oninput="calc()"></div>
+<div><label>Monthly Payment ($)</label><input type="number" id="debtPay" value="500"></div>
 
 <button type="button" class="dc-advanced-toggle" id="dc-advanced-btn" onclick="toggleAdvanced()">Show Advanced ▼</button>
 
 <div class="dc-advanced-panel" id="dc-advanced">
-<div><label>Extra Monthly Payment ($) <span style="font-weight:400;color:var(--text-lighter)">(see savings)</span></label><input type="number" id="debtExtra" value="0" oninput="calc()" placeholder="0"></div>
-<div><label>One-Time Lump Sum ($)</label><input type="number" id="debtLump" value="0" oninput="calc()" placeholder="0"></div>
-<div><label>Apply Lump Sum in Month #</label><input type="number" id="debtLumpMonth" value="1" min="1" oninput="calc()" placeholder="1"></div>
+<div><label>Extra Monthly Payment ($) <span style="font-weight:400;color:var(--text-lighter)">(see savings)</span></label><input type="number" id="debtExtra" value="0" placeholder="0"></div>
+<div><label>One-Time Lump Sum ($)</label><input type="number" id="debtLump" value="0" placeholder="0"></div>
+<div><label>Apply Lump Sum in Month #</label><input type="number" id="debtLumpMonth" value="1" min="1" placeholder="1"></div>
 </div>
 
 </div>
+<div class="dc-calc-row">
 <button class="btn btn-primary dc-calc-btn" onclick="calc()">Calculate</button>
+<button type="button" class="dc-reset-btn" onclick="resetDebt()">Reset</button>
+</div>
 </div>
 
 <!-- RIGHT COLUMN: RESULTS + CHART -->
 <div class="dc-results-col">
 <h3 class="dc-section-title">Your Path to Debt-Free</h3>
+<div class="dc-empty-state" id="dcEmptyState">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 6-6"/></svg>
+<h4>Click Calculate to see your debt-free date</h4>
+<p>Enter your balance, rate, and monthly payment, then click Calculate. You will see your payoff date, total interest, a visual breakdown, and a year-by-year schedule.</p>
+</div>
 <div id="calcResult"></div>
 </div>
 
@@ -216,23 +242,23 @@ SavingsClub
 <li><strong>Enter your total debt balance</strong><span>The full amount you currently owe across all accounts you want to pay off together. For credit cards, use the statement balance, not the minimum payment.</span></li>
 <li><strong>Add your interest rate (APR)</strong><span>Found on your statement or online banking. Credit cards typically run 18 to 29% APR. Personal loans range 7 to 20%. Auto loans 5 to 12%. Mortgages 6 to 7% in 2026.</span></li>
 <li><strong>Set your monthly payment</strong><span>What you can realistically commit to paying each month. Must be higher than your monthly interest charge, or you'll never pay it off.</span></li>
-<li><strong>(Optional) Add extra monthly payment</strong><span>See how much faster you'd be debt free if you paid an extra $50, $100, or $200 per month. The savings are usually shocking. Try different amounts.</span></li>
+<li><strong>(Optional) Add extra monthly payment</strong><span>See how much faster you'd be debt free if you paid an extra $50, $100, or $200 per month. The savings are usually larger than people expect. Try different amounts.</span></li>
 <li><strong>(Optional) Add a one-time lump sum</strong><span>Got a tax refund, bonus, or unexpected money? Enter it here and pick a month to apply it. Watch how much interest you save.</span></li>
-<li><strong>Review the chart</strong><span>4 lines show you exactly where each dollar goes: balance declining (red), money out (purple), principal paid (green), interest lost (gold). The gap between green and gold tells the story.</span></li>
+<li><strong>Review the chart</strong><span>Four lines show you exactly where each dollar goes: balance declining (red), money out (navy), principal paid (green), interest lost (gold). The gap between green and gold tells the story.</span></li>
 <li><strong>Use the year-by-year table</strong><span>See your progress for each year of payoff. You will see exactly when you cross milestones.</span></li>
 </ol>
 </div>
 
 <!-- SMALL DISCLAIMER -->
 <div class="dc-disclaimer-mini reveal">
-<p>Results are estimates for educational purposes only. Verify your actual balance and rate with your lender before making decisions. SavingsClub is not a financial advisor. <a href="../disclaimer/">Read full disclaimer</a>.</p>
+<p>Results are estimates for educational purposes only. Verify your actual balance and rate with your lender before making decisions. Content is researched and drafted using AI tools with human review before publication. SavingsClub is not a financial advisor. <a href="../disclaimer/">Read full disclaimer</a>.</p>
 </div>
 
 <div class="dc-info-wrap reveal">
 <h2>How to Pay Off Debt Faster</h2>
 <p>The debt payoff calculator shows you exactly when you'll be debt-free based on your current balance, interest rate, and monthly payment. Even small increases in your monthly payment can dramatically reduce your payoff timeline and total interest paid.</p>
 <h3>Debt Snowball vs Debt Avalanche</h3>
-<p>The snowball method pays smallest balances first for quick psychological wins. The avalanche method targets highest-interest debt first to minimize total interest. Both work. The best method is the one you stick with consistently. If you have multiple debts, use this calculator for each one separately.</p>
+<p>The snowball method pays smallest balances first for quick psychological wins. The avalanche method targets highest-interest debt first to minimize total interest. Both work. The best method is the one you stick with consistently. If you have several debts and want to see the exact payoff order and rollover, use our dedicated <a href="../debt-snowball-calculator/">debt snowball calculator</a>.</p>
 <h3>The True Cost of Minimum Payments</h3>
 <p>Paying only the minimum on a $5,000 credit card at 22% APR can take over 20 years and cost more than $8,000 in interest alone. Doubling your payment cuts the timeline to under 3 years and saves thousands. Use the "extra payment" feature above to see for yourself.</p>
 <h3>Balance Transfer Cards</h3>
@@ -241,6 +267,32 @@ SavingsClub
 <p>Consolidating multiple high-interest debts into one personal loan with a lower rate can simplify payments and save money. This works best when you can get a lower interest rate AND you commit not to run up new credit card balances after consolidating.</p>
 <h3>Building an Emergency Fund First</h3>
 <p>Before going all-in on debt payoff, save at least $1,000 in an <a href="../emergency-fund-calculator/">emergency fund</a>. Without one, an unexpected car repair or medical bill goes straight onto your credit cards, undoing your progress.</p>
+</div>
+
+<div class="dc-info-wrap reveal">
+<h2>The 2026 Debt Landscape: Why Payoff Speed Matters More Now</h2>
+<p>Paying down debt has always been smart. In 2026 it is more valuable than it was a few years ago, and the reason is the interest rate environment.</p>
+<p>Americans owe roughly $1.25 trillion on credit cards as of early 2026, according to Federal Reserve data, near record levels. The average APR on card balances that carry interest sits close to 22%, also near an all-time high. That is a big jump from the 15 to 16% averages common before 2022.</p>
+<p>Here is the part most people miss: credit card rates are tied to the prime rate, which stands at 6.75%, and the Federal Reserve held its benchmark steady through 2026. Because card APRs move with the Fed, the rate on your balance will not drift down on its own until the Fed cuts. So unlike a fixed-rate loan, a credit card balance stays expensive month after month at today's levels.</p>
+<div class="dc-callout">
+<strong>What this means for you:</strong> At around 22% APR, a $6,500 balance costs roughly $1,400 a year in interest alone, before you touch the principal. Every month you shorten your payoff timeline is money kept instead of paid to your lender. That is the entire point of the extra-payment feature above.</div>
+</div>
+
+<div class="dc-info-wrap reveal">
+<h2>Lower the Rate, Not Just the Balance</h2>
+<p>The payoff math improves fastest when you cut the interest rate, because a lower rate means more of every payment attacks the principal. Here are four ways to do that, roughly in order of how easy they are.</p>
+
+<h3>1. Just ask for a lower APR</h3>
+<p>This is the most overlooked move in personal finance. A 2026 survey of cardholders found that the large majority of people who called and asked their issuer for a lower rate got one, with an average reduction of around 6 percentage points. Yet fewer than a quarter of cardholders had ever asked. Cutting 6 points off a $10,000 balance is real money, and the call costs you ten minutes. Mention your payment history and any lower-rate offers you have received from other cards.</p>
+
+<h3>2. Move to a credit union card</h3>
+<p>Federal credit unions are capped by law at 18% APR on credit cards, which is often several points below the bank average. If you carry a balance, a lower-rate credit union card can save more than the rewards on a flashier card ever would.</p>
+
+<h3>3. Use a 0% balance transfer window</h3>
+<p>A 0% intro APR transfer card gives you 12 to 21 months with no interest, so every dollar hits principal. Expect a 3 to 5% transfer fee, and only do it if you have a realistic plan to clear the balance before the intro period ends and the standard rate returns.</p>
+
+<h3>4. Ask about a hardship program</h3>
+<p>If a job loss, medical event, or income drop has made payments hard, most major issuers run hardship programs that are not advertised. You have to call and explain your situation, but they can temporarily cut your APR substantially, sometimes into the low single digits, and reduce fees. Steer clear of for-profit debt settlement companies that charge upfront fees and tell you to stop paying; an NFCC accredited non-profit credit counselor is a safer first call.</p>
 </div>
 
 <div class="dc-info-wrap reveal">
@@ -258,19 +310,19 @@ SavingsClub
 <p>Take control of your debt with these helpful tools.</p>
 <div class="dc-related-grid">
 <a href="../credit-card-payoff-calculator/" class="dc-related-card">
-<span class="dc-related-icon">💳</span>
+<span class="dc-related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>
 <h3>Credit Card Payoff Calculator</h3>
 <p>Focus on credit card debt with minimum payment warnings and balance transfer savings.</p>
 <span class="dc-related-link">Pay Off Credit Cards →</span>
 </a>
-<a href="../loan-payoff-calculator/" class="dc-related-card">
-<span class="dc-related-icon">🎯</span>
-<h3>Loan Payoff Calculator</h3>
-<p>Pay off personal loans, student loans, or any installment debt ahead of schedule.</p>
-<span class="dc-related-link">Pay Off Loans Faster →</span>
+<a href="../debt-snowball-calculator/" class="dc-related-card">
+<span class="dc-related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><polyline points="19 9 12 16 8 12 3 17"/></svg></span>
+<h3>Debt Snowball Calculator</h3>
+<p>List every debt, see the smallest-first payoff order, and watch the rollover snowball grow.</p>
+<span class="dc-related-link">Build Your Snowball →</span>
 </a>
 <a href="../budget-planner/" class="dc-related-card">
-<span class="dc-related-icon">📊</span>
+<span class="dc-related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></span>
 <h3>Budget Planner</h3>
 <p>Find extra room in your monthly budget to put toward debt payments faster.</p>
 <span class="dc-related-link">Plan Your Budget →</span>
@@ -288,6 +340,8 @@ function fmt(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximum
 function fmtI(n){return Math.round(n).toLocaleString('en-US');}
 function fmtMoney(n){return '$'+Math.round(n).toLocaleString('en-US');}
 
+var CHECK_SVG='<svg class="dc-inline-check" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+
 function toggleAdvanced(){
   var adv=document.getElementById('dc-advanced');
   var btn=document.getElementById('dc-advanced-btn');
@@ -302,12 +356,12 @@ function toggleAdvanced(){
 
 function renderTable(){
   var tbody=document.getElementById('payoffTableBody');
-  if(!payoffSchedule.length){tbody.innerHTML='<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--text-light)">Enter debt details above</td></tr>';return;}
+  if(!payoffSchedule.length){tbody.innerHTML='<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--text-light)">Enter your debt details and click Calculate</td></tr>';return;}
   var html='';
   for(var i=0;i<payoffSchedule.length;i++){
     var r=payoffSchedule[i];
     var cls=r.end===0?' class="dc-final-row"':'';
-    html+='<tr'+cls+'><td>Year '+r.year+(r.end===0?' 🎯':'')+'</td><td>'+fmtMoney(r.start)+'</td><td>'+fmtMoney(r.payments)+'</td><td>'+fmtMoney(r.principal)+'</td><td>'+fmtMoney(r.interest)+'</td><td>'+fmtMoney(r.end)+'</td></tr>';
+    html+='<tr'+cls+'><td>Year '+r.year+(r.end===0?CHECK_SVG:'')+'</td><td>'+fmtMoney(r.start)+'</td><td>'+fmtMoney(r.payments)+'</td><td>'+fmtMoney(r.principal)+'</td><td>'+fmtMoney(r.interest)+'</td><td>'+fmtMoney(r.end)+'</td></tr>';
   }
   tbody.innerHTML=html;
 }
@@ -395,10 +449,18 @@ function calc(){
   var totalMonthlyPayment=basePayment+extraPayment;
 
   var el=document.getElementById('calcResult');
+  document.getElementById('dcEmptyState').style.display='none';
+
+  if(startBalance<=0){
+    el.innerHTML='<div class="dc-warning-inline" style="margin-top:0"><strong>Enter a balance.</strong> Add your total debt balance above to see your payoff plan.</div>';
+    payoffSchedule=[];
+    renderTable();
+    return;
+  }
 
   if(totalMonthlyPayment<=startBalance*monthlyRate){
     var minPayment=Math.ceil(startBalance*monthlyRate)+1;
-    el.innerHTML='<div class="dc-warning-inline" style="margin-top:0"><strong>⚠️ Payment too low.</strong> Your monthly payment must exceed the monthly interest ($'+fmt(startBalance*monthlyRate)+'). Increase to at least $'+minPayment+' to start paying down the balance. Otherwise your debt will never decrease.</div>';
+    el.innerHTML='<div class="dc-warning-inline" style="margin-top:0"><strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;vertical-align:-2px;margin-right:4px"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Payment too low.</strong> Your monthly payment must exceed the monthly interest ($'+fmt(startBalance*monthlyRate)+'). Increase to at least $'+minPayment+' to start paying down the balance. Otherwise your debt will never decrease.</div>';
     payoffSchedule=[];
     renderTable();
     return;
@@ -414,7 +476,7 @@ function calc(){
   var monthNames=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   var freeDateStr=monthNames[freeDate.getMonth()]+' '+freeDate.getFullYear();
 
-  var html='<div class="dc-final-total"><span class="dc-final-total-label">Debt-Free In</span><span class="dc-final-total-value">'+years+'y '+monthsRem+'m</span><span class="dc-final-date">🎯 '+freeDateStr+'</span></div>';
+  var html='<div class="dc-final-total"><span class="dc-final-total-label">Debt-Free In</span><span class="dc-final-total-value">'+years+'y '+monthsRem+'m</span><span class="dc-final-date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;vertical-align:-2px;margin-right:5px"><polyline points="20 6 9 17 4 12"/></svg>'+freeDateStr+'</span></div>';
 
   if(extraPayment>0 || lumpSum>0){
     var baseResult=simulatePayoff(startBalance,monthlyRate,basePayment,0,0,1);
@@ -424,7 +486,7 @@ function calc(){
       var yearsSaved=Math.floor(monthsSaved/12);
       var msRem=monthsSaved%12;
       var timeSavedStr=yearsSaved>0?yearsSaved+'y '+msRem+'m':monthsSaved+' months';
-      html+='<div class="dc-savings-card"><span class="dc-savings-title">💰 Your Savings With Extra Payment</span><div class="dc-savings-grid"><div class="dc-savings-item"><span class="dc-savings-label">Interest Saved</span><span class="dc-savings-value">$'+fmtI(interestSaved)+'</span></div><div class="dc-savings-item"><span class="dc-savings-label">Time Saved</span><span class="dc-savings-value">'+timeSavedStr+'</span></div></div></div>';
+      html+='<div class="dc-savings-card"><span class="dc-savings-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Your Savings With Extra Payment</span><div class="dc-savings-grid"><div class="dc-savings-item"><span class="dc-savings-label">Interest Saved</span><span class="dc-savings-value">$'+fmtI(interestSaved)+'</span></div><div class="dc-savings-item"><span class="dc-savings-label">Time Saved</span><span class="dc-savings-value">'+timeSavedStr+'</span></div></div></div>';
     }
   }
 
@@ -440,18 +502,32 @@ function calc(){
   el.innerHTML=html;
 
   if(result.months>0){
-    drawLineChart('#chart',result.pts,{title:'Debt Payoff Breakdown Over Time',colors:['#DC2626','#6366F1','#059669','#D97706'],labels:['Balance Remaining','Total Paid','Principal Paid','Interest Paid'],datasets:[result.pts,result.paidPts,result.principalPts,result.interestPts]});
+    drawLineChart('#chart',result.pts,{title:'Debt Payoff Breakdown Over Time',colors:['#DC2626','#0A1628','#059669','#D97706'],labels:['Balance Remaining','Total Paid','Principal Paid','Interest Paid'],datasets:[result.pts,result.paidPts,result.principalPts,result.interestPts]});
   }
   renderTable();
 }
-document.addEventListener('DOMContentLoaded',function(){calc();});
+
+function resetDebt(){
+  document.getElementById('debtTotal').value=15000;
+  document.getElementById('debtRate').value=22;
+  document.getElementById('debtPay').value=500;
+  document.getElementById('debtExtra').value=0;
+  document.getElementById('debtLump').value=0;
+  document.getElementById('debtLumpMonth').value=1;
+  document.getElementById('calcResult').innerHTML='';
+  document.getElementById('dcEmptyState').style.display='block';
+  payoffSchedule=[];
+  renderTable();
+}
+
+document.addEventListener('DOMContentLoaded',function(){renderTable();});
 </script>
 <footer>
 <div class="container">
 <div class="footer-grid">
 <div>
 <div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
-<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and educational guides for Americans in every state. Making money decisions simpler since 2026.</p>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Free financial tools and educational guides for Americans in every state. Helping you keep more of what you earn since 2026.</p>
 </div>
 <div>
 <h4>Calculators</h4>
@@ -499,7 +575,7 @@ b.id='cookieBanner';
 b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
 var acceptBtn=document.createElement('button');
 acceptBtn.textContent='Accept';
-acceptBtn.style.cssText='background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#059669,#10B981);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
 acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
 var declineBtn=document.createElement('button');
 declineBtn.textContent='Decline';
@@ -508,13 +584,13 @@ declineBtn.onclick=function(){
 localStorage.setItem('sc_cookies','decline');
 b.innerHTML='';
 var msg=document.createElement('span');
-msg.style.cssText='padding:12px 0;color:#10B981';
-msg.textContent='\u2713 No cookies stored. You can browse freely.';
+msg.style.cssText='padding:12px 0;color:#34D399';
+msg.textContent='\u2713 Preference saved.';
 b.appendChild(msg);
 setTimeout(function(){b.remove();},2500);
 };
 var txt=document.createElement('span');
-txt.innerHTML='We use cookies to improve your experience. <a href="/cookie-policy/" style="color:#3B82F6">Cookie Policy</a>';
+txt.innerHTML='We use basic analytics cookies to understand site traffic. <a href="../cookie-policy/" style="color:#34D399">Cookie Policy</a>';
 var btnWrap=document.createElement('div');
 btnWrap.style.cssText='display:flex;gap:8px';
 btnWrap.appendChild(acceptBtn);
