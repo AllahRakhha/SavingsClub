@@ -1527,7 +1527,7 @@ Examples of WHAT vs WHY framing:
 Use "because," "since," "the reason is," or "this works because" naturally throughout the article. Aim for 6 to 8 uses where they fit naturally. Do not force them, but always explain reasoning.
 
 CRITICAL REQUIREMENTS:
-- Write 1,900 to 2,300 words minimum. This is non-negotiable.
+- Write 2,300 to 2,500 words minimum. This is non-negotiable.
 - Use HTML formatting: h2/h3 for sections, p for paragraphs, ul/li for lists where appropriate
 - THE VERY FIRST LINE of your entire output must be exactly one HTML comment: <!--META: your meta description here--> where the description is 140 to 155 characters of plain text that summarizes the article, contains the primary keyword, and is written to earn the click. No quotation marks inside it. Then continue with the article.
 - Do NOT include h1 (the template adds it)
