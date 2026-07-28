@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SavingsClub">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"SavingsClub","url":"https://savingsclub.com","description":"Free financial calculators that show how much you can keep from paychecks, mortgages, debt payoff, and retirement."}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are these calculators really free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free. No signup, no email required, no premium tier. All 23 calculators on SavingsClub are 100% free to use as many times as you need."}},{"@type":"Question","name":"Is my financial data saved or shared?","acceptedAnswer":{"@type":"Answer","text":"No. Everything you enter stays in your browser. We don't store, save, or transmit your financial data anywhere. Close the tab and the numbers are gone."}},{"@type":"Question","name":"How accurate are these calculators?","acceptedAnswer":{"@type":"Answer","text":"Our calculators use standard financial formulas and current-year figures. Results are estimates intended for educational planning. For major financial decisions, always consult a licensed financial advisor."}},{"@type":"Question","name":"Why don't you require a signup?","acceptedAnswer":{"@type":"Answer","text":"Because financial tools should be accessible to everyone. We make money through affiliate partnerships, not by collecting or selling your data."}},{"@type":"Question","name":"Who creates the content and calculators?","acceptedAnswer":{"@type":"Answer","text":"The SavingsClub Research Team: humans using AI tools to research and produce educational content, with review before publication. We are not licensed financial advisors and we disclose this clearly on every page."}},{"@type":"Question","name":"How often is the content updated?","acceptedAnswer":{"@type":"Answer","text":"We publish new blog content three times per week: Monday, Wednesday, and Friday. Calculators are reviewed regularly to ensure formulas and default rates stay current."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are these calculators really free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free. No signup, no email required, no premium tier. All 23 calculators on SavingsClub are 100% free to use as many times as you need."}},{"@type":"Question","name":"Is my financial data saved or shared?","acceptedAnswer":{"@type":"Answer","text":"No. Everything you enter stays in your browser. We don't store, save, or transmit your financial data anywhere. Close the tab and the numbers are gone."}},{"@type":"Question","name":"How accurate are these calculators?","acceptedAnswer":{"@type":"Answer","text":"Our calculators use standard financial formulas and current-year figures. Results are estimates intended for educational planning. For major financial decisions, always consult a licensed financial advisor."}},{"@type":"Question","name":"Why don't you require a signup?","acceptedAnswer":{"@type":"Answer","text":"Because financial tools should be accessible to everyone. We make money through affiliate partnerships, not by collecting or selling your data."}},{"@type":"Question","name":"Who creates the content and calculators?","acceptedAnswer":{"@type":"Answer","text":"The SavingsClub Research Team: humans using AI tools to research and produce educational content, with review before publication. We are not licensed financial advisors and we disclose this clearly on every page."}},{"@type":"Question","name":"How often is the content updated?","acceptedAnswer":{"@type":"Answer","text":"We publish a new blog guide each week. Calculators are reviewed regularly to ensure formulas and default rates stay current."}}]}</script>
 <link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
 <link rel="icon" type="image/png" sizes="192x192" href="/img/sc-favicon.png?v=2">
 <link rel="apple-touch-icon" sizes="180x180" href="/img/sc-favicon.png?v=2">
@@ -604,7 +604,7 @@ SavingsClub
 <div class="feature-card card reveal stagger-2">
 <div class="feature-icon" style="background:#D1FAE5;color:#047857"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg></div>
 <h3>Clear, Accessible Guides</h3>
-<p>We publish new educational guides three times a week, researched and produced with the help of modern AI tools, then reviewed before publication. Plain-English explanations for real American households.</p>
+<p>We publish a new educational guide each week, researched and produced with the help of modern AI tools, then reviewed before publication. Plain-English explanations for real American households.</p>
 </div>
 
 <div class="feature-card card reveal stagger-3">
@@ -717,7 +717,7 @@ SavingsClub
 
 <details class="faq-item">
 <summary>How often is the content updated?</summary>
-<div class="faq-body">We publish new blog content three times per week: Monday, Wednesday, and Friday. Calculators are reviewed regularly to ensure formulas and default rates stay current.</div>
+<div class="faq-body">We publish a new blog guide each week. Calculators are reviewed regularly to ensure formulas and default rates stay current.</div>
 </details>
 
 </div>
@@ -956,7 +956,7 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
         var endVal=parseFloat(rate.value);
         var diff=endVal-startVal;
         var absDiff=Math.abs(diff).toFixed(2);
-        var arrow=diff>0?'↑':(diff<0?'↓':'—');
+        var arrow=diff>0?'↑':(diff<0?'↓':'~');
         deltaEl.classList.remove('favorable','unfavorable');
         deltaEl.classList.add(favorable?'favorable':'unfavorable');
         deltaEl.innerHTML='<span class="delta-arrow">'+arrow+'</span> '+absDiff+' pts vs 12mo ago';
