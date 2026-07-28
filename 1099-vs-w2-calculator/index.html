@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1099 vs W2 Calculator: Contract Rate vs Salary</title>
+<meta name="description" content="Free 1099 vs W2 calculator using 2026 tax rules. Find your breakeven contract hourly rate, self employment tax, QBI deduction, and real take-home pay.">
+<link rel="canonical" href="https://savingsclub.com/1099-vs-w2-calculator/">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="author" content="SavingsClub Research Team">
+<meta property="og:title" content="1099 vs W2 Calculator: Contract Rate vs Salary">
+<meta property="og:description" content="Compare a 1099 contract offer against a W2 salary with 2026 tax rules. See your breakeven hourly rate and true take-home pay.">
+<meta property="og:url" content="https://savingsclub.com/1099-vs-w2-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SavingsClub">
+<meta property="og:image" content="https://savingsclub.com/img/sc-logo-full.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="1099 vs W2 Calculator: Contract Rate vs Salary">
+<meta name="twitter:description" content="Compare a 1099 contract offer against a W2 salary with 2026 tax rules. See your breakeven hourly rate and true take-home pay.">
+<meta name="twitter:image" content="https://savingsclub.com/img/sc-logo-full.png">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/sc-favicon.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/sc-favicon.png?v=2">
+<link rel="shortcut icon" href="/img/sc-favicon.png?v=2">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://savingsclub.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://savingsclub.com/savings-calculator/"},{"@type":"ListItem","position":3,"name":"1099 vs W2 Calculator","item":"https://savingsclub.com/1099-vs-w2-calculator/"}]}</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Is 1099 better than W2?","acceptedAnswer":{"@type":"Answer","text":"Neither is better in every case. A 1099 arrangement wins when you can charge a rate high enough to cover self employment tax, your own health insurance, and unpaid time off, and when you have real business expenses to deduct. A W2 job wins when the employer covers half of your payroll tax, contributes to your retirement, subsidizes health coverage, and pays you for holidays and sick days. The honest answer depends entirely on the numbers, which is what the calculator above is for."}},
+    {"@type":"Question","name":"How much more should I charge as a 1099 contractor?","acceptedAnswer":{"@type":"Answer","text":"For most people the breakeven falls somewhere between 1.25 and 1.5 times the hourly equivalent of the W2 salary. The old advice to add 30 percent is a starting point, not an answer, because it ignores health insurance and unpaid time off, which vary enormously from person to person. Run your own numbers rather than trusting a rule of thumb."}},
+    {"@type":"Question","name":"What is the self employment tax rate in 2026?","acceptedAnswer":{"@type":"Answer","text":"Self employment tax is 15.3 percent, made up of 12.4 percent for Social Security and 2.9 percent for Medicare. It applies to 92.35 percent of your net business earnings. The Social Security portion stops at the 2026 wage base of 184,500 dollars, so the maximum Social Security piece is 22,878 dollars. Medicare has no cap, and an extra 0.9 percent applies above 200,000 dollars for single filers or 250,000 dollars for joint filers."}},
+    {"@type":"Question","name":"Do 1099 contractors pay more taxes than W2 employees?","acceptedAnswer":{"@type":"Answer","text":"On payroll tax, yes. A W2 employee pays 7.65 percent and the employer pays the other 7.65 percent. A contractor pays the full 15.3 percent. But contractors get three offsets: they deduct half of the self employment tax, they deduct legitimate business expenses before tax is calculated, and they may qualify for the 20 percent qualified business income deduction. At the same gross number the contractor usually pays more, but contractors rarely work at the same gross number."}},
+    {"@type":"Question","name":"How do I convert a W2 salary to a 1099 hourly rate?","acceptedAnswer":{"@type":"Answer","text":"Start with your W2 take home pay after tax, then add the cash value of everything your employer contributes, such as the retirement match and its share of your health premium. That total is what your contracting income has to beat after self employment tax, income tax, and your own insurance premium. Divide the required revenue by the hours you can actually bill, not the hours in a year, because unpaid time off is time you earn nothing."}},
+    {"@type":"Question","name":"What is the QBI deduction and do I qualify?","acceptedAnswer":{"@type":"Answer","text":"The qualified business income deduction lets many self employed people deduct up to 20 percent of their business income before federal income tax is applied. It was made permanent by the One Big Beautiful Bill Act. For 2026 the limits begin to phase in above 201,775 dollars of income for single filers and 403,500 dollars for joint filers. Below those thresholds most contractors take the full 20 percent. Above them the rules turn on whether your work counts as a specified service business."}},
+    {"@type":"Question","name":"Can my employer switch me from W2 to 1099?","acceptedAnswer":{"@type":"Answer","text":"Not simply because both sides agree to it. Worker classification is decided by the facts of the relationship, not by the label on the contract. The IRS looks at behavioral control, financial control, and the nature of the relationship. If the company sets your hours, tells you how to do the work, supplies your equipment, and you have no other clients, you are very likely an employee no matter what the paperwork says."}},
+    {"@type":"Question","name":"Do 1099 contractors have to pay quarterly taxes?","acceptedAnswer":{"@type":"Answer","text":"Generally yes. Nobody is withholding tax from your payments, so you send estimated payments to the IRS four times a year, usually in April, June, September, and January. Missing them can trigger an underpayment penalty even if you pay the full amount later. Many contractors move a fixed percentage of every payment into a separate account the day it arrives so the money is there when the deadline comes."}},
+    {"@type":"Question","name":"What is the difference between 1099 and W2 for health insurance?","acceptedAnswer":{"@type":"Answer","text":"A W2 employer commonly pays a large share of the premium and that share is not taxed as income to you. As a contractor you buy your own policy on the individual market and pay the whole premium. The self employed health insurance deduction lets you subtract those premiums from your income, which softens the blow but does not erase it. For many people this single line is the largest hidden cost of going independent."}},
+    {"@type":"Question","name":"Is it better to be 1099 or W2 for retirement savings?","acceptedAnswer":{"@type":"Answer","text":"Contractors have far more headroom. A W2 employee can defer 24,500 dollars into a workplace plan in 2026. A self employed person with a Solo 401(k) can reach a total of 72,000 dollars across employee and employer contributions, subject to their earnings. The catch is that every dollar comes out of your own pocket, with no employer match, so the higher ceiling only helps if your income is high enough to use it."}},
+    {"@type":"Question","name":"What business expenses can 1099 contractors deduct?","acceptedAnswer":{"@type":"Answer","text":"Ordinary and necessary costs of running the business, which commonly include software subscriptions, professional insurance, a home office that meets the exclusive use test, business mileage, equipment, continuing education, and accounting fees. These reduce the income that both self employment tax and income tax are calculated on, which is why the same gross number can produce very different tax bills for two contractors."}},
+    {"@type":"Question","name":"Does this calculator include state taxes?","acceptedAnswer":{"@type":"Answer","text":"No. This tool covers federal income tax, Social Security, Medicare, the additional Medicare tax, and the qualified business income deduction. State income tax, local tax, and city business taxes are not included, and in high tax states they can change the comparison meaningfully. Treat the result as a federal level estimate rather than a complete tax projection."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav id="mainNav">
+<div class="nav-inner">
+<div class="logo" onclick="location.href='../'">
+<div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+SavingsClub
+</div>
+<div class="nav-links" id="navLinks">
+<a href="../">Home</a>
+<a href="../savings-calculator/" class="active">Calculators</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="../">Home</a>
+<a href="../paycheck-calculator/">Paycheck</a>
+<a href="../federal-income-tax-calculator/">Federal Tax</a>
+<a href="../savings-calculator/">Savings</a>
+<a href="../budget-planner/">Budget</a>
+<a href="../retirement-calculator/">Retirement</a>
+<a href="../401k-calculator/">401(k)</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../about/">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+
+<style>
+.tw-hero{background:linear-gradient(135deg,#0A1628 0%,#0F2540 50%,#059669 100%);color:#fff;padding:110px 24px 54px;position:relative;overflow:hidden}
+.tw-hero::before{content:'';position:absolute;top:-30%;right:-10%;width:55%;height:170%;background:radial-gradient(circle,rgba(16,185,129,.20) 0%,transparent 62%);pointer-events:none}
+.tw-hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
+.tw-badge{display:inline-block;background:rgba(16,185,129,.18);color:#34D399;padding:7px 16px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;margin-bottom:14px;border:1px solid rgba(16,185,129,.35)}
+.tw-hero h1{color:#fff;font-size:clamp(27px,4vw,40px);font-weight:800;line-height:1.12;margin:0 0 12px;letter-spacing:-.02em;font-family:'Plus Jakarta Sans',sans-serif}
+.tw-hero-sub{color:rgba(255,255,255,.86);font-size:1.02rem;line-height:1.6;margin:0 0 14px;max-width:680px}
+.tw-byline{color:rgba(255,255,255,.6);font-size:.82rem;margin:0 0 8px}
+.tw-hero-disc{color:rgba(255,255,255,.5);font-size:.78rem;font-style:italic;margin:0}
+
+.tw-body{padding:36px 0 70px}
+.tw-card{background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.tw-section-title{font-size:1.02rem;font-weight:700;color:#0A1628;margin:24px 0 12px;display:flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans',sans-serif}
+.tw-section-title:first-child{margin-top:0}
+.tw-section-title .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#059669,#10B981);flex-shrink:0}
+.tw-help{font-size:.8rem;color:#64748B;margin:8px 0 0;line-height:1.5}
+.calc-grid select{width:100%;padding:14px 38px 14px 16px;border:1px solid #E5E7EB;border-radius:12px;font-family:inherit;font-size:1rem;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%236B7280' stroke-width='1.6'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 16px center;background-size:12px;color:#0A1628;cursor:pointer;appearance:none;-webkit-appearance:none}
+.calc-grid select:focus{outline:none;border-color:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,.12)}
+
+.tw-modes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px}
+@media(max-width:560px){.tw-modes{grid-template-columns:1fr}}
+.tw-mode{padding:14px 16px;border:1.5px solid #E2E8F0;background:#fff;color:#475569;border-radius:12px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.94rem;transition:all .2s;text-align:center}
+.tw-mode:hover{border-color:#10B981;color:#059669}
+.tw-mode[aria-pressed="true"]{background:linear-gradient(135deg,#059669,#10B981);border-color:#059669;color:#fff;box-shadow:0 6px 18px rgba(5,150,105,.28)}
+
+.tw-btn-row{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0 6px}
+.tw-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:999px;font-weight:700;font-size:1rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;border:none;transition:transform .15s,box-shadow .2s}
+.tw-btn-primary{background:linear-gradient(135deg,#059669,#10B981);color:#fff;box-shadow:0 6px 18px rgba(5,150,105,.32)}
+.tw-btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(5,150,105,.42)}
+.tw-btn-reset{background:#fff;color:#475569;border:1.5px solid #E2E8F0}
+.tw-btn-reset:hover{border-color:#10B981;color:#059669}
+.tw-btn svg{width:18px;height:18px}
+.tw-err{display:none;background:#FEF3C7;border:1px solid #FCD34D;border-radius:12px;padding:14px 18px;margin-top:16px;font-size:.92rem;color:#78350F;line-height:1.6}
+
+.tw-empty{background:#F8FAFC;border:1.5px dashed #CBD5E1;border-radius:16px;padding:44px 24px;text-align:center;margin-top:20px}
+.tw-empty-icon{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,#ECFDF5,#D1FAE5);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.tw-empty-icon svg{width:27px;height:27px;color:#059669}
+.tw-empty-title{font-size:1.1rem;color:#0A1628;margin:0 0 6px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700}
+.tw-empty p{color:#64748B;font-size:.94rem;margin:0 auto;max-width:460px}
+
+.tw-headline{background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border:1px solid #A7F3D0;border-radius:14px;padding:18px 22px;margin:8px 0 18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.tw-headline-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.07em;color:#047857;font-weight:700}
+.tw-headline-value{font-size:2rem;font-weight:800;color:#064E3B;line-height:1;font-family:'Plus Jakarta Sans',sans-serif}
+.tw-headline-note{font-size:.82rem;color:#047857;max-width:320px;line-height:1.5}
+
+.tw-verdict{background:#F8FAFC;border-left:3px solid #10B981;border-radius:8px;padding:16px 20px;margin:16px 0;font-size:.94rem;color:#334155;line-height:1.7}
+.tw-verdict strong{color:#047857}
+.tw-warn{display:none;background:#FEF3C7;border:1px solid #FCD34D;border-radius:12px;padding:16px 20px;margin:16px 0;font-size:.9rem;color:#78350F;line-height:1.6}
+.tw-warn strong{color:#92400E}
+
+.tw-two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+@media(max-width:700px){.tw-two{grid-template-columns:1fr}}
+.tw-col{border:1px solid #E5E7EB;border-radius:14px;padding:18px;background:#fff}
+.tw-col.win{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border-color:#86EFAC}
+.tw-ch{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1rem;color:#0A1628;margin-bottom:2px}
+.tw-sub{font-size:.74rem;color:#64748B;font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+.tw-net{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.6rem;color:#059669;margin:8px 0 14px;line-height:1}
+.tw-row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #F1F5F9;font-size:.88rem;color:#475569}
+.tw-row:last-child{border-bottom:none}
+.tw-row b{color:#0A1628;font-weight:700;font-variant-numeric:tabular-nums}
+
+.tw-table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.92rem}
+.tw-table th{text-align:left;padding:10px 12px;background:#ECFDF5;color:#065F46;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+.tw-table th:not(:first-child),.tw-table td:not(:first-child){text-align:right}
+.tw-table td{padding:10px 12px;border-bottom:1px solid #F1F5F9;color:#0A1628}
+.tw-table tr:last-child td{border-bottom:none}
+.tw-table td:first-child{font-weight:600}
+.tw-table tr.tw-hl td{background:#F0FDF4;font-weight:700}
+.tw-note-sm{font-size:.82rem;color:#64748B;line-height:1.6;margin-top:12px}
+
+.tw-steps{list-style:none;counter-reset:tws;padding:0;margin:0 0 16px}
+.tw-steps li{counter-increment:tws;position:relative;padding:13px 16px 13px 52px;background:#F8FAFC;border:1px solid #F1F5F9;border-radius:12px;margin-bottom:9px;color:#334155;font-size:.95rem;line-height:1.6}
+.tw-steps li::before{content:counter(tws);position:absolute;left:14px;top:12px;width:26px;height:26px;background:linear-gradient(135deg,#059669,#10B981);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.82rem;font-family:'Plus Jakarta Sans',sans-serif}
+
+.tw-tips-card{background:linear-gradient(135deg,#ECFDF5 0%,#F0FDF4 100%);border:1px solid #A7F3D0;border-radius:16px;padding:22px;margin:28px 0}
+.tw-tips-header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.tw-tips-icon{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,#059669,#10B981);display:flex;align-items:center;justify-content:center}
+.tw-tips-icon svg{width:21px;height:21px;color:#fff}
+.tw-tips-title{font-weight:800;color:#064E3B;font-size:1.1rem;font-family:'Plus Jakarta Sans',sans-serif}
+.tw-tips-list{display:flex;flex-direction:column;gap:12px}
+.tw-tip{background:rgba(255,255,255,.7);border-radius:10px;padding:13px 15px;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.tw-tip-num{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#059669,#10B981);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;flex-shrink:0}
+.tw-tip-body{font-size:.9rem;line-height:1.55;color:#064E3B}
+.tw-tip-body strong{color:#047857}
+
+.tw-related h3{font-size:1.1rem;margin:0 0 12px;color:#0A1628;font-family:'Plus Jakarta Sans',sans-serif;display:flex;align-items:center;gap:8px}
+.tw-related h3 svg{width:20px;height:20px;color:#059669}
+
+@media(max-width:760px){
+  .tw-hero{padding:96px 20px 44px}
+  .tw-card{padding:20px}
+  .tw-headline-value{font-size:1.6rem}
+  .tw-table{font-size:.85rem}
+  .tw-table th,.tw-table td{padding:8px 8px}
+}
+@media(prefers-reduced-motion:reduce){.tw-btn,.tw-mode{transition:none}}
+</style>
+
+<header class="tw-hero">
+  <div class="tw-hero-inner">
+    <span class="tw-badge">Free Tool</span>
+    <h1>1099 vs W2 Calculator</h1>
+    <p class="tw-hero-sub">Use this <strong>1099 vs W2 calculator</strong> to find out what a contract offer is really worth. Enter a salary to get the breakeven contract rate, or enter an hourly rate to get the equivalent salary. Built on 2026 federal tax rules, including self employment tax and the qualified business income deduction.</p>
+    <p class="tw-byline">By SavingsClub Research Team &middot; Updated July 2026</p>
+    <p class="tw-hero-disc">Educational tool, not tax advice. SavingsClub is not a licensed tax professional. For your specific situation, consult a CPA.</p>
+  </div>
+</header>
+
+<section class="tw-body">
+<div class="container">
+
+<div class="tw-card">
+
+<div class="tw-section-title"><span class="dot"></span> Which way are you comparing?</div>
+<div class="tw-modes" role="group" aria-label="Choose calculation direction">
+<button type="button" class="tw-mode" id="twModeA" aria-pressed="true" onclick="twSetMode('A')">Salary to contract rate</button>
+<button type="button" class="tw-mode" id="twModeB" aria-pressed="false" onclick="twSetMode('B')">Contract rate to salary</button>
+</div>
+<p class="tw-help" id="twModeHelp">Enter your current W2 salary and we will solve for the 1099 hourly rate that leaves you equally well off.</p>
+
+<div class="tw-section-title"><span class="dot"></span> <span id="twInLabel">Your current W2 job</span></div>
+<div class="calc-grid">
+<div id="twFieldSalary"><label>Annual W2 Salary ($)</label><input type="number" id="twSalary" placeholder="95000" min="0" step="1000"></div>
+<div id="twFieldRate" style="display:none"><label>1099 Hourly Rate Offered ($)</label><input type="number" id="twRate" placeholder="85" min="0" step="1"></div>
+<div>
+<label>Filing Status</label>
+<select id="twStatus">
+<option value="single" selected>Single</option>
+<option value="mfj">Married filing jointly</option>
+<option value="hoh">Head of household</option>
+</select>
+</div>
+<div><label>Hours Per Week</label><input type="number" id="twHrs" placeholder="40" min="1" max="100" step="1"></div>
+<div><label>Weeks Per Year</label><input type="number" id="twWks" placeholder="52" min="1" max="52" step="1"></div>
+<div><label>Paid Days Off Per Year</label><input type="number" id="twPto" placeholder="15" min="0" max="90" step="1"></div>
+</div>
+<p class="tw-help">Paid days off count as billable hours you lose as a contractor, so they raise the rate you need.</p>
+
+<div class="tw-section-title"><span class="dot"></span> Employer benefits you would give up</div>
+<div class="calc-grid">
+<div><label>401(k) Match (% of salary)</label><input type="number" id="twMatch" placeholder="5" min="0" max="25" step="0.5"></div>
+<div><label>Employer Health Payment ($/month)</label><input type="number" id="twEmpHealth" placeholder="550" min="0" step="25"></div>
+</div>
+<p class="tw-help">Enter the employer share of the premium, not the amount taken from your paycheck. Use 0 if there is no match or no coverage.</p>
+
+<div class="tw-section-title"><span class="dot"></span> Your contracting costs</div>
+<div class="calc-grid">
+<div><label>Business Expenses ($/year)</label><input type="number" id="twExpenses" placeholder="3000" min="0" step="500"></div>
+<div><label>Your Own Health Premium ($/month)</label><input type="number" id="twOwnHealth" placeholder="500" min="0" step="25"></div>
+</div>
+<p class="tw-help">Business expenses include software, equipment, mileage, and professional insurance. They reduce the income that both self employment tax and income tax apply to.</p>
+
+<div class="tw-btn-row">
+<button class="tw-btn tw-btn-primary" onclick="twCalc()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>Calculate</button>
+<button class="tw-btn tw-btn-reset" onclick="twReset()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 109-9 9 9 0 00-6.4 2.6L3 8"/><path d="M3 3v5h5"/></svg>Reset</button>
+</div>
+
+<div class="tw-err" id="twErr"></div>
+
+<div id="twEmpty" class="tw-empty">
+  <div class="tw-empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="13" y2="15"/></svg></div>
+  <div class="tw-empty-title">Your comparison will appear here</div>
+  <p>Fill in your figures above, then click Calculate to see your breakeven rate, both sides of the tax math, and a full line by line breakdown.</p>
+</div>
+
+<div id="twResults" style="display:none"></div>
+
+</div>
+
+<div class="seo-content">
+<h2>How to read your results</h2>
+<p>The headline number is the whole point. In salary to contract mode it is the breakeven hourly rate: what you would need to charge to end up in exactly the same financial position you are in now. Charge less and you are taking a pay cut you may not have noticed. In contract rate to salary mode the headline is the W2 salary that would leave you equally well off, which is the figure to quote when a recruiter asks what you are looking for.</p>
+<p>Three details do most of the work in this comparison, and they are the three that back of envelope math usually skips.</p>
+<p><strong>Billable hours.</strong> A salaried person who takes fifteen days off still gets paid for those days. A contractor who takes the same fifteen days earns nothing during them. The calculator strips paid days off out of the contracting side, which is why the breakeven rate is higher than dividing your salary by 2,080 would suggest.</p>
+<p><strong>Employer contributions.</strong> A retirement match and an employer health payment never show up on your pay stub as take home pay, but they are money spent on you. When you leave, they stop. Both are added to the employee side as real value.</p>
+<p><strong>The deduction stack.</strong> On the contracting side, business expenses come off before any tax is calculated, half of the self employment tax is deductible, health premiums you pay yourself are deductible, and the qualified business income deduction can remove up to another twenty percent. These are why a contractor at a higher gross number is not automatically worse off.</p>
+
+<h2>What actually changes when you go from W2 to 1099</h2>
+<p>People assume the difference is a single tax rate. It is not. Four things change at once, and they push in opposite directions, which is exactly why the <strong>taxes 1099 vs w2</strong> question resists a simple answer.</p>
+
+<h3>You pay both halves of payroll tax</h3>
+<p>Every employee pays 7.65 percent of wages into Social Security and Medicare, and the employer quietly pays a matching 7.65 percent that never appears on the pay stub. Become a contractor and that second half becomes yours. The combined 15.3 percent is what everyone means by self employment tax.</p>
+<p>It is not applied to your whole revenue, though. It applies to 92.35 percent of your net business earnings after expenses, a rough stand in for the employer half a business would have deducted. In 2026 the Social Security portion of 12.4 percent stops at the wage base of 184,500 dollars, capping that piece at 22,878 dollars. Medicare at 2.9 percent has no ceiling, and an extra 0.9 percent applies above 200,000 dollars for single filers or 250,000 dollars for joint filers. Our <a href="../paycheck-calculator/">paycheck calculator</a> shows the employee side of the same taxes.</p>
+
+<h3>Half of that tax comes straight back as a deduction</h3>
+<p>Self employment tax looks worse than it is, because you deduct half of it from your income before federal income tax is calculated. This is an above the line deduction, so you get it whether or not you itemize. It does not refund the tax; it reduces the income the next tax applies to.</p>
+
+<h3>Your expenses stop being personal and start being deductible</h3>
+<p>An employee who buys a laptop for work buys it with money already taxed. A contractor who buys the same laptop deducts it, shrinking the income that both self employment tax and income tax are calculated on. Two contractors with identical revenue can face very different tax bills purely because one tracks expenses and the other does not.</p>
+
+<h3>The qualified business income deduction</h3>
+<p>Self employed people can often deduct a further twenty percent of qualified business income before federal income tax applies. It was made permanent by the One Big Beautiful Bill Act. For 2026 the limits begin phasing in above 201,775 dollars of income for single filers and 403,500 dollars for joint filers, and are fully phased in at 276,775 and 553,500 dollars respectively. Below those thresholds most contractors take the full twenty percent without complication. Above them, whether your work counts as a specified service business starts to matter a great deal. To see how the underlying brackets work on their own, use our <a href="../federal-income-tax-calculator/">federal income tax calculator</a>.</p>
+
+<h2>The 2026 numbers this calculator uses</h2>
+<table class="tw-table">
+<thead><tr><th>Item</th><th>2026 figure</th><th>Applies to</th></tr></thead>
+<tbody>
+<tr><td>Social Security wage base</td><td>$184,500</td><td>Both</td></tr>
+<tr><td>Social Security rate</td><td>6.2% employee, 12.4% self employed</td><td>Both</td></tr>
+<tr class="tw-hl"><td>Maximum Social Security tax</td><td>$11,439 employee, $22,878 self employed</td><td>Both</td></tr>
+<tr><td>Medicare rate</td><td>1.45% employee, 2.9% self employed, no cap</td><td>Both</td></tr>
+<tr><td>Additional Medicare tax</td><td>0.9% above $200,000 single, $250,000 joint</td><td>Both</td></tr>
+<tr><td>Self employment tax base</td><td>92.35% of net earnings</td><td>1099</td></tr>
+<tr><td>Standard deduction</td><td>$16,100 single, $32,200 joint, $24,150 head of household</td><td>Both</td></tr>
+<tr><td>Qualified business income deduction</td><td>Up to 20%</td><td>1099</td></tr>
+<tr><td>QBI phase in begins</td><td>$201,775 single, $403,500 joint</td><td>1099</td></tr>
+<tr><td>Top marginal rate</td><td>37% above $640,600 single, $768,700 joint</td><td>Both</td></tr>
+</tbody>
+</table>
+<p class="tw-note-sm">Sources: <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" rel="noopener" target="_blank">IRS</a> Revenue Procedure 2025-32 for brackets, the standard deduction and qualified business income thresholds, and the <a href="https://www.ssa.gov" rel="noopener" target="_blank">Social Security Administration</a> for the 2026 contribution and benefit base.</p>
+
+<h2>The costs nobody quotes you with the rate</h2>
+<p>When a client names an hourly number, that number is the entire offer. There is nothing behind it. Understanding the <strong>pros and cons of 1099 vs w2</strong> means pricing the things that quietly disappear.</p>
+<ul>
+<li><strong>Health insurance.</strong> For most people this is the single largest line. An employer paying 550 dollars a month toward a plan is contributing 6,600 dollars a year in untaxed value, and an individual market policy often costs more than the employee share you were used to.</li>
+<li><strong>The retirement match.</strong> A five percent match on a 95,000 dollar salary is 4,750 dollars a year of free money. Replacing it means finding that amount from your own income.</li>
+<li><strong>Unpaid time off.</strong> Fifteen days at eight hours a day is 120 hours you do not bill. On a forty hour week that is roughly six percent of your annual capacity, gone.</li>
+<li><strong>No unemployment insurance.</strong> Contractors generally cannot claim unemployment when a contract ends, which makes gaps between contracts entirely self funded. Size that buffer with our <a href="../emergency-fund-calculator/">emergency fund calculator</a>.</li>
+<li><strong>No workers compensation.</strong> If you are hurt doing the work, the client is usually not responsible for your income.</li>
+<li><strong>Equipment and software.</strong> Laptop, phone, subscriptions, professional liability insurance. Deductible, but still cash out of your pocket first.</li>
+<li><strong>Administrative time.</strong> Invoicing, chasing late payments, bookkeeping, quarterly filings. Hours you work and cannot bill.</li>
+</ul>
+
+<h3>And the things that swing the other way</h3>
+<p>The independent side is not all cost. Asking whether it is <strong>better to be 1099 or w2</strong> without counting these is just as lopsided as ignoring health insurance.</p>
+<ul>
+<li><strong>Deductible expenses.</strong> Real business costs come off before tax rather than after it.</li>
+<li><strong>The QBI deduction.</strong> Up to twenty percent of business income removed from taxable income, which employees have no equivalent of.</li>
+<li><strong>Retirement headroom.</strong> A workplace plan caps employee deferrals at 24,500 dollars in 2026. A Solo 401(k) can reach 72,000 dollars in total contributions, subject to your earnings. Compare the employee side in our <a href="../401k-calculator/">401(k) calculator</a>.</li>
+<li><strong>Rate leverage.</strong> Salaries move once a year through a review process. Rates move every time you sign a new contract.</li>
+<li><strong>Multiple clients.</strong> Three clients is a more stable position than one employer, even though it feels less stable.</li>
+</ul>
+
+<h2>Why the thirty percent rule usually fails</h2>
+<p>The most repeated advice for anyone converting is to add thirty percent to the hourly equivalent of the salary. It is a reasonable first guess and a poor final answer, because the two largest variables are the two it ignores completely.</p>
+<p>Health insurance is the first. Someone covered by a spouse's plan may need almost no premium adjustment. Someone buying a family policy alone can face over 1,500 dollars a month, which on a forty hour week is more than nine dollars an hour before anything else is counted. One rule of thumb cannot serve both people.</p>
+<p>Business expenses are the second, and they cut the other way. A contractor with 18,000 dollars of legitimate deductible costs is calculating tax on a much smaller number than one with 1,000 dollars, so the revenue required to reach the same take home is different.</p>
+<p>Add the Social Security wage base and the multiplier stops being a constant altogether. Below 184,500 dollars the full 12.4 percent applies. Above it, that portion switches off, so the marginal cost of self employment tax falls sharply at higher incomes. This is why a fixed percentage cannot be right across all income levels, and why the <strong>1099 hourly rate calculator</strong> above solves for the rate rather than applying a multiplier.</p>
+<p>Across a wide range of situations the honest answer tends to land between 1.25 and 1.5 times the hourly equivalent of the salary. Where you fall inside that band depends on facts specific to you.</p>
+
+<h2>Three worked examples</h2>
+<h3>The mid career employee</h3>
+<p>A single filer on 95,000 dollars with a five percent match, 550 dollars a month in employer health payments and fifteen paid days off. Take home after federal tax and payroll tax is roughly 75,700 dollars, and employer contributions add about 11,400 dollars of value on top. Assuming 3,000 dollars of business expenses and a 500 dollar monthly premium of their own, the contracting side needs around 124,000 dollars of revenue over 1,960 billable hours. That is a breakeven near 63 dollars an hour, about 1.38 times the 45.67 dollars the salary works out to hourly. Anything under 63 dollars is a pay cut wearing a promotion's clothing.</p>
+
+<h3>The contractor weighing an offer</h3>
+<p>Someone billing 85 dollars an hour over the same 1,960 hours brings in 166,600 dollars. After expenses, self employment tax, the QBI deduction, federal income tax and their own premiums, they keep roughly 117,000 dollars. To match that as an employee, with the same match and health assumptions, would take a salary near 135,000 dollars. If the best W2 offer on the table is 118,000 dollars, the contract is comfortably ahead.</p>
+
+<h3>The high earner crossing a threshold</h3>
+<p>A joint filer with 260,000 dollars of contracting revenue and 10,000 dollars of expenses sits below the joint QBI threshold of 403,500 dollars, so the deduction survives intact, though the taxable income limitation caps it. They have also passed the Social Security wage base, so a large share of their income no longer carries the 12.4 percent charge. Both effects favour contracting at this level, which is one reason the independent option looks better the higher up you go.</p>
+<p class="tw-note-sm">Figures are rounded illustrations produced by the calculator on this page. Your own result will differ.</p>
+
+<h2>When 1099 is not even legal</h2>
+<p>Before comparing take home pay, it is worth checking whether the arrangement is permitted at all. Classification is not something an employer and a worker can simply agree on. It is determined by the facts of the working relationship, and a signed contract calling you an independent contractor carries very little weight if the facts say otherwise.</p>
+<p>The IRS groups the evidence into three categories.</p>
+<p><strong>Behavioral control.</strong> Does the company direct how the work is done, not just what the result should be? Set hours, required tools, mandatory procedures, close supervision and company provided training all point toward employment.</p>
+<p><strong>Financial control.</strong> Who bears the business risk? A genuine contractor has unreimbursed expenses, an investment in their own equipment, the ability to seek other clients, and the possibility of losing money on a job. Being paid a fixed amount every two weeks with all costs covered points the other way.</p>
+<p><strong>Type of relationship.</strong> Are there employee style benefits such as paid leave, insurance or a retirement plan? Is the arrangement open ended rather than tied to a project? Is the work a core part of what the company does, rather than a peripheral service?</p>
+<p>No single factor decides it, and the weighting depends on circumstances. But the classic pattern of misclassification is easy to recognise: a worker sits at a company desk, follows a company schedule, uses company equipment, reports to a company manager, has no other clients, and receives a 1099. Several states apply their own tests that are stricter than the federal one, and some use a standard that presumes employee status unless the business proves otherwise.</p>
+<p>If this describes your situation, the <strong>contractor vs employee calculator</strong> on this page tells you what the arrangement costs you, but the more useful step may be a conversation with an employment lawyer or a Form SS-8 filing asking the <a href="https://www.irs.gov/businesses/small-businesses-self-employed/independent-contractor-self-employed-or-employee" rel="noopener" target="_blank">IRS</a> to determine your status.</p>
+
+<h2>Quarterly estimated taxes</h2>
+<p>Employees never think about this because their employer withholds tax from every paycheck. Nobody withholds anything from a contractor payment, so you send the money to the IRS yourself four times a year, generally in April, June, September and January.</p>
+<p>Two things catch people out in their first year. The first is that underpayment penalties can apply even if you pay the full balance at filing time, because the rules expect the money throughout the year rather than in one lump. The second is that the amount you owe is larger than the income tax alone, since self employment tax rides along with it.</p>
+<p>The habit that works is mechanical rather than clever. Open a second account. The day a client payment lands, move a fixed percentage across and do not touch that account for anything else. Most contractors find a figure between 25 and 35 percent covers federal obligations, though your own effective rate from the calculator above is a better guide than a generic percentage. If your income varies month to month, our <a href="../budget-planner/">budget planner</a> is built for planning around an irregular paycheck.</p>
+</div>
+
+<div class="tw-tips-card">
+  <div class="tw-tips-header">
+    <div class="tw-tips-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0012 2z"/></svg></div>
+    <div class="tw-tips-title">SavingsClub Tips</div>
+  </div>
+  <div class="tw-tips-list">
+    <div class="tw-tip"><div class="tw-tip-num">1</div><div class="tw-tip-body"><strong>Price the benefits, not just the salary.</strong> A match and an employer health payment are real money. Add them to the employee side before you compare, or the contract will look better than it is.</div></div>
+    <div class="tw-tip"><div class="tw-tip-num">2</div><div class="tw-tip-body"><strong>Bill against real hours, not calendar hours.</strong> Divide by the hours you can actually invoice after time off, not 2,080. This single correction moves the breakeven rate by several dollars an hour.</div></div>
+    <div class="tw-tip"><div class="tw-tip-num">3</div><div class="tw-tip-body"><strong>Track expenses from day one.</strong> Deductions reduce the income that both self employment tax and income tax are applied to, so they are worth more than a same-sized discount on your tax bill.</div></div>
+  </div>
+</div>
+
+<div class="seo-content" style="margin-top:8px">
+<h2>Frequently Asked Questions</h2>
+
+<h3>Is 1099 better than W2?</h3>
+<p>Neither is better in every case. A 1099 arrangement wins when you can charge a rate high enough to cover self employment tax, your own health insurance, and unpaid time off, and when you have real business expenses to deduct. A W2 job wins when the employer covers half of your payroll tax, contributes to your retirement, subsidizes health coverage, and pays you for holidays and sick days. The honest answer depends entirely on the numbers, which is what the calculator above is for.</p>
+
+<h3>How much more should I charge as a 1099 contractor?</h3>
+<p>For most people the breakeven falls somewhere between 1.25 and 1.5 times the hourly equivalent of the W2 salary. The old advice to add 30 percent is a starting point, not an answer, because it ignores health insurance and unpaid time off, which vary enormously from person to person. Run your own numbers rather than trusting a rule of thumb.</p>
+
+<h3>What is the self employment tax rate in 2026?</h3>
+<p>Self employment tax is 15.3 percent, made up of 12.4 percent for Social Security and 2.9 percent for Medicare. It applies to 92.35 percent of your net business earnings. The Social Security portion stops at the 2026 wage base of 184,500 dollars, so the maximum Social Security piece is 22,878 dollars. Medicare has no cap, and an extra 0.9 percent applies above 200,000 dollars for single filers or 250,000 dollars for joint filers.</p>
+
+<h3>Do 1099 contractors pay more taxes than W2 employees?</h3>
+<p>On payroll tax, yes. A W2 employee pays 7.65 percent and the employer pays the other 7.65 percent. A contractor pays the full 15.3 percent. But contractors get three offsets: they deduct half of the self employment tax, they deduct legitimate business expenses before tax is calculated, and they may qualify for the 20 percent qualified business income deduction. At the same gross number the contractor usually pays more, but contractors rarely work at the same gross number.</p>
+
+<h3>How do I convert a W2 salary to a 1099 hourly rate?</h3>
+<p>Start with your W2 take home pay after tax, then add the cash value of everything your employer contributes, such as the retirement match and its share of your health premium. That total is what your contracting income has to beat after self employment tax, income tax, and your own insurance premium. Divide the required revenue by the hours you can actually bill, not the hours in a year, because unpaid time off is time you earn nothing.</p>
+
+<h3>What is the QBI deduction and do I qualify?</h3>
+<p>The qualified business income deduction lets many self employed people deduct up to 20 percent of their business income before federal income tax is applied. It was made permanent by the One Big Beautiful Bill Act. For 2026 the limits begin to phase in above 201,775 dollars of income for single filers and 403,500 dollars for joint filers. Below those thresholds most contractors take the full 20 percent. Above them the rules turn on whether your work counts as a specified service business.</p>
+
+<h3>Can my employer switch me from W2 to 1099?</h3>
+<p>Not simply because both sides agree to it. Worker classification is decided by the facts of the relationship, not by the label on the contract. The IRS looks at behavioral control, financial control, and the nature of the relationship. If the company sets your hours, tells you how to do the work, supplies your equipment, and you have no other clients, you are very likely an employee no matter what the paperwork says.</p>
+
+<h3>Do 1099 contractors have to pay quarterly taxes?</h3>
+<p>Generally yes. Nobody is withholding tax from your payments, so you send estimated payments to the IRS four times a year, usually in April, June, September, and January. Missing them can trigger an underpayment penalty even if you pay the full amount later. Many contractors move a fixed percentage of every payment into a separate account the day it arrives so the money is there when the deadline comes.</p>
+
+<h3>What is the difference between 1099 and W2 for health insurance?</h3>
+<p>A W2 employer commonly pays a large share of the premium and that share is not taxed as income to you. As a contractor you buy your own policy on the individual market and pay the whole premium. The self employed health insurance deduction lets you subtract those premiums from your income, which softens the blow but does not erase it. For many people this single line is the largest hidden cost of going independent.</p>
+
+<h3>Is it better to be 1099 or W2 for retirement savings?</h3>
+<p>Contractors have far more headroom. A W2 employee can defer 24,500 dollars into a workplace plan in 2026. A self employed person with a Solo 401(k) can reach a total of 72,000 dollars across employee and employer contributions, subject to their earnings. The catch is that every dollar comes out of your own pocket, with no employer match, so the higher ceiling only helps if your income is high enough to use it.</p>
+
+<h3>What business expenses can 1099 contractors deduct?</h3>
+<p>Ordinary and necessary costs of running the business, which commonly include software subscriptions, professional insurance, a home office that meets the exclusive use test, business mileage, equipment, continuing education, and accounting fees. These reduce the income that both self employment tax and income tax are calculated on, which is why the same gross number can produce very different tax bills for two contractors.</p>
+
+<h3>Does this calculator include state taxes?</h3>
+<p>No. This tool covers federal income tax, Social Security, Medicare, the additional Medicare tax, and the qualified business income deduction. State income tax, local tax, and city business taxes are not included, and in high tax states they can change the comparison meaningfully. Treat the result as a federal level estimate rather than a complete tax projection.</p>
+</div>
+
+<div class="tw-related" style="margin-top:24px">
+<h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg> Related Guides</h3>
+<a href="../blog/how-to-create-multiple-streams-of-income/" class="related-blog-card">How to Create Multiple Streams of Income</a>
+<a href="../blog/how-to-prepare-financially-for-a-recession/" class="related-blog-card">How to Prepare Financially for a Recession</a>
+</div>
+
+<div class="related-tools" style="margin-top:24px">
+<h3>More Free Calculators</h3>
+<a href="../federal-income-tax-calculator/" class="related-tool-link">Federal Income Tax</a>
+<a href="../paycheck-calculator/" class="related-tool-link">Take-Home Pay</a>
+<a href="../overtime-tax-calculator/" class="related-tool-link">Overtime Tax</a>
+<a href="../401k-calculator/" class="related-tool-link">401(k) Calculator</a>
+<a href="../roth-ira-calculator/" class="related-tool-link">Roth IRA</a>
+<a href="../retirement-calculator/" class="related-tool-link">Retirement Planner</a>
+<a href="../budget-planner/" class="related-tool-link">Budget Planner</a>
+<a href="../emergency-fund-calculator/" class="related-tool-link">Emergency Fund</a>
+<a href="../savings-calculator/" class="related-tool-link">Savings Calculator</a>
+<a href="../net-worth-calculator/" class="related-tool-link">Net Worth</a>
+<a href="../investment-calculator/" class="related-tool-link">Investment Growth</a>
+<a href="../cd-calculator/" class="related-tool-link">CD Calculator</a>
+</div>
+
+</div>
+</section>
+
+<script>
+/* ===== 2026 constants: IRS Rev. Proc. 2025-32 + SSA contribution and benefit base ===== */
+var TW_SS_BASE=184500;
+var TW_STD={single:16100,mfj:32200,hoh:24150};
+var TW_ADDL={single:200000,mfj:250000,hoh:200000};
+var TW_QBI_A={single:201775,mfj:403500,hoh:201775};
+var TW_QBI_B={single:276775,mfj:553500,hoh:276775};
+var TW_BR={
+  single:[[12400,.10],[50400,.12],[105700,.22],[201775,.24],[256225,.32],[640600,.35],[Infinity,.37]],
+  mfj:[[24800,.10],[100800,.12],[211400,.22],[403550,.24],[512450,.32],[768700,.35],[Infinity,.37]],
+  hoh:[[17700,.10],[67450,.12],[105700,.22],[201775,.24],[256200,.32],[640600,.35],[Infinity,.37]]
+};
+var twMode='A';
+
+function twFmt(n){ if(n===undefined||isNaN(n))return '$0'; return '$'+Math.round(n).toLocaleString('en-US'); }
+function twFmt2(n){ if(n===undefined||isNaN(n))return '$0.00'; return '$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function twNum(id){ var el=document.getElementById(id); var v=parseFloat(el.value); return isNaN(v)?0:v; }
+
+function twFed(taxable,st){
+  if(taxable<=0)return 0;
+  var b=TW_BR[st],tax=0,prev=0;
+  for(var i=0;i<b.length;i++){
+    if(taxable<=prev)break;
+    tax+=(Math.min(taxable,b[i][0])-prev)*b[i][1];
+    prev=b[i][0];
+  }
+  return tax;
+}
+
+function twW2(gross,st){
+  var ss=Math.min(gross,TW_SS_BASE)*0.062;
+  var md=gross*0.0145;
+  var ad=Math.max(0,gross-TW_ADDL[st])*0.009;
+  var fica=ss+md+ad;
+  var inc=twFed(Math.max(0,gross-TW_STD[st]),st);
+  return {gross:gross,ss:ss,md:md,ad:ad,fica:fica,inc:inc,net:gross-fica-inc};
+}
+
+function tw1099(rev,exp,health,st){
+  var netSE=Math.max(0,rev-exp);
+  var base=netSE*0.9235;
+  var ss=Math.min(base,TW_SS_BASE)*0.124;
+  var md=base*0.029;
+  var ad=Math.max(0,base-TW_ADDL[st])*0.009;
+  var seTax=ss+md+ad;
+  var half=(ss+md)/2;
+  var hDed=Math.min(health,Math.max(0,netSE-half));
+  var agi=netSE-half-hDed;
+  var pct=0.20;
+  if(agi>TW_QBI_A[st]){
+    var span=TW_QBI_B[st]-TW_QBI_A[st];
+    pct=0.20*Math.max(0,1-(agi-TW_QBI_A[st])/span);
+  }
+  var preTax=Math.max(0,agi-TW_STD[st]);
+  var qbi=Math.min(Math.max(0,agi)*pct,preTax*0.20);
+  var inc=twFed(Math.max(0,agi-TW_STD[st]-qbi),st);
+  return {rev:rev,exp:exp,netSE:netSE,ss:ss,md:md,ad:ad,seTax:seTax,half:half,hDed:hDed,
+          agi:agi,qbi:qbi,inc:inc,health:health,
+          net:rev-exp-seTax-inc-health,limited:(agi>TW_QBI_A[st])};
+}
+
+function twBisect(fn,target,lo,hi){
+  for(var i=0;i<160;i++){
+    var mid=(lo+hi)/2;
+    if(fn(mid)<target)lo=mid;else hi=mid;
+  }
+  return (lo+hi)/2;
+}
+
+function twRow(label,value){
+  return '<div class="tw-row"><span>'+label+'</span><b>'+value+'</b></div>';
+}
+
+function twSetMode(m){
+  twMode=m;
+  document.getElementById('twModeA').setAttribute('aria-pressed',m==='A'?'true':'false');
+  document.getElementById('twModeB').setAttribute('aria-pressed',m==='B'?'true':'false');
+  document.getElementById('twFieldSalary').style.display=(m==='A')?'':'none';
+  document.getElementById('twFieldRate').style.display=(m==='B')?'':'none';
+  document.getElementById('twInLabel').textContent=(m==='A')?'Your current W2 job':'The contract offer';
+  document.getElementById('twModeHelp').textContent=(m==='A')
+    ? 'Enter your current W2 salary and we will solve for the 1099 hourly rate that leaves you equally well off.'
+    : 'Enter the hourly rate you have been offered and we will solve for the W2 salary that would match it.';
+  document.getElementById('twResults').style.display='none';
+  document.getElementById('twEmpty').style.display='block';
+  document.getElementById('twErr').style.display='none';
+}
+
+function twFail(msg){
+  var e=document.getElementById('twErr');
+  e.innerHTML=msg;
+  e.style.display='block';
+  document.getElementById('twResults').style.display='none';
+  document.getElementById('twEmpty').style.display='block';
+}
+
+function twCalc(){
+  var st=document.getElementById('twStatus').value;
+  var hrs=twNum('twHrs'), wks=twNum('twWks'), pto=twNum('twPto');
+  var match=twNum('twMatch')/100, empH=twNum('twEmpHealth')*12;
+  var exp=twNum('twExpenses'), ownH=twNum('twOwnHealth')*12;
+
+  if(hrs<=0||wks<=0){ return twFail('<strong>Add your working hours.</strong> Enter hours per week and weeks per year so we can work out your billable hours.'); }
+  if(pto*(hrs/5)>=hrs*wks){ return twFail('<strong>Check your paid days off.</strong> That figure uses up your entire working year, which leaves no hours to bill.'); }
+
+  var totalHrs=hrs*wks;
+  var billable=totalHrs-(pto*(hrs/5));
+  document.getElementById('twErr').style.display='none';
+
+  var W,C,headLabel,headValue,headNote,verdict,benefits;
+
+  if(twMode==='A'){
+    var sal=twNum('twSalary');
+    if(sal<=0){ return twFail('<strong>Add your salary.</strong> Enter your annual W2 salary to find the contract rate that matches it.'); }
+    W=twW2(sal,st);
+    benefits=sal*match+empH;
+    var target=W.net+benefits;
+    var reqRev=twBisect(function(r){ return tw1099(r,exp,ownH,st).net; },target,0,5000000);
+    C=tw1099(reqRev,exp,ownH,st);
+    var rate=reqRev/billable;
+    var w2Hourly=sal/totalHrs;
+    headLabel='Breakeven 1099 hourly rate';
+    headValue=twFmt2(rate);
+    headNote='You would need <strong>'+twFmt(reqRev)+'</strong> of contracting revenue across <strong>'+Math.round(billable).toLocaleString('en-US')+' billable hours</strong> to match this job.';
+    verdict='Your salary works out to <strong>'+twFmt2(w2Hourly)+'</strong> an hour, but the contract rate has to reach <strong>'+twFmt2(rate)+'</strong> to leave you equally well off, which is <strong>'+(rate/w2Hourly).toFixed(2)+' times</strong> your current hourly figure. That gap covers the extra '+twFmt(C.seTax-W.fica)+' in payroll tax you take on, the '+twFmt(benefits)+' of employer contributions you give up, and the '+twFmt(ownH)+' of health premiums you start paying yourself. Anything below '+twFmt2(rate)+' an hour is a pay cut.';
+  } else {
+    var rt=twNum('twRate');
+    if(rt<=0){ return twFail('<strong>Add the hourly rate.</strong> Enter the 1099 rate you have been offered to see the salary it matches.'); }
+    var rev=rt*billable;
+    C=tw1099(rev,exp,ownH,st);
+    if(C.net<=0){ return twFail('<strong>Those costs exceed the contract income.</strong> Your expenses and premiums add up to more than this rate would bring in. Check the figures above.'); }
+    var salEq=twBisect(function(x){ return twW2(x,st).net + x*match + empH; },C.net,0,5000000);
+    W=twW2(salEq,st);
+    benefits=salEq*match+empH;
+    headLabel='Equivalent W2 salary';
+    headValue=twFmt(salEq);
+    headNote='Billing <strong>'+twFmt2(rt)+'</strong> an hour over <strong>'+Math.round(billable).toLocaleString('en-US')+' billable hours</strong> produces '+twFmt(rev)+' of revenue.';
+    verdict='After expenses, self employment tax, the qualified business income deduction, federal income tax and your own premiums, this contract leaves you with <strong>'+twFmt(C.net)+'</strong>. Matching that as an employee, with the same benefits assumptions, would take a salary of about <strong>'+twFmt(salEq)+'</strong>. If the best W2 offer you have is below that figure, the contract is ahead. If it is higher, the salary wins.';
+  }
+
+  var w2Total=W.net+benefits;
+  var contractorWins=C.net>w2Total;
+
+  var wRows=''
+    + twRow('Gross salary',twFmt(W.gross))
+    + twRow('Social Security and Medicare','-'+twFmt(W.fica))
+    + twRow('Federal income tax','-'+twFmt(W.inc))
+    + twRow('Take home pay',twFmt(W.net))
+    + twRow('Employer contributions','+'+twFmt(benefits))
+    + twRow('Effective federal rate',((W.fica+W.inc)/Math.max(1,W.gross)*100).toFixed(1)+'%');
+
+  var cRows=''
+    + twRow('Contract revenue',twFmt(C.rev))
+    + twRow('Business expenses','-'+twFmt(C.exp))
+    + twRow('Self employment tax','-'+twFmt(C.seTax))
+    + twRow('Half of SE tax deducted',twFmt(C.half))
+    + twRow('QBI deduction',twFmt(C.qbi))
+    + twRow('Federal income tax','-'+twFmt(C.inc))
+    + twRow('Health premiums','-'+twFmt(C.health))
+    + twRow('Effective federal rate',((C.seTax+C.inc)/Math.max(1,C.rev)*100).toFixed(1)+'%');
+
+  var warn='';
+  if(C.limited){
+    warn='<div class="tw-warn" style="display:block"><strong>Qualified business income deduction reduced.</strong> Your income is above the '+twFmt(TW_QBI_A[st])+' threshold for this filing status, so the deduction is phased down here. This assumes a specified service business such as consulting, health, law, accounting or finance. If your work is not a specified service business you may keep more of the deduction, which would lower the rate you need.</div>';
+  }
+
+  var html=''
+    + '<div class="tw-headline">'
+    +   '<div><div class="tw-headline-label">'+headLabel+'</div><div class="tw-headline-value">'+headValue+'</div></div>'
+    +   '<div class="tw-headline-note">'+headNote+'</div>'
+    + '</div>'
+    + '<div class="result-grid">'
+    +   '<div class="result-item"><span class="result-label">W2 Total Value</span><span class="result-value" style="color:#059669">'+twFmt(w2Total)+'</span></div>'
+    +   '<div class="result-item"><span class="result-label">1099 Take-Home</span><span class="result-value" style="color:#059669">'+twFmt(C.net)+'</span></div>'
+    +   '<div class="result-item"><span class="result-label">Billable Hours</span><span class="result-value">'+Math.round(billable).toLocaleString('en-US')+'</span></div>'
+    +   '<div class="result-item"><span class="result-label">Extra Payroll Tax</span><span class="result-value">'+twFmt(Math.max(0,C.seTax-W.fica))+'</span></div>'
+    + '</div>'
+    + '<div class="tw-verdict">'+verdict+'</div>'
+    + warn
+    + '<div class="tw-two">'
+    +   '<div class="tw-col'+(contractorWins?'':' win')+'"><div class="tw-ch">W2 employee</div><div class="tw-sub">Salary plus benefits</div><div class="tw-net">'+twFmt(w2Total)+'</div>'+wRows+'</div>'
+    +   '<div class="tw-col'+(contractorWins?' win':'')+'"><div class="tw-ch">1099 contractor</div><div class="tw-sub">After tax and premiums</div><div class="tw-net">'+twFmt(C.net)+'</div>'+cRows+'</div>'
+    + '</div>'
+    + '<p class="tw-note-sm">Federal estimate only. State income tax, local tax and city business taxes are not included, and in high tax states they can change this comparison meaningfully. This does not model an S corporation election, dependants, credits, or other household income.</p>';
+
+  var el=document.getElementById('twResults');
+  el.innerHTML=html;
+  el.style.display='block';
+  document.getElementById('twEmpty').style.display='none';
+  el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function twReset(){
+  ['twSalary','twRate','twHrs','twWks','twPto','twMatch','twEmpHealth','twExpenses','twOwnHealth'].forEach(function(id){
+    document.getElementById(id).value='';
+  });
+  document.getElementById('twStatus').value='single';
+  document.getElementById('twResults').style.display='none';
+  document.getElementById('twResults').innerHTML='';
+  document.getElementById('twErr').style.display='none';
+  document.getElementById('twEmpty').style.display='block';
+  document.getElementById('twEmpty').scrollIntoView({behavior:'smooth',block:'center'});
+}
+</script>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Helping you keep more of what you earn. Free financial calculators and educational money guides for Americans in every state.</p>
+</div>
+<div>
+<h4>Calculators</h4>
+<a href="../1099-vs-w2-calculator/">1099 vs W2</a>
+<a href="../federal-income-tax-calculator/">Federal Income Tax</a>
+<a href="../paycheck-calculator/">Take-Home Pay</a>
+<a href="../savings-calculator/">Savings</a>
+<a href="../budget-planner/">Budget Planner</a>
+<a href="../retirement-calculator/">Retirement</a>
+<a href="../401k-calculator/">401(k)</a>
+<a href="../mortgage-calculator/">Mortgage</a>
+</div>
+<div>
+<h4>Resources</h4>
+<a href="../blog/">Blog</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../banking/">Banking</a>
+<a href="../contact/">Contact Us</a>
+<a href="../about/">About Us</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div>
+<h4>Legal</h4>
+<a href="../privacy-policy/">Privacy Policy</a>
+<a href="../terms-of-service/">Terms of Service</a>
+<a href="../cookie-policy/">Cookie Policy</a>
+<a href="../disclaimer/">Disclaimer</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
+<p>Educational content only, not tax or financial advice. SavingsClub is not a licensed tax professional or financial advisor. Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+</div>
+</div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
+function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
+var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
+</script>
+
+<script>
+(function(){
+if(localStorage.getItem('sc_cookies'))return;
+var b=document.createElement('div');
+b.id='cookieBanner';
+b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
+var acceptBtn=document.createElement('button');
+acceptBtn.textContent='Accept';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#059669,#10B981);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
+var declineBtn=document.createElement('button');
+declineBtn.textContent='Decline';
+declineBtn.style.cssText='background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:8px;cursor:pointer';
+declineBtn.onclick=function(){
+localStorage.setItem('sc_cookies','decline');
+b.innerHTML='';
+var msg=document.createElement('span');
+msg.style.cssText='padding:12px 0;color:#10B981';
+msg.textContent='Preference saved.';
+b.appendChild(msg);
+setTimeout(function(){b.remove();},2000);
+};
+var txt=document.createElement('span');
+txt.innerHTML='We use basic analytics cookies to understand site traffic. <a href="/cookie-policy/" style="color:#10B981">Cookie Policy</a>';
+var btnWrap=document.createElement('div');
+btnWrap.style.cssText='display:flex;gap:8px';
+btnWrap.appendChild(acceptBtn);
+btnWrap.appendChild(declineBtn);
+b.appendChild(txt);
+b.appendChild(btnWrap);
+document.body.appendChild(b);
+})();
+</script>
+
+</body>
+</html>
