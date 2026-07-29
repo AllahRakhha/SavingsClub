@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Ratios Calculator: Book Value, ROCE, WACC</title>
+<meta name="description" content="Free financial ratios calculator. Compute book value per share, ROCE, WACC, tangible net worth, capital gains yield, and more with the formula for each.">
+<link rel="canonical" href="https://savingsclub.com/financial-ratios-calculator/">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="author" content="SavingsClub Research Team">
+<meta property="og:title" content="Financial Ratios Calculator: Book Value, ROCE, WACC">
+<meta property="og:description" content="Compute book value per share, ROCE, WACC, tangible net worth, capital gains yield, and more, each with its formula explained.">
+<meta property="og:url" content="https://savingsclub.com/financial-ratios-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SavingsClub">
+<meta property="og:image" content="https://savingsclub.com/img/sc-logo-full.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Financial Ratios Calculator: Book Value, ROCE, WACC">
+<meta name="twitter:description" content="Compute book value per share, ROCE, WACC, tangible net worth, capital gains yield, and more.">
+<meta name="twitter:image" content="https://savingsclub.com/img/sc-logo-full.png">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/sc-favicon.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/sc-favicon.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/sc-favicon.png?v=2">
+<link rel="shortcut icon" href="/img/sc-favicon.png?v=2">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"></noscript>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://savingsclub.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://savingsclub.com/savings-calculator/"},{"@type":"ListItem","position":3,"name":"Financial Ratios Calculator","item":"https://savingsclub.com/financial-ratios-calculator/"}]}</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"How do you calculate book value per share?","acceptedAnswer":{"@type":"Answer","text":"Book value per share equals total shareholder equity minus preferred equity, divided by the number of common shares outstanding. If a company has 10 million dollars of common equity and 1 million shares, the book value per share is 10 dollars. It represents the accounting value backing each share, and investors compare it to the market price to judge whether a stock trades above or below its net asset value."}},
+    {"@type":"Question","name":"What is the ROCE formula?","acceptedAnswer":{"@type":"Answer","text":"Return on capital employed equals earnings before interest and tax, or EBIT, divided by capital employed, where capital employed is total assets minus current liabilities. The result is shown as a percentage. A firm with 200,000 dollars of EBIT and 800,000 dollars of capital employed has an ROCE of 25 percent, meaning it generates 25 cents of operating profit for every dollar of long term capital it uses."}},
+    {"@type":"Question","name":"How is WACC calculated?","acceptedAnswer":{"@type":"Answer","text":"The weighted average cost of capital blends the cost of equity and the after tax cost of debt by their share of total financing. The formula is the equity weight times the cost of equity, plus the debt weight times the cost of debt times one minus the tax rate. A company financed 60 percent by equity at 10 percent and 40 percent by debt at 5 percent, taxed at 21 percent, has a WACC of about 7.58 percent."}},
+    {"@type":"Question","name":"What is the formula for tangible net worth?","acceptedAnswer":{"@type":"Answer","text":"Tangible net worth equals total assets minus total liabilities minus intangible assets such as goodwill, patents, and trademarks. It strips out items that cannot easily be sold to show the hard asset value backing a business. Lenders lean on this figure because it reflects what could realistically be recovered, rather than accounting values that may not survive a sale."}},
+    {"@type":"Question","name":"How do you calculate capital gains yield?","acceptedAnswer":{"@type":"Answer","text":"Capital gains yield is the ending price minus the beginning price, divided by the beginning price, shown as a percentage. A share bought at 50 dollars and now worth 60 dollars has a capital gains yield of 20 percent. It measures only the price appreciation of an investment, separate from any dividend income, which the holding period return captures instead."}},
+    {"@type":"Question","name":"What is the difference between capital gains yield and holding period return?","acceptedAnswer":{"@type":"Answer","text":"Capital gains yield counts only the change in price. Holding period return adds any income received, such as dividends or interest, to that price change before dividing by the starting value. A stock that rose from 100 to 110 dollars and paid a 5 dollar dividend has a 10 percent capital gains yield but a 15 percent holding period return. The gap is the income component."}},
+    {"@type":"Question","name":"How do you calculate the real rate of return?","acceptedAnswer":{"@type":"Answer","text":"The real rate of return adjusts a nominal return for inflation using the formula one plus the nominal rate divided by one plus the inflation rate, minus one. A 7 percent nominal return with 3 percent inflation gives a real return of about 3.88 percent, not 4 percent, because the simple subtraction ignores compounding. The real figure shows the true growth in purchasing power."}},
+    {"@type":"Question","name":"What is the equity multiplier formula?","acceptedAnswer":{"@type":"Answer","text":"The equity multiplier equals total assets divided by total shareholder equity. It shows how much of a company's assets are financed by equity versus debt. A multiplier of 2.5 means the firm holds 2.50 dollars of assets for every dollar of equity, with the rest funded by liabilities. A higher figure signals more leverage and, with it, more financial risk."}},
+    {"@type":"Question","name":"Are these financial ratio calculators free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every ratio on this page is free, with no sign up and no limit on how many times you can run it. Choose a ratio, enter the figures from a company's balance sheet or income statement, and the tool returns the result along with the formula it used, so you can follow the calculation yourself."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav id="mainNav">
+<div class="nav-inner">
+<div class="logo" onclick="location.href='/'">
+<div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+SavingsClub
+</div>
+<div class="nav-links" id="navLinks">
+<a href="/">Home</a>
+<a href="../savings-calculator/" class="active">Calculators</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../banking/">Banking</a>
+<a href="../about/">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="/">Home</a>
+<a href="../investment-calculator/">Investment</a>
+<a href="../net-worth-calculator/">Net Worth</a>
+<a href="../savings-calculator/">Savings</a>
+<a href="../budget-planner/">Budget</a>
+<a href="../retirement-calculator/">Retirement</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../blog/">Blog</a>
+<a href="../about/">About</a>
+<a href="../faq/">FAQ</a>
+</div>
+
+<style>
+.fr-hero{background:linear-gradient(135deg,#0A1628 0%,#0F2540 50%,#059669 100%);color:#fff;padding:110px 24px 54px;position:relative;overflow:hidden}
+.fr-hero::before{content:'';position:absolute;top:-30%;right:-10%;width:55%;height:170%;background:radial-gradient(circle,rgba(16,185,129,.20) 0%,transparent 62%);pointer-events:none}
+.fr-hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
+.fr-badge{display:inline-block;background:rgba(16,185,129,.18);color:#34D399;padding:7px 16px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;margin-bottom:14px;border:1px solid rgba(16,185,129,.35)}
+.fr-hero h1{color:#fff;font-size:clamp(27px,4vw,40px);font-weight:800;line-height:1.12;margin:0 0 12px;letter-spacing:-.02em;font-family:'Plus Jakarta Sans',sans-serif}
+.fr-hero-sub{color:rgba(255,255,255,.86);font-size:1.02rem;line-height:1.6;margin:0 0 14px;max-width:680px}
+.fr-byline{color:rgba(255,255,255,.6);font-size:.82rem;margin:0 0 8px}
+.fr-hero-disc{color:rgba(255,255,255,.5);font-size:.78rem;font-style:italic;margin:0}
+
+.fr-body{padding:36px 0 70px}
+.fr-card{background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.fr-section-title{font-size:1.02rem;font-weight:700;color:#0A1628;margin:24px 0 12px;display:flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans',sans-serif}
+.fr-section-title:first-child{margin-top:0}
+.fr-section-title .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#059669,#10B981);flex-shrink:0}
+.fr-help{font-size:.8rem;color:#64748B;margin:8px 0 0;line-height:1.5}
+.calc-grid select{width:100%;padding:14px 38px 14px 16px;border:1px solid #E5E7EB;border-radius:12px;font-family:inherit;font-size:1rem;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%236B7280' stroke-width='1.6'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 16px center;background-size:12px;color:#0A1628;cursor:pointer;appearance:none;-webkit-appearance:none}
+.calc-grid select:focus{outline:none;border-color:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,.12)}
+
+.fr-btn-row{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0 6px}
+.fr-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:999px;font-weight:700;font-size:1rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;border:none;transition:transform .15s,box-shadow .2s}
+.fr-btn-primary{background:linear-gradient(135deg,#059669,#10B981);color:#fff;box-shadow:0 6px 18px rgba(5,150,105,.32)}
+.fr-btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(5,150,105,.42)}
+.fr-btn-reset{background:#fff;color:#475569;border:1.5px solid #E2E8F0}
+.fr-btn-reset:hover{border-color:#10B981;color:#059669}
+.fr-btn svg{width:18px;height:18px}
+.fr-err{display:none;background:#FEF3C7;border:1px solid #FCD34D;border-radius:12px;padding:14px 18px;margin-top:16px;font-size:.92rem;color:#78350F;line-height:1.6}
+
+.fr-empty{background:#F8FAFC;border:1.5px dashed #CBD5E1;border-radius:16px;padding:44px 24px;text-align:center;margin-top:20px}
+.fr-empty-icon{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,#ECFDF5,#D1FAE5);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.fr-empty-icon svg{width:27px;height:27px;color:#059669}
+.fr-empty-title{font-size:1.1rem;color:#0A1628;margin:0 0 6px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700}
+.fr-empty p{color:#64748B;font-size:.94rem;margin:0 auto;max-width:460px}
+
+.fr-headline{background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border:1px solid #A7F3D0;border-radius:14px;padding:18px 22px;margin:8px 0 18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.fr-headline-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.07em;color:#047857;font-weight:700}
+.fr-headline-value{font-size:2rem;font-weight:800;color:#064E3B;line-height:1;font-family:'Plus Jakarta Sans',sans-serif}
+.fr-headline-note{font-size:.82rem;color:#047857;max-width:340px;line-height:1.5}
+.fr-formula-box{background:#F8FAFC;border-left:3px solid #10B981;border-radius:8px;padding:14px 18px;margin-top:16px;font-size:.9rem;color:#334155;line-height:1.7}
+.fr-formula-box code{background:#ECFDF5;color:#047857;padding:2px 7px;border-radius:5px;font-size:.88rem;font-weight:600}
+
+.fr-ratios-content h2{scroll-margin-top:90px}
+.fr-mini-formula{background:#F0FDF4;border:1px solid #A7F3D0;border-radius:10px;padding:12px 16px;margin:10px 0 14px;font-size:.9rem;color:#065F46;font-weight:600}
+
+.fr-tips-card{background:linear-gradient(135deg,#ECFDF5 0%,#F0FDF4 100%);border:1px solid #A7F3D0;border-radius:16px;padding:22px;margin:28px 0}
+.fr-tips-header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.fr-tips-icon{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,#059669,#10B981);display:flex;align-items:center;justify-content:center}
+.fr-tips-icon svg{width:21px;height:21px;color:#fff}
+.fr-tips-title{font-weight:800;color:#064E3B;font-size:1.1rem;font-family:'Plus Jakarta Sans',sans-serif}
+.fr-tips-list{display:flex;flex-direction:column;gap:12px}
+.fr-tip{background:rgba(255,255,255,.7);border-radius:10px;padding:13px 15px;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.fr-tip-num{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#059669,#10B981);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;flex-shrink:0}
+.fr-tip-body{font-size:.9rem;line-height:1.55;color:#064E3B}
+.fr-tip-body strong{color:#047857}
+
+.fr-related h3{font-size:1.1rem;margin:0 0 12px;color:#0A1628;font-family:'Plus Jakarta Sans',sans-serif;display:flex;align-items:center;gap:8px}
+.fr-related h3 svg{width:20px;height:20px;color:#059669}
+
+@media(max-width:760px){
+  .fr-hero{padding:96px 20px 44px}
+  .fr-card{padding:20px}
+  .fr-headline-value{font-size:1.6rem}
+}
+@media(prefers-reduced-motion:reduce){.fr-btn{transition:none}}
+</style>
+
+<header class="fr-hero">
+  <div class="fr-hero-inner">
+    <span class="fr-badge">Free Tool</span>
+    <h1>Financial Ratios Calculator</h1>
+    <p class="fr-hero-sub">A single financial ratios calculator for the numbers investors and analysts use most: book value per share, ROCE, WACC, tangible net worth, capital gains yield, and more. Pick a ratio, enter the figures, and see the result with the formula it used.</p>
+    <p class="fr-byline">By SavingsClub Research Team &middot; Updated July 2026</p>
+    <p class="fr-hero-disc">Educational tool, not investment advice. SavingsClub is not a licensed financial advisor. Always verify figures against audited statements.</p>
+  </div>
+</header>
+
+<section class="fr-body">
+<div class="container">
+
+<div class="fr-card">
+
+<div class="fr-section-title"><span class="dot"></span> Choose a ratio</div>
+<div class="calc-grid">
+<div>
+<label>Which ratio do you want to calculate?</label>
+<select id="frSelect" onchange="frBuildInputs()">
+<option value="bvps">Book Value Per Share</option>
+<option value="tnw">Tangible Net Worth</option>
+<option value="roce">ROCE (Return on Capital Employed)</option>
+<option value="wacc">WACC (Weighted Average Cost of Capital)</option>
+<option value="em">Equity Multiplier</option>
+<option value="cgy">Capital Gains Yield</option>
+<option value="hpr">Holding Period Return</option>
+<option value="rrr">Real Rate of Return</option>
+<option value="dps">Dividend Per Share</option>
+<option value="cm">Contribution Margin Per Unit</option>
+</select>
+</div>
+</div>
+
+<div class="fr-section-title"><span class="dot"></span> <span id="frInputTitle">Enter your figures</span></div>
+<div class="calc-grid" id="frInputs"></div>
+<p class="fr-help" id="frInputHelp"></p>
+
+<div class="fr-btn-row">
+<button class="fr-btn fr-btn-primary" onclick="frCalc()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>Calculate</button>
+<button class="fr-btn fr-btn-reset" onclick="frReset()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 109-9 9 9 0 00-6.4 2.6L3 8"/><path d="M3 3v5h5"/></svg>Reset</button>
+</div>
+
+<div class="fr-err" id="frErr"></div>
+
+<div id="frEmpty" class="fr-empty">
+  <div class="fr-empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 9l-5 5-3-3-4 4"/></svg></div>
+  <div class="fr-empty-title">Your result will appear here</div>
+  <p>Pick a ratio, enter the figures from a balance sheet or income statement, and click Calculate to see the result and the formula behind it.</p>
+</div>
+
+<div id="frResults" style="display:none"></div>
+
+</div>
+
+<div class="seo-content fr-ratios-content">
+<h2>The ten ratios in this calculator</h2>
+<p>Each ratio below answers a different question about a company or an investment. Select it in the tool above to compute it, then use the explanation here to read the result. Every figure comes straight from a balance sheet, an income statement, or a pair of prices, so you can trace each answer back to a source document.</p>
+
+<h2>Book value per share</h2>
+<div class="fr-mini-formula">Book Value Per Share = (Total Equity − Preferred Equity) ÷ Shares Outstanding</div>
+<p>Book value per share is the accounting value backing each common share. You calculate book value per share by taking total shareholder equity, removing any preferred equity that ranks ahead of common holders, and dividing by the common shares outstanding. If equity is 10 million dollars with no preferred stock and there are 1 million shares, the figure is 10 dollars. Investors compare it to the market price: a share trading well below its book value may be cheap, or may signal that the market doubts the stated asset values. Our <a href="../net-worth-calculator/">net worth calculator</a> applies the same assets minus liabilities logic to a household.</p>
+
+<h2>Tangible net worth</h2>
+<div class="fr-mini-formula">Tangible Net Worth = Total Assets − Total Liabilities − Intangible Assets</div>
+<p>The tangible net worth formula strips intangibles such as goodwill, patents, and brand value out of equity to show the hard asset base of a business. Lenders rely on it because intangibles rarely survive a forced sale, so this number better reflects what could be recovered. A firm with 500,000 dollars in assets, 200,000 in liabilities, and 50,000 of intangibles has a tangible net worth of 250,000 dollars.</p>
+
+<h2>ROCE, return on capital employed</h2>
+<div class="fr-mini-formula">ROCE = EBIT ÷ (Total Assets − Current Liabilities) × 100</div>
+<p>The ROCE formula measures how efficiently a company turns its long term capital into operating profit. Divide earnings before interest and tax by capital employed, which is total assets minus current liabilities, then express it as a percentage. A return on capital employed of 25 percent means the business earns 25 cents of operating profit per dollar of capital it ties up. It is most useful compared across firms in the same industry or against a company's own history.</p>
+
+<h2>WACC, weighted average cost of capital</h2>
+<div class="fr-mini-formula">WACC = (E ÷ V × Cost of Equity) + (D ÷ V × Cost of Debt × (1 − Tax Rate))</div>
+<p>WACC is the blended rate a company pays to finance itself across both equity and debt, weighted by how much of each it uses. Because interest is tax deductible, the debt portion is multiplied by one minus the tax rate. A business funded 60 percent by equity costing 10 percent and 40 percent by debt costing 5 percent, taxed at 21 percent, has a WACC near 7.58 percent. Analysts use it as the discount rate when valuing future cash flows, so a lower WACC raises what a company is worth.</p>
+
+<h2>Equity multiplier</h2>
+<div class="fr-mini-formula">Equity Multiplier = Total Assets ÷ Total Shareholder Equity</div>
+<p>The equity multiplier formula shows how heavily a company leans on debt to fund its assets. Total assets divided by equity gives a figure where 2.5 means 2.50 dollars of assets sit on every dollar of equity, with liabilities covering the gap. A higher multiplier means more leverage, which lifts returns in good years and deepens losses in bad ones. It is one of the three components of the DuPont breakdown of return on equity.</p>
+
+<h2>Capital gains yield</h2>
+<div class="fr-mini-formula">Capital Gains Yield = (Ending Price − Beginning Price) ÷ Beginning Price × 100</div>
+<p>The capital gains yield formula isolates the price appreciation of an investment, ignoring income. Buy a share at 50 dollars, watch it reach 60, and the capital gains yield is 20 percent. It pairs naturally with dividend yield: together they make up an investment's total return. Use it when you want to separate how much of your gain came from price movement rather than payouts.</p>
+
+<h2>Holding period return</h2>
+<div class="fr-mini-formula">Holding Period Return = (Income + (Ending − Beginning)) ÷ Beginning × 100</div>
+<p>The holding period yield formula captures the complete return over the time you owned an asset, both price change and income. A stock that climbed from 100 to 110 dollars and paid a 5 dollar dividend delivered a 15 percent holding period return, versus a 10 percent capital gains yield alone. The extra 5 points is the dividend. This is the honest measure of what an investment actually returned in hand.</p>
+
+<h2>Real rate of return</h2>
+<div class="fr-mini-formula">Real Rate of Return = ((1 + Nominal Rate) ÷ (1 + Inflation Rate)) − 1</div>
+<p>To calculate the real rate of return, adjust a nominal return for inflation rather than simply subtracting it. A 7 percent nominal return against 3 percent inflation gives about 3.88 percent, slightly below the 4 percent that subtraction would suggest, because the precise formula accounts for compounding. This is the number that reflects real growth in purchasing power, and our <a href="../inflation-calculator/">inflation calculator</a> shows the same erosion applied to a dollar amount over time.</p>
+
+<h2>Dividend per share</h2>
+<div class="fr-mini-formula">Dividend Per Share = Total Dividends Paid ÷ Shares Outstanding</div>
+<p>Dividend per share tells you the cash a company distributes on each share over a period. Divide total dividends paid to common holders by the shares outstanding: 500,000 dollars across 1 million shares is 50 cents per share. Track it over several years to see whether a payout is growing, flat, or being cut, which often says more about management confidence than a single year's figure does.</p>
+
+<h2>Contribution margin per unit</h2>
+<div class="fr-mini-formula">Contribution Margin = Sale Price Per Unit − Variable Cost Per Unit</div>
+<p>Contribution margin per unit is the amount each sale contributes toward fixed costs and profit after covering its own variable cost. Sell an item for 50 dollars that costs 30 in materials and labor, and each unit contributes 20 dollars. It is the foundation of break even analysis, since dividing fixed costs by the contribution margin tells you how many units you must sell before you start making a profit. For a household version of the same idea, our <a href="../budget-planner/">budget planner</a> shows what is left after your fixed and variable spending.</p>
+</div>
+
+<div class="fr-tips-card">
+  <div class="fr-tips-header">
+    <div class="fr-tips-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0012 2z"/></svg></div>
+    <div class="fr-tips-title">SavingsClub Tips</div>
+  </div>
+  <div class="fr-tips-list">
+    <div class="fr-tip"><div class="fr-tip-num">1</div><div class="fr-tip-body"><strong>A ratio means little in isolation.</strong> Compare it to the same company over several years, or to rivals in the same industry. A 25 percent ROCE is strong for a utility and weak for a software firm.</div></div>
+    <div class="fr-tip"><div class="fr-tip-num">2</div><div class="fr-tip-body"><strong>Match the source documents.</strong> Balance sheet figures like assets and equity are point in time snapshots, while income statement figures like EBIT cover a period. Mixing dates quietly distorts a ratio.</div></div>
+    <div class="fr-tip"><div class="fr-tip-num">3</div><div class="fr-tip-body"><strong>Watch for intangibles.</strong> Two firms with identical book value can differ hugely once goodwill is removed. Run tangible net worth alongside book value before drawing conclusions.</div></div>
+  </div>
+</div>
+
+<div class="seo-content" style="margin-top:8px">
+<h2>Frequently Asked Questions</h2>
+
+<h3>How do you calculate book value per share?</h3>
+<p>Book value per share equals total shareholder equity minus preferred equity, divided by the number of common shares outstanding. If a company has 10 million dollars of common equity and 1 million shares, the book value per share is 10 dollars. It represents the accounting value backing each share, and investors compare it to the market price to judge whether a stock trades above or below its net asset value.</p>
+
+<h3>What is the ROCE formula?</h3>
+<p>Return on capital employed equals earnings before interest and tax, or EBIT, divided by capital employed, where capital employed is total assets minus current liabilities. The result is shown as a percentage. A firm with 200,000 dollars of EBIT and 800,000 dollars of capital employed has an ROCE of 25 percent, meaning it generates 25 cents of operating profit for every dollar of long term capital it uses.</p>
+
+<h3>How is WACC calculated?</h3>
+<p>The weighted average cost of capital blends the cost of equity and the after tax cost of debt by their share of total financing. The formula is the equity weight times the cost of equity, plus the debt weight times the cost of debt times one minus the tax rate. A company financed 60 percent by equity at 10 percent and 40 percent by debt at 5 percent, taxed at 21 percent, has a WACC of about 7.58 percent.</p>
+
+<h3>What is the formula for tangible net worth?</h3>
+<p>Tangible net worth equals total assets minus total liabilities minus intangible assets such as goodwill, patents, and trademarks. It strips out items that cannot easily be sold to show the hard asset value backing a business. Lenders lean on this figure because it reflects what could realistically be recovered, rather than accounting values that may not survive a sale.</p>
+
+<h3>How do you calculate capital gains yield?</h3>
+<p>Capital gains yield is the ending price minus the beginning price, divided by the beginning price, shown as a percentage. A share bought at 50 dollars and now worth 60 dollars has a capital gains yield of 20 percent. It measures only the price appreciation of an investment, separate from any dividend income, which the holding period return captures instead.</p>
+
+<h3>What is the difference between capital gains yield and holding period return?</h3>
+<p>Capital gains yield counts only the change in price. Holding period return adds any income received, such as dividends or interest, to that price change before dividing by the starting value. A stock that rose from 100 to 110 dollars and paid a 5 dollar dividend has a 10 percent capital gains yield but a 15 percent holding period return. The gap is the income component.</p>
+
+<h3>How do you calculate the real rate of return?</h3>
+<p>The real rate of return adjusts a nominal return for inflation using the formula one plus the nominal rate divided by one plus the inflation rate, minus one. A 7 percent nominal return with 3 percent inflation gives a real return of about 3.88 percent, not 4 percent, because the simple subtraction ignores compounding. The real figure shows the true growth in purchasing power.</p>
+
+<h3>What is the equity multiplier formula?</h3>
+<p>The equity multiplier equals total assets divided by total shareholder equity. It shows how much of a company's assets are financed by equity versus debt. A multiplier of 2.5 means the firm holds 2.50 dollars of assets for every dollar of equity, with the rest funded by liabilities. A higher figure signals more leverage and, with it, more financial risk.</p>
+
+<h3>Are these financial ratio calculators free to use?</h3>
+<p>Yes. Every ratio on this page is free, with no sign up and no limit on how many times you can run it. Choose a ratio, enter the figures from a company's balance sheet or income statement, and the tool returns the result along with the formula it used, so you can follow the calculation yourself.</p>
+</div>
+
+<div class="fr-related" style="margin-top:24px">
+<h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg> Related Guides</h3>
+<a href="../blog/how-to-create-multiple-streams-of-income/" class="related-blog-card">How to Create Multiple Streams of Income</a>
+<a href="../blog/how-to-prepare-financially-for-a-recession/" class="related-blog-card">How to Prepare Financially for a Recession</a>
+</div>
+
+<div class="related-tools" style="margin-top:24px">
+<h3>More Free Calculators</h3>
+<a href="../investment-calculator/" class="related-tool-link">Investment Growth</a>
+<a href="../net-worth-calculator/" class="related-tool-link">Net Worth</a>
+<a href="../compound-interest-calculator/" class="related-tool-link">Compound Interest</a>
+<a href="../inflation-calculator/" class="related-tool-link">Inflation</a>
+<a href="../roth-ira-calculator/" class="related-tool-link">Roth IRA</a>
+<a href="../retirement-calculator/" class="related-tool-link">Retirement Planner</a>
+<a href="../savings-calculator/" class="related-tool-link">Savings Calculator</a>
+<a href="../budget-planner/" class="related-tool-link">Budget Planner</a>
+<a href="../cd-calculator/" class="related-tool-link">CD Calculator</a>
+<a href="../loan-payoff-calculator/" class="related-tool-link">Loan Payoff</a>
+</div>
+
+</div>
+</section>
+
+<script>
+/* ===== Ratio definitions ===== */
+var FR = {
+  bvps:{ title:'Book Value Per Share', unit:'$', help:'From the balance sheet. Use common shares outstanding, not diluted, unless you specifically want the diluted figure.',
+    inputs:[['e','Total Shareholder Equity ($)','10000000'],['pref','Preferred Equity ($)','0'],['sh','Common Shares Outstanding','1000000']],
+    calc:function(v){ if(v.sh<=0)return null; return (v.e-v.pref)/v.sh; },
+    formula:'(Total Equity − Preferred Equity) ÷ Shares Outstanding', fmt:'money', note:'the accounting value backing each common share' },
+  tnw:{ title:'Tangible Net Worth', unit:'$', help:'Intangibles include goodwill, patents, trademarks, and other assets that cannot easily be sold.',
+    inputs:[['a','Total Assets ($)','500000'],['l','Total Liabilities ($)','200000'],['intang','Intangible Assets ($)','50000']],
+    calc:function(v){ return v.a-v.l-v.intang; },
+    formula:'Total Assets − Total Liabilities − Intangible Assets', fmt:'money', note:'the hard asset value backing the business' },
+  roce:{ title:'ROCE', unit:'%', help:'EBIT is operating profit before interest and tax. Capital employed is total assets minus current liabilities.',
+    inputs:[['ebit','EBIT, Operating Profit ($)','200000'],['a','Total Assets ($)','1000000'],['cl','Current Liabilities ($)','200000']],
+    calc:function(v){ if((v.a-v.cl)===0)return null; return v.ebit/(v.a-v.cl)*100; },
+    formula:'EBIT ÷ (Total Assets − Current Liabilities) × 100', fmt:'pct', note:'operating profit earned per dollar of capital employed' },
+  wacc:{ title:'WACC', unit:'%', help:'Enter equity and debt as market or book values. Cost figures and tax rate are percentages.',
+    inputs:[['E','Equity Value ($)','600000'],['D','Debt Value ($)','400000'],['Re','Cost of Equity (%)','10'],['Rd','Cost of Debt (%)','5'],['Tc','Tax Rate (%)','21']],
+    calc:function(v){ var V=v.E+v.D; if(V===0)return null; return (v.E/V*v.Re)+(v.D/V*v.Rd*(1-v.Tc/100)); },
+    formula:'(E÷V × Cost of Equity) + (D÷V × Cost of Debt × (1 − Tax Rate))', fmt:'pct', note:'the blended after tax cost of financing' },
+  em:{ title:'Equity Multiplier', unit:'x', help:'Both figures come from the balance sheet at the same date.',
+    inputs:[['a','Total Assets ($)','1000000'],['e','Total Shareholder Equity ($)','400000']],
+    calc:function(v){ if(v.e===0)return null; return v.a/v.e; },
+    formula:'Total Assets ÷ Total Shareholder Equity', fmt:'mult', note:'dollars of assets held per dollar of equity' },
+  cgy:{ title:'Capital Gains Yield', unit:'%', help:'Use the price you paid and the current or ending price. Dividends are handled by holding period return instead.',
+    inputs:[['p0','Beginning Price ($)','50'],['p1','Ending Price ($)','60']],
+    calc:function(v){ if(v.p0===0)return null; return (v.p1-v.p0)/v.p0*100; },
+    formula:'(Ending Price − Beginning Price) ÷ Beginning Price × 100', fmt:'pct', note:'price appreciation only, before income' },
+  hpr:{ title:'Holding Period Return', unit:'%', help:'Income is any dividends or interest received while you held the asset.',
+    inputs:[['p0','Beginning Price ($)','100'],['p1','Ending Price ($)','110'],['inc','Income Received ($)','5']],
+    calc:function(v){ if(v.p0===0)return null; return (v.inc+(v.p1-v.p0))/v.p0*100; },
+    formula:'(Income + (Ending − Beginning)) ÷ Beginning × 100', fmt:'pct', note:'total return including income' },
+  rrr:{ title:'Real Rate of Return', unit:'%', help:'Enter your nominal return and the inflation rate over the same period.',
+    inputs:[['nom','Nominal Return (%)','7'],['inf','Inflation Rate (%)','3']],
+    calc:function(v){ return ((1+v.nom/100)/(1+v.inf/100)-1)*100; },
+    formula:'((1 + Nominal) ÷ (1 + Inflation)) − 1', fmt:'pct', note:'return adjusted for lost purchasing power' },
+  dps:{ title:'Dividend Per Share', unit:'$', help:'Use total dividends paid to common shareholders over the period.',
+    inputs:[['div','Total Dividends Paid ($)','500000'],['sh','Shares Outstanding','1000000']],
+    calc:function(v){ if(v.sh<=0)return null; return v.div/v.sh; },
+    formula:'Total Dividends Paid ÷ Shares Outstanding', fmt:'money', note:'cash distributed on each share' },
+  cm:{ title:'Contribution Margin Per Unit', unit:'$', help:'Variable cost is the per unit cost that rises with each sale, such as materials and direct labor.',
+    inputs:[['price','Sale Price Per Unit ($)','50'],['vc','Variable Cost Per Unit ($)','30']],
+    calc:function(v){ return v.price-v.vc; },
+    formula:'Sale Price Per Unit − Variable Cost Per Unit', fmt:'money', note:'amount each sale contributes to fixed costs and profit' }
+};
+
+function frFmtVal(n,fmt){
+  if(n===null||n===undefined||isNaN(n))return 'n/a';
+  if(fmt==='money')return '$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  if(fmt==='pct')return n.toFixed(2)+'%';
+  if(fmt==='mult')return n.toFixed(2)+'x';
+  return n.toFixed(2);
+}
+
+function frBuildInputs(){
+  var key=document.getElementById('frSelect').value;
+  var def=FR[key];
+  document.getElementById('frInputTitle').textContent='Enter your figures for '+def.title;
+  var html='';
+  def.inputs.forEach(function(inp){
+    html+='<div><label>'+inp[1]+'</label><input type="number" id="fr_'+inp[0]+'" placeholder="'+inp[2]+'" step="any"></div>';
+  });
+  document.getElementById('frInputs').innerHTML=html;
+  document.getElementById('frInputHelp').textContent=def.help;
+  document.getElementById('frResults').style.display='none';
+  document.getElementById('frEmpty').style.display='block';
+  document.getElementById('frErr').style.display='none';
+}
+
+function frFail(msg){
+  var e=document.getElementById('frErr');
+  e.innerHTML=msg; e.style.display='block';
+  document.getElementById('frResults').style.display='none';
+  document.getElementById('frEmpty').style.display='block';
+}
+
+function frCalc(){
+  var key=document.getElementById('frSelect').value;
+  var def=FR[key];
+  var v={}, missing=false;
+  def.inputs.forEach(function(inp){
+    var el=document.getElementById('fr_'+inp[0]);
+    var val=parseFloat(el.value);
+    if(isNaN(val)){ missing=true; val=0; }
+    v[inp[0]]=val;
+  });
+  if(missing){ return frFail('<strong>Fill in every field.</strong> Enter all of the figures for '+def.title+' to run the calculation.'); }
+  document.getElementById('frErr').style.display='none';
+
+  var result=def.calc(v);
+  if(result===null){ return frFail('<strong>Check your inputs.</strong> One of these values makes the formula undefined, such as dividing by zero. Adjust and try again.'); }
+
+  var html=''
+    + '<div class="fr-headline">'
+    +   '<div><div class="fr-headline-label">'+def.title+'</div><div class="fr-headline-value">'+frFmtVal(result,def.fmt)+'</div></div>'
+    +   '<div class="fr-headline-note">This is '+def.note+'.</div>'
+    + '</div>'
+    + '<div class="fr-formula-box"><strong>Formula used:</strong> <code>'+def.formula+'</code></div>';
+
+  var el=document.getElementById('frResults');
+  el.innerHTML=html;
+  el.style.display='block';
+  document.getElementById('frEmpty').style.display='none';
+  el.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function frReset(){
+  var key=document.getElementById('frSelect').value;
+  FR[key].inputs.forEach(function(inp){ var el=document.getElementById('fr_'+inp[0]); if(el)el.value=''; });
+  document.getElementById('frResults').style.display='none';
+  document.getElementById('frResults').innerHTML='';
+  document.getElementById('frErr').style.display='none';
+  document.getElementById('frEmpty').style.display='block';
+  document.getElementById('frEmpty').scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+frBuildInputs();
+</script>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<div class="footer-brand"><div class="logo-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>SavingsClub</div>
+<p style="font-size:.9rem;max-width:280px;line-height:1.6">Helping you keep more of what you earn. Free financial calculators and educational money guides for Americans in every state.</p>
+</div>
+<div>
+<h4>Calculators</h4>
+<a href="../investment-calculator/">Investment Growth</a>
+<a href="../net-worth-calculator/">Net Worth</a>
+<a href="../compound-interest-calculator/">Compound Interest</a>
+<a href="../savings-calculator/">Savings</a>
+<a href="../budget-planner/">Budget Planner</a>
+<a href="../retirement-calculator/">Retirement</a>
+<a href="../loan-payoff-calculator/">Loan Payoff</a>
+<a href="../cd-calculator/">CD Calculator</a>
+</div>
+<div>
+<h4>Resources</h4>
+<a href="../blog/">Blog</a>
+<a href="../credit-cards/">Credit Cards</a>
+<a href="../banking/">Banking</a>
+<a href="../contact/">Contact Us</a>
+<a href="../about/">About Us</a>
+<a href="../faq/">FAQ</a>
+</div>
+<div>
+<h4>Legal</h4>
+<a href="../privacy-policy/">Privacy Policy</a>
+<a href="../terms-of-service/">Terms of Service</a>
+<a href="../cookie-policy/">Cookie Policy</a>
+<a href="../disclaimer/">Disclaimer</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 SavingsClub. All rights reserved. <a href="mailto:info@savingsclub.com" style="color:rgba(255,255,255,.4)">info@savingsclub.com</a></p>
+<p>Educational content only, not investment or financial advice. SavingsClub is not a licensed financial advisor. Affiliate Disclosure: SavingsClub may earn commissions from products featured on this site. <a href="../disclaimer/" style="color:rgba(255,255,255,.4)">Learn more</a></p>
+</div>
+</div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.toggle('open');}
+function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
+var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){revealObs.observe(el);});});
+</script>
+
+<script>
+(function(){
+if(localStorage.getItem('sc_cookies'))return;
+var b=document.createElement('div');
+b.id='cookieBanner';
+b.style.cssText='position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#050D1A,#0A1628);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:.9rem;border-top:2px solid;border-image:linear-gradient(90deg,#059669,#10B981,#34D399) 1;backdrop-filter:blur(20px)';
+var acceptBtn=document.createElement('button');
+acceptBtn.textContent='Accept';
+acceptBtn.style.cssText='background:linear-gradient(135deg,#059669,#10B981);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600';
+acceptBtn.onclick=function(){localStorage.setItem('sc_cookies','accept');b.remove();};
+var declineBtn=document.createElement('button');
+declineBtn.textContent='Decline';
+declineBtn.style.cssText='background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:8px;cursor:pointer';
+declineBtn.onclick=function(){
+localStorage.setItem('sc_cookies','decline');
+b.innerHTML='';
+var msg=document.createElement('span');
+msg.style.cssText='padding:12px 0;color:#10B981';
+msg.textContent='Preference saved.';
+b.appendChild(msg);
+setTimeout(function(){b.remove();},2000);
+};
+var txt=document.createElement('span');
+txt.innerHTML='We use basic analytics cookies to understand site traffic. <a href="/cookie-policy/" style="color:#10B981">Cookie Policy</a>';
+var btnWrap=document.createElement('div');
+btnWrap.style.cssText='display:flex;gap:8px';
+btnWrap.appendChild(acceptBtn);
+btnWrap.appendChild(declineBtn);
+b.appendChild(txt);
+b.appendChild(btnWrap);
+document.body.appendChild(b);
+})();
+</script>
+
+<script src="js/logo-fix.js" defer></script>
+<script src="js/tips.js" defer></script>
+</body>
+</html>
