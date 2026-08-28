@@ -6,12 +6,22 @@
 <atom:link href="https://savingsclub.com/rss.xml" rel="self" type="application/rss+xml" />
 <description>Free personal finance education, calculators, and money guides for Americans in every state.</description>
 <language>en-us</language>
-<lastBuildDate>Mon, 17 Aug 2026 13:33:25 GMT</lastBuildDate>
+<lastBuildDate>Fri, 28 Aug 2026 22:49:35 GMT</lastBuildDate>
 <image>
 <url>https://savingsclub.com/img/sc-logo-full.png</url>
 <title>SavingsClub Blog</title>
 <link>https://savingsclub.com/blog/</link>
 </image>
+  <item>
+    <title>Illinois state income tax rate: What you actually pay in 2026</title>
+    <link>https://savingsclub.com/blog/illinois-state-income-tax-rate-what-you-actually-pay-in-2026/</link>
+    <guid isPermaLink="true">https://savingsclub.com/blog/illinois-state-income-tax-rate-what-you-actually-pay-in-2026/</guid>
+    <pubDate>Fri, 28 Aug 2026 22:49:35 GMT</pubDate>
+    <category>Taxes</category>
+    <description><![CDATA[Most people know their gross salary. But ask them what they actually take home after Illinois taxes, and things get fuzzy fast.]]></description>
+    <enclosure url="https://images.unsplash.com/photo-1762427354051-a9bdb181ae3b?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODc5NTczNzR8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" type="image/jpeg" />
+    <media:content url="https://images.unsplash.com/photo-1762427354051-a9bdb181ae3b?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODc5NTczNzR8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" medium="image" />
+  </item>
   <item>
     <title>Which credit report is most accurate</title>
     <link>https://savingsclub.com/blog/which-credit-report-is-most-accurate/</link>
