@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-30T11:45:02.435Z",
+  "updated": "2026-10-01T12:14:03.001Z",
   "source": "Federal Reserve Bank of St. Louis (FRED)",
   "sourceUrl": "https://fred.stlouisfed.org",
   "rates": {
@@ -46,22 +46,22 @@
       "fredUrl": "https://fred.stlouisfed.org/series/MORTGAGE30US"
     },
     "personalSavings": {
-      "value": "3.00",
+      "value": "4.10",
       "label": "Personal Savings Rate",
-      "date": "2026-07-01",
+      "date": "2026-08-01",
       "history": [
+        5.1,
+        4.9,
+        4.9,
+        5,
+        5.6,
+        5.3,
+        5.1,
         4.4,
-        4.3,
-        3.9,
-        3.8,
-        3.6,
         4.4,
-        3.8,
-        3.5,
-        2.9,
-        2.8,
-        2.6,
-        3
+        4.4,
+        4.6,
+        4.1
       ],
       "fredSeriesId": "PSAVERT",
       "fredUrl": "https://fred.stlouisfed.org/series/PSAVERT"
