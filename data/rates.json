@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-08T12:37:49.526Z",
+  "updated": "2026-10-09T12:25:06.485Z",
   "source": "Federal Reserve Bank of St. Louis (FRED)",
   "sourceUrl": "https://fred.stlouisfed.org",
   "rates": {
@@ -25,11 +25,10 @@
       "fredUrl": "https://fred.stlouisfed.org/series/FEDFUNDS"
     },
     "mortgage30": {
-      "value": "7.28",
+      "value": "7.40",
       "label": "30-Year Mortgage",
-      "date": "2026-10-01",
+      "date": "2026-10-08",
       "history": [
-        6.55,
         6.58,
         6.66,
         6.69,
@@ -40,7 +39,8 @@
         6.76,
         6.95,
         7.03,
-        7.28
+        7.28,
+        7.4
       ],
       "fredSeriesId": "MORTGAGE30US",
       "fredUrl": "https://fred.stlouisfed.org/series/MORTGAGE30US"
