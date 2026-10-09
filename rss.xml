@@ -6,12 +6,22 @@
 <atom:link href="https://savingsclub.com/rss.xml" rel="self" type="application/rss+xml" />
 <description>Free personal finance education, calculators, and money guides for Americans in every state.</description>
 <language>en-us</language>
-<lastBuildDate>Mon, 28 Sep 2026 19:55:42 GMT</lastBuildDate>
+<lastBuildDate>Fri, 09 Oct 2026 18:36:26 GMT</lastBuildDate>
 <image>
 <url>https://savingsclub.com/img/sc-logo-full.png</url>
 <title>SavingsClub Blog</title>
 <link>https://savingsclub.com/blog/</link>
 </image>
+  <item>
+    <title>Credit card rewards strategies every Connecticut resident should know</title>
+    <link>https://savingsclub.com/blog/credit-card-rewards-strategies-every-connecticut-resident-should-know/</link>
+    <guid isPermaLink="true">https://savingsclub.com/blog/credit-card-rewards-strategies-every-connecticut-resident-should-know/</guid>
+    <pubDate>Fri, 09 Oct 2026 18:36:26 GMT</pubDate>
+    <category>Credit Cards</category>
+    <description><![CDATA[Connecticut is one of the most expensive states in the country. Groceries, utilities, gas, and housing all cost more here than in most of the U.S.]]></description>
+    <enclosure url="https://images.unsplash.com/photo-1780148640208-57eb8cebab55?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3OTE1NzA5ODZ8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" type="image/jpeg" />
+    <media:content url="https://images.unsplash.com/photo-1780148640208-57eb8cebab55?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3OTE1NzA5ODZ8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" medium="image" />
+  </item>
   <item>
     <title>Roth IRA vs Traditional IRA: Complete comparison</title>
     <link>https://savingsclub.com/blog/roth-ira-vs-traditional-ira-complete-comparison/</link>
