@@ -6,12 +6,22 @@
 <atom:link href="https://savingsclub.com/rss.xml" rel="self" type="application/rss+xml" />
 <description>Free personal finance education, calculators, and money guides for Americans in every state.</description>
 <language>en-us</language>
-<lastBuildDate>Fri, 09 Oct 2026 18:36:26 GMT</lastBuildDate>
+<lastBuildDate>Mon, 19 Oct 2026 18:55:29 GMT</lastBuildDate>
 <image>
 <url>https://savingsclub.com/img/sc-logo-full.png</url>
 <title>SavingsClub Blog</title>
 <link>https://savingsclub.com/blog/</link>
 </image>
+  <item>
+    <title>Money saving tips for single-income families in Nevada</title>
+    <link>https://savingsclub.com/blog/money-saving-tips-for-single-income-families-in-nevada/</link>
+    <guid isPermaLink="true">https://savingsclub.com/blog/money-saving-tips-for-single-income-families-in-nevada/</guid>
+    <pubDate>Mon, 19 Oct 2026 18:55:29 GMT</pubDate>
+    <category>Income</category>
+    <description><![CDATA[Running a household on one paycheck is genuinely hard. Groceries cost more. Utility bills keep climbing. And in Nevada, where the cost of living varies wildly between Las Vegas and a smaller city like Elko or Carson...]]></description>
+    <enclosure url="https://images.unsplash.com/photo-1745620984342-4d1bba40d0a5?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3OTI0MzYxMjl8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" type="image/jpeg" />
+    <media:content url="https://images.unsplash.com/photo-1745620984342-4d1bba40d0a5?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3OTI0MzYxMjl8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" medium="image" />
+  </item>
   <item>
     <title>Credit card rewards strategies every Connecticut resident should know</title>
     <link>https://savingsclub.com/blog/credit-card-rewards-strategies-every-connecticut-resident-should-know/</link>
