@@ -6,12 +6,22 @@
 <atom:link href="https://savingsclub.com/rss.xml" rel="self" type="application/rss+xml" />
 <description>Free personal finance education, calculators, and money guides for Americans in every state.</description>
 <language>en-us</language>
-<lastBuildDate>Mon, 19 Oct 2026 18:55:29 GMT</lastBuildDate>
+<lastBuildDate>Fri, 30 Oct 2026 18:21:09 GMT</lastBuildDate>
 <image>
 <url>https://savingsclub.com/img/sc-logo-full.png</url>
 <title>SavingsClub Blog</title>
 <link>https://savingsclub.com/blog/</link>
 </image>
+  <item>
+    <title>Financial planning for gig economy workers</title>
+    <link>https://savingsclub.com/blog/financial-planning-for-gig-economy-workers/</link>
+    <guid isPermaLink="true">https://savingsclub.com/blog/financial-planning-for-gig-economy-workers/</guid>
+    <pubDate>Fri, 30 Oct 2026 18:21:09 GMT</pubDate>
+    <category>Money Tips</category>
+    <description><![CDATA[You picked up a few rides on a slow weekend. You finished a logo project for a client in another state. Maybe you rent out a spare room three nights a week.]]></description>
+    <enclosure url="https://images.unsplash.com/photo-1715828592189-63a3abe73d9c?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3OTMzODQ0Njl8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" type="image/jpeg" />
+    <media:content url="https://images.unsplash.com/photo-1715828592189-63a3abe73d9c?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3OTMzODQ0Njl8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" medium="image" />
+  </item>
   <item>
     <title>Money saving tips for single-income families in Nevada</title>
     <link>https://savingsclub.com/blog/money-saving-tips-for-single-income-families-in-nevada/</link>
