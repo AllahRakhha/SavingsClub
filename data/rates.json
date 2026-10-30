@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-29T12:06:31.170Z",
+  "updated": "2026-10-30T11:58:06.466Z",
   "source": "Federal Reserve Bank of St. Louis (FRED)",
   "sourceUrl": "https://fred.stlouisfed.org",
   "rates": {
@@ -25,11 +25,10 @@
       "fredUrl": "https://fred.stlouisfed.org/series/FEDFUNDS"
     },
     "mortgage30": {
-      "value": "7.32",
+      "value": "7.24",
       "label": "30-Year Mortgage",
-      "date": "2026-10-22",
+      "date": "2026-10-29",
       "history": [
-        6.69,
         6.67,
         6.65,
         6.66,
@@ -40,17 +39,17 @@
         7.28,
         7.4,
         7.4,
-        7.32
+        7.32,
+        7.24
       ],
       "fredSeriesId": "MORTGAGE30US",
       "fredUrl": "https://fred.stlouisfed.org/series/MORTGAGE30US"
     },
     "personalSavings": {
-      "value": "4.10",
+      "value": "3.80",
       "label": "Personal Savings Rate",
-      "date": "2026-08-01",
+      "date": "2026-09-01",
       "history": [
-        5.1,
         4.9,
         4.9,
         5,
@@ -60,8 +59,9 @@
         4.4,
         4.4,
         4.4,
-        4.6,
-        4.1
+        4.5,
+        4,
+        3.8
       ],
       "fredSeriesId": "PSAVERT",
       "fredUrl": "https://fred.stlouisfed.org/series/PSAVERT"
