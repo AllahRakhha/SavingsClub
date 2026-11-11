@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-10T14:07:07.434Z",
+  "updated": "2026-11-11T13:23:37.933Z",
   "source": "Federal Reserve Bank of St. Louis (FRED)",
   "sourceUrl": "https://fred.stlouisfed.org",
   "rates": {
@@ -67,11 +67,10 @@
       "fredUrl": "https://fred.stlouisfed.org/series/PSAVERT"
     },
     "inflation": {
-      "value": "4.02",
+      "value": "4.08",
       "label": "Inflation (CPI)",
-      "date": "2026-09-01",
+      "date": "2026-10-01",
       "history": [
-        2.99,
         3,
         2.83,
         2.66,
@@ -81,7 +80,8 @@
         3.73,
         3.54,
         3.71,
-        4.02
+        4.02,
+        4.08
       ],
       "fredSeriesId": "CPIAUCSL",
       "fredUrl": "https://fred.stlouisfed.org/series/CPIAUCSL"
