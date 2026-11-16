@@ -6,12 +6,22 @@
 <atom:link href="https://savingsclub.com/rss.xml" rel="self" type="application/rss+xml" />
 <description>Free personal finance education, calculators, and money guides for Americans in every state.</description>
 <language>en-us</language>
-<lastBuildDate>Fri, 06 Nov 2026 19:46:47 GMT</lastBuildDate>
+<lastBuildDate>Mon, 16 Nov 2026 22:40:37 GMT</lastBuildDate>
 <image>
 <url>https://savingsclub.com/img/sc-logo-full.png</url>
 <title>SavingsClub Blog</title>
 <link>https://savingsclub.com/blog/</link>
 </image>
+  <item>
+    <title>How inflation affects your savings and what to do about it</title>
+    <link>https://savingsclub.com/blog/how-inflation-affects-your-savings-and-what-to-do-about-it/</link>
+    <guid isPermaLink="true">https://savingsclub.com/blog/how-inflation-affects-your-savings-and-what-to-do-about-it/</guid>
+    <pubDate>Mon, 16 Nov 2026 22:40:37 GMT</pubDate>
+    <category>Savings</category>
+    <description><![CDATA[You worked hard for that $10,000 sitting in a savings account. But here's something worth thinking about: if that money earns 0.]]></description>
+    <enclosure url="https://images.unsplash.com/photo-1646586994883-eadc49918339?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3OTQ4Njg4Mzd8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" type="image/jpeg" />
+    <media:content url="https://images.unsplash.com/photo-1646586994883-eadc49918339?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3OTQ4Njg4Mzd8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" medium="image" />
+  </item>
   <item>
     <title>Best high-yield CDs vs savings accounts compared</title>
     <link>https://savingsclub.com/blog/best-high-yield-cds-vs-savings-accounts-compared/</link>
