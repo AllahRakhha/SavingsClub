@@ -6,12 +6,22 @@
 <atom:link href="https://savingsclub.com/rss.xml" rel="self" type="application/rss+xml" />
 <description>Free personal finance education, calculators, and money guides for Americans in every state.</description>
 <language>en-us</language>
-<lastBuildDate>Mon, 16 Nov 2026 22:40:37 GMT</lastBuildDate>
+<lastBuildDate>Fri, 27 Nov 2026 21:45:45 GMT</lastBuildDate>
 <image>
 <url>https://savingsclub.com/img/sc-logo-full.png</url>
 <title>SavingsClub Blog</title>
 <link>https://savingsclub.com/blog/</link>
 </image>
+  <item>
+    <title>How to build credit as a new immigrant in the US</title>
+    <link>https://savingsclub.com/blog/how-to-build-credit-as-a-new-immigrant-in-the-us/</link>
+    <guid isPermaLink="true">https://savingsclub.com/blog/how-to-build-credit-as-a-new-immigrant-in-the-us/</guid>
+    <pubDate>Fri, 27 Nov 2026 21:45:45 GMT</pubDate>
+    <category>Credit</category>
+    <description><![CDATA[You just arrived in the United States. You have savings, a job lined up, and a plan. But when you try to rent an apartment, buy a car, or even get a cell phone contract, you hit the same wall every time: "Sorry, we...]]></description>
+    <enclosure url="https://images.unsplash.com/photo-1647527933289-863387cf8bda?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3OTU4MTU5NDV8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" type="image/jpeg" />
+    <media:content url="https://images.unsplash.com/photo-1647527933289-863387cf8bda?ixid=M3w5NjMyOTN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3OTU4MTU5NDV8&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format" medium="image" />
+  </item>
   <item>
     <title>How inflation affects your savings and what to do about it</title>
     <link>https://savingsclub.com/blog/how-inflation-affects-your-savings-and-what-to-do-about-it/</link>
